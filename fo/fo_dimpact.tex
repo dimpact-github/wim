@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+
+\input{inc/preamble}
+
+% Define variables
+\newcommand{\customer}{Dimpact}
+\newcommand{\projectname}{Dimpact}
+\newcommand{\thecustomer}{\customer }
+\newcommand{\customerdomain}{dimpact.nl}
+\newcommand{\customerdomainfull}{http://www.dimpact.nl}
+\newcommand{\customerdomainuc}{Dimpact.nl}
+\newcommand{\authors}{David van Dijk \\ & Patrick Kraaij }
+\newcommand{\version}{0.1}
+
+\fancyfoot[L]{Functioneel ontwerp - \customer}
+\fancyfoot[C]{v\version \ \ddmmyyyydate \today}
+\fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage}}
+
+\title{\textbf{\customerdomainuc} \\ Functioneel Ontwerp}
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\par\end{flushleft}}
+
+\author{}  % skippen we voor maketitle
+\date{}
+
+% The actual Document:
+\begin{document}
+\input{parts/dop/voorblad}
+
+\pagebreak
+\subsection*{Akkoord}
+Voor akkoord:\\ \\
+\begin{tikzpicture}
+\tikzstyle{every node}=[font=\small];
+\node [inputblock] (names) {Naam:};
+\node [inputblock, below of = names, node distance = 1.25cm] (function) {Functie:};
+\node [inputblock, below of = function, node distance = 1.25cm] (dates) {Datum:};
+\node [inputblock, below of = dates, node distance = 1.25cm] (place) {Plaats:};
+\node [autographblock, below of = place, node distance = 2.75cm] (autograph) {Handtekening};
+\end{tikzpicture}
+\pagebreak
+
+% table of contents
+\renewcommand*\contentsname{Inhoudsopgave}
+\tableofcontents
+
+\pagebreak
+
+% Introductie
+\include{parts/introductie}
+
+\end{document}

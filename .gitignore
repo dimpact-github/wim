@@ -1,0 +1,8 @@
+.project
+.settings/
+data/
+code/
+themes/dimpact/css/
+themes/dimpact/img/rgbapng/
+themes/dimpact/img/base-*.png
+deploy/

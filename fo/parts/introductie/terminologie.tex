@@ -1,0 +1,109 @@
+\subsection{Basiselementen, terminologie en definities}
+De technische realisatie wordt uitgevoerd op basis van het CMS framework Drupal, 
+versie 7. Elk softwaresysteem hanteert bepaald taalgebruik en termen. Om gebruik 
+te kunnen maken van de gangbare termen, niet telkens uitleg te herhalen en om 
+verwarring te voorkomen worden hieronder een aantal termen eenmalig toegelicht. 
+
+\begin{description}
+\item[Drupal] Drupal is het gekozen Content Management Systeem wat als framework 
+dient voor de bouw van de website. Drupal is een Open Source CMS dat geschreven 
+is in de programmeertaal PHP. 
+\item[Drupal.org] De website van Drupal. Dit is de thuisbasis van de community, 
+waar Drupal zelf en de zogenaamde contrib modules gedownload kunnen worden. 
+\item[Module] Drupal is een modulair systeem. Een module is een verzameling 
+programmacode die de functionaliteit van het systeem uitbreidt of aanpast. In 
+andere systemen wordt dit ook wel een plug-in of extensie genoemd. 
+\item[Contrib (contributed) module] Wanneer gesproken wordt over contrib of 
+contributed modules, worden modules bedoeld die door leden van de 
+Drupal-community beschikbaar zijn gesteld op Drupal.org. Een Drupal-website 
+gebruikt over het algemeen enkele tientallen contrib modules, varri\"erend van 
+grote brokken functionaliteit tot kleine aanpassingen in de standaard 
+functionaliteit van Drupal zelf of van andere modules.
+\item[Custom modules] Zoals er contributed modules zijn die beschikbaar zijn op 
+Drupal.org, is het voor een sitebouwer ook mogelijk om zelf een module te 
+schrijven, omdat de functionaliteit niet beschikbaar is binnen de bestaande 
+contrib modules.
+\item[Contenttype] Elk content item in een Drupal site is van een bepaald type, 
+met een zelfde structuur van velden. Hieraan kan bijvoorbeeld een bepaalde 
+pagina-layout gekoppeld zijn, of items van een bepaald type (bijvoorbeeld het 
+type ``Nieuwsartikel") worden weergegeven in een lijstweergave.
+\item[Taxonomie] Voor de categorisering van inhoud wordt gebruik gemaakt van 
+taxonomie. Hierbij kan sprake zijn van ``vaste" categori\"en (die wel in een 
+apart scherm te beheren zijn, maar niet vrij toe te voegen bij het aanmaken van 
+content), of van ``vrije" tags, waarbij een redacteur zelf nieuwe termen kan 
+toevoegen door ze in te voeren bij het invoeren en bewerken van content. 
+\item[Gebruiker] Een persoon die gebruik maakt van het systeem. Soms wordt 
+hiermee ook de gebruikers\emph{account} bedoeld, de gegevens die van een 
+gebruiker zijn opgeslagen in het systeem.
+\item[Eindgebruiker] Een bezoeker van de website (dus niet een redacteur of 
+administrator die beheerstaken uitvoert), al dan niet ingelogd. Dit onderscheid 
+wordt binnen Drupal zelf niet gemaakt, het verschil tussen een gebruiker en een 
+eindgebruiker zit impliciet in de toegekende \emph{rollen}. Het onderscheid kan 
+bij functionele beschrijvingen wel nuttig zijn. 
+\item[Rol] Elke gebruiker heeft minimaal \'e\'en rol binnen Drupal. Aan 
+een rol zijn bepaalde toegangsrechten gekoppeld, bijvoorbeeld \emph{Kan reacties 
+plaatsen} of \emph{Kan nieuwe content aanmaken}. Er zijn drie rollen standaard 
+aanwezig in Drupal; \emph{anonieme gebruiker}, \emph{geverifieerde gebruiker} en 
+\emph{administrator}. De sitebouwer kan zonodig rollen toevoegen, meestal wordt 
+er minimaal nog een rol \emph{Redacteur} toegevoegd.
+\item[Anonieme gebruiker] Een rol die een gebruiker automatisch heeft als hij 
+niet is ingelogd.
+\item[Geverifieerde gebruiker] Een rol die een gebruiker automatisch heeft als 
+hij wel is ingelogd.
+\item[Administrator] Een rol die automatisch \emph{alle} beschikbare rechten 
+krijgt. Gebruikers die deze rol krij\-gen toegekend mogen alle pagina's en 
+inhoud bezoeken en bewerken en mogen alle instellingen van een website 
+aanpassen. 
+\item[Blok] Drupal maakt veel gebruik van blokken (blocks). Een blok is een 
+logisch samenhangend deel van een pagina, bijvoorbeeld een menu, een lijstje met 
+de laatste nieuwsberichten in de rechter zijbalk, of de hoofdinhoud. Blokken 
+kunnen aangeboden worden door modules waarmee de inhoud dynamisch bepaald kan 
+worden, of vrij samengesteld worden door direct de (statische) inhoud in te 
+voeren.
+\item[Views] Een veelgebruikte contrib module, welke wordt gebruikt om 
+overzichten en lijsten mee te maken. Als er gesproken wordt over ``een 
+View" dan wordt er verwezen naar een lijst geimplementeerd met de Views-module. 
+\item[Theme] Een verzameling van bestanden (templates, styling en 
+afbeeldingen), die samen het uiterlijk van de website bepalen. Een theme bevat 
+elementen zoals een header met o.a. het logo van de site, ikonen en plaatsing 
+van \emph{regio's}.
+\item[Regio] Een deel van een pagina waarin blokken geplaatst kunnen worden. 
+\item[Template] Een bestand dat onderdeel uitmaakt van een theme en bestaat uit 
+HTML met PHP code, bedoeld om de HTML-structuur van een pagina of een deel van 
+een pagina vast te leggen. Bijvoorbeeld, een pagina-template bepaalt de 
+plaatsing van het site-logo en van de regio's, en een template voor een 
+contenttype bepaalt de plaatsing van velden.
+\item[Cache] Drupal genereert (onderdelen van) pagina's en slaat deze op in de 
+cache. Ook worden resultaten van relatief tijdrovende bewerkingen in de cache 
+opgeslagen, zodat ze voor hergebruik snel beschikbaar zijn. Door dit systeem 
+hoeft een pagina niet telkens volledig opnieuw opgebouwd te worden, wat de 
+snelheid waarmee de pagina op het scherm verschijnt ten goede komt. 
+\item[Core] Het basissysteem en basismodules van Drupal. Dat wat er in de 
+download zit als alleen ``Drupal" wordt gedownload van Drupal.org. 
+\item[Core hack] Hiermee wordt een aanpassing aan de code\footnote{Dit is dus 
+iets anders dan een module; deze maakt gebruik van de beschikbare 
+programmeer-interfaces om de functionaliteit uit te breiden of te veranderen. 
+Hiervoor zijn geen aanpassingen aan de code van het standaard systeem nodig.} 
+van het standaard systeem bedoelt (in principe mogelijk omdat de code Open 
+Source is en dus vrij toegankelijk en aanpasbaar). Core hacks worden gezien als 
+uitermate negatief, omdat het problemen oplevert bij het updaten naar nieuwe 
+versies van de core en de functionaliteit op onverwachte manieren kan 
+veranderen. Hetzelfde principe gaat op voor contrib modules, ook hier wordt 
+vaak gesproken van een core hack, in dat geval dus niet de core van Drupal, maar 
+de ``core'' van de contributed module.
+\item[Cron] Een mechanisme binnen Drupal waarmee regelmatig terugkerende taken 
+uitgevoerd kunnen worden. Te denken valt bijvoorbeeld aan het opschonen van 
+bepaalde database-tabellen, of het legen van de cache. Een module kan door 
+middel van een programmeer-interface dergelijke taken aanmelden.
+\item[Entity] Een entity is een samenhangende verzameling informatie. 
+Bijvoorbeeld, elk content item is een entity, net als een gebruikersaccount of 
+een reactie.
+\item[Veld] Een veld is een stuk informatie dat aan een entity gekoppeld kan 
+worden. Te denken valt aan de titel van een artikel, de datum van een 
+agenda-item of de \emph{avatar} (gebruikersafbeelding) van een 
+gebruikersaccount. 
+\item[Menu] Een verzameling navigatie-links (menu items). 
+\item[Node] Een enkel content item wordt binnen de techniek van Drupal een 
+\emph{node} genoemd. Deze term is volledig uitwisselbaar met de term 
+\emph{content item}. 
+\end{description}

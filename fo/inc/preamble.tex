@@ -1,0 +1,65 @@
+\input{inc/packages}
+%\geometry{landscape}
+\input{inc/tikz}
+\makeindex{modules}
+
+
+\newcommand{\usemodule}[1]{\index{modules}{#1}\texttt{#1}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{tableheader}{rgb}{0.7,0.7,0.7}
+
+\setlist[description]{style=nextline}
+\renewcommand{\familydefault}{\sfdefault}
+
+% link setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% usefull commands:
+\newcommand{\seeref}[1]{\ref{#1} p.\pageref{#1}}
+%\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+% style for code blocks
+\lstset{
+    linewidth=1\textwidth,
+    breaklines=true,
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+    numbersep=5pt, 
+    basicstyle=\footnotesize,
+}
+
+% Header and Footer settings
+\URCornerWallPaper{0.13}{img/dop/koptekstlogo.png}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Settings for table of contents.   
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+% some extra spacing for the table of contents
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{3em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{2}{2.7em}{4em}}
+
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\renewcommand{\dateseparator}{-}
+\renewcommand{\figurename}{Figuur}
