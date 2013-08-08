@@ -1,0 +1,14 @@
+\subsection{Unit Tests}
+
+Zorg er bij elke test voor dat de configuratie, modules en permissies goed worden ge•nstalleerd. Zorg er eveneens voor dat een Unit Test bestaat uit besloten functionaliteit. Vuistregel: indien een test meer dan 1 ding doet, is het waarschijnlijk beter om hiervoor twee losse Unit tests te schrijven met een dependency.
+
+Het schrijven van de test:
+\begin{itemize}
+\item \texttt{getInfo}. Deze method geeft de naam, beschrijving en de groep waar deze unit test deel van uitmaakt.
+\item \texttt{setUp}. Deze method definieert dependencies die nodig zijn om de tests succesvol te kunnen draaien. Denk aan het aanzetten van modules die noodzakelijk zijn, het aanmaken en inloggen van de testgebruiker, permissies etc.
+\item \texttt{testSimpleTextX}. Deze method bevat de test zelf. Schrijf hierin duidelijk op (in comments) wat de test behoort te doen, en zorg ervoor dat aan alle condities wordt voldaan.
+\end{itemize}
+
+Om de noodzakelijke configuratie voor de Unit Tests gemakkelijker te kunnen beheren, wordt er een feature gemaakt waarin alle dependencies worden opgenomen. Het aanzetten van deze feature dient te resulteren in een complete installatie van het \projectname  project.
+
+

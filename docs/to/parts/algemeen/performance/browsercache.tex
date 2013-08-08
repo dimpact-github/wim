@@ -1,0 +1,11 @@
+\subsection{Browsercache}
+
+We zullen gebruikmaken van \texttt{ETag} en \texttt{Expire}-headers om ervoor te zorgen dat browsers content en resources goed kunnen cachen.
+
+Door de Apache module \texttt{mod\_expires} aan te zetten wordt automatisch een verlooptijd van 2 weken gegeven aan statische resources (images, css en javascript). Dit is conform de aanbevelingen uit \emph{YSlow} en \emph{Pagespeed Insights}.
+
+Voor ETags zullen we de volgende regel toevoegen aan de \texttt{.htaccess}:
+\begin{verbatim}
+FileETag MTime Size
+\end{verbatim}
+Deze regel zorgt ervoor dat de ETags consistent zijn wanneer gebruik wordt gemaakt van meerdere webservers.

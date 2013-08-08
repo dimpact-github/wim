@@ -1,0 +1,10 @@
+\subsubsection{Duplicate content}
+Wanneer inhoud op meerdere URL's te vinden zijn kan dit nadelig zijn voor het zoekresultaat. Google zal maar \'e\'en pagina indexeren, terwijl die niet de meest relevante hoeft te zijn. Tevens zullen deze pagina's als minder relevant worden beschouwd. Er zijn een aantal manieren om dit probleem te voorkomen:
+
+\begin{itemize}
+\item Via de \usemodule{Metatag} module wordt een metatag toegevoegd met de \textit{Canonical URL}. Hierin staat de URL die gebruikt moet worden om de pagina te indexeren.
+\item Het domein \texttt{\customerdomain} zullen we forwarden naar \texttt{\customerdomainfull}. Hiervoor wordt een wijziging gemaakt in het \texttt{.htaccess}-bestand.
+
+\item In \texttt{robots.txt} zal worden opgenomen dat zoekmachines niet de \textit{taxonomy pages} of zoekresultatenpagina's mogen indexeren. Deze pagina's bevatten teasers, dus delen van content, waarvan de volledige versie op andere pagina's is te vinden.
+\end{itemize}
+

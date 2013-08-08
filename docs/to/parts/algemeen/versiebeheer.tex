@@ -1,0 +1,27 @@
+\section{Beheer}
+
+\begin{tabularx}{\linewidth}{| p{2.5cm} | p{2.5cm} | X | p{2.5cm} |}
+\rowcolor{tableheader}
+\hline
+\textbf{Versie} & \textbf{Datum} & \textbf{Omschrijving} &  \textbf{Auteur}			\\ \hline
+0.1 & 17-12-2012 & Draft 											& DOP			\\ \hline
+0.2 & 20-12-2012 & Inventarisatie deeloplevering 						& DOP			\\ \hline
+0.3 & 08-01-2013 & Toevoeging: cookies, sms, rollen rechten, todo's					& DOP			\\ \hline
+0.9 & 09-01-2013 & Toevoeging: HR, gebruikersrollen, persmissieoverzicht & DOP \\ \hline
+1.0 & 14-03-2013 & Feedback H. Morang verwerkt & DOP \\ \hline
+1.1 & 25-03-2013 & Feedback H. Morang, B. Ot, M. Welleman, J. Zigerman & DOP\\ \hline
+1.2 & 29-04-2013 & Feedback H. Morang (punt 1,3,4) & DOP\\ \hline
+%versie & datum & omschrijving & auteur             	\\ \hline
+\end{tabularx}
+
+\subsection{Akkoord}
+Voor akkoord:\\ \\
+\begin{tikzpicture}
+\tikzstyle{every node}=[font=\small];
+\node [inputblock] (names) {Naam:};
+\node [inputblock, below of = names, node distance = 1.25cm] (function) {Functie:};
+\node [inputblock, below of = function, node distance = 1.25cm] (dates) {Datum:};
+\node [inputblock, below of = dates, node distance = 1.25cm] (place) {Plaats:};
+\node [autographblock, below of = place, node distance = 2.75cm] (autograph) {Handtekening};
+\end{tikzpicture}
+

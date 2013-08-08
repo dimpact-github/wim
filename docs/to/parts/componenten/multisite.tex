@@ -1,0 +1,19 @@
+\subsection{Multisite}\label{multisite}
+
+Voor de ondersteuning van subsites (waaronder ook het intranet) wordt de \usemodule{dominion} module ingezet. Hiermee kan een eindredacteur zelf nieuwe sites aanmaken.
+
+\subsubsection{Algemene dominion config}
+Voor de \usemodule{dominion} module worden de volgende settings aangepast:
+\begin{itemize}
+\item Default host suffix: .gemeente.nl (later per gemeente in te stellen)
+\item Editor roles: redacteurrol aanvinkens
+\end{itemize}
+
+\subsubsection{Subsite menu}
+Onder de instellingen van \usemodule{dominion\_menu} wordt een domein specifiek menu ingesteld. Het bijbehorende menublok wordt ingesteld in de linkerkolom.
+
+\subsubsection{Zoeken en multisite}
+We zullen de \texttt{dominion\_apachesolr} module inzetten om ervoor te zorgen dat zoekopdrachten alleen resultaten teruggeven van de huidige subsite. Indien wenselijk kan wel per subsite worden aangegeven of er nog additionele domein mee worden genomen.
+
+\subsubsection{Views}
+Alle views die nodes laten zien worden aangepast. Er wordt een extra filter toegevoegd dat alleen nodes laat zien die op het huidige domein zijn gepubliceerd ("Domain: Available on current domain"). Dit om te voorkomen dat gebruikers met de "bypass node access" permissie content van alle domeinen in de views te zien krijgen.

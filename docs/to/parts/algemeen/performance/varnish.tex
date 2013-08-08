@@ -1,0 +1,99 @@
+\subsection{Varnish}\label{varnish}
+\textit{Varnish} is een \textit{reverse proxy server}. Dit is een server tussen de client en webserver in die dient als extra caching laag.
+\textit{Varnish} is in staat om pagina's van niet-ingelogde bezoekers te cachen. Deze caching bied uitstekende bescherming tegen het \textit{slashdot-effect} \footnote{http://en.wikipedia.org/wiki/Slashdot\_effect}.
+
+Om het nadelige effect van caching (het blijven zien van oude content) te verhelpen wordt de \usemodule{purge} module gebruikt om pagina's uit de \textit{Varnish}-cache te halen wanneer deze worden aangepast.
+
+\subsubsection{Varnish configuratie}
+
+\paragraph{vcl\_recv}\label{varnishrecv}
+
+De purge module maakt een call naar de Varnish server met ``PURGE`` als requesttype. Om deze in Varnish af te handelen zetten we het volgende bovenaan in de \textit{vcl\_fetch}:
+
+\begin{lstlisting}[language=C]
+  if (req.request == "PURGE" || req.request == "PURGEALL") {
+    if (!client.ip ~ purge) {
+      // Return error code 405 (Forbidden) when not
+      error 405 "Not allowed.";
+    }
+    if (req.request == "PURGE") {
+      // Purge all objects from cache that match the incoming url and host
+      ban("req.url == " + req.url + " && req.http.host == " + req.http.host);
+    }
+    else {
+      // Purge all objects from cache that match the incoming host
+      ban("req.url ~ ^/ && req.http.host == " + req.http.host);
+    }
+    // Return a http error code 200 (Ok)
+    error 200 "Purged";
+  }
+\end{lstlisting}
+
+We normaliseren de \texttt{Accept-Encoding} header om dezelfde cache te kunnen hanteren voor de diverse varianten die de browsers meesturen.
+
+\begin{lstlisting}[language=C]
+  if (req.http.Accept-Encoding) {
+    if (req.url ~ "\.(jpg|png|gif|gz|tgz|bz2|tbz|mp3|ogg|pdf)$") {
+      // No point in compressing these
+      remove req.http.Accept-Encoding;
+    } elsif (req.http.Accept-Encoding ~ "gzip") {
+      set req.http.Accept-Encoding = "gzip";
+    } elsif (req.http.Accept-Encoding ~ "deflate") {
+      set req.http.Accept-Encoding = "deflate";
+    } else {
+      // unkown algorithm
+      remove req.http.Accept-Encoding;
+    }
+  }
+\end{lstlisting}
+
+We gebruiken tevens dezelfde cache voor elke browser:
+
+\begin{lstlisting}[language=C]
+  set req.http.user-agent = "Mozilla";
+\end{lstlisting}
+
+We laten alleen de session, ssl en NO\_CACHE cookies door. Alle overige cookies hebben daarmee geen invloed op de caching.
+
+\begin{lstlisting}[language=C]
+  if (req.http.Cookie) {
+    set req.http.Cookie = ";" + req.http.Cookie;
+    set req.http.Cookie = regsuball(req.http.Cookie, "; +", ";");
+    set req.http.Cookie = regsuball(req.http.Cookie, ";(NO_CACHE|ssl|.?SESS[^=]+)=", "; \1=");
+    set req.http.Cookie = regsuball(req.http.Cookie, ";[^ ][^;]*", "");
+    set req.http.Cookie = regsuball(req.http.Cookie, "^[; ]+|[; ]+$", "");
+    if (req.http.Cookie == "") {
+      remove req.http.Cookie;
+    }
+    else {
+      // Lookup, the Cookies will be added to the hash.
+    }
+  }
+\end{lstlisting}
+
+\paragraph{vcl\_fetch}
+
+We configureren de \textit{grace period} op 15m.
+
+\begin{lstlisting}[language=C]
+  set beresp.grace = 15m;
+\end{lstlisting}
+
+Statische bestanden zullen we altijd cachen. PHP-files nooit.
+
+\begin{lstlisting}[language=C]
+  if (req.url ~ "\.(png|gif|jpg|txt)$") {
+    set beresp.ttl = 1h;
+    return(deliver);
+  }
+
+  if (req.url ~ "\.(css|js)$") {
+    set beresp.ttl = 15m;
+    return(deliver);
+  }
+
+  if (req.url ~ "\.php$") {
+    set beresp.ttl = 20m;
+    return(hit_for_pass);
+  }\end{lstlisting}
+  

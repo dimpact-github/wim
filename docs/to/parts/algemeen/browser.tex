@@ -1,0 +1,43 @@
+Dit onderdeel beschrijft op welke browsers wordt getest bij de bouw. Bij de bouw worden de \emph{best practices} aangehouden waardoor de functionaliteit op meer browsers zal werken dan in dit onderdeel aangegeven.
+
+\subsubsection{Legenda voor desktop browsers en mobile browsers}
+In de volgende 2 onderdelen worden in de verschillende vakjes, symbolen gebruikt, deze symbolen hebben een betekenis, namelijk de volgende
+
+\begin{tabularx}{\linewidth}{| p{5cm} | X |}
+\hline
+\rowcolor{tableheader}
+\textbf{Symbool} & \textbf{Uitleg} \\ \hline
+++	& 100\% stijlen en functionele implementatie \\ \hline
++	& Visueel goed werkend, minimale afwijking   \\ \hline
+0	& Functioneel goed werkend, acceptabele      \\ \hline
+-	& Strevend functioneel werkend, stijl niet optimaal  \\ \hline
+N/A	& Niet van toepassing  \\ \hline
+\end{tabularx}
+
+\subsubsection{Desktop browsers}
+\begin{tabularx}{\linewidth}{| X | l | l | l | l | l | l l |}
+\hline
+\rowcolor{tableheader}
+        \textbf{OS}         & \textbf{IE10} & \textbf{IE9} & \textbf{IE8} & \textbf{Firefox} & \textbf{Chrome} & \textbf{Safari} & \textbf{Opera} \\ \hline
+        Windows 8           & ++  & N/A  & N/A & ++      & ++     & 0      & 0     \\ \hline
+        Windows 7           & ++  & ++  & N/A  & ++      & ++     & 0      & 0     \\ \hline
+        Windows Vista       & N/A  & ++  & +  & ++      & ++     & 0      & 0     \\ \hline
+        Windows XP          & N/A & N/A & +  & ++      & 0     & 0      & 0     \\ \hline
+        Windows 2003 Server & N/A & N/A & N/A & ++      & 0      & 0      & 0     \\ \hline
+        Linux               & N/A  & N/A & N/A & -       & -    & -      & -     \\ \hline
+        Mac OS              & N/A  & N/A & N/A & ++      & ++     & ++     & 0     \\ \hline
+\end{tabularx}
+
+\subsubsection{Mobiele browsers}
+
+\begin{tabularx}{\linewidth}{| X | l | l | l | l | l | l |}
+\rowcolor{tableheader}
+\hline
+        \textbf{OS}    & \textbf{Safari} & \textbf{Android} & \textbf{Blackberry} & \textbf{Chrome} & \textbf{Firefox} & \textbf{IEMobile} \\ \hline
+        iOS            & ++     & N/A             & N/A        & +    & N/A           & N/A      \\ \hline
+        Android        & N/A    & ++              & N/A        & +    & +           & N/A      \\ \hline
+        Blackberry     & N/A    & N/A             & +         & N/A    & N/A           & N/A      \\ \hline
+        Windows Mobile & N/A    & N/A             & N/A        & N/A    & N/A           & ++       \\ \hline
+        Overig         & -      & -               & -          & -      & -             & -        \\ \hline
+\end{tabularx}
+

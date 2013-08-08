@@ -1,0 +1,149 @@
+\section{Modulereferentie}\label{tools}
+
+\begin{multicols}{2}
+%\printindex{modules} werkt niet.
+\input{modules.ind}
+\end{multicols}
+
+\subsection{Externe libraries}
+
+\begin{itemize}
+ \item CKEditor
+ \item Caroufredsel
+\end{itemize}
+
+\subsection{Frontend}
+
+\subsubsection{Tools}
+\begin{itemize}
+ \item Ruby 1.8+
+ \item Compass
+ \item SASS
+ \item Susy
+\end{itemize}
+
+\subsubsection{config.rb}
+In de map themes/ccv/ komt dit config.rb bestand.
+\begin{lstlisting}[language=C]
+require "susy"
+
+http_path = "../"
+css_dir = "css"
+sass_dir = "sass"
+images_dir = "img"
+javascripts_dir = "js"
+fonts_dir = "font
+
+project_type = :stand_alone
+line_comments = false
+preferred_syntax = :scss
+ \end{lstlisting}
+ 
+\subsubsection{Sprites}
+Sprite map wordt geplaatst in themes/ccv/img/base/
+\begin{lstlisting}[language=C]
+$base-spacing: 100px;
+@import "base/*.png";
+@include all-base-sprites;
+ \end{lstlisting}
+ 
+\subsubsection{Grid}
+Grids worden gerealiseerd met Susy.
+\begin{lstlisting}[language=C] 
+// variables
+$total-columns: 12;
+$column-width: 85px;
+$gutter-width: 30px;
+$grid-padding: $gutter-width;
+
+$show-grid-backgrounds: false;
+
+// grid definition
+.container {
+  @include container;
+  @include susy-grid-background;
+  padding: 0;
+}
+
+// per region grid bepalen
+.ag1 { @include span-columns(4,12); } 
+.ag2 { @include span-columns(8 omega,12); } 
+// etc
+ \end{lstlisting} 
+ 
+ \subsubsection{Kleurgebruik}
+De kleuren worden enkel in 100\% tint toegepast.
+
+\begin{lstlisting}[language=C] 
+$white: #FFFFFF;
+$darkblue: #3C4A84;
+$lightblue: #009DD8;
+$green: #6BA634;
+$black: #353535;
+$darkgray: #6C6F70;
+$lightgray: #C4C7C8;
+$link_color: $lightblue;
+$link_color_hover: $green;
+\end{lstlisting} 
+
+\subsubsection{Webfonts}
+Webfonts worden gegenereerd door http://www.fontsquirrel.com/tools/webfont-generator.
+
+Droid Sans is vrij verkrijgbaar via Google: http://www.google.com/fonts/specimen/Droid+Sans.
+Museo Slab is een betaald font. Fonts.com heeft Museo Slab in zijn suite zitten.
+\begin{lstlisting}[language=C] 
+@font-face {
+    font-family: 'droid_sansregular';
+    src: url('../font/droidsans/droidsans-webfont.eot');
+    src: url('../font/droidsans/droidsans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/droidsans/droidsans-webfont.woff') format('woff'),
+         url('../font/droidsans/droidsans-webfont.ttf') format('truetype'),
+         url('../font/droidsans/droidsans-webfont.svg#droid_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+\end{lstlisting} 
+ 
+\subsubsection{Responsive}
+Via de at-breakpoint functie in Susy kunnen we bepalen wanneer de website een andere weergave heeft.
+Voor het menu gebruiken we http://responsivemobilemenu.com/en/.
+
+Het zoekformulier wordt door middel van jQuery toggle functie weergegeven.
+Content in tabs blijven in tabs en wordt geen accordion zoals in het design staat.
+
+\subsubsection{jQuery}
+Accordion en tabs wordt gerealiseerd door middel van de volgende functie in preprocess\_html:
+\begin{lstlisting}[language=C]
+drupal_add_library('system', 'ui.accordion');
+drupal_add_library('system', 'ui.tabs');
+\end{lstlisting}
+
+Content wordt weergegeven in verschillende tabs. De fields worden in de node template uitgelezen en wordt de juiste classes toegevoegd.
+
+\subsubsection{Theme info}
+\begin{lstlisting}[language=C] 
+name = CCV
+core = 7.x
+description = "Theme voor CCV"
+
+scripts[] = js/lib/jquery.carouFredSel-6.2.0-packed.js
+scripts[] = js/script.js
+
+stylesheets[all][] = css/all.css
+
+regions[sidebar] = Sidebar
+regions[content] = Content
+
+regions[region-1-1] = Region 1-1
+regions[region-1-2] = Region 1-2
+
+regions[region-2-1] = Region 2-1
+regions[region-2-2] = Region 2-2
+regions[region-2-3] = Region 2-3
+
+regions[region-3-1] = Region 3-1
+regions[region-3-2] = Region 3-2
+regions[region-3-3] = Region 3-3
+regions[region-3-3] = Region 3-4
+\end{lstlisting} 
+ 

@@ -1,0 +1,52 @@
+\subsection{SSL}
+
+Voor de formulieren zal gebruik worden gemaakt van SSL. Dit moet zo worden ingericht dat:
+\begin{itemize}
+\item bezoekers automatisch op https terecht komen wanneer ze op de webshop terecht komen of inloggen
+\item session cookies niet over http verstuurd worden
+\item bezoekers automatisch op https terecht komen wanneer ze ingelogd zijn (op https) en ze bezoeken een pagina over http.
+\end{itemize}
+ De encryptie wordt op een SSL offloader (bijv. \emph{Pound}) ingericht welke het verkeer doorstuurd naar Varnish. Bij het doorsturen van dit verkeer wordt een header meegestuurd waardoor Varnish en Drupal kunnen herkennen dat het verkeer oorspronkelijk vanaf https afkomstig is. Dat is nodig om te bepalen of de bezoeker wel of niet doorgestuurd moet worden naar een andere versie. Hiervoor wordt de \texttt{X-Forwarded-Proto} header gebruikt met als waarde \texttt{https}. Andere headers zijn mogelijk, maar dit is de de facto standaard.
+
+In Drupal wordt de \texttt{settings.php} aangepast. Ten eerste wordt de \emph{mixed mode} uitgezet. Daardoor zijn sessies over https niet bruikbaar over http. De setting \texttt{session.cookie\_secure} wordt aangepast om ervoor te zorgen dat session cookies niet verstuurd worden over http. Dat zou namelijk een security lek opleveren omdat de session token dan alsnog lekt wanneer men per ongeluk op http komt (door bijv. het gebruik van links in mail of bookmarks).
+
+\begin{lstlisting}[language=PHP]
+$conf['https'] = FALSE;
+ini_set('session.cookie_secure', 1);
+\end{lstlisting}
+
+Daarnaast wordt de SSL modus 'aangezet' wanneer de X-Forwarded-Proto header is gevonden en de waarde "https" heeft.
+
+\begin{lstlisting}[language=PHP]
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
+  $_SERVER['HTTPS'] = 'on';
+}
+\end{lstlisting}
+
+In de \texttt{bespoke} module wordt code toegevoegd om een \texttt{ssl} cookie te zetten wanneer men op ssl zit. Deze wordt gebruikt om bezoekers op http te redirecten naar https indien ze daar mogelijk ingelogd zijn. Of ze daar werkelijk ingelogd zijn valt in dat stadium niet te achterhalen, omdat de session token alleen meegestuurd wordt over https (vanwege de \emph{secure} flag). De code in \texttt{bespoke} is als volgt:
+
+\begin{lstlisting}[language=PHP]
+function bespoke_init() {
+  global $is_https;
+  if ($is_https && empty($_COOKIE['ssl'])) {
+    // Set a marker to know that the user is logged in via SSL.
+    $params = session_get_cookie_params();
+    $expire = $params['lifetime'] ? REQUEST_TIME + $params['lifetime'] : 0;
+    setcookie('ssl', 1, $expire, $params['path'], $params['domain'], FALSE, TRUE);
+  }
+}
+\end{lstlisting}
+
+De redirect zelf wordt gedaan in de \texttt{settings.php}:
+
+\begin{lstlisting}[language=PHP]
+if (!empty($_COOKIE['ssl']) && empty($_SERVER['HTTPS'])) {
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], TRUE, 302);
+  exit;
+}
+\end{lstlisting}
+
+Merk op dat de \texttt{ssl} cookie invloed heeft op het wel of niet kunnen cachen in Varnish. De cookie wordt daarom niet gefilterd in de \texttt{vcl\_recv} functie\seeone{varnishrecv}.
+
+Als laatste wordt de \usemodule{securepages} module ingezet om ervoor te zorgen dat bezoekers automatisch op https terecht komen wanneer ze inloggen of de webshop bezoeken.
+

@@ -1,0 +1,11 @@
+\subsection{Tekstpagina}\label{tekstpagina}
+
+Voor de tekstpagina's wordt het standaard nodetype \texttt{page} gebruikt.
+
+Het is mogelijk om in de tekst afbeeldingen op te nemen via de media bibliotheek\seeone{media}.
+
+\subsubsection{404 pagina}\label{404pagina}
+
+De 404 pagina is een speciaal soort tekstpagina.
+
+Om te voorkomen dat de 404 pagina in de zoekresultaten komt zullen we een aanpassing doen in de \texttt{bespoke} module zodat deze niet meegenomen wordt in het zoekresultaat (via de \texttt{apachesolr\_query\_alter}-hook).

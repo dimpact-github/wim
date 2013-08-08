@@ -1,0 +1,67 @@
+\section{Deployment}\label{deployment}
+
+Voor de deployment en latere updates zullen we een \emph{drush make script} maken en de \usemodule{features} inzetten.
+
+\subsection{Drush make}
+
+Deze techniek is vooral bedoeld om nieuwe Drupal sites op te zetten met \'{e}\'{e}n commando. Grofweg biedt het de volgende features:
+
+\begin{itemize}
+  \item Drupal core downloaden
+  \item Modules en themes downloaden (zowel contrib als custom via files of versiebeheer)
+  \item Patches toepassen
+  \item Externe libraries downloaden
+\end{itemize}
+
+Drush make zal geen wijzigingen in de database maken en installeert de modules dus niet. Dit kan wel worden gerealiseerd door Drush make te gebruiken in combinatie met andere Drush commando's.
+
+Drush make zal alle bestanden overschrijven wanneer dit op een bestaande installatie wordt gedraaid. Dat maakt het niet geheel onmogelijk om updates via Drush make door te voeren, maar vereist wel een aantal aanpassingen in de werkwijze. Zo moeten alle modules in een eigen repository beheerd worden (svn, git of bzr). Hierbij wordt wel afgedwongen dat aanpassingen altijd volgens een vaste werkwijze doorgevoerd worden. Aanpassingen in bestaande modules zijn bijvoorbeeld niet mogelijk zonder een werkende patch file mee te leveren. Dat dwingt niet alleen af dat patch files aangemaakt worden, maar ook dat deze aangepast worden mochten ze met de laatste moduleversies niet meer werken.
+
+De Drupal instantie voor \thecustomer \ zal worden gebouwd met een make script. Dit script houden we bij in de repository. Het makescript is een .sh bestand dat een Drupal core met contrib modules neerzet via \emph{drush make} en daarna de custom modules toevoegt. Het resultaat wordt niet in git gezet, maar enkel de makefiles en custom modules.
+
+De directorystructuur is als volgt:
+
+\begin{itemize}
+\item data \\
+    Bevat de files directory en (default.)settings.php. Alleen default.settings.php staat in git.
+\item modules \\
+    Bevat de custom modules.
+\item www \\
+    Drupal codebase. Staat niet in git, wordt aangemaakt door het make-script
+\end{itemize}
+
+De makefiles staan in de repository root.
+
+(In ieder geval) voor lokaal gebruik maken we een symlink van de \emph{sites/all/modules/custom} directory naar {modules}. De modules kunnen dan direct in de site aangepast worden terwijl ze toch op de goede plek terecht komen in de repository. Ook de \emph{sites/default} map wordt een symlink (naar \emph{data}) zodat de files en lokale config niet verloren gaan wanneer het make script opnieuw wordt uitgevoerd.
+
+\subsection{Features}
+
+Deze module kan diverse componenten uit de database (bijv. views) exporteren naar een \usemodule{features} module (code). Die module kan vervolgens worden beheerd in SVN of GIT. Dit maakt de deployment eenvoudig; de code bijwerken en cache legen zet alle functionaliteit over. Bij de ontwikkeling kan gewoon de normale workflow worden aangehouden en kunnen contenttypes bijv. met CCK gemaakt worden en views gewoon in de views admin.
+
+Nadeel van deze techniek is dat niet alles in een feature kan worden gezet. Alles vereist namelijk een specifieke implementatie. Zo is er een integratie tussen features en views, features en CCK, features en context etc. Tegelijkertijd is dat ook de kracht van deze module, want er blijkt ook geen standaard manier mogelijk waarom we elke willekeurige functionaliteit kunnen exporteren en importeren, zonder van de structuur af te weten. Features biedt zelf de volgende integraties aan:
+
+\begin{itemize}
+  \item Content types
+  \item Velden
+  \item Image styles
+  \item Menu links
+  \item Custom menu's
+  \item Permissies
+  \item Gebruikersrollen
+  \item Taxonomie
+  \item Input filters
+  \item Views
+\end{itemize}
+
+Tevens kunnen afhankelijkheden op andere modules worden aangegeven. Daarmee kan zeker worden gesteld dat nieuwe contrib modules ook meegaan bij de livegang.
+
+Nadeel van features is wel dat features elkaar niet kunnen overlappen. Wanneer bijvoorbeeld twee features afhankelijk zijn van hetzelfde nodetype, dan zal dat nodetype niet in beide features opgenomen kunnen worden. Dit kan verholpen worden door van de overlap een aparte feature module te maken waarvan de oorspronkelijke twee features afhankelijk zijn. Een andere optie is om het nodetype aan \'{e}\'{e}n feature module toe te voegen en een afhankelijkheid op die module toe te voegen aan de andere feature.
+
+\subsection{Release cycle}
+
+Tijdens de bouw (tot aan livegang) zullen we alle ontwikkeling in \'{e}\'{e}n branch (\texttt{develop}) doen. Dat heeft tot gevolg dat bij een release naar de (pre)prod omgeving \emph{alle} wijzigingen meekomen. Er is dus geen mogelijkheid tot \emph{cherry-picking}.
+Na de livegang komt er een aparte branch voor de productieomgeving, waardoor \emph{cherry-picking} wel mogelijk is. Vanaf dan moeten we wijzigingen \emph{mergen} voordat deze op productie komen. Tijdens de ontwikkeling doen we dit bewust niet omdat dit veel extra tijd vergt..
+
+Releases naar de verschillende omgevingen zullen tijdens de ontwikkeling gedaan worden wanneer dit noodzakelijk wordt geacht om te testen. Na de livegang zal een vaste releasecycle worden afgesproken (in SLA).
+
+
