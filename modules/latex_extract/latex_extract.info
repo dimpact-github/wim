@@ -1,0 +1,9 @@
+name = LaTeX Extract
+description = Export various site elements to LaTeX for documentation
+core = 7.x
+package = Dutch Open Projects
+
+dependencies[] = node
+
+files[] = latex_extract.helpers.inc
+files[] = latex_extract.pages.inc

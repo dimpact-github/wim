@@ -1,0 +1,16 @@
+--- .htaccess	2012-07-31 17:47:51.000000000 +0200
++++ .htaccess	2012-08-02 14:23:00.000000000 +0200
+@@ -129,3 +129,12 @@
+     </FilesMatch>
+   </IfModule>
+ </IfModule>
++
++# Remove compatibility button in IE
++<IfModule mod_headers.c>
++  Header set X-UA-Compatible "IE=Edge,chrome=1"
++  # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
++  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$" >
++    Header unset X-UA-Compatible
++  </FilesMatch>
++</IfModule>
+\ No newline at end of file

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a Phing build file. See http://www.phing.info/  -->
+<project name="dimpact" default="all">
+  <target name="all" depends="site" />
+
+  <target name="site" depends="rebuild,cleanup,theme" />
+
+  <target name="rebuild">
+    <exec command="drush make -y --force-complete dimpact.make code_new" logoutput="true" checkreturn="true" />
+    <if>
+      <available file="code" type="dir" />
+      <then>
+        <delete dir="code" includeemptydirs="true" failonerror="true" />
+      </then>
+    </if>
+    <move file="code_new" tofile="code" includeemptydirs="true" />
+    
+    <!-- Remove the directory from coder module responsible for freaking out the modules admin page. See http://drupal.org/node/1015368 -->
+    <delete dir="code/sites/all/modules/contrib/coder/coder_sniffer/Test" includeemptydirs="true" verbose="true" failonerror="false" />
+    
+    <symlink target="../../../../modules" link="code/sites/all/modules/custom" />
+    <symlink target="../../../../features" link="code/sites/all/modules/features" />
+    <symlink target="../../../../themes" link="code/sites/all/themes/subtheme" />
+    <symlink target="../../../libraries" link="code/sites/all/libraries" />
+
+    <delete dir="code/sites/default" includeemptydirs="true" verbose="true" failonerror="true" />
+    <symlink target="../../data" link="code/sites/default" />
+    <copy todir="code/sites/all/libraries">
+      <fileset dir="libraries" />
+    </copy>
+  </target>
+
+  <target name="cleanup">
+    <move file="code/robots.txt" tofile="code/robots.txt2" />
+    <delete>
+      <fileset dir="code">
+        <include name="*.txt" />
+      </fileset>
+    </delete>
+    <move file="code/robots.txt2" tofile="code/robots.txt" />
+    <delete file="code/sites/all/README.txt" />
+    <delete file="code/sites/all/modules/README.txt" />
+  </target>
+
+  <target name="theme">
+    <echo msg="Cleaning SCSS..." />
+    <!-- <exec command="compass clean themes/subtheme" /> -->
+    <echo msg="Compiling SCSS..." />
+    <!-- <exec command="compass compile themes/subtheme" /> -->
+  </target>
+  
+</project>

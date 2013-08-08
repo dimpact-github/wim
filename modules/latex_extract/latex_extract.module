@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Main file for latex_extract module.
+ */
+
+// Useful defines.
+define('N', "\n");
+define('CONTENTWIDTH', 15.0); // Content width in cm. Leave as float to make sure we use float math.
+
+module_load_include('helpers.inc', 'latex_extract');
+
+/**
+ * Implements hook_menu().
+ */
+function latex_extract_menu() {
+
+  $items = array();
+
+  $items['admin/structure/types/extract'] = array(
+    'title' => 'Extract',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('latex_extract_report_contenttypes_form'),
+    'file' => 'latex_extract.pages.inc',
+    'access arguments' => array(true),
+  );
+
+  $items['admin/structure/types/list'] = array(
+    'title' => 'Types',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/config/search/path/extract_patterns'] = array(
+    'title' => 'Extract Patterns',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'latex_extract_report_pathauto',
+    'file' => 'latex_extract.pages.inc',
+    'access arguments' => array(true),
+  );
+
+  // Views
+  // Taxonomy
+  // Roles
+  // Etc?
+
+  return $items;
+}
