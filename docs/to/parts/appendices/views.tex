@@ -3,3 +3,59 @@
 \subsection{Agenda}
 \subsubsection{Laatste Agenda items}\label{laatste-agenda-items}
 View block gefilterd op Content Type Agenda en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser. Maximaal 3 items getoond. Inclusief 'Lees meer' link (naar node detailpagina) onder elk item.
+
+\subsection{Nieuws}
+\subsubsection{Nieuws Overzicht}\label{nieuws-overzicht}
+View page gefilterd op Content Type Nieuws en op gepubliceerd. Gesorteerd via Post Date. Titel is Nieuwsarchief. 7 items getoond per pagina (met pager).
+
+Getoonde velden:
+\begin{itemize}
+\item Afbeelding (indien aanwezig),
+\item Titel,
+\item Introductietekst.
+\end{itemize}
+
+\subsubsection{Laatste Nieuws items}\label{laatste-nieuws-items}
+View block gefilterd op Content Type Nieuws en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser.
+Maximaal 3 items getoond. Inclusief 'Lees meer' link (naar node detailpagina) onder elk item.
+
+Getoonde velden:
+\begin{itemize}
+\item Titel,
+\item Introductietekst (afgekort naar 80 karakters),
+\item Lees meer link.
+\end{itemize}
+
+Attachment footer: link 'Meer nieuwsberichten' naar nieuws overzichtspagina.
+
+\subsection{Bekendmakingen}
+\subsubsection{Bekendmakingen op de kaart}\label{bekendmakingen-markers}
+
+Middels \usemodule{Location}, \usemodule{GMap} en \usemodule{GMap Location} wordt een view met een page display opgezet die alle markers op de kaart laat zien.
+
+Filters:
+\begin{itemize}
+\item Content Type: Bekendmaking
+\item Published: Ja
+\end{itemize}
+
+Exposed filters:
+\begin{itemize}
+\item Titel (vrij in te vullen tekstveld),
+\item Type bekendmaking,
+\item Week,
+\item Jaar,
+\item Postcode (vrij in te vullen tekstveld)
+\end{itemize}
+
+Style options:
+\begin{itemize}
+\item Display tooltip: Content: Title
+\item Data source: Location.module
+\end{itemize}
+
+\subsubsection{Bekendmakingen overzicht attachment}\label{bekendmakingen-overzicht}
+
+View block gefilterd op Content Type Bekendmaking en op gepubliceerd. Weergave via View mode Teaser. Maximaal 7 items getoond met pager en lees meer link.
+
+Deze view wordt gebruikt als attachment bij Bekendmakingen op de kaart \seeref{bekendmakingen-markers}.
