@@ -21,7 +21,7 @@
     <symlink target="../../../../modules" link="code/sites/all/modules/custom" />
     <symlink target="../../../../features" link="code/sites/all/modules/features" />
     <symlink target="../../../../themes" link="code/sites/all/themes/subtheme" />
-    <symlink target="../../../libraries" link="code/sites/all/libraries" />
+    
 
     <delete dir="code/sites/default" includeemptydirs="true" verbose="true" failonerror="true" />
     <symlink target="../../data" link="code/sites/default" />
