@@ -16,11 +16,13 @@ We zullen de volgende buttons instellen:
 
 Voor het gemakkelijk kunnen toevoegen van links in bodyteksten zullen we gebruik maken van de \usemodule{linkit} module i.c.m. \usemodule{pathologic}.
 
-\subsubsection{Invoerformaten}
+\subsubsection{Invoerformaten}\label{invoerformaten}
 
-Er worden twee invoerformaten ter beschikking gesteld voor gebruikers en redacteuren.
+Er worden drie invoerformaten ter beschikking gesteld voor gebruikers en redacteuren.
 
 \begin{itemize}
+\item \textbf{Full HTML} \\
+Volledig HTML zonder filtering. Alleen beschikbaar voor eindredacteuren. Het wordt aanbevolen om hier spaarzaam gebruik van te maken vanwege de mogelijkheid om nieuwe XSS issues (security issues) te introduceren.
 \item \textbf{Filtered HTML} \\
 Standaard filtering op ongewenste HTML en herschrijven van links door \texttt{pathologic}.
 \item \textbf{Plain text} \\
