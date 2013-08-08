@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Content Types feature.
+ */
+
+include_once 'dimpact_content_types.features.inc';
