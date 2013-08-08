@@ -7,6 +7,7 @@ projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 projects[admin_menu][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
 projects[block_class][subdir] = contrib
+projects[cck_blocks][subdir] = contrib
 projects[context][subdir] = contrib
 projects[context_entity_field][subdir] = contrib
 projects[ctools][subdir] = contrib
