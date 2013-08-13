@@ -5,6 +5,8 @@ projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 
 ; Modules
 projects[admin_menu][subdir] = contrib
+projects[apachesolr][subdir] = contrib
+projects[apachesolr_attachments][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
 projects[block_class][subdir] = contrib
 projects[cck_blocks][subdir] = contrib
@@ -33,6 +35,7 @@ projects[dominion][revision] = 6a39e7c
 projects[email][subdir] = contrib
 projects[empty_page][subdir] = contrib
 projects[entity][subdir] = contrib
+projects[expire][subdir] = contrib
 projects[features][subdir] = contrib
 projects[features_extra][subdir] = contrib
 projects[felix][subdir] = contrib
@@ -40,6 +43,7 @@ projects[felix][revision] = dd1fa97
 projects[fences][subdir] = contrib
 projects[file_entity][subdir] = contrib
 projects[file_entity][revision] = 22b86e8
+projects[flag][subdir] = contrib
 projects[gmap][subdir] = contrib
 projects[google_analytics][subdir] = contrib
 projects[hansel][subdir] = contrib
@@ -76,6 +80,7 @@ projects[transliteration][subdir] = contrib
 projects[views][subdir] = contrib
 projects[views_rss][subdir] = contrib
 projects[webform][subdir] = contrib
+projects[wikitools][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
 
 ; Themes
