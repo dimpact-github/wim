@@ -7,3 +7,15 @@ Een zoekopdracht invoeren gaat altijd via de zoekbox in de header. Voor dit blok
 \subsubsection{Zoekresultaten}
 De zoekresultaten worden getoond titel en snippet. De zoekwoorden zullen we cursief maken.
 
+\subsubsection{Zoeken in bijlagen}
+Bijlagen die zijn toegevoegd aan nodes worden meegenomen bij het indexeren. Hiervoor wordt \emph{Apache Tika} i.c.m. de \usemodule{apachesolr\_attachments} module gebruikt. Tika kan diverse formaten omzetten naar platte tekst die geschikt is voor indexatie. Hieronder vallen ook PDF en Microsoft Office formaten\footnote{http://tika.apache.org/1.4/formats.html}.
+
+\subsubsection{Bias settings}
+De \usemodule{apachesolr} module biedt standaard Bias settings aan voor velden en types. Deze settings zijn beschikbaar voor de admin user. De mogelijkheden zullen worden beschreven in de handleiding.
+
+\subsubsection{Spellingscontrole}
+De optie \emph{spellingscontrole} wordt ingeschakeld (onder de settings van de zoekpagina). De woordenlijst komt standaard uit de ge\"{i}ndexeerde tekst. Later kan - indien wenselijk - een eigen woordenlijst worden toegevoegd. Die zal echter generiek zijn voor alle Dimpact gemeenten en kan niet via de admin worden toegevoegd.
+
+\subsubsection{Zoeken binnen landelijke voorzieningen}
+
+
