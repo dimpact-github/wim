@@ -1,14 +1,21 @@
 
 \subsection{Hoofdnavigatie}
 
-De hoofdnavigatie in de header bestaat uit twee niveau's. De eerste zien eruit als tabbladeren. In de wireframes zijn dit "Inwoners", "Ondernemingen" en "Bestuur". Het tweede niveau zit in de balk daaronder. Voor dit 
+De hoofdnavigatie in de header bestaat uit twee niveau's. De eerste zien eruit als tabbladeren. In de wireframes zijn dit "Inwoners", "Ondernemingen" en "Bestuur". Het tweede niveau zit in de balk daaronder. Het hoofdmenu (tabs + balk eronder) en subnavigatie maken allen gebruik van hetzelfde menu.
 
 \subsection{Topmenu}
 
-Voor het topmenu wordt een apart menu aangemaakt.
+Voor het topmenu wordt een apart menu aangemaakt. Hiervoor wordt het standaard menublok uit Drupal core gebruikt.
 
 \subsection{Alfabet}
+
+Het alfabet wordt ingesteld in een blok met custom HTML code. De pagina's daarachter worden gemaakt via \usemodule{views}. Hiervoor wordt een view aangemaakt op het pad \texttt{letter/\%}, waarbij de \% een contextual filter is op nodetitel ("begint met"). De links gaan dus naar \texttt{letter/a}, \texttt{letter/b} etc.
 
 \subsection{Subnavigatie}
 
 De subnavigatie komt in de linkerkolom op pagina's waar dat van toepassing is. Dit blok wordt gebouwd met de \usemodule{submenutree} module. Dit menu begint op het derde niveau en kan t/m het zesde niveau tonen (dus bevat 3 lagen).
+
+\subsection{Footer}
+
+De footer bestaat uit 3 kolommen en is vrij in te vullen door de redactie. Hiervoor worden 3 Felix regio's aangemaakt\seeone{felix}. De inhoud van de footer is voor elke pagina van de subsite gelijk.
+

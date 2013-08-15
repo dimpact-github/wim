@@ -6,3 +6,32 @@ De module \usemodule{hansel} is oorspronkelijk gemaakt om flexibel de breadcrumb
 \item Vriendelijke URL-paden
 \item Activeren van menu-items
 \end{itemize}
+Het eerste item is "Home" (wordt niet meegenomen in de URL-paden). Het laatste item is de huidige pagina en wordt getoond als platte tekst (dus geen link). De volgende settings worden gebruikt (onder \emph{Settings}-tab):
+\begin{itemize}
+\item Render last item as a link: uitgeschakeld
+\item Hide last item: uitgeschakeld
+\item Maximum length for individual items: 100
+\item Trim on word boundary: ingeschakeld
+\item Maximum number of items: 0 (niet gelimiteerd)
+\item Remove first item from hansel path token: ingeschakeld
+\item Cache: 10 minuten
+\item Cache whole breadcrumbs: uitgeschakeld
+\item Set active menu item: ingeschakeld
+\item Skip first crumb: ingeschakeld
+\item Set active menu name for current path: uitgeschakeld
+\item Lookup url aliases when looking up parents: uitgeschakeld
+\end{itemize}
+De rules worden als volgt ingesteld:
+\begin{itemize}
+\item start \\ add link \emph{Home}, switch on \emph{domain id}
+\begin{itemize}
+\item \textless default\textgreater \\  add parents, switch on url argument 1
+\begin{itemize}
+\item \textless default\textgreater \\ add link to current page, leave
+\item node \\ add link to node, leave
+\end{itemize}
+\end{itemize}
+\end{itemize}
+Voor de switch op \emph{domain id} wordt de submodule \usemodule{hansel\_domain} aangezet.
+Later in het project zullen onder het tabblad \emph{Nodetypes} de bijbehorende pagina's ingesteld worden voor de nodetypes die doorgaans niet in het menu worden geplaatst, zoals nieuwsberichten.
+

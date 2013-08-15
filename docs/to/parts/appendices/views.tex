@@ -31,7 +31,7 @@ Attachment footer: link 'Meer nieuwsberichten' naar nieuws overzichtspagina.
 \subsection{Bekendmakingen}
 \subsubsection{Bekendmakingen op de kaart}\label{bekendmakingen-markers}
 
-Middels \usemodule{Location}, \usemodule{GMap} en \usemodule{GMap Location} wordt een view met een page display opgezet die alle markers op de kaart laat zien.
+Middels \usemodule{location}, \usemodule{gmap} en \usemodule{gmap\_location} wordt een view met een page display opgezet die alle markers op de kaart laat zien.
 
 Filters:
 \begin{itemize}
@@ -61,7 +61,7 @@ View block gefilterd op Content Type Bekendmaking en op gepubliceerd. Weergave v
 Deze view wordt gebruikt als attachment bij Bekendmakingen op de kaart \seeref{bekendmakingen-markers}.
 
 \subsection{Blog}
-View blog gefilterd op Content Type Blog en op gepubliceerd. Gesorteerd via Post Date. Titel is Blog van \emph{ingelogdeuser}. 10 items getoond per pagina (met pager). Het path moet herschreven worden naar /peter/blog in plaats van /1231/blog.
+View blog gefilterd op Content Type Blog en op gepubliceerd. Gesorteerd via Post Date. Titel is "Weblogs". 10 items getoond per pagina (met pager).
 
 Getoonde velden: 
 \begin{itemize}
@@ -76,7 +76,7 @@ Filters
 
 Path
 \begin{itemize}
-\item /\%/blog
+\item /blog
 \end{itemize}
 
 Contextuele filter
@@ -110,3 +110,20 @@ Relatie
 \end{itemize}
 
 \subsection{Smoelenboek}
+View facebook op users (teasers). Gesorteerd op naam. Titel is "Smoelenboek". 10 items getoond per pagina (met pager).
+
+Getoonde velden: 
+\begin{itemize}
+\item Pasfoto
+\item Naam
+\end{itemize}
+
+Filters
+\begin{itemize}
+\item Rol: medewerker
+\end{itemize}
+
+Path
+\begin{itemize}
+\item /smoelenboek
+\end{itemize}

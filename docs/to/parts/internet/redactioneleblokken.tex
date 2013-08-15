@@ -4,12 +4,17 @@ De module \usemodule{felix} wordt ingezet om het voor redacteuren mogelijk te ma
 
 Onderstaand tabel geeft een overzicht van de Felix regio's.
 
-\begin{tabularx}{\linewidth}{| p{5cm} | X |}
+\begin{tabularx}{\linewidth}{| p{5cm} | p{3cm} | X |}
 \hline
 \rowcolor{tableheader}
-\textbf{Naam} & \textbf{Systeemnaam} \\ \hline
-Linkerkolom & left \\ \hline
+\textbf{Naam} & \textbf{Systeemnaam} & \textbf{Differentiate content per} \\ \hline
+Linkerkolom & left & path \\ \hline
+Footer kolom 1 & footer1 & domain \\ \hline
+Footer kolom 2 & footer2 & domain \\ \hline
+Footer kolom 3 & footer3 & domain \\ \hline
 \end{tabularx}
+
+Om de blokken te kunnen scheiden per domein wordt gebruik gemaakt van de \usemodule{felix\_domain} submodule.
 
 Er wordt \'{e}\'{e}n \emph{blockset} aangemaakt. De blokken die vrij te plaatsen zijn kunnen dus in elke regio worden gezet. De theming is wel afhankelijk van de regio (wordt volledig in CSS geregeld). In de rest van dit onderdeel wordt aangegeven welke blokken er mogelijk zijn, met screenshots.
 
