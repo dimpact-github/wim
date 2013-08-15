@@ -1,3 +1,28 @@
 \subsection{Wiki}\label{wiki}
 
+Voor de wiki functionaliteit zullen we gebruikmaken van de \usemodule{wikitools} module. Tevens wordt een nieuw nodetype aangemaakt voor wikipagina's. Dit nodetype is gelijk aan een standaardpagina. Het pad (via \usemodule{pathauto}) is echter "wiki/[node:title]". Voor wikitools worden de volgende settings aangepast:
+\begin{itemize}
+\item Titel van voorpagina: Wiki
+\item Node types: wiki
+\item Wiki 404 type: Creation form
+\end{itemize}
+Voor alle overige settings worden de standaardwaarden gebruikt. De wiki is dan beschikbaar op \texttt{/wiki}. We zullen de voorpagina tijdens de bouw aanmaken.
+
+In de bodytekst van wiki nodes kunnen links worden gebruikt naar \texttt{/wiki/Titel\_van\_pagina} (spaties dienen vervangen te worden door underscores). Bij het bezoeken van niet bestaande pagina's is een link beschikbaar om die pagina direct aan te maken.
+
+Er wordt een custom module gemaakt welke een input filter aanbiedt waarmee makkelijk links naar wiki pagina's kunnen worden gemaakt. Dit wordt uitgewerkt in een module met de naam \texttt{wiki\_links}.
+
+Tekst voor filtering:
+\begin{verbatim}
+[[Titel van pagina]]
+[[Titel van pagina|Titel van link]]
+\end{verbatim}
+Tekst na filtering:
+\begin{verbatim}
+<a href="/wiki/Titel_van_pagina">Titel van pagina</a>
+<a href="/wiki/Titel_van_pagina">Titel van link</a>
+\end{verbatim}
+In het pad worden spaties vervangen door underscores.
+
+De \texttt{freelinking} module biedt vrijwel identieke functionaliteit aan, maar werkt niet voor pagina's die niet bestaan en is daarom voor een wiki minder goed bruikbaar.
 

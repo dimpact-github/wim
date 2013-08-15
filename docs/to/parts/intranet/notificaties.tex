@@ -1,0 +1,16 @@
+\subsection{Notificaties}\label{notificaties}
+
+Gebruikers van het intranet (lees: medewerkers) moeten de mogelijkheid krijgen om zich te abonneren op nieuwe inhoud en wijzigingen van inhoud. Hiervoor wordt de \usemodule{subscriptions} module gebruikt (inclusief de dependency \usemodule{mail\_edit}). De volgende settings worden aangepast:
+\begin{itemize}
+\item Unlisted content types: editorial, slide
+\item Node form position: Fieldset in Subscriptions interface block
+\item Node form visibility: Display only a Subscribe link that makes the fieldset visible 
+\item Expand the node form fieldset: aangevinkt
+\item E-mail address: gelijk aan site\_mail (via code in settings.php)
+\item Display watchdog entries for successful mailings: uitgevinkt (vanwege performance)
+\end{itemize}
+Het blok \emph{Subscriptions interface} wordt aangezet in de content region.
+De tekst in de mail wordt via de \usemodule{mail\_edit} module vertaald naar Nederlands.
+
+In de \texttt{bespoke} module zullen we via \texttt{alter}-functies de pagina met de subscribe opties aanpassen (\texttt{node/\%/subscribe}). Op deze pagina staat het formulier waarmee de gebruiker zich kan abonneren. De node content daarboven halen we weg. Ook zullen we de opties niet langer in een fieldset zetten, waardoor de link "Subscribe" op deze pagina zal verdwijnen.
+

@@ -1,4 +1,13 @@
 \subsection{Favorieten}\label{favorieten}
 
-Via de \usemodule{views} en \usemodule{flag} module wordt het voor medewerkers mogelijk om pagina's als "favoriet" aan te merken. De lijst van favorieten is vervolgens terug te vinden op het dashboard\seeone{dashboard}.
+Via de \usemodule{views} en \usemodule{flag} module wordt het voor medewerkers mogelijk om pagina's als "favoriet" aan te merken. De lijst van favorieten is vervolgens terug te vinden op het dashboard\seeone{dashboard}. Er wordt een nieuw flag type aangemaakt met de volgende settings:
+\begin{itemize}
+\item Title: "Favoriet" (machine name: "favorite")
+\item Flag link text: "Toevoegen als favoriet"
+\item Unflag link text: "Verwijderen uit favorieten"
+\item Flag access: medewerker- en redacteurrollen
+\item Bundles: agenda, basic page, blog, wiki
+\item Display link as field: aanvinken
+\end{itemize}
+Voor alle overige settigs wordt de standaardinstelling gebruikt. Met de laatste setting wordt een link toegevoegd aan de detailpagina's die in de favorieten kunnen worden gezet.
 
