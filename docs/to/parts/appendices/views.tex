@@ -77,12 +77,20 @@ Filters
 Path
 \begin{itemize}
 \item /blog
+\item /blog/\% (display voor blog van gebruiker)
 \end{itemize}
 
 Contextuele filter
 \begin{itemize}
 \item User uid
 \end{itemize}
+
+\subsection{Fotoalbum}
+\subsubsection{Categorie\"{e}n}
+View op tags uit de vocabulaire \emph{Tags images}. De view komt op \texttt{/fotoalbum}.
+\subsubsection{Foto's}
+View op images (file entity) met een specifieke tag. De view komt op \texttt{/fotoalbum/\%}, waarbij het tweede element de entity id is van de categorie.
+
 
 \subsection{Overige onderwerpen carrousel}
 View blok gefilterd op gepubliceerd en of node aanwezig is in de nodequeue. Weergave via View mode Full Node. Geen limiet op items geen pager. Een relatie wordt gelegd met de nodequeue.
