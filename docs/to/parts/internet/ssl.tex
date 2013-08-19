@@ -15,7 +15,7 @@ $conf['https'] = FALSE;
 ini_set('session.cookie_secure', 1);
 \end{lstlisting}
 
-Daarnaast wordt de SSL modus 'aangezet' wanneer de X-Forwarded-Proto header is gevonden en de waarde "https" heeft.
+Daarnaast wordt de SSL modus 'aangezet' wanneer de \texttt{X-Forwarded-Proto} header is gevonden en de waarde "https" heeft.
 
 \begin{lstlisting}[language=PHP]
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
@@ -48,5 +48,6 @@ if (!empty($_COOKIE['ssl']) && empty($_SERVER['HTTPS'])) {
 
 Merk op dat de \texttt{ssl} cookie invloed heeft op het wel of niet kunnen cachen in Varnish. De cookie wordt daarom niet gefilterd in de \texttt{vcl\_recv} functie\seeone{varnishrecv}.
 
-Als laatste wordt de \usemodule{securepages} module ingezet om ervoor te zorgen dat bezoekers automatisch op https terecht komen wanneer ze inloggen of de webshop bezoeken.
+In de \texttt{bespoke} module wordt de html code van iedere pagina aangepast om ervoor te zorgen dat links binnen \texttt{https} blijven wanneer men over SSL de site bezoekt en vice-versa. De canonical URL vormt hierop een uitzondering. Daar wordt altijd de \texttt{http} versie gebruikt, omdat anders de \texttt{http} en \texttt{https} versies beide ge\"{i}ndexeerd kunnen worden waardoor \emph{duplicate content} ontstaat. Voor de implementatie hiervan wordt \texttt{hook\_page\_alter} gebruikt waarin een functie wordt toegevoegd aan \texttt{\$page['\#post\_render']}. In die functie wordt de HTML via find \& replace aangepast op basis van de global variable \texttt{\$is\_https}.
 
+Als laatste wordt de \usemodule{securepages} module ingezet om ervoor te zorgen dat bezoekers automatisch op https terecht komen wanneer ze inloggen.

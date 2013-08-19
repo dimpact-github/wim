@@ -4,6 +4,49 @@ Voor de tekstpagina's wordt het standaard nodetype \texttt{page} gebruikt.
 
 Het is mogelijk om in de tekst afbeeldingen op te nemen via de media bibliotheek\seeone{media}.
 
+\subsubsection{Inline tabs}
+
+Op tekstpagina's moet het mogelijk zijn om inline tabs op te nemen. In plaats van \'{e}\'{e}n stuk tekst wordt de indeling dan als volgt:
+\begin{verbatim}
+[introtekst]
+[tabs]
+[tekst van actieve tab]
+\end{verbatim}
+Het actieve tab is altijd de eerste, totdat een ander tabblad wordt aangeklikt. Het aantal tabs is ongelimiteerd. Wel kan er maar \'{e}\'{e}n set tabs per pagina worden gebruikt.
+De invoer van de tabs gebeurt in het body veld. Elke heading die begint met "**" wordt omgezet naar een tab. De volgende invoer:
+\begin{verbatim}
+<p>Introtekst</p>
+<h2>Titel</h2>
+<p>Meer tekst...</p>
+<h2>**Eerste</h2>
+<p>Tekst in eerste tabblad</p>
+<h2>**Tweede</h2>
+<p>Tekst in tweede tabblad</p>
+<p>Meer tekst in tweede tabblad</p>
+\end{verbatim}
+wordt omgezet naar:
+\begin{verbatim}
+<p>Introtekst</p>
+<h2>Titel</h2>
+<p>Meer tekst...</p>
+<div class="inlinetabs">
+  <ul>
+    <li><a href="#inlinetabs-[id]"><span>Eerste</span></a></li>
+    <li><a href="#inlinetabs-[id]"><span>Tweede</span></a></li>
+  </ul>
+  <div id="inlinetabs-[id]">
+    <p>Tekst in eerste tabblad</p>
+  </div>
+  <div id="inlinetabs-[id]">
+    <p>Tekst in tweede tabblad</p>
+    <p>Meer tekst in tweede tabblad</p>
+  </div>
+</div>
+\end{verbatim}
+De tekst \texttt{[id]} is een unieke code voor dat tabblad en wordt random gegenereerd. De omzetting vind plaats in een input filter en wordt ge\"{i}mplementeerd in een custom module met de naam \texttt{inlinetabs}. Hierin wordt ook een JavaScript toegevoegd om de tabs actief te maken middels jQuery UI Tabs\footnote{http://api.jqueryui.com/tabs/}.
+
+Het nieuwe input filter zullen we aanzetten op \emph{filtered html} en \emph{full html}. Dit filter wordt aan het eind toegevoegd om te voorkomen dat de id's en classes verdwijnen.
+
 \subsubsection{404 pagina}\label{404pagina}
 
 De 404 pagina is een speciaal soort tekstpagina.

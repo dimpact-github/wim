@@ -1,0 +1,31 @@
+\subsection{Readspeaker}\label{readspeaker}
+
+Voor de voorleesfunctie zullen we gebruikmaken van ReadSpeaker. De integratie hiervan gebeurt in het theme. Per gemeente wordt een apart account aangemaakt. Bij ReedSpeaker dienen hiervoor de relevante domeinen te worden ingesteld waarop deze actief wordt. De \emph{customer id} is nodig in Drupal.
+
+In \texttt{page.tpl.php} wordt de volgende code gebruikt op de plaats waar de button moet komen:
+
+\begin{lstlisting}[language=PHP]
+  <?php $readspeaker_customerid = variable_get('readspeaker_customerid', 0); ?>
+  <?php if ($readspeaker_customerid): ?>
+  <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+    <a class="rsbtn_play" title="Laat de tekst voorlezen met ReadSpeaker" href="//app.eu.readspeaker.com/cgi-bin/rsent?customerid=<?php print $readspeaker_customerid; ?>&amp;lang=nl_nl&amp;readid=main&amp;url=<?php echo urlencode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">
+        <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lees voor</span></span></span>
+        <span class="rsbtn_right rsimg rsplay rspart"></span>
+    </a>
+  </div>
+  <?php endif; ?>
+\end{lstlisting}
+
+In \texttt{html.tpl.php} wordt de volgende code gezet binnen de \texttt{\textless head\textgreater}:
+\begin{lstlisting}[language=PHP]
+<script src="<?php print base_path() . path_to_theme() . '/readspeaker/ReadSpeaker.js?pids=embhl'; ?>"></script>
+\end{lstlisting}
+
+De JavaScripts van readspeaker worden zelf gehost en dus ook in het theme gezet. Dat is nodig om de button te laten werken op SSL.
+
+De \emph{customer id} kan worden ingesteld in \texttt{settings.php}:
+\begin{lstlisting}[language=PHP]
+$conf['readspeaker_customerid] = 1234;
+\end{lstlisting}
+
+Wanneer deze niet gezet is zal de button niet worden getoond.
