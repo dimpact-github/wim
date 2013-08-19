@@ -1,0 +1,9 @@
+\subsection{Mobile variant}\label{mobile}
+
+De website wordt responsive opgezet. Uitzondering is de homepage waar tevens een adaptive variant beschikbaar is voor mobiele telefoons. De detectie hiervan vindt plaats in Varnish\seeone{varnishmobile}. De aanpassing in Varnish zorgt ervoor dat de pagina op \texttt{/voorpagina-mobiel} wordt geladen wanneer de voorpagina wordt bezocht met een mobiele telefoon. Hierbij wordt geen redirect gebruikt. Het pad is voor de bezoeker dan ook niet zichtbaar. De pagina kan ook op de desktop worden geladen door direct dit pad te gebruiken. Dat zal worden gedaan om de inhoud van de pagina te kunnen bewerken ("beheermodus").
+
+In het theme zullen we zorgen dat een ander page template wordt gebruikt voor de mobiele homepage. Hiervoor zullen we een aanpassing doen in de \texttt{hook\_preprocess\_page}. Belangrijk is dat de canonical url hierbij niet \texttt{voorpagina-mobiel} is maar de echte voorpagina. Daarom zullen we de volgende code gebruiken:
+
+\begin{lstlisting}[language=HTML]
+<link rel="canonical" href="http://<?php print check_plain($_SERVER['HTTP_HOST']); ?>/" />
+\end{lstlisting}
