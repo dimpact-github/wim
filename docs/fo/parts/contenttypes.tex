@@ -1,10 +1,44 @@
-\section{Content Types}
 \subsection{Agenda}
 \label{sec:content-agenda}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Agenda  \tabularnewline
+  \hline
+  Systeemnaam & agenda  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Agenda fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -21,30 +55,128 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Intro} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  field\_intro & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_image & media &   \tabularnewline
   \hline
-  \raggedright{Image} & \raggedright{Bestand} & \raggedright{}  \tabularnewline
+  field\_date & date &   \tabularnewline
   \hline
-  \raggedright{Date} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  field\_time & date &   \tabularnewline
   \hline
-  \raggedright{Time} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  field\_add\_to\_calendar & date & Choose a date to publish the node to the calender.  \tabularnewline
   \hline
-  \raggedright{Add to calendar} & \raggedright{Datum} & \raggedright{Choose a date to publish the node to the calender.}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Agenda view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Agenda }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & hidden & 5 &    \tabularnewline
+  \hline
+  field\_intro & hidden & text\_default & 2 &    \tabularnewline
+  \hline
+  field\_image & hidden & media & 1 & default  \tabularnewline
+  \hline
+  field\_date & hidden & date\_default &   & long, , , , both  \tabularnewline
+  \hline
+  field\_time & above & hidden & 6 &    \tabularnewline
+  \hline
+  field\_location & above & hidden & 3 &    \tabularnewline
+  \hline
+  field\_add\_to\_calendar & above & hidden & 4 &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Announcement}
 \label{sec:content-announcement}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Announcement  \tabularnewline
+  \hline
+  Systeemnaam & announcement  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Announcement fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -61,22 +193,112 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  field\_add\_to\_calendar & date &   \tabularnewline
   \hline
-  \raggedright{Add to calendar} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Announcement view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Announcement }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_location & above & hidden &   &    \tabularnewline
+  \hline
+  field\_add\_to\_calendar & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Basic page}
 \label{sec:content-basic page}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Basic page  \tabularnewline
+  \hline
+  Systeemnaam & page  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Basic page fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -93,22 +315,116 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  field\_add\_to\_calendar & date &   \tabularnewline
   \hline
-  \raggedright{Add to calendar} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  field\_tabfield & text &   \tabularnewline
+  \hline
+  \end{longtable}
+
+\subsubsection{Basic page view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Basic page }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_location & above & hidden &   &    \tabularnewline
+  \hline
+  field\_add\_to\_calendar & above & hidden &   &    \tabularnewline
+  \hline
+  field\_tabfield & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Blog}
 \label{sec:content-blog}
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Blog  \tabularnewline
+  \hline
+  Systeemnaam & blog  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Blog fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -125,22 +441,112 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Intro} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  field\_intro & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_tags & taxonomy &   \tabularnewline
   \hline
-  \raggedright{Tags} & \raggedright{Taxonomie (autocomplete)} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Blog view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Blog }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & hidden & 2 &    \tabularnewline
+  \hline
+  field\_intro & hidden & text\_default &   &    \tabularnewline
+  \hline
+  field\_tags & above & hidden & 1 &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Editorial}
 \label{sec:content-editorial}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Editorial  \tabularnewline
+  \hline
+  Systeemnaam & editorial  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Editorial fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -157,18 +563,96 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Editorial view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Editorial }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{FAQ}
 \label{sec:content-faq}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & FAQ  \tabularnewline
+  \hline
+  Systeemnaam & faq  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{FAQ fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -185,20 +669,108 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{FAQ view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype FAQ }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_location & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Marketplace}
 \label{sec:content-marketplace}
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Marketplace  \tabularnewline
+  \hline
+  Systeemnaam & marketplace  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Marketplace fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -215,20 +787,108 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_category\_marketplace & options &   \tabularnewline
   \hline
-  \raggedright{Category} & \raggedright{Taxonomie (dropdown)} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Marketplace view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Marketplace }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_category\_marketplace & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{News}
 \label{sec:content-news}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & News  \tabularnewline
+  \hline
+  Systeemnaam & news  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{News fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -245,28 +905,124 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Intro} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  field\_intro & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_image & media &   \tabularnewline
   \hline
-  \raggedright{Image} & \raggedright{Bestand} & \raggedright{}  \tabularnewline
+  field\_tags & taxonomy &   \tabularnewline
   \hline
-  \raggedright{Tags} & \raggedright{Taxonomie (autocomplete)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  field\_add\_to\_calendar & date &   \tabularnewline
   \hline
-  \raggedright{Add to calendar} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{News view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype News }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & hidden & 4 &    \tabularnewline
+  \hline
+  field\_intro & hidden & text\_default & 1 &    \tabularnewline
+  \hline
+  field\_image & hidden & media &   & default  \tabularnewline
+  \hline
+  field\_tags & above & hidden & 5 &    \tabularnewline
+  \hline
+  field\_location & above & hidden & 3 &    \tabularnewline
+  \hline
+  field\_add\_to\_calendar & above & hidden & 2 &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Person}
 \label{sec:content-person}
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Person  \tabularnewline
+  \hline
+  Systeemnaam & person  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Person fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -283,24 +1039,112 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Image} & \raggedright{Bestand} & \raggedright{}  \tabularnewline
+  field\_image & media &   \tabularnewline
   \hline
-  \raggedright{Category} & \raggedright{Radio-knoppen/vinkjes} & \raggedright{}  \tabularnewline
+  field\_category\_person & options &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Person view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Person }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed & 1 & 600  \tabularnewline
+  \hline
+  field\_image & hidden & media &   & default  \tabularnewline
+  \hline
+  field\_category\_person & above & hidden & 2 &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Poll}
 \label{sec:content-poll}
-A poll is a question with a set of possible responses. A poll, once created, automatically provides a simple running count of the number of votes received for each response.
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Poll  \tabularnewline
+  \hline
+  Systeemnaam & poll  \tabularnewline
+  \hline
+  Beschrijving & A poll is a question with a set of possible responses. A poll, once created, automatically provides a simple running count of the number of votes received for each response.  \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Nee  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
-
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Poll fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -317,18 +1161,104 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Question} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Poll view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Poll }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  field\_location & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Product}
 \label{sec:content-product}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Product  \tabularnewline
+  \hline
+  Systeemnaam & product  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Product fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -345,20 +1275,108 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Product view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Product }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_location & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Slide}
 \label{sec:content-slide}
-Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel zichtbaar (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Slide  \tabularnewline
+  \hline
+  Systeemnaam & slide  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Ja  \tabularnewline
+  \hline
+  Comments & Closed  \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Slide fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -375,22 +1393,108 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld, maar wel z
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_image & media &   \tabularnewline
   \hline
-  \raggedright{Image} & \raggedright{Bestand} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Slide view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  Full content & full & Nee  \tabularnewline
+  \hline
+  RSS & rss & Nee  \tabularnewline
+  \hline
+  Revision comparison & diff\_standard & Nee  \tabularnewline
+  \hline
+  Tokens & token & Nee  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Slide }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & hidden &   &    \tabularnewline
+  \hline
+  field\_image & above & hidden & 1 &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Webform}
 \label{sec:content-webform}
-Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Webform  \tabularnewline
+  \hline
+  Systeemnaam & webform  \tabularnewline
+  \hline
+  Beschrijving & Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.  \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Nee  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
-
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Webform fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -407,22 +1511,104 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  field\_location & location\_cck &   \tabularnewline
   \hline
-  \raggedright{Location} & \raggedright{location} & \raggedright{}  \tabularnewline
+  field\_add\_to\_calendar & date &   \tabularnewline
   \hline
-  \raggedright{Add to calendar} & \raggedright{Datum} & \raggedright{}  \tabularnewline
+  \end{longtable}
+
+\subsubsection{Webform view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Webform }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  field\_location & above & hidden &   &    \tabularnewline
+  \hline
+  field\_add\_to\_calendar & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
 \subsection{Wiki}
 \label{sec:content-wiki}
-Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per item aan te passen).
+  \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{2}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Name} & \textbf{Value}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{2}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Naam & Wiki  \tabularnewline
+  \hline
+  Systeemnaam & wiki  \tabularnewline
+  \hline
+  Beschrijving &   \tabularnewline
+  \hline
+  Titel gebruiken & Ja  \tabularnewline
+  \hline
+  Published & Ja  \tabularnewline
+  \hline
+  Promoted & Nee  \tabularnewline
+  \hline
+  Sticky & Nee  \tabularnewline
+  \hline
+  Create new revision & Nee  \tabularnewline
+  \hline
+  Comments &   \tabularnewline
+  \hline
+  \end{longtable}
 
-\subsubsection{Velden}
-  \begin{longtable}{| p{3.75cm}|p{3.75cm}|p{7.50cm}|}
+\subsubsection{Wiki fields}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
   \textbf{Veld} & \textbf{Type} & \textbf{Omschrijving}  \tabularnewline
@@ -439,8 +1625,52 @@ Reacties zijn bij items van dit content type standaard uitgeschakeld (dit is per
 \endfoot
 \hline
 \endlastfoot
-  \raggedright{Title} & \raggedright{Tekst} & \raggedright{}  \tabularnewline
-  \hline
-  \raggedright{Body} & \raggedright{WYSIWYG (met samenvatting)} & \raggedright{}  \tabularnewline
+  body & text &   \tabularnewline
   \hline
   \end{longtable}
+
+\subsubsection{Wiki view modes}
+  \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{3}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Label} & \textbf{Name} & \textbf{Custom settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{3}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  Teaser & teaser & Ja  \tabularnewline
+  \hline
+  \end{longtable}
+
+\paragraph{Teaser view mode instellingen voor contenttype Wiki }
+
+  \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
+  \hline
+  \rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\endfirsthead
+\multicolumn{5}{l}{\textit{Vervolg van vorige pagina}} \\
+\hline
+\rowcolor{tableheader}
+  \textbf{Fieldname} & \textbf{Label} & \textbf{Type} & \textbf{Weight} & \textbf{Settings}  \tabularnewline
+  \hline
+\hline
+\endhead
+\multicolumn{5}{r}{\textit{Gaat verder op volgende pagina}} \\
+\endfoot
+\hline
+\endlastfoot
+  body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
+  \hline
+  \end{longtable}
+

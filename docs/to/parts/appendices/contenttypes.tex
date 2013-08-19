@@ -1,7 +1,5 @@
-\section{Contenttypes}\label{contenttypes}
-
-\subsection{Event}
-\label{sec:content-event}
+\subsection{Agenda}
+\label{sec:content-agenda}
   \begin{longtable}{| p{7.50cm}|p{7.50cm}|}
   \hline
   \rowcolor{tableheader}
@@ -19,9 +17,9 @@
 \endfoot
 \hline
 \endlastfoot
-  Naam & Event  \tabularnewline
+  Naam & Agenda  \tabularnewline
   \hline
-  Systeemnaam & event  \tabularnewline
+  Systeemnaam & agenda  \tabularnewline
   \hline
   Beschrijving &   \tabularnewline
   \hline
@@ -39,7 +37,7 @@
   \hline
   \end{longtable}
 
-\subsubsection{Event fields}
+\subsubsection{Agenda fields}
   \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
@@ -73,7 +71,7 @@
   \hline
   \end{longtable}
 
-\subsubsection{Event view modes}
+\subsubsection{Agenda view modes}
   \begin{longtable}{| p{5.00cm}|p{5.00cm}|p{5.00cm}|}
   \hline
   \rowcolor{tableheader}
@@ -103,7 +101,7 @@
   \hline
   \end{longtable}
 
-\paragraph{Teaser view mode instellingen voor contenttype Event }
+\paragraph{Teaser view mode instellingen voor contenttype Agenda }
 
   \begin{longtable}{| p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|p{3.00cm}|}
   \hline
@@ -323,6 +321,8 @@
   \hline
   field\_add\_to\_calendar & date &   \tabularnewline
   \hline
+  field\_tabfield & text &   \tabularnewline
+  \hline
   \end{longtable}
 
 \subsubsection{Basic page view modes}
@@ -379,6 +379,8 @@
   field\_location & above & hidden &   &    \tabularnewline
   \hline
   field\_add\_to\_calendar & above & hidden &   &    \tabularnewline
+  \hline
+  field\_tabfield & above & hidden &   &    \tabularnewline
   \hline
   \end{longtable}
 
@@ -441,9 +443,9 @@
 \endlastfoot
   body & text &   \tabularnewline
   \hline
-  field\_tags & taxonomy &   \tabularnewline
-  \hline
   field\_intro & text &   \tabularnewline
+  \hline
+  field\_tags & taxonomy &   \tabularnewline
   \hline
   \end{longtable}
 
@@ -498,9 +500,9 @@
 \endlastfoot
   body & hidden & hidden & 2 &    \tabularnewline
   \hline
-  field\_tags & above & hidden & 1 &    \tabularnewline
-  \hline
   field\_intro & hidden & text\_default &   &    \tabularnewline
+  \hline
+  field\_tags & above & hidden & 1 &    \tabularnewline
   \hline
   \end{longtable}
 
@@ -1671,3 +1673,4 @@
   body & hidden & text\_summary\_or\_trimmed &   & 600  \tabularnewline
   \hline
   \end{longtable}
+
