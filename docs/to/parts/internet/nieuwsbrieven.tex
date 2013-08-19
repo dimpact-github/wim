@@ -1,3 +1,15 @@
 \subsection{Nieuwsbrieven}\label{nieuwsbrieven}
 
-Voor het versturen van nieuwsbrieven wordt gebruik gemaakt van \emph{MailChimp}.
+Voor het versturen van nieuwsbrieven wordt gebruik gemaakt van \emph{MailChimp}. Voor de integratie wordt gebruik gemaakt van de \usemodule{mailchimp} module. Iedere gemeente maakt gebruik van zijn eigen MailChimp account. In het MailChimp account moet een API-key worden aangemaakt op:
+\begin{verbatim}
+https://admin.mailchimp.com/account/api/
+\end{verbatim}
+Deze key wordt ingesteld in de settings van de \usemodule{mailchimp} module. Naast de basismodule worden ook de \texttt{mailchimp\_campaign} en \texttt{mailchimp\_lists} modules aangezet. Met de laatste module kunnen mailing lists ook in Drupal worden aangemaakt. Daardoor komt een blok beschikbaar waarmee bezoekers zich kunnen aanmelden voor de mailinglist. Bij het aanmaken van de lijst in Drupal worden de volgende settings gebruikt:
+\begin{itemize}
+\item Label: naam van de mailinglist (gelijk aan de naam in MailChimp)
+\item MailChimp list: lijst zoals aangemaakt in MailChimp
+\item Allow anonymous registrations: aangevinkt
+\item Roles: allen
+\item List label: naam van de mailinglist (gelijk aan de naam in MailChimp)
+\end{itemize}
+Het blok voor de mailinglist wordt ingesteld in \usemodule{felix}.
