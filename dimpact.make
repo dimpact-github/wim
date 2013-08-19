@@ -56,6 +56,7 @@ projects[libraries][subdir] = contrib
 projects[link][subdir] = contrib
 projects[linkit][subdir] = contrib
 projects[location][subdir] = contrib
+projects[mailchimp][subdir] = contrib
 projects[media][subdir] = contrib
 projects[media][revision] = 4a18a67
 projects[media_youtube][subdir] = contrib
@@ -72,6 +73,7 @@ projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 projects[pathauto][subdir] = contrib
 projects[purge][subdir] = contrib
 projects[rules][subdir] = contrib
+projects[site_map][subdir] = contrib
 projects[scheduler][subdir] = contrib
 projects[service_links][subdir] = contrib
 projects[strongarm][subdir] = contrib
@@ -88,7 +90,7 @@ projects[wysiwyg][subdir] = contrib
 ; Themes
 projects[] = rijkshuisstijl
 
-; Libraries
+; Rijkshuisstijl starterskit
 libraries[starterskit][type] = "libraries"
 libraries[starterskit][download][type] = "file"
 libraries[starterskit][download][url] = "https://github.com/studiodumbar/starterskit-pb/zipball/1.2.3"
@@ -96,3 +98,9 @@ libraries[starterskit][download][url] = "https://github.com/studiodumbar/starter
 ; CKEditor 3.6.2
 libraries[ckeditor][download][type] = get
 libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.3/ckeditor_3.6.3.tar.gz
+
+; Mailchimp
+libraries[mailchimp][download][type] = "get"
+libraries[mailchimp][download][url] = "http://apidocs.mailchimp.com/api/downloads/mailchimp-api-class.zip"
+libraries[mailchimp][directory_name] = "mailchimp"
+libraries[mailchimp][destination] = "libraries"
