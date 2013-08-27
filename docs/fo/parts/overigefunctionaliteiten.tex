@@ -3,7 +3,7 @@
 \label{sec:overigefunctionaliteiten}
 
 \subsection{WYSIWYG}
-We gebruiken een \emph{What You See Is What You Get} editor. DIt is een gebruiksvriendelijke manier van content invoeren in het CMS. De volgende opties zijn aanwezig:
+We gebruiken een \emph{What You See Is What You Get} editor. DIt is een gebruiksvriendelijke manier van content invoeren in het CMS. De editor die gebruik gaat worden is de CKEditor versie 3.x. De volgende opties zijn aanwezig:
 
 \begin{itemize}
   \item Vet gedrukt
@@ -30,7 +30,9 @@ We gebruiken een \emph{What You See Is What You Get} editor. DIt is een gebruiks
 \end{itemize}
 
 \subsection{Fotoalbum}
-Een verzameling van gegroepeerde afbeeldingen. Gebruikers kunnen afbeeldingen uploaden en voorzien van een tag. Aan het uploaden van bestanden zitten restricties van zowel grootte als omvang. De naam van het bestand zal doormiddel van \emph{transliteration} aangepast worden naar een nette naam. Hierbij worden leesteken en spaties vervangen door koppeltekens. Van de geuploade bestanden worden kleinere versies en/of uitsnedes gemaakt.
+Een verzameling van gegroepeerde afbeeldingen. Gebruikers kunnen afbeeldingen uploaden en voorzien van een tag. Aan het uploaden van bestanden zitten restricties van zowel grootte als omvang. Deze restricties zijn mede bepaald door de server (Standaard 10MB) en de configuratie van Drupal (gebruikelijk 1600 x 1600 pixel).
+
+De naam van het bestand zal doormiddel van \emph{transliteration} aangepast worden naar een nette naam. Hierbij worden leesteken en spaties vervangen door koppeltekens. Van de geuploade bestanden worden kleinere versies en/of uitsnedes gemaakt.
 
 Er komt een pagina met een lijst van alle fotoalbums. Om de tags van fotoalbums en tags van andere content niet door elkaar te halen wordt gebruik gemaakt van een andere lijst. Na het klikken op de categorie worden alle foto's met deze tag getoond als thumbnail met lightbox na opklik voor een grotere versie.
 
