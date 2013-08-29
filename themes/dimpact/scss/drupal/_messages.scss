@@ -1,33 +1,25 @@
 .messages {
+  margin: $gutter-width;
   @extend .clearfix;
-  background-color: #bedb82;
-  border-bottom: solid 1px rgba(137, 179, 51, 0.8);
-  line-height: 1.6;
-  padding: 20px;
-  + .messages {
-    border-top: none;
-  }
-  a {
-    color: inherit;
-    border-bottom: dotted 1px;
-    padding-bottom: 2px;
-    text-decoration: none;
+  background-color: #ddff99;
+  padding: $gutter-width/2 $gutter-width/2 $gutter-width/2 $gutter-width*2;
+  background-image: url('../img/message_status.png');
+  background-repeat: no-repeat;
+  background-position: $gutter-width/2 $gutter-width/2;
+  ul {
+    margin: 0 0 0 1em;
+    li {
+      list-style-type: disc;
+    }
   }
 }
 
 .error {
-  background-color: #f14a29;
-  color: white;
-  h2 {
-    background-color: rgba(201, 38, 13, 0.8);
-  }
+  background-color: #F2BFBB;
+  background-image: url('../img/message_err.png');
 }
 
 .warning {
-  background-color: #ffe375;
-  border-color: rgba(236, 188, 0, 0.8);
-  color: #111111;
-  h2 {
-    background-color: rgba(236, 188, 0, 0.8);
-  }
+  background-color: #FDF6BB;
+  background-image: url('../img/message_info.png');
 }

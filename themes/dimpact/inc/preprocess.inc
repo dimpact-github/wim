@@ -176,10 +176,10 @@ function dimpact_preprocess_block(&$vars) {
       $vars['block_html_id'],
     );
     $vars['classes_array'][] = 'admin-only-wrapper';
-
     $vars['classes_array'] = array_diff($vars['classes_array'], $remove);
-
   }
+//  var_dump($vars); exit;
+  $vars['title_attributes_array']['class'][] = 'block-title';
 
 }
 

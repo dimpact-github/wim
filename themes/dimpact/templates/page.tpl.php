@@ -34,17 +34,10 @@ $region_full_bottom = render($page['region_full_bottom']);
 $tabs = render($tabs);
 $actions = count($action_links);
 $action_links = render($action_links);
-
 ?>
-<?php if ($messages): ?>
-  <section class="console">
-    <h2 class="visuallyhidden"><?php print t('Console'); ?></h2>
-    <?php print $messages; ?>
-  </section>
-<?php endif; ?>
 
 <?php if ($region_meta_first || $region_meta_second): ?>
-  <div class="container">
+  <div class="container container-nopadding">
     <div class="region_meta_first">
       <?php print $region_meta_first; ?>
     </div>
@@ -75,7 +68,7 @@ $action_links = render($action_links);
   </header>
   <?php if ($navigation): ?>
     <nav role="navigation" class="main-menu">
-      <div class="container">
+      <div class="container container-nopadding">
         <h2 class="visuallyhidden"><?php print t('Main menu'); ?></h2>
         <?php print $navigation; ?>
       </div>
@@ -83,6 +76,15 @@ $action_links = render($action_links);
   <?php endif; ?>
 
   <div class="main" id="main">
+
+    <?php if ($messages): ?>
+      <div class="container container-nopadding">
+        <section class="console">
+          <h2 class="visuallyhidden"><?php print t('Console'); ?></h2>
+          <?php print $messages; ?>
+        </section>
+      </div>
+    <?php endif; ?>
 
     <?php // Region 12/12 top ?>
     <div class="container">
@@ -120,7 +122,7 @@ $action_links = render($action_links);
         <?php // print $breadcrumb; ?>
         <div id="content">
           <?php print render($title_prefix); ?>
-          <?php if ($title): ?>
+          <?php if ($title && !empty($content)): ?>
             <h1 class="title" id="page-title"><?php print $title; ?></h1>
           <?php endif; ?>
           <?php print render($title_suffix); ?>

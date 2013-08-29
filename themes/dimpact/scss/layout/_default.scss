@@ -12,14 +12,16 @@ $break-large: 12;
 .container {
   @include container;
   @include susy-grid-background;
-  padding: 0;
+  position: relative;
+}
+.container-nopadding {
+  padding: 0 !important;
 }
 
 @include at-breakpoint($break-large) {
   .container {
     @include container($total-columns, $break-large);
     @include susy-grid-background;
-    padding: 0;
   }
   .region_meta_first {
     @include span-columns(6, $break-large);

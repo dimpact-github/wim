@@ -135,7 +135,7 @@ article {
 }
 
 p {
-  margin: 1.25em 0;
+  //margin: 1.25em 0;
   &:first-child {
     margin-top: 0;
   }
@@ -167,10 +167,47 @@ p {
   padding: 0;
   margin: 0;
 }
-#header {
-  position: relative;
-}
 .branding {
-  position: relative;
-  padding: $gutter-width;
+  padding: $gutter-width 0;
+}
+article {
+  overflow: hidden;
+  margin: 0 0 $gutter-width 0;
+  padding: 0 0 $gutter-width 0;
+  &.view-mode-teaser {
+    h2 {
+      margin-top: 0;
+    }
+  }
+  &.view-mode-full {
+    .field-intro {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+  }
+  .field-image {
+    margin-bottom: $gutter-width;
+  }
+}
+.view {
+  article {
+    border-bottom: 1px solid $border;
+    &:last-child {
+      border: 0;
+    }
+    .field-image {
+      float: left;
+      margin-right: $gutter-width;
+    }
+    .content {
+      overflow: hidden;
+    }
+  }
+}
+.block-node {
+  article {
+    h2 {
+      display: none;
+    }
+  }
 }
