@@ -1,0 +1,5 @@
+$base-spacing: 32px;
+
+@import "base/*.png";
+
+$base: sprite-map("base/*.png");

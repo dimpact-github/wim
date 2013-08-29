@@ -1,0 +1,97 @@
+// Compass
+//------------------------------------------------------------------------------
+
+$experimental-support-for-khtml: false !default;
+
+// Type
+//------------------------------------------------------------------------------
+
+$base-font-size: 16 !default;
+$line-height: 1.5;
+
+//$arial: Arial, sans-serif;
+//$helvetica: Helvetica, arial, sans-serif;
+//$verdana: Verdana, sans-serif;
+$georgia: Georgia, sans-serif;
+$monaco: Monaco, monospace, serif;
+
+$sans-serif: Verdana, sans-serif;
+$heading: Arial, sans-serif;
+$serif: $georgia;
+$monospace: $monaco;
+
+// Colors
+//------------------------------------------------------------------------------
+
+$link: #154273 !default;
+$link-light: #fff;
+$link-dark: #000;
+$hover: #0162CD;
+$active: #0162CD;
+$visited: lighten($link, 5%);
+$focus: darken($link, 10%);
+
+$gray: #585858;
+$border: #eeeeee;
+$border-tabs: $border;
+$error: #cc0000;
+$text-color: #333;
+$background-color: #F3F5F6;
+
+// Rijkshuisstijl colors
+$dark-brown: #623327;
+$dark-brown-light: #D1C1BE;
+
+$purple: #42145f;
+$purple-light: #C6B8CF;
+
+$dark-green: #275937;
+$dark-green-light: #BECDC3;
+
+$ruby: #ca005a;
+$ruby-light: #F2BFBB;
+
+$red: #d52b1e;
+$red-light: #F2BFBB;
+
+$violet: #a90061;
+$violet-light: #E5B2CF;
+
+$moss-green: #777c00;
+$moss-green-light: #D6D7B2;
+
+$brown: #94710a;
+$brown-light: #DFD4B5;
+
+$green: #39870c;
+$green-light: #C3DBB6;
+
+$azure: #007bc7;
+$azure-light: #B2D7EE;
+
+$light-blue: #8fcae7;
+$light-blue-light: #DDEFF8;
+
+$pink: #f092cd;
+$pink-light: #FADEF0;
+
+$yellow: #f9e11e;
+$yellow-light: #FDF6BB;
+
+$dark-yellow: #ffb612;
+$dark-yellow-light: #FFE9B7;
+
+$mint-green: #76d2b6;
+$mint-green-light: #D6F1E9;
+
+$orange: #e17000;
+$orange-light: #F6D4B2;
+
+// Grid
+//------------------------------------------------------------------------------
+
+$total-columns: 4 !default;
+$column-width: 60px !default;
+$gutter-width: 20px !default;
+$grid-padding: 20px !default;
+$show-grid-backgrounds: false !default;

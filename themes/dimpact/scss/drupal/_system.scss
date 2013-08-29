@@ -1,0 +1,210 @@
+// Autocomplete suggestions
+//------------------------------------------------------------------------------
+
+#autocomplete {
+  border: 1px solid;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+  ul {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    background: white;
+    color: black;
+    cursor: default;
+    white-space: pre;
+  }
+}
+
+// Autocomplete throbber
+//------------------------------------------------------------------------------
+
+.js {
+  input {
+    &.form-autocomplete {
+      background: inherit url("../img/throbber.gif") no-repeat 100% 2px;
+    }
+    &.throbbing {
+      background-position: 100% -18px;
+    }
+  }
+  fieldset.collapsed {
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    height: 1em;
+    .fieldset-wrapper {
+      display: none;
+    }
+  }
+}
+
+// AJAX progress throbber
+//------------------------------------------------------------------------------
+
+.ajax-progress {
+  display: inline-block;
+  .throbber {
+    background: transparent url("../img/throbber.gif") no-repeat 0px -18px;
+    float: left;
+    height: 15px;
+    margin: 2px;
+    width: 15px;
+  }
+  .message {
+    padding-left: 20px;
+  }
+}
+
+tr .ajax-progress .throbber {
+  margin: 0 2px;
+}
+
+.ajax-progress-bar {
+  width: 16em;
+}
+
+// Collapsible fieldsets
+//------------------------------------------------------------------------------
+
+fieldset.collapsible {
+  position: relative;
+  .fieldset-legend {
+    display: block;
+  }
+}
+
+// Resizable textareas
+//------------------------------------------------------------------------------
+
+.resizable textarea {
+  resize: vertical;
+}
+
+// Tabledrag
+//------------------------------------------------------------------------------
+
+.indentation {
+  @extend .inline-block;
+  width: 20px;
+  &.tree-child, &.tree-child-horizontal {
+    @include base-sprite(tree);
+  }
+  &.tree-child-last {
+    @include base-sprite(tree-bottom);
+  }
+}
+
+// Tablesort
+//------------------------------------------------------------------------------
+
+.sort {
+  @extend .inline-block;
+  @extend .hide-text;
+}
+
+.ascending {
+  @include base-sprite(arrow-down, true);
+}
+
+.descending {
+  @include base-sprite(arrow-up, true);
+}
+
+th.active {
+  white-space: nowrap;
+}
+
+// Tabledrag
+//------------------------------------------------------------------------------
+
+.draggable a.tabledrag-handle {
+  @extend .inline-block;
+  margin: 0 5px 0 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+a.tabledrag-handle {
+  &, &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+  .handle {
+    @include base-sprite(crosshair-gray, true);
+    margin-top: 0;
+    tr.drag & {
+      @include base-sprite(crosshair-blue);
+    }
+  }
+}
+
+a.tabledrag-handle-hover .handle {
+  @include base-sprite(crosshair);
+}
+
+tr.draggable td:first-child {
+  white-space: nowrap;
+}
+
+a.tabledrag-toggle-weight {
+  margin-right: 0;
+}
+
+.tabledrag-toggle-weight-wrapper {
+  @include font-size(11);
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+// Sticky table header
+//------------------------------------------------------------------------------
+
+table.sticky-header {
+  background-color: white;
+  margin-top: 0;
+}
+
+// Progress bar
+//------------------------------------------------------------------------------
+
+.progress {
+  .bar {
+    background-color: white;
+    border: 1px solid;
+  }
+  .filled {
+    background-color: black;
+    height: 1.5em;
+    width: 5px;
+  }
+  .percentage {
+    float: right;
+  }
+}
+
+// Inline containers
+//------------------------------------------------------------------------------
+
+.container-inline {
+  > div, label {
+    display: inline;
+  }
+  .fieldset-wrapper {
+    display: block;
+  }
+}
+
+// Accessibility
+//------------------------------------------------------------------------------
+
+.element-invisible {
+  @extend .visually-hidden;
+}
+
+.element-focusable {
+  @extend .focusable;
+}

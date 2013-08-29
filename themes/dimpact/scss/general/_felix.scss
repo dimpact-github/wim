@@ -1,0 +1,21 @@
+.block-felix {
+  //@include border-radius($border-radius);
+  padding: 6px;
+  margin-bottom: 10px;
+  background-color: #F3F3F3;
+  border: 1px solid #DBDBDB;
+  font-size: 15px;
+  clear: both;
+  h2 {
+    color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0;
+    font-size: 14px;
+    &:after {
+      content: 'FELIX';
+      position: absolute;
+      right: 0;
+      color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+$break-large: 12;
+
+#header, #footer, #main {
+  @extend .clearfix;
+}
+
+#main-wrapper {
+  @include container($total-columns, $break-large);
+  padding: 0;
+}
+
+.container {
+  @include container;
+  @include susy-grid-background;
+  padding: 0;
+}
+
+@include at-breakpoint($break-large) {
+  .container {
+    @include container($total-columns, $break-large);
+    @include susy-grid-background;
+    padding: 0;
+  }
+  .region_meta_first {
+    @include span-columns(6, $break-large);
+  }
+  .region_meta_second {
+    @include span-columns(6 omega, $break-large);
+  }
+
+  .region_84_first {
+    @include span-columns(8, $break-large);
+  }
+  .region_84_second {
+    @include span-columns(4 omega, $break-large);
+  }
+
+  .region_39_first {
+    @include span-columns(3, $break-large);
+  }
+  .region_39_second {
+    @include span-columns(9 omega, $break-large);
+  }
+
+  .region_354_first {
+    @include span-columns(3, $break-large);
+  }
+  #content {
+    @include span-columns(5, $break-large);
+  }
+  .region_354_third {
+    @include span-columns(4 omega, $break-large);
+  }
+
+  .region_444_first,
+  .region_444_second {
+    @include span-columns(4, $break-large);
+  }
+  .region_444_third {
+    @include span-columns(4 omega, $break-large);
+  }
+}

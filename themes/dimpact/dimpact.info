@@ -1,0 +1,48 @@
+name = Dimpact
+core = 7.x
+description = Dimpact moedersjabloon
+
+stylesheets[screen][] = css/style.css
+
+regions[header] = Header
+regions[navigation] = Navigation
+regions[highlighted] = Highlighted
+regions[help] = Help
+
+; Region meta menu
+regions[region_meta_first]  = Regio meta 6/12 first
+regions[region_meta_second] = Regio meta 6/12 second
+
+; Region full top
+regions[region_full_top]    = Regio breed boven
+
+; Region 8/4
+regions[region_84_first]    = Regio 8/12
+regions[region_84_second]   = Regio 4/12
+
+; Region 3/9
+regions[region_39_first]    = Regio 3/12
+regions[region_39_second]   = Regio 9/12
+
+; Region 3/5/4 $content
+regions[region_354_first]   = Regio 3/12
+regions[content_top]        = Content top (5/12)
+regions[content]            = Content (5/12)
+regions[content_bottom]     = Content bottom(5/12)
+regions[region_354_third]   = Regio 4/12 (354)
+
+; Region 4/4/4
+regions[region_444_first]   = Regio 4/12 first
+regions[region_444_second]  = Regio 4/12 second
+regions[region_444_third]   = Regio 4/12 third
+
+; Region full bottom
+regions[region_full_bottom] = Regio breed onder
+
+
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[footer] = Footer
+
+
+settings[color_swatch_internet] = azure

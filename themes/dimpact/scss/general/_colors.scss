@@ -1,0 +1,30 @@
+$color-names: dark-brown purple dark-green ruby red violet moss-green brown green azure light-blue pink yellow dark-yellow mint-green orange;
+$color-values: $dark-brown $purple $dark-green $ruby $red $violet $moss-green $brown $green $azure $light-blue $pink $yellow $dark-yellow $mint-green $orange;
+$color-values-light: $dark-brown-light $purple-light $dark-green-light $ruby-light $red-light $violet-light $moss-green-light $brown-light $green-light $azure-light $light-blue-light $pink-light $yellow-light $dark-yellow-light $mint-green-light $orange-light;
+$link-color: $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-dark $link-dark $link-dark $link-dark $link-dark $link-dark;
+$colors: zip($color-names, $color-values, $color-values-light, $link-color);
+
+@each $color in $colors {
+  $type: nth($color, 1);
+  $colour: nth($color, 2);
+  $colourlight: nth($color, 3);
+  $linkcolor: nth($color, 4);
+
+  body.#{$type} {
+    nav {
+      &.main-menu {
+        background-color: $colour;
+        border-bottom: 10px solid $colourlight;
+        a {
+          color: $linkcolor !important;
+          &.active,
+          &:hover {
+            text-decoration: none;
+            background-color: $colourlight;
+            color: $link-dark !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+/*
+ * jQuery UI CSS Framework 1.8.7 (modified)
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+// Layout Helpers
+//------------------------------------------------------------------------------
+
+.ui-helper-hidden {
+  @extend .hidden;
+}
+
+.ui-helper-hidden-accessible {
+  @extend .visually-hidden;
+}
+
+.ui-helper-reset {
+  @include reset-box-model;
+  @include no-bullets;
+  @include font-size;
+  line-height: $line-height;
+  outline: 0;
+  text-decoration: none;
+}
+
+.ui-helper-clearfix {
+  @extend .clearfix;
+}
+
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  @include opacity(0);
+}
+
+// Interaction Cues
+//------------------------------------------------------------------------------
+
+.ui-state-disabled {
+  cursor: not-allowed !important;
+}
+
+// Icons
+//------------------------------------------------------------------------------
+
+.ui-icon {
+  background-repeat: no-repeat;
+  display: block;
+  @extend .hide-text;
+}
+
+// Misc Visuals
+//------------------------------------------------------------------------------
+
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,107 @@
+// Visually hidden, but available for screen readers.
+//------------------------------------------------------------------------------
+// Used for information required for screen-reader users to understand and use
+// the site where visual display is undesirable. Information provided in this
+// manner should be kept concise, to avoid unnecessary burden on the user.
+// !important is used to prevent unintentional overrides.
+//
+// This is the Boilerplate version and overrides the .element-invisible version
+// that ships with Drupal because it's buggy.
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Visually hidden, but available to screen readers and keyboard navigation.
+//------------------------------------------------------------------------------
+// Allows the element to be focusable when navigated to via the keyboard. This
+// is typically used for skip links.
+//
+// This is the Boilerplate version and overrides the .element-focusable version
+// that ships with Drupal because it's buggy.
+
+@mixin focusable {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static !important;
+  width: auto;
+}
+
+// Hide
+//------------------------------------------------------------------------------
+
+@mixin hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+// Override +link-colors mixin.
+// @see http://compass-style.org/reference/compass/typography/links/link_colors/
+//------------------------------------------------------------------------------
+@mixin link-colors($normal, $hoverfocus: false, $active: false) {
+  &, &:visited {
+    color: $normal;
+  }
+  @if $hoverfocus {
+    &:hover, &:focus {
+      color: $hoverfocus;
+    }
+  }
+  @if $active {
+    &:active, &.active, .active-trail & {
+      color: $active;
+    }
+  }
+}
+
+// Font-sizing
+//------------------------------------------------------------------------------
+
+// This works with the $base-font-size variable, so be sure to set it, without
+// units. +base-font-size needs to be set on <html>. It is the root for rem
+// calculations, and without it (unless the base is 16px) the calculations
+// will be incorrect.
+
+@mixin base-font-size($pixels: $base-font-size) {
+  font-size: $pixels + px;
+  font-size: $pixels / 16 * 100%;
+}
+
+// This function will take the desired pixel result and provide a pixel fallback
+// version as well as rem version. It uses the $base variable
+
+@mixin font-size($pixels: $base-font-size) {
+  font-size: $pixels + px;
+  font-size: $pixels / $base-font-size + rem;
+}
+
+// Mixin to add nested media queries.
+// See https://gist.github.com/1215856 + http://vimeo.com/32611202
+//------------------------------------------------------------------------------
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 479px) {
+      @content;
+    }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+      @content;
+    }
+  }
+}

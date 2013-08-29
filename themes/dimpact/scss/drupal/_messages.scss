@@ -1,0 +1,33 @@
+.messages {
+  @extend .clearfix;
+  background-color: #bedb82;
+  border-bottom: solid 1px rgba(137, 179, 51, 0.8);
+  line-height: 1.6;
+  padding: 20px;
+  + .messages {
+    border-top: none;
+  }
+  a {
+    color: inherit;
+    border-bottom: dotted 1px;
+    padding-bottom: 2px;
+    text-decoration: none;
+  }
+}
+
+.error {
+  background-color: #f14a29;
+  color: white;
+  h2 {
+    background-color: rgba(201, 38, 13, 0.8);
+  }
+}
+
+.warning {
+  background-color: #ffe375;
+  border-color: rgba(236, 188, 0, 0.8);
+  color: #111111;
+  h2 {
+    background-color: rgba(236, 188, 0, 0.8);
+  }
+}
