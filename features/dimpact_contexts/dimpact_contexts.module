@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Contexts feature.
+ */
+
+include_once 'dimpact_contexts.features.inc';
