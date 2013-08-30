@@ -178,9 +178,15 @@ p {
     margin-bottom: $gutter-width;
   }
 }
+.inline {
+  display: inline;
+}
 .node {
   margin: 0 0 $gutter-width 0;
   //padding: 0 0 $gutter-width 0;
+  .field-label {
+    font-weight: bold;
+  }
   ul, ol {
     padding-left: 2em;
     list-style-type: square;
