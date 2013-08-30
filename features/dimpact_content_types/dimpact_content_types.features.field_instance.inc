@@ -178,7 +178,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'mediafield',
         'settings' => array(
-          'file_view_mode' => 'default',
+          'file_view_mode' => 'teaser',
         ),
         'type' => 'media',
         'weight' => 1,
