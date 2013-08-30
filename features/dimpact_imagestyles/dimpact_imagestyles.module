@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact imagestyles feature.
+ */
+
+include_once 'dimpact_imagestyles.features.inc';
