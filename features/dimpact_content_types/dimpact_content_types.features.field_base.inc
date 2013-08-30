@@ -154,7 +154,7 @@ function dimpact_content_types_field_default_field_bases() {
       'granularity' => array(
         'day' => 'day',
         'hour' => 'hour',
-        'minute' => 0,
+        'minute' => 'minute',
         'month' => 'month',
         'second' => 0,
         'year' => 'year',
