@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Files feature.
+ */
+
+include_once 'dimpact_files.features.inc';
