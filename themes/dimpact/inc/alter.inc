@@ -111,7 +111,7 @@ function dimpact_html_head_alter(&$head_elements) {
  * Implements hook_css_alter().
  */
 function dimpact_css_alter(&$css) {
-  $theme = drupal_get_path('theme', 'base');
+  $theme = drupal_get_path('theme', 'dimpact');
 
   // Remove some stylesheets.
   unset(

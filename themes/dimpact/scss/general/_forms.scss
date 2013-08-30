@@ -61,7 +61,8 @@ input[disabled] + label {
 
 input[type="text"],
 input[type="search"],
-input[type="submit"] {
+input[type="submit"],
+input[type="password"] {
   font-size: 12px;
   background: none repeat scroll 0 0 #FFFFFF;
   border: 1px solid #000000;

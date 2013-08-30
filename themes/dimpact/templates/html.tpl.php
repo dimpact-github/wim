@@ -6,7 +6,9 @@
     <?php print $styles; ?>
     <?php print $scripts; ?>
     <!--[if lt IE 9]>
-      <script src="/<?php print $path . '/js/libraries/html5shiv/src/html5shiv.js'; ?>"></script>
+      <link rel="stylesheet" href="/<?php print $path; ?>/css/lte-ie9.css" media="all">
+      <script src="/<?php print $path; ?>/js/libraries/html5shiv/src/html5shiv.js"></script>
+      <script src="/<?php print $path; ?>/js/libraries/respond.min.js"></script>
     <![endif]-->
   </head>
   <body<?php print $body_attributes;?>>

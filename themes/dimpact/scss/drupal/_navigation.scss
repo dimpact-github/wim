@@ -9,6 +9,7 @@
 nav {
   &.main-menu {
     padding: 2.8em 0 0;
+    margin-bottom: $gutter-width;
     ul {
       list-style: none outside none;
       margin: 0;
@@ -19,7 +20,7 @@ nav {
         padding: 0;
         a {
           @include font-size(12);
-          font-family: $heading;
+          font-family: $arial;
           font-weight: bold;
           display: block;
           padding: 0.5em 1em;
@@ -39,6 +40,7 @@ nav {
     }
     ul {
       margin: 4px 0;
+      padding: 0;
       li {
         float: left;
         margin: 0;

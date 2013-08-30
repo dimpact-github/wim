@@ -6,7 +6,7 @@
  */
 function dimpact_preprocess_html(&$vars) {
   // Create a variable for the path to the theme.
-  $vars['path'] = drupal_get_path('theme', 'dopbase');
+  $vars['path'] = drupal_get_path('theme', 'dimpact');
 
   // Initializes attributes which are specific to the html and body elements.
   $vars['html_attributes_array'] = array();
@@ -171,9 +171,9 @@ function dimpact_preprocess_block(&$vars) {
 
   if ($vars['block']->module == 'views' && $vars['is_admin']) {
     $remove = array(
-      'block',
-      'block-' . $vars['block']->module,
-      $vars['block_html_id'],
+//      'block',
+//      'block-' . $vars['block']->module,
+//      $vars['block_html_id'],
     );
     $vars['classes_array'][] = 'admin-only-wrapper';
     $vars['classes_array'] = array_diff($vars['classes_array'], $remove);
@@ -261,6 +261,10 @@ function dimpact_preprocess_field(&$vars) {
     'clearfix',
   );
   $vars['classes_array'] = array_diff($vars['classes_array'], $classes_to_remove);
+
+//  if ($vars['element']['#field_name'] == 'field_intro') {
+//    var_dump($vars['items']['0']['#markup']);
+//  }
 }
 
 /**

@@ -24,7 +24,7 @@ body {
   font-family: $sans-serif;
   @include font-size(11);
   line-height: $line-height;
-  padding: 0;
+  padding: 0 $gutter-width;
   margin: 0;
   word-wrap: break-word;
   background-color: $background-color;
@@ -35,12 +35,15 @@ pre, code, kbd, samp {
   font-family: $monospace;
   @include font-size(11);
 }
-:focus { outline: 0.2em solid blue; }
+
 a {
   @include link-colors($link, $hover, $active);
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+  }
+  &:focus {
+    outline: 0.2em solid blue;
   }
 }
 
@@ -83,7 +86,7 @@ td {
   line-height: 1;
   padding: 0;
   margin-bottom: 0.75em;
-  margin-top: 1.25em;
+  margin-top: 0;
 }
 
 h1 {
@@ -170,13 +173,44 @@ p {
 .branding {
   padding: $gutter-width 0;
 }
-article {
-  overflow: hidden;
+#main-wrapper {
+  .block {
+    margin-bottom: $gutter-width;
+  }
+}
+.node {
   margin: 0 0 $gutter-width 0;
-  padding: 0 0 $gutter-width 0;
+  //padding: 0 0 $gutter-width 0;
+  ul, ol {
+    padding-left: 2em;
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  .content {
+    a {
+      text-decoration: underline;
+    }
+  }
+  .day-month-year {
+    font-weight: bold;
+  }
   &.view-mode-teaser {
+    overflow: hidden;
+    .day-month-year {
+      &:after {
+        content: " \2014";
+      }
+    }
     h2 {
       margin-top: 0;
+    }
+    .field-intro {
+      display: inline;
+      p {
+        display: inline;
+      }
     }
   }
   &.view-mode-full {
@@ -186,12 +220,16 @@ article {
     }
   }
   .field-image {
-    margin-bottom: $gutter-width;
+    margin-bottom: 1em;
+  }
+  #{headings()} {
+    margin-bottom: 0.75em;
+    margin-top: 1.25em;
   }
 }
 .view {
-  article {
-    border-bottom: 1px solid $border;
+  .node {
+    //border-bottom: 1px solid $border;
     &:last-child {
       border: 0;
     }
@@ -199,13 +237,10 @@ article {
       float: left;
       margin-right: $gutter-width;
     }
-    .content {
-      overflow: hidden;
-    }
   }
 }
 .block-node {
-  article {
+  .node {
     h2 {
       display: none;
     }

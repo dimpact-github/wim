@@ -1,7 +1,7 @@
 .block-felix {
   //@include border-radius($border-radius);
   padding: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 5px !important;
   background-color: #F3F3F3;
   border: 1px solid #DBDBDB;
   font-size: 15px;
@@ -11,6 +11,8 @@
     position: relative;
     margin: 0;
     font-size: 14px;
+    font-family: $arial;
+    font-weight: bold;
     &:after {
       content: 'FELIX';
       position: absolute;

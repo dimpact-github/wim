@@ -16,20 +16,20 @@ regions[region_meta_second] = Regio meta 6/12 second
 ; Region full top
 regions[region_full_top]    = Regio breed boven
 
-; Region 8/4
-regions[region_84_first]    = Regio 8/12
-regions[region_84_second]   = Regio 4/12
+; Region 9/3
+regions[region_93_first]    = Regio 9/12 (9/3)
+regions[region_93_second]   = Regio 3/12 (9/3)
 
 ; Region 3/9
-regions[region_39_first]    = Regio 3/12
-regions[region_39_second]   = Regio 9/12
+regions[region_39_first]    = Regio 3/12 (3/9)
+regions[region_39_second]   = Regio 9/12 (3/9)
 
-; Region 3/5/4 $content
-regions[region_354_first]   = Regio 3/12 (content
-regions[content_top]        = Content top (5/12)
-regions[content]            = Content (5/12)
-regions[content_bottom]     = Content bottom(5/12)
-regions[region_354_third]   = Regio 4/12 (content)
+; Region 3/6/3 $content
+regions[region_363_first]   = Regio 3/12 (first 3/6/3)
+regions[content_top]        = Content top (6/12)
+regions[content]            = Content (6/12)
+regions[content_bottom]     = Content bottom(6/12)
+regions[region_363_third]   = Regio 3/12 (third 3/6/3)
 
 ; Region 4/4/4
 regions[region_444_first]   = Regio 4/12 first
