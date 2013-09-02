@@ -59,6 +59,8 @@ function dimpact_preprocess_html(&$vars) {
   }
   $vars['classes_array'] = array_diff($vars['classes_array'], $suggestion_classes);
   $vars['classes_array'][] = theme_get_setting('color_swatch_internet');
+
+  drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
 }
 
 /**
