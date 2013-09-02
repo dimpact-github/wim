@@ -41,9 +41,9 @@
   <?php print $rows; ?>
 </div>
 <div class="progress"></div>
-<a href="#" class="btn_prev"><?php print t('Previous'); ?></a>
+<a href="#" class="btn_prev">&laquo; <?php print t('Vorige'); ?></a>
 <div class="pager"></div>
-<a href="#" class="btn_next"><?php print t('Next'); ?></a>
+<a href="#" class="btn_next"><?php print t('Volgende'); ?> &raquo;</a>
 <?php print $empty; ?>
 <?php print $pager; ?>
 <?php print $attachment_after; ?>

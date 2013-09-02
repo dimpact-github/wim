@@ -22,12 +22,13 @@
     padding: 10px 0;
     text-align: center;
     a {
+      color: $link-dark;
       span {
         display: block;
         padding: 4px 8px;
       }
       &.selected {
-        font-weight: bold;
+        //font-weight: bold;
       }
     }
   }
