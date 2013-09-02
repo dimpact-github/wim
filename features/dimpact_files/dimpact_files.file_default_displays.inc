@@ -70,7 +70,9 @@ function dimpact_files_file_default_displays() {
   $file_display->weight = 5;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => 'large',
+    'image_style' => 'overige_onderwerp',
+    'alt' => '[file:field_file_image_alt_text]',
+    'title' => '[file:field_file_image_title_text]',
   );
   $export['image__full__file_image'] = $file_display;
 
