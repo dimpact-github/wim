@@ -34,5 +34,35 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         background-color: $colourlight;
       }
     }
+
+    .carousel {
+      .progress {
+        background-color: $colourlight;
+      }
+      .pager {
+        a {
+          text-decoration: none;
+          span {
+            background-color: $colourlight;
+          }
+          &:hover,
+          &.selected {
+            span {
+              background-color: $colour;
+              color: $linkcolor !important;
+            }
+          }
+        }
+      }
+      .btn_next,
+      .btn_prev {
+        background-color: $colourlight;
+        color: $link-dark;
+        &:hover {
+          background-color: $colour;
+          color: $linkcolor !important;
+        }
+      }
+    }
   }
 }

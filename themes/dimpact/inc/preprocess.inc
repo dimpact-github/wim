@@ -61,6 +61,7 @@ function dimpact_preprocess_html(&$vars) {
   $vars['classes_array'][] = theme_get_setting('color_swatch_internet');
 
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
+  drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/libraries/jquery.carouFredSel-6.2.1-packed.js');
 }
 
 /**

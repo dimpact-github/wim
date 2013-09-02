@@ -1,0 +1,48 @@
+.carousel {
+  .views-row {
+    float: left;
+    display: block;
+    position: relative;
+    .views-field-title {
+      position: absolute;
+      bottom: 0;
+      background-image: url("../img/transparant-75.png");
+      width: 100%;
+      h2 {
+        margin: 0;
+        padding: $gutter-width;
+        line-height: 1;
+      }
+    }
+  }
+  .progress {
+    height: 2px;
+  }
+  .pager {
+    padding: 10px 0;
+    text-align: center;
+    a {
+      span {
+        display: block;
+        padding: 4px 8px;
+      }
+      &.selected {
+        font-weight: bold;
+      }
+    }
+  }
+  .btn_next,
+  .btn_prev {
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    display: block;
+    padding: 4px 8px;
+  }
+  .btn_next {
+    right: 0;
+  }
+  .btn_prev {
+    left: 0;
+  }
+}

@@ -11,6 +11,7 @@
 
 @import "general/felix";
 @import "general/colors";
+@import "general/carousel";
 
 @import "global";
 
@@ -177,6 +178,8 @@ p {
 #main-wrapper {
   .block {
     margin-bottom: $gutter-width;
+    overflow: hidden;
+    position: relative;
   }
 }
 .inline {
