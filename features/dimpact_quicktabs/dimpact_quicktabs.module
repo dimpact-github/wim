@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Quicktabs feature.
+ */
+
+include_once 'dimpact_quicktabs.features.inc';
