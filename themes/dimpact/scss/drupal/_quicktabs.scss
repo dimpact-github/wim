@@ -1,0 +1,26 @@
+.ui-tabs {
+  padding: 0;
+  .ui-tabs-nav {
+    border-bottom: 10px solid;
+    padding: 0;
+    li {
+      display: block;
+      float: left;
+      top: auto;
+      margin: 0 !important;
+      padding: 0 !important;
+      a {
+        @include font-size(12);
+        font-family: $arial;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.5em 1em;
+        display: block;
+        color: $link-dark;
+      }
+    }
+  }
+  .ui-tabs-panel {
+    padding: $gutter-width/2 0 0 0;
+  }
+}
