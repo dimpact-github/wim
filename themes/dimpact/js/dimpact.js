@@ -6,11 +6,12 @@
       scroll: {
         fx: "directscroll",
         duration: 1000,
-        pauseOnHover: true
+        pauseOnHover: 'resume'
       },
       auto: {
         timeoutDuration: 10000,
-        progress: ".progress"
+        progress: ".progress",
+        button: ".btn_play_pause"
       },
       pagination: ".pager",
       next: {
