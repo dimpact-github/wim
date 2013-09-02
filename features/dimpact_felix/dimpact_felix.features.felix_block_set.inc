@@ -14,18 +14,22 @@ function dimpact_felix_felix_default_block_sets() {
     'title' => 'default',
     'blocks' => array(
       0 => array(
-        'module' => 'views',
-        'delta' => 'agenda-block_1',
+        'module' => 'quicktabs',
+        'delta' => 'nieuws_agenda',
       ),
       1 => array(
         'module' => 'views',
-        'delta' => 'agenda-block_2',
+        'delta' => 'agenda-block_1',
       ),
       2 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_1',
+        'delta' => 'agenda-block_2',
       ),
       3 => array(
+        'module' => 'views',
+        'delta' => 'nieuws-block_1',
+      ),
+      4 => array(
         'module' => 'views',
         'delta' => 'nieuws-block_2',
       ),
