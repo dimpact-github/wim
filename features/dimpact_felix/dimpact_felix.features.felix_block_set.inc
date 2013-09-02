@@ -33,6 +33,10 @@ function dimpact_felix_felix_default_block_sets() {
         'module' => 'views',
         'delta' => 'nieuws-block_2',
       ),
+      5 => array(
+        'module' => 'views',
+        'delta' => 'nodequeue_carousel_9_3-block',
+      ),
     ),
     'nodetypes' => array(
       0 => array(
