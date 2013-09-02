@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function bespoke_entity_info_alter(&$entity_info) {
+  $entity_info['file']['view modes']['overig_onderwerp'] = array(
+    'label' => t('Overig onderwerp'),
+    'custom settings' => TRUE,
+  );
+}
