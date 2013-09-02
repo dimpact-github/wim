@@ -10,8 +10,8 @@
       width: 100%;
       h2 {
         margin: 0;
-        padding: $gutter-width;
-        line-height: 1;
+        padding: $gutter-width/2 $gutter-width;
+        line-height: $line-height;
       }
     }
   }

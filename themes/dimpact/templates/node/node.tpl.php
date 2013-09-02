@@ -16,17 +16,8 @@ hide($content['field_image']);
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted || !empty($content['field_tags'])): ?>
-    <!--<footer>
-
-      <time datetime="<?php print $timestamp; ?>">
-        <span class="month-year"><?php print format_date($node->created, 'custom', 'M Y'); ?></span>
-        <span class="day"><?php print format_date($node->created, 'custom', 'j'); ?></span>
-        <span class="time"><?php print format_date($node->created, 'custom', 'g:m a'); ?></span>
-      </time>
-
-      <?php // print $user_picture; ?>
-      <?php // print render($content['field_tags']); ?>
-    </footer>-->
+    <?php // print $user_picture; ?>
+    <?php // print render($content['field_tags']); ?>
   <?php endif; ?>
   <div class="content"<?php print $content_attributes; ?>>
     <?php if ($node->type == 'news'): ?>
