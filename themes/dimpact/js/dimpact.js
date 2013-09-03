@@ -3,6 +3,7 @@
 
     $(".carousel-93 .views-rows").carouFredSel({
       items: 1,
+      responsive: true,
       scroll: {
         fx: "directscroll",
         duration: 1000,
