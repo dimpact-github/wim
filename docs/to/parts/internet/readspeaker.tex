@@ -21,7 +21,7 @@ In \texttt{html.tpl.php} wordt de volgende code gezet binnen de \texttt{\textles
 <script src="<?php print base_path() . path_to_theme() . '/readspeaker/ReadSpeaker.js?pids=embhl'; ?>"></script>
 \end{lstlisting}
 
-De JavaScripts van readspeaker worden zelf gehost en dus ook in het theme gezet. Dat is nodig om de button te laten werken op SSL.
+De JavaScripts van readspeaker worden zelf gehost en dus ook in het theme gezet. Dat is beter voor de performance en daarmee is de button tevens SSL-ready.
 
 De \emph{customer id} kan worden ingesteld in \texttt{settings.php}:
 \begin{lstlisting}[language=PHP]

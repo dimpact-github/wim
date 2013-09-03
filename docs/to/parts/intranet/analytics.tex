@@ -1,6 +1,10 @@
-\subsection{Google Analytics}\label{analyticsintranet}
+\subsection{Piwik}\label{analyticsintranet}
 
-Voor het intranet wordt - net als voor het internet - gebruikgemaakt van Google Analytics\seeone{analytics}. Er zijn een aantal aanvullende eisen\footnote{https://support.google.com/analytics/answer/1009688?hl=nl} die van belang zijn wanneer het intranet wordt opgezet bij de gemeenten zelf:
+Voor het intranet zal gebruikgemaakt worden van Piwik, in tegenstellig tot Google Analytics voor het internet\seeone{analytics}. Voor de integratie wordt de \usemodule{piwik} module gebruikt. De installatie van Piwik zal zelf gehost moeten worden.
+
+In zowel de \usemodule{piwik} als \usemodule{google\_analytics} modules bestaat er de mogelijkheid om PHP code te gebruiken voor het bepalen van de beschikbaarheid. We zullen deze optie gebruiken om de tracking alleen op het intranet aan te zetten in het geval van Piwik, en alleen op het internet in het geval van Google Analytics. Op paden beginnend met "admin" en "batch" zullen we de code altijd uitschakelen.
+
+Indien een gemeente later wel gebruik wilt maken van Google Analytics voor het intranet dan zijn er een aantal aanvullende eisen\footnote{https://support.google.com/analytics/answer/1009688?hl=nl} die van belang zijn wanneer het intranet wordt opgezet bij de gemeenten zelf:
 \begin{itemize}
 \item \texttt{google-analytics.com} dient beschikbaar te zijn voor alle computers waarop het intranet wordt gebruikt.
 \item Voor het intranet dient een volledige domeinnaam gebruikt te worden \\ (bijv. \texttt{intranet.gemeente.nl}) en niet bijv. alleen \texttt{intranet}.

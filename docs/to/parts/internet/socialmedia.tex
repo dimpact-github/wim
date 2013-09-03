@@ -21,6 +21,8 @@ De share buttons geven de mogelijkheid om de pagina te delen op social media. Hi
 
 Bij oplevering van de standaarddistributie zullen we de standaard share links aanzetten. De widgets stellen we niet in. Deze kunnen bij implementatie van de gemeentesites makkelijk worden aangezet. De theming zal wel geschikt worden gemaakt voor het grotere formaat van deze widgets.
 
+Buttons worden op alle nodetypes toegevoegd die een detailpagina hebben.
+
 \subsubsection{Widgets in HTML-code}
 
 Eindredacteuren krijgen de mogelijkheid om zelf HTML widgets te plaatsen in de body tekst\seeone{invoerformaten}.
@@ -28,8 +30,10 @@ Eindredacteuren krijgen de mogelijkheid om zelf HTML widgets te plaatsen in de b
 \subsubsection{Externe RSS-feeds}
 
 Via de \usemodule{views} module i.c.m. de \usemodule{views\_rss} module worden RSS feeds ingesteld. De volgende feeds worden aangemaakt:
-\begin{itemize}
+\begin{enumerate}
 \item Laatste nieuwsberichten
+\item Laatste evenementen
+\item Laatste bekendmakingen
 \item Laatst gewijzigde pagina's
-\end{itemize}
-
+\end{enumerate}
+De views worden gesorteerd op publicatiedatum (1 t/m 3) of datum laatst gewijzigd (4). De RSS feed laat altijd 20 items zien.

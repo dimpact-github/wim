@@ -5,10 +5,18 @@ Voor de zoekfunctionaliteit zullen we gebruik maken van de \usemodule{apachesolr
 Een zoekopdracht invoeren gaat altijd via de zoekbox in de header. Voor dit blok wordt de standaard \usemodule{search} module uit Drupal core gebruikt.
 
 \subsubsection{Zoekresultaten}
-De zoekresultaten worden getoond titel en snippet. De zoekwoorden zullen we cursief maken.
+De zoekresultaten worden getoond titel en snippet. De zoekwoorden in de snippet zullen we tonen met gele markering (aanpasbaar via CSS).
+
+\paragraph{Zoekbox}
+Op de zoekresultatenpagina staat de zoekbox zowel in de header als in de linkerkolom. Om het blok dubbel te kunnen gebruiken zullen we gebruik maken van de \usemodule{block\_clone} module. Via de \texttt{bespoke} module zullen we met \emph{preprocess hooks} ervoor zorgen dat het blok niet in de content wordt getoond en dat de zoekopdracht in de zoekbox blijft staan.
 
 \paragraph{Facetten}
-Links van de zoekresultaten wordt een blok toegevoegd met de mogelijkheid om verder te filteren op nodetype. Hiervoor wordt de \usemodule{facetapi} module gebruikt.
+Links van de zoekresultaten wordt een blok toegevoegd met de mogelijkheid om verder te filteren. Hiervoor wordt de \usemodule{facetapi} module gebruikt. De volgende filtering wordt gebruikt:
+\begin{itemize}
+\item Nodetype
+\item Publicatiedatum (per maand)
+\item Doelgroep (taxonomie)
+\end{itemize}
 
 \subsubsection{Zoeken in bijlagen}
 Bijlagen die zijn toegevoegd aan nodes worden meegenomen bij het indexeren. Hiervoor wordt \emph{Apache Tika} i.c.m. de \usemodule{apachesolr\_attachments} module gebruikt. Tika kan diverse formaten omzetten naar platte tekst die geschikt is voor indexatie. Hieronder vallen ook PDF en Microsoft Office formaten\footnote{http://tika.apache.org/1.4/formats.html}.
@@ -20,6 +28,5 @@ De \usemodule{apachesolr} module biedt standaard Bias settings aan voor velden e
 De optie \emph{spellingscontrole} wordt ingeschakeld (onder de settings van de zoekpagina). De woordenlijst komt standaard uit de ge\"{i}ndexeerde tekst. Later kan - indien wenselijk - een eigen woordenlijst worden toegevoegd. Die zal echter generiek zijn voor alle Dimpact gemeenten en kan niet via de admin worden toegevoegd.
 
 \subsubsection{Zoeken binnen landelijke voorzieningen}
-Onder de zoekresultaten uit de gemeentesite komen zoekresultaten uit de landelijke voorzieningen. Hiervoor wordt een custom module ontwikkeld. Deze worden opgehaald uit de \emph{Samenwerkende Catalogi}. Meer informatie over deze koppeling is beschikbaar bij Logius\footnote{http://www.logius.nl/producten/toegang/samenwerkende-catalogi/}. Meer specifiek gaat dit over onderdeel \emph{4.2 Bevraging van de zoekdienst} van het document \emph{IPM SC4.0 Deel B}\footnote{http://www.logius.nl/fileadmin/logius/product/Samenwerkende\_Catalogi/SC\_versie\_4.0\_docs/ \\ IPM\_SC4.0\_Deel\_B\_v1.0\_.pdf}. Het gaat hier enkel om het ophalen van gegevens en direct tonen, dus geen import of export. De (voor gemeentes verplichte) export functie is voorzien in de E-suite van Atos.
-
+De ge\"{i}mporteerde data uit de landelijke voorzieningen wordt meegenomen met de zoekresultaten. 
 

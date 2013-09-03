@@ -1,0 +1,29 @@
+\subsection{Teampagina}\label{teampagina}
+
+De teampagina is een verzamelpunt van agenda items, berichten, veelgestelde vragen en documenten van een specifiek team. Hiervoor wordt gebruik gemaakt van subsites via \usemodule{dominion}. De subsites worden op een directory geplaatst, bijv. \texttt{/teams/communicatie}. De directory is tevens het pad van de teampagina, dat feitelijk de homepage is van de subsite. Toevoegen van inhoud moet ook vanaf de subsite, op bijv. \texttt{team/communicatie/node/add/event}.
+
+\subsubsection{Blokken}
+
+De landingspagina (voorpagina) van de team subsite wordt gemaakt met de \usemodule{emptypage} module. Deze is bij het aanmaken volledig blanco. Ook de rechterkolom is leeg. Via \usemodule{felix}\seeone{felix} kunnen de volgende blokken worden geplaatst:
+\begin{itemize}
+\item Laatste 5 agenda items
+\item Laatste 5 berichten
+\item Laatste 5 veelgestelde vragen
+\item Laatste 5 documenten
+\end{itemize}
+De bedoeling is dat ieder team deze blokken naar eigen inzicht kan verdelen over de middenkolom en de rechterkolom.
+
+De blokken worden gemaakt met \usemodule{views}. Om de theming hiervan onafhankelijk te maken van de blokken met laatste 5 nodes van het internet\seeone{felixcontenttypeblokken} wordt hiervoor een nieuwe view gemaakt. In de footer worden links naar de \texttt{node/add/\%} pagina's getoond indien de bezoeker daar toegang toe heeft. Dit moet gecontroleerd worden via de \texttt{dominion\_restrict} module:
+
+\begin{verbatim}
+global $user;
+if (dominion_restrict_node_access('event', 'create', $user) {
+  print l(t('Evenement toevoegen'), 'node/add/event');
+}
+\end{verbatim}
+
+De lees meer link gaat naar een lijstweergave van alle items.
+
+\subsubsection{Medewerkers lijst}
+
+Onderaan de landingspagina wordt een lijst van medewerkers getoond. Deze lijst wordt gemaakt met de \usemodule{views} module. Dit is een lijst van profielen via \usemodule{profile2} module\seeone{profiel} van gebruikers die gekoppeld zijn aan het huidige domein.

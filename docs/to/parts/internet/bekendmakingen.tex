@@ -1,7 +1,17 @@
 \subsection{Bekendmakingen}\label{bekendmakingen}
 
-Bekendmakingen worden opgeslagen als Drupal nodes. Deze worden ge\"{i}mporteerd door de E-suite van Atos. Hoe deze items daarna ge\"{i}mporteerd zullen worden in de Drupal omgeving voor de gemeentesite is op moment van schrijven nog niet bekend.
+Bekendmakingen worden opgeslagen als Drupal nodes. Deze worden ge\"{i}mporteerd uit GVOP.
 
-\subsubsection{Bekendmakingen op de kaart}\label{bekendmakingen-op-de-kaart}
+\subsubsection{Kaart en lijstweergave}\label{bekendmakingen-op-de-kaart}
 
 De kaart wordt ontwikkeld m.b.v. views. Zie \seeref{bekendmakingen-markers}. De tekstuele resultaten worden middels een attachment bij deze view ingeladen \seeref{bekendmakingen-overzicht}.
+
+De kaart wordt gemaakt met de \usemodule{gmap} module i.c.m. \usemodule{views}. Via \emph{exposed filters} wordt de volgende filtering aangeboden (in een apart blok):
+\begin{itemize}
+\item Zoeken op titel
+\item Datum (van / tot)
+\item Postcode (alleen exacte matching)
+\item Status aanvraag (taxonomie, via checkboxes)
+\end{itemize}
+De filtering heeft zowel invloed op de kaart als op de lijst onder de kaart.
+

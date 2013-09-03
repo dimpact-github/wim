@@ -1,9 +1,10 @@
 \subsection{Mobile variant}\label{mobile}
 
-De website wordt responsive opgezet. Uitzondering is de homepage waar tevens een adaptive variant beschikbaar is voor mobiele telefoons. De detectie hiervan vindt plaats in Varnish\seeone{varnishmobile}. De aanpassing in Varnish zorgt ervoor dat de pagina op \texttt{/voorpagina-mobiel} wordt geladen wanneer de voorpagina wordt bezocht met een mobiele telefoon. Hierbij wordt geen redirect gebruikt. Het pad is voor de bezoeker dan ook niet zichtbaar. De pagina kan ook op de desktop worden geladen door direct dit pad te gebruiken. Dat zal worden gedaan om de inhoud van de pagina te kunnen bewerken ("beheermodus").
-
-In het theme zullen we zorgen dat een ander page template wordt gebruikt voor de mobiele homepage. Hiervoor zullen we een aanpassing doen in de \texttt{hook\_preprocess\_page}. Belangrijk is dat de canonical url hierbij niet \texttt{voorpagina-mobiel} is maar de echte voorpagina. Daarom zullen we de volgende code gebruiken:
-
-\begin{lstlisting}[language=HTML]
-<link rel="canonical" href="http://<?php print check_plain($_SERVER['HTTP_HOST']); ?>/" />
-\end{lstlisting}
+De website wordt responsive opgezet. Dit geldt ook voor de homepage. Daar wordt echter een menu getoond op mobiel dat niet zichtbaar is voor bezoekers op desktop. Het wel / niet zichtbaar zijn van het menu wordt in CSS geregeld. Aan de Drupal kant is dit een standaard menu. In dit menu stellen we de volgende links in:
+\begin{itemize}
+\item Contactgegevens \\
+\texttt{http://maps.google.com/?q=Doornseweg+12,+Leusden}
+\item Route \\
+\texttt{http://maps.google.com/?daddr=Doornseweg+12,+Leusden}
+\end{itemize}
+Moderne mobiele browsers herkennen deze links en zullen de Google Maps applicatie openen. In het eerste geval met enkel de kaart, in het tweede geval als routebeschrijving, waarbij de bestemming (\texttt{daddr} staat voor \emph{destination address}) vooraf wordt ingevuld.

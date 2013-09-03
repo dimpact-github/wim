@@ -4,17 +4,23 @@ De module \usemodule{felix} wordt ingezet om het voor redacteuren mogelijk te ma
 
 Onderstaand tabel geeft een overzicht van de Felix regio's.
 
-\begin{tabularx}{\linewidth}{| p{5cm} | p{3cm} | X |}
+\begin{tabularx}{\linewidth}{| p{3cm} | p{3cm} | X | p{3cm} | }
 \hline
 \rowcolor{tableheader}
-\textbf{Naam} & \textbf{Systeemnaam} & \textbf{Differentiate content per} \\ \hline
-Linkerkolom & left & path \\ \hline
-Footer kolom 1 & footer1 & domain \\ \hline
-Footer kolom 2 & footer2 & domain \\ \hline
-Footer kolom 3 & footer3 & domain \\ \hline
+\textbf{Naam} & \textbf{Systeemnaam} & \textbf{Verschillend per} & \textbf{Positie} \\ \hline
+Paginaspecifiek & sidebar\_path & path & rechter zijbalk \\ \hline
+Paginatype & sidebar\_node & nodetype & rechter zijbalk \\ \hline
+Inhoud & content & path & onder de content \\ \hline
+Footer kolom 1 & footer1 & domain & footer \\ \hline
+Footer kolom 2 & footer2 & domain & footer \\ \hline
+Footer kolom 3 & footer3 & domain & footer \\ \hline
 \end{tabularx}
 
-Om de blokken te kunnen scheiden per domein wordt gebruik gemaakt van de \usemodule{felix\_domain} submodule.
+Om de blokken te kunnen scheiden per domein wordt gebruik gemaakt van de \usemodule{felix\_domain} submodule. In de rechterkolom worden twee regio's gebruikt. Blokken die geplaatst worden in de ene regio zijn specifiek voor die pagina. De andere regio is verschillend per nodetype. Als daarin een blok wordt geplaatst op een bekendmaking detailpagina dan zal deze op alle detailpagina's van bekendmakingen te zien zijn. De volgorde van de blokken kan alleen worden aangepast binnen de regio. Blokken die specifiek zijn voor de pagina staan altijd onder de blokken die generiek zijn voor het nodetype. Hierop wordt het gewicht van de regio's aangepast.
 
 Er wordt \'{e}\'{e}n \emph{blockset} aangemaakt. De blokken die vrij te plaatsen zijn kunnen dus in elke regio worden gezet. De theming is wel afhankelijk van de regio (wordt volledig in CSS geregeld). In de rest van dit onderdeel wordt aangegeven welke blokken er mogelijk zijn, met screenshots.
+
+\subsubsection{Blokken per content type}\label{felixcontenttypeblokken}
+
+Voor alle nodetypes die een detailpagina hebben wordt een blok aangemaakt met links naar de laatste 5 gepubliceerde items. Dit blok kan binnen elke felix regio redactioneel worden ingesteld.
 
