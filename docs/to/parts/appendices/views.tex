@@ -28,10 +28,25 @@ Getoonde velden:
 
 Attachment footer: link 'Meer nieuwsberichten' naar nieuws overzichtspagina.
 
-\subsection{Bekendmakingen}
-\subsubsection{Bekendmakingen op de kaart}\label{bekendmakingen-markers}
+\subsection{Bekendmakingen}\label{bekendmakingenview}
+\subsubsection{Bekendmakingen overzicht}\label{bekendmakingen-overzicht}
 
-Middels \usemodule{location}, \usemodule{gmap} en \usemodule{gmap\_location} wordt een view met een page display opgezet die alle markers op de kaart laat zien.
+Er wordt een page display opgezet die de bekendmakingen in een lijst laat zien. Via een attached display wordt boven de lijst een kaart met  markers (van dezelfde bekendmakingen) geplaatst.
+
+Fields:
+\begin{itemize}
+\item Content: Title
+\item Location: Postal code
+\item Location: Street
+\item Content: Title \\
+Het tweede titelveld wordt gebruikt als tooltip op de kaart en heeft daarom de volgende afwijkende settings:
+\begin{itemize}
+\item Create a label: uitgevinkt
+\item Exclude from display: aangevinkt
+\item Link this field to the original piece of content: uitgevinkt
+\item Administrative title: Tooltip
+\end{itemize}
+\end{itemize}
 
 Filters:
 \begin{itemize}
@@ -41,11 +56,17 @@ Filters:
 
 Exposed filters:
 \begin{itemize}
-\item Titel (vrij in te vullen tekstveld),
-\item Type bekendmaking,
-\item Week,
-\item Jaar,
+\item Titel (vrij in te vullen tekstveld)
+\item Type bekendmaking (taxonomie, dropdown)
+\item Status bekendmaking (taxonomie, checkboxes)
+\item Jaar en maand (via \usemodule{date} module)
 \item Postcode (vrij in te vullen tekstveld)
+\end{itemize}
+
+Sort criteria:
+\begin{itemize}
+\item Post date (exposed)
+\item Title (exposed)
 \end{itemize}
 
 Style options:
@@ -54,11 +75,29 @@ Style options:
 \item Data source: Location.module
 \end{itemize}
 
-\subsubsection{Bekendmakingen overzicht attachment}\label{bekendmakingen-overzicht}
+De exposed filters worden in een blok geplaatst. Bij de settings wordt \emph{expose sort order} uitgevinkt.
 
-View block gefilterd op Content Type Bekendmaking en op gepubliceerd. Weergave via View mode Teaser. Maximaal 7 items getoond met pager en lees meer link.
+\subsubsection{Bekendmakingen kaart}\label{bekendmakingen-markers}
 
-Deze view wordt gebruikt als attachment bij Bekendmakingen op de kaart \seeref{bekendmakingen-markers}.
+Middels \usemodule{location}, \usemodule{gmap} en \usemodule{gmap\_location} wordt een view met een page display opgezet. Deze display wordt gebruikt als attachment bij Bekendmakingen overzicht \seeref{bekendmakingen-overzicht}.
+
+Format:
+\begin{itemize}
+\item Format: GMap
+\begin{itemize}
+\item Data source: location.module
+\item Display a tooltip when hovering over markers: aangevinkt
+\item Tooltip field: Tooltip
+\end{itemize}
+\end{itemize}
+
+Attachment settings:
+\begin{itemize}
+\item Attach to: page
+\item Attachment position: before
+\item Inherit contextual filters: yes
+\item Inherit exposed filters: yes
+\end{itemize}
 
 \subsection{Blog}
 View blog gefilterd op Content Type Blog en op gepubliceerd. Gesorteerd via Post Date. Titel is "Weblogs". 10 items getoond per pagina (met pager).

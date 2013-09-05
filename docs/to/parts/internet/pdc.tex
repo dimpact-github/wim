@@ -1,3 +1,38 @@
-\subsection{Producten en Dienstencatalogus (PDC)}
+\subsection{Import uit Atos eSuite}
 
-Import vanuit Atos XML.
+De Atos eSuite voorziet in een XML feed waarmee de producten (PDC) en vraag- / antwoordcombinaties (VAC) kunnen worden opgehaald. Deze feeds kunnen via een \texttt{HTTP GET} worden opgevraagd van een openbare omgeving.
+We ontwikkelen een nieuwe module met de naam \texttt{atos\_esuite} die informatie uit deze feeds importeerd.
+
+Voorbeelden van feeds zijn:
+\begin{verbatim}
+https://dacceptatieloket.schaveland.nl/loket/search.xml?type=pdc
+https://dacceptatieloket.schaveland.nl/loket/search.xml?type=vac
+\end{verbatim}
+Het is mogelijk om trefwoorden mee te geven, maar die functionaliteit zullen we niet gebruiken. Bovenstaande URL's geven alle producten of vacs terug.
+De dienst ondersteund ook ouput in JSON formaat met de toevoeging \texttt{output=json}. Dat zullen we echter niet gebruiken aangezien JSON minder geschikt is voor grotere documenten (aangezien het gehele document in het geheugen wordt ingeladen). Om dezelfde reden zullen we geen gebruik maken van SimpleXML of DOM als XML parsers, maar van de XMLReader library. Per item kan wel gebruik worden gemaakt van DOM. Er is reeds een functie ontwikkeld die grote feeds via XMLReader kan verwerken en deze per item in DOM aanbiedt.
+
+De module bevat een settings pagina waar de url's die gebruikt worden voor de import in te stellen zijn.
+
+Voor producten zullen we de volgende velden importeren:
+\begin{itemize}
+\item \texttt{title} titel van de node
+\item \texttt{aanvraag} tekstveld met opmaak
+\item \texttt{beschrijving} tekstveld met opmaak
+\item \texttt{contact} tekstveld met opmaak
+\item \texttt{bezwaar} tekstveld met opmaak
+\item \texttt{kosten} tekstveld met opmaak
+\item \texttt{bijzonderheden} tekstveld met opmaak
+\item \texttt{termijn} tekstveld met opmaak
+\end{itemize}
+
+Voor vacs zijn dit de volgende velden:
+\begin{itemize}
+\item \texttt{title} titel van de node
+\item \texttt{antwoord} tekstveld met opmaak
+\item \texttt{toelichting} tekstveld met opmaak
+\end{itemize}
+
+Links naar formulieren en downloads zijn opgenomen als HTML links in de tekstvelden.
+
+De \texttt{atos\_esuite} module houdt een mapping bij van node id's in de website database en id's uit de eSuite. Deze identificatiecodes komen mee in de tag \texttt{id}. De originele XML die gebruikt is bij de import wordt in de database opgeslagen ter referentie.
+

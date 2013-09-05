@@ -1,11 +1,138 @@
-\subsection{Landelijke voorzieningen}
+\subsection{Import van offici\"{e}le publicaties (GVOP)}
 
-Dit onderdeel beschrijft de koppelingen met de landelijke voorzieningen.
+Overheid.nl heeft een zoekdienst waarmee informatie van diverse bronnen opgehaald kunnen worden middels een XML feed. Deze feeds kunnen via een \texttt{HTTP GET} worden opgevraagd van een openbare omgeving. Deze zoekdienst kan zoeken in de volgende collecties:
+\begin{itemize}
+\item Lokale regelingen (\texttt{cvdr})
+\item Lokale bekendmakingen (\texttt{bm})
+\item Lokale vergunningen (\texttt{vg})
+\item Overheidsorganisaties (\texttt{oo})
+\item Producten en diensten (\texttt{sc})
+\item Overheid.nl (\texttt{lnk})
+\end{itemize}
+De afkorting wordt als technische aanduiding gebruikt.
+
+We zullen een module ontwikkelen onder de naam \texttt{gvop} die deze zoekdienst gebruikt om informatie uit deze collecties op te kunnen halen. De functie van deze module is beperkt tot het ophalen van de data, voor het verwerken worden aparte modules geschreven per collectie. Deze submodules moeten de nieuwe \texttt{hook\_gvop} implementeren om aan te geven dat een bepaalde collectie opgehaald dient te worden. Daarin wordt ook aangegeven welke callback gebruikt moet worden voor het bijwerken van items. Deze callback wordt per item aangeroepen met een \texttt{DOMElement} (XML object) als argument.
+
+In de beheeromgeving komt een settings pagina waar de naam van de gemeente waar deze Drupal instantie betrekking op heeft, opgegeven kan worden. Tevens kan hier opgegeven worden hoevaak nieuwe items, middels de cron, worden opgehaald en hoeveel items er worden opgehaald per request. Deze settings gelden voor alle collecties die worden opgehaald.
+
+Met behulp van de zoekdienst die Overheid.nl aanbiedt, kunnen regelingen van gemeenten worden opgehaald in XML formaat. Dit gebeurt door vanuit de cron een GET request te sturen naar de volgende basis URL:
+
+\begin{verbatim}
+https://zoek.officielebekendmakingen.nl/sru/Search?version=1.2
+&operation=searchRetrieve&x-connection=cvdr
+\end{verbatim}
+De waarde \texttt{cvdr} kan anders zijn, afhankelijk van de collectie die we op willen halen.
+
+Middels extra query parameters in bovenstaande URL kan de zoekvraag nader worden bepaald. Als vaste waarde wordt het type 'regeling' opgegeven (\texttt{type==regeling}). Per gemeente worden de zoekresultaten afgeknepen d.m.v. de query parameter \texttt{creator}. Bij de creator parameter wordt slechts gebruik gemaakt van 1 vaste waarde, die overeenkomt met de naam van de gemeente zoals opgegeven bij de settings pagina.
+\\ Bijvoorbeeld: \texttt{\&query=creator==amsterdam}.
+
+Om bij elke cron iteratie alleen regelingen op te halen die zijn gewijzigd of nieuw zijn t.o.v. de vorige cron iteratie, kan gebruik gemaakt worden van de parameter 'modified'. Bijvoorbeeld: \texttt{modified\textgreater2013-08-07}. Het is mogelijk om de tijd van laatste cron iteratie te resetten om een volledige (her)import te forceren.
+
+Standaard worden 10 records tegelijkertijd opgehaald. Dit gebeurt met de volgende query parameters:
+\begin{verbatim}
+&startRecord=1&maximumRecords=10.
+\end{verbatim}
+
+De URL in zijn volledigheid zal er dus als volgt kunnen uitzien:
+
+\begin{verbatim}
+https://zoek.officielebekendmakingen.nl/sru/Search?version=1.2
+&operation=searchRetrieve&x-connection=cvdr&startRecord=1
+&maximumRecords=100&query=creator==amsterdam
+%20and%20modified>2013-08-07%20and%20type==regeling
+\end{verbatim}
+
+Het resultaat van de zoekvraag kan twee verschillende XML documenten opleveren.
+
+\begin{enumerate}
+\item Een XML document met als root node \texttt{diagnostics}. Als dit XML bericht terugkomt, duidt dit op een error en dient er de foutmelding de worden gelogd in de watchdog tabel.
+\item Een XML document met als root node \texttt{searchRetrieveResponse}, oftewel de zoekresultaten.
+\end{enumerate}
+
+In de root node van de zoekresultaten bevindt zich de property \emph{numberOfRecords}. Hiermee kan bepaald worden hoeveel documenten er zijn gevonden op basis van de zoekvraag. Het is de bedoeling dat er vervolgende zoekvragen worden gesteld totdat alle records zijn doorlopen. Dit gebeurt door het aanpassen van de \emph{startRecord} parameter (\emph{startRecord} += \emph{maximumRecords}).
+
+Van de ruwe XML die een record bevat, wordt een hash gegenereerd. Deze wordt vergeleken met de hash die zich eventueel in de Drupal database bevindt, om zodoende te bepalen of het record (en daarmee de bijbehorende node) is gewijzigd t.o.v. de vorige cron iteratie. Als dit het geval is, wordt de node overgeschreven met de nieuwe waarden en opgeslagen. Indien er nog geen node bestaat van deze regeling, wordt deze aangemaakt en opgeslagen. Regelingen die niet meer voorkomen in de zoekresultaten, worden niet automatisch verwijderd uit Drupal.
+De \texttt{gvop} module houdt een mapping bij van node id's in de Drupal database en identificatiecodes uit de zoekdienst. Deze identificatiecodes komen mee in de tag \texttt{dcterms:identifier}. Deze code identificeert het item samen met de code van de collectie.
+De originele XML die gebruikt is bij de import wordt in de database opgeslagen ter referentie.
+
+Documentatie van GVOP is te vinden op de volgende URL:
+\begin{verbatim}
+http://overheid.nl/media/downloads/SRU_webservice_van_Overheid_nl.pdf
+\end{verbatim}
+
+\subsubsection{Bekendmakingen}
+
+Voor het importeren van regelingen wordt een module ontwikkeld met de naam \texttt{gvop\_bm}.
+
+Van elke publicatie worden de volgende velden opgehaald en opgeslagen bij de node:
+
+\begin{itemize}
+\item \texttt{dcterms:title}: titel
+\item \texttt{dcterms:temporal} datumveld
+\item \texttt{dcterms:description} bodytekst
+\item \texttt{overheidbm:adres} adres (opslaan met \usemodule{location} module)
+\item \texttt{overheidbm:producttype} taxonomie "bekendmaking type"
+\end{itemize}
 
 \subsubsection{Decentrale regelgeving (CVDR)}
 
-\subsubsection{Offici\"{e}le publicaties (GVOP)}
+Voor het importeren van regelingen wordt een module ontwikkeld met de naam \texttt{gvop\_cvdr}.
+
+Van elke regeling worden de volgende velden opgehaald en opgeslagen bij de node:
+
+\begin{itemize}
+\item \texttt{dcterms:title}: titel
+\item \texttt{dcterms:subject} introtekst
+\item \texttt{dcterms:issued} datumveld
+\item \texttt{dcterms:isRatifiedBy} tekstveld
+\item \texttt{overheidrg:inwerkingtredingDatum} datumveld, gebruikt voor publicatiedatum m.b.v. de module scheduler
+\item \texttt{overheidrg:uitwerkingtredingDatum} datumveld, gebruikt voor depublicatiedatum m.b.v. de module scheduler
+\item \texttt{overheidrg:betreft} tekstveld
+\item \texttt{overheidrg:kenmerk} tekstveld
+\item \texttt{overheidrg:onderwerp} tekstveld
+\item \texttt{publicatieurl\_xml} bodyveld, zie hieronder
+\item \texttt{overheidrg:redactioneleToevoeging} tekstveld
+\end{itemize}
+
+In het veld \texttt{publicatieurl\_xml} staat een URL waarop de 'broodtekst' van de regeling staat gepubliceerd in XML formaat. Deze pagina wordt opgevraagd, en de inhoud ervan wordt omgevormd tot geldige HTML. Code voor deze omvorming is reeds gebouwd.
 
 \subsubsection{Ruimtelijke plannen (DURP)}
+
+Ruimtelijke plannen worden door de gemeente gepubliceerd volgens de standaard \emph{Digitale Uitwisseling in Ruimtelijke Processen}, oftewel DURP. De gehanteerde XML standaard is \emph{Informatiemodel Ruimtelijke Ordening 2012} (IMRO2012). De publicatie bestaat uit een \emph{manifest} bestand. Dat is een XML-file dat een overzicht geeft van alle plannen met naam, datum en verwijzing naar het \emph{geleideformulier}. Het geleideformulier bevat ook de type, status, versieaanduiding en verwijzingen naar onderdelen van het plan. De onderdelen zijn bestanden in de formaten xml, gml, html, pdf, jpg of png. Het gml-bestand bevat ruimtelijke informatie.
+
+Een voorbeeld van een manifest file is te zien op de volgende URL:
+\begin{verbatim}
+http://ro.zwolle.nl/manifest/manifest2012.xml
+\end{verbatim}
+
+We zullen een module ontwikkelen met de naam \texttt{durp} welke deze informatie zal importeren. Er komt een settings pagina waarin de URL van de manifest geconfigureerd kan worden en waarop ingesteld kan worden hoevaak de ruimtelijke plannen worden ge\"{i}mporteerd.
+
+De import begint met het ophalen van de manifest file. Deze wordt vervolgens via de XMLReader class ingelezen (aangezien DOM en SimpleXML minder geschikt zijn voor grotere bestanden). Van de XML in de manifest wordt een hash gemaakt en opgeslagen in de database. Bij volgende imports wordt het item alleen bijgewerkt wanneer de hash niet overeenkomt met de hash in de database (of nieuw is).
+
+Bij nieuwe en gewijzigde items wordt het geleideformulier opgehaald. Hieruit worden de volgende velden ge\"{i}mporteerd:
+\begin{itemize}
+\item \texttt{Naam} titel van de node
+\item \texttt{Type} taxonomie
+\item \texttt{Status} taxonomie
+\item \texttt{Regels} links
+\item \texttt{BeleidsDocument} links
+\item \texttt{BesluitDocument} links
+\item \texttt{Toelichting} links
+\item \texttt{VaststellingsBesluit} links
+\item \texttt{Bijlage} links
+\item \texttt{Illustratie} links
+\item \texttt{IMRO} geolocatie, zie verder
+\end{itemize}
+Er wordt geen body tekst ge\"{i}mporteerd aangezien deze doorgaans als PDF worden aangeboden.
+
+Het gml bestand (verwijzing in de tag \texttt{IMRO}) bevat de ruimtelijke gegevens. We zullen deze niet volledig importeren. Wel halen we de co\"{o}rdinaten uit de \texttt{gml:posList} tag. Hiervan nemen we het gemiddelde welke we omzetten van het Rijksdriehoek stelsel naar GPS locaties. Het plan zal daarmee altijd als een enkele marker op de kaart getoond kunnen worden.
+
+De documentatie van IMRO2012 is te vinden op de volgende URL:
+\begin{verbatim}
+http://ro-standaarden.geonovum.nl/2012/STRI/1.1/STRI2012-v1.1.pdf
+\end{verbatim}
+
+
+
 
 
