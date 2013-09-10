@@ -14,14 +14,13 @@
       </then>
     </if>
     <move file="code_new" tofile="code" includeemptydirs="true" />
-    
+
     <!-- Remove the directory from coder module responsible for freaking out the modules admin page. See http://drupal.org/node/1015368 -->
     <delete dir="code/sites/all/modules/contrib/coder/coder_sniffer/Test" includeemptydirs="true" verbose="true" failonerror="false" />
-    
+
     <symlink target="../../../../modules" link="code/sites/all/modules/custom" />
     <symlink target="../../../../features" link="code/sites/all/modules/features" />
     <symlink target="../../../../themes" link="code/sites/all/themes/subtheme" />
-    
 
     <delete dir="code/sites/default" includeemptydirs="true" verbose="true" failonerror="true" />
     <symlink target="../../data" link="code/sites/default" />
@@ -44,9 +43,9 @@
 
   <target name="theme">
     <echo msg="Cleaning SCSS..." />
-    <!-- <exec command="compass clean themes/subtheme" /> -->
+     <exec command="compass clean themes/dimpact" />
     <echo msg="Compiling SCSS..." />
-    <!-- <exec command="compass compile themes/subtheme" /> -->
+     <exec command="compass compile themes/dimpact" />
   </target>
-  
+
 </project>
