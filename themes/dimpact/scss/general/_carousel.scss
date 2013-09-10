@@ -19,13 +19,18 @@
     height: 2px;
   }
   .pager {
+    top: 0;
+    position: absolute;
     padding: 10px 0;
     text-align: center;
     a {
       color: $link-dark;
+      line-height: 1;
       span {
+        @include border-radius(2px);
+        content: "a";
         display: block;
-        padding: 4px 8px;
+        padding: 8px;
       }
       &.selected {
         //font-weight: bold;
@@ -34,16 +39,18 @@
   }
   .btn_next,
   .btn_prev {
+    @include text-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+    @include font-size(32);
     text-decoration: none;
     position: absolute;
-    bottom: 10px;
-    display: block;
-    padding: 4px 8px;
+    top: $gutter-width;
+    color: $link-light;
+    line-height: 1;
   }
   .btn_next {
-    right: 0;
+    right: $gutter-width;
   }
   .btn_prev {
-    left: 0;
+    left: $gutter-width;
   }
 }

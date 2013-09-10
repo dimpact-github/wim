@@ -32,10 +32,10 @@ $break-large: 12;
     }
 
     .region_93_first {
-      @include span-columns(9, $break-large);
+      @include span-columns(8, $break-large);
     }
     .region_93_second {
-      @include span-columns(3 omega, $break-large);
+      @include span-columns(4 omega, $break-large);
     }
 
     .region_39_first {
@@ -49,17 +49,20 @@ $break-large: 12;
       @include span-columns(3, $break-large);
     }
     #content {
-      @include span-columns(6, $break-large);
+      @include span-columns(5, $break-large);
     }
     .region_363_third {
-      @include span-columns(3 omega, $break-large);
+      @include span-columns(4 omega, $break-large);
     }
 
     .region_444_first,
-    .region_444_second {
+    .region_444_second,
+    .region_footer_first,
+    .region_footer_second{
       @include span-columns(4, $break-large);
     }
-    .region_444_third {
+    .region_444_third,
+    .region_footer_third {
       @include span-columns(4 omega, $break-large);
     }
   //}

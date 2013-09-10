@@ -36,6 +36,11 @@ regions[region_444_first]   = Regio 4/12 first
 regions[region_444_second]  = Regio 4/12 second
 regions[region_444_third]   = Regio 4/12 third
 
+; Region Footer
+regions[region_footer_first]   = Regio footer 4/12 first
+regions[region_footer_second]  = Regio footer 4/12 second
+regions[region_footer_third]   = Regio footer 4/12 third
+
 ; Region full bottom
 regions[region_full_bottom] = Regio breed onder
 

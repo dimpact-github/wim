@@ -12,17 +12,67 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
   $linkcolor: nth($color, 4);
 
   body.#{$type} {
+    #main-wrapper {
+      //border-top: 4px solid $colourlight;
+    }
+    #main {
+      .region_363_first,
+      .region_363_third,
+      .region_93_second,
+      .region_39_first {
+        .block {
+          border-top: 2px solid $colourlight;
+        }
+      }
+    }
+    .block-search {
+      background-color: lighten($colourlight, 12%);
+    }
     nav {
       &.main-menu {
         background-color: $colour;
-        border-bottom: 10px solid $colourlight;
+        border-top: 4px solid $colourlight;
+        li:hover {
+          background-color: darken($colour, 10%);
+          a {
+            color: $linkcolor !important;
+          }
+        }
         a {
           color: $linkcolor !important;
           &.active,
           &:hover {
-            text-decoration: none;
-            background-color: $colourlight;
+            //text-decoration: none;
+            //background-color: $colourlight;
+            //color: $link-dark !important;
+          }
+        }
+        ul {
+          li {
+            ul {
+              background-color: darken($colour, 10%);
+              a,
+              a.active {
+                //background-color: $colour !important;
+                //color: $link-light !important;
+                //border-top: 1px solid #fff;
+                &:hover {
+                  //background-color: $colour !important;
+                  //color: $link-light !important;
+                }
+              }
+            }
+          }
+        }
+        .block-menu-menu-alfabet {
+          //background-color: $colourlight;
+          a {
             color: $link-dark !important;
+            &.active,
+            &:hover {
+              color: $linkcolor !important;
+              background-color: $colour;
+            }
           }
         }
       }
@@ -37,7 +87,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
 
     .carousel {
       .progress {
-        background-color: $colourlight;
+        background-color: $colour;
       }
       .pager {
         a {
@@ -56,11 +106,24 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
       }
       .btn_next,
       .btn_prev {
-        background-color: $colourlight;
-        color: $link-dark;
+        &:hover {
+          color: $colourlight;
+        }
+      }
+    }
+    #footer {
+      //border-top: 4px solid $colourlight;
+      //background-color: #d7d7d7;
+    }
+    .block-menu-menu-toptaken > ul {
+      background-color: $colourlight;
+      & > li {
+        &.toptaken-active,
         &:hover {
           background-color: $colour;
-          color: $linkcolor !important;
+          a {
+            color: $linkcolor;
+          }
         }
       }
     }

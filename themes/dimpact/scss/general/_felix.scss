@@ -1,9 +1,9 @@
 .block-felix {
   //@include border-radius($border-radius);
-  padding: 6px;
+  padding: 6px !important;
   margin-bottom: 5px !important;
   background-color: #F3F3F3;
-  border: 1px solid #DBDBDB;
+  border: 1px solid #DBDBDB !important;
   font-size: 15px;
   clear: both;
   overflow: visible !important;

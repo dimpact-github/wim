@@ -29,13 +29,16 @@ $region_444_first   = render($page['region_444_first']);
 $region_444_second  = render($page['region_444_second']);
 $region_444_third   = render($page['region_444_third']);
 
+$region_footer_first   = render($page['region_footer_first']);
+$region_footer_second  = render($page['region_footer_second']);
+$region_footer_third   = render($page['region_footer_third']);
+
 $region_full_bottom = render($page['region_full_bottom']);
 
 $tabs = render($tabs);
 $actions = count($action_links);
 $action_links = render($action_links);
 ?>
-
 <?php if ($region_meta_first || $region_meta_second): ?>
   <div class="container container-nopadding">
     <div class="region_meta_first">
@@ -48,15 +51,15 @@ $action_links = render($action_links);
 <?php endif; ?>
 <div id="main-wrapper">
   <header role="banner" id="header">
+
     <div class="container">
       <hgroup class="branding">
         <?php if ($site_name): ?>
           <h1 class="site-name">
             <?php if ($logo): ?>
               <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="logo"><img src="<?php print $logo ?>" alt="<?php print $site_name ?> Logo"></a>
-            <?php else: ?>
-            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>"><?php print $site_name; ?></a>
             <?php endif; ?>
+            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>"><?php print $site_name; ?></a>
           </h1>
         <?php endif; ?>
         <?php if ($site_slogan): ?>
@@ -189,9 +192,21 @@ $action_links = render($action_links);
     <?php endif; ?>
 
   </div>
+
+</div>
+
+<?php if ($region_footer_first || $region_footer_second || $region_footer_third): ?>
   <footer role="contentinfo" id="footer">
     <div class="container">
-      <?php // print $footer; ?>
+      <div class="region_footer_first">
+        <?php print $region_footer_first; ?>
+      </div>
+      <div class="region_footer_second">
+        <?php print $region_footer_second; ?>
+      </div>
+      <div class="region_footer_third">
+        <?php print $region_footer_third; ?>
+      </div>
     </div>
   </footer>
-</div>
+<?php endif; ?>

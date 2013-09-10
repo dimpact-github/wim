@@ -16,28 +16,29 @@ $verdana: Verdana, sans-serif;
 $georgia: Georgia, sans-serif;
 $monaco: Monaco, monospace, serif;
 
-$sans-serif: Verdana, Arial, sans-serif;
-$heading: $sans-serif;
-$serif: $georgia;
+//$sans-serif: Verdana, Arial, sans-serif;
+$heading: "Droid Sans", Arial, sans-serif;
+$body: "Droid Sans", Arial, sans-serif;
+//$serif: $georgia;
 $monospace: $monaco;
 
 // Colors
 //------------------------------------------------------------------------------
 
-$link: #154273 !default;
+$link-colour: #154273 !default;
 $link-light: #fff;
 $link-dark: #000;
 $hover: #0162CD;
 $active: #0162CD;
-$visited: lighten($link, 5%);
-$focus: darken($link, 10%);
+$visited: lighten($link-colour, 5%);
+$focus: darken($link-colour, 10%);
 
 $gray: #888888;
 $border: #d7d7d7;
 $border-tabs: $border;
 $error: #cc0000;
-$text-color: #333;
-$background-color: #F3F5F6;
+$text-color: rgb(51, 51, 51);
+$background-color: #e3e3e3;
 
 // Rijkshuisstijl colors
 $dark-brown: #623327;
@@ -92,9 +93,9 @@ $orange-light: #F6D4B2;
 //------------------------------------------------------------------------------
 
 $container-style: magic;
-$container-width: 1168px;
+//$container-width: 1168px;
 $total-columns: 12 !default;
-$column-width: 60px !default;
+$column-width: 72px !default;
 $gutter-width: 20px !default;
 $grid-padding: 20px !default;
 $show-grid-backgrounds: false !default;

@@ -1,17 +1,18 @@
 .ui-tabs {
   padding: 0;
   .ui-tabs-nav {
-    border-bottom: 10px solid;
+    border-bottom: 2px solid;
     padding: 0;
     li {
+      @include border-top-radius(4px);
       display: block;
       float: left;
       top: auto;
-      margin: 0 !important;
+      margin: 0 2px 0 0 !important;
       padding: 0 !important;
       a {
-        @include font-size(12);
-        font-family: $arial;
+        @include font-size(14);
+        font-family: $heading;
         text-decoration: none;
         font-weight: bold;
         padding: 0.5em 1em;

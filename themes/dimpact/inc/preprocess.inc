@@ -60,6 +60,8 @@ function dimpact_preprocess_html(&$vars) {
   $vars['classes_array'] = array_diff($vars['classes_array'], $suggestion_classes);
   $vars['classes_array'][] = theme_get_setting('color_swatch_internet');
 
+  drupal_add_css('http://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/libraries/jquery.carouFredSel-6.2.1-packed.js');
 }
@@ -156,7 +158,7 @@ function dimpact_preprocess_block(&$vars) {
       break;
     }
   }
-
+/*
   // Find the main navigation and change the template based on region placement.
   if ($vars['block']->region == 'navigation' || $vars['block']->region == 'header') {
     if ($vars['block']->module == 'menu_block' || $vars['block']->module == 'menu' || $vars['block']->module == 'system' && in_array($vars['block']->delta, array_keys(menu_list_system_menus()))) {
@@ -171,7 +173,7 @@ function dimpact_preprocess_block(&$vars) {
       }
     }
   }
-
+*/
   if ($vars['block']->module == 'views' && $vars['is_admin']) {
     $remove = array(
 //      'block',

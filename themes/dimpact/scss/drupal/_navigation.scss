@@ -5,10 +5,16 @@
     }
   }
 }
-
 nav {
   &.main-menu {
-    padding: 2.8em 0 0;
+    position: relative;
+    h2 {
+      display: none;
+    }
+    .block {
+      margin-bottom: 0 !important;
+    }
+    padding: 0;
     margin-bottom: $gutter-width;
     ul {
       list-style: none outside none;
@@ -18,37 +24,79 @@ nav {
         float: left;
         margin: 0;
         padding: 0;
+        //> a:after {
+        //  font-family: FontAwesome;
+        //  content: " \f107 ";
+        //}
         a {
-          @include font-size(12);
-          font-family: $arial;
-          font-weight: bold;
+          @include font-size(14);
+          font-family: $heading;
+          font-weight: 300;
           display: block;
-          padding: 0.5em 1em;
+          padding: 1em 0.75em;
           line-height: 1;
         }
+        ul {
+          position: absolute;
+          top: 42px;
+          display: none;
+          z-index: 10;
+          padding: 0;
+          max-width: 250px;
+          min-width: 175px;
+          li {
+            float: none;
+          }
+          a {
+            @include font-size(13);
+            line-height: $line-height;
+            padding: $gutter-width/2 $gutter-width;
+            &:before {
+              font-family: FontAwesome;
+              content: "\f105\00a0\00a0";
+            }
+          }
+        }
+        &:hover {
+          ul {
+            @include border-bottom-radius(6px);
+            display: block;
+          }
+        }
+      }
+    }
+    .block-menu-menu-alfabet {
+      background-color: $background-color;
+      a {
+        @include font-size(13);
+        padding: 0.75em 1em;
       }
     }
   }
 }
-
 .region_meta_first,
 .region_meta_second {
   .block-menu {
     overflow: hidden;
+    margin: 0 !important;
     h2 {
       display: none;
     }
     ul {
-      margin: 4px 0;
+      margin: 0;
       padding: 0;
       li {
         float: left;
         margin: 0;
         padding: 0;
         a {
+          @include font-size(12);
           display: block;
-          padding: 0.25em 0.5em;
+          padding: $gutter-width/2 0.35em 0;
           color: #535353;
+          &.first {
+            padding-left: 0;
+          }
           &:hover {
             color: #000;
           }
@@ -64,3 +112,4 @@ nav {
     }
   }
 }
+

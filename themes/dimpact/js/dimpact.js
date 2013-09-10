@@ -6,7 +6,7 @@
       responsive: true,
       scroll: {
         fx: "directscroll",
-        duration: 1000,
+        duration: 500,
         pauseOnHover: 'resume'
       },
       auto: {
@@ -25,5 +25,13 @@
       }
     });
 
+    $('.block-menu-menu-toptaken > ul > li.first').addClass('toptaken-active');
+    $('.block-menu-menu-toptaken > ul > li').click(function() {
+      $('.block-menu-menu-toptaken > ul > li').removeClass('toptaken-active');
+      $(this).addClass('toptaken-active');
+    });
+    $('.block-menu-menu-toptaken > ul > li > a').click(function(e) {
+      e.preventDefault();
+    });
   });
 })(window.jQuery);
