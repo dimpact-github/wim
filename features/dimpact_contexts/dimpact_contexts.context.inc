@@ -94,6 +94,12 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
+        'menu-menu-alfabet' => array(
+          'module' => 'menu',
+          'delta' => 'menu-alfabet',
+          'region' => 'navigation',
+          'weight' => '-9',
+        ),
         'menu-menu-meta-menu-links' => array(
           'module' => 'menu',
           'delta' => 'menu-meta-menu-links',
@@ -104,6 +110,24 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'menu',
           'delta' => 'menu-meta-menu-rechts',
           'region' => 'region_meta_second',
+          'weight' => '-10',
+        ),
+        'menu-menu-footer-menu' => array(
+          'module' => 'menu',
+          'delta' => 'menu-footer-menu',
+          'region' => 'region_footer_first',
+          'weight' => '-10',
+        ),
+        'block-2' => array(
+          'module' => 'block',
+          'delta' => '2',
+          'region' => 'region_footer_second',
+          'weight' => '-10',
+        ),
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => '3',
+          'region' => 'region_footer_third',
           'weight' => '-10',
         ),
       ),
