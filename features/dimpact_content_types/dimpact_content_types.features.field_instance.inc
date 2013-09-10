@@ -105,7 +105,7 @@ function dimpact_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'above',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -275,7 +275,7 @@ function dimpact_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'above',
         'module' => 'location_cck',
         'settings' => array(),
         'type' => 'location_default',
