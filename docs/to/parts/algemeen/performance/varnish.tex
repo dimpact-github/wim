@@ -97,40 +97,40 @@ Statische bestanden zullen we altijd cachen. PHP-files nooit.
     return(hit_for_pass);
   }
 \end{lstlisting}
-  
-\subsubsection{Mobile detection}\label{varnishmobile}
 
-Voor mobiel wordt een andere pagina gebruikt als frontpage\seeone{mobile}. Detectie daarvoor moet gebeuren aan de hand van de \emph{user agent} string. Om alle caches te kunnen blijven gebruiken zal deze detectie in Varnish moeten worden ingebouwd. Hiervoor is reeds een implementatie beschikbaar\footnote{https://github.com/varnish/varnish-devicedetect/}. Deze implementatie stuurt een nieuwe header mee aan Apache. Dit is \'{e}\'{e}n van de volgende:
-\begin{verbatim}
-X-UA-Device: pc
-X-UA-Device: tablet-ipad
-X-UA-Device: mobile-iphone
-X-UA-Device: tablet-android
-X-UA-Device: mobile-firefoxos
-X-UA-Device: mobile-smartphone
-X-UA-Device: mobile-generic
-\end{verbatim}
-De mobiele variant zullen we gebruiken voor elk apparaat waarbij deze waarde begint met \texttt{mobile}. Voor tablets gebruiken we dus de standaard homepage. In de Varnish configuratie wordt hiervoor de volgende regel bovenaan toegevoegd:
+%\subsubsection{Mobile detection}\label{varnishmobile}
 
-\begin{lstlisting}[language=C]
-include "devicedetect.vcl";
-\end{lstlisting}
+%Voor mobiel wordt een andere pagina gebruikt als frontpage\seeone{mobile}. Detectie daarvoor moet gebeuren aan de hand van de \emph{user agent} string. Om alle caches te kunnen blijven gebruiken zal deze detectie in Varnish moeten worden ingebouwd. Hiervoor is reeds een implementatie beschikbaar\footnote{https://github.com/varnish/varnish-devicedetect/}. Deze implementatie stuurt een nieuwe header mee aan Apache. Dit is \'{e}\'{e}n van de volgende:
+%\begin{verbatim}
+%X-UA-Device: pc
+%X-UA-Device: tablet-ipad
+%X-UA-Device: mobile-iphone
+%X-UA-Device: tablet-android
+%X-UA-Device: mobile-firefoxos
+%X-UA-Device: mobile-smartphone
+%X-UA-Device: mobile-generic
+%\end{verbatim}
+%De mobiele variant zullen we gebruiken voor elk apparaat waarbij deze waarde begint met \texttt{mobile}. Voor tablets gebruiken we dus de standaard homepage. In de Varnish configuratie wordt hiervoor de volgende regel bovenaan toegevoegd:
 
-Binnen de \texttt{vcl\_recv} functie wordt de volgende code toegevoegd (bovenaan de functie):
+%\begin{lstlisting}[language=C]
+%include "devicedetect.vcl";
+%\end{lstlisting}
 
-\begin{lstlisting}[language=C]
-call devicedetect;
-if (req.http.X-UA-Device ~ "^mobile") {
-  set req.url = "/mobile";
-}
-\end{lstlisting}
+%Binnen de \texttt{vcl\_recv} functie wordt de volgende code toegevoegd (bovenaan de functie):
 
-In de \texttt{vcl\_hash} functie zullen we de volgende code toevoegen:
+%\begin{lstlisting}[language=C]
+%call devicedetect;
+%if (req.http.X-UA-Device ~ "^mobile") {
+%  set req.url = "/mobile";
+%}
+%\end{lstlisting}
 
-\begin{lstlisting}[language=C]
-if (req.http.X-UA-Device ~ "^mobile") {
-  hash_data("mobile");
-}
-\end{lstlisting}
+%In de \texttt{vcl\_hash} functie zullen we de volgende code toevoegen:
 
-Door deze aanpassing zal de pagina op \texttt{/voorpagina-mobiel} worden geladen bij het opvragen van de frontpage door een mobile device.
+%\begin{lstlisting}[language=C]
+%if (req.http.X-UA-Device ~ "^mobile") {
+%  hash_data("mobile");
+%}
+%\end{lstlisting}
+
+%Door deze aanpassing zal de pagina op \texttt{/voorpagina-mobiel} worden geladen bij het opvragen van de frontpage door een mobile device.

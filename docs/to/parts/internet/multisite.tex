@@ -13,7 +13,7 @@ Voor de \usemodule{dominion} module worden de volgende settings aangepast:
 Onder de instellingen van \usemodule{dominion\_menu} wordt een domein specifiek menu ingesteld. Het bijbehorende menublok wordt ingesteld in de linkerkolom.
 
 \subsubsection{Zoeken en multisite}
-We zullen de \texttt{dominion\_apachesolr} module inzetten om ervoor te zorgen dat zoekopdrachten alleen resultaten teruggeven van de huidige subsite. Indien wenselijk kan wel per subsite worden aangegeven of er nog additionele domein mee worden genomen.
+We gebruiken de \texttt{dominion\_apachesolr} module om ervoor te zorgen dat zoekopdrachten alleen resultaten teruggeven van de huidige subsite. Indien wenselijk kan wel per subsite worden aangegeven of er nog additionele domein mee worden genomen. De zoekresultaten komen in dat geval door elkaar. Deze optie wordt ook gebruikt om automatisch onderliggende domeinen mee te nemen, zoals de team subsites op het intranet.
 
 \subsubsection{Views}
 Alle views die nodes laten zien worden aangepast. Er wordt een extra filter toegevoegd dat alleen nodes laat zien die op het huidige domein zijn gepubliceerd ("Domain: Available on current domain"). Dit om te voorkomen dat gebruikers met de "bypass node access" permissie content van alle domeinen in de views te zien krijgen.
@@ -28,3 +28,4 @@ Per subsite kan aangevinkt worden welke functionaliteit beschikbaar is. De volge
 \item Agenda
 \item Contactformulier
 \end{itemize}
+Dit is geen uitputtende lijst van functionaliteit, maar zijn enkel de opties die aan- of uitgezet kunnen worden. Bijvoorbeeld een tekstpagina is altijd beschikbaar.

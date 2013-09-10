@@ -7,4 +7,13 @@ De website wordt responsive opgezet. Dit geldt ook voor de homepage. Daar wordt 
 \item Route \\
 \texttt{http://maps.google.com/?daddr=Doornseweg+12,+Leusden}
 \end{itemize}
-Moderne mobiele browsers herkennen deze links en zullen de Google Maps applicatie openen. In het eerste geval met enkel de kaart, in het tweede geval als routebeschrijving, waarbij de bestemming (\texttt{daddr} staat voor \emph{destination address}) vooraf wordt ingevuld.
+Moderne mobiele browsers herkennen deze links en openen de Google Maps applicatie. In het eerste geval met enkel de kaart, in het tweede geval als routebeschrijving, waarbij de bestemming (\texttt{daddr} staat voor \emph{destination address}) vooraf wordt ingevuld.
+
+Bij gemeenten met meerdere locaties zijn er drie opties:
+\begin{itemize}
+\item Voor elke vestiging kan een apart item worden aangemaakt
+\item Alleen de hoofdvestiging wordt gebruikt
+\item In plaats van het volledige adres wordt bijv. "Gemeente Rotterdam" gebruikt. De kaartapplicaties zijn zo ingericht dat deze op plaatsen in de buurt zoeken. De werking hiervan is dus afhankelijk van de kaartapplicatie. Ondersteuning voor het opgeven van meerdere locaties ("A of B") zit niet in de applicaties en kan dus niet op de website worden gebruikt.
+\end{itemize}
+
+Voor het telefoonnummer kan gebruik worden gemaakt van een link in de vorm \texttt{tel:14-033}. Hierbij dient wel opgemerkt te worden dat deze vorm alleen goed wordt ondersteund op latere Android toestellen en op iOS. We nemen daarom het telefoonnummer als platte tekst op. Via JavaScript wordt er een link van gemaakt indien men de site via Android 4 (of hoger) of iOS bezoekt. De fallback (platte tekst) voldoet aan de webrichtlijnen.

@@ -1,13 +1,13 @@
-\subsection{Dashboard voor redacteuren}
+\subsection{Dashboard voor redacteuren}\label{workbenchdashboard}
 
-Voor de redactie wordt een dashboard ontwikkeld op basis van de \usemodule{views} en \usemodule{views\_bulk\_operations} modules. Het dashboard komt op \texttt{/admin/workbench}. Afhankelijk van het wel of niet gebruiken van de \texttt{workbench} module zal deze pagina daaruit komen of zullen we hiervoor \usemodule{homebox} inzetten. De landingspagina krijgt hiermee ruimte voor een aantal widgets, te weten:
+Voor de redactie wordt een dashboard ontwikkeld op basis van de \usemodule{views} en \usemodule{views\_bulk\_operations} modules. Het dashboard komt op \texttt{/admin/workbench}. Een deel van deze pagina's komt uit de \texttt{workbench} module. De rest wordt via \usemodule{views} en \usemodule{emptypage} toegevoegd. De landingspagina krijgt hiermee ruimte voor een aantal widgets, te weten:
 \begin{itemize}
 \item Mijn bewerkingen \\ Lijst van laatste bewerkingen gedaan door de huidige gebruiker
 \item Alle recente inhoud \\ Lijst van items die recent zijn toegevoegd
 \end{itemize}
 De volgende tabbladeren worden toegevoegd:
 \begin{itemize}
-\item Inhoud aanmaken \\ Kopie van de \texttt{node/add}. Deze komt op \texttt{admin/workbench/create} en komt standaard uit \texttt{workbench}. Wanneer \texttt{workbench} niet in gebruik is dan zullen we deze pagina toevoegen via de \texttt{bespoke} module.
+\item Inhoud aanmaken \\ Kopie van de \texttt{node/add}. Deze komt op \texttt{admin/workbench/create} en komt standaard uit \texttt{workbench}.
 \item File list \\ View met alle bestanden (toegevoegd via de \usemodule{media} / \usemodule{file\_entity} module).
 \item Reacties \\ View met alle reacties
 \item Inhoud zoeken \\ View met alle nodes en filtermogelijkheid

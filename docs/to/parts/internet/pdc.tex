@@ -9,11 +9,11 @@ https://dacceptatieloket.schaveland.nl/loket/search.xml?type=pdc
 https://dacceptatieloket.schaveland.nl/loket/search.xml?type=vac
 \end{verbatim}
 Het is mogelijk om trefwoorden mee te geven, maar die functionaliteit zullen we niet gebruiken. Bovenstaande URL's geven alle producten of vacs terug.
-De dienst ondersteund ook ouput in JSON formaat met de toevoeging \texttt{output=json}. Dat zullen we echter niet gebruiken aangezien JSON minder geschikt is voor grotere documenten (aangezien het gehele document in het geheugen wordt ingeladen). Om dezelfde reden zullen we geen gebruik maken van SimpleXML of DOM als XML parsers, maar van de XMLReader library. Per item kan wel gebruik worden gemaakt van DOM. Er is reeds een functie ontwikkeld die grote feeds via XMLReader kan verwerken en deze per item in DOM aanbiedt.
+De dienst ondersteund ook ouput in JSON formaat met de toevoeging \texttt{output=json}. Dat gebruiken we echter niet aangezien JSON minder geschikt is voor grotere documenten (aangezien het gehele document in het geheugen wordt ingeladen). Om dezelfde reden maken we tevens geen van SimpleXML of DOM als XML parsers, maar van de XMLReader library. Per item kan wel gebruik worden gemaakt van DOM. Er is reeds een functie ontwikkeld die grote feeds via XMLReader kan verwerken en deze per item in DOM aanbiedt.
 
 De module bevat een settings pagina waar de url's die gebruikt worden voor de import in te stellen zijn.
 
-Voor producten zullen we de volgende velden importeren:
+Voor producten importeren we de volgende velden:
 \begin{itemize}
 \item \texttt{title} titel van de node
 \item \texttt{aanvraag} tekstveld met opmaak

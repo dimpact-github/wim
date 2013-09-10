@@ -1,6 +1,6 @@
 \section{Deployment}\label{deployment}
 
-Voor de deployment en latere updates zullen we een \emph{drush make script} maken en de \usemodule{features} inzetten.
+Voor de deployment en latere updates maken we gebruik van een \emph{drush make script} en de \usemodule{features} module.
 
 \subsection{Drush make}
 
@@ -59,9 +59,9 @@ Nadeel van features is wel dat features elkaar niet kunnen overlappen. Wanneer b
 
 \subsection{Release cycle}
 
-Tijdens de bouw (tot aan livegang) zullen we alle ontwikkeling in \'{e}\'{e}n branch (\texttt{develop}) doen. Dat heeft tot gevolg dat bij een release naar de (pre)prod omgeving \emph{alle} wijzigingen meekomen. Er is dus geen mogelijkheid tot \emph{cherry-picking}.
+Tijdens de bouw (tot aan livegang) wordt alle ontwikkeling in \'{e}\'{e}n branch (\texttt{develop}) gedaan. Dat heeft tot gevolg dat bij een release naar de (pre)prod omgeving \emph{alle} wijzigingen meekomen. Er is dus geen mogelijkheid tot \emph{cherry-picking}.
 Na de livegang komt er een aparte branch voor de productieomgeving, waardoor \emph{cherry-picking} wel mogelijk is. Vanaf dan moeten we wijzigingen \emph{mergen} voordat deze op productie komen. Tijdens de ontwikkeling doen we dit bewust niet omdat dit veel extra tijd vergt..
 
-Releases naar de verschillende omgevingen zullen tijdens de ontwikkeling gedaan worden wanneer dit noodzakelijk wordt geacht om te testen. Na de livegang zal een vaste releasecycle worden afgesproken (in SLA).
+Releases naar de verschillende omgevingen worden tijdens de ontwikkeling gedaan wanneer dit noodzakelijk wordt geacht om te testen. Na de livegang zal een vaste releasecycle worden afgesproken (in SLA).
 
 

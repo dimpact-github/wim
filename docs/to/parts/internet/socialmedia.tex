@@ -19,9 +19,11 @@ De share buttons geven de mogelijkheid om de pagina te delen op social media. Hi
 \item Twitteren (widget)
 \end{itemize}
 
-Bij oplevering van de standaarddistributie zullen we de standaard share links aanzetten. De widgets stellen we niet in. Deze kunnen bij implementatie van de gemeentesites makkelijk worden aangezet. De theming zal wel geschikt worden gemaakt voor het grotere formaat van deze widgets.
+Bij oplevering van de standaarddistributie zetten we de standaard share links aan. De widgets stellen we niet in. Deze kunnen bij implementatie van de gemeentesites makkelijk worden aangezet. De theming zal wel geschikt worden gemaakt voor het grotere formaat van deze widgets.
 
 Buttons worden op alle nodetypes toegevoegd die een detailpagina hebben.
+
+Per subsite wordt instelbaar of de share buttons direct zichtbaar zijn of onder een overlay komen. In het laatste geval is een enkele "delen" link beschikbaar waarmee de overlay geopend kan worden. Voor deze instelling wordt een custom \emph{dominion functie} aangemaakt met de systeemnaam \texttt{sharelink}. In het theme kan dan gebruik gemaakt worden van de functie \texttt{dominion\_has\_function} om te bepalen of de overlay gebruikt moet worden.
 
 \subsubsection{Widgets in HTML-code}
 
@@ -32,8 +34,11 @@ Eindredacteuren krijgen de mogelijkheid om zelf HTML widgets te plaatsen in de b
 Via de \usemodule{views} module i.c.m. de \usemodule{views\_rss} module worden RSS feeds ingesteld. De volgende feeds worden aangemaakt:
 \begin{enumerate}
 \item Laatste nieuwsberichten
-\item Laatste evenementen
+\item Actuele evenementen
 \item Laatste bekendmakingen
 \item Laatst gewijzigde pagina's
 \end{enumerate}
 De views worden gesorteerd op publicatiedatum (1 t/m 3) of datum laatst gewijzigd (4). De RSS feed laat altijd 20 items zien.
+
+Nieuwe RSS feeds kunnen niet door de gemeente aangemaakt worden.
+

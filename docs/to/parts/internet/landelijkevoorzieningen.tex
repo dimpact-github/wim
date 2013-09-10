@@ -11,7 +11,7 @@ Overheid.nl heeft een zoekdienst waarmee informatie van diverse bronnen opgehaal
 \end{itemize}
 De afkorting wordt als technische aanduiding gebruikt.
 
-We zullen een module ontwikkelen onder de naam \texttt{gvop} die deze zoekdienst gebruikt om informatie uit deze collecties op te kunnen halen. De functie van deze module is beperkt tot het ophalen van de data, voor het verwerken worden aparte modules geschreven per collectie. Deze submodules moeten de nieuwe \texttt{hook\_gvop} implementeren om aan te geven dat een bepaalde collectie opgehaald dient te worden. Daarin wordt ook aangegeven welke callback gebruikt moet worden voor het bijwerken van items. Deze callback wordt per item aangeroepen met een \texttt{DOMElement} (XML object) als argument.
+We ontwikkelen een module onder de naam \texttt{gvop} die deze zoekdienst gebruikt om informatie uit deze collecties op te kunnen halen. De functie van deze module is beperkt tot het ophalen van de data, voor het verwerken worden aparte modules geschreven per collectie. Deze submodules moeten de nieuwe \texttt{hook\_gvop} implementeren om aan te geven dat een bepaalde collectie opgehaald dient te worden. Daarin wordt ook aangegeven welke callback gebruikt moet worden voor het bijwerken van items. Deze callback wordt per item aangeroepen met een \texttt{DOMElement} (XML object) als argument.
 
 In de beheeromgeving komt een settings pagina waar de naam van de gemeente waar deze Drupal instantie betrekking op heeft, opgegeven kan worden. Tevens kan hier opgegeven worden hoevaak nieuwe items, middels de cron, worden opgehaald en hoeveel items er worden opgehaald per request. Deze settings gelden voor alle collecties die worden opgehaald.
 
@@ -26,7 +26,7 @@ De waarde \texttt{cvdr} kan anders zijn, afhankelijk van de collectie die we op 
 Middels extra query parameters in bovenstaande URL kan de zoekvraag nader worden bepaald. Als vaste waarde wordt het type 'regeling' opgegeven (\texttt{type==regeling}). Per gemeente worden de zoekresultaten afgeknepen d.m.v. de query parameter \texttt{creator}. Bij de creator parameter wordt slechts gebruik gemaakt van 1 vaste waarde, die overeenkomt met de naam van de gemeente zoals opgegeven bij de settings pagina.
 \\ Bijvoorbeeld: \texttt{\&query=creator==amsterdam}.
 
-Om bij elke cron iteratie alleen regelingen op te halen die zijn gewijzigd of nieuw zijn t.o.v. de vorige cron iteratie, kan gebruik gemaakt worden van de parameter 'modified'. Bijvoorbeeld: \texttt{modified\textgreater2013-08-07}. Het is mogelijk om de tijd van laatste cron iteratie te resetten om een volledige (her)import te forceren.
+Om bij elke cron iteratie alleen regelingen op te halen die zijn gewijzigd of nieuw zijn t.o.v. de vorige cron iteratie, kan gebruik gemaakt worden van de parameter 'modified'. Bijvoorbeeld: \texttt{modified\textgreater2013-08-07}. Het is mogelijk om de tijd van laatste cron iteratie te resetten om een volledige (her)import te forceren. In dat geval zal \emph{alle} informatie die beschikbaar is in de GVOP worden ge\"{i}mporteerd.
 
 Standaard worden 10 records tegelijkertijd opgehaald. Dit gebeurt met de volgende query parameters:
 \begin{verbatim}
@@ -74,6 +74,8 @@ Van elke publicatie worden de volgende velden opgehaald en opgeslagen bij de nod
 \item \texttt{overheidbm:producttype} taxonomie "bekendmaking type"
 \end{itemize}
 
+Bij het opslaan van de locatie via de \usemodule{location} module wordt de \emph{geocoding} toegepast om de geolocatie te achterhalen. Deze wordt ook opgeslagen en gebruikt om de locatie op de kaart te kunnen tonen.
+
 \subsubsection{Decentrale regelgeving (CVDR)}
 
 Voor het importeren van regelingen wordt een module ontwikkeld met de naam \texttt{gvop\_cvdr}.
@@ -94,7 +96,7 @@ Van elke regeling worden de volgende velden opgehaald en opgeslagen bij de node:
 \item \texttt{overheidrg:redactioneleToevoeging} tekstveld
 \end{itemize}
 
-In het veld \texttt{publicatieurl\_xml} staat een URL waarop de 'broodtekst' van de regeling staat gepubliceerd in XML formaat. Deze pagina wordt opgevraagd, en de inhoud ervan wordt omgevormd tot geldige HTML. Code voor deze omvorming is reeds gebouwd.
+In het veld \texttt{publicatieurl\_xml} staat een URL waarop de 'broodtekst' van de regeling staat gepubliceerd in XML formaat. Deze pagina wordt opgevraagd, en de inhoud ervan wordt omgevormd van de CVDR-specifieke opmaak tot geldige HTML. Code voor deze omvorming is reeds gebouwd.
 
 \subsubsection{Ruimtelijke plannen (DURP)}
 
@@ -105,7 +107,7 @@ Een voorbeeld van een manifest file is te zien op de volgende URL:
 http://ro.zwolle.nl/manifest/manifest2012.xml
 \end{verbatim}
 
-We zullen een module ontwikkelen met de naam \texttt{durp} welke deze informatie zal importeren. Er komt een settings pagina waarin de URL van de manifest geconfigureerd kan worden en waarop ingesteld kan worden hoevaak de ruimtelijke plannen worden ge\"{i}mporteerd.
+We gaan een module ontwikkelen met de naam \texttt{durp} welke deze informatie zal importeren. Er komt een settings pagina waarin de URL van de manifest geconfigureerd kan worden en waarop ingesteld kan worden hoevaak de ruimtelijke plannen worden ge\"{i}mporteerd.
 
 De import begint met het ophalen van de manifest file. Deze wordt vervolgens via de XMLReader class ingelezen (aangezien DOM en SimpleXML minder geschikt zijn voor grotere bestanden). Van de XML in de manifest wordt een hash gemaakt en opgeslagen in de database. Bij volgende imports wordt het item alleen bijgewerkt wanneer de hash niet overeenkomt met de hash in de database (of nieuw is).
 
@@ -125,7 +127,7 @@ Bij nieuwe en gewijzigde items wordt het geleideformulier opgehaald. Hieruit wor
 \end{itemize}
 Er wordt geen body tekst ge\"{i}mporteerd aangezien deze doorgaans als PDF worden aangeboden.
 
-Het gml bestand (verwijzing in de tag \texttt{IMRO}) bevat de ruimtelijke gegevens. We zullen deze niet volledig importeren. Wel halen we de co\"{o}rdinaten uit de \texttt{gml:posList} tag. Hiervan nemen we het gemiddelde welke we omzetten van het Rijksdriehoek stelsel naar GPS locaties. Het plan zal daarmee altijd als een enkele marker op de kaart getoond kunnen worden.
+Het gml bestand (verwijzing in de tag \texttt{IMRO}) bevat de ruimtelijke gegevens. Deze wordt niet volledig ge\"{i}mporteerd. Wel halen we de co\"{o}rdinaten uit de \texttt{gml:posList} tag. Hiervan nemen we het gemiddelde welke we omzetten van het Rijksdriehoek stelsel naar GPS locaties. Het plan zal daarmee altijd als een enkele marker op de kaart getoond kunnen worden.
 
 De documentatie van IMRO2012 is te vinden op de volgende URL:
 \begin{verbatim}
