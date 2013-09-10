@@ -8,4 +8,5 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = agenda
 features[views_view][] = nieuws
+features[views_view][] = rss_feeds
 features_exclude[dependencies][ctools] = ctools
