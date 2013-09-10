@@ -1,7 +1,7 @@
 name = Dimpact Contexts
 core = 7.x
 package = Features
-version = 7.x-1.0-beta2
+version = 7.x-1.0-beta3
 project = dimpact_contexts
 dependencies[] = block
 dependencies[] = context
@@ -9,6 +9,7 @@ dependencies[] = ctools
 dependencies[] = dimpact_content_types
 dependencies[] = features
 dependencies[] = menu
+dependencies[] = quicktabs
 dependencies[] = search
 dependencies[] = strongarm
 dependencies[] = views

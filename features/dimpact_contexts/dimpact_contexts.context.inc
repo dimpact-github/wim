@@ -94,11 +94,11 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
-        'menu-menu-alfabet' => array(
-          'module' => 'menu',
-          'delta' => 'menu-alfabet',
+        'quicktabs-alfabet' => array(
+          'module' => 'quicktabs',
+          'delta' => 'alfabet',
           'region' => 'navigation',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'menu-menu-meta-menu-links' => array(
           'module' => 'menu',
