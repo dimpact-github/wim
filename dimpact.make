@@ -36,6 +36,7 @@ projects[email][subdir] = contrib
 projects[empty_page][subdir] = contrib
 projects[entity][subdir] = contrib
 projects[expire][subdir] = contrib
+projects[extlink][subdir] = contrib
 projects[features][subdir] = contrib
 projects[features_extra][subdir] = contrib
 projects[felix][subdir] = contrib
