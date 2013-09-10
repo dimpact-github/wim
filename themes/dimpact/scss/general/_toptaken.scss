@@ -1,8 +1,9 @@
-$toptakentotal: 690px;
+$toptakentotal: 740px;
 $tabs: 267px;
 $buttons: ($toptakentotal - $tabs);
 .block-menu-menu-toptaken {
-  background-color: $background-color;
+  //background-color: $background-color;
+  border: 2px solid $background-color;
   ul {
     margin: 0;
   }

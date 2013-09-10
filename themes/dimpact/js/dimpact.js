@@ -1,6 +1,47 @@
 (function($) {
+
+  /**
+   * Hide all the tabs.
+   */
+  function hideProductTabs(){
+    $("#quicktabs-container-alfabet .quicktabs-tabs li").removeClass("active");
+    $("#quicktabs-container-alfabet .quicktabs-tabpage").addClass("quicktabs-hide");
+  }
+
   $(window).load(function () {
 
+    // Alphabet menus
+    hideProductTabs();
+    $(document).mouseup(function(e) {
+      var container = $("#quicktabs-container-alfabet .quicktabs-tabs li");
+      if (container.has(e.target).length === 0){
+        hideProductTabs();
+      }
+    });
+
+    var leave = false;
+    var enter = false;
+    var opacityValue = 1;
+    $("#quicktabs-container-alfabet .quicktabs-tabpage").mouseleave(function(){
+      leave = true;
+      enter = false;
+      $('*').clearQueue();
+      $(this).animate({opacity : opacityValue},1000,function(){
+        if(enter == false){
+          hideProductTabs();
+        };
+        leave = false;
+      });
+    });
+    $("#quicktabs-container-alfabet .quicktabs-tabpage").mouseenter(function(){
+      enter = true;
+      if(leave){
+        $('*').clearQueue();
+        $(this).animate({opacity : 1},1000);
+      }
+    });
+
+    // Carousels
     $(".carousel-93 .views-rows").carouFredSel({
       items: 1,
       responsive: true,
@@ -25,6 +66,7 @@
       }
     });
 
+    // Toptaken block
     $('.block-menu-menu-toptaken > ul > li.first').addClass('toptaken-active');
     $('.block-menu-menu-toptaken > ul > li').click(function() {
       $('.block-menu-menu-toptaken > ul > li').removeClass('toptaken-active');

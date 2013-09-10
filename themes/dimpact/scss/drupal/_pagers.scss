@@ -19,7 +19,7 @@ ul.pager {
     }
   }
   a, .pager-current, .pager-ellipsis {
-    padding: 0 12px;
+    padding: 0 $gutter-width/2 0 0;
   }
   a {
     text-decoration: none;

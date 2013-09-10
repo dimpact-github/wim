@@ -30,51 +30,51 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     nav {
       &.main-menu {
-        background-color: $colour;
-        border-top: 4px solid $colourlight;
-        li:hover {
-          background-color: darken($colour, 10%);
+        .block-system-main-menu {
+          background-color: $colour;
+          border-top: 4px solid $colourlight;
+          li:hover {
+            background-color: darken($colour, 10%);
+            a {
+              color: $linkcolor !important;
+            }
+          }
           a {
             color: $linkcolor !important;
+            &.active,
+            &:hover {
+            }
           }
-        }
-        a {
-          color: $linkcolor !important;
-          &.active,
-          &:hover {
-            //text-decoration: none;
-            //background-color: $colourlight;
-            //color: $link-dark !important;
-          }
-        }
-        ul {
-          li {
-            ul {
-              background-color: darken($colour, 10%);
-              a,
-              a.active {
-                //background-color: $colour !important;
-                //color: $link-light !important;
-                //border-top: 1px solid #fff;
-                &:hover {
-                  //background-color: $colour !important;
-                  //color: $link-light !important;
+          ul {
+            li {
+              ul {
+                background-color: darken($colour, 10%);
+                a,
+                a.active {
+                  &:hover {
+                  }
                 }
               }
             }
           }
         }
-        .block-menu-menu-alfabet {
-          //background-color: $colourlight;
-          a {
-            color: $link-dark !important;
-            &.active,
-            &:hover {
-              color: $linkcolor !important;
-              background-color: $colour;
-            }
-          }
+      }
+    }
+    #quicktabs-alfabet {
+      .quicktabs-tabs {
+        //li.active a,
+        a:hover {
+          background-color: $colour;
+          color: $linkcolor;
         }
+      }
+      .quicktabs-tabpage {
+        //@include background-image(linear-gradient(darken($colour, 7%), $colour 20px));
+        //border-top: 1px solid $colourlight;
+        //background-color: $colour;
+        //a {
+        //  color: $linkcolor;
+        //}
       }
     }
     .ui-tabs-nav {
@@ -93,7 +93,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         a {
           text-decoration: none;
           span {
-            background-color: $colourlight;
+            background-color: #fff;
           }
           &:hover,
           &.selected {

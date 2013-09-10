@@ -16,12 +16,13 @@
     }
   }
   .progress {
-    height: 2px;
+    height: 1px;
   }
   .pager {
-    top: 0;
+    top: $gutter-width/2;
+    left: $gutter-width/2;
     position: absolute;
-    padding: 10px 0;
+    //padding: 10px 0;
     text-align: center;
     a {
       color: $link-dark;
