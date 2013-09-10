@@ -1,5 +1,5 @@
-name = Who is online employee
-description = Displays online employees.
+name = Dimpact whoisonline
+description = Displays a list of online employees only.
 package = Dutch Open Projects
 version = 1.0
 core = 7.x
