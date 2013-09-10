@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * This code is stolen from the core module 'users'
+ * Stolen, stripped and modified by Maarten
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function dimpact_whoisonline_block_info() {
+  $blocks['online']['info'] = t('Dimpact Who\'s online');
+  $blocks['online']['cache'] = DRUPAL_NO_CACHE;
+  $blocks['online']['properties']['administrative'] = TRUE;
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function dimpact_whoisonline_block_configure($delta = '') {
+  $period = drupal_map_assoc(array(30, 60, 120, 180, 300, 600, 900, 1800, 2700, 3600, 5400, 7200, 10800, 21600, 43200, 86400), 'format_interval');
+  $form['user_block_seconds_online'] = array('#type' => 'select', '#title' => t('User activity'), '#default_value' => variable_get('user_block_seconds_online', 900), '#options' => $period, '#description' => t('A user is considered online for this long after they have last viewed a page.'));
+  $form['user_block_max_list_count'] = array('#type' => 'select', '#title' => t('User list length'), '#default_value' => variable_get('user_block_max_list_count', 10), '#options' => drupal_map_assoc(array(0, 5, 10, 15, 20, 25, 30, 40, 50, 75, 100)), '#description' => t('Maximum number of currently online users to display.'));
+  return $form; 
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function dimpact_whoisonline_block_save($delta = '', $edit = array()) { 
+  variable_set('user_block_seconds_online', $edit['user_block_seconds_online']);
+  variable_set('user_block_max_list_count', $edit['user_block_max_list_count']);
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function dimpact_whoisonline_block_view($delta = '') {
+  global $user;
+
+  $block = array();
+
+  if (user_access('access content')) {
+    // Count users active within the defined period.
+    $interval = REQUEST_TIME - variable_get('user_block_seconds_online', 900);
+
+    // Perform database queries to gather online user lists. We use s.timestamp
+    // rather than u.access because it is much faster.
+    $authenticated_count = db_query("SELECT COUNT(DISTINCT s.uid) FROM {sessions} s LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :timestamp AND s.uid > 0 AND ur.rid = 3", array(':timestamp' => $interval))->fetchField();
+
+    $output = '<p>' . format_plural($authenticated_count, 'There is currently 1 user online.', 'There are currently @count users online.') . '</p>';
+
+    // Display a list of currently online users.
+    $max_users = variable_get('user_block_max_list_count', 10);
+    if ($authenticated_count && $max_users) {
+      $items = db_query_range('SELECT u.uid, u.name, MAX(s.timestamp) AS max_timestamp FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :interval AND s.uid > 0 AND ur.rid = 3 GROUP BY u.uid, u.name ORDER BY max_timestamp DESC', 0, $max_users, array(':interval' => $interval))->fetchAll();
+      $output .= theme('user_list', array('users' => $items));
+    }
+
+    $block['subject'] = t('Who\'s online');
+    $block['content'] = $output;
+  }
+  return $block;
+}

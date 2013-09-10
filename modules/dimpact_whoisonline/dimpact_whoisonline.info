@@ -1,0 +1,8 @@
+name = Who is online employee
+description = Displays online employees.
+package = Dutch Open Projects
+version = 1.0
+core = 7.x
+files[] = dimpact_whoisonline.module
+
+
