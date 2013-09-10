@@ -16,6 +16,18 @@ function dimpact_menus_menu_default_menu_custom() {
     'title' => 'Alfabet',
     'description' => '',
   );
+  // Exported menu: menu-alfabet-a.
+  $menus['menu-alfabet-a'] = array(
+    'menu_name' => 'menu-alfabet-a',
+    'title' => 'Alfabet A',
+    'description' => '',
+  );
+  // Exported menu: menu-alfabet-b.
+  $menus['menu-alfabet-b'] = array(
+    'menu_name' => 'menu-alfabet-b',
+    'title' => 'Alfabet B',
+    'description' => '',
+  );
   // Exported menu: menu-footer-menu.
   $menus['menu-footer-menu'] = array(
     'menu_name' => 'menu-footer-menu',
@@ -55,6 +67,8 @@ function dimpact_menus_menu_default_menu_custom() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Alfabet');
+  t('Alfabet A');
+  t('Alfabet B');
   t('Direct online regelen');
   t('Footer menu appears in the lower right corner of the page.');
   t('Footer menu right');

@@ -1,12 +1,14 @@
 name = Dimpact Menus
 core = 7.x
 package = Features
-version = 7.x-1.0-beta2
+version = 7.x-1.0-beta3
 project = dimpact_menus
 dependencies[] = features
 dependencies[] = menu
 features[features_api][] = api:2
 features[menu_custom][] = menu-alfabet
+features[menu_custom][] = menu-alfabet-a
+features[menu_custom][] = menu-alfabet-b
 features[menu_custom][] = menu-footer-menu
 features[menu_custom][] = menu-footer-menu-right
 features[menu_custom][] = menu-meta-menu-links
