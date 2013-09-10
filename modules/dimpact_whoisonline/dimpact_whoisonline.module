@@ -49,14 +49,14 @@ function dimpact_whoisonline_block_view($delta = '') {
 
     // Perform database queries to gather online user lists. We use s.timestamp
     // rather than u.access because it is much faster.
-    $authenticated_count = db_query("SELECT COUNT(DISTINCT s.uid) FROM {sessions} s LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :timestamp AND s.uid > 0 AND ur.rid = 3", array(':timestamp' => $interval))->fetchField();
+    $authenticated_count = db_query("SELECT COUNT(DISTINCT s.uid) FROM {sessions} s LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :timestamp AND s.uid > 0 AND ur.rid > 2", array(':timestamp' => $interval))->fetchField();
 
     $output = '<p>' . format_plural($authenticated_count, 'There is currently 1 user online.', 'There are currently @count users online.') . '</p>';
 
     // Display a list of currently online users.
     $max_users = variable_get('user_block_max_list_count', 10);
     if ($authenticated_count && $max_users) {
-      $items = db_query_range('SELECT u.uid, u.name, MAX(s.timestamp) AS max_timestamp FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :interval AND s.uid > 0 AND ur.rid = 3 GROUP BY u.uid, u.name ORDER BY max_timestamp DESC', 0, $max_users, array(':interval' => $interval))->fetchAll();
+      $items = db_query_range('SELECT u.uid, u.name, MAX(s.timestamp) AS max_timestamp FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid LEFT JOIN {users_roles} ur ON s.uid = ur.uid WHERE s.timestamp >= :interval AND s.uid > 0 AND ur.rid > 2 GROUP BY u.uid, u.name ORDER BY max_timestamp DESC', 0, $max_users, array(':interval' => $interval))->fetchAll();
       $output .= theme('user_list', array('users' => $items));
     }
 
