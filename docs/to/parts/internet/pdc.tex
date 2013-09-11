@@ -1,19 +1,19 @@
 \subsection{Import uit Atos eSuite}
 
-De Atos eSuite voorziet in een XML feed waarmee de producten (PDC) en vraag- / antwoordcombinaties (VAC) kunnen worden opgehaald. Deze feeds kunnen via een \texttt{HTTP GET} worden opgevraagd van een openbare omgeving.
-We ontwikkelen een nieuwe module met de naam \texttt{atos\_esuite} die informatie uit deze feeds importeerd.
+De Atos eSuite voorziet in een XML feed waarmee de producten (PDC) en \\ vraag- / antwoordcombinaties (VAC) kunnen worden opgehaald. Deze feeds kunnen via een \texttt{HTTP GET} worden opgevraagd van een openbare omgeving.
+Er wordt een module ontwikkeld met de naam \texttt{atos\_esuite} die informatie uit deze feeds importeerd.
 
 Voorbeelden van feeds zijn:
 \begin{verbatim}
 https://dacceptatieloket.schaveland.nl/loket/search.xml?type=pdc
 https://dacceptatieloket.schaveland.nl/loket/search.xml?type=vac
 \end{verbatim}
-Het is mogelijk om trefwoorden mee te geven, maar die functionaliteit zullen we niet gebruiken. Bovenstaande URL's geven alle producten of vacs terug.
-De dienst ondersteund ook ouput in JSON formaat met de toevoeging \texttt{output=json}. Dat gebruiken we echter niet aangezien JSON minder geschikt is voor grotere documenten (aangezien het gehele document in het geheugen wordt ingeladen). Om dezelfde reden maken we tevens geen van SimpleXML of DOM als XML parsers, maar van de XMLReader library. Per item kan wel gebruik worden gemaakt van DOM. Er is reeds een functie ontwikkeld die grote feeds via XMLReader kan verwerken en deze per item in DOM aanbiedt.
+Het is mogelijk om trefwoorden mee te geven, maar die functionaliteit zal niet gebruikt worden. Bovenstaande URL's geven alle producten of vacs terug.
+De dienst ondersteund ook ouput in JSON formaat met de toevoeging \texttt{output=json}. Hier wordt geen gebruik van gemaakt omdat JSON minder geschikt is voor grotere documenten (aangezien het gehele document in het geheugen wordt ingeladen). Om dezelfde reden maken we tevens geen gebruik van SimpleXML of DOM als XML parsers, maar van de XMLReader library. Per item kan wel gebruik worden gemaakt van DOM. Er is reeds een functie ontwikkeld die grote feeds via XMLReader kan verwerken en deze per item in DOM aanbiedt.
 
 De module bevat een settings pagina waar de url's die gebruikt worden voor de import in te stellen zijn.
 
-Voor producten importeren we de volgende velden:
+Voor producten worden de volgende velden ge\"{i}mporteerd:
 \begin{itemize}
 \item \texttt{title} titel van de node
 \item \texttt{aanvraag} tekstveld met opmaak
@@ -34,5 +34,5 @@ Voor vacs zijn dit de volgende velden:
 
 Links naar formulieren en downloads zijn opgenomen als HTML links in de tekstvelden.
 
-De \texttt{atos\_esuite} module houdt een mapping bij van node id's in de website database en id's uit de eSuite. Deze identificatiecodes komen mee in de tag \texttt{id}. De originele XML die gebruikt is bij de import wordt in de database opgeslagen ter referentie.
+De \texttt{atos\_esuite} module houdt een mapping bij van node id's uit de website database en id's uit de eSuite. Deze identificatiecodes komen mee in de tag \texttt{id}. De originele XML die gebruikt is bij de import wordt in de database opgeslagen ter referentie.
 

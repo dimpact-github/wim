@@ -1,11 +1,11 @@
 \section{Views}\label{views}
 
 \subsection{Agenda}
-\subsubsection{Laatste Agenda items}\label{laatste-agenda-items}
-View block gefilterd op Content Type Agenda en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser. Maximaal 3 items getoond. Inclusief 'Lees meer' link (naar node detailpagina) onder elk item.
+\subsubsection{Laatste evenementen}\label{laatste-agenda-items}
+Views blok gefilterd op Content Type Agenda en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser. Maximaal 3 items getoond. Inclusief 'Lees meer' link (naar node detailpagina) onder elk item.
 
 \subsection{Nieuws}
-\subsubsection{Nieuws Overzicht}\label{nieuws-overzicht}
+\subsubsection{Nieuws overzicht}\label{nieuws-overzicht}
 View page gefilterd op Content Type Nieuws en op gepubliceerd. Gesorteerd via Post Date. Titel is Nieuwsarchief. 7 items getoond per pagina (met pager).
 
 Getoonde velden:
@@ -15,8 +15,8 @@ Getoonde velden:
 \item Introductietekst.
 \end{itemize}
 
-\subsubsection{Laatste Nieuws items}\label{laatste-nieuws-items}
-View block gefilterd op Content Type Nieuws en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser.
+\subsubsection{Laatste nieuws items}\label{laatste-nieuws-items}
+Views blok gefilterd op Content Type Nieuws en op gepubliceerd. Gesorteerd via Post Date. Weergave via View mode Teaser.
 Maximaal 3 items getoond. Inclusief 'Lees meer' link (naar node detailpagina) onder elk item.
 
 Getoonde velden:
@@ -39,7 +39,7 @@ Fields:
 \item Location: Postal code
 \item Location: Street
 \item Content: Title \\
-Het tweede titelveld wordt gebruikt als tooltip op de kaart en heeft daarom de volgende afwijkende settings:
+Dit titelveld wordt gebruikt als tooltip op de kaart en heeft daarom de volgende afwijkende settings:
 \begin{itemize}
 \item Create a label: uitgevinkt
 \item Exclude from display: aangevinkt
@@ -79,7 +79,7 @@ De exposed filters worden in een blok geplaatst. Bij de settings wordt \emph{exp
 
 \subsubsection{Bekendmakingen kaart}\label{bekendmakingen-markers}
 
-Middels \usemodule{location}, \usemodule{gmap} en \usemodule{gmap\_location} wordt een view met een page display opgezet. Deze display wordt gebruikt als attachment bij Bekendmakingen overzicht \seeref{bekendmakingen-overzicht}.
+Middels \usemodule{location}, \usemodule{gmap} en \usemodule{gmap\_location} wordt een view met een \emph{gmap display} (kaartweergave) opgezet. Dit wordt gebruikt als attachment bij Bekendmakingen overzicht \seeref{bekendmakingen-overzicht}.
 
 Format:
 \begin{itemize}
@@ -128,7 +128,7 @@ Contextuele filter
 \subsubsection{Categorie\"{e}n}
 View op tags uit de vocabulaire \emph{Tags images}. De view komt op \texttt{/fotoalbum}.
 \subsubsection{Foto's}
-View op images (file entity) met een specifieke tag. De view komt op \texttt{/fotoalbum/\%}, waarbij het tweede element de entity id is van de categorie.
+View op images (file entity) met een specifieke tag. De view komt op \texttt{/fotoalbum/\%}, waarbij het tweede element het entity id is van de categorie.
 
 
 \subsection{Overige onderwerpen carrousel}

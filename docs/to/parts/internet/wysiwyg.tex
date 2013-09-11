@@ -1,15 +1,15 @@
 \subsection{Wysiwyg en media}\label{wysiwyg}
 
-Voor media en wysiwyg gaan we de \usemodule{wysiwyg} en \usemodule{media} / \usemodule{file\_entity} modules inzetten. Als editor zelf wordt gekozen voor \texttt{CKEditor} aangezien dit de meestgebruikte editor is binnen Drupal en standaard is in Drupal 8.
+Voor media en wysiwyg worden de \usemodule{wysiwyg} en \usemodule{media} / \usemodule{file\_entity} modules ingezet. Als editor zelf wordt gekozen voor \texttt{CKEditor} aangezien dit de meestgebruikte editor is binnen Drupal en standaard is in Drupal 8.
 
 \subsubsection{Buttons}
 
 De buttons staan gespecificeerd in het FO document.
-Een aantal buttons zit niet standaard in de \usemodule{wysiwyg} module. Hiervoor wordt de reeds ontwikkelde \texttt{ckeditor\_customtags} module gebruikt.
+Een aantal buttons zit niet standaard in de \usemodule{wysiwyg} module. Hiervoor wordt de reeds ontwikkelde \texttt{ckeditor\_customtags} module gebruikt waarmee buttons kunnen worden toegevoegd.
 
 \subsubsection{Links in bodytekst}
 
-Voor het gemakkelijk kunnen toevoegen van links in bodyteksten maken we gebruik van de \usemodule{linkit} module i.c.m. \usemodule{pathologic}.
+Voor het gemakkelijk kunnen toevoegen van links in bodyteksten wordt gebruik gemaakt van de \usemodule{linkit} module i.c.m. \usemodule{pathologic}.
 
 \subsubsection{Invoerformaten}\label{invoerformaten}
 
@@ -17,16 +17,16 @@ Er worden drie invoerformaten ter beschikking gesteld voor gebruikers en redacte
 
 \begin{itemize}
 \item \textbf{Full HTML} \\
-Volledig HTML zonder filtering. Alleen beschikbaar voor eindredacteuren. Het wordt aanbevolen om hier spaarzaam gebruik van te maken vanwege de mogelijkheid om nieuwe XSS issues (security issues) te introduceren.
+Volledige HTML zonder filtering. Alleen beschikbaar voor eindredacteuren. Het wordt aanbevolen om hier spaarzaam gebruik van te maken vanwege de mogelijkheid om nieuwe XSS issues (security issues) te introduceren.
 \item \textbf{Filtered HTML} \\
 Standaard filtering op ongewenste HTML en herschrijven van links door \texttt{pathologic}.
 \item \textbf{Plain text} \\
-Wordt gebruikt voor reviews (geplaatst door bezoekers). Geen opmaak / HTML toegestaan.
+Wordt gebruikt voor reviews (geplaatst door bezoekers). Hierbij wordt geen opmaak / HTML toegestaan.
 \end{itemize}
 
 \subsubsection{Media}\label{media}
 
 Images en video's moeten toegevoegd en hergebruikt kunnen worden in wysiwyg en bestandsvelden.
-We gaan uit van versie 2 van de \texttt{media} module.
+Uitgangspunt is versie 2 van de \texttt{media} module.
 
 

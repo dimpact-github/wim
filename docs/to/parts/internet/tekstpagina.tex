@@ -12,7 +12,7 @@ Op tekstpagina's moet het mogelijk zijn om inline tabs op te nemen. In plaats va
 [tabs]
 [tekst van actieve tab]
 \end{verbatim}
-Het actieve tab is altijd de eerste, totdat een ander tabblad wordt aangeklikt. Het aantal tabs is ongelimiteerd. Wel kan er maar \'{e}\'{e}n set tabs per pagina worden gebruikt.
+De actieve tab is altijd de eerste, totdat een ander tabblad wordt aangeklikt. Het aantal tabs is ongelimiteerd. Wel kan er maar \'{e}\'{e}n set tabs per pagina worden gebruikt.
 De invoer van de tabs gebeurt in het body veld. Elke heading die begint met "**" wordt omgezet naar een tab. De volgende invoer:
 \begin{verbatim}
 <p>Introtekst</p>
@@ -45,13 +45,13 @@ wordt omgezet naar:
 \end{verbatim}
 De tekst \texttt{[id]} is een unieke code voor dat tabblad en wordt random gegenereerd. De omzetting vind plaats in een input filter en wordt ge\"{i}mplementeerd in een custom module met de naam \texttt{inlinetabs}. Hierin wordt ook een JavaScript toegevoegd om de tabs actief te maken middels jQuery UI Tabs\footnote{http://api.jqueryui.com/tabs/}.
 
-Het nieuwe input filter zetten we aan op \emph{filtered html} en \emph{full html}. Dit filter wordt aan het eind toegevoegd om te voorkomen dat de id's en classes verdwijnen.
+Het nieuwe input filter wordt aangezet op \emph{filtered html} en \emph{full html}. Dit filter wordt aan het eind toegevoegd om te voorkomen dat de id's en classes verdwijnen.
 
 \subsubsection{404 en 403 pagina's}\label{404pagina}
 
 De 404 en 403 pagina's zijn een speciaal soort tekstpagina.
 
-Om te voorkomen dat deze pagina's in de zoekresultaten komt doen we een aanpassing in de \texttt{bespoke} module zodat deze niet meegenomen wordt in het zoekresultaat (via de \texttt{apachesolr\_query\_alter}-hook).
+Om te voorkomen dat deze pagina's in de zoekresultaten komen wordt een aanpassing in de \texttt{bespoke} module gedaan zodat deze pagina's niet meegenomen wordt in het zoekresultaat (via de \texttt{apachesolr\_query\_alter}-hook).
 
-Deze pagina is niet geiljk aan de storingspagina voor fouten uit de \texttt{5xx}-categorie\seeone{storingspagina}.
+Deze pagina is niet gelijk aan de storingspagina voor fouten uit de \texttt{5xx}-categorie\seeone{storingspagina}.
 

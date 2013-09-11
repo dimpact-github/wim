@@ -1,6 +1,6 @@
 \subsection{Varnish}\label{varnish}
-\textit{Varnish} is een \textit{reverse proxy server}. Dit is een server tussen de client en webserver in die dient als extra caching laag.
-\textit{Varnish} is in staat om pagina's van niet-ingelogde bezoekers te cachen. Deze caching bied uitstekende bescherming tegen het \textit{slashdot-effect} \footnote{http://en.wikipedia.org/wiki/Slashdot\_effect}.
+\textit{Varnish} is een \textit{reverse proxy server}. Dit is een server tussen de client en webserver in en dient als extra caching laag.
+\textit{Varnish} is in staat om pagina's van niet-ingelogde bezoekers te cachen. Deze caching bied tevens uitstekende bescherming tegen het \textit{slashdot-effect} \footnote{http://en.wikipedia.org/wiki/Slashdot\_effect}.
 
 Om het nadelige effect van caching (het blijven zien van oude content) te verhelpen wordt de \usemodule{purge} module gebruikt om pagina's uit de \textit{Varnish}-cache te halen wanneer deze worden aangepast.
 
@@ -8,7 +8,7 @@ Om het nadelige effect van caching (het blijven zien van oude content) te verhel
 
 \paragraph{vcl\_recv}\label{varnishrecv}
 
-De purge module maakt een call naar de Varnish server met ``PURGE`` als requesttype. Om deze in Varnish af te handelen zetten we het volgende bovenaan in de \textit{vcl\_fetch}:
+De purge module maakt een call naar de Varnish server met ``PURGE`` als requesttype. Om deze in Varnish af te handelen zetten we het volgende script bovenaan in de \textit{vcl\_fetch}:
 
 \begin{lstlisting}[language=C]
   if (req.request == "PURGE" || req.request == "PURGEALL") {
@@ -29,7 +29,7 @@ De purge module maakt een call naar de Varnish server met ``PURGE`` als requestt
   }
 \end{lstlisting}
 
-We normaliseren de \texttt{Accept-Encoding} header om dezelfde cache te kunnen hanteren voor de diverse varianten die de browsers meesturen.
+De \texttt{Accept-Encoding} header wordt genormaliseerd om dezelfde cache te kunnen hanteren voor de diverse varianten die de browsers meesturen.
 
 \begin{lstlisting}[language=C]
   if (req.http.Accept-Encoding) {
@@ -47,7 +47,7 @@ We normaliseren de \texttt{Accept-Encoding} header om dezelfde cache te kunnen h
   }
 \end{lstlisting}
 
-We gebruiken tevens dezelfde cache voor elke browser:
+Daarnaast wordt tevens dezelfde cache voor elke browser gebruikt:
 
 \begin{lstlisting}[language=C]
   set req.http.user-agent = "Mozilla";
@@ -73,13 +73,13 @@ We laten alleen de session, ssl en NO\_CACHE cookies door. Alle overige cookies 
 
 \paragraph{vcl\_fetch}
 
-We configureren de \textit{grace period} op 15m.
+De \textit{grace period} wordt op 15m geconfigureerd.
 
 \begin{lstlisting}[language=C]
   set beresp.grace = 15m;
 \end{lstlisting}
 
-Statische bestanden zullen we altijd cachen. PHP-files nooit.
+Statische bestanden worden altijd gecacht. PHP-files nooit.
 
 \begin{lstlisting}[language=C]
   if (req.url ~ "\.(png|gif|jpg|txt)$") {

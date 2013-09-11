@@ -13,13 +13,13 @@ Voor de \usemodule{dominion} module worden de volgende settings aangepast:
 Onder de instellingen van \usemodule{dominion\_menu} wordt een domein specifiek menu ingesteld. Het bijbehorende menublok wordt ingesteld in de linkerkolom.
 
 \subsubsection{Zoeken en multisite}
-We gebruiken de \texttt{dominion\_apachesolr} module om ervoor te zorgen dat zoekopdrachten alleen resultaten teruggeven van de huidige subsite. Indien wenselijk kan wel per subsite worden aangegeven of er nog additionele domein mee worden genomen. De zoekresultaten komen in dat geval door elkaar. Deze optie wordt ook gebruikt om automatisch onderliggende domeinen mee te nemen, zoals de team subsites op het intranet.
+De \texttt{dominion\_apachesolr} module wordt gebruikt om ervoor te zorgen dat zoekopdrachten alleen resultaten teruggeven van de huidige subsite. Indien wenselijk kan wel per subsite worden aangegeven of er nog additionele domein mee worden genomen. De zoekresultaten komen in dat geval door elkaar. Deze optie wordt ook gebruikt om automatisch onderliggende domeinen mee te nemen, zoals de team subsites op het intranet.
 
 \subsubsection{Views}
 Alle views die nodes laten zien worden aangepast. Er wordt een extra filter toegevoegd dat alleen nodes laat zien die op het huidige domein zijn gepubliceerd ("Domain: Available on current domain"). Dit om te voorkomen dat gebruikers met de "bypass node access" permissie content van alle domeinen in de views te zien krijgen.
 
 \subsubsection{Permissies}
-De domain module biedt de mogelijkheid om gebruikers aan domeinen te koppelen. Dit systeem staat los van de gebruikersrollen die gebruikers hebben. Een aantal permissies heeft alleen effect wanneer de gebruiker ook aan het domein is gekoppeld (bijvoorbeeld het aanmaken van nieuwe inhoud). De gebruiker heeft dus deze rechten wanneer deze \'{e}n de juiste gebruikersrol heeft, \'{e}n gekoppeld is aan het domein. Dat wil tevens zeggen dat een gebruiker niet een redacteur kan zijn op het ene domein en een eindredacteur op het andere domein. In een later stadium kan eventueel een module gemaakt worden waarmee het wel mogelijk is om verschillende rollen toe te wijzen per gebruiker / domein combinatie.
+De domain module biedt de mogelijkheid om gebruikers aan domeinen te koppelen. Dit systeem staat los van de gebruikersrollen die gebruikers hebben. Een aantal permissies heeft alleen effect wanneer de gebruiker ook aan het domein is gekoppeld (bijvoorbeeld het aanmaken van nieuwe inhoud). De gebruiker heeft dus deze rechten wanneer  hij / zij \'{e}n de juiste gebruikersrol heeft, \'{e}n gekoppeld is aan het domein. Dat wil tevens zeggen dat een gebruiker niet een redacteur kan zijn op het ene domein en een eindredacteur op het andere domein. In een later stadium kan eventueel een module gemaakt worden waarmee het wel mogelijk is om verschillende rollen toe te wijzen per gebruiker / domein combinatie.
 
 \subsubsection{Functionaliteit}
 Per subsite kan aangevinkt worden welke functionaliteit beschikbaar is. De volgende opties zijn beschikbaar:
@@ -28,4 +28,4 @@ Per subsite kan aangevinkt worden welke functionaliteit beschikbaar is. De volge
 \item Agenda
 \item Contactformulier
 \end{itemize}
-Dit is geen uitputtende lijst van functionaliteit, maar zijn enkel de opties die aan- of uitgezet kunnen worden. Bijvoorbeeld een tekstpagina is altijd beschikbaar.
+Dit is geen uitputtende lijst van functionaliteiten, maar bevat enkel de opties die aan- of uitgezet kunnen worden. Bijvoorbeeld een tekstpagina is altijd beschikbaar.

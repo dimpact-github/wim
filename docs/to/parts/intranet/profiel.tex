@@ -1,6 +1,6 @@
 \subsection{Persoonlijk profiel}\label{profiel}
 
-In het persoonlijk staan de volgende elementen:
+In het persoonlijk profiel staan de volgende elementen:
 \begin{itemize}
 \item Foto
 \item Algemene gegevens
@@ -34,8 +34,8 @@ Voor het aanpassen van de gegevens wordt gebruik gemaakt van de \usemodule{profi
 \end{itemize}
 Elk profiel type heeft een eigen pagina waarop de inhoud kan worden bewerkt. Deze pagina is beschikbaar op \texttt{profile-[name]/[uid]/edit}, waarbij \texttt{[name]} de systeemnaam is en \texttt{[uid]} de \emph{user id}. Wanneer men op het eigen profiel op \emph{Bewerken} klinkt dan komt men op \texttt{profile-personal/[uid]/edit}.
 
-De \usemodule{profile2} module heeft een integratie met de \usemodule{views} module. Voor alle profiel types behalve persoonlijke informatie worden via de views module blokken gemaakt. Hierbij wordt de user id uit de URL gehaald via een contextual filter. In de footer van de view wordt via PHP code een link naar de bewerkpagina getoond indien het user id uit de url overeenkomt met de user id van de bezoeker.
+De \usemodule{profile2} module heeft een integratie met de \usemodule{views} module. Voor alle profiel types, behalve persoonlijke informatie, worden via de views module blokken gemaakt. Hierbij wordt het user id uit de URL gehaald via een contextual filter. In de footer van de view wordt via PHP code een link naar de bewerkpagina getoond indien het user id uit de url overeenkomt met het user id van de bezoeker.
 
-De profielinformatie wat via de beschreven pagina's wordt aangepast blijft binnen Drupal en wordt niet verzonden naar andere systemen (zoals LDAP).
+De profielinformatie die via de beschreven pagina's wordt aangepast blijft binnen Drupal en wordt niet verzonden naar andere systemen (zoals LDAP).
 
 Als er extra velden toegevoegd moeten worden die vrij invulbaar zijn (voor bijv. de werktijden) dan kunnen deze toegevoegd worden aan het persoonlijk profiel.

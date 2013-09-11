@@ -1,5 +1,5 @@
 \subsection{Zoeken}\label{zoeken}
-Voor de zoekfunctionaliteit maken we gebruik van de \usemodule{apachesolr} module. We gaan uit van default settings (dat wil zeggen: configuratiebestanden die meegeleverd worden bij de \texttt{apachesolr} module). Berekeningen en settings van relevantie, synoniemenlijsten etc. zullen we ongemoeid laten. Het is vaak ook niet noodzakelijk om dit aan te passen aangezien de default settings doorgaans goede resultaten leveren.
+Voor de zoekfunctionaliteit wordt gebruik gemaakt van de \usemodule{apachesolr} module. Als uitgangspunt gelden de default settings (dat wil zeggen: configuratiebestanden die meegeleverd worden bij de \texttt{apachesolr} module). Berekeningen en settings van relevantie, synoniemenlijsten etc. wordt ongemoeid gelaten. Het is vaak ook niet noodzakelijk om dit aan te passen aangezien de default settings over het algemeen goede resultaten leveren.
 
 DOP levert de configuratiebestanden voor Solr aan.
 
@@ -7,10 +7,10 @@ DOP levert de configuratiebestanden voor Solr aan.
 Een zoekopdracht invoeren gaat altijd via de zoekbox in de header. Voor dit blok wordt de standaard \usemodule{search} module uit Drupal core gebruikt.
 
 \subsubsection{Zoekresultaten}
-De zoekresultaten worden getoond titel en snippet. De zoekwoorden in de snippet tonen we met gele markering (aanpasbaar via CSS).
+De zoekresultaten worden getoond als titel en snippet. De zoekwoorden in de snippet worden getoond met een gele markering (aanpasbaar via CSS).
 
 \paragraph{Zoekbox}
-Op de zoekresultatenpagina staat de zoekbox zowel in de header als in de linkerkolom. Om het blok dubbel te kunnen gebruiken maken we gebruik van de \usemodule{block\_clone} module. Via de \texttt{bespoke} module zorgen we met \emph{preprocess hooks} ervoor dat het blok niet in de content wordt getoond en dat de zoekopdracht in de zoekbox blijft staan.
+Op de zoekresultatenpagina staat de zoekbox zowel in de header als in de linkerkolom. Om het blok dubbel te kunnen gebruiken wordt gebruik gemaakt van de \usemodule{block\_clone} module. Via de \texttt{bespoke} module wordt er met \emph{preprocess hooks} voor gezorgd dat het blok niet in de content wordt getoond en dat de zoekopdracht in de zoekbox blijft staan.
 
 \paragraph{Facetten}
 Links van de zoekresultaten wordt een blok toegevoegd met de mogelijkheid om verder te filteren. Hiervoor wordt de \usemodule{facetapi} module gebruikt. De volgende filtering wordt gebruikt:
@@ -27,7 +27,7 @@ Bijlagen die zijn toegevoegd aan nodes worden meegenomen bij het indexeren. Hier
 De \usemodule{apachesolr} module biedt standaard Bias settings aan voor velden en types. Deze settings zijn beschikbaar voor de admin user. De mogelijkheden beschrijven we in de handleiding.
 
 \subsubsection{Spellingscontrole}
-De optie \emph{spellingscontrole} wordt ingeschakeld (onder de settings van de zoekpagina). De woordenlijst komt standaard uit de ge\"{i}ndexeerde tekst. Later kan - indien wenselijk - een eigen woordenlijst worden toegevoegd. Die zal echter generiek zijn voor alle Dimpact gemeenten en kan niet via de admin worden toegevoegd.
+De optie \emph{spellingscontrole} wordt ingeschakeld (onder de settings van de zoekpagina). De woordenlijst komt standaard uit de ge\"{i}ndexeerde tekst. Later kan, indien dit wenselijk is, een eigen woordenlijst worden toegevoegd. Die zal echter generiek zijn voor alle Dimpact gemeenten en kan niet via de admin worden toegevoegd.
 
 \subsubsection{Zoeken binnen landelijke voorzieningen}
 De ge\"{i}mporteerde data (inclusief landelijke voorzieningen, RIS en PDC) wordt meegenomen met de zoekresultaten. 

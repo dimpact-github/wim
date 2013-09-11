@@ -2,16 +2,16 @@
 
 \subsection{Webrichtlijnen}
 
-Opgeleverd werk voldoet volledig aan de HTML5 en CSS3 standaard zoals opgesteld door het \emph{World Wide Web consortium}\footnote{http://www.w3.org/standards/webdesign/htmlcss}.
+Het opgeleverd werk voldoet volledig aan de HTML5 en CSS3 standaard zoals opgesteld door het \emph{World Wide Web consortium}\footnote{http://www.w3.org/standards/webdesign/htmlcss} en webrichtlijnen versie 2.
 
 \subsection{Browsers}
 \input{parts/algemeen/browser}
 
 \subsection{Taal}\label{taal}
-De standaardtaal voor Drupal is Engels. De \usemodule{locale} module (uit Drupal core) zal worden ingezet om andere vertalingen te kunnen laten zien. De Nederlandse vertalingen van Drupal worden ge\"{i}mporteerd voor de modules waarvoor deze beschikbaar is. De vertalingen kunnen in het beheergedeelte aangevuld c.q. aangepast worden.
+De standaard taal voor Drupal is Engels. De \usemodule{locale} module (uit de Drupal core) zal worden ingezet om andere vertalingen te kunnen laten zien. De Nederlandse vertalingen van Drupal worden ge\"{i}mporteerd voor de modules waarvoor een vertaling beschikbaar is. De vertalingen kunnen in het beheergedeelte van Drupal aangevuld c.q. aangepast worden.
 
 \subsubsection{Datumformaat}
-Het standaard datumformaat stellen we in op "dd maand yyyy" (bijv. 4 mei 2011).
+Het standaard datumformaat wordt ingesteld op "dd maand yyyy" (bijv. 4 mei 2011).
 
 \subsection{Rechten en rollen}\label{rollen}
 
@@ -22,20 +22,20 @@ De volgende rollen worden aangemaakt:
 \item medewerker
 \item team member
 \end{itemize}
-Medewerkers krijgen rechten om inhoud aan te maken. Dit is relevant voor het intranet, waar iedereen op moet kunnen publiceren.
+Medewerkers krijgen rechten om inhoud aan te kunnen maken. Dit is met name relevant voor het intranet waar alle medewerkers van de gemeente op moet kunnen publiceren.
 
 \subsection{Workflow}\label{workflow}
-Voor deze workflow wordt de \usemodule{workbench} module i.c.m. \usemodule{workbench\_moderation} ingezet. Content kan de volgende statussen hebben:
+Voor de workflow wordt de \usemodule{workbench} module i.c.m. \usemodule{workbench\_moderation} ingezet. Content kan de volgende statussen hebben:
 \begin{itemize}
 \item klad (\texttt{draft})
 \item aangeboden ter goedkeuring (\texttt{needs review})
 \item gepubliceerd (\texttt{published})
 \end{itemize}
-Inhoud met de status \texttt{draft} of \texttt{needs review} is alleen te zien voor redacteuren. De transitie van \texttt{draft} naar \texttt{needs review} kan gemaakt worden door redacteuren op eigen content, of door eindredacteuren op alle content. De transitie naar \texttt{published} kan alleen gemaakt worden door eindredacteuren. De workflow geldt voor zowel nieuwe inhoud als wijzigingen op reeds gepubliceerde inhoud.
+Content met de status \texttt{draft} of \texttt{needs review} is alleen te zien voor redacteuren. De transitie van \texttt{draft} naar \texttt{needs review} kan gemaakt worden door redacteuren op eigen content, of door eindredacteuren op alle content. De transitie naar \texttt{published} kan alleen gemaakt worden door eindredacteuren. De workflow geldt voor zowel nieuwe inhoud als wijzigingen op reeds gepubliceerde inhoud.
 
-Op het intranet wordt content vooral ingedeeld in teams. De teampagina's zijn losse subsites\seeone{teampagina}. Voor de team members wordt een nieuwe rol aangemaakt welke - qua workflow - dezelfde rechten heeft als een eindredacteur. Gebruikers met deze rol kunnen dus onbeperkt publiceren binnen de team subsite. De rechten voor overige functionaliteiten kunnen afwijken. Zo kunnen eindredacteuren gebruikers toevoegen aan een team, terwijl team members dit zelf niet kunnen.
+Op het intranet wordt de content vooral ingedeeld in teams met bijbehorende pagina's. De teampagina's zijn losse subsites\seeone{teampagina}. Voor de team members wordt een nieuwe rol aangemaakt die qua workflow dezelfde rechten heeft als een eindredacteur. Gebruikers met deze rol kunnen dus onbeperkt publiceren binnen de team subsite. De rechten voor overige functionaliteiten kunnen afwijken. Zo kunnen eindredacteuren gebruikers toevoegen aan een team, terwijl team members dit zelf niet kunnen.
 
-Bij het aanmaken van inhoud wordt de publicatieoptie standaard op \texttt{published} gezet wanneer de gebruiker het recht heeft om dat item direct te publiceren. Men hoeft dus niet daarna de eigen content goed te keuren.
+Bij het aanmaken van inhoud wordt de publicatieoptie standaard op \texttt{published} gezet wanneer de gebruiker het recht heeft om de content direct te publiceren. Men hoeft dus niet daarna de eigen content goed te keuren.
 
 De workflow wordt op alle contenttypes aangezet. Tevens wordt een dashboard ingericht waar onder andere een lijst terug te vinden is met inhoud die goedgekeurd dient te worden\seeone{workbenchdashboard}.
 
