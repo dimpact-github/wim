@@ -38,9 +38,9 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-1' => array(
+        'block-6' => array(
           'module' => 'block',
-          'delta' => '1',
+          'delta' => '6',
           'region' => 'region_363_first',
           'weight' => '-10',
         ),
@@ -124,11 +124,17 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_footer_second',
           'weight' => '-10',
         ),
+        'block-4' => array(
+          'module' => 'block',
+          'delta' => '4',
+          'region' => 'region_footer_third',
+          'weight' => '-10',
+        ),
         'block-3' => array(
           'module' => 'block',
           'delta' => '3',
           'region' => 'region_footer_third',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),
