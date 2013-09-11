@@ -13,4 +13,14 @@ function bespoke_entity_info_alter(&$entity_info) {
     'label' => t('Carrousel slide 9/3'),
     'custom settings' => TRUE,
   );
+
+  $entity_info['file']['view modes']['banner'] = array(
+    'label' => t('Banner'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['file']['view modes']['origineel'] = array(
+    'label' => t('Origineel'),
+    'custom settings' => TRUE,
+  );
 }
