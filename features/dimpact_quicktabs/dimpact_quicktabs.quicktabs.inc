@@ -17,7 +17,7 @@ function dimpact_quicktabs_quicktabs_default_quicktabs() {
   $quicktabs->ajax = 0;
   $quicktabs->hide_empty_tabs = FALSE;
   $quicktabs->default_tab = 0;
-  $quicktabs->title = 'Alfabet';
+  $quicktabs->title = 'Zoeken op onderwerp';
   $quicktabs->tabs = array(
     0 => array(
       'bid' => 'menu_delta_menu-alfabet-a',
@@ -33,6 +33,174 @@ function dimpact_quicktabs_quicktabs_default_quicktabs() {
       'weight' => '-99',
       'type' => 'block',
     ),
+    2 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'C',
+      'weight' => '-98',
+      'type' => 'block',
+    ),
+    3 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'D',
+      'weight' => '-97',
+      'type' => 'block',
+    ),
+    4 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'E',
+      'weight' => '-96',
+      'type' => 'block',
+    ),
+    5 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'F',
+      'weight' => '-95',
+      'type' => 'block',
+    ),
+    6 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'G',
+      'weight' => '-94',
+      'type' => 'block',
+    ),
+    7 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'H',
+      'weight' => '-93',
+      'type' => 'block',
+    ),
+    8 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'I',
+      'weight' => '-92',
+      'type' => 'block',
+    ),
+    9 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'J',
+      'weight' => '-91',
+      'type' => 'block',
+    ),
+    10 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'K',
+      'weight' => '-90',
+      'type' => 'block',
+    ),
+    11 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'L',
+      'weight' => '-89',
+      'type' => 'block',
+    ),
+    12 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'M',
+      'weight' => '-88',
+      'type' => 'block',
+    ),
+    13 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'N',
+      'weight' => '-87',
+      'type' => 'block',
+    ),
+    14 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'O',
+      'weight' => '-86',
+      'type' => 'block',
+    ),
+    15 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'P',
+      'weight' => '-85',
+      'type' => 'block',
+    ),
+    16 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'Q',
+      'weight' => '-84',
+      'type' => 'block',
+    ),
+    17 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'R',
+      'weight' => '-83',
+      'type' => 'block',
+    ),
+    18 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'S',
+      'weight' => '-82',
+      'type' => 'block',
+    ),
+    19 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'T',
+      'weight' => '-81',
+      'type' => 'block',
+    ),
+    20 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'U',
+      'weight' => '-80',
+      'type' => 'block',
+    ),
+    21 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'V',
+      'weight' => '-79',
+      'type' => 'block',
+    ),
+    22 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'W',
+      'weight' => '-78',
+      'type' => 'block',
+    ),
+    23 => array(
+      'bid' => 'block_delta_5',
+      'hide_title' => 1,
+      'title' => 'X',
+      'weight' => '-77',
+      'type' => 'block',
+    ),
+    24 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'Y',
+      'weight' => '-76',
+      'type' => 'block',
+    ),
+    25 => array(
+      'bid' => 'menu_delta_menu-alfabet-b',
+      'hide_title' => 1,
+      'title' => 'Z',
+      'weight' => '-75',
+      'type' => 'block',
+    ),
   );
   $quicktabs->renderer = 'quicktabs';
   $quicktabs->style = 'nostyle';
@@ -41,8 +209,32 @@ function dimpact_quicktabs_quicktabs_default_quicktabs() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A');
-  t('Alfabet');
   t('B');
+  t('C');
+  t('D');
+  t('E');
+  t('F');
+  t('G');
+  t('H');
+  t('I');
+  t('J');
+  t('K');
+  t('L');
+  t('M');
+  t('N');
+  t('O');
+  t('P');
+  t('Q');
+  t('R');
+  t('S');
+  t('T');
+  t('U');
+  t('V');
+  t('W');
+  t('X');
+  t('Y');
+  t('Z');
+  t('Zoeken op onderwerp');
 
   $export['alfabet'] = $quicktabs;
 
