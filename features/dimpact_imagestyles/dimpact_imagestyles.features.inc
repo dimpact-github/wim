@@ -10,10 +10,33 @@
 function dimpact_imagestyles_image_default_styles() {
   $styles = array();
 
+  // Exported image style: banner.
+  $styles['banner'] = array(
+    'name' => 'banner',
+    'label' => 'Banner',
+    'effects' => array(
+      5 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 360,
+          'height' => 125,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: list_thumbnail.
   $styles['list_thumbnail'] = array(
     'name' => 'list_thumbnail',
-    'label' => 'List thumbnail (135x120)',
+    'label' => 'List thumbnail (100x100)',
     'effects' => array(
       1 => array(
         'label' => 'Schalen en bijsnijden',
@@ -25,8 +48,8 @@ function dimpact_imagestyles_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 135,
-          'height' => 120,
+          'width' => 100,
+          'height' => 100,
         ),
         'weight' => 1,
       ),
@@ -54,6 +77,13 @@ function dimpact_imagestyles_image_default_styles() {
         'weight' => 1,
       ),
     ),
+  );
+
+  // Exported image style: origineel.
+  $styles['origineel'] = array(
+    'name' => 'origineel',
+    'label' => 'Origineel',
+    'effects' => array(),
   );
 
   // Exported image style: overige_onderwerp.
