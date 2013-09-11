@@ -22,7 +22,6 @@
     top: $gutter-width/2;
     left: $gutter-width/2;
     position: absolute;
-    //padding: 10px 0;
     text-align: center;
     a {
       color: $link-dark;
@@ -33,18 +32,15 @@
         display: block;
         padding: 8px;
       }
-      &.selected {
-        //font-weight: bold;
-      }
     }
   }
   .btn_next,
   .btn_prev {
     @include text-shadow(0 0 6px rgba(0, 0, 0, 0.2));
-    @include font-size(32);
+    @include font-size(48);
     text-decoration: none;
     position: absolute;
-    top: $gutter-width;
+    top: 70px;
     color: $link-light;
     line-height: 1;
   }

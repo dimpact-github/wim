@@ -9,9 +9,11 @@
   }
 
   $(window).load(function () {
-
-    // Alphabet menus
     hideProductTabs();
+  });
+
+  $(window).load(function () {
+    // Alphabet menus
     $(document).mouseup(function(e) {
       var container = $("#quicktabs-container-alfabet .quicktabs-tabs li");
       if (container.has(e.target).length === 0){
@@ -55,7 +57,7 @@
         progress: ".progress",
         button: ".btn_play_pause"
       },
-      pagination: ".pager",
+//      pagination: ".pager",
       next: {
         button: ".btn_next",
         key: "right"

@@ -75,6 +75,11 @@ $action_links = render($action_links);
         <h2 class="visuallyhidden"><?php print t('Main menu'); ?></h2>
         <?php print $navigation; ?>
       </div>
+      <?php if ($breadcrumb): ?>
+        <div class="container container-nopadding">
+          <?php print $breadcrumb; ?>
+        </div>
+      <?php endif; ?>
     </nav>
   <?php endif; ?>
 
@@ -86,12 +91,6 @@ $action_links = render($action_links);
           <h2 class="visuallyhidden"><?php print t('Console'); ?></h2>
           <?php print $messages; ?>
         </section>
-      </div>
-    <?php endif; ?>
-
-    <?php if ($breadcrumb): ?>
-      <div class="container">
-        <?php print $breadcrumb; ?>
       </div>
     <?php endif; ?>
 
@@ -117,55 +116,60 @@ $action_links = render($action_links);
     <?php endif; ?>
 
     <?php // Region 3/9 ?>
-    <?php if ($region_39_first || $region_39_second): ?>
+    <?php if ($region_39_first || $region_39_second || ($pagetype == 'searchpage' && $content)): ?>
       <div class="container">
         <div class="region_39_first">
           <?php print $region_39_first; ?>
         </div>
         <div class="region_39_second">
+          <?php if ($pagetype == 'searchpage'): ?>
+            <?php print $content; ?>
+          <?php endif; ?>
           <?php print $region_39_second; ?>
         </div>
       </div>
     <?php endif; ?>
 
     <?php // Region 3/6/3 ?>
-    <div class="container">
-      <div class="region_363_first">
-        <?php print $region_363_first; ?>
-      </div>
-      <div role="main" class="column-main">
-        <div id="content">
-          <?php print render($title_prefix); ?>
-          <?php if ($title && !empty($content)): ?>
-            <h1 class="title" id="page-title"><?php print $title; ?></h1>
-          <?php endif; ?>
-          <?php print render($title_suffix); ?>
-          <?php if ($tabs || $action_links): ?>
-            <div class="tasks">
-              <?php print $tabs; ?>
-              <?php if ($action_links): ?>
-                <div class="actions actions-<?php print ($actions == 1) ? 'single' : 'multiple'; ?>">
-                  <div class="wrap">
-                    <h2><?php print t('Page actions'); ?></h2>
-                    <ul class="action-links">
-                      <?php print $action_links; ?>
-                    </ul>
-                  </div>
-                </div>
-              <?php endif; ?>
-            </div>
-          <?php endif; ?>
-          <?php print $help; ?>
-          <?php print $content_top; ?>
-          <?php print $content; ?>
-          <?php print $content_bottom; ?>
+    <?php if (!$hidecontent): ?>
+      <div class="container">
+        <div class="region_363_first">
+          <?php print $region_363_first; ?>
         </div>
-        <?php // print $feed_icons; ?>
+        <div role="main" class="column-main">
+          <div id="content">
+            <?php print render($title_prefix); ?>
+            <?php if ($title && !empty($content)): ?>
+              <h1 class="title" id="page-title"><?php print $title; ?></h1>
+            <?php endif; ?>
+            <?php print render($title_suffix); ?>
+            <?php print $help; ?>
+            <?php print $content_top; ?>
+            <?php if ($tabs || $action_links): ?>
+              <div class="tasks">
+                <?php print $tabs; ?>
+                <?php if ($action_links): ?>
+                  <div class="actions actions-<?php print ($actions == 1) ? 'single' : 'multiple'; ?>">
+                    <div class="wrap">
+                      <h2><?php print t('Page actions'); ?></h2>
+                      <ul class="action-links">
+                        <?php print $action_links; ?>
+                      </ul>
+                    </div>
+                  </div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+            <?php print $content; ?>
+            <?php print $content_bottom; ?>
+          </div>
+          <?php // print $feed_icons; ?>
+        </div>
+        <div class="region_363_third">
+          <?php print $region_363_third; ?>
+        </div>
       </div>
-      <div class="region_363_third">
-        <?php print $region_363_third; ?>
-      </div>
-    </div>
+    <?php endif; ?>
 
     <?php // Region 4/4/4 bottom ?>
     <?php if ($region_444_first || $region_444_second || $region_444_third): ?>

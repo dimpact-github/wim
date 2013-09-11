@@ -12,9 +12,6 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
   $linkcolor: nth($color, 4);
 
   body.#{$type} {
-    #main-wrapper {
-      //border-top: 4px solid $colourlight;
-    }
     #main {
       .region_363_first,
       .region_363_third,
@@ -62,19 +59,10 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     #quicktabs-alfabet {
       .quicktabs-tabs {
-        //li.active a,
         a:hover {
           background-color: $colour;
           color: $linkcolor;
         }
-      }
-      .quicktabs-tabpage {
-        //@include background-image(linear-gradient(darken($colour, 7%), $colour 20px));
-        //border-top: 1px solid $colourlight;
-        //background-color: $colour;
-        //a {
-        //  color: $linkcolor;
-        //}
       }
     }
     .ui-tabs-nav {
@@ -111,10 +99,6 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
       }
     }
-    #footer {
-      //border-top: 4px solid $colourlight;
-      //background-color: #d7d7d7;
-    }
     .block-menu-menu-toptaken > ul {
       background-color: $colourlight;
       & > li {
@@ -124,6 +108,9 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
           a {
             color: $linkcolor;
           }
+        }
+        &.toptaken-active > ul a:hover {
+          background-color: lighten($background-color, 5%);
         }
       }
     }

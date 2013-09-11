@@ -42,9 +42,9 @@
 </div>
 <div class="progress"></div>
 <!--<a href="#" class="btn_play_pause">Afspelen</a>-->
-<!--<a href="#" class="btn_prev"><span class="icon-chevron-sign-left"></span></a>-->
-<div class="pager"></div>
-<!--<a href="#" class="btn_next"><span class="icon-chevron-sign-right"></span></a>-->
+<a href="#" class="btn_prev"><span class="icon-chevron-sign-left"></span></a>
+<!--<div class="pager"></div>-->
+<a href="#" class="btn_next"><span class="icon-chevron-sign-right"></span></a>
 <?php print $empty; ?>
 <?php print $pager; ?>
 <?php print $attachment_after; ?>

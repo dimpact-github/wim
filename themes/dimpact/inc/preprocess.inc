@@ -82,6 +82,13 @@ function dimpact_preprocess_page(&$vars) {
       }
     }
   }
+
+  $vars['hidecontent'] = FALSE;
+  $vars['pagetype'] = NULL;
+  if (arg(0) == 'search') {
+    $vars['hidecontent'] = TRUE;
+    $vars['pagetype'] = 'searchpage';
+  }
 }
 
 /**
@@ -258,7 +265,7 @@ function dimpact_preprocess_field(&$vars) {
 
   // Remove some classes from the wrapper <div>.
   $classes_to_remove = array(
-    'field',
+//    'field',
     'field-label-' . drupal_html_class($vars['element']['#label_display']),
     'field-type-' . drupal_html_class($vars['element']['#field_type']),
     'field-name-' . drupal_html_class($vars['element']['#field_name']),

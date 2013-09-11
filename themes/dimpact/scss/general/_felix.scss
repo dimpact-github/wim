@@ -11,7 +11,7 @@
     color: rgba(0, 0, 0, 0.3);
     position: relative;
     margin: 0;
-    font-size: 14px;
+    font-size: 14px !important;
     font-family: $arial;
     font-weight: bold;
     &:after {

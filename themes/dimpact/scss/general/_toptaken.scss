@@ -2,90 +2,67 @@ $toptakentotal: 740px;
 $tabs: 267px;
 $buttons: ($toptakentotal - $tabs);
 .block-menu-menu-toptaken {
-  //background-color: $background-color;
-  border: 2px solid $background-color;
+  //border: 2px solid lighten($background-color, 5%);
+  //background-color: lighten($background-color, 5%);
   ul {
     margin: 0;
   }
   > ul {
-    //background-color: #E1E1E1;
-    /*height: 100%;*/
-    /*left: 0;*/
-    /*position: absolute;*/
     width: $tabs;
-
   }
 }
 .block-menu-menu-toptaken > ul > li {
   @include font-size(14);
   border-bottom: 1px solid #FFFFFF;
-  //cursor: pointer;
   line-height: 1;
-  padding: $gutter-width;
-  //height: 56px;
-  //line-height: 56px;
-  &:hover {
-    //background-color: #dcdcdc;
-  }
-  a {
+
+  > a {
     color: $link-dark;
     text-decoration: none;
+    display: block;
+    padding: 15px $gutter-width;
   }
   &.last {
     border: 0;
   }
 }
 .block-menu-menu-toptaken > ul > li > ul {
+  border: 2px solid lighten($background-color, 5%);
+  border-right-width: 3px;
+  border-left: 0;
   display: none;
   height: 100%;
   left: $tabs;
-  padding-left: $gutter-width;
   position: absolute;
   top: 0;
   width: $buttons;
-  //background-color: rgba(255, 0, 0, 0.1);
-  //@include container(2);
 }
-.block-menu-menu-toptaken > ul > li.toptaken-active > ul {
-  //color: #333333;
-  //cursor: pointer;
-  display: block;
-  //float: left;
-  //line-height: normal;
-  //padding: 0 10px;
-  //text-align: center;
-  //width: 80px;
-  padding-top: $gutter-width;
-  > li {
-    //@include span-columns(1, 2);
-    line-height: $line-height;
-    height: 42px;
+.block-menu-menu-toptaken > ul > li.toptaken-active {
+  //border-right: 4px solid;
+  > a {
+    background-image: url('../img/toptaken-arrow.png');
+    background-position: center right;
+    margin-right: -9px;
+  }
+  > ul {
     display: block;
-    width: 50%;
-    float: left;
-    //padding: $gutter-width/2 0;
-    margin: 0 0 $gutter-width*2 0;
-    background: url('../img/icon-blue-124.png') no-repeat 0 50%;
-    //text-align: center;
-    //&:nth-child(2n) {
-    //  @include omega;
-    //}
-    &:hover {
-      background-color: #ddd;
+    > li {
+      float: left;
+      width: 231px;
+      a {
+        @include border-radius(4px);
+        @include font-size(12);
+        background: #fff url('../img/icon-blue-124.png') no-repeat 8px 50%;
+        display: block;
+        height: 61px;
+        margin: $gutter-width/2 0 0 $gutter-width/2;
+        padding: $gutter-width;
+        padding-left: 52px;
+        padding-right: $gutter-width;
+      }
     }
     a {
-      @include font-size(12);
-      //margin-top: 54px;
-      display: block;
-      line-height: 42px;
-      padding-left: 46px;
-      //background-color: yellow;
+      color: $text-color !important;
     }
-    //width: (($buttons/3) - $gutter-width);
-    //margin: $gutter-width/2;
-    //float: left;
-  }
-  a {
-    color: $text-color !important;
   }
 }

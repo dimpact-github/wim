@@ -6,7 +6,7 @@
 function dimpact_html_head_alter(&$head_elements) {
   global $theme;
   // Get the path to the active theme (not necessarily this theme).
-  $path = drupal_get_path('theme', $theme);
+  $path = drupal_get_path('dimpact', $theme);
 
   // Simplify the meta charset element.
   $head_elements['system_meta_content_type']['#attributes'] = array(

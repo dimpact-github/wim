@@ -62,6 +62,7 @@ nav {
           }
           &:hover {
             ul {
+              //@include border-top-right-radius(6px);
               @include border-bottom-radius(6px);
               display: block;
             }
@@ -70,6 +71,18 @@ nav {
       }
     }
 
+    .block-quicktabs-alfabet {
+      position: relative;
+      h2.block-title {
+        @include font-size(13);
+        font-weight: 300;
+        display: inline;
+        position: absolute;
+        top: 10px;
+        left: $gutter-width;
+        z-index: 6;
+      }
+    }
     #quicktabs-alfabet {
       background-color: $background-color;
       position: relative;
@@ -77,7 +90,7 @@ nav {
         margin: 0;
       }
       .quicktabs-tabs {
-        padding: 0 $gutter-width;
+        padding: 0 $gutter-width 0 160px;
         li {
           display: block;
           float: left;
@@ -96,7 +109,7 @@ nav {
       }
       #quicktabs-container-alfabet {
         .quicktabs-tabpage {
-          border-top: 1px solid darken($background-color, 10%);
+          //border-top: 1px solid darken($background-color, 10%);
           border-bottom: 1px solid darken($background-color, 10%);
           background-color: $background-color;
           padding: $gutter-width/2 $gutter-width;
@@ -204,4 +217,16 @@ nav {
     }
   }
 }
-
+.breadcrumbs {
+  margin: $gutter-width/2 $gutter-width 0 $gutter-width;
+}
+.block-block {
+  ul {
+    margin: 0;
+    li {
+      background: url("../img/arrow.png") no-repeat scroll left 6px transparent;
+      margin-bottom: 0.5em;
+      padding-left: 11px;
+    }
+  }
+}
