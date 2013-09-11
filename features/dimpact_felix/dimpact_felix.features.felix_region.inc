@@ -9,6 +9,45 @@
  */
 function dimpact_felix_felix_default_regions() {
   $regions = array();
+  $regions['footer-first'] = array(
+    'name' => 'footer-first',
+    'title' => 'Footer first',
+    'region' => 'region_footer_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+      ),
+    ),
+  );
+  $regions['footer-second'] = array(
+    'name' => 'footer-second',
+    'title' => 'Footer second',
+    'region' => 'region_footer_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+      ),
+    ),
+  );
+  $regions['footer-third'] = array(
+    'name' => 'footer-third',
+    'title' => 'Footer third',
+    'region' => 'region_footer_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+      ),
+    ),
+  );
   $regions['regio-3-12-3-9'] = array(
     'name' => 'regio-3-12-3-9',
     'title' => 'Regio 3/12 (3/9)',
@@ -37,7 +76,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-3-12-first-3-6-3'] = array(
     'name' => 'regio-3-12-first-3-6-3',
-    'title' => 'Regio 3/12 (first 3/6/3)',
+    'title' => 'Regio 3/12 (3/5/4)',
     'region' => 'region_363_first',
     'weight' => 0,
     'context' => 'sitewide',
@@ -50,7 +89,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-3-12-third-3-6-3'] = array(
     'name' => 'regio-3-12-third-3-6-3',
-    'title' => 'Regio 3/12 (third 3/6/3)',
+    'title' => 'Regio 4/12 (3/5/4)',
     'region' => 'region_363_third',
     'weight' => 0,
     'context' => 'sitewide',
@@ -102,7 +141,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-6-12-content-bottom'] = array(
     'name' => 'regio-6-12-content-bottom',
-    'title' => 'Regio 6/12 content bottom',
+    'title' => 'Regio 5/12 content bottom',
     'region' => 'content_bottom',
     'weight' => 0,
     'context' => 'sitewide',
@@ -115,7 +154,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-6-12-content-top'] = array(
     'name' => 'regio-6-12-content-top',
-    'title' => 'Regio 6/12 content top',
+    'title' => 'Regio 5/12 content top',
     'region' => 'content_top',
     'weight' => 0,
     'context' => 'sitewide',

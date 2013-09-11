@@ -1,10 +1,13 @@
 name = Dimpact Felix
 core = 7.x
 package = Features
-version = 7.x-1.0-beta4
+version = 7.x-1.0-beta5
 project = dimpact_felix
 features[features_api][] = api:2
 features[felix_block_set][] = default
+features[felix_region][] = footer-first
+features[felix_region][] = footer-second
+features[felix_region][] = footer-third
 features[felix_region][] = regio-3-12-3-9
 features[felix_region][] = regio-3-12-9-3
 features[felix_region][] = regio-3-12-first-3-6-3

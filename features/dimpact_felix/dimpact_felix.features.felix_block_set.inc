@@ -14,32 +14,48 @@ function dimpact_felix_felix_default_block_sets() {
     'title' => 'default',
     'blocks' => array(
       0 => array(
+        'module' => 'block',
+        'delta' => 6,
+      ),
+      1 => array(
         'module' => 'menu',
         'delta' => 'menu-toptaken',
       ),
-      1 => array(
+      2 => array(
+        'module' => 'menu_block',
+        'delta' => 1,
+      ),
+      3 => array(
         'module' => 'quicktabs',
         'delta' => 'nieuws_agenda',
       ),
-      2 => array(
-        'module' => 'views',
-        'delta' => 'agenda-block_1',
-      ),
-      3 => array(
-        'module' => 'views',
-        'delta' => 'agenda-block_2',
-      ),
       4 => array(
-        'module' => 'views',
-        'delta' => 'nieuws-block_1',
+        'module' => 'submenutree',
+        'delta' => 1,
       ),
       5 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_2',
+        'delta' => 'agenda-block_1',
       ),
       6 => array(
         'module' => 'views',
+        'delta' => 'agenda-block_2',
+      ),
+      7 => array(
+        'module' => 'views',
+        'delta' => 'nieuws-block_1',
+      ),
+      8 => array(
+        'module' => 'views',
+        'delta' => 'nieuws-block_2',
+      ),
+      9 => array(
+        'module' => 'views',
         'delta' => 'nodequeue_carousel_9_3-block',
+      ),
+      10 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
       ),
     ),
     'nodetypes' => array(
