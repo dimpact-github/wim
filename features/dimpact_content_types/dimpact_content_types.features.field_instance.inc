@@ -22,7 +22,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -108,7 +108,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'long',
+          'format_type' => 'calendar_long',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -121,8 +121,11 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'date',
         'settings' => array(
+          'field_wrapper' => 0,
           'format_type' => 'calendar',
           'fromto' => 'both',
+          'item_wrapper' => 0,
+          'label_wrapper' => 0,
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
@@ -134,7 +137,7 @@ function dimpact_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'fences_wrapper' => 'div',
     'field_name' => 'field_date',
-    'label' => 'Date',
+    'label' => 'Datum',
     'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
@@ -178,7 +181,10 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'mediafield',
         'settings' => array(
+          'field_wrapper' => 0,
           'file_view_mode' => 'teaser',
+          'item_wrapper' => 0,
+          'label_wrapper' => 0,
         ),
         'type' => 'media',
         'weight' => 0,
@@ -233,12 +239,16 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
+        'settings' => array(
+          'field_wrapper' => 0,
+          'item_wrapper' => 0,
+          'label_wrapper' => 0,
+        ),
         'type' => 'text_default',
         'weight' => 2,
       ),
@@ -279,7 +289,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'location_cck',
         'settings' => array(),
         'type' => 'location_default',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -291,7 +301,7 @@ function dimpact_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'fences_wrapper' => 'div',
     'field_name' => 'field_location',
-    'label' => 'Location',
+    'label' => 'Locatie',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1774,9 +1784,10 @@ function dimpact_content_types_field_default_field_instances() {
   t('Body');
   t('Category');
   t('Choose a date to publish the node to the calender.');
-  t('Date');
+  t('Datum');
   t('Image');
   t('Intro');
+  t('Locatie');
   t('Location');
   t('Tabfield');
   t('Tags');
