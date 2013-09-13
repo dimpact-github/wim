@@ -1,13 +1,14 @@
 name = Dimpact Dateformats
 core = 7.x
 package = Features
-version = 7.x-1.0-beta2
+version = 7.x-1.0-beta3
 project = dimpact_dateformats
 dependencies[] = ctools
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = date_format_calendar
+features[variable][] = date_format_calendar_icon
 features[variable][] = date_format_calendar_long
 features[variable][] = date_format_long
 features[variable][] = date_format_medium
