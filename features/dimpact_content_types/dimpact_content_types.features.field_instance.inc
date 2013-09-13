@@ -118,14 +118,11 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'teaser' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'field_wrapper' => 0,
-          'format_type' => 'calendar',
-          'fromto' => 'both',
-          'item_wrapper' => 0,
-          'label_wrapper' => 0,
+          'format_type' => 'calendar_icon',
+          'fromto' => 'value',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
@@ -181,10 +178,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'mediafield',
         'settings' => array(
-          'field_wrapper' => 0,
           'file_view_mode' => 'teaser',
-          'item_wrapper' => 0,
-          'label_wrapper' => 0,
         ),
         'type' => 'media',
         'weight' => 0,
@@ -244,11 +238,7 @@ function dimpact_content_types_field_default_field_instances() {
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(
-          'field_wrapper' => 0,
-          'item_wrapper' => 0,
-          'label_wrapper' => 0,
-        ),
+        'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
       ),
