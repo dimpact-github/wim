@@ -1,5 +1,5 @@
 @import "libraries/normalize/normalize";
-@import "base-theme";
+//@import "base-theme";
 @import "drupal/system";
 
 // Box Sizing with Polyfill
@@ -29,24 +29,25 @@ img {
   }
 }
 
-ul, ol {
-  &, nav & {
+nav {
+  ol, ul {
     @extend .clearfix;
-    list-style: none;
-    padding: 0;
+    //margin: 0;
+    //list-style: none;
+    //padding: 0;
   }
 }
 
 .block-menu-block,
 .item-list {
-  ul/*, ol*/ {
+  ul, ol {
     margin: 0;
     //list-style-type: square;
     //padding: 0 0 0 $gutter-width;
     li {
-      background: url("../img/arrow.png") no-repeat scroll left 6px transparent;
-      margin-bottom: 0.5em;
-      padding-left: 11px;
+      //background: url("../img/arrow.png") no-repeat scroll left 6px transparent;
+      //margin-bottom: 0.5em;
+      //padding-left: 11px;
     }
   }
 }

@@ -5,8 +5,12 @@ hide($content['comments']);
 hide($content['links']);
 hide($content['field_image']);
 
+if (!$page) {
+  hide($content['field_date']);
+}
 ?>
 <article<?php print $attributes; ?>>
+  <?php !$page ? print render($content['field_date']) : ''; ?>
   <?php print render($content['field_image']); ?>
   <?php print render($title_prefix); ?>
   <?php if ($page): /* ?>

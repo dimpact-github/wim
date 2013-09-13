@@ -1,11 +1,12 @@
-$toptakentotal: 740px;
+$toptakentotal: 739px;
 $tabs: 267px;
 $buttons: ($toptakentotal - $tabs);
+
 .block-menu-menu-toptaken {
-  //border: 2px solid lighten($background-color, 5%);
-  //background-color: lighten($background-color, 5%);
   ul {
     margin: 0;
+    padding: 0;
+    list-style: none;
   }
   > ul {
     width: $tabs;
@@ -17,6 +18,7 @@ $buttons: ($toptakentotal - $tabs);
   line-height: 1;
 
   > a {
+    font-family: $heading;
     color: $link-dark;
     text-decoration: none;
     display: block;
@@ -27,8 +29,7 @@ $buttons: ($toptakentotal - $tabs);
   }
 }
 .block-menu-menu-toptaken > ul > li > ul {
-  border: 2px solid lighten($background-color, 5%);
-  border-right-width: 3px;
+  border: 1px solid lighten($background-color, 5%);
   border-left: 0;
   display: none;
   height: 100%;
@@ -42,6 +43,7 @@ $buttons: ($toptakentotal - $tabs);
   > a {
     background-image: url('../img/toptaken-arrow.png');
     background-position: center right;
+    background-repeat: no-repeat;
     margin-right: -9px;
   }
   > ul {

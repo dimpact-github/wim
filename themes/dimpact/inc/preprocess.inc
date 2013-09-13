@@ -231,6 +231,10 @@ function dimpact_preprocess_node(&$vars) {
     $vars['classes_array'][] = 'unpublished';
   }
 
+  if (isset($node->field_image) && !empty($node->field_image)) {
+    $vars['classes_array'][] = 'has-image';
+  }
+
   // Create a timestamp suitable for the datetime attribute.
   $vars['timestamp'] = date_iso8601($node->created);
 }

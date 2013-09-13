@@ -18,12 +18,14 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
       .region_93_second,
       .region_39_first {
         .block {
-          border-top: 2px solid $colourlight;
+          h2.block-title {
+            border-bottom: 1px solid $colourlight;
+          }
         }
       }
     }
     .block-search {
-      background-color: lighten($colourlight, 12%);
+      background-color: $colourlight;
     }
     nav {
       &.main-menu {
@@ -59,6 +61,10 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     #quicktabs-alfabet {
       .quicktabs-tabs {
+        li.active a {
+          background-color: #fff;
+          color: $link-dark;
+        }
         a:hover {
           background-color: $colour;
           color: $linkcolor;
@@ -75,7 +81,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
 
     .carousel {
       .progress {
-        background-color: $colour;
+        background-color: $colourlight;
       }
       .pager {
         a {

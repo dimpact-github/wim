@@ -10,6 +10,7 @@ function dimpact_breadcrumb($vars) {
     $heading = t('Breadcrumb Navigation');
     return '<nav class="breadcrumbs"><h2 class="visuallyhidden">' . $heading . "</h2>\n" . implode(' / ', $vars['breadcrumb']) . '</nav>';
   }
+  return NULL;
 }
 
 /**
@@ -28,6 +29,7 @@ function dimpact_mark($vars) {
       return ' <mark class="updated">' . t('updated') . '</mark>';
     }
   }
+  return NULL;
 }
 
 /**
@@ -52,7 +54,7 @@ function dimpact_menu_local_tasks(&$vars) {
   if ($output) {
     return '<nav class="tabs" role="navigation">' . $output . '</nav>';
   }
-
+  return NULL;
 }
 
 /**
@@ -449,4 +451,20 @@ function dimpact_pager_previous($variables) {
   }
 
   return $output;
+}
+
+/**
+ * Returns HTML for a date element formatted as a single date.
+ */
+function dimpact_date_display_single($variables) {
+  $date = $variables['date'];
+  $timezone = $variables['timezone'];
+  $attributes = $variables['attributes'];
+
+  if (preg_match("|([a-z]{3})\s([0-9]{2,3})|", $date, $matches)) {
+    $date = '<span class="month">' . $matches[1] . '</span><span class="day">' . $matches[2] . '</span>';
+  }
+
+  // Wrap the result with the attributes.
+  return '<span class="date-display-single"' . drupal_attributes($attributes) . '>' . $date . $timezone . '</span>';
 }

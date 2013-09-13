@@ -11,7 +11,7 @@
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
 <?php foreach ($rows as $id => $row): ?>
-  <div class="views-row">
+  <div class="views-row views-row-<?php print $id+1; ?>">
     <?php print $row; ?>
   </div>
 <?php endforeach; ?>

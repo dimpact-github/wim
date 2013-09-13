@@ -19,6 +19,7 @@ ul.tabs {
   @extend .clearfix;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .tabs li {
@@ -68,7 +69,7 @@ ul.primary {
     //border-radius: $border-radius 0 0 0;
     &.active {
       margin-left: 0;
-      font-weight: bold;
+      //font-weight: bold;
     }
   }
   li:last-child a {

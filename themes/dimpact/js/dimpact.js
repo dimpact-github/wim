@@ -1,41 +1,41 @@
 (function($) {
-
   /**
    * Hide all the tabs.
    */
   function hideProductTabs(){
-    $("#quicktabs-container-alfabet .quicktabs-tabs li").removeClass("active");
+    $("#quicktabs-alfabet .quicktabs-tabs li").removeClass("active");
     $("#quicktabs-container-alfabet .quicktabs-tabpage").addClass("quicktabs-hide");
+    $('body').removeClass('overlay-alpha');
   }
 
   $(window).load(function () {
-    hideProductTabs();
-  });
 
-  $(window).load(function () {
     // Alphabet menus
+    hideProductTabs();
     $(document).mouseup(function(e) {
-      var container = $("#quicktabs-container-alfabet .quicktabs-tabs li");
+      var container = $("#quicktabs-alfabet");
+      $('body').addClass('overlay-alpha');
       if (container.has(e.target).length === 0){
         hideProductTabs();
       }
     });
 
+    var quicktabscontainer = $("#quicktabs-alfabet");
     var leave = false;
     var enter = false;
     var opacityValue = 1;
-    $("#quicktabs-container-alfabet .quicktabs-tabpage").mouseleave(function(){
+    quicktabscontainer.mouseleave(function(){
       leave = true;
       enter = false;
       $('*').clearQueue();
       $(this).animate({opacity : opacityValue},1000,function(){
         if(enter == false){
           hideProductTabs();
-        };
+        }
         leave = false;
       });
     });
-    $("#quicktabs-container-alfabet .quicktabs-tabpage").mouseenter(function(){
+    quicktabscontainer.mouseenter(function(){
       enter = true;
       if(leave){
         $('*').clearQueue();
@@ -57,7 +57,6 @@
         progress: ".progress",
         button: ".btn_play_pause"
       },
-//      pagination: ".pager",
       next: {
         button: ".btn_next",
         key: "right"
