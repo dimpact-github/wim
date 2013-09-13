@@ -17,6 +17,7 @@
 
     <!-- Remove the directory from coder module responsible for freaking out the modules admin page. See http://drupal.org/node/1015368 -->
     <delete dir="code/sites/all/modules/contrib/coder/coder_sniffer/Test" includeemptydirs="true" verbose="true" failonerror="false" />
+    <delete dir="code/sites/all/modules/contrib/date/date_migrate/date_migrate_example/" includeemptydirs="true" verbose="true" failonerror="false" />
 
     <symlink target="../../../../modules" link="code/sites/all/modules/custom" />
     <symlink target="../../../../features" link="code/sites/all/modules/features" />
