@@ -16,7 +16,7 @@ nav {
     }
     padding: 0;
     margin-bottom: $gutter-width/2;
-    .block-system-main-menu {
+    .block-dominion-menu, .block-menu {
       ul {
         list-style: none outside none;
         margin: 0;
@@ -139,7 +139,7 @@ body.front {
 }
 .region_meta_first,
 .region_meta_second {
-  .block-menu {
+  .block-dominion-menu, .block-menu {
     overflow: hidden;
     margin: 0 !important;
     h2 {

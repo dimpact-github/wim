@@ -150,7 +150,36 @@ function dimpact_contexts_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'header',
+          'weight' => '-10',
+        ),
+        'dominion_menu-1' => array(
+          'module' => 'dominion_menu',
+          'delta' => '1',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
+        'dominion_menu-2' => array(
+          'module' => 'dominion_menu',
+          'delta' => '2',
+          'region' => 'region_meta_first',
+          'weight' => '-10',
+        ),
+        'submenutree-2' => array(
+          'module' => 'submenutree',
+          'delta' => '2',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
   $context->condition_mode = 1;
 
   // Translatables
@@ -185,23 +214,11 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
-        'system-main-menu' => array(
-          'module' => 'system',
-          'delta' => 'main-menu',
-          'region' => 'navigation',
-          'weight' => '-10',
-        ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
           'delta' => 'alfabet',
           'region' => 'navigation',
           'weight' => '-8',
-        ),
-        'menu-menu-meta-menu-links' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-links',
-          'region' => 'region_meta_first',
-          'weight' => '-10',
         ),
         'menu-menu-meta-menu-rechts' => array(
           'module' => 'menu',
@@ -270,23 +287,11 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
-        'system-main-menu' => array(
-          'module' => 'system',
-          'delta' => 'main-menu',
-          'region' => 'navigation',
-          'weight' => '-10',
-        ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
           'delta' => 'alfabet',
           'region' => 'navigation',
           'weight' => '-8',
-        ),
-        'menu-menu-meta-menu-links' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-links',
-          'region' => 'region_meta_first',
-          'weight' => '-10',
         ),
         'menu-menu-meta-menu-rechts' => array(
           'module' => 'menu',
