@@ -19,6 +19,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -32,6 +33,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -45,6 +47,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -58,6 +61,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -71,6 +75,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -84,6 +89,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -97,6 +103,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -110,6 +117,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -123,6 +131,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -136,6 +145,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -149,6 +159,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -162,6 +173,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -175,6 +187,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -188,6 +201,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -201,6 +215,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
@@ -214,6 +229,7 @@ function dimpact_felix_felix_default_regions() {
     'data' => array(
       'hash' => array(
         0 => 'path',
+        1 => 'domain',
       ),
     ),
   );
