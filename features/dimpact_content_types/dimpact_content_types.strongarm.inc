@@ -501,6 +501,12 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -510,8 +516,32 @@ function dimpact_content_types_strongarm() {
         'path' => array(
           'weight' => '4',
         ),
+        'domain' => array(
+          'weight' => '1',
+        ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'default' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__blog'] = $strongarm;
