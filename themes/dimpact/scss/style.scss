@@ -160,7 +160,7 @@ p {
 }
 
 #main-wrapper {
-  @include box-shadow(0 0 8px rgba(0, 0, 0, 0.05));
+  @include box-shadow(0 0 10px rgba(0, 0, 0, 0.15));
   @include border-radius(3px);
   background-color: #fff;
   margin-bottom: $grid-padding;
@@ -343,6 +343,9 @@ span.ext {
         margin: 0;
         padding: $gutter-width/3 $gutter-width/2;
         line-height: $line-height;
+        a {
+          color: #fff;
+        }
       }
     }
   }
@@ -375,14 +378,15 @@ span.ext {
       position: absolute;
       width: 100%;
       text-align: center;
+      line-height: 1;
     }
     .month {
       @include font-size(12);
-      bottom: 0;
+      bottom: 4px;
     }
     .day {
       @include font-size(20);
-      top: 0;
+      top: 3px;
     }
   }
 }

@@ -32,6 +32,14 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         .block-system-main-menu {
           background-color: $colour;
           border-top: 4px solid $colourlight;
+          //> ul > li > a {
+          //  border-right: 1px solid $colourlight;
+          //  border-left: 1px solid rgba(255, 255, 255, 0.2);
+          //}
+          //> ul > li.last > a {
+          //  border: 0;
+          //}
+          li.active-trail,
           li:hover {
             background-color: darken($colour, 10%);
             a {
