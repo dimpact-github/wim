@@ -67,6 +67,7 @@ projects[memcache][subdir] = contrib
 projects[menu_attributes][subdir] = contrib
 projects[menu_block][subdir] = contrib
 projects[metatag][subdir] = contrib
+projects[module_filter][subdir] = contrib
 projects[nodequeue][subdir] = contrib
 projects[nodequeue][revision] = 70c0602
 projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync-queue-1154948-15.patch
