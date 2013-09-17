@@ -3,10 +3,13 @@
     float: left;
     display: block;
     position: relative;
+    margin-bottom: 0;
     .views-field-title {
       position: absolute;
       bottom: 0;
-      background-image: url("../img/transparant-75.png");
+      //background-image: url("../img/transparant-75.png");
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
       width: 100%;
       h2 {
         margin: 0;
@@ -16,7 +19,7 @@
     }
   }
   .progress {
-    height: 1px;
+    height: 2px;
   }
   .pager {
     top: $gutter-width/2;
@@ -28,7 +31,6 @@
       line-height: 1;
       span {
         @include border-radius(2px);
-        content: "a";
         display: block;
         padding: 8px;
       }

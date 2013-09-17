@@ -13,16 +13,16 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
 
   body.#{$type} {
     #main {
-      .region_363_first,
-      .region_363_third,
-      .region_93_second,
-      .region_39_first {
+      //.region_363_first,
+      //.region_363_third,
+      //.region_93_second,
+      //.region_39_first {
         .block {
           h2.block-title {
             border-bottom: 1px solid $colourlight;
           }
         }
-      }
+      //}
     }
     .block-search {
       background-color: $colourlight;

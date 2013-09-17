@@ -36,7 +36,7 @@ body {
   &.overlay-alpha {
     .overlay-alpha-container {
       width: 100%;
-      position: absolute;
+      position: fixed;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 4;
@@ -90,8 +90,8 @@ td {
   font-weight: 400;
   line-height: 1;
   padding: 0;
-  margin-bottom: 0.75em;
-  margin-top: 0;
+  margin-bottom: 0.25em;
+  margin-top: 0.75em;
 }
 
 h1 {
@@ -99,10 +99,17 @@ h1 {
   &.title {
     line-height: 1.3;
   }
+  &#page-title {
+    margin-top: 0;
+  }
 }
 
 h2 {
   font-size: 164%;
+  &.block-title {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
 }
 #content {
   h2.block-title {
@@ -114,7 +121,10 @@ h3 {
   &.field-content {
     @include font-size(14);
     line-height: $line-height;
-    margin-bottom: 0;
+    margin: 0;
+  }
+  .field-category-marketplace {
+    @include font-size(16);
   }
 }
 
@@ -151,7 +161,7 @@ p {
 
 #main-wrapper {
   @include box-shadow(0 0 8px rgba(0, 0, 0, 0.05));
-  @include border-radius(2px);
+  @include border-radius(3px);
   background-color: #fff;
   margin-bottom: $grid-padding;
   margin-top: $grid-padding/2;
@@ -179,10 +189,10 @@ p {
 }
 
 #main {
-  .region_363_first,
-  .region_363_third,
-  .region_93_second,
-  .region_39_first {
+  //.region_363_first,
+  //.region_363_third,
+  //.region_93_second,
+  //.region_39_first {
     .block {
       h2.block-title {
         padding-bottom: $gutter-width/2;
@@ -196,7 +206,7 @@ p {
         border: 0 !important;
       }
     }
-  }
+  //}
 }
 
 .inline {
@@ -271,9 +281,18 @@ p {
       padding-bottom: $gutter-width;
       .field-image {
         float: left;
-        margin-right: $gutter-width;
+        margin-right: $gutter-width/2;
+        margin-top: 5px;
       }
     }
+  }
+}
+.view-nieuws-display-block_3,
+.view-weblog {
+  .field-image {
+    float: left;
+    margin-right: $gutter-width/2;
+    //margin-top: 5px;
   }
 }
 .block-node {
@@ -332,11 +351,13 @@ span.ext {
     margin-bottom: 0;
   }
 }
+.block-views-updates-block-1,
 .view-agenda-display-block_1,
 .view-agenda-display-block_2 {
   .views-row {
     overflow: hidden;
   }
+  .views-field-changed,
   .field-date .date-display-single {
     @include border-radius(2px);
     background-color: #fff;
@@ -365,19 +386,25 @@ span.ext {
     }
   }
 }
+.block-views-updates-block-1 {
+  .views-row {
+    margin-bottom: $gutter-width/2;
+  }
+}
 .view-agenda-display-block_1 {
   .has-image {
     position: relative;
     .field-date .date-display-single {
       position: absolute;
-      top: 5px;
+      top: 10px;
       left: 5px;
     }
   }
 }
-.region_363_third,
-.region_93_second {
+//.region_363_third,
+//.region_93_second {
   .views-row {
+    overflow: hidden;
     margin-bottom: $gutter-width/2;
   }
-}
+//}
