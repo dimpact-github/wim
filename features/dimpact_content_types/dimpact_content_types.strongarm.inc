@@ -439,7 +439,20 @@ function dimpact_content_types_strongarm() {
           'weight' => '8',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__agenda'] = $strongarm;
@@ -538,7 +551,7 @@ function dimpact_content_types_strongarm() {
           ),
           'teaser' => array(
             'weight' => '2',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -655,7 +668,20 @@ function dimpact_content_types_strongarm() {
           'weight' => '7',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__news'] = $strongarm;
