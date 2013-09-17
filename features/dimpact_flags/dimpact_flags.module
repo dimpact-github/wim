@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Flags feature.
+ */
+
+include_once 'dimpact_flags.features.inc';
