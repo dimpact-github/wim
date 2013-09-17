@@ -872,6 +872,14 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Veld: Inhoud: Wijzigingsdatum */
+  $handler->display->display_options['fields']['changed_1']['id'] = 'changed_1';
+  $handler->display->display_options['fields']['changed_1']['table'] = 'node';
+  $handler->display->display_options['fields']['changed_1']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed_1']['label'] = '';
+  $handler->display->display_options['fields']['changed_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['changed_1']['custom_date_format'] = 'H:i';
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
