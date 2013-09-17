@@ -15,7 +15,7 @@ nav {
       margin-bottom: 0 !important;
     }
     padding: 0;
-    margin-bottom: $gutter-width;
+    margin-bottom: $gutter-width/2;
     .block-system-main-menu {
       ul {
         list-style: none outside none;
@@ -127,6 +127,13 @@ nav {
           }
         }
       }
+    }
+  }
+}
+body.front {
+  nav {
+    &.main-menu {
+      margin-bottom: $gutter-width;
     }
   }
 }
