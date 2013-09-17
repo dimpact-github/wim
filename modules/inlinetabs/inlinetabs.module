@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Implements hook_filter_info().
+ */
+function inlinetabs_filter_info() {
+  return array(
+    'inlinetabs' => array(
+      'title' => t('Inline tabs'),
+      'description' => t('Define tabs inline by prepending headers with two asterisks.'),
+      'process callback' => 'inlinetabs_process_html',
+    ),
+  );
+}
+
+/**
+ * Convert headers prepended with two asterisks to tabs.
+ */
+function inlinetabs_process_html($text, $filter, $format = NULL, $langcode = NULL, $cache = NULL, $cache_id = NULL) {
+  $parts = @preg_split('/(\\<h[1-6][^\\>]*\\>\\*\\*[^\\<]*\\<\\/h[1-6]\\>)/si', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+  $count = count($parts);
+  if ($count == 1) {
+    // No tabs are used, return original text.
+    return $text;
+  }
+  
+  $tabs = '';
+  $panes = '';
+  
+  // Use a random number to generate unique id's within the page.
+  $rand = rand(0, 262144);
+  
+  // Loop through parts from second element. This gives an altering tab link and tab pane.
+  $tab = 0;
+  for ($i = 1; $i < $count; ++$i) {
+    if ($i % 2) {
+      // This part is a link. Add a new tab to $tabs.
+      ++$tab;
+      $id = dechex(($rand << 6) + $tab);
+      preg_match('/\\<h[1-6][^\\>]*\\>\\*\\*([^\\<]*)\\<\\/h[1-6]\\>/si', $parts[$i], $match);
+      $tabs .= '<li><a href="#tab-' . $id . '"><span>' . $match[1] . '</span></a></li>';
+    }
+    else {
+      // Add corresponding tab contents to $panes.
+      $panes .= '<div id="tab-' . $id . '">' . $parts[$i] . '</div>';
+    }
+  }
+  
+  return $parts[0] . '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $panes . '</nav>';
+}
+
+/**
+ * Implements hook_init().
+ */
+function inlinetabs_init() {
+  // Include JavaScript on every page, since we don't know where it is used.
+  drupal_add_js(drupal_get_path('module', 'inlinetabs') . '/inlinetabs.js');
+}
