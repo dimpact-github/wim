@@ -332,6 +332,7 @@ span.ext {
     float: left;
     margin-bottom: $gutter-width !important;
     padding: 0 !important;
+    border-bottom: 0 !important;
     &:nth-child(2n) {
       margin-left: 19px;
     }
