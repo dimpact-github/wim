@@ -30,6 +30,8 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     nav {
       &.main-menu {
+        > .container > nav.block-menu,
+        .block-system-main-menu,
         .block-dominion-menu {
           background-color: $colour;
           border-top: 4px solid $colourlight;
