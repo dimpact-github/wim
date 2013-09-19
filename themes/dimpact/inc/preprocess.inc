@@ -98,6 +98,13 @@ function dimpact_preprocess_block(&$vars) {
   // Add the block ID as a class.
   $vars['classes_array'][] = $vars['block_html_id'];
 
+  if (module_exists('block_class')) {
+    $block = block_load($vars['block']->module, $vars['block']->delta);
+    if (isset($block->css_class)) {
+      $vars['classes_array'][] = $block->css_class;
+    }
+  }
+
   // Hide the block titles in the header and navigation regions by default.
   // if ($vars['block']->region == 'header' || $vars['block']->region == 'navigation') {
   //   $vars['title_attributes_array']['class'][] = 'visuallyhidden';
@@ -190,7 +197,7 @@ function dimpact_preprocess_block(&$vars) {
     $vars['classes_array'][] = 'admin-only-wrapper';
     $vars['classes_array'] = array_diff($vars['classes_array'], $remove);
   }
-//  var_dump($vars); exit;
+//  var_dump($vars);
   $vars['title_attributes_array']['class'][] = 'block-title';
 
 }

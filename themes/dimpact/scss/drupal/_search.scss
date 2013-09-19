@@ -52,9 +52,9 @@
     @include transition-duration(450ms);
     @include border-left-radius(4px);
     border-right: 0;
-    width: 200px;
+    width: 286px;
     &:focus  {
-      width: 289px;
+      width: 320px;
     }
   }
   input[type="submit"] {

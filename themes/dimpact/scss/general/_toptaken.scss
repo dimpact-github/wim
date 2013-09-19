@@ -22,7 +22,7 @@ $buttons: ($toptakentotal - $tabs);
     color: $link-dark;
     text-decoration: none;
     display: block;
-    padding: 15px $gutter-width;
+    padding: 15px $gutter-width/2;
   }
   &.last {
     border: 0;
