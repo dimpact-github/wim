@@ -868,10 +868,25 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '32';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Veld: Inhoud: Intro */
+  $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
+  $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
+  $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
+  $handler->display->display_options['fields']['field_intro']['label'] = '';
+  $handler->display->display_options['fields']['field_intro']['alter']['max_length'] = '60';
+  $handler->display->display_options['fields']['field_intro']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_intro']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_intro']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_intro']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_intro']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['fields']['changed_1']['id'] = 'changed_1';
   $handler->display->display_options['fields']['changed_1']['table'] = 'node';
