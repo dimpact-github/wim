@@ -244,6 +244,21 @@ function dimpact_preprocess_node(&$vars) {
 
   // Create a timestamp suitable for the datetime attribute.
   $vars['timestamp'] = date_iso8601($node->created);
+
+  $vars['tabs'] = '';
+  if (isset($vars['field_tabtitel']) && isset($vars['field_tabcontent']) && module_exists('quicktabs')) {
+    $tabs = array();
+    foreach ($vars['field_tabtitel'] as $i => $tabtitle) {
+      $tabs[$i] = array(
+        'title' => $tabtitle['value'],
+        'contents' => array(
+          '#markup' => '<h2>' . $tabtitle['value'] . '</h2>' . $vars['field_tabcontent'][$i]['value'],
+        ),
+        'weight' => $i,
+      );
+    }
+    $vars['tabs'] = quicktabs_build_quicktabs($node->nid, $settings = array(), $tabs);
+  }
 }
 
 
