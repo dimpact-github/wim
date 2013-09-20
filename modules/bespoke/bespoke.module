@@ -23,4 +23,14 @@ function bespoke_entity_info_alter(&$entity_info) {
     'label' => t('Origineel'),
     'custom settings' => TRUE,
   );
+
+  $entity_info['file']['view modes']['volle_breedte'] = array(
+    'label' => t('Volle breedte'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['node']['view modes']['volle_breedte'] = array(
+    'label' => t('Volle breedte'),
+    'custom settings' => TRUE,
+  );
 }
