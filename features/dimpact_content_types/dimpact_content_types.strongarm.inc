@@ -786,6 +786,9 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
+          'weight' => '5',
+        ),
+        'domain' => array(
           'weight' => '3',
         ),
       ),
