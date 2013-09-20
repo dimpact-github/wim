@@ -1,6 +1,6 @@
 .block-felix {
   //@include border-radius($border-radius);
-  padding: 6px !important;
+  padding: 6px $gutter-width/2 !important;
   margin-bottom: 5px !important;
   background-color: #F3F3F3;
   border: 1px solid #DBDBDB !important;

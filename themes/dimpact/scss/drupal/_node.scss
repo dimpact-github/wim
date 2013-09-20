@@ -1,0 +1,71 @@
+.node {
+  margin: 0 0 $gutter-width 0;
+  .content {
+    overflow: hidden;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &.view-mode-teaser {
+    overflow: hidden;
+    .day-month-year {
+      &:after {
+        content: " \2014";
+      }
+    }
+    h2 {
+      @include font-size(16);
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: $line-height;
+    }
+    .field-wrapper-field-intro,
+    .field-intro {
+      display: inline;
+      p {
+        display: inline;
+      }
+    }
+  }
+  &.view-mode-full {
+    time {
+      background-color: lighten($background-color, 5%);
+      display: block;
+      margin-bottom: 1em;
+      padding: $gutter-width/3 $gutter-width/2;
+    }
+    .field-intro {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+    .field-image {
+      margin-bottom: $gutter-width/2;
+    }
+    .field-wrapper-field-location,
+    .field-wrapper-field-date {
+      background-color: lighten($background-color, 5%);
+      margin-bottom: 1em;
+      padding: $gutter-width/2 $gutter-width/2;
+    }
+    .field-wrapper-field-location {
+      margin-top: 1em;
+    }
+    h3.field-label {
+      @include font-size(15);
+      margin: 0 0 $gutter-width/2 0;
+    }
+  }
+  #{headings()} {
+    margin-bottom: 0.75em;
+    margin-top: 1.25em;
+  }
+}
+
+.block-node {
+  .node {
+    h2 {
+      display: none;
+    }
+  }
+}

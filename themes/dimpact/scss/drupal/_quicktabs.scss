@@ -25,3 +25,29 @@
     padding: $gutter-width/2 0 0 0;
   }
 }
+
+.node {
+  .content {
+    .quicktabs-wrapper {
+      margin-top: $gutter-width;
+      ul.quicktabs-tabs {
+        margin: 0 0 $gutter-width/2 0;
+        padding: 0;
+        overflow: hidden;
+        li {
+          float: left;
+          a {
+            @include border-radius(2px);
+            line-height: 1;
+            display: block;
+            margin-right: $gutter-width/4;
+            margin-bottom: $gutter-width/4;
+            padding: $gutter-width/2 $gutter-width/2;
+            color: $link-dark;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

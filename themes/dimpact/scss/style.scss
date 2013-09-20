@@ -2,12 +2,15 @@
 
 @import "layout/default";
 @import "general/forms";
+
 @import "drupal/messages";
 @import "drupal/tabs";
 @import "drupal/pagers";
 @import "drupal/search";
 @import "drupal/navigation";
 @import "drupal/quicktabs";
+@import "drupal/node";
+@import "drupal/views";
 
 @import "general/felix";
 @import "general/colors";
@@ -58,31 +61,24 @@ a {
 }
 
 table {
+  border: 1px solid $border;
   width: 100%;
-}
-
-table, td, th {
-  border: solid 1px $border;
-  border-width: 1px 0 0 1px;
-}
-
-thead {
-  background-color: whitesmoke;
-}
-
-td, th {
-  border-width: 0 1px 1px 0;
-  padding: 6px;
-  text-align: left;
-  vertical-align: top;
-}
-
-th {
-  border-color: #dddddd;
-}
-
-td {
-  border-color: $border;
+  tr {
+    th {
+      background-color: lighten($background-color, 5%);
+      font-weight: 300;
+      text-transform: none;
+      text-align: left;
+    }
+    td, th {
+      padding: 6px;
+    }
+    &:hover {
+      td, th {
+        background-color: $background-color;
+      }
+    }
+  }
 }
 
 #{headings()} {
@@ -113,11 +109,7 @@ h2 {
     margin-bottom: $gutter-width/2;
   }
 }
-#content {
-  //h2.block-title {
-  //  font-size: 200%;
-  //}
-}
+
 h3 {
   font-size: 135%;
   &.field-content {
@@ -191,123 +183,25 @@ p {
 }
 
 #main {
-  //.region_363_first,
-  //.region_363_third,
-  //.region_93_second,
-  //.region_39_first {
+  .block {
+    h2.block-title {
+      padding: $gutter-width/2;
+    }
+  }
+  .block-quicktabs {
+    border: 0 !important;
+    padding: 0 !important;
     .block {
-      h2.block-title {
-        padding: $gutter-width/2;
-      }
-    }
-    .block-quicktabs {
+      padding: 0;
       border: 0 !important;
-      padding: 0 !important;
-      .block {
-        padding: 0;
-        border: 0 !important;
-      }
     }
-  //}
+  }
 }
 
 .inline {
   display: inline;
 }
 
-.node {
-  margin: 0 0 $gutter-width 0;
-  .content {
-    overflow: hidden;
-    a {
-      text-decoration: underline;
-    }
-  }
-
-  &.view-mode-teaser {
-    overflow: hidden;
-    .day-month-year {
-      &:after {
-        content: " \2014";
-      }
-    }
-    h2 {
-      @include font-size(16);
-      margin-top: 0;
-      margin-bottom: 0;
-      line-height: $line-height;
-    }
-    .field-wrapper-field-intro,
-    .field-intro {
-      display: inline;
-      p {
-        display: inline;
-      }
-    }
-  }
-  &.view-mode-full {
-    time {
-      background-color: lighten($background-color, 5%);
-      display: block;
-      margin-bottom: 1em;
-      padding: $gutter-width/3 $gutter-width/2;
-    }
-    .field-intro {
-      font-weight: bold;
-      margin-bottom: 1em;
-    }
-    .field-image {
-      margin-bottom: $gutter-width/2;
-    }
-    .field-wrapper-field-location,
-    .field-wrapper-field-date {
-      background-color: lighten($background-color, 5%);
-      margin-bottom: 1em;
-      padding: $gutter-width/2 $gutter-width/2;
-    }
-    .field-wrapper-field-location {
-      margin-top: 1em;
-    }
-    h3.field-label {
-      @include font-size(15);
-      margin: 0 0 $gutter-width/2 0;
-    }
-  }
-  #{headings()} {
-    margin-bottom: 0.75em;
-    margin-top: 1.25em;
-  }
-}
-
-.view {
-  .views-row {
-    .node {
-      //border-bottom: 1px solid $background-color;
-      //padding-bottom: $gutter-width;
-      margin: 0;
-      .field-image {
-        float: left;
-        margin-right: $gutter-width/2;
-        margin-top: 5px;
-      }
-    }
-  }
-}
-.view-nieuws-display-block_3,
-.view-weblog {
-  .field-image {
-    float: left;
-    margin-right: $gutter-width/2;
-    //margin-top: 5px;
-  }
-}
-.block-node {
-  .node {
-    h2 {
-      display: none;
-    }
-  }
-}
 #footer {
   padding: $gutter-width 0;
   .block {
@@ -316,149 +210,15 @@ p {
   h2 {
     font-size: 145%;
   }
-  a {
-    color: $text-color;
-    text-decoration: underline;
-    &:hover {
-      color: lighten($text-color, 10%);
-    }
-  }
   ul {
     line-height: $line-height;
   }
 }
+
 span.ext {
   display: inline !important;
 }
-.view-voorpagina-banners {
-  .views-row {
-    position: relative;
-    float: left;
-    margin-bottom: $gutter-width !important;
-    padding: 0 !important;
-    border-bottom: 0 !important;
-    &:nth-child(2n) {
-      margin-left: 19px;
-    }
-    .views-field-title {
-      background-color: rgba(0, 0, 0, 0.6);
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      h3 {
-        @include font-size(16);
-        color: #fff;
-        margin: 0;
-        padding: $gutter-width/3 $gutter-width/2;
-        line-height: $line-height;
-        a {
-          color: #fff;
-        }
-      }
-    }
-  }
-  .views-row-3,
-  .views-row-4 {
-    margin-bottom: 0 !important;
-  }
-}
-.block-views-updates-block-1,
-.view-agenda-display-block_1,
-.view-agenda-display-block_2 {
-  .views-row {
-    overflow: hidden;
-  }
-  .views-field-changed,
-  .field-date .date-display-single {
-    @include border-radius(2px);
-    background-color: #fff;
-    border: 1px solid $background-color;
-    position: relative;
-    font-family: $heading;
-    width: 40px;
-    height: 46px;
-    float: left;
-    font-weight: 300;
-    margin-right: 0.5em;
-    display: block;
-    z-index: 1;
-    .month, .day {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      line-height: 1;
-    }
-    .month {
-      @include font-size(12);
-      bottom: 4px;
-    }
-    .day {
-      @include font-size(20);
-      top: 3px;
-    }
-  }
-}
-.block-views-updates-block-1 {
-  .views-row {
-    margin-bottom: $gutter-width/2;
-  }
-}
-.view-agenda-display-block_1 {
-  .has-image {
-    position: relative;
-    .field-date .date-display-single {
-      position: absolute;
-      top: 10px;
-      left: 5px;
-    }
-  }
-}
-.view-updates {
-  .views-row {
-    //padding-bottom: $gutter-width/2;
-    //border-bottom: 1px solid lighten($background-color, 5%);
-    position: relative;
-    &:last-child {
-      padding: 0;
-      margin: 0;
-      border: 0;
-    }
-    .views-field-changed-1 {
-      @include transition-property(bottom);
-      @include transition-duration(150ms);
-      @include font-size(12);
-      position: absolute;
-      bottom: -20px;
-      right: 0;
-      color: $gray;
-    }
-    &:hover {
-      .views-field-changed-1 {
-        bottom: -1px;
-      }
-    }
-  }
-}
-//.region_363_third,
-//.region_93_second {
-.view {
-  .views-row {
-    overflow: hidden;
-    margin-bottom: $gutter-width/2;
-    //margin: 0 $gutter-width/2 $gutter-width/2;
-    padding-bottom: $gutter-width/2;
-    border-bottom: 1px solid lighten($background-color, 5%);
-    time {
-      //color: $gray;
-      font-weight: 700;
-    }
-    //&:last-child {
-    //  padding: 0;
-    //  margin: 0;
-    //  border: 0;
-    //}
-  }
-}
+
 .row-margin {
   .view {
     margin: 0 $gutter-width/2;

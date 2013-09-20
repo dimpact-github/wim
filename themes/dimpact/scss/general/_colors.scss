@@ -42,8 +42,8 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
           //> ul > li.last > a {
           //  border: 0;
           //}
-          li.active-trail,
-          li:hover {
+          > ul.menu > li.active-trail,
+          > ul.menu > li:hover {
             background-color: darken($colour, 10%);
             a {
               color: $linkcolor !important;
@@ -59,9 +59,9 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
             li {
               ul {
                 background-color: darken($colour, 10%);
-                a,
-                a.active {
+                a {
                   &:hover {
+                    background-color: $colour;
                   }
                 }
               }
@@ -128,6 +128,26 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
         &.toptaken-active > ul a:hover {
           background-color: lighten($background-color, 5%);
+        }
+      }
+    }
+    .node {
+      .content {
+        .quicktabs-wrapper {
+          ul.quicktabs-tabs {
+            li {
+              a {
+                background-color: $background-color;
+              }
+              &.active,
+              &:hover {
+                a {
+                  background-color: $colour;
+                  color: $linkcolor;
+                }
+              }
+            }
+          }
         }
       }
     }

@@ -11,15 +11,12 @@ $base-font-size: 16 !default;
 $line-height: 1.6;
 
 $arial: Arial, sans-serif;
-//$helvetica: Helvetica, arial, sans-serif;
 $verdana: Verdana, sans-serif;
 $georgia: Georgia, sans-serif;
 $monaco: Monaco, monospace, serif;
 
-//$sans-serif: Verdana, Arial, sans-serif;
 $heading: "Roboto Slab", "Droid Sans", Arial, sans-serif;
 $body: "Droid Sans", Arial, sans-serif;
-//$serif: $georgia;
 $monospace: $monaco;
 
 // Colors
@@ -85,8 +82,8 @@ $link-colour:$azure !default;
 $link-light: #fff;
 $link-dark: #000;
 $hover: darken($link-colour, 10%);
-$active: lighten($link-colour, 10%);
-$visited: lighten($link-colour, 5%);
+$active: darken($link-colour, 10%);
+$visited: darken($link-colour, 5%);
 $focus: darken($link-colour, 10%);
 
 // Grid
