@@ -38,8 +38,10 @@ body {
   color: $text-color;
   &.overlay-alpha {
     .overlay-alpha-container {
-      width: 100%;
+      @include transition-property(background-color);
+      @include transition-duration(150ms);
       position: fixed;
+      width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 4;
@@ -179,6 +181,11 @@ p {
     margin-bottom: $gutter-width;
     overflow: hidden;
     position: relative;
+  }
+  .region_full_top {
+    .block {
+      margin-bottom: 0;
+    }
   }
 }
 
