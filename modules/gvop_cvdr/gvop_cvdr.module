@@ -1,0 +1,54 @@
+<?php
+/**
+ * Implements hook_gvop_info().
+ */
+function gvop_cvdr_gvop_info() {
+  return array(
+    'cvdr' => array(
+      'type' => 'cvdr',
+      'callback' => 'gvop_cvdr_map',
+      'query' => array(
+        'type' => 'regeling',
+      )
+    ),
+  );
+}
+
+/**
+ * Callback for mapping gvop cvdr nodes.
+ *
+ * @param DOMElement $record
+ * @param $node
+ * @param DOMXPath $xpath
+ */
+function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
+  $node->type = 'regulation';
+
+  if (($introNode = $xpath->query('.//dcterms:subject', $record)->item(0)) && !empty($introNode->nodeValue)) {
+    $node->field_intro = array(
+      LANGUAGE_NONE => array(array('value' => $introNode->nodeValue))
+    );
+  }
+  if (($issuedNode = $xpath->query('.//dcterms:issued', $record)->item(0)) && trim($issuedNode->nodeValue) != '') {
+    $node->field_reg_issued = array(
+      LANGUAGE_NONE => array(array('value' => $issuedNode->nodeValue))
+    );
+  }
+  $node->field_ratified_by = array(
+    LANGUAGE_NONE => array(array('value' => $xpath->query('.//dcterms:isRatifiedBy', $record)->item(0)->nodeValue))
+  );
+  $node->field_reg_betreft = array(
+    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:betreft', $record)->item(0)->nodeValue))
+  );
+  $node->field_reg_kenmerk = array(
+    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:kenmerk', $record)->item(0)->nodeValue))
+  );
+  $node->field_reg_onderwerp = array(
+    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:onderwerp', $record)->item(0)->nodeValue))
+  );
+
+  // @todo, publicatieurl_xml
+  // @todo, overheidrg:redactioneleToevoeging
+  // @todo, overheidrg:uitwerkingtredingDatum
+  // @todo, overheidrg:inwerkingtredingDatum
+}
