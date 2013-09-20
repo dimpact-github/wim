@@ -32,6 +32,7 @@ projects[domaincontext][subdir] = contrib
 projects[domaincontext][version] = "1.0-alpha1"
 projects[dominion][subdir] = contrib
 projects[dominion][revision] = ca52beb
+projects[elysia_cron][subdir] = contrib
 projects[email][subdir] = contrib
 projects[empty_page][subdir] = contrib
 projects[entity][subdir] = contrib
