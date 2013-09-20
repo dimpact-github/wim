@@ -1,11 +1,12 @@
 name = Dimpact imagestyles
 core = 7.x
 package = Features
-version = 7.x-1.0-beta5
+version = 7.x-1.0-beta6
 project = dimpact_imagestyles
 dependencies[] = image
 features[features_api][] = api:2
 features[image][] = banner
+features[image][] = full_width
 features[image][] = list_thumbnail
 features[image][] = node_thumbnail
 features[image][] = origineel
