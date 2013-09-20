@@ -8,6 +8,8 @@ hide($content['field_image']);
 if (!$page) {
   hide($content['field_date']);
 }
+hide($content['field_tabtitel']);
+hide($content['field_tabcontent']);
 ?>
 <article<?php print $attributes; ?>>
   <?php !$page ? print render($content['field_date']) : ''; ?>
@@ -30,6 +32,7 @@ if (!$page) {
       </time>
     <?php endif; ?>
     <?php print render($content); ?>
+    <?php print render($tabs); ?>
   </div>
   <?php // print render($content['links']); ?>
   <?php print render($content['comments']); ?>
