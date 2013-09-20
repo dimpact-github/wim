@@ -82,6 +82,9 @@ function dimpact_felix_felix_default_block_sets() {
       0 => array(
         'nodetype' => 'editorial',
       ),
+      1 => array(
+        'nodetype' => 'slide',
+      ),
     ),
   );
   return $sets;
