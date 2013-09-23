@@ -67,13 +67,17 @@ function dimpact_felix_felix_default_block_sets() {
       ),
       13 => array(
         'module' => 'views',
-        'delta' => 'updates-block_1',
+        'delta' => 'personen-block_1',
       ),
       14 => array(
         'module' => 'views',
-        'delta' => 'voorpagina_banners-block_1',
+        'delta' => 'updates-block_1',
       ),
       15 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
+      ),
+      16 => array(
         'module' => 'views',
         'delta' => 'weblog-block',
       ),
