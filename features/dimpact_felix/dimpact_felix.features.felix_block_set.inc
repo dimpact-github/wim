@@ -75,9 +75,13 @@ function dimpact_felix_felix_default_block_sets() {
       ),
       15 => array(
         'module' => 'views',
-        'delta' => 'voorpagina_banners-block_1',
+        'delta' => 'veelgestelde_vragen-faq_recent',
       ),
       16 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
+      ),
+      17 => array(
         'module' => 'views',
         'delta' => 'weblog-block',
       ),
