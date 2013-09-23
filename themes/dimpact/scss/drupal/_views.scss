@@ -7,6 +7,10 @@
     time {
       font-weight: 700;
     }
+    h3 {
+      line-height: $line-height;
+      margin-top: 0;
+    }
     .node {
       margin: 0;
       .field-image {
@@ -15,6 +19,12 @@
         margin-top: 5px;
       }
     }
+  }
+  .more-link {
+    margin-top: $gutter-width/4;
+  }
+  .view-faq-display-attachment_1 {
+    margin-bottom: $gutter-width;
   }
 }
 
