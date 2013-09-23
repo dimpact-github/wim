@@ -1133,10 +1133,10 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
 
-  /* Display: Block - Recent FAQs */
-  $handler = $view->new_display('block', 'Block - Recent FAQs', 'faq_recent');
+  /* Display: Recente vragenblok */
+  $handler = $view->new_display('block', 'Recente vragenblok', 'faq_recent');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recent FAQs';
+  $handler->display->display_options['title'] = 'Veelgestelde vragen';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['link_display'] = FALSE;
@@ -1198,8 +1198,8 @@ function dimpact_views_views_default_views() {
   );
   $handler->display->display_options['path'] = 'faq-questions-inline';
 
-  /* Display: Page - Questions Top */
-  $handler = $view->new_display('page', 'Page - Questions Top', 'page_1');
+  /* Display: Veelgestelde vragenpagina */
+  $handler = $view->new_display('page', 'Veelgestelde vragenpagina', 'page_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1393,14 +1393,14 @@ function dimpact_views_views_default_views() {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
-    t('Block - Recent FAQs'),
-    t('Recent FAQs'),
+    t('Recente vragenblok'),
     t('View all FAQs'),
+    t('Recent FAQs'),
     t('Block - Random FAQs'),
     t('Random FAQs'),
     t('Page - Questions Inline'),
     t('meer'),
-    t('Page - Questions Top'),
+    t('Veelgestelde vragenpagina'),
     t('<h3><a id="n[nid]">[title]</a></h3>'),
     t('Attachment - Questions Top'),
     t('Page - New Page'),

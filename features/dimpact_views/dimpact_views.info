@@ -1,7 +1,7 @@
 name = Dimpact Views
 core = 7.x
 package = Features
-version = 7.x-1.0-beta10
+version = 7.x-1.0-beta11
 project = dimpact_views
 dependencies[] = faq
 dependencies[] = views
