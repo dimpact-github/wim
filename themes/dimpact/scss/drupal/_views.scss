@@ -170,3 +170,26 @@
     margin-top: 5px;
   }
 }
+
+.view-bestanden {
+  .views-field-extension {
+    @include border-radius(2px);
+    @include font-size(14);
+    background-color: #fff;
+    border: 1px solid $background-color;
+    position: relative;
+    font-family: $heading;
+    width: 50px;
+    padding: $gutter-width/2 0;
+    float: left;
+    margin-right: 0.5em;
+    z-index: 1;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+  }
+  .views-field-filesize {
+    @include font-size(12);
+    color: $gray;
+  }
+}
