@@ -188,7 +188,7 @@ $action_links = render($action_links);
 
     <?php // Region 12/12 bottom ?>
     <?php if ($region_full_bottom): ?>
-      <div class="container">
+      <div class="container container-nopadding">
         <div class="region_full_bottom">
           <?php print $region_full_bottom; ?>
         </div>

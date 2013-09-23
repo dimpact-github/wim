@@ -137,3 +137,26 @@
     }
   }
 }
+
+.block-views-personen-block-1 {
+  background-color: lighten($background-color, 7%);
+  @include container();
+  padding: 0;
+  h2.block-title {
+    padding: $gutter-width/2 $gutter-width !important;
+  }
+  .views-row {
+    @include span-columns(4, 12);
+    border: 0;
+    &:nth-child(3n) {
+      @include omega;
+    }
+  }
+}
+
+.view-weblog-display-block {
+  .field-image {
+    margin-bottom: $gutter-width/2;
+    margin-top: 5px;
+  }
+}
