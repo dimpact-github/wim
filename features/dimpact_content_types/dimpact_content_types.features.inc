@@ -50,6 +50,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'file' => array(
+      'name' => t('File'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'marketplace' => array(
       'name' => t('Marketplace'),
       'base' => 'node_content',
