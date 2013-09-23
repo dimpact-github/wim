@@ -29,6 +29,11 @@ function bespoke_entity_info_alter(&$entity_info) {
     'custom settings' => TRUE,
   );
 
+  $entity_info['file']['view modes']['portret'] = array(
+    'label' => t('Portret'),
+    'custom settings' => TRUE,
+  );
+
   $entity_info['node']['view modes']['volle_breedte'] = array(
     'label' => t('Volle breedte'),
     'custom settings' => TRUE,
