@@ -43,45 +43,49 @@ function dimpact_felix_felix_default_block_sets() {
       ),
       7 => array(
         'module' => 'views',
-        'delta' => 'favorieten-block_1',
+        'delta' => 'berichten-block_1',
       ),
       8 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_1',
+        'delta' => 'favorieten-block_1',
       ),
       9 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_1',
+        'delta' => 'marktplaats-block_1',
       ),
       10 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_2',
+        'delta' => 'nieuws-block_1',
       ),
       11 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_3',
+        'delta' => 'nieuws-block_2',
       ),
       12 => array(
         'module' => 'views',
-        'delta' => 'nodequeue_carousel_9_3-block',
+        'delta' => 'nieuws-block_3',
       ),
       13 => array(
         'module' => 'views',
-        'delta' => 'personen-block_1',
+        'delta' => 'nodequeue_carousel_9_3-block',
       ),
       14 => array(
         'module' => 'views',
-        'delta' => 'updates-block_1',
+        'delta' => 'personen-block_1',
       ),
       15 => array(
         'module' => 'views',
-        'delta' => 'veelgestelde_vragen-faq_recent',
+        'delta' => 'updates-block_1',
       ),
       16 => array(
         'module' => 'views',
-        'delta' => 'voorpagina_banners-block_1',
+        'delta' => 'veelgestelde_vragen-faq_recent',
       ),
       17 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
+      ),
+      18 => array(
         'module' => 'views',
         'delta' => 'weblog-block',
       ),
