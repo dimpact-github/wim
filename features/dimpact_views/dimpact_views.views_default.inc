@@ -219,6 +219,26 @@ function dimpact_views_views_default_views() {
 
   /* Display: Berichtenblok */
   $handler = $view->new_display('block', 'Berichtenblok', 'block_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+
+  /* Display: Alle berichtenblok */
+  $handler = $view->new_display('block', 'Alle berichtenblok', 'block_2');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $translatables['berichten'] = array(
     t('Master'),
     t('Berichten'),
@@ -236,6 +256,7 @@ function dimpact_views_views_default_views() {
     t('volgende ›'),
     t('laatste »'),
     t('Berichtenblok'),
+    t('Alle berichtenblok'),
   );
   $export['berichten'] = $view;
 
