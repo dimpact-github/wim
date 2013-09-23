@@ -231,6 +231,12 @@ span.ext {
   .view {
     margin: 0 $gutter-width/2;
   }
+  &.block-node {
+    .node {
+      margin-left: $gutter-width/2;
+      margin-right: $gutter-width/2;
+    }
+  }
 }
 .region_full_bottom {
   .row-margin {
