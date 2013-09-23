@@ -58,6 +58,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'message' => array(
+      'name' => t('Message'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'news' => array(
       'name' => t('News'),
       'base' => 'node_content',
