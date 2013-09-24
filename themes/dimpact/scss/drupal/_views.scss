@@ -172,6 +172,9 @@
     &:nth-child(3n) {
       @include omega;
     }
+    img {
+      @include border-radius(50%);
+    }
   }
 }
 
