@@ -1231,6 +1231,14 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'extension' => 'extension',
+    'filesize' => 'filesize',
+  );
+  /* Relatie: Inhoud: Bestand (field_bestand:fid) */
+  $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
+  $handler->display->display_options['relationships']['field_bestand_fid']['table'] = 'field_data_field_bestand';
+  $handler->display->display_options['relationships']['field_bestand_fid']['field'] = 'field_bestand_fid';
   /* Veld: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
@@ -1245,7 +1253,6 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '32';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Intro */
@@ -1254,22 +1261,28 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['label'] = '';
   $handler->display->display_options['fields']['field_intro']['alter']['max_length'] = '60';
-  $handler->display->display_options['fields']['field_intro']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['field_intro']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_intro']['element_type'] = '0';
   $handler->display->display_options['fields']['field_intro']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Wijzigingsdatum */
-  $handler->display->display_options['fields']['changed_1']['id'] = 'changed_1';
-  $handler->display->display_options['fields']['changed_1']['table'] = 'node';
-  $handler->display->display_options['fields']['changed_1']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed_1']['label'] = '';
-  $handler->display->display_options['fields']['changed_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed_1']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed_1']['custom_date_format'] = 'H:i';
+  /* Veld: Bestand: Extensie */
+  $handler->display->display_options['fields']['extension']['id'] = 'extension';
+  $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['extension']['field'] = 'extension';
+  $handler->display->display_options['fields']['extension']['relationship'] = 'field_bestand_fid';
+  $handler->display->display_options['fields']['extension']['label'] = '';
+  $handler->display->display_options['fields']['extension']['element_label_colon'] = FALSE;
+  /* Veld: Bestand: Grootte */
+  $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['relationship'] = 'field_bestand_fid';
+  $handler->display->display_options['fields']['filesize']['label'] = '';
+  $handler->display->display_options['fields']['filesize']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['filesize']['alter']['text'] = '([filesize])';
+  $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -1294,12 +1307,13 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'agenda' => 'agenda',
     'announcement' => 'announcement',
+    'file' => 'file',
     'blog' => 'blog',
-    'faq' => 'faq',
     'marketplace' => 'marketplace',
     'news' => 'news',
     'person' => 'person',
     'product' => 'product',
+    'faq' => 'faq',
     'wiki' => 'wiki',
   );
 
@@ -1314,6 +1328,8 @@ function dimpact_views_views_default_views() {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
+    t('bestand uit field_bestand'),
+    t('([filesize])'),
     t('Updatesblok'),
   );
   $export['updates'] = $view;
