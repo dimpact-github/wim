@@ -1,6 +1,6 @@
 ul.pager {
   @include clearfix;
-  line-height: 2;
+  //line-height: 2;
   list-style: none;
   margin: 1em 0;
   padding-left: 0;
@@ -8,18 +8,32 @@ ul.pager {
 
 .pager {
   li {
-    border: solid 1px $border;
-    border-left-width: 0;
+
+    //border-left-width: 0;
     float: left;
     list-style: none;
-    margin: 0;
+    margin: 0 $gutter-width/4;
     padding: 0;
-    &.first {
-      border-left-width: 1px;
-    }
+    //&.first {
+    //  border-left-width: 1px;
+    //}
   }
   a, .pager-current, .pager-ellipsis {
-    padding: 0 $gutter-width/2 0 0;
+    @include border-radius(3px);
+    font-family: $heading;
+    border: solid 1px $background-color;
+    padding: $gutter-width/2;
+    line-height: 1;
+    &:hover {
+      background-color: $background-color;
+      text-decoration: none;
+    }
+  }
+  .active {
+    font-weight: 700;
+    a {
+      color: $link-dark;
+    }
   }
   a {
     text-decoration: none;
