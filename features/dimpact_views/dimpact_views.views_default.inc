@@ -1235,10 +1235,6 @@ function dimpact_views_views_default_views() {
     'extension' => 'extension',
     'filesize' => 'filesize',
   );
-  /* Relatie: Inhoud: Bestand (field_bestand:fid) */
-  $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
-  $handler->display->display_options['relationships']['field_bestand_fid']['table'] = 'field_data_field_bestand';
-  $handler->display->display_options['relationships']['field_bestand_fid']['field'] = 'field_bestand_fid';
   /* Veld: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
@@ -1267,27 +1263,12 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
-  /* Veld: Bestand: Extensie */
-  $handler->display->display_options['fields']['extension']['id'] = 'extension';
-  $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
-  $handler->display->display_options['fields']['extension']['field'] = 'extension';
-  $handler->display->display_options['fields']['extension']['relationship'] = 'field_bestand_fid';
-  $handler->display->display_options['fields']['extension']['label'] = '';
-  $handler->display->display_options['fields']['extension']['element_label_colon'] = FALSE;
-  /* Veld: Bestand: Grootte */
-  $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
-  $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
-  $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
-  $handler->display->display_options['fields']['filesize']['relationship'] = 'field_bestand_fid';
-  $handler->display->display_options['fields']['filesize']['label'] = '';
-  $handler->display->display_options['fields']['filesize']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['filesize']['alter']['text'] = '([filesize])';
-  $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1300,6 +1281,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
+  $handler->display->display_options['filters']['current_all']['group'] = 1;
   /* Filtercriterium: Inhoud: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -1316,6 +1298,7 @@ function dimpact_views_views_default_views() {
     'faq' => 'faq',
     'wiki' => 'wiki',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Updatesblok */
   $handler = $view->new_display('block', 'Updatesblok', 'block_1');
@@ -1328,8 +1311,6 @@ function dimpact_views_views_default_views() {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('bestand uit field_bestand'),
-    t('([filesize])'),
     t('Updatesblok'),
   );
   $export['updates'] = $view;
