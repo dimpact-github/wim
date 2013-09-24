@@ -74,38 +74,55 @@
 .view-agenda-display-block_2 {
   .views-row {
     overflow: hidden;
-  }
-  .views-field-changed,
-  .field-date .date-display-single {
-    @include border-radius(2px);
-    background-color: #fff;
-    border: 1px solid $background-color;
-    position: relative;
-    font-family: $heading;
-    width: 40px;
-    height: 46px;
-    float: left;
-    font-weight: 300;
-    margin-right: 0.5em;
-    display: block;
-    z-index: 1;
-    .month, .day {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      line-height: 1;
+    .views-field-changed,
+    .field-date .date-display-single {
+      @include transition-property(background);
+      @include transition-duration(150ms);
+      @include border-radius(2px);
+      background-color: #fff;
+      border: 1px solid $background-color;
+      position: relative;
+      font-family: $heading;
+      width: 40px;
+      height: 46px;
+      float: left;
+      font-weight: 300;
+      margin-right: 0.5em;
+      display: block;
+      z-index: 1;
+      .month, .day {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        line-height: 1;
+      }
+      .month {
+        @include font-size(12);
+        bottom: 4px;
+      }
+      .day {
+        @include font-size(20);
+        top: 3px;
+      }
     }
-    .month {
-      @include font-size(12);
-      bottom: 4px;
-    }
-    .day {
-      @include font-size(20);
-      top: 3px;
+    &:hover {
+      .views-field-changed,
+      .field-date .date-display-single {
+        background-color: $background-color;
+      }
     }
   }
 }
-
+.block-views-updates-block-1 {
+  .views-row {
+    .field-intro,
+    h3 {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
 .block-views-updates-block-1 {
   .views-row {
     margin-bottom: $gutter-width/2;
@@ -131,19 +148,13 @@
       margin: 0;
       border: 0;
     }
-    .views-field-changed-1 {
-      @include transition-property(bottom);
-      @include transition-duration(150ms);
-      @include font-size(12);
-      position: absolute;
-      bottom: -20px;
-      right: 0;
-      color: $gray;
+    .views-field-extension {
+      text-transform: uppercase;
+      font-weight: 700;
     }
-    &:hover {
-      .views-field-changed-1 {
-        bottom: -1px;
-      }
+    .views-field-filesize {
+      @include font-size(12);
+      color: $gray;
     }
   }
 }
@@ -172,24 +183,34 @@
 }
 
 .view-bestanden {
-  .views-field-extension {
-    @include border-radius(2px);
-    @include font-size(14);
-    background-color: #fff;
-    border: 1px solid $background-color;
-    position: relative;
-    font-family: $heading;
-    width: 50px;
-    padding: $gutter-width/2 0;
-    float: left;
-    margin-right: 0.5em;
-    z-index: 1;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1;
-  }
-  .views-field-filesize {
-    @include font-size(12);
-    color: $gray;
+  .views-row {
+    .views-field-extension {
+      @include transition-property(background);
+      @include transition-duration(150ms);
+      @include border-radius(2px);
+      @include font-size(14);
+      background-color: #fff;
+      font-weight: 700;
+      border: 1px solid $background-color;
+      position: relative;
+      font-family: $heading;
+      width: 50px;
+      padding: $gutter-width/2 0;
+      float: left;
+      margin-right: 0.5em;
+      z-index: 1;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1;
+    }
+    .views-field-filesize {
+      @include font-size(12);
+      color: $gray;
+    }
+    &:hover {
+      .views-field-extension {
+        background-color: $background-color;
+      }
+    }
   }
 }
