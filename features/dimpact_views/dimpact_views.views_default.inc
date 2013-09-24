@@ -165,7 +165,8 @@ function dimpact_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Berichten';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
+  $handler->display->display_options['use_more_text'] = 'Meer berichten';
+  $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -176,6 +177,10 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '3';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
@@ -185,6 +190,10 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -219,6 +228,13 @@ function dimpact_views_views_default_views() {
 
   /* Display: Berichtenblok */
   $handler = $view->new_display('block', 'Berichtenblok', 'block_1');
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Meer berichten';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
@@ -226,6 +242,7 @@ function dimpact_views_views_default_views() {
 
   /* Display: Alle berichtenblok */
   $handler = $view->new_display('block', 'Alle berichtenblok', 'block_2');
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -239,10 +256,14 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+
+  /* Display: Pagina */
+  $handler = $view->new_display('page', 'Pagina', 'page_1');
+  $handler->display->display_options['path'] = 'berichten';
   $translatables['berichten'] = array(
     t('Master'),
     t('Berichten'),
-    t('meer'),
+    t('Meer berichten'),
     t('Toepassen'),
     t('Opnieuw instellen'),
     t('Sorteren op'),
@@ -257,6 +278,8 @@ function dimpact_views_views_default_views() {
     t('laatste »'),
     t('Berichtenblok'),
     t('Alle berichtenblok'),
+    t('meer'),
+    t('Pagina'),
   );
   $export['berichten'] = $view;
 
