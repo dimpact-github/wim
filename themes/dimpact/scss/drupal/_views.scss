@@ -177,6 +177,34 @@
     }
   }
 }
+.block-views-personen-block-2 {
+  .views-rows {
+    overflow: hidden;
+    border-bottom: 1px solid lighten($background-color, 5%);
+    .views-row {
+      @include span-columns(6, 12);
+      border: 0;
+      margin-bottom: $gutter-width;
+      &:nth-child(2n) {
+        @include omega;
+      }
+      h2 {
+        @include font-size(16);
+        margin: 0 0 $gutter-width/4 0;
+      }
+      img {
+        @include border-radius(50%);
+      }
+      .field-image {
+        float: left;
+        margin-right: $gutter-width/2;
+      }
+    }
+  }
+  h3 {
+    margin-bottom: $gutter-width;
+  }
+}
 
 .view-weblog-display-block {
   .field-image {

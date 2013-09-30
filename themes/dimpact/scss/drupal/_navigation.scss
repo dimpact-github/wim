@@ -19,6 +19,31 @@ nav {
     > .container > nav.block-menu,
     .block-dominion-menu,
     .block-system-main-menu {
+      &.fixed {
+        top: 0;
+        position: fixed;
+        z-index: 300;
+        width: 1160px;
+        border: 0 !important;
+        a {
+          @include font-size(14);
+          padding: $gutter-width/2;
+        }
+        ul li ul {
+          top: 32px;
+          li {
+            a {
+              @include font-size(13);
+              padding: $gutter-width/4 $gutter-width/2;
+            }
+          }
+        }
+      }
+      > ul.menu > li.active-trail,
+      > ul.menu > li:hover {
+        margin-top: -4px;
+        border-top: 4px solid $background-color;
+      }
       ul {
         list-style: none outside none;
         margin: 0;
@@ -135,9 +160,27 @@ nav {
             color: $text-color;
             //padding: $gutter-width/3 0;
           }
+          .close-button {
+            &:after {
+              @include icon($remove-sign);
+              @include font-size(20);
+              line-height: 1;
+              color: $gray;
+            }
+            position: absolute;
+            top: $gutter-width/2;
+            right: $gutter-width/2;
+            z-index: 9999;
+            cursor: pointer;
+          }
         }
       }
     }
+  }
+}
+body.fixed-menu {
+  .block-quicktabs-alfabet {
+    margin-top: 34px;
   }
 }
 body.front {

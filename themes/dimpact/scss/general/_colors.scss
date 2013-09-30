@@ -82,13 +82,6 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
       }
     }
-    .ui-tabs-nav {
-      border-color: $colourlight;
-      li:hover,
-      li.ui-state-active {
-        background-color: $colourlight;
-      }
-    }
 
     .carousel {
       .progress {
@@ -133,7 +126,9 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     .node {
       .content {
+        .inlinetabs,
         .quicktabs-wrapper {
+          ul.tabs,
           ul.quicktabs-tabs {
             li {
               a {
