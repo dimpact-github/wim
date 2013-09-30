@@ -6,15 +6,25 @@
     $("#quicktabs-alfabet .quicktabs-tabs li").removeClass("active");
     $("#quicktabs-container-alfabet .quicktabs-tabpage").addClass("quicktabs-hide");
     $('body').removeClass('overlay-alpha');
+
   }
 
   $(window).load(function () {
 
+    $('.quicktabs-tabpage').each(function(){
+      var closeButton = $('<div>').addClass('close-button');
+      $(this).append(closeButton);
+    });
+
     // Alphabet menus
     hideProductTabs();
-    $(document).mouseup(function(e) {
-      var container = $("#quicktabs-alfabet");
+
+    $('#quicktabs-alfabet').mouseup(function() {
       $('body').addClass('overlay-alpha');
+    });
+
+    $(document).mouseup(function(e) {
+      var container = $("#quicktabs-alfabet .quicktabs-tabs li");
       if (container.has(e.target).length === 0){
         hideProductTabs();
       }
@@ -44,28 +54,30 @@
     });
 
     // Carousels
-    $(".carousel-93 .views-rows").carouFredSel({
-      items: 1,
-      responsive: true,
-      scroll: {
-        fx: "directscroll",
-        duration: 500,
-        pauseOnHover: 'resume'
-      },
-      auto: {
-        timeoutDuration: 10000,
-        progress: ".progress",
-        button: ".btn_play_pause"
-      },
-      next: {
-        button: ".btn_next",
-        key: "right"
-      },
-      prev: {
-        button: ".btn_prev",
-        key: "left"
-      }
-    });
+    if ($(".carousel-93 .views-rows").length) {
+      $(".carousel-93 .views-rows").carouFredSel({
+        items: 1,
+        responsive: true,
+        scroll: {
+          fx: "directscroll",
+          duration: 500,
+          pauseOnHover: 'resume'
+        },
+        auto: {
+          timeoutDuration: 10000,
+          progress: ".progress",
+          button: ".btn_play_pause"
+        },
+        next: {
+          button: ".btn_next",
+          key: "right"
+        },
+        prev: {
+          button: ".btn_prev",
+          key: "left"
+        }
+      });
+    }
 
     // Toptaken block
     $('.block-menu-menu-toptaken > ul > li.first').addClass('toptaken-active');
@@ -76,5 +88,19 @@
     $('.block-menu-menu-toptaken > ul > li > a').click(function(e) {
       e.preventDefault();
     });
+
+//    var stickyHeaderTop = $('.block-system-main-menu').offset().top;
+//    $(window).scroll(function(){
+//      if( $(window).scrollTop() > stickyHeaderTop ) {
+//        $('.block-system-main-menu').addClass('fixed');
+//        $('body').addClass('fixed-menu');
+//      } else {
+//        $('.block-system-main-menu').removeClass('fixed');
+//        $('body').removeClass('fixed-menu');
+//      }
+//    });
   });
+
+
+
 })(window.jQuery);
