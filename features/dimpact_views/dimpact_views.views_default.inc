@@ -100,7 +100,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/actueel/agenda">Volledige agenda</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/agenda">Volledige agenda </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Datum */
@@ -147,7 +147,7 @@ function dimpact_views_views_default_views() {
     t('laatste »'),
     t('Teaser block'),
     t('List block'),
-    t('<a href="/actueel/agenda">Volledige agenda</a>'),
+    t('<div class="more-link"><a href="/actueel/agenda">Volledige agenda </a></div>'),
   );
   $export['agenda'] = $view;
 
@@ -693,7 +693,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/actueel/nieuws">Meer nieuws</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Titel */
@@ -757,7 +757,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/actueel/nieuws">Meer nieuws</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Image */
@@ -826,7 +826,7 @@ function dimpact_views_views_default_views() {
     t('laatste »'),
     t('Teaser block'),
     t('List block'),
-    t('<a href="/actueel/nieuws">Meer nieuws</a>'),
+    t('<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>'),
     t('[created] &mdash; [field_intro]'),
     t('<div><time>[created]</time> &mdash; [field_intro]</div>'),
     t('List block image'),
