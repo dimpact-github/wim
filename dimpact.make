@@ -5,6 +5,7 @@ projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 
 ; Modules
 projects[admin_menu][subdir] = contrib
+projects[admin_views][subdir] = contrib
 projects[apachesolr][subdir] = contrib
 projects[apachesolr_attachments][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
@@ -90,6 +91,7 @@ projects[token][subdir] = contrib
 projects[token][revision] = c5b20e0
 projects[transliteration][subdir] = contrib
 projects[views][subdir] = contrib
+projects[views_bulk_operations][subdir] = contrib
 projects[views_rss][subdir] = contrib
 projects[webform][subdir] = contrib
 projects[wikitools][subdir] = contrib
