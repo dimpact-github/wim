@@ -246,3 +246,11 @@ span.ext {
     }
   }
 }
+
+.more-link {
+  a {
+    &:after {
+      @include icon($double-angle-right);
+    }
+  }
+}

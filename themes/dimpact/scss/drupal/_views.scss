@@ -4,6 +4,9 @@
     margin-bottom: $gutter-width/2;
     padding-bottom: $gutter-width/2;
     border-bottom: 1px solid lighten($background-color, 5%);
+    &:last-child {
+      border: 0 !important;
+    }
     time {
       font-weight: 700;
     }
@@ -108,7 +111,7 @@
     &:hover {
       .views-field-changed,
       .field-date .date-display-single {
-        background-color: $background-color;
+        background-color: lighten($background-color, 7%);
       }
     }
   }
@@ -240,7 +243,7 @@
     }
     &:hover {
       .views-field-extension {
-        background-color: $background-color;
+        background-color: lighten($background-color, 7%);
       }
     }
   }
@@ -251,5 +254,14 @@
     border-bottom: 1px solid $background-color;
     margin-bottom: $gutter-width/2;
     padding-bottom: $gutter-width/2;
+  }
+}
+.block-views {
+  .view-veelgestelde-vragen {
+    .item-list {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
