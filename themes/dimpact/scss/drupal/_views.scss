@@ -245,3 +245,11 @@
     }
   }
 }
+
+.view-veelgestelde-vragen {
+  .item-list {
+    border-bottom: 1px solid $background-color;
+    margin-bottom: $gutter-width/2;
+    padding-bottom: $gutter-width/2;
+  }
+}
