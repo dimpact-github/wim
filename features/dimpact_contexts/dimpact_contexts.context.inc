@@ -270,6 +270,7 @@ function dimpact_contexts_context_default_contexts() {
     'domain' => array(
       'values' => array(
         2 => 2,
+        3 => 3,
       ),
     ),
     'path' => array(
@@ -299,6 +300,30 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_meta_second',
           'weight' => '-10',
         ),
+        'menu-menu-footer-menu' => array(
+          'module' => 'menu',
+          'delta' => 'menu-footer-menu',
+          'region' => 'region_footer_first',
+          'weight' => '-10',
+        ),
+        'block-2' => array(
+          'module' => 'block',
+          'delta' => '2',
+          'region' => 'region_footer_second',
+          'weight' => '-10',
+        ),
+        'block-4' => array(
+          'module' => 'block',
+          'delta' => '4',
+          'region' => 'region_footer_third',
+          'weight' => '-10',
+        ),
+        'block-3' => array(
+          'module' => 'block',
+          'delta' => '3',
+          'region' => 'region_footer_third',
+          'weight' => '-9',
+        ),
       ),
     ),
   );
@@ -308,6 +333,34 @@ function dimpact_contexts_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Intranet');
   $export['sitewide_intranet'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'zoeken';
+  $context->description = '';
+  $context->tag = '';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'search/*' => 'search/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'facetapi-GiIy4zr9Gu0ZSa0bumw1Y9qIIpIDf1wu' => array(
+          'module' => 'facetapi',
+          'delta' => 'GiIy4zr9Gu0ZSa0bumw1Y9qIIpIDf1wu',
+          'region' => 'region_39_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+  $export['zoeken'] = $context;
 
   return $export;
 }
