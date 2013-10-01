@@ -12,6 +12,7 @@ dependencies[] = facetapi
 dependencies[] = faq
 dependencies[] = features
 dependencies[] = menu
+dependencies[] = menu_block
 dependencies[] = quicktabs
 dependencies[] = search
 dependencies[] = strongarm

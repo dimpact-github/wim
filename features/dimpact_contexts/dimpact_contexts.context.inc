@@ -43,11 +43,11 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-6' => array(
-          'module' => 'block',
-          'delta' => '6',
+        'menu_block-1' => array(
+          'module' => 'menu_block',
+          'delta' => '1',
           'region' => 'region_363_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
@@ -104,9 +104,9 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-6' => array(
-          'module' => 'block',
-          'delta' => '6',
+        'menu_block-2' => array(
+          'module' => 'menu_block',
+          'delta' => '2',
           'region' => 'region_363_first',
           'weight' => '-10',
         ),
@@ -214,11 +214,23 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
+        'system-main-menu' => array(
+          'module' => 'system',
+          'delta' => 'main-menu',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
           'delta' => 'alfabet',
           'region' => 'navigation',
-          'weight' => '-8',
+          'weight' => '-9',
+        ),
+        'menu-menu-meta-menu-links' => array(
+          'module' => 'menu',
+          'delta' => 'menu-meta-menu-links',
+          'region' => 'region_meta_first',
+          'weight' => '-10',
         ),
         'menu-menu-meta-menu-rechts' => array(
           'module' => 'menu',
@@ -288,11 +300,23 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
+        'menu-menu-menu-2-primary' => array(
+          'module' => 'menu',
+          'delta' => 'menu-menu-2-primary',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
           'delta' => 'alfabet',
           'region' => 'navigation',
-          'weight' => '-8',
+          'weight' => '-9',
+        ),
+        'menu-menu-meta-menu-links-intranet' => array(
+          'module' => 'menu',
+          'delta' => 'menu-meta-menu-links-intranet',
+          'region' => 'region_meta_first',
+          'weight' => '-10',
         ),
         'menu-menu-meta-menu-rechts' => array(
           'module' => 'menu',
