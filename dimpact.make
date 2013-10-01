@@ -72,8 +72,10 @@ projects[media_vimeo][subdir] = contrib
 projects[memcache][subdir] = contrib
 projects[menu_attributes][subdir] = contrib
 projects[menu_block][subdir] = contrib
+projects[menu_token][subdir] = contrib
 projects[metatag][subdir] = contrib
 projects[module_filter][subdir] = contrib
+;projects[modernizr][subdir] = contrib
 projects[nodequeue][subdir] = contrib
 projects[nodequeue][revision] = 70c0602
 projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync-queue-1154948-15.patch
@@ -114,3 +116,9 @@ libraries[mailchimp][download][type] = "get"
 libraries[mailchimp][download][url] = "http://apidocs.mailchimp.com/api/downloads/mailchimp-api-class.zip"
 libraries[mailchimp][directory_name] = "mailchimp"
 libraries[mailchimp][destination] = "libraries"
+
+; Modernizr
+;libraries[modernizr][download][type] = "get"
+;libraries[modernizr][download][url] = "http://www.modernizr.com/downloads/modernizr-2.6.2.js"
+;libraries[modernizr][directory_name] = "modernizr"
+;libraries[modernizr][destination] = "libraries"
