@@ -26,70 +26,78 @@ function dimpact_felix_felix_default_block_sets() {
         'delta' => 1,
       ),
       3 => array(
+        'module' => 'menu_block',
+        'delta' => 2,
+      ),
+      4 => array(
         'module' => 'quicktabs',
         'delta' => 'nieuws_agenda',
       ),
-      4 => array(
+      5 => array(
         'module' => 'submenutree',
         'delta' => 1,
       ),
-      5 => array(
+      6 => array(
         'module' => 'views',
         'delta' => 'agenda-block_1',
       ),
-      6 => array(
+      7 => array(
         'module' => 'views',
         'delta' => 'agenda-block_2',
       ),
-      7 => array(
+      8 => array(
         'module' => 'views',
         'delta' => 'berichten-block_1',
       ),
-      8 => array(
+      9 => array(
         'module' => 'views',
         'delta' => 'bestanden-block_1',
       ),
-      9 => array(
+      10 => array(
         'module' => 'views',
         'delta' => 'favorieten-block_1',
       ),
-      10 => array(
+      11 => array(
         'module' => 'views',
         'delta' => 'marktplaats-block_1',
       ),
-      11 => array(
+      12 => array(
         'module' => 'views',
         'delta' => 'nieuws-block_1',
       ),
-      12 => array(
+      13 => array(
         'module' => 'views',
         'delta' => 'nieuws-block_2',
       ),
-      13 => array(
+      14 => array(
         'module' => 'views',
         'delta' => 'nieuws-block_3',
       ),
-      14 => array(
+      15 => array(
         'module' => 'views',
         'delta' => 'nodequeue_carousel_9_3-block',
       ),
-      15 => array(
+      16 => array(
         'module' => 'views',
         'delta' => 'personen-block_1',
       ),
-      16 => array(
-        'module' => 'views',
-        'delta' => 'updates-block_1',
-      ),
       17 => array(
         'module' => 'views',
-        'delta' => 'veelgestelde_vragen-faq_recent',
+        'delta' => 'personen-block_2',
       ),
       18 => array(
         'module' => 'views',
-        'delta' => 'voorpagina_banners-block_1',
+        'delta' => 'updates-block_1',
       ),
       19 => array(
+        'module' => 'views',
+        'delta' => 'veelgestelde_vragen-faq_recent',
+      ),
+      20 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
+      ),
+      21 => array(
         'module' => 'views',
         'delta' => 'weblog-block',
       ),
