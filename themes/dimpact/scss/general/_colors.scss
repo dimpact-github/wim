@@ -110,7 +110,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
       }
     }
     .block-menu-menu-toptaken > ul {
-      background-color: $colourlight;
+      background-color: lighten($background-color, 0%);
       & > li {
         &.toptaken-active,
         &:hover {
