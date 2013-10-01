@@ -46,6 +46,12 @@ function dimpact_menus_menu_default_menu_custom() {
     'title' => 'Meta menu links',
     'description' => '',
   );
+  // Exported menu: menu-meta-menu-links-intranet.
+  $menus['menu-meta-menu-links-intranet'] = array(
+    'menu_name' => 'menu-meta-menu-links-intranet',
+    'title' => 'Meta menu links intranet',
+    'description' => '',
+  );
   // Exported menu: menu-meta-menu-rechts.
   $menus['menu-meta-menu-rechts'] = array(
     'menu_name' => 'menu-meta-menu-rechts',
@@ -73,6 +79,7 @@ function dimpact_menus_menu_default_menu_custom() {
   t('Footer menu appears in the lower right corner of the page.');
   t('Footer menu right');
   t('Meta menu links');
+  t('Meta menu links intranet');
   t('Meta menu rechts');
   t('Service menu appears in the upper right corner of the page.');
   t('Service menu right');
