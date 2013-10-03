@@ -116,15 +116,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'devel',
   );
 
-  // Exported permission: 'access domain settings form'.
-  $permissions['access domain settings form'] = array(
-    'name' => 'access domain settings form',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'domain_settings',
-  );
-
   // Exported permission: 'access inactive domains'.
   $permissions['access inactive domains'] = array(
     'name' => 'access inactive domains',
