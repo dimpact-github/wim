@@ -100,6 +100,8 @@ projects[views_bulk_operations][subdir] = contrib
 projects[views_rss][subdir] = contrib
 projects[webform][subdir] = contrib
 projects[wikitools][subdir] = contrib
+projects[workbench][subdir] = contrib
+projects[workbench_moderation][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
 
 ; Themes
