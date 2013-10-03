@@ -9,6 +9,7 @@ projects[admin_views][subdir] = contrib
 projects[apachesolr][subdir] = contrib
 projects[apachesolr_attachments][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
+projects[better_formats][subdir] = contrib
 projects[block_class][subdir] = contrib
 projects[cck_blocks][subdir] = contrib
 projects[context][subdir] = contrib
