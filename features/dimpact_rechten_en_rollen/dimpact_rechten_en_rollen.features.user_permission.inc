@@ -1283,6 +1283,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete any audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -1302,6 +1303,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -1341,6 +1343,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete any image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -1437,6 +1440,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete any video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -1578,6 +1582,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete own audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -1599,6 +1606,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -1642,6 +1652,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -1748,6 +1761,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -1921,56 +1937,88 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'download any audio files'.
   $permissions['download any audio files'] = array(
     'name' => 'download any audio files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download any document files'.
   $permissions['download any document files'] = array(
     'name' => 'download any document files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download any image files'.
   $permissions['download any image files'] = array(
     'name' => 'download any image files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download any video files'.
   $permissions['download any video files'] = array(
     'name' => 'download any video files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download own audio files'.
   $permissions['download own audio files'] = array(
     'name' => 'download own audio files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download own document files'.
   $permissions['download own document files'] = array(
     'name' => 'download own document files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download own image files'.
   $permissions['download own image files'] = array(
     'name' => 'download own image files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
     'module' => 'file_entity',
   );
 
   // Exported permission: 'download own video files'.
   $permissions['download own video files'] = array(
     'name' => 'download own video files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
     'module' => 'file_entity',
   );
 
@@ -2009,6 +2057,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit any audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2028,6 +2077,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2067,6 +2117,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit any image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2163,6 +2214,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit any video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2225,6 +2277,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -2246,6 +2301,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -2289,6 +2347,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -2406,6 +2467,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
