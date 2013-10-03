@@ -1,0 +1,11 @@
+--- .htaccess.orig	2013-05-28 16:21:13.000000000 +0200
++++ .htaccess	2013-05-28 16:20:56.000000000 +0200
+@@ -34,6 +34,8 @@ DirectoryIndex index.php index.html inde
+   php_flag mbstring.encoding_translation    off
+ </IfModule>
+ 
++FileETag MTime Size
++
+ # Requires mod_expires to be enabled.
+ <IfModule mod_expires.c>
+   # Enable expirations.

@@ -1,0 +1,11 @@
+--- .htaccess.orig	2013-06-27 08:23:29.000000000 +0200
++++ .htaccess	2013-06-27 08:30:39.000000000 +0200
+@@ -110,7 +110,7 @@ FileETag MTime Size
+   # Pass all requests not referring directly to files in the filesystem to
+   # index.php. Clean URLs are handled in drupal_environment_initialize().
+   RewriteCond %{REQUEST_FILENAME} !-f
+-  RewriteCond %{REQUEST_FILENAME} !-d
++  #RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond %{REQUEST_URI} !=/favicon.ico
+   RewriteRule ^ index.php [L]
+ 
