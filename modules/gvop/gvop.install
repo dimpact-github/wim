@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function gvop_schema() {
+  $schema = array();
+
+  $schema['gvob'] = array(
+    'description' => 'Table which saves hashes for the GVOB Import.',
+    'fields' => array(
+      'identifier' => array(
+        'description' => 'Item identifier',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+      'hash' => array(
+        'description' => 'MD5 Hash of XML',
+        'type' => 'varchar',
+        'length' => '32',
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Node id',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('identifier'),
+    'indexes' => array(
+      'nid' => array('nid'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function gvop_uninstall() {
+  drupal_uninstall_schema('gvop');
+  variable_del('gvop_creator');
+  variable_del('gvop_limit');
+  variable_del('gvop_cron_last_run');
+}
