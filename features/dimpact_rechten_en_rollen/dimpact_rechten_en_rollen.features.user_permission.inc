@@ -98,15 +98,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: 'access dashboard'.
-  $permissions['access dashboard'] = array(
-    'name' => 'access dashboard',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'dashboard',
-  );
-
   // Exported permission: 'access devel information'.
   $permissions['access devel information'] = array(
     'name' => 'access devel information',
