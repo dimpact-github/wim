@@ -15,6 +15,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'admin_menu',
   );
@@ -24,6 +26,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'system',
   );
@@ -42,6 +46,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access all webform results',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'webform',
   );
@@ -141,8 +146,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access own webform submissions',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'webform',
+  );
+
+  // Exported permission: 'access service links'.
+  $permissions['access service links'] = array(
+    'name' => 'access service links',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'service_links',
   );
 
   // Exported permission: 'access site in maintenance mode'.
@@ -168,8 +185,18 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'access workbench'.
+  $permissions['access workbench'] = array(
+    'name' => 'access workbench',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'workbench',
   );
 
   // Exported permission: 'add media from remote sources'.
@@ -177,6 +204,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'add media from remote sources',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'media_internet',
   );
@@ -427,6 +456,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'menu',
   );
@@ -535,6 +565,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer shortcuts',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'shortcut',
   );
@@ -643,6 +674,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer taxonomy',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'taxonomy',
   );
@@ -661,6 +694,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer url aliases',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'path',
   );
@@ -670,6 +704,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'user',
   );
@@ -681,6 +716,24 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'views',
+  );
+
+  // Exported permission: 'administer workbench'.
+  $permissions['administer workbench'] = array(
+    'name' => 'administer workbench',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'workbench',
+  );
+
+  // Exported permission: 'administer workbench moderation'.
+  $permissions['administer workbench moderation'] = array(
+    'name' => 'administer workbench moderation',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'workbench_moderation',
   );
 
   // Exported permission: 'assign domain editors'.
@@ -704,6 +757,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'bypass file access',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -713,8 +767,19 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'bypass node access',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'bypass workbench moderation'.
+  $permissions['bypass workbench moderation'] = array(
+    'name' => 'bypass workbench moderation',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
   );
 
   // Exported permission: 'cancel account'.
@@ -754,7 +819,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create agenda content'.
   $permissions['create agenda content'] = array(
     'name' => 'create agenda content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -762,7 +831,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create agenda content on assigned domains'] = array(
     'name' => 'create agenda content on assigned domains',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -770,7 +841,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create announcement content'.
   $permissions['create announcement content'] = array(
     'name' => 'create announcement content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -778,7 +853,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create announcement content on assigned domains'] = array(
     'name' => 'create announcement content on assigned domains',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -786,7 +863,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create blog content'.
   $permissions['create blog content'] = array(
     'name' => 'create blog content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -794,7 +875,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create blog content on assigned domains'] = array(
     'name' => 'create blog content on assigned domains',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -802,21 +885,33 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create editorial content'.
   $permissions['create editorial content'] = array(
     'name' => 'create editorial content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create editorial content on assigned domains'.
   $permissions['create editorial content on assigned domains'] = array(
     'name' => 'create editorial content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'create faq content'.
   $permissions['create faq content'] = array(
     'name' => 'create faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -824,7 +919,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create faq content on assigned domains'] = array(
     'name' => 'create faq content on assigned domains',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -832,14 +929,22 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create file content'.
   $permissions['create file content'] = array(
     'name' => 'create file content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create file content on assigned domains'.
   $permissions['create file content on assigned domains'] = array(
     'name' => 'create file content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -848,6 +953,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'create files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'file_entity',
   );
@@ -855,7 +962,12 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create marketplace content'.
   $permissions['create marketplace content'] = array(
     'name' => 'create marketplace content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -863,7 +975,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create marketplace content on assigned domains'] = array(
     'name' => 'create marketplace content on assigned domains',
     'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -871,7 +986,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create message content'.
   $permissions['create message content'] = array(
     'name' => 'create message content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -879,7 +998,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['create message content on assigned domains'] = array(
     'name' => 'create message content on assigned domains',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -887,14 +1008,22 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create news content'.
   $permissions['create news content'] = array(
     'name' => 'create news content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create news content on assigned domains'.
   $permissions['create news content on assigned domains'] = array(
     'name' => 'create news content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -903,6 +1032,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -910,49 +1041,77 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create page content on assigned domains'.
   $permissions['create page content on assigned domains'] = array(
     'name' => 'create page content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'create person content'.
   $permissions['create person content'] = array(
     'name' => 'create person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create person content on assigned domains'.
   $permissions['create person content on assigned domains'] = array(
     'name' => 'create person content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'create poll content'.
   $permissions['create poll content'] = array(
     'name' => 'create poll content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create poll content on assigned domains'.
   $permissions['create poll content on assigned domains'] = array(
     'name' => 'create poll content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'create product content'.
   $permissions['create product content'] = array(
     'name' => 'create product content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create product content on assigned domains'.
   $permissions['create product content on assigned domains'] = array(
     'name' => 'create product content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -973,14 +1132,22 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create slide content'.
   $permissions['create slide content'] = array(
     'name' => 'create slide content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create slide content on assigned domains'.
   $permissions['create slide content on assigned domains'] = array(
     'name' => 'create slide content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -989,6 +1156,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'create url aliases',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'path',
   );
@@ -996,28 +1164,46 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create webform content'.
   $permissions['create webform content'] = array(
     'name' => 'create webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create webform content on assigned domains'.
   $permissions['create webform content on assigned domains'] = array(
     'name' => 'create webform content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'create wiki content'.
   $permissions['create wiki content'] = array(
     'name' => 'create wiki content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create wiki content on assigned domains'.
   $permissions['create wiki content on assigned domains'] = array(
     'name' => 'create wiki content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1033,7 +1219,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete agenda content on assigned domains'.
   $permissions['delete agenda content on assigned domains'] = array(
     'name' => 'delete agenda content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1049,21 +1238,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete announcement content on assigned domains'.
   $permissions['delete announcement content on assigned domains'] = array(
     'name' => 'delete announcement content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete any agenda content'.
   $permissions['delete any agenda content'] = array(
     'name' => 'delete any agenda content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any announcement content'.
   $permissions['delete any announcement content'] = array(
     'name' => 'delete any announcement content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1079,7 +1277,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any blog content'.
   $permissions['delete any blog content'] = array(
     'name' => 'delete any blog content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1095,21 +1296,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any editorial content'.
   $permissions['delete any editorial content'] = array(
     'name' => 'delete any editorial content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any faq content'.
   $permissions['delete any faq content'] = array(
     'name' => 'delete any faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any file content'.
   $permissions['delete any file content'] = array(
     'name' => 'delete any file content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1125,21 +1335,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any marketplace content'.
   $permissions['delete any marketplace content'] = array(
     'name' => 'delete any marketplace content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any message content'.
   $permissions['delete any message content'] = array(
     'name' => 'delete any message content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any news content'.
   $permissions['delete any news content'] = array(
     'name' => 'delete any news content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1148,6 +1367,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete any page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
   );
@@ -1155,21 +1375,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any person content'.
   $permissions['delete any person content'] = array(
     'name' => 'delete any person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any poll content'.
   $permissions['delete any poll content'] = array(
     'name' => 'delete any poll content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any product content'.
   $permissions['delete any product content'] = array(
     'name' => 'delete any product content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1183,7 +1412,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any slide content'.
   $permissions['delete any slide content'] = array(
     'name' => 'delete any slide content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1199,14 +1431,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any webform content'.
   $permissions['delete any webform content'] = array(
     'name' => 'delete any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any wiki content'.
   $permissions['delete any wiki content'] = array(
     'name' => 'delete any wiki content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1222,70 +1460,102 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete blog content on assigned domains'.
   $permissions['delete blog content on assigned domains'] = array(
     'name' => 'delete blog content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete domain content'.
   $permissions['delete domain content'] = array(
     'name' => 'delete domain content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete editorial content on assigned domains'.
   $permissions['delete editorial content on assigned domains'] = array(
     'name' => 'delete editorial content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete faq content on assigned domains'.
   $permissions['delete faq content on assigned domains'] = array(
     'name' => 'delete faq content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete file content on assigned domains'.
   $permissions['delete file content on assigned domains'] = array(
     'name' => 'delete file content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete marketplace content on assigned domains'.
   $permissions['delete marketplace content on assigned domains'] = array(
     'name' => 'delete marketplace content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete message content on assigned domains'.
   $permissions['delete message content on assigned domains'] = array(
     'name' => 'delete message content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete news content on assigned domains'.
   $permissions['delete news content on assigned domains'] = array(
     'name' => 'delete news content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete own agenda content'.
   $permissions['delete own agenda content'] = array(
     'name' => 'delete own agenda content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own announcement content'.
   $permissions['delete own announcement content'] = array(
     'name' => 'delete own announcement content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1301,7 +1571,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own blog content'.
   $permissions['delete own blog content'] = array(
     'name' => 'delete own blog content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1317,21 +1591,33 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own editorial content'.
   $permissions['delete own editorial content'] = array(
     'name' => 'delete own editorial content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own faq content'.
   $permissions['delete own faq content'] = array(
     'name' => 'delete own faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own file content'.
   $permissions['delete own file content'] = array(
     'name' => 'delete own file content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1347,21 +1633,34 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own marketplace content'.
   $permissions['delete own marketplace content'] = array(
     'name' => 'delete own marketplace content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own message content'.
   $permissions['delete own message content'] = array(
     'name' => 'delete own message content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own news content'.
   $permissions['delete own news content'] = array(
     'name' => 'delete own news content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1370,6 +1669,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete own page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -1377,21 +1678,33 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own person content'.
   $permissions['delete own person content'] = array(
     'name' => 'delete own person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own poll content'.
   $permissions['delete own poll content'] = array(
     'name' => 'delete own poll content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own product content'.
   $permissions['delete own product content'] = array(
     'name' => 'delete own product content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1405,7 +1718,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own slide content'.
   $permissions['delete own slide content'] = array(
     'name' => 'delete own slide content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1421,7 +1738,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own webform content'.
   $permissions['delete own webform content'] = array(
     'name' => 'delete own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1437,21 +1758,32 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own wiki content'.
   $permissions['delete own wiki content'] = array(
     'name' => 'delete own wiki content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete page content on assigned domains'.
   $permissions['delete page content on assigned domains'] = array(
     'name' => 'delete page content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete person content on assigned domains'.
   $permissions['delete person content on assigned domains'] = array(
     'name' => 'delete person content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1465,7 +1797,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete product content on assigned domains'.
   $permissions['delete product content on assigned domains'] = array(
     'name' => 'delete product content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1474,6 +1809,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
   );
@@ -1488,35 +1824,40 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete slide content on assigned domains'.
   $permissions['delete slide content on assigned domains'] = array(
     'name' => 'delete slide content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
-  );
-
-  // Exported permission: 'delete terms in announcement_type'.
-  $permissions['delete terms in announcement_type'] = array(
-    'name' => 'delete terms in announcement_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in faq_categories'.
   $permissions['delete terms in faq_categories'] = array(
     'name' => 'delete terms in faq_categories',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in marketplace'.
   $permissions['delete terms in marketplace'] = array(
     'name' => 'delete terms in marketplace',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in person'.
   $permissions['delete terms in person'] = array(
     'name' => 'delete terms in person',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1525,6 +1866,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'delete terms in tags',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'taxonomy',
   );
@@ -1532,14 +1874,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete webform content on assigned domains'.
   $permissions['delete webform content on assigned domains'] = array(
     'name' => 'delete webform content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'delete wiki content on assigned domains'.
   $permissions['delete wiki content on assigned domains'] = array(
     'name' => 'delete wiki content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1613,6 +1961,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit all webform submissions',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'webform',
   );
@@ -1620,14 +1969,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any agenda content'.
   $permissions['edit any agenda content'] = array(
     'name' => 'edit any agenda content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any announcement content'.
   $permissions['edit any announcement content'] = array(
     'name' => 'edit any announcement content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1643,7 +1998,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any blog content'.
   $permissions['edit any blog content'] = array(
     'name' => 'edit any blog content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1659,21 +2017,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any editorial content'.
   $permissions['edit any editorial content'] = array(
     'name' => 'edit any editorial content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any faq content'.
   $permissions['edit any faq content'] = array(
     'name' => 'edit any faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any file content'.
   $permissions['edit any file content'] = array(
     'name' => 'edit any file content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1689,21 +2056,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any marketplace content'.
   $permissions['edit any marketplace content'] = array(
     'name' => 'edit any marketplace content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any message content'.
   $permissions['edit any message content'] = array(
     'name' => 'edit any message content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any news content'.
   $permissions['edit any news content'] = array(
     'name' => 'edit any news content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1712,6 +2088,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit any page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
   );
@@ -1719,21 +2096,30 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any person content'.
   $permissions['edit any person content'] = array(
     'name' => 'edit any person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any poll content'.
   $permissions['edit any poll content'] = array(
     'name' => 'edit any poll content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any product content'.
   $permissions['edit any product content'] = array(
     'name' => 'edit any product content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1747,7 +2133,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any slide content'.
   $permissions['edit any slide content'] = array(
     'name' => 'edit any slide content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1763,35 +2152,52 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any webform content'.
   $permissions['edit any webform content'] = array(
     'name' => 'edit any webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any wiki content'.
   $permissions['edit any wiki content'] = array(
     'name' => 'edit any wiki content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit domain content'.
   $permissions['edit domain content'] = array(
     'name' => 'edit domain content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'edit own agenda content'.
   $permissions['edit own agenda content'] = array(
     'name' => 'edit own agenda content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own announcement content'.
   $permissions['edit own announcement content'] = array(
     'name' => 'edit own announcement content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1807,7 +2213,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own blog content'.
   $permissions['edit own blog content'] = array(
     'name' => 'edit own blog content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1823,21 +2233,33 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own editorial content'.
   $permissions['edit own editorial content'] = array(
     'name' => 'edit own editorial content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own faq content'.
   $permissions['edit own faq content'] = array(
     'name' => 'edit own faq content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own file content'.
   $permissions['edit own file content'] = array(
     'name' => 'edit own file content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1853,7 +2275,12 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own marketplace content'.
   $permissions['edit own marketplace content'] = array(
     'name' => 'edit own marketplace content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1862,6 +2289,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own menus',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'dominion_menu',
   );
@@ -1869,14 +2298,22 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own message content'.
   $permissions['edit own message content'] = array(
     'name' => 'edit own message content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own news content'.
   $permissions['edit own news content'] = array(
     'name' => 'edit own news content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1885,6 +2322,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -1892,21 +2331,33 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own person content'.
   $permissions['edit own person content'] = array(
     'name' => 'edit own person content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own poll content'.
   $permissions['edit own poll content'] = array(
     'name' => 'edit own poll content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own product content'.
   $permissions['edit own product content'] = array(
     'name' => 'edit own product content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1920,7 +2371,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own slide content'.
   $permissions['edit own slide content'] = array(
     'name' => 'edit own slide content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1936,7 +2391,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own webform content'.
   $permissions['edit own webform content'] = array(
     'name' => 'edit own webform content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1952,35 +2411,42 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own wiki content'.
   $permissions['edit own wiki content'] = array(
     'name' => 'edit own wiki content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'edit terms in announcement_type'.
-  $permissions['edit terms in announcement_type'] = array(
-    'name' => 'edit terms in announcement_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in faq_categories'.
   $permissions['edit terms in faq_categories'] = array(
     'name' => 'edit terms in faq_categories',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in marketplace'.
   $permissions['edit terms in marketplace'] = array(
     'name' => 'edit terms in marketplace',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in person'.
   $permissions['edit terms in person'] = array(
     'name' => 'edit terms in person',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1989,6 +2455,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'edit terms in tags',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'taxonomy',
   );
@@ -2048,6 +2515,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'inspect all votes',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'poll',
   );
@@ -2055,14 +2524,19 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'manage default subsites'.
   $permissions['manage default subsites'] = array(
     'name' => 'manage default subsites',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'dominion',
   );
 
   // Exported permission: 'manage dominion subsites'.
   $permissions['manage dominion subsites'] = array(
     'name' => 'manage dominion subsites',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'dominion',
   );
 
@@ -2080,6 +2554,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manage felix blocks',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'felix',
   );
@@ -2089,8 +2565,37 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manage felix blocks on all domains',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'felix_domain',
+  );
+
+  // Exported permission: 'manage internet subsites'.
+  $permissions['manage internet subsites'] = array(
+    'name' => 'manage internet subsites',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'dominion',
+  );
+
+  // Exported permission: 'manage intranet subsites'.
+  $permissions['manage intranet subsites'] = array(
+    'name' => 'manage intranet subsites',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'dominion',
+  );
+
+  // Exported permission: 'manage team subsites'.
+  $permissions['manage team subsites'] = array(
+    'name' => 'manage team subsites',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'dominion',
   );
 
   // Exported permission: 'manipulate all queues'.
@@ -2098,6 +2603,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manipulate all queues',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'nodequeue',
   );
@@ -2107,6 +2613,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manipulate queues',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'nodequeue',
   );
@@ -2127,6 +2635,47 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'masquerade',
+  );
+
+  // Exported permission: 'moderate content from draft to needs_review'.
+  $permissions['moderate content from draft to needs_review'] = array(
+    'name' => 'moderate content from draft to needs_review',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate content from draft to published'.
+  $permissions['moderate content from draft to published'] = array(
+    'name' => 'moderate content from draft to published',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate content from needs_review to draft'.
+  $permissions['moderate content from needs_review to draft'] = array(
+    'name' => 'moderate content from needs_review to draft',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate content from needs_review to published'.
+  $permissions['moderate content from needs_review to published'] = array(
+    'name' => 'moderate content from needs_review to published',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
   );
 
   // Exported permission: 'notify of path changes'.
@@ -2151,7 +2700,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   $permissions['publish from assigned domain'] = array(
     'name' => 'publish from assigned domain',
     'roles' => array(
-      'medewerker' => 'medewerker',
+      'administrator' => 'administrator',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -2159,14 +2709,21 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'publish from default domain'.
   $permissions['publish from default domain'] = array(
     'name' => 'publish from default domain',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'publish to any assigned domain'.
   $permissions['publish to any assigned domain'] = array(
     'name' => 'publish to any assigned domain',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -2184,6 +2741,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'revert revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
   );
@@ -2193,6 +2751,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'schedule (un)publishing of nodes',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'scheduler',
   );
@@ -2274,6 +2833,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'translate interface',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'locale',
   );
@@ -2297,77 +2857,110 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'update agenda content on assigned domains'.
   $permissions['update agenda content on assigned domains'] = array(
     'name' => 'update agenda content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update announcement content on assigned domains'.
   $permissions['update announcement content on assigned domains'] = array(
     'name' => 'update announcement content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update blog content on assigned domains'.
   $permissions['update blog content on assigned domains'] = array(
     'name' => 'update blog content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update editorial content on assigned domains'.
   $permissions['update editorial content on assigned domains'] = array(
     'name' => 'update editorial content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update faq content on assigned domains'.
   $permissions['update faq content on assigned domains'] = array(
     'name' => 'update faq content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update file content on assigned domains'.
   $permissions['update file content on assigned domains'] = array(
     'name' => 'update file content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update marketplace content on assigned domains'.
   $permissions['update marketplace content on assigned domains'] = array(
     'name' => 'update marketplace content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update message content on assigned domains'.
   $permissions['update message content on assigned domains'] = array(
     'name' => 'update message content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update news content on assigned domains'.
   $permissions['update news content on assigned domains'] = array(
     'name' => 'update news content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update page content on assigned domains'.
   $permissions['update page content on assigned domains'] = array(
     'name' => 'update page content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update person content on assigned domains'.
   $permissions['update person content on assigned domains'] = array(
     'name' => 'update person content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -2381,7 +2974,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'update product content on assigned domains'.
   $permissions['update product content on assigned domains'] = array(
     'name' => 'update product content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -2395,21 +2991,32 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'update slide content on assigned domains'.
   $permissions['update slide content on assigned domains'] = array(
     'name' => 'update slide content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update webform content on assigned domains'.
   $permissions['update webform content on assigned domains'] = array(
     'name' => 'update webform content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
   // Exported permission: 'update wiki content on assigned domains'.
   $permissions['update wiki content on assigned domains'] = array(
     'name' => 'update wiki content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -2420,6 +3027,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'hansel',
+  );
+
+  // Exported permission: 'use PHP for service visibility'.
+  $permissions['use PHP for service visibility'] = array(
+    'name' => 'use PHP for service visibility',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'service_links',
   );
 
   // Exported permission: 'use PHP for settings'.
@@ -2434,9 +3050,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'use advanced search'.
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'search',
   );
 
@@ -2465,6 +3079,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'use text format full_html',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'filter',
   );
@@ -2472,8 +3087,41 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'use text format php_code'.
   $permissions['use text format php_code'] = array(
     'name' => 'use text format php_code',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'filter',
+  );
+
+  // Exported permission: 'use workbench_moderation my drafts tab'.
+  $permissions['use workbench_moderation my drafts tab'] = array(
+    'name' => 'use workbench_moderation my drafts tab',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'use workbench_moderation needs review tab'.
+  $permissions['use workbench_moderation needs review tab'] = array(
+    'name' => 'use workbench_moderation needs review tab',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'view all unpublished content'.
+  $permissions['view all unpublished content'] = array(
+    'name' => 'view all unpublished content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'workbench_moderation',
   );
 
   // Exported permission: 'view faq page'.
@@ -2481,6 +3129,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view faq page',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'faq',
   );
@@ -2505,6 +3155,28 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'location',
   );
 
+  // Exported permission: 'view moderation history'.
+  $permissions['view moderation history'] = array(
+    'name' => 'view moderation history',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'view moderation messages'.
+  $permissions['view moderation messages'] = array(
+    'name' => 'view moderation messages',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
   // Exported permission: 'view node location table'.
   $permissions['view node location table'] = array(
     'name' => 'view node location table',
@@ -2519,6 +3191,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view own files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2528,6 +3202,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view own private files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'file_entity',
   );
@@ -2537,6 +3213,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view own unpublished content',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -2544,7 +3223,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'view private files'.
   $permissions['view private files'] = array(
     'name' => 'view private files',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'file_entity',
   );
 
@@ -2553,6 +3235,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -2569,7 +3253,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'view unpublished domain content'.
   $permissions['view unpublished domain content'] = array(
     'name' => 'view unpublished domain content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -2587,6 +3274,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'vote on polls',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'poll',
   );
