@@ -34,7 +34,7 @@ function dimpact_text_formats_filter_default_formats() {
         'weight' => 1,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <table> <tr> <th> <td> <thead> <tbody> <tfoot> <caption> <h2> <h3> <h4> <h5> <h6> <p> <br> <b> <i> <u> <abbr> <acronym> <object> <embed> <param> <span> <iframe> <area> <map>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -48,6 +48,14 @@ function dimpact_text_formats_filter_default_formats() {
         'weight' => 10,
         'status' => 1,
         'settings' => array(),
+      ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => '',
+          'protocol_style' => 'full',
+        ),
       ),
     ),
   );
@@ -86,6 +94,14 @@ function dimpact_text_formats_filter_default_formats() {
         'weight' => 10,
         'status' => 1,
         'settings' => array(),
+      ),
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(
+          'local_paths' => '',
+          'protocol_style' => 'full',
+        ),
       ),
     ),
   );

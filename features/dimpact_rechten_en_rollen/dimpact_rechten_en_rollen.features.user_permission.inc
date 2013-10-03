@@ -2845,6 +2845,72 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'show format selection for file'.
+  $permissions['show format selection for file'] = array(
+    'name' => 'show format selection for file',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for flagging'.
+  $permissions['show format selection for flagging'] = array(
+    'name' => 'show format selection for flagging',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for node'.
+  $permissions['show format selection for node'] = array(
+    'name' => 'show format selection for node',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for taxonomy_term'.
+  $permissions['show format selection for taxonomy_term'] = array(
+    'name' => 'show format selection for taxonomy_term',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for user'.
+  $permissions['show format selection for user'] = array(
+    'name' => 'show format selection for user',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format tips'.
+  $permissions['show format tips'] = array(
+    'name' => 'show format tips',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show more format tips link'.
+  $permissions['show more format tips link'] = array(
+    'name' => 'show more format tips link',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
   // Exported permission: 'submit latitude/longitude'.
   $permissions['submit latitude/longitude'] = array(
     'name' => 'submit latitude/longitude',
@@ -3130,8 +3196,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'use text format filtered_html',
     'roles' => array(
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'filter',
   );
