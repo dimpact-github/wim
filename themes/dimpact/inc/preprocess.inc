@@ -89,6 +89,10 @@ function dimpact_preprocess_page(&$vars) {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'searchpage';
   }
+  if (arg(0) == 'node' && arg(1) == 'add') {
+    $vars['hidecontent'] = TRUE;
+    $vars['pagetype'] = 'node-add-page';
+  }
 }
 
 /**
