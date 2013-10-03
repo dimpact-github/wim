@@ -84,6 +84,7 @@ projects[nodequeue][revision] = 70c0602
 projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync-queue-1154948-15.patch
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 projects[pathauto][subdir] = contrib
+projects[pathologic][subdir] = contrib
 projects[purge][subdir] = contrib
 projects[quicktabs][subdir] = contrib
 projects[rules][subdir] = contrib
