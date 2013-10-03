@@ -94,6 +94,7 @@ projects[strongarm][subdir] = contrib
 projects[submenutree][subdir] = contrib
 projects[token][subdir] = contrib
 projects[token][revision] = c5b20e0
+projects[translation_helpers][subdir] = contrib
 projects[transliteration][subdir] = contrib
 projects[views][subdir] = contrib
 projects[views_bulk_operations][subdir] = contrib
