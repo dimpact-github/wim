@@ -94,9 +94,9 @@ $action_links = render($action_links);
       </div>
     <?php endif; ?>
 
-    <div class="container">
+<!--    <div class="container">-->
       <?php print $content; ?>
-    </div>
+<!--    </div>-->
     <?php /* if (!$hidecontent): ?>
       <div class="container">
         <div role="main" class="column-main">

@@ -1,0 +1,37 @@
+#homebox {
+  @include container($total-columns, $break-large);
+  overflow: hidden;
+
+  .homebox-column-wrapper {
+    //width: auto !important;
+    @include span-columns(4, $break-large);
+  }
+  .homebox-column-wrapper-3 {
+    @include omega;
+  }
+  .homebox-column {
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+  }
+  .homebox-portlet {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    .portlet-header {
+      border: 0;
+      border-top: 1px solid $background-color;
+      padding: $gutter-width/2;
+      background-color: lighten($background-color, 7%);
+      .portlet-title {
+        font-size: 130%;
+      }
+    }
+    .homebox-portlet-inner {
+      border: 0;
+      .portlet-content {
+        padding: $gutter-width/2;
+      }
+    }
+  }
+}
