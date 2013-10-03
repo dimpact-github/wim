@@ -159,18 +159,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
-        'dominion_menu-1' => array(
-          'module' => 'dominion_menu',
-          'delta' => '1',
-          'region' => 'navigation',
-          'weight' => '-10',
-        ),
-        'dominion_menu-2' => array(
-          'module' => 'dominion_menu',
-          'delta' => '2',
-          'region' => 'region_meta_first',
-          'weight' => '-10',
-        ),
         'submenutree-2' => array(
           'module' => 'submenutree',
           'delta' => '2',
@@ -250,9 +238,9 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_footer_second',
           'weight' => '-10',
         ),
-        'block-4' => array(
-          'module' => 'block',
-          'delta' => '4',
+        'dominion_social-links' => array(
+          'module' => 'dominion_social',
+          'delta' => 'links',
           'region' => 'region_footer_third',
           'weight' => '-10',
         ),
@@ -300,9 +288,9 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
-        'menu-menu-menu-2-primary' => array(
+        'menu-menu-2-primary' => array(
           'module' => 'menu',
-          'delta' => 'menu-menu-2-primary',
+          'delta' => 'menu-2-primary',
           'region' => 'navigation',
           'weight' => '-10',
         ),
@@ -347,6 +335,12 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => '3',
           'region' => 'region_footer_third',
           'weight' => '-9',
+        ),
+        'masquerade-masquerade' => array(
+          'module' => 'masquerade',
+          'delta' => 'masquerade',
+          'region' => 'region_footer_third',
+          'weight' => '-8',
         ),
       ),
     ),
