@@ -100,8 +100,13 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/agenda">Volledige agenda </a></div>';
-  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
+<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/agenda">Evenement toevoegen</a>
+<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Datum */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
@@ -147,7 +152,12 @@ function dimpact_views_views_default_views() {
     t('laatste »'),
     t('Teaser block'),
     t('List block'),
-    t('<div class="more-link"><a href="/actueel/agenda">Volledige agenda </a></div>'),
+    t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
+<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/agenda">Evenement toevoegen</a>
+<?php endif; ?>'),
   );
   $export['agenda'] = $view;
 
@@ -239,6 +249,17 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/message">Bericht toevoegen</a>
+<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
 
   /* Display: Alle berichtenblok */
   $handler = $view->new_display('block', 'Alle berichtenblok', 'block_2');
@@ -277,6 +298,11 @@ function dimpact_views_views_default_views() {
     t('volgende ›'),
     t('laatste »'),
     t('Berichtenblok'),
+    t('<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/message">Bericht toevoegen</a>
+<?php endif; ?>'),
     t('Alle berichtenblok'),
     t('meer'),
     t('Pagina'),
@@ -592,6 +618,17 @@ function dimpact_views_views_default_views() {
   $handler = $view->new_display('block', 'Marktplaats lijstblok', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Marktplaats';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/marketplace">Advertentie toevoegen</a>
+<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $translatables['marktplaats'] = array(
     t('Master'),
     t('meer'),
@@ -602,6 +639,11 @@ function dimpact_views_views_default_views() {
     t('Aflopend'),
     t('Marktplaats lijstblok'),
     t('Marktplaats'),
+    t('<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/marketplace">Advertentie toevoegen</a>
+<?php endif; ?>'),
   );
   $export['marktplaats'] = $view;
 
@@ -1500,6 +1542,17 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/faq">FAQ toevoegen</a>
+<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -1763,6 +1816,11 @@ function dimpact_views_views_default_views() {
     t('laatste »'),
     t('Recente vragenblok'),
     t('View all FAQs'),
+    t('<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/faq">FAQ toevoegen</a>
+<?php endif; ?>'),
     t('Recent FAQs'),
     t('Block - Random FAQs'),
     t('Random FAQs'),
@@ -1961,6 +2019,17 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/blog">Weblog toevoegen</a>
+<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -2017,6 +2086,11 @@ function dimpact_views_views_default_views() {
     t('auteur'),
     t('Block'),
     t('Blog'),
+    t('<?php 
+global $user; 
+if(user_access(\'publish from assigned domain\', $user)): ?>
+<a class="content-add-button" href="/node/add/blog">Weblog toevoegen</a>
+<?php endif; ?>'),
     t('Door'),
   );
   $export['weblog'] = $view;
