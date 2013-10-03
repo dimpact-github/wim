@@ -34,5 +34,11 @@ function dimpact_rechten_en_rollen_user_default_roles() {
     'weight' => 4,
   );
 
+  // Exported role: teamlid.
+  $roles['teamlid'] = array(
+    'name' => 'teamlid',
+    'weight' => 6,
+  );
+
   return $roles;
 }

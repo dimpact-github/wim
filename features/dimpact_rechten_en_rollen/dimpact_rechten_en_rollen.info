@@ -1,7 +1,7 @@
 name = DImpact Rechten en Rollen
 core = 7.x
 package = Features
-version = 7.x-1.0-beta2
+version = 7.x-1.0-beta3
 project = dimpact_rechten_en_rollen
 dependencies[] = admin_menu
 dependencies[] = backup_migrate
@@ -403,3 +403,4 @@ features[user_role][] = administrator
 features[user_role][] = eindredacteur
 features[user_role][] = medewerker
 features[user_role][] = redacteur
+features[user_role][] = teamlid

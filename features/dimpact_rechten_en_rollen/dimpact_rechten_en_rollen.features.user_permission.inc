@@ -778,6 +778,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -823,6 +824,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -834,6 +836,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -867,6 +870,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -878,6 +882,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -933,6 +938,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -944,6 +950,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -955,6 +962,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -990,6 +998,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1001,6 +1010,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -1023,6 +1033,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -1191,6 +1202,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1203,6 +1215,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -1544,6 +1557,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1575,6 +1589,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1617,6 +1632,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1649,6 +1665,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1763,6 +1780,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2186,6 +2204,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2217,6 +2236,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2259,6 +2279,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2302,6 +2323,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2416,6 +2438,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2644,6 +2667,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -2654,6 +2678,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -2664,6 +2689,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -2674,6 +2700,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -2723,6 +2750,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -3100,6 +3128,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -3110,6 +3139,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -3162,6 +3192,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -3173,6 +3204,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'workbench_moderation',
   );
@@ -3193,6 +3225,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -3204,6 +3237,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
@@ -3225,7 +3259,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
-      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
   );
@@ -3237,6 +3270,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
