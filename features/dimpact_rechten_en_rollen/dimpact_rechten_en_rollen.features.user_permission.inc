@@ -937,7 +937,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -949,7 +948,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
@@ -997,7 +995,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -1009,7 +1006,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
@@ -1178,7 +1174,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -1189,7 +1184,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
     ),
     'module' => 'domain',
   );
@@ -1641,7 +1635,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -1677,7 +1670,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -1774,7 +1766,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );
@@ -2336,7 +2327,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -2383,7 +2373,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
@@ -2480,7 +2469,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
     ),
     'module' => 'node',
   );

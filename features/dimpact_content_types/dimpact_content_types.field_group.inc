@@ -23,23 +23,22 @@ function dimpact_content_types_field_group_info() {
     'label' => 'Tabs',
     'weight' => '2',
     'children' => array(
-      0 => 'field_tabtitel',
-      1 => 'field_tabcontent',
+      0 => 'field_tabcontent',
+      1 => 'field_tabtitel',
     ),
     'format_type' => 'field_group_multiple_container',
     'format_settings' => array(
-      'label' => 'Tabs',
+      'formatter' => 'open',
       'instance_settings' => array(
-        'required_fields' => 1,
-        'classes' => '',
         'description' => '',
-        'parent_format_type' => 'div',
-        'show_label' => '1',
+        'show_label' => 1,
         'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'fast',
+        'parent_format_type' => 'div',
+        'classes' => 'group-tabs field-group-field_group_multiple_container',
+        'required_fields' => 1,
       ),
-      'formatter' => 'collapsible',
     ),
   );
   $export['group_tabs|node|product|form'] = $field_group;

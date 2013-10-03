@@ -1,7 +1,7 @@
 name = DImpact Rechten en Rollen
 core = 7.x
 package = Features
-version = 7.x-1.0-beta4
+version = 7.x-1.0-beta5
 project = dimpact_rechten_en_rollen
 dependencies[] = admin_menu
 dependencies[] = backup_migrate
