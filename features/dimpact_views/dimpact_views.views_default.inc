@@ -101,11 +101,12 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
-<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/agenda">Evenement toevoegen</a>
-<?php endif; ?>';
+<?php
+global $user;
+if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
+ print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Datum */
@@ -153,11 +154,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
     t('Teaser block'),
     t('List block'),
     t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
-<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/agenda">Evenement toevoegen</a>
-<?php endif; ?>'),
+<?php
+global $user;
+if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
+ print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
   );
   $export['agenda'] = $view;
 
@@ -254,11 +256,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/message">Bericht toevoegen</a>
-<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['content'] = '<?php
+global $user;
+if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
+ print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
 
   /* Display: Alle berichtenblok */
@@ -298,11 +301,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
     t('volgende ›'),
     t('laatste »'),
     t('Berichtenblok'),
-    t('<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/message">Bericht toevoegen</a>
-<?php endif; ?>'),
+    t('<?php
+global $user;
+if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
+ print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
     t('Alle berichtenblok'),
     t('meer'),
     t('Pagina'),
@@ -623,11 +627,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/marketplace">Advertentie toevoegen</a>
-<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['content'] = '<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $translatables['marktplaats'] = array(
     t('Master'),
@@ -639,11 +644,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
     t('Aflopend'),
     t('Marktplaats lijstblok'),
     t('Marktplaats'),
-    t('<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/marketplace">Advertentie toevoegen</a>
-<?php endif; ?>'),
+    t('<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
   );
   $export['marktplaats'] = $view;
 
@@ -1547,11 +1553,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/faq">FAQ toevoegen</a>
-<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['content'] = '<?php
+global $user;
+if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Nid */
@@ -1815,17 +1822,17 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
     t('volgende ›'),
     t('laatste »'),
     t('Recente vragenblok'),
-    t('View all FAQs'),
-    t('<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/faq">FAQ toevoegen</a>
-<?php endif; ?>'),
+    t('meer'),
+    t('<?php
+global $user;
+if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
     t('Recent FAQs'),
     t('Block - Random FAQs'),
     t('Random FAQs'),
     t('Page - Questions Inline'),
-    t('meer'),
     t('Veelgestelde vragenpagina'),
     t('<h3><a id="n[nid]" href="#top">[title]</a></h3>'),
     t('Attachment - Questions Top'),
@@ -2024,11 +2031,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/blog">Weblog toevoegen</a>
-<?php endif; ?>';
+  $handler->display->display_options['footer']['area']['content'] = '<?php
+global $user;
+if (dominion_restrict_node_access(\'blog\', \'create\', $user)) {
+ print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Titel */
@@ -2086,11 +2094,12 @@ if(user_access(\'publish from assigned domain\', $user)): ?>
     t('auteur'),
     t('Block'),
     t('Blog'),
-    t('<?php 
-global $user; 
-if(user_access(\'publish from assigned domain\', $user)): ?>
-<a class="content-add-button" href="/node/add/blog">Weblog toevoegen</a>
-<?php endif; ?>'),
+    t('<?php
+global $user;
+if (dominion_restrict_node_access(\'blog\', \'create\', $user)) {
+ print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
     t('Door'),
   );
   $export['weblog'] = $view;
