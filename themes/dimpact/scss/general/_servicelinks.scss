@@ -13,3 +13,14 @@
     }
   }
 }
+
+.dominion-social {
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  li {
+    float: left;
+    margin-right: $gutter-width/2;
+  }
+}
