@@ -273,3 +273,11 @@ span.ext {
     text-decoration: none;
   }
 }
+
+.dimpact_hide_service_links {
+  display: none;
+  position: absolute;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  padding: 5px;
+}

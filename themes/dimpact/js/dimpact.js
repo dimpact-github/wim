@@ -99,6 +99,15 @@
 //        $('body').removeClass('fixed-menu');
 //      }
 //    });
+
+    // show dimpact service links on mouse over
+    $('.dimpact_service_links_share_this').hover(function() {
+      $('.dimpact_hide_service_links').show(222)
+    }, 
+    function() {
+      $('.dimpact_hide_service_links').hide(222)
+    });
+
   });
 
 

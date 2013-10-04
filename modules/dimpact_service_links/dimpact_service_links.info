@@ -1,0 +1,8 @@
+name = Dimpact service links
+description = Adds the posibility to choose between social media display styles
+package = Dutch Open Projects
+version = 1.0
+core = 7.x
+files[] = dimpact_service_links.module
+
+

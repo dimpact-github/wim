@@ -468,3 +468,41 @@ function dimpact_date_display_single($variables) {
   // Wrap the result with the attributes.
   return '<span class="date-display-single"' . drupal_attributes($attributes) . '>' . $date . $timezone . '</span>';
 }
+
+
+/**
+ * Format the items shown in the node.
+ */
+function dimpact_service_links_node_format($variables) {
+  $dimpact_service_links_display_style = variable_get('dimpact_service_links_display_style');
+  // if display style is overlay
+  if ($dimpact_service_links_display_style == 1) {
+    $dimpact_share_this_link_widget = '<div class="dimpact_service_links_share_this">' . t('Share this') . '</div>';
+    $dimpact_share_this_hide_class = 'dimpact_hide_service_links';
+  }
+  else {
+    $dimpact_share_this_link_widget = '';
+    $dimpact_share_this_hide_class = '';
+  }
+
+  $links = $variables['links'];
+  $label = $variables['label'];
+  $view_mode = $variables['view_mode'];
+  $node_type = $variables['node_type'];
+
+  if ($view_mode == 'rss') {
+    $result = array();
+    foreach($links as $l) {
+      $result[] = l($l['title'], $l['href'], $l);
+    }
+
+    return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '">' . implode(' ', $result) . '</div>';
+  }
+  
+  if (isset($label) && !empty($label)) {
+    return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '"><div class="service-label">'. t('@label', array('@label' => $label)) .' </div>'. theme('links', array('links' => $links)) .'</div>';
+  }
+  else {
+    return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '">'. theme('links', array('links' => $links)) .'</div>';
+  }
+}
