@@ -24,6 +24,37 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
         'default' => array(
           'Bold' => 1,
           'Italic' => 1,
+          'BulletedList' => 1,
+          'NumberedList' => 1,
+          'Undo' => 1,
+          'Anchor' => 1,
+          'Blockquote' => 1,
+          'PasteText' => 1,
+          'RemoveFormat' => 1,
+          'Format' => 1,
+          'Table' => 1,
+          'Replace' => 1,
+        ),
+        'ckeditor_citebutton' => array(
+          'ckeditor_citebutton' => 1,
+        ),
+        'ckeditor_abbrbutton' => array(
+          'ckeditor_abbrbutton' => 1,
+        ),
+        'ckeditor_acronym_button' => array(
+          'ckeditor_acronym_button' => 1,
+        ),
+        'ckeditor_definitionlist_button' => array(
+          'ckeditor_definitionlist_button' => 1,
+        ),
+        'ckeditor_languagebutton' => array(
+          'ckeditor_languagebutton' => 1,
+        ),
+        'linkit' => array(
+          'linkit' => 1,
+        ),
+        'drupal' => array(
+          'media' => 1,
         ),
       ),
       'toolbar_loc' => 'top',
