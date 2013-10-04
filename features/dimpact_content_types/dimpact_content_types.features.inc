@@ -117,6 +117,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'rss_source' => array(
+      'name' => t('RSS Source'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'slide' => array(
       'name' => t('Slide'),
       'base' => 'node_content',
