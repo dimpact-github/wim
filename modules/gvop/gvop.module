@@ -31,6 +31,15 @@ function gvop_menu() {
 }
 
 /**
+ * Implements hook_node_delete().
+ */
+function gvop_node_delete($node) {
+  if ($node->type == 'announcement') {
+    db_delete('gvop')->condition('nid', $node->nid)->execute();
+  }
+}
+
+/**
  * Implements hook_cron().
  */
 function gvop_cron() {
