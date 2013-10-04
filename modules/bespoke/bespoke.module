@@ -39,3 +39,22 @@ function bespoke_entity_info_alter(&$entity_info) {
     'custom settings' => TRUE,
   );
 }
+
+
+function bespoke_module_implements_alter(&$data, $hook) {
+  if ($hook == 'page_alter') {
+    // We have a custom check whether or not to show piwik/ga. So this is
+    // handled in bespoke_page_alter().
+    unset($data['piwik']);
+    unset($data['googleanalytics']);
+  }
+}
+
+function bespoke_page_alter(&$page) {
+  if (dominion_has_function('piwik') && module_exists('piwik')) {
+    piwik_page_alter($page);
+  }
+  if (dominion_has_function('googleanalytics') && module_exists('googleanalytics')) {
+    googleanalytics_page_alter($page);
+  }
+}
