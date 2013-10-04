@@ -1,0 +1,5 @@
+name = Solr Synonyms
+description = Allow users to define solr synonyms.
+package = Dimpact
+version = 1.0
+core = 7.x
