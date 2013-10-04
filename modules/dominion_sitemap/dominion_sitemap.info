@@ -1,0 +1,7 @@
+name = Dominion sitemap
+description = Integrates site_map module with dominion.
+package = Dominion
+core = 7.x
+dependencies[] = dominion
+dependencies[] = site_map
+dependencies[] = domain_conf

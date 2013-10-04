@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dominion_sitemap_form_dominion_form_alter(&$form, &$form_state) {
+  $form['site_map'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Sitemap'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  
+  $menu_options = array();
+  $menu_options = menu_get_menus();
+
+  $default_value = domain_conf_variable_get($form['#domain_id'], 'site_map_show_menus');
+  $default_value = empty($default_value) ? variable_get('site_map_show_menus', array()) : $default_value;
+  $form['site_map']['site_map_show_menus'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Menus to include in the site map'),
+    '#default_value' => $default_value,
+    '#options' => $menu_options,
+    '#multiple' => TRUE,
+  );
+  
+  $vocab_options = array();
+  if (module_exists('taxonomy')) {
+    foreach (taxonomy_get_vocabularies() as $vocabulary) {
+      $vocab_options[$vocabulary->vid] = $vocabulary->name;
+    }
+  }
+  $default_value = domain_conf_variable_get($form['#domain_id'], 'site_map_show_vocabularies');
+  $default_value = empty($default_value) ? variable_get('site_map_show_vocabularies', array()) : $default_value;
+  $form['site_map']['site_map_show_vocabularies'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Categories to include in the site map'),
+    '#default_value' => variable_get('site_map_show_vocabularies', array()),
+    '#options' => $vocab_options,
+    '#multiple' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_dominion_insert()
+ */
+function dominion_sitemap_dominion_insert($domain_id, $form_values = array()) {
+  foreach ($form_values as $name => $value) {
+    if (preg_match('/^site_map_/', $name)) {
+      domain_conf_variable_set($domain_id, $name, $value);
+    }
+  }
+}
+
+/**
+ * Implements hook_dominion_update()
+ */
+function dominion_sitemap_dominion_update($domain_id, $form_values = array()) {
+  foreach ($form_values as $name => $value) {
+    if (preg_match('/^site_map_/', $name)) {
+      domain_conf_variable_set($domain_id, $name, $value);
+    }
+  }
+}
+
+/**
+ * Implements hook_dominion_delete()
+ */
+function dominion_sitemap_dominion_delete($domain_id, $form_values = array()) {
+  domain_conf_variable_set($domain_id, 'site_map_show_menus');
+  domain_conf_variable_set($domain_id, 'site_map_show_vocabularies');
+}
