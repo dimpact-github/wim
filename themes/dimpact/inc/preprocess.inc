@@ -390,3 +390,10 @@ function dimpact_preprocess_views_view_list(&$vars) {
     $vars['classes_array'][$key] = implode(' ', array_diff($vars['classes'][$key], $remove));
   }
 }
+
+function dimpact_preprocess_homebox(&$variables) {
+  $classes = array_flip($variables['classes_array']);
+  if (isset($classes['column-count-3'])) {
+    unset($variables['classes_array'][$classes['column-count-3']]);
+  }
+}

@@ -1,9 +1,7 @@
 #homebox {
   @include container($total-columns, $break-large);
   overflow: hidden;
-
   .homebox-column-wrapper {
-    //width: auto !important;
     @include span-columns(4, $break-large);
   }
   .homebox-column-wrapper-3 {
@@ -33,5 +31,15 @@
         padding: $gutter-width/2;
       }
     }
+  }
+  #homebox-add {
+    overflow: hidden;
+    a {
+      height: 75px;
+    }
+  }
+  .used {
+    border: 0;
+    outline: 0;
   }
 }
