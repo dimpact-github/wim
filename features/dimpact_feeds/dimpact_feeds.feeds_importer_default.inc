@@ -15,8 +15,8 @@ function dimpact_feeds_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'rss_nos';
   $feeds_importer->config = array(
-    'name' => 'RSS NOS',
-    'description' => 'RSS feed van NOS.nl',
+    'name' => 'RSS',
+    'description' => '',
     'fetcher' => array(
       'plugin_key' => 'FeedsHTTPFetcher',
       'config' => array(
@@ -64,7 +64,7 @@ function dimpact_feeds_feeds_importer_default() {
         'bundle' => 'rss',
       ),
     ),
-    'content_type' => '',
+    'content_type' => 'rss_source',
     'update' => 0,
     'import_period' => '3600',
     'expire_period' => 3600,
