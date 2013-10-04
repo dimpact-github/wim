@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function dimpact_wiki_links_filter_info() {
+  $filters['filter_wiki_links'] = array(
+    'title' => t('Filter wiki links'),
+    'description' => t('Replaces text '),
+    'process callback'  => '_filter_wiki_links_process',
+  );
+  return $filters;
+}
+
+function _filter_wiki_links_process($text, $filter, $format) {
+	preg_match_all('/\[\[([^\]]+)\]\]/', $text, $matches);
+  for ($i = 0; $i < count($matches[0]); ++$i) {
+		$placeholder = $matches[1][$i];
+		$stripped_text = strip_tags($placeholder);
+		$placeholder = str_replace(' ', '_', $stripped_text);
+		$placeholder = l($stripped_text, '/wiki/' . $placeholder);
+	  $text = str_replace($matches[0][$i], $placeholder, $text);
+  }
+  return $text;
+}

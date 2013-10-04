@@ -1,0 +1,8 @@
+name = Dimpact wiki links
+description = Makes linking to wiki pages easier
+package = Dutch Open Projects
+version = 1.0
+core = 7.x
+files[] = dimpact_wiki_links.module
+
+
