@@ -1,0 +1,5 @@
+name = Atos eSuite
+description = Import of Atos eSuite data.
+package = Dimpact
+version = 1.0
+core = 7.x

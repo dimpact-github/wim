@@ -125,6 +125,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'vac' => array(
+      'name' => t('VAC'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Titel'),
+      'help' => '',
+    ),
     'webform' => array(
       'name' => t('Webformulier'),
       'base' => 'node_content',

@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function atos_esuite_schema() {
+  $schema = array();
+
+  $schema['atos_esuite'] = array(
+    'description' => 'Table which saves hashes for the Atos eSuite Import.',
+    'fields' => array(
+      'identifier' => array(
+        'description' => 'Item identifier',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+      'hash' => array(
+        'description' => 'MD5 Hash of XML',
+        'type' => 'varchar',
+        'length' => '32',
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Node id',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('identifier'),
+    'indexes' => array(
+      'nid' => array('nid'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function atos_esuite_uninstall() {
+  drupal_uninstall_schema('atos_esuite');
+  variable_del('atos_esuite_pdc_url');
+  variable_del('atos_esuite_vac_url');
+}

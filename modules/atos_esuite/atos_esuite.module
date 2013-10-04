@@ -1,0 +1,211 @@
+<?php
+define('ATOS_ESUITE_DEFAULT_PDC_URL', 'https://dacceptatieloket.schaveland.nl/loket/search.xml?type=pdc');
+define('ATOS_ESUITE_DEFAULT_VAC_URL', 'https://dacceptatieloket.schaveland.nl/loket/search.xml?type=vac');
+
+/**
+ * Implements hook_permission().
+ */
+function atos_esuite_permission() {
+  return array(
+    'administer atos_esuite settings' => array(
+      'title' => t('Administer atos_esuite settings'),
+      'description' => t('Allows users to configure atos_esuite settings.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function atos_esuite_menu() {
+  $items = array();
+
+  $items['admin/config/content/atos_esuite'] = array(
+    'access arguments' => array('administer atos_esuite settings'),
+    'page arguments' => array('atos_esuite_admin_settings_form'),
+    'page callback' => 'drupal_get_form',
+    'file' => 'atos_esuite.admin.inc',
+    'title' => 'atos_esuite',
+    'description' => 'Configure atos_esuite settings.',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function atos_esuite_node_delete($node) {
+  if (in_array($node->type, array('product', 'vac'))) {
+    db_delete('atos_esuite')->condition('nid', $node->nid)->execute();
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function atos_esuite_cron() {
+  $context = array('results' => array());
+  module_load_include('inc', 'atos_esuite', 'atos_esuite.admin');
+
+  _atos_esuite_batch_run('product', variable_get('atos_esuite_pdc_url', ATOS_ESUITE_DEFAULT_PDC_URL), $context);
+  _atos_esuite_batch_run('vac', variable_get('atos_esuite_vac_url', ATOS_ESUITE_DEFAULT_VAC_URL), $context);
+
+  if (count($context['results']) > 0) {
+    watchdog(
+      'atos_esuite',
+      '@num_results results processed: !results',
+      array(
+        '@num_results' => count($context['results']),
+        '!results' => theme('item_list', array('items' => $context['results']))
+      ),
+      WATCHDOG_INFO
+    );
+  }
+}
+
+/**
+ * Maps the node.
+ * 
+ * @param $type
+ * @param $documentXML
+ * @param bool $force
+ * @return stdClass
+ */
+function atos_esuite_map_node($type, $documentXML, $force = FALSE) {
+  $xml_hash = md5($documentXML);
+  $documentDOM = new DOMDocument;
+  $documentDOM->loadXML($documentXML);
+  $xpath = new DOMXPath($documentDOM);
+
+  $id = $type . '-' . $xpath->query('/result/id')->item(0)->nodeValue;
+  if ($id) {
+    // Get the current version from the database.
+    $current = db_select('atos_esuite', 'a')
+      ->fields('a', array('identifier', 'hash', 'nid'))
+      ->condition('identifier', $id)
+      ->execute()
+      ->fetchAssoc();
+
+    // Is this an actual update.
+    if (!$force && $current && $xml_hash == $current['hash']) {
+      return FALSE;
+    }
+
+    // Are we updating or inserting.
+    if ($current && !empty($current['nid'])) {
+      $node = node_load($current['nid']);
+    }
+    else {
+      $node = new stdClass();
+      $node->uid = 1;
+      $node->type = $type;
+    }
+
+    $node->title = $xpath->query('/result/title')->item(0)->nodeValue;
+    $node->created = $xpath->query('/result/created')->item(0)->nodeValue;
+    $node->changed = $xpath->query('/result/changed')->item(0)->nodeValue;
+
+    $callback = 'atos_esuite_map_node_' . $type;
+    $callback($node, $documentDOM, $xpath);
+
+    node_save($node);
+
+    // Add to the atos_esuite table for hash checking and identifying.
+    if ($node->nid) {
+      db_delete('atos_esuite')
+        ->condition('identifier', $id)
+        ->execute();
+      db_insert('atos_esuite')
+        ->fields(array('identifier' => $id, 'hash' => $xml_hash, 'nid' => $node->nid))
+        ->execute();
+    }
+
+    return $node;
+  }
+  else {
+    drupal_set_message(t('Could not determine id for @xml', array('@xml' => $documentXML)));
+  }
+
+  return FALSE;
+
+}
+
+function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath $xpath) {
+  $node->field_request = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/aanvraag')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->body = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/beschrijving')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_contact = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/contact')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_objection = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/bezwaar')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_cost = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/kosten')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_particulars = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/bijzonderheden')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_term = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/termijn')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+}
+
+function atos_esuite_map_node_vac($node, $documentDOM, $xpath) {
+  $node->body = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/antwoord')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+  $node->field_explanation = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('/result/toelichting')->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
+  );
+}
