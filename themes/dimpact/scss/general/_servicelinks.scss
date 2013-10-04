@@ -1,0 +1,15 @@
+.service-links {
+  background-color: lighten($background-color, 7%);
+  margin: $gutter-width/2 0;
+  padding: $gutter-width/2;
+  overflow: hidden;
+  ul.links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      float: left;
+      margin-right: $gutter-width/2;
+    }
+  }
+}

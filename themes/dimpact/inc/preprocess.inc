@@ -176,32 +176,12 @@ function dimpact_preprocess_block(&$vars) {
       break;
     }
   }
-/*
-  // Find the main navigation and change the template based on region placement.
-  if ($vars['block']->region == 'navigation' || $vars['block']->region == 'header') {
-    if ($vars['block']->module == 'menu_block' || $vars['block']->module == 'menu' || $vars['block']->module == 'system' && in_array($vars['block']->delta, array_keys(menu_list_system_menus()))) {
-      if ($vars['block']->region == 'navigation') {
-        // The wrappers and hidden title are dealt with in page.tpl.php.
-        array_unshift($vars['theme_hook_suggestions'], 'block__content_only');
-      }
-      else {
-        // The block is placed in the header, so wrap it in <nav> and add .main-menu class.
-        array_unshift($vars['classes_array'], 'main-menu');
-        array_unshift($vars['theme_hook_suggestions'], 'block__nav');
-      }
-    }
-  }
-*/
+
   if ($vars['block']->module == 'views' && $vars['is_admin']) {
-    $remove = array(
-//      'block',
-//      'block-' . $vars['block']->module,
-//      $vars['block_html_id'],
-    );
+    $remove = array();
     $vars['classes_array'][] = 'admin-only-wrapper';
     $vars['classes_array'] = array_diff($vars['classes_array'], $remove);
   }
-//  var_dump($vars);
   $vars['title_attributes_array']['class'][] = 'block-title';
 
 }
@@ -295,7 +275,6 @@ function dimpact_preprocess_field(&$vars) {
 
   // Remove some classes from the wrapper <div>.
   $classes_to_remove = array(
-//    'field',
     'field-label-' . drupal_html_class($vars['element']['#label_display']),
     'field-type-' . drupal_html_class($vars['element']['#field_type']),
     'field-name-' . drupal_html_class($vars['element']['#field_name']),
@@ -303,10 +282,6 @@ function dimpact_preprocess_field(&$vars) {
     'clearfix',
   );
   $vars['classes_array'] = array_diff($vars['classes_array'], $classes_to_remove);
-
-//  if ($vars['element']['#field_name'] == 'field_intro') {
-//    var_dump($vars['items']['0']['#markup']);
-//  }
 }
 
 /**
@@ -340,7 +315,6 @@ function dimpact_preprocess_views_view(&$vars) {
   // if (!empty($vars['view']->display[$did]->display_title)) {
   //   $vars['display_title'] = drupal_html_class($vars['view']->display[$did]->display_title);
   //   $vars['classes_array'][] = 'view-' . $vars['name'] . '-display-' . $vars['display_title'];
-
   // }
 
   $vars['classes_array'] = array_diff($vars['classes_array'], $remove);
