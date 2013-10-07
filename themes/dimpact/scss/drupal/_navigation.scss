@@ -235,12 +235,19 @@ body.front {
   color: lighten($gray, 30%);
   .active,
   a {
-    color: $gray;
+    color: $gray !important;
   }
 }
 .main {
   .block-block {
     ul.menu {
+      margin: 0;
+    }
+  }
+}
+.block-submenutree {
+  ul {
+    ul {
       margin: 0;
     }
   }
