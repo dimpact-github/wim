@@ -15,7 +15,7 @@ function dimpact_hansel_hansel_default() {
     'rules' => array(
       1 => array(
         'rid' => 1,
-        'pid' => 0,
+        'pid' => NULL,
         'name' => 'start',
         'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
@@ -28,8 +28,8 @@ function dimpact_hansel_hansel_default() {
         'handler' => 'blueprint',
         'arguments' => array(),
         'children' => array(
-          0 => 2,
-          1 => 4,
+          0 => 10,
+          1 => 13,
         ),
       ),
       2 => array(
@@ -42,8 +42,8 @@ function dimpact_hansel_hansel_default() {
         'handler' => 'url argument',
         'arguments' => array(),
         'children' => array(
-          0 => 3,
-          1 => 5,
+          0 => 11,
+          1 => 12,
         ),
       ),
       3 => array(
@@ -93,6 +93,11 @@ function dimpact_hansel_hansel_default() {
   );
   $elements['settings'] = array(
     'variables' => array(
+      'hansel_breadcrumb_last_item_hide' => 0,
+      'hansel_breadcrumb_last_item_link' => 1,
+      'hansel_cache' => 0,
+      'hansel_max_item_count' => 0,
+      'hansel_max_item_length' => 0,
       'hansel_nodetypes' => array(
         'agenda' => array(
           'path' => 'actueel/agenda',
@@ -103,6 +108,14 @@ function dimpact_hansel_hansel_default() {
           'title' => 'Nieuws',
         ),
       ),
+      'hansel_parent_lookup_paths' => 0,
+      'hansel_removed_items_replacement' => '(...)',
+      'hansel_remove_first_token_item' => 1,
+      'hansel_set_menu_item' => 1,
+      'hansel_set_menu_item_skip_first' => 1,
+      'hansel_set_menu_name' => 0,
+      'hansel_trim_ellipsis' => '...',
+      'hansel_trim_on_word_boundary' => 1,
     ),
   );
   return $elements;
