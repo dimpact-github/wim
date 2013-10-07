@@ -97,6 +97,30 @@ function dimpact_homebox_homebox() {
         'title' => '',
         'weight' => -45,
       ),
+      'views_feeds_intranet-block_1' => 
+      array (
+        'module' => 'views',
+        'delta' => 'feeds_intranet-block_1',
+        'region' => 2,
+        'movable' => 1,
+        'status' => 1,
+        'open' => 1,
+        'closable' => 1,
+        'title' => '',
+        'weight' => -46,
+      ),
+      'views_feeds_intranet-block_2' => 
+      array (
+        'module' => 'views',
+        'delta' => 'feeds_intranet-block_2',
+        'region' => 3,
+        'movable' => 1,
+        'status' => 1,
+        'open' => 1,
+        'closable' => 1,
+        'title' => '',
+        'weight' => -46,
+      ),
     ),
     'widths' => 
     array (
