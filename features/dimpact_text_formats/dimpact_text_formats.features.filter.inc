@@ -18,6 +18,11 @@ function dimpact_text_formats_filter_default_formats() {
     'status' => 1,
     'weight' => -9,
     'filters' => array(
+      'filter_wiki_links' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(),
+      ),
       'filter_url' => array(
         'weight' => 0,
         'status' => 1,
@@ -74,39 +79,44 @@ function dimpact_text_formats_filter_default_formats() {
     'weight' => -10,
     'filters' => array(
       'filter_url' => array(
-        'weight' => 0,
+        'weight' => -47,
         'status' => 1,
         'settings' => array(
           'filter_url_length' => 72,
         ),
       ),
       'inlinetabs' => array(
-        'weight' => 0,
+        'weight' => -44,
         'status' => 1,
         'settings' => array(),
       ),
       'filter_autop' => array(
-        'weight' => 1,
+        'weight' => -42,
         'status' => 1,
         'settings' => array(),
       ),
       'media_filter' => array(
-        'weight' => 2,
+        'weight' => -41,
         'status' => 1,
         'settings' => array(),
       ),
       'filter_htmlcorrector' => array(
-        'weight' => 10,
+        'weight' => -40,
         'status' => 1,
         'settings' => array(),
       ),
       'pathologic' => array(
-        'weight' => 50,
+        'weight' => -39,
         'status' => 1,
         'settings' => array(
           'local_paths' => '',
           'protocol_style' => 'full',
         ),
+      ),
+      'filter_wiki_links' => array(
+        'weight' => -38,
+        'status' => 1,
+        'settings' => array(),
       ),
     ),
   );
