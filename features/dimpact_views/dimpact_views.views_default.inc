@@ -103,7 +103,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
 <?php
 global $user;
-if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'agenda\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -156,7 +156,7 @@ if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
     t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
 <?php
 global $user;
-if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'agenda\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -258,7 +258,7 @@ if (dominion_restrict_node_access(\'agenda\', \'create\', $user)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
 global $user;
-if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -303,7 +303,7 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
     t('Berichtenblok'),
     t('<?php
 global $user;
-if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -869,7 +869,7 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
 global $user;
-if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -886,7 +886,7 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
     t('Marktplaats'),
     t('<?php
 global $user;
-if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -1795,7 +1795,7 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
 global $user;
-if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'faq\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -2065,7 +2065,7 @@ if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
     t('meer'),
     t('<?php
 global $user;
-if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'faq\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -2273,7 +2273,7 @@ if (dominion_restrict_node_access(\'faq\', \'create\', $user)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
 global $user;
-if (dominion_restrict_node_access(\'blog\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'blog\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -2336,7 +2336,7 @@ if (dominion_restrict_node_access(\'blog\', \'create\', $user)) {
     t('Blog'),
     t('<?php
 global $user;
-if (dominion_restrict_node_access(\'blog\', \'create\', $user)) {
+if (dominion_restrict_node_access(\'blog\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
