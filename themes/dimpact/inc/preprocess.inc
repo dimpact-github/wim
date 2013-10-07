@@ -103,6 +103,12 @@ function dimpact_preprocess_page(&$vars) {
         break;
     }
   }
+
+  if (isset($vars['node']) && $vars['node']->type == 'subject') {
+    if (isset($vars['page']['region_363_first']['submenutree_2'])) {
+      unset($vars['page']['region_363_first']['submenutree_2']);
+    }
+  }
 }
 
 /**

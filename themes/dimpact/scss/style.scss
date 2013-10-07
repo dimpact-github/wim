@@ -49,6 +49,11 @@ body {
       z-index: 4;
     }
   }
+  &.node-type-subject {
+    #page-title {
+      display: none;
+    }
+  }
 }
 
 pre, code, kbd, samp {
