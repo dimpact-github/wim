@@ -128,7 +128,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   $identifier = $xpath->query('.//dcterms:identifier', $record)->item(0)->nodeValue;
 
   // Get the current version from the database.
-  $current = db_select('gvob', 'g')
+  $current = db_select('gvop', 'g')
     ->fields('g', array('identifier', 'hash', 'nid'))
     ->condition('identifier', $identifier)
     ->execute()
@@ -156,7 +156,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   }
 
   // Set common info.
-  $node->gvob_identifier = $identifier;
+  $node->gvop_identifier = $identifier;
   $node->title = substr($xpath->query('.//dcterms:title', $record)->item(0)->nodeValue, 0, 255);
   $node->changed = $modified;
 
@@ -165,11 +165,11 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
 
   node_save($node);
 
-  // Add to the GVOB table for hash checking and identifying.
-  db_delete('gvob')
+  // Add to the GVOP table for hash checking and identifying.
+  db_delete('gvop')
     ->condition('identifier', $identifier)
     ->execute();
-  db_insert('gvob')
+  db_insert('gvop')
     ->fields(array('identifier' => $identifier, 'hash' => $xml_hash, 'nid' => $node->nid))
     ->execute();
 

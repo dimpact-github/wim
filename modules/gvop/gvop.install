@@ -6,8 +6,8 @@
 function gvop_schema() {
   $schema = array();
 
-  $schema['gvob'] = array(
-    'description' => 'Table which saves hashes for the GVOB Import.',
+  $schema['gvop'] = array(
+    'description' => 'Table which saves hashes for the GVOP Import.',
     'fields' => array(
       'identifier' => array(
         'description' => 'Item identifier',
