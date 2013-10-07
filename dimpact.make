@@ -110,6 +110,8 @@ projects[wikitools][subdir] = contrib
 projects[workbench][subdir] = contrib
 projects[workbench_moderation][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
+projects[galleryformatter][subdir] = contrib
+projects[lightbox2][subdir] = contrib
 
 ; Themes
 projects[] = rijkshuisstijl
