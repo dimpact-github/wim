@@ -12,6 +12,9 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
   $linkcolor: nth($color, 4);
 
   body.#{$type} {
+    a {
+      @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
+    }
     #main {
       //.region_363_first,
       //.region_363_third,

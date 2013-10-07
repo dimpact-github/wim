@@ -57,7 +57,7 @@ pre, code, kbd, samp {
 }
 
 a {
-  @include link-colors($link-colour, $hover, $active);
+  //@include link-colors($link-colour, $hover, $active);
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -196,6 +196,7 @@ p {
   .block {
     h2.block-title {
       padding: $gutter-width/2;
+      line-height: 1;
     }
   }
   .block-quicktabs {

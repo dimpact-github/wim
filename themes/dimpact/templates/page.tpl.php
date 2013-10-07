@@ -72,7 +72,6 @@ $action_links = render($action_links);
   <?php if ($navigation): ?>
     <nav role="navigation" class="main-menu">
       <div class="container container-nopadding">
-        <h2 class="visuallyhidden"><?php print t('Main menu'); ?></h2>
         <?php print $navigation; ?>
       </div>
       <?php if ($breadcrumb): ?>
