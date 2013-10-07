@@ -92,6 +92,7 @@ projects[piwik][subdir] = contrib
 projects[purge][subdir] = contrib
 projects[quicktabs][subdir] = contrib
 projects[rules][subdir] = contrib
+projects[static_404][subdir] = contrib
 projects[site_map][subdir] = contrib
 projects[scheduler][subdir] = contrib
 projects[service_links][subdir] = contrib
