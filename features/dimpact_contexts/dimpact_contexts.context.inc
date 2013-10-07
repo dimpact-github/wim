@@ -43,12 +43,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu_block-1' => array(
-          'module' => 'menu_block',
-          'delta' => '1',
-          'region' => 'region_363_first',
-          'weight' => '-9',
-        ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
           'delta' => 'nieuws-block_2',
@@ -288,17 +282,17 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
-        'menu-menu-2-primary' => array(
-          'module' => 'menu',
-          'delta' => 'menu-2-primary',
+        'dominion_menu-1' => array(
+          'module' => 'dominion_menu',
+          'delta' => '1',
           'region' => 'navigation',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
           'delta' => 'alfabet',
           'region' => 'navigation',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'menu-menu-meta-menu-links-intranet' => array(
           'module' => 'menu',
@@ -310,6 +304,12 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'menu',
           'delta' => 'menu-meta-menu-rechts',
           'region' => 'region_meta_second',
+          'weight' => '-10',
+        ),
+        'submenutree-2' => array(
+          'module' => 'submenutree',
+          'delta' => '2',
+          'region' => 'region_363_first',
           'weight' => '-10',
         ),
         'menu-menu-footer-menu' => array(
