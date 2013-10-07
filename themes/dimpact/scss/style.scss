@@ -282,3 +282,9 @@ span.ext {
   border-radius: 3px;
   padding: 5px;
 }
+
+div.workbench-info-block {
+  margin: $gutter-width/2 0;
+  padding: $gutter-width/2;
+  border: 0;
+}
