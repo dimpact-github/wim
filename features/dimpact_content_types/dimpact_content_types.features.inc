@@ -61,6 +61,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'foto_album' => array(
+      'name' => t('Foto-album'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'marketplace' => array(
       'name' => t('Marketplace'),
       'base' => 'node_content',
@@ -122,7 +130,7 @@ function dimpact_content_types_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'slide' => array(
