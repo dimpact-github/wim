@@ -105,15 +105,15 @@ nav {
         font-weight: 300;
         display: inline;
         position: absolute;
-        top: 10px;
+        top: 9px;
         left: $gutter-width*1.5;
-        z-index: 6;
+        z-index: 12;
       }
     }
     #quicktabs-alfabet {
       background-color: $background-color;
       position: relative;
-      z-index: 5;
+      z-index: 11;
       ul {
         margin: 0;
       }
