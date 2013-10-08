@@ -24,96 +24,31 @@ function solr_synonyms_menu() {
     'title' => 'Solr Synonyms',
     'description' => 'Configure solr_synonyms settings.',
     'type' => MENU_LOCAL_TASK,
+    'file' => 'solr_synonyms.admin.inc',
+  );
+
+  $items['admin/config/search/apachesolr/synonyms/delete/%'] = array(
+    'access arguments' => array('administer solr_synonyms settings'),
+    'page arguments' => array('solr_synonyms_admin_settings_delete_form', 6),
+    'page callback' => 'drupal_get_form',
+    'type' => MENU_CALLBACK,
+    'file' => 'solr_synonyms.admin.inc',
   );
 
   return $items;
 }
 
 /**
- * Form for callback 'admin/config/search/apachesolr/synonyms'.
+ * Implements hook_theme().
  */
-function solr_synonyms_admin_settings_form($form, &$form_state) {
-  $form['synonyms'] = array(
-    '#title' => t("Synonyms"),
-    '#type' => 'fieldset',
-    '#tree' => 'true',
+function solr_synonyms_theme($existing, $type, $theme, $path) {
+  return array(
+    'solr_synonyms_table_synonyms' => array(
+      'arguments' => array(
+        'form' => NULL
+      ),
+      'render element' => 'synonyms',
+      'file' => 'solr_synonyms.admin.inc',
+    ),
   );
-  $rs = db_select('solr_synonyms', 's')
-    ->fields('s', array('keyword', 'synonyms'))
-    ->orderBy('s.keyword', 'ASC')
-    ->execute();
-
-  foreach ($rs as $row) {
-    $form['synonyms'][$row->keyword] = array(
-      '#tree' => TRUE,
-    );
-    $form['synonyms'][$row->keyword][$row->keyword . '_keyword'] = array(
-      '#title' => t('Keyword'),
-      '#type' => 'textfield',
-      '#disabled' => TRUE,
-      '#default_value' => $row->keyword,
-    );
-
-    $form['synonyms'][$row->keyword][$row->keyword . '_synonyms'] = array(
-      '#title' => t('Synonyms'),
-      '#type' => 'textfield',
-      '#default_value' => $row->synonyms,
-    );
-
-    $form['synonyms']['download-button'] = array(
-      '#type' => 'submit',
-      '#value' => t('Download as synonyms.txt'),
-      '#submit' => array('solr_synonyms_download_submit'),
-    );
-  }
-
-  $form['new-synonym'] = array(
-    '#title' => t("New synonym"),
-    '#type' => 'fieldset',
-  );
-  $form['new-synonym']['keyword'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Keyword'),
-  );
-  $form['new-synonym']['synonyms'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Synonyms'),
-    '#description' => t("Comma-separated")
-  );
-  $form['new-synonym']['add'] = array(
-    '#type' => 'submit',
-    '#value' => t('Add'),
-    '#submit' => array('solr_synonyms_add_synonym_submit'),
-  );
-
-  return $form;
-}
-
-/**
- * Submit handler for downloading synonyms.txt
- */
-function solr_synonyms_download_submit($form, $form_state) {
-  $rs = db_select('solr_synonyms', 's')
-    ->fields('s', array('keyword', 'synonyms'))
-    ->orderBy('s.keyword', 'ASC')
-    ->execute();
-
-  foreach ($rs as $row) {
-    print $row->synonyms . ' => ' . $row->keyword . "\n";
-  }
-  die();
-}
-
-/**
- * Submit handler for adding synonyms.
- */
-function solr_synonyms_add_synonym_submit($form, $form_state) {
-  drupal_set_message(t('Added @keyword with synonyms @synonyms', array('@keyword' => $form_state['values']['keyword'], '@synonyms' => $form_state['values']['synonyms'])));
-
-  db_insert('solr_synonyms')
-    ->fields(array(
-        'keyword' => $form_state['values']['keyword'],
-        'synonyms' => $form_state['values']['synonyms'],
-    ))
-    ->execute();
 }
