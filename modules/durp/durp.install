@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function durp_schema() {
+  $schema = array();
+
+  $schema['durp'] = array(
+    'description' => 'Table which saves hashes for the DURP Import.',
+    'fields' => array(
+      'identifier' => array(
+        'description' => 'Item identifier',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+      'hash' => array(
+        'description' => 'MD5 Hash of XML',
+        'type' => 'varchar',
+        'length' => '32',
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Node id',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('identifier'),
+    'indexes' => array(
+      'nid' => array('nid'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function durp_uninstall() {
+  drupal_uninstall_schema('durp');
+  variable_del('durp_manifest');
+  variable_del('durp_cron_last_run');
+}

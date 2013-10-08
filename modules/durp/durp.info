@@ -1,0 +1,7 @@
+name = DURP
+description = Import of DURP data.
+package = Dimpact
+version = 1.0
+core = 7.x
+
+dependencies[] = bespoke

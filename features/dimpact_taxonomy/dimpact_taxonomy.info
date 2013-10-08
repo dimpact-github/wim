@@ -1,7 +1,7 @@
 name = Dimpact Taxonomy
 core = 7.x
 package = Features
-version = 7.x-1.0-beta2
+version = 7.x-1.0-beta3
 project = dimpact_taxonomy
 dependencies[] = features
 dependencies[] = taxonomy
@@ -9,4 +9,6 @@ features[features_api][] = api:2
 features[taxonomy][] = announcement_type
 features[taxonomy][] = marketplace
 features[taxonomy][] = person
+features[taxonomy][] = spatial_plan_status
+features[taxonomy][] = spatial_plan_type
 features[taxonomy][] = tags

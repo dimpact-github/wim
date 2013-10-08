@@ -1020,6 +1020,29 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__spatial_plan';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'domain' => array(
+          'weight' => '11',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '12',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__spatial_plan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__vac';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -1129,6 +1152,13 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'language_content_type_slide';
   $strongarm->value = '0';
   $export['language_content_type_slide'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_spatial_plan';
+  $strongarm->value = '0';
+  $export['language_content_type_spatial_plan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1277,6 +1307,15 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_spatial_plan';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_spatial_plan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_subject';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -1417,6 +1456,13 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'menu_parent_slide';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_slide'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_spatial_plan';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_spatial_plan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1603,6 +1649,15 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_spatial_plan';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_spatial_plan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_subject';
   $strongarm->value = array(
     0 => 'status',
@@ -1749,6 +1804,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_spatial_plan';
+  $strongarm->value = '0';
+  $export['node_preview_spatial_plan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_subject';
   $strongarm->value = '0';
   $export['node_preview_subject'] = $strongarm;
@@ -1885,6 +1947,13 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'node_submitted_slide';
   $strongarm->value = 1;
   $export['node_submitted_slide'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_spatial_plan';
+  $strongarm->value = 0;
+  $export['node_submitted_spatial_plan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
