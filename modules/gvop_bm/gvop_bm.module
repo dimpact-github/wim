@@ -105,7 +105,7 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   // Type bekendmaking.
   $type = $xpath->query('.//overheidbm:producttype', $record)->item(0)->nodeValue;
-  $term = gvop_get_term_id($type, 'announcement_type');
+  $term = bespoke_get_term_id($type, 'announcement_type');
   $node->field_announcement_type = array(
     LANGUAGE_NONE => array(array('tid' => $term->tid))
   );

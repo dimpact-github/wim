@@ -40,7 +40,9 @@ function bespoke_entity_info_alter(&$entity_info) {
   );
 }
 
-
+/**
+ * Implements hook_module_implements_alter().
+ */
 function bespoke_module_implements_alter(&$data, $hook) {
   if ($hook == 'page_alter') {
     // We have a custom check whether or not to show piwik/ga. So this is
@@ -50,6 +52,9 @@ function bespoke_module_implements_alter(&$data, $hook) {
   }
 }
 
+/**
+ * Implements hook_page_alter().
+ */
 function bespoke_page_alter(&$page) {
   if (dominion_has_function('piwik') && module_exists('piwik')) {
     piwik_page_alter($page);
@@ -57,4 +62,41 @@ function bespoke_page_alter(&$page) {
   if (dominion_has_function('googleanalytics') && module_exists('googleanalytics')) {
     googleanalytics_page_alter($page);
   }
+}
+
+/**
+ * Function for retrieving terms. If a term does not exist adds it.
+ *
+ * @param $name Name of the term.
+ * @param $voc_name Machine name of the vocabulary
+ */
+function bespoke_get_term_id($name, $voc_name) {
+  $term_match = taxonomy_get_term_by_name($name, $voc_name);
+  if (!empty($term_match)) {
+    $term = reset($term_match);
+  }
+  else {
+    $voc = taxonomy_vocabulary_machine_name_load($voc_name);
+
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $voc->vid;
+    taxonomy_term_save($term);
+
+    if (module_exists('domain_taxonomy')) {
+      // domain_taxonomy always expects the terms source domain.
+      $default_domain = domain_default();
+      $term->domain_source = $default_domain['domain_id'];
+
+      // allow access to all affiliates.
+      $term->domain_site = TRUE;
+
+      // Domain Taxonomy doesnt use hooks for loading / adding additional
+      // data. Instead it alters the form and adds some custom fucntionality.
+      // We have to do this ourselfs or else the terms willl not show.
+      domain_taxonomy_save_term($term);
+    }
+  }
+
+  return $term;
 }
