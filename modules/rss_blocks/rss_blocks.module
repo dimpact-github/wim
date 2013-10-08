@@ -1,0 +1,59 @@
+<?php
+/**
+ * Implements hook_block_info().
+ */
+function rss_blocks_block_info() {
+  $feeds = db_select('node', 'n')
+    ->fields('n', array('nid', 'title'))
+    ->condition('status', 1)
+    ->condition('type', 'rss_source')
+    ->execute();
+
+  foreach ($feeds as $feed) {
+    $blocks[$feed->nid] = array(
+      'info' => t('RSS Feed: !feed', array('!feed' => $feed->title)),
+      'cache' => DRUPAL_NO_CACHE,
+    );
+  }
+
+  return $blocks;
+}
+
+/**
+ * Impelements hook_block_view().
+ */
+function rss_blocks_block_view($delta) {
+  $feed_node = node_load($delta);
+
+  return array(
+    'subject' => $feed_node->title,
+    'content' => views_embed_view('feeds_intranet', 'block_1', $feed_node->nid),
+  );
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function rss_blocks_node_insert($node) {
+  if ($node->type == 'rss_source') {
+    block_flush_caches();
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function rss_blocks_node_update($node) {
+  if ($node->type == 'rss_source') {
+    block_flush_caches();
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function rss_blocks_node_delete($node) {
+  if ($node->type == 'rss_source') {
+    block_flush_caches();
+  }
+}

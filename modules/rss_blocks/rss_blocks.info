@@ -1,0 +1,9 @@
+name = RSS Blocks
+description = Adds blocks for use in homebox for the dimpact project.
+core = 7.x
+package = Dimpact
+
+dependencies[] = dimpact_content_types
+dependencies[] = dimpact_views
+dependencies[] = dimpact_feeds
+dependencies[] = block
