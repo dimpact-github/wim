@@ -105,19 +105,7 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   // Type bekendmaking.
   $type = $xpath->query('.//overheidbm:producttype', $record)->item(0)->nodeValue;
-  $term_match = taxonomy_get_term_by_name($type, 'announcement_type');
-  if (!empty($term_match)) {
-    $term = reset($term_match);
-  }
-  else {
-    $voc = taxonomy_vocabulary_machine_name_load('announcement_type');
-
-    $term = new stdClass();
-    $term->name = $type;
-    $term->vid = $voc->vid;
-
-    taxonomy_term_save($term);
-  }
+  $term = gvop_get_term_id($type, 'announcement_type');
   $node->field_announcement_type = array(
     LANGUAGE_NONE => array(array('tid' => $term->tid))
   );
