@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{appendix}
+\usepackage{datetime}
+
+% Table of Contents
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+
+% Dot graphs
+\usepackage[autosize]{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+
+% Hyperlinks
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
+
+% Linebreak after paragraphs
+\usepackage[parfill]{parskip}
+
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% See command
+\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1}, \ref{#2} p.\pageref{#2})}
+
+
+
+
+\begin{document}
+
+\title{Module voor lijstpagina's}
+\date{}
+\author{Maurits Lawende \\ Dutch Open Projects}
+
+\maketitle
+\begin{center}
+Laatst bijgewerkt: \\ \ddmmyyyydate \today
+\end{center}
+
+\renewcommand*\contentsname{Inhoudsopgave}
+\tableofcontents
+\pagebreak
+
+\section{Abstract}
+
+Binnen de Dimpact gemeentes bestaat de wens om zelf lijstpagina's aan te kunnen maken. Deze lijsten volgen de standaardopmaak die voor de lijstpagina's is gedefini\"{e}erd. De functionaliteit is beperkt tot een drietal varianten.
+
+\section{Functionaliteit}\label{functionaliteit}
+
+\subsection{Inhoud}\label{inhoud}
+Het belangrijkste voor de lijst is de keuze welke inhoud te zien moet zijn. Hiervoor worden 3 opties aangeboden:
+\begin{enumerate}
+\item[A] Alle inhoud gekoppeld aan een tag
+\item[B] Alle inhoud van een bepaald nodetype
+\item[C] Onderliggende pagina's van een menu-item
+\end{enumerate}
+In alle gevallen worden nodes getoond conform de reeds bestaande lijstpagina ("teaser view"). Bij optie C kan het echter zijn dat er menu-items zijn die niet verwijzen naar een interne node (bijv. een verwijzing naar het contactformulier of een externe site). Voor deze items wordt alleen een titel als link getoond. Deze link heeft wel dezelfde opmaak als de nodes zelf, maar missen feitelijk een teasertekst.
+
+\subsection{Sortering}
+Voor optie A en B is het mogelijk om een sorteervolgorde aan te geven. Hiervoor bestaan de volgende opties:
+\begin{itemize}
+\item Aanmaakdatum, nieuwste eerst
+\item Aanmaakdatum, oudste eerst
+\item Laatst gewijzigd, nieuwste eerst
+\item Laatst gewijzigd, oudste eerst
+\item Titel, oplopend
+\item Titel, aflopend
+\end{itemize}
+Bij optie C kan geen sorteervolgorde worden aangegeven. In dit geval geldt altijd de volgorde zoals aangegeven in het menu.
+
+\subsection{Instellingen en eigenschappen}
+Voor iedere lijst zijn tevens de volgende instellingen beschikbaar:
+\begin{itemize}
+\item Titel van de pagina
+\item Pad van de pagina
+\item Introductietekst, in te voeren via de wysiwyg i.c.m. \texttt{filtered\_html} (= standaard) invoerformaat
+\item Aantal items per pagina, standaard 10
+\end{itemize}
+De lijsten hebben de volgende, niet instelbare, eigenschappen:
+\begin{itemize}
+\item Alleen gepubliceerde items worden getoond.
+\item Items moeten gepubliceerd zijn op het huidige domein.
+\item Paginanummering is aanwezig, gelijk aan de standaard lijstpagina.
+\item De lijstpagina is alleen beschikbaar op de subsite waar deze wordt aangemaakt.
+\end{itemize}
+Voor items die vervallen of onder embargo worden gepubliceerd wordt de \texttt{scheduler} module gebruikt. Deze module is onderdeel van het moedersjabloon en compatibel met de hier beschreven module.
+Lijstpagina's die worden aangemaakt kunnen via het menubeheer in het menu worden gezet.
+
+\section{Beheer}
+
+Er komt een aparte pagina met een lijst van alle aangemaakte lijstpagina's \emph{op de huidige subsite}. De lijst toont de titel, het pad en links voor bewerken en verwijderen. Boven de lijst komt een link om een nieuwe lijstpagina toe te voegen. De bewerkpagina is gelijk aan de toevoegen pagina. Voor het verwijderen wordt een bevestigingspagina ingesteld.
+
+Op de toevoegen / bewerken pagina komen de volgende velden:
+\begin{itemize}
+\item Titel, vrij tekstveld
+\item Pad, vrij tekstveld
+\item Type, radio buttons met de 3 opties\see{inhoud}
+\item Tag, automatisch aanvullend tekstveld (alleen zichtbaar bij optie A)
+\item Nodetype, dropdown (alleen zichtbaar bij optie B)
+\item Menu-item, dropdown (alleen zichtbaar bij optie C)
+\item Sortering, radio buttons (alleen zichtbaar bij optie A of B)
+\item Introductietekst, wyswiyg
+\item Aantal items per pagina, dropdown met de opties 5, 10, 20, 25, 50 en 100
+\end{itemize}
+Alle velden behalve de introductietekst en verborgen velden zijn verplicht. Bij de opties voor menu-items worden alleen de menu's getoond die voor de huidige subsite relevant zijn.
+
+Er komt een aparte permissie voor het beheren van lijstpagina's. Deze kennen we toe aan de rol \\ eindredacteur.
+
+
+\end{document}
