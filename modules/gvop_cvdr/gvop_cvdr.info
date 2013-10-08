@@ -3,3 +3,5 @@ description = Import of GVOP CVDR data.
 package = Dimpact
 version = 1.0
 core = 7.x
+
+dependencies[] = gvop

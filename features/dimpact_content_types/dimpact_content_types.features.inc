@@ -117,6 +117,14 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'regulation' => array(
+      'name' => t('Regulation'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'rss' => array(
       'name' => t('RSS'),
       'base' => 'node_content',
