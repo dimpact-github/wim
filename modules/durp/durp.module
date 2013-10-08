@@ -37,6 +37,28 @@ function durp_node_delete($node) {
   db_delete('durp')->condition('nid', $node->nid)->execute();
 }
 
+/**
+ * Implements hook_cron().
+ */
+function durp_cron() {
+  $context = array('results' => array());
+  module_load_include('inc', 'durp', 'durp.admin');
+
+  _durp_batch_run($context);
+
+  if (count($context['results']) > 0) {
+    watchdog(
+      'durp',
+      '@num_results results processed: !results',
+      array(
+        '@num_results' => count($context['results']),
+        '!results' => theme('item_list', array('items' => $context['results']))
+      ),
+      WATCHDOG_INFO
+    );
+  }
+}
+
 function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
   $xml_hash = md5($dossierXML);
   $dossierDOM = new DOMDocument;
