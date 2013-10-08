@@ -24,7 +24,12 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   // Body tekst.
   $node->body = array(
-    LANGUAGE_NONE => array(array('value' => $xpath->query('.//dcterms:description', $record)->item(0)->nodeValue))
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $xpath->query('.//dcterms:description', $record)->item(0)->nodeValue,
+        'format' => 'filtered_html',
+      )
+    )
   );
 
   // Locations

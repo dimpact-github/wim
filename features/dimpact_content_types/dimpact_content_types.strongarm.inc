@@ -482,10 +482,13 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '6',
+        ),
+        'domain' => array(
+          'weight' => '5',
         ),
       ),
       'display' => array(),
