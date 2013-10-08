@@ -78,7 +78,7 @@ function _gvop_batch_run($type_info, &$context) {
     $context['message'] = t('Now processing !current / !max', array('!current' => $context['sandbox']['progress'], '!max' => $context['sandbox']['max']));
     $context['sandbox']['progress']++;
 
-    $node = _gvop_map_node($type_info, $record, $xpath, TRUE);
+    $node = _gvop_map_node($type_info, $record, $xpath);
     if ($node) {
       $context['results'][] = $node->type . ': ' . $node->title . ' [nid:' . $node->nid . ']';
     }

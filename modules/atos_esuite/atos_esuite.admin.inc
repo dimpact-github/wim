@@ -69,15 +69,12 @@ function _atos_esuite_batch_run($type, $url, &$context) {
   // move to the first <product /> node
   while ($xmlReader->read() && $xmlReader->name !== 'result');
 
-  $i = 0;
-  while ($xmlReader->name === 'result' && $i < 5) {
+  while ($xmlReader->name === 'result') {
     $node = atos_esuite_map_node($type, $xmlReader->readOuterXml());
     if ($node) {
       $context['results'][] = $node->type . ': ' . $node->title . ' [nid:' . $node->nid . ']';
     }
-
     $xmlReader->next('result');
-    $i++;
   }
 
   $context['finished'] = 1;

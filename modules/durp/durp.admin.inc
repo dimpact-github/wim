@@ -63,16 +63,12 @@ function _durp_batch_run(&$context) {
 // move to the first <product /> node
   while ($xmlReader->read() && $xmlReader->name !== 'Dossier');
 
-  $i = 0;
-  while ($xmlReader->name === 'Dossier' && $i < 5) {
-    $node = _durp_map_node($xmlReader->getAttribute('Id'), $xmlReader->readOuterXml(), TRUE);
+  while ($xmlReader->name === 'Dossier') {
+    $node = _durp_map_node($xmlReader->getAttribute('Id'), $xmlReader->readOuterXml());
     if ($node) {
       $context['results'][] = $node->title . ' [nid:' . $node->nid . ']';
     }
-
-    // go to next <product />
     $xmlReader->next('Dossier');
-    $i++;
   }
 
   $context['finished'] = 1;
