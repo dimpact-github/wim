@@ -112,6 +112,8 @@ projects[workbench_moderation][subdir] = contrib
 projects[wysiwyg][subdir] = contrib
 projects[galleryformatter][subdir] = contrib
 projects[lightbox2][subdir] = contrib
+projects[subscriptions][subdir] = contrib
+projects[mail_edit][subdir] = contrib
 
 ; Themes
 projects[] = rijkshuisstijl
