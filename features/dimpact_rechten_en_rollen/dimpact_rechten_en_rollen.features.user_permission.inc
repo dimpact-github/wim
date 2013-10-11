@@ -94,6 +94,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access contextual links',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'contextual',
   );
@@ -177,6 +178,8 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access workbench',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'workbench',
   );
@@ -520,6 +523,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer quicktabs',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'quicktabs',
   );
@@ -681,6 +685,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'path',
   );
 
+  // Exported permission: 'administer user subscriptions'.
+  $permissions['administer user subscriptions'] = array(
+    'name' => 'administer user subscriptions',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'subscriptions',
+  );
+
   // Exported permission: 'administer users'.
   $permissions['administer users'] = array(
     'name' => 'administer users',
@@ -732,6 +745,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'bulk-administer user subscriptions'.
+  $permissions['bulk-administer user subscriptions'] = array(
+    'name' => 'bulk-administer user subscriptions',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'subscriptions',
   );
 
   // Exported permission: 'bypass file access'.
@@ -2920,6 +2942,54 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'location',
   );
 
+  // Exported permission: 'subscribe to all content types'.
+  $permissions['subscribe to all content types'] = array(
+    'name' => 'subscribe to all content types',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'subscriptions',
+  );
+
+  // Exported permission: 'subscribe to content'.
+  $permissions['subscribe to content'] = array(
+    'name' => 'subscribe to content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'subscriptions',
+  );
+
+  // Exported permission: 'subscribe to content types'.
+  $permissions['subscribe to content types'] = array(
+    'name' => 'subscribe to content types',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'subscriptions',
+  );
+
+  // Exported permission: 'suspend own subscriptions'.
+  $permissions['suspend own subscriptions'] = array(
+    'name' => 'suspend own subscriptions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'subscriptions',
+  );
+
   // Exported permission: 'switch shortcut sets'.
   $permissions['switch shortcut sets'] = array(
     'name' => 'switch shortcut sets',
@@ -3382,6 +3452,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'system',
   );
