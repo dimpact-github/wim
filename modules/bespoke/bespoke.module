@@ -62,6 +62,21 @@ function bespoke_page_alter(&$page) {
   if (dominion_has_function('googleanalytics') && module_exists('googleanalytics')) {
     googleanalytics_page_alter($page);
   }
+
+  // if on node and on subscribe, hide the node content
+  if (arg(0) == 'node' && arg(2) == 'subscribe') {
+    $page['content']['system_main']['nodes'][arg(1)]['body'][0]['#markup'] = '';
+  }
+
+}
+
+/**
+ * Implements hook_form_alter
+ */
+function bespoke_form_subscriptions_ui_node_form_alter(&$form, &$form_state) {
+  if (arg(0) == 'node' && arg(2) == 'subscribe') {
+    unset($form['wrapper']['#type']);
+  }  
 }
 
 /**
