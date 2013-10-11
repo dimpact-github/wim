@@ -19,6 +19,9 @@ nav {
     > .container > nav.block-menu,
     .block-dominion-menu,
     .block-system-main-menu {
+      ul ul ul {
+        display: none !important;
+      }
       &.fixed {
         top: 0;
         position: fixed;
@@ -246,9 +249,37 @@ body.front {
   }
 }
 .block-submenutree {
+  h2.block-title {
+    margin-bottom: 0;
+  }
   ul {
-    ul {
-      margin: 0;
+    margin: 0;
+    padding: 0;
+    > li {
+      background-color: lighten($background-color, 7%);
+      border-top: 1px solid lighten($background-color, 100%);
+      a {
+        padding: $gutter-width/3 $gutter-width/2;
+        display: block;
+      }
+      ul {
+        > li {
+          background-color: lighten($background-color, 9%);
+          a {
+            padding-left: $gutter-width*1.5;
+          }
+        }
+      }
+    }
+    a {
+      &:before {
+        font-family: FontAwesome;
+        content: "\f105\00a0";
+      }
+      &:hover {
+        background-color: lighten($background-color, 4%);
+      }
+      &.active {}
     }
   }
 }
