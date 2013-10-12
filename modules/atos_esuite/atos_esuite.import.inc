@@ -158,7 +158,7 @@ function atos_esuite_map_node($type, $documentXML, $force = FALSE) {
     if ($node->nid) {
       db_merge('atos_esuite')
         ->key(array('identifier' => $id))
-        ->fields(array('hash' => $xml_hash, 'nid' => $node->nid))
+        ->fields(array('hash' => $xml_hash, 'nid' => $node->nid, 'xml' => $documentXML, 'changed' => REQUEST_TIME))
         ->execute();
     }
 
@@ -181,7 +181,6 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
     list($tag, $label) = explode('|', $part);
     $text = $xpath->query('/result/' . $tag)->item(0)->nodeValue;
     if (preg_match('/[a-z0-9]/', $text)) {
-      dsm('voeg toe');
       $body .= '<h2>**' . check_plain($label) . '</h2>';
       $body .= $text;
     }
