@@ -172,58 +172,25 @@ function atos_esuite_map_node($type, $documentXML, $force = FALSE) {
 }
 
 function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath $xpath) {
-  $node->field_request = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/aanvraag')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
+  $body = $xpath->query('/result/beschrijving')->item(0)->nodeValue;
+
+  $parts = variable_get('atos_esuite_product_parts', '');
+  $parts = array_filter(array_unique(array_map('trim', explode("\n", $parts))));
+
+  foreach ($parts as $part) {
+    list($tag, $label) = explode('|', $part);
+    $text = $xpath->query('/result/' . $tag)->item(0)->nodeValue;
+    if (preg_match('/[a-z0-9]/', $text)) {
+      dsm('voeg toe');
+      $body .= '<h2>**' . check_plain($label) . '</h2>';
+      $body .= $text;
+    }
+  }
+
   $node->body = array(
     LANGUAGE_NONE => array(
       array(
-        'value' => $xpath->query('/result/beschrijving')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_contact = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/contact')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_objection = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/bezwaar')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_cost = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/kosten')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_particulars = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/bijzonderheden')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_term = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/termijn')->item(0)->nodeValue,
+        'value' => $body,
         'format' => 'filtered_html',
       )
     )

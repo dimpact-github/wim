@@ -45,21 +45,5 @@ function atos_esuite_node_delete($node) {
  */
 function atos_esuite_cron() {
   module_load_include('inc', 'atos_esuite', 'atos_esuite.import');
-
-  $context = array('results' => array());
-
-  _atos_esuite_batch_run('product', variable_get('atos_esuite_pdc_url', ''), $context);
-  _atos_esuite_batch_run('vac', variable_get('atos_esuite_vac_url', ''), $context);
-
-  if (count($context['results']) > 0) {
-    watchdog(
-      'atos_esuite',
-      '@num_results results processed: !results',
-      array(
-        '@num_results' => count($context['results']),
-        '!results' => theme('item_list', array('items' => $context['results']))
-      ),
-      WATCHDOG_INFO
-    );
-  }
+  atos_esuite_import_batch_start(array('product', 'vac'));
 }

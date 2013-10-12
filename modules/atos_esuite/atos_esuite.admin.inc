@@ -47,6 +47,13 @@ function atos_esuite_admin_settings_form($form, &$form_state) {
     '#description' => t('Mark process as finished after retreiving this number of empty responses. This is required because a list of all elements is not available. We iterate over the id\'s.'),
   );
 
+  $form['atos_esuite_settings']['atos_esuite_product_parts'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Product body parts'),
+    '#default_value' => variable_get('atos_esuite_product_parts', ''),
+    '#description' => t('Parts of product node body text. One part per line. Separate tagname and label with a pipe.'),
+  );
+
   return system_settings_form($form);
 }
 
