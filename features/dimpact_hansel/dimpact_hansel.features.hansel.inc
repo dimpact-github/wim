@@ -44,6 +44,7 @@ function dimpact_hansel_hansel_default() {
         'children' => array(
           0 => 11,
           1 => 12,
+          2 => 14,
         ),
       ),
       3 => array(
@@ -59,8 +60,8 @@ function dimpact_hansel_hansel_default() {
       4 => array(
         'rid' => 4,
         'pid' => 2,
-        'name' => 'node',
-        'crumb_action' => 'add link to node',
+        'name' => 'dashboard',
+        'crumb_action' => '',
         'crumb_action_arguments' => array(),
         'action' => 'leave',
         'restore' => FALSE,
@@ -68,6 +69,16 @@ function dimpact_hansel_hansel_default() {
       ),
       5 => array(
         'rid' => 5,
+        'pid' => 2,
+        'name' => 'node',
+        'crumb_action' => 'add link to node',
+        'crumb_action_arguments' => array(),
+        'action' => 'leave',
+        'restore' => FALSE,
+        'children' => array(),
+      ),
+      6 => array(
+        'rid' => 6,
         'pid' => 1,
         'name' => 'team',
         'crumb_action' => 'add parent subsites',
