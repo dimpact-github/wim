@@ -15,7 +15,7 @@ function atos_esuite_import_batch_start($types) {
     'error_message' => t('Batch has encountered an error.'),
     'file' => drupal_get_path('module', 'atos_esuite') . '/atos_esuite.import.inc',
   );
-  $batch['operations'][] = array('atos_esuite_import_batch_worker', array($types));
+  $batch['operations'][] = array('atos_esuite_import_batch_worker', array());
   batch_set($batch);
 
   if (function_exists('drush_backend_batch_process')) {
@@ -31,7 +31,7 @@ function atos_esuite_import_batch_start($types) {
  * @param array $types
  * @param array $context
  */
-function atos_esuite_import_batch_worker($types, &$context) {
+function atos_esuite_import_batch_worker(&$context) {
   if (empty($context['sandbox'])) {
     $context['sandbox']['done'] = 0;
     $context['sandbox']['max'] = variable_get('atos_esuite_finish_margin', 250);
@@ -39,17 +39,14 @@ function atos_esuite_import_batch_worker($types, &$context) {
     $context['sandbox']["last_found"] = 0;
   }
 
-  foreach ($types as $type) {
-    $url = variable_get('atos_esuite_url', '');
-    $query = array(
-      'type' => $type,
-      'id' => implode(',', range($context['sandbox']["last"] + 1, $context['sandbox']["last"] + variable_get('atos_esuite_chunk_size', 10))),
-    );
-    $url = "$url?" . http_build_query($query, '', '&');
-    list($done, $errors, $last_atos_id) = _atos_esuite_process_feed($type, $url);
-    $context['sandbox']['done'] += $done;
-    $context['sandbox']["last_found"] = max($context['sandbox']["last_found"], $last_atos_id);
-  }
+  $url = variable_get('atos_esuite_url', '');
+  $query = array(
+    'id' => implode(',', range($context['sandbox']["last"] + 1, $context['sandbox']["last"] + variable_get('atos_esuite_chunk_size', 10))),
+  );
+  $url = "$url?" . http_build_query($query, '', '&');
+  list($done, $errors, $last_atos_id) = _atos_esuite_process_feed($url);
+  $context['sandbox']['done'] += $done;
+  $context['sandbox']["last_found"] = max($context['sandbox']["last_found"], $last_atos_id);
   $context['sandbox']["last"] += variable_get('atos_esuite_chunk_size', 10);
 
   $context['message'] = t('Imported @count items.', array(
@@ -74,12 +71,11 @@ function atos_esuite_import_batch_finished($success, array $results, array $oper
 /**
  * Request url and process items.
  *
- * @param string $type 'product' or 'vac'
  * @param string $url
  * @return array
  *   array(int $done, int $errors, int $last_atos_id)
  */
-function _atos_esuite_process_feed($type, $url) {
+function _atos_esuite_process_feed($url) {
   $xmlReader = new XMLReader;
   $xmlReader->open($url);
 
@@ -93,7 +89,7 @@ function _atos_esuite_process_feed($type, $url) {
 
   while ($xmlReader->name === 'result') {
     try {
-      $atos_id = atos_esuite_map_node($type, $xmlReader->readOuterXml());
+      $atos_id = atos_esuite_map_node($xmlReader->readOuterXml());
       ++$imported;
       $last_atos_id = max($last_atos_id, $atos_id);
     }
@@ -114,15 +110,31 @@ function _atos_esuite_process_feed($type, $url) {
  * @param bool $force Force saving node
  * @return object Node object
  */
-function atos_esuite_map_node($type, $documentXML, $force = FALSE) {
+function atos_esuite_map_node($documentXML, $force = FALSE) {
   $xml_hash = md5($documentXML);
   $documentDOM = new DOMDocument;
   $documentDOM->loadXML($documentXML);
   $xpath = new DOMXPath($documentDOM);
 
+  $xml_type = $xpath->query('/result/type')->item(0)->nodeValue;
+  switch ($xml_type) {
+    case 'Product':
+      $type = 'product';
+      break;
+    case 'Vraag/Antwoord Combinatie':
+      $type = 'vac';
+      break;
+    default:
+      return FALSE;
+  }
+
   $atos_id = $xpath->query('/result/id')->item(0)->nodeValue;
   $id = "$type-$atos_id";
   if ($id) {
+    if ($type == 'product' && strstr($documentXML, '<type>Vraag/Antwoord Combinatie</type>')) {
+      return FALSE;
+    }
+
     // Get the current version from the database.
     $current = db_select('atos_esuite', 'a')
       ->fields('a', array('identifier', 'hash', 'nid'))
@@ -148,7 +160,6 @@ function atos_esuite_map_node($type, $documentXML, $force = FALSE) {
     $node->title = $xpath->query('/result/title')->item(0)->nodeValue;
     $node->created = $xpath->query('/result/created')->item(0)->nodeValue;
     $node->changed = $xpath->query('/result/changed')->item(0)->nodeValue;
-
     $callback = 'atos_esuite_map_node_' . $type;
     $callback($node, $documentDOM, $xpath);
 
@@ -201,14 +212,6 @@ function atos_esuite_map_node_vac($node, $documentDOM, $xpath) {
     LANGUAGE_NONE => array(
       array(
         'value' => $xpath->query('/result/antwoord')->item(0)->nodeValue,
-        'format' => 'filtered_html',
-      )
-    )
-  );
-  $node->field_explanation = array(
-    LANGUAGE_NONE => array(
-      array(
-        'value' => $xpath->query('/result/toelichting')->item(0)->nodeValue,
         'format' => 'filtered_html',
       )
     )
