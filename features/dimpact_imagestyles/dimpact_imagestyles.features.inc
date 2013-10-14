@@ -25,7 +25,7 @@ function dimpact_imagestyles_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 360,
+          'width' => 363,
           'height' => 125,
         ),
         'weight' => 1,
