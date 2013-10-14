@@ -31,7 +31,7 @@ function dimpact_text_formats_filter_default_formats() {
         ),
       ),
       'inlinetabs' => array(
-        'weight' => 0,
+        'weight' => 50,
         'status' => 1,
         'settings' => array(),
       ),
@@ -86,7 +86,7 @@ function dimpact_text_formats_filter_default_formats() {
         ),
       ),
       'inlinetabs' => array(
-        'weight' => -44,
+        'weight' => 50,
         'status' => 1,
         'settings' => array(),
       ),
