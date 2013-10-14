@@ -1,9 +1,5 @@
 @import "libraries/normalize/normalize";
-//@import "base-theme";
 @import "drupal/system";
-
-// Box Sizing with Polyfill
-//------------------------------------------------------------------------------
 
 * {
   @include box-sizing(border-box);
@@ -32,9 +28,6 @@ img {
 nav {
   ol, ul {
     @extend .clearfix;
-    //margin: 0;
-    //list-style: none;
-    //padding: 0;
   }
 }
 
@@ -42,12 +35,5 @@ nav {
 .item-list {
   ul, ol {
     margin: 0;
-    //list-style-type: square;
-    //padding: 0 0 0 $gutter-width;
-    li {
-      //background: url("../img/arrow.png") no-repeat scroll left 6px transparent;
-      //margin-bottom: 0.5em;
-      //padding-left: 11px;
-    }
   }
 }

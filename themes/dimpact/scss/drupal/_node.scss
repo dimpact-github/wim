@@ -55,6 +55,13 @@
       @include font-size(15);
       margin: 0 0 $gutter-width/2 0;
     }
+    .field-body {
+      img {
+        float: left;
+        margin-right: $gutter-width/2;
+        margin-bottom: $gutter-width/2;
+      }
+    }
   }
   #{headings()} {
     margin-bottom: 0.75em;

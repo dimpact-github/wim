@@ -65,5 +65,14 @@ $break-large: 12;
     .region_footer_third {
       @include span-columns(4 omega, $break-large);
     }
+
+    .view-voorpagina-banners {
+      .views-row {
+        @include span-columns(6, $break-large);
+        &:nth-child(2n) {
+          @include omega;
+        }
+      }
+    }
   //}
 //}
