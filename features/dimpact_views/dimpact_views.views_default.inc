@@ -1706,6 +1706,134 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_AC
   $export['personen'] = $view;
 
   $view = new view();
+  $view->name = 'profiel';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Profiel';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'meer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Veld: Gebruiker: Interne applicaties */
+  $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['label'] = '';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_interne_applicaties']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field_api_classes'] = TRUE;
+  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextueel filter: Gebruiker: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'user';
+  $handler->display->display_options['arguments']['uid']['default_argument_options']['user'] = FALSE;
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  /* Filtercriterium: Gebruiker: Actief */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Interne applicatiesblok */
+  $handler = $view->new_display('block', 'Interne applicatiesblok', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Interne applicaties';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Interne applicaties */
+  $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['label'] = '';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_interne_applicaties']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field_api_classes'] = TRUE;
+
+  /* Display: Websitesblok */
+  $handler = $view->new_display('block', 'Websitesblok', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Websites';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Websites */
+  $handler->display->display_options['fields']['field_websites']['id'] = 'field_websites';
+  $handler->display->display_options['fields']['field_websites']['table'] = 'field_data_field_websites';
+  $handler->display->display_options['fields']['field_websites']['field'] = 'field_websites';
+  $handler->display->display_options['fields']['field_websites']['label'] = '';
+  $handler->display->display_options['fields']['field_websites']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_websites']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_websites']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_websites']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_websites']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_websites']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_websites']['field_api_classes'] = TRUE;
+  $translatables['profiel'] = array(
+    t('Master'),
+    t('meer'),
+    t('Toepassen'),
+    t('Opnieuw instellen'),
+    t('Sorteren op'),
+    t('Oplopend'),
+    t('Aflopend'),
+    t('Items per pagina'),
+    t('- Alle -'),
+    t('Startpunt'),
+    t('« eerste'),
+    t('‹ vorige'),
+    t('volgende ›'),
+    t('laatste »'),
+    t('Alle'),
+    t('Interne applicatiesblok'),
+    t('Interne applicaties'),
+    t('Websitesblok'),
+    t('Websites'),
+  );
+  $export['profiel'] = $view;
+
+  $view = new view();
   $view->name = 'rss_feeds';
   $view->description = '';
   $view->tag = 'default';
