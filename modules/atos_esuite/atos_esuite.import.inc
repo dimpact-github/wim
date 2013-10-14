@@ -76,8 +76,29 @@ function atos_esuite_import_batch_finished($success, array $results, array $oper
  *   array(int $done, int $errors, int $last_atos_id)
  */
 function _atos_esuite_process_feed($url) {
+  if (!strstr($url, '://')) {
+    $filename = $url;
+  }
+  else {
+    // Given URI is an URL, download this file first.
+    $filename = 'temporary://import_' . md5(time() . $url) . '.xml';
+    if (!$data = drupal_http_request($url)) {
+      return FALSE;
+    }
+    if ($data->code != 200) {
+      return FALSE;
+    }
+    if (!$fp = fopen($filename, 'w')) {
+      return FALSE;
+    }
+    fwrite($fp, $data->data);
+    fclose($fp);
+    // Sleep 1s to wait for filesystem
+    sleep(1);
+  }
+
   $xmlReader = new XMLReader;
-  $xmlReader->open($url);
+  $xmlReader->open($filename);
 
   $imported = 0;
   $errors = 0;
@@ -98,6 +119,8 @@ function _atos_esuite_process_feed($url) {
     }
     $xmlReader->next('result');
   }
+
+  unlink($filename);
 
   return array($imported, $errors, $last_atos_id);
 }
