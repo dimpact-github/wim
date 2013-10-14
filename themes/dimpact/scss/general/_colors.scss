@@ -31,6 +31,11 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     .block-search {
       background-color: $colourlight;
     }
+    #search-form {
+      input[type="text"] {
+        //border: 5px solid $colourlight;;
+      }
+    }
     nav {
       &.main-menu {
         > .container > nav.block-menu,
