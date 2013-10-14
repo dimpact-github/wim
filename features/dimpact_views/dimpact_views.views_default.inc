@@ -618,7 +618,7 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relatie: Flags: favorieten */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
@@ -632,6 +632,8 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Sorteercriterium: Flags: Flagged time */
   $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['table'] = 'flagging';
@@ -698,7 +700,7 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relatie: Feeds item: Owner feed */
   $handler->display->display_options['relationships']['feed_nid']['id'] = 'feed_nid';
@@ -711,6 +713,8 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Sorteercriterium: Inhoud: Datum van inzending */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1074,7 +1078,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'field_category_marketplace',
@@ -1090,6 +1094,8 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Category */
   $handler->display->display_options['fields']['field_category_marketplace']['id'] = 'field_category_marketplace';
   $handler->display->display_options['fields']['field_category_marketplace']['table'] = 'field_data_field_category_marketplace';
