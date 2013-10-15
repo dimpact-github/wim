@@ -1142,6 +1142,183 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+
+  /* Display: Marktplaats gevraagd blok */
+  $handler = $view->new_display('block', 'Marktplaats gevraagd blok', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Marktplaats';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_category_marketplace',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats/gevraagd">Meer gevraagd </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'marketplace' => 'marketplace',
+  );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+
+  /* Display: Marktplaats aangeboden blok */
+  $handler = $view->new_display('block', 'Marktplaats aangeboden blok', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Marktplaats';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_category_marketplace',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats/aangeboden">Meer aangeboden </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'marketplace' => 'marketplace',
+  );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['value'] = array(
+    2 => '2',
+  );
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+
+  /* Display: Marktplaats gevraagd page */
+  $handler = $view->new_display('block', 'Marktplaats gevraagd page', 'block_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Marktplaats';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '3';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_category_marketplace',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
 global $user;
 if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
@@ -1149,6 +1326,110 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_AC
 }
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'marketplace' => 'marketplace',
+  );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+
+  /* Display: Marktplaats aangeboden page */
+  $handler = $view->new_display('block', 'Marktplaats aangeboden page', 'block_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Marktplaats';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '3';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_category_marketplace',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'marketplace' => 'marketplace',
+  );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['value'] = array(
+    2 => '2',
+  );
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
   $translatables['marktplaats'] = array(
     t('Master'),
     t('meer'),
@@ -1159,12 +1440,44 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_AC
     t('Aflopend'),
     t('Marktplaats lijstblok'),
     t('Marktplaats'),
+    t('<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Marktplaats gevraagd blok'),
+    t('<span class="more-link"><a href="/actueel/marktplaats/gevraagd">Meer gevraagd </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Marktplaats aangeboden blok'),
+    t('<span class="more-link"><a href="/actueel/marktplaats/aangeboden">Meer aangeboden </a></span>
+<?php
+global $user;
+if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
+ print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Marktplaats gevraagd page'),
+    t('Items per pagina'),
+    t('- Alle -'),
+    t('Startpunt'),
+    t('« eerste'),
+    t('‹ vorige'),
+    t('volgende ›'),
+    t('laatste »'),
     t('<?php
 global $user;
 if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_ACCESS_DENY) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
+    t('Marktplaats aangeboden page'),
   );
   $export['marktplaats'] = $view;
 
