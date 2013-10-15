@@ -31,15 +31,6 @@ function gvop_menu() {
 }
 
 /**
- * Implements hook_node_delete().
- */
-function gvop_node_delete($node) {
-  if ($node->type == 'announcement') {
-    db_delete('gvop')->condition('nid', $node->nid)->execute();
-  }
-}
-
-/**
  * Implements hook_cron().
  */
 function gvop_cron() {
@@ -50,11 +41,11 @@ function gvop_cron() {
   foreach ($gvop_info as $type_info) {
     // Get count
     $dom = _gvop_retrieve_dom($type_info, 0, 1, array($modified_str));
-    $num_results = (int)$dom->getElementsByTagName('numberOfRecords')->item(0)->nodeValue;
+    $num_results = (int) $dom->getElementsByTagName('numberOfRecords')->item(0)->nodeValue;
     $i = 0;
 
     while ($i < $num_results) {
-      $dom = _gvop_retrieve_dom($type_info, $i, variable_get('gvop_limit', 100), array($modified_str));
+      $dom = _gvop_retrieve_dom($type_info, $i, variable_get('gvop_limit', 20), array($modified_str));
       $xpath = new DOMXPath($dom);
       $records = $dom->getElementsByTagName("gzd");
 
@@ -84,7 +75,7 @@ function _gvop_build_uri($type_info, $start, $limit, $params = array()) {
     'startRecord' => $start,
     'maximumRecords' => $limit,
     'query' =>
-    'creator==' . variable_get('gvop_creator', 'amsterdam')
+    'creator==' . variable_get('gvop_creator', '')
   );
   foreach ($type_info['query'] as $key => $value) {
     $query['query'] .= ' and ' . $key . '==' . $value;
@@ -104,14 +95,14 @@ function _gvop_build_uri($type_info, $start, $limit, $params = array()) {
  */
 function _gvop_retrieve_dom($type_info, $start, $limit, $params = array()) {
   $uri = _gvop_build_uri($type_info, $start, $limit, $params);
-  drupal_set_message($uri);
-  $content = drupal_http_request($uri);
-
-  // @todo, add error reporting for HTTP request and Diagnose response
-
-  $dom = new DOMDocument();
-  $dom->loadXML($content->data);
-
+  $data = drupal_http_request($uri);
+  if ($data->code != 200) {
+    // @todo, add error reporting for HTTP request and Diagnose response
+  }
+  else {
+    $dom = new DOMDocument();
+    $dom->loadXML($data->data);
+  }
   return $dom;
 }
 
@@ -152,7 +143,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
     $node = new stdClass();
     $node->uid = 1;
     $node->created = $modified;
-    $node->type = 'announcement';
+    $node->type = $type_info['nodetype'];
   }
 
   // Set common info.
@@ -166,12 +157,24 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   node_save($node);
 
   // Add to the GVOP table for hash checking and identifying.
-  db_delete('gvop')
-    ->condition('identifier', $identifier)
-    ->execute();
-  db_insert('gvop')
-    ->fields(array('identifier' => $identifier, 'hash' => $xml_hash, 'nid' => $node->nid))
+  db_merge('gvop')
+    ->key(array('identifier' => $identifier))
+    ->fields(array('hash' => $xml_hash, 'nid' => $node->nid, 'xml' => $xml, 'changed' => REQUEST_TIME))
     ->execute();
 
   return $node;
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function gvop_node_delete($node) {
+  $nodetypes = array();
+  $gvop_info = module_invoke_all('gvop_info');
+  foreach ($gvop_info as $type_info) {
+    $nodetypes[] = $type_info['nodetype'];
+  }
+  if (in_array($node->type, $nodetypes)) {
+    db_delete('gvop')->condition('nid', $node->nid)->execute();
+  }
 }

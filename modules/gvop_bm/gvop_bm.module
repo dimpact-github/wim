@@ -8,6 +8,7 @@ function gvop_bm_gvop_info() {
       'type' => 'bm',
       'callback' => 'gvop_bm_map',
       'query' => array(),
+      'nodetype' => 'announcement',
     ),
   );
 }
@@ -20,8 +21,6 @@ function gvop_bm_gvop_info() {
  * @param DOMXPath $xpath
  */
 function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
-  $node->type = 'announcement';
-
   // Body tekst.
   $node->body = array(
     LANGUAGE_NONE => array(

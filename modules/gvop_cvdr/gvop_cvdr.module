@@ -9,7 +9,8 @@ function gvop_cvdr_gvop_info() {
       'callback' => 'gvop_cvdr_map',
       'query' => array(
         'type' => 'regeling',
-      )
+      ),
+      'nodetype' => 'regulation',
     ),
   );
 }
@@ -22,35 +23,37 @@ function gvop_cvdr_gvop_info() {
  * @param DOMXPath $xpath
  */
 function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
-  $node->type = 'regulation';
-
   // Date fields.
-  if (($issuedNode = $xpath->query('.//dcterms:issued', $record)->item(0)) && trim($issuedNode->nodeValue) != '') {
-    $node->field_reg_issued = array(
-      LANGUAGE_NONE => array(array('value' => $issuedNode->nodeValue))
-    );
+  $mapping = array(
+    './/dcterms:issued' => 'field_reg_issued',
+    './/overheidrg:inwerkingtredingDatum' => 'field_date_elaboration',
+    './/overheidrg:uitwerkingtredingDatum' => 'field_date_recall',
+    './/overheidrg:terugwerkendekrachtDatum' => 'field_date_retroactively',
+  );
+  foreach ($mapping as $query => $field) {
+    if (($item = $xpath->query($query, $record)->item(0)) && trim($item->nodeValue) != '') {
+      $node->$field = array(
+        LANGUAGE_NONE => array(array('value' => $item->nodeValue)),
+      );
+    }
   }
 
   // Text fields.
-  if (($introNode = $xpath->query('.//dcterms:subject', $record)->item(0)) && !empty($introNode->nodeValue)) {
-    $node->field_intro = array(
-      LANGUAGE_NONE => array(array('value' => $introNode->nodeValue))
-    );
+  $mapping = array(
+    './/dcterms:subject' => 'field_intro',
+    './/dcterms:isRatifiedBy' => 'field_ratified_by',
+    './/overheidrg:betreft' => 'field_concerning',
+    './/overheidrg:kenmerk' => 'field_characteristic',
+    './/overheidrg:onderwerp' => 'field_subject',
+  );
+  foreach ($mapping as $query => $field) {
+    if (($item = $xpath->query($query, $record)->item(0)) && !empty($item->nodeValue)) {
+      $node->$field = array(
+        LANGUAGE_NONE => array(array('value' => drupal_substr($item->nodeValue, 0, 255))),
+      );
+    }
   }
-  $node->field_ratified_by = array(
-    LANGUAGE_NONE => array(array('value' => $xpath->query('.//dcterms:isRatifiedBy', $record)->item(0)->nodeValue))
-  );
-  $node->field_reg_concerning = array(
-    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:betreft', $record)->item(0)->nodeValue))
-  );
-  $node->field_reg_characteristic = array(
-    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:kenmerk', $record)->item(0)->nodeValue))
-  );
-  $node->field_reg_subject = array(
-    LANGUAGE_NONE => array(array('value' => $xpath->query('.//overheidrg:onderwerp', $record)->item(0)->nodeValue))
-  );
 
-  // Text fields with format.
   $node->field_red_addition = array(
     LANGUAGE_NONE => array(
       array(
@@ -75,8 +78,9 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
   $xpath->registerNamespace('ns1', "http://standaarden.overheid.nl/sru");
   $pubUrl = $xpath->query('.//ns1:publicatieurl_xml', $record)->item(0)->nodeValue;
   if ($pubUrl) {
-    $pubXML = file_get_contents($pubUrl);
-    if ($pubXML) {
+    $data = drupal_http_request($pubUrl);
+    if ($data->code == 200) {
+      $pubXML = $data->data;
       $pubDOM = new DOMDocument;
       $pubDOM->loadXML($pubXML);
       $regeling = $pubDOM->getElementsByTagName('regeling')->item(0);

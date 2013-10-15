@@ -29,13 +29,13 @@ function gvop_admin_settings_form($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => t('Creator'),
     '#description' => t('For example "amsterdam"'),
-    '#default_value' => variable_get('gvop_creator', 'amsterdam'),
+    '#default_value' => variable_get('gvop_creator', ''),
   );
   $form['gvop_settings']['gvop_limit'] = array(
     '#type' => 'textfield',
     '#title' => t('Limit'),
-    '#description' => t('For example "100"'),
-    '#default_value' => variable_get('gvop_limit', 100),
+    '#description' => t('For example "20"'),
+    '#default_value' => variable_get('gvop_limit', 20),
   );
 
   return system_settings_form($form);
@@ -63,30 +63,25 @@ function gvop_batch_run_all_submit($form, &$form_state) {
  * Callback for GVOP Batch.
  */
 function _gvop_batch_run($type_info, &$context) {
-  // Setup Sandbox data.
   if (!isset($context['sandbox']['progress'])) {
     $context['sandbox']['progress'] = 0;
-    $dom = _gvop_retrieve_dom($type_info, 0, 1);
-    $context['sandbox']['max'] = (int)$dom->getElementsByTagName('numberOfRecords')->item(0)->nodeValue;
   }
 
-  $dom = _gvop_retrieve_dom($type_info, $context['sandbox']['progress'], variable_get('gvop_limit', 100));
+  $limit = variable_get('gvop_limit', 20);
+  $dom = _gvop_retrieve_dom($type_info, $context['sandbox']['progress'], $limit);
   $xpath = new DOMXPath($dom);
+  $context['sandbox']['max'] = (int) $dom->getElementsByTagName('numberOfRecords')->item(0)->nodeValue;
   $records = $dom->getElementsByTagName("gzd");
-
   foreach ($records as $record) {
     $context['message'] = t('Now processing !current / !max', array('!current' => $context['sandbox']['progress'], '!max' => $context['sandbox']['max']));
     $context['sandbox']['progress']++;
-
     $node = _gvop_map_node($type_info, $record, $xpath);
-    if ($node) {
-      $context['results'][] = $node->type . ': ' . $node->title . ' [nid:' . $node->nid . ']';
-    }
   }
 
   // Inform the batch engine that we are not finished,
   // and provide an estimation of the completion level we reached.
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['results']['count'] = $context['sandbox']['progress'];
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }
 }
@@ -95,19 +90,7 @@ function _gvop_batch_run($type_info, &$context) {
  * Batch 'finished' callback
  */
 function _gvop_batch_run_finished($success, $results, $operations) {
-  if ($success) {
-    $message = count($results) .' results processed:';
-    $message .= theme('item_list', array('items' => $results));
-    drupal_set_message($message);
-  }
-  else {
-    // An error occurred.
-    // $operations contains the operations that remained unprocessed.
-    $error_operation = reset($operations);
-    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array(
-      '%error_operation' => $error_operation[0],
-      '@arguments' => print_r($error_operation[1], TRUE)
-    ));
-    drupal_set_message($message, 'error');
+  if (isset($results['count'])) {
+    drupal_set_message(format_plural($results['count'], '1 node imported successfully. ', '@count nodes imported.'));
   }
 }
