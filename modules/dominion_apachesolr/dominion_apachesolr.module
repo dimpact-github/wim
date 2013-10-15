@@ -61,6 +61,18 @@ function dominion_apachesolr_apachesolr_query_alter($query) {
 
   if ($subsite = dominion_get_info() && isset($subsite->search_domains)) {
     $search_domains = $subsite->search_domains;
+
+    $ids = db_select('domain', 'd')
+      ->fields('d', array('domain_id'))
+      ->condition('d.subdomain', $subsite->subdomain)
+      ->condition('d.dominion_directory', $subsite->directory ? $subsite->directory . '/' : '%', 'LIKE')
+      ->execute()
+      ->fetchCol();
+    foreach ($ids as $id) {
+      if (!in_array($id, $search_domains)) {
+        $search_domains[] = $id;
+      }
+    }
   }
   else {
     $search_domains = variable_get(DOMINION_APACHESOLR_VAR_MAIN_SEARCH_DOMAINS, array());
