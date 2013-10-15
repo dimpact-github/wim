@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Pathauto feature.
+ */
+
+include_once 'dimpact_pathauto.features.inc';
