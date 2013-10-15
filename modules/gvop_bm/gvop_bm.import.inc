@@ -98,11 +98,10 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   // Datum
   $date = $xpath->query('.//dcterms:temporal/*', $record)->item(0)->nodeValue;
-  $node->field_add_to_calendar = array(
+  $node->field_date = array(
     LANGUAGE_NONE => array(array('value' => $date))
   );
 }
-
 
 function _gvop_bm_geo_request($address) {
   // @todo, add caching for requests.
