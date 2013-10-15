@@ -60,20 +60,3 @@ prorail.nl/trillingen
 Wanneer de bezoeker deze URL gebruikt zullen ze automatisch worden doorverwezen naar de primaire URL (de alias).
 
 Het is mogelijk om speciale tekens te gebruiken in de URL alias. Echter raden we het gebruik daarvan sterk af. In veel browsers worden deze getoond met een andere codering (een apostrof wordt bijvoorbeeld "\%E2\%80\%89"). Aanbevolen wordt om de tekens te beperken tot alfanumeriek (a t/m z en 0 t/m 9) en afbreekstreepjes. Het gebruik van hoofdletters is ook niet gebruikelijk in URL's.
-
-Voor project nodes wordt geen alias gebruikt\seeone{projecttoevoegen}.
-
-\subsubsection{Redirects}\label{redirect}
-\pvelist{ \pve{2.6.3}, \pve{3.3.7} }
-Verkorte URL's en andere alternatieve URL's kunnen ingesteld worden als zogenoemde \emph{redirect} (ook wel: omleiding). Hierbij wordt de bezoeker automatisch doorverwezen naar een andere pagina. Bijv. \texttt{\customerdomain /jaarverslag} kan dan doorverwijzen naar \texttt{\customerdomain /pers/jaarverslag-2013}. Dit kan gebruikt worden om verkorte URL's te maken of om paden die niet meer in gebruik zijn naar een zinvol alternatief te verwijzen.
-
-Ga naar \emph{Instellingen} $\rightarrow$ \emph{URL-omleidingen} om redirects te beheren. Deze pagina is ook direct toegankelijk op \drupalpath{admin/config/search/redirect}. Op deze pagina is een lijst van bestaande redirects te vinden. Klik op \emph{Omleiding toevoegen} om een nieuwe redirect aan te maken.
-\begin{enumerate}
-\item Vul een pad in dat zal worden omgeleid naar een andere pagina, bijv. \texttt{jaarverslag}. De doelgroep wordt niet meegenomen in het pad.
-\item Vul een pad of URL in waar de gebruiker naartoe verwezen moet worden. Dit kan bijvoorbeeld \texttt{jaarverslag-2013} zijn maar ook een volledige URL zoals \texttt{http://www.google.nl/}. Let erop dat bij de interne paden de doelgroep niet wordt meegenomen!
-\item Klik op \emph{Opslaan}.
-\end{enumerate}
-
-Op het overzicht van omleidingen is ook een tab beschikbaar met de tekst \emph{Verhelp 404 pagina's}. Deze pagina toont een lijst met bezochte paden waarom geen pagina of URL-omleiding aanwezig is. Het is aan te bevelen om redirects te maken van deze paden.
-
-De redirects zullen ook worden gebruikt om paden van de oude website door te verwijzen naar dezelfde pagina op de nieuwe site.
