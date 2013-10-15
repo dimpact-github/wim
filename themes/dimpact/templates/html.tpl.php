@@ -3,6 +3,8 @@
   <head>
     <?php print $head; ?>
     <title><?php print $head_title; ?></title>
+    <link rel="dns-prefetch" href="//themes.googleusercontent.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <?php print $styles; ?>
     <?php print $scripts; ?>
     <!--[if lt IE 9]>
