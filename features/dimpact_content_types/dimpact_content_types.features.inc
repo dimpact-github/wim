@@ -118,7 +118,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'regulation' => array(
-      'name' => t('Regulation'),
+      'name' => t('Regeling'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
