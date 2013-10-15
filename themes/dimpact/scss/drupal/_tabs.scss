@@ -22,7 +22,7 @@ ul.tabs {
   list-style: none;
 }
 
-.tabs li {
+.tabs > li {
   float: left;
   //height: 32px;
   margin-bottom: 0;
