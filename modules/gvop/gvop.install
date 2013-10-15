@@ -52,5 +52,4 @@ function gvop_schema() {
 function gvop_uninstall() {
   variable_del('gvop_creator');
   variable_del('gvop_limit');
-  variable_del('gvop_cron_last_run');
 }
