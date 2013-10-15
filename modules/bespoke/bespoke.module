@@ -113,3 +113,16 @@ function bespoke_get_term_id($name, $voc_name) {
 
   return $term;
 }
+
+/**
+ * Implements hook_apachesolr_search_page_alter().
+ *
+ * Only show suggestions when current search does not contain results.
+ */
+function bespoke_apachesolr_search_page_alter(array &$build, array $search_page) {
+  if (isset($build['suggestions'])) {
+    if (substr($build['search_results']['#markup'], 0, 3) != '<ul') {
+      unset($build['suggestions']);
+    }
+  }
+}
