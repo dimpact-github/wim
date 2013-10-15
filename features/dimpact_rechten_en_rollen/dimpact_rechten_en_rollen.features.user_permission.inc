@@ -154,6 +154,17 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'access site map'.
+  $permissions['access site map'] = array(
+    'name' => 'access site map',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'site_map',
+  );
+
   // Exported permission: 'access site reports'.
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
@@ -364,15 +375,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'flag',
   );
 
-  // Exported permission: 'administer gvop settings'.
-  $permissions['administer gvop settings'] = array(
-    'name' => 'administer gvop settings',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'gvop',
-  );
-
   // Exported permission: 'administer hansel'.
   $permissions['administer hansel'] = array(
     'name' => 'administer hansel',
@@ -409,6 +411,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'locale',
   );
 
+  // Exported permission: 'administer lightbox2'.
+  $permissions['administer lightbox2'] = array(
+    'name' => 'administer lightbox2',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'lightbox2',
+  );
+
   // Exported permission: 'administer linkit'.
   $permissions['administer linkit'] = array(
     'name' => 'administer linkit',
@@ -416,6 +427,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'linkit',
+  );
+
+  // Exported permission: 'administer mail templates'.
+  $permissions['administer mail templates'] = array(
+    'name' => 'administer mail templates',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mail_edit',
   );
 
   // Exported permission: 'administer masquerade'.
@@ -969,6 +989,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'create foto_album content'.
+  $permissions['create foto_album content'] = array(
+    'name' => 'create foto_album content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create foto_album content on assigned domains'.
+  $permissions['create foto_album content on assigned domains'] = array(
+    'name' => 'create foto_album content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'create marketplace content'.
   $permissions['create marketplace content'] = array(
     'name' => 'create marketplace content',
@@ -1126,6 +1160,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'create regulation content'.
+  $permissions['create regulation content'] = array(
+    'name' => 'create regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create regulation content on assigned domains'.
+  $permissions['create regulation content on assigned domains'] = array(
+    'name' => 'create regulation content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'create rss content'.
   $permissions['create rss content'] = array(
     'name' => 'create rss content',
@@ -1136,6 +1184,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create rss content on assigned domains'.
   $permissions['create rss content on assigned domains'] = array(
     'name' => 'create rss content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'create rss_source content'.
+  $permissions['create rss_source content'] = array(
+    'name' => 'create rss_source content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create rss_source content on assigned domains'.
+  $permissions['create rss_source content on assigned domains'] = array(
+    'name' => 'create rss_source content on assigned domains',
     'roles' => array(),
     'module' => 'domain',
   );
@@ -1162,6 +1224,34 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'create spatial_plan content'.
+  $permissions['create spatial_plan content'] = array(
+    'name' => 'create spatial_plan content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create spatial_plan content on assigned domains'.
+  $permissions['create spatial_plan content on assigned domains'] = array(
+    'name' => 'create spatial_plan content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'create subject content'.
+  $permissions['create subject content'] = array(
+    'name' => 'create subject content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create subject content on assigned domains'.
+  $permissions['create subject content on assigned domains'] = array(
+    'name' => 'create subject content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'create url aliases'.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
@@ -1170,6 +1260,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'path',
+  );
+
+  // Exported permission: 'create vac content'.
+  $permissions['create vac content'] = array(
+    'name' => 'create vac content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create vac content on assigned domains'.
+  $permissions['create vac content on assigned domains'] = array(
+    'name' => 'create vac content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
   );
 
   // Exported permission: 'create webform content'.
@@ -1336,6 +1440,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any foto_album content'.
+  $permissions['delete any foto_album content'] = array(
+    'name' => 'delete any foto_album content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any image files'.
   $permissions['delete any image files'] = array(
     'name' => 'delete any image files',
@@ -1416,9 +1527,23 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any regulation content'.
+  $permissions['delete any regulation content'] = array(
+    'name' => 'delete any regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any rss content'.
   $permissions['delete any rss content'] = array(
     'name' => 'delete any rss content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any rss_source content'.
+  $permissions['delete any rss_source content'] = array(
+    'name' => 'delete any rss_source content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1430,6 +1555,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any spatial_plan content'.
+  $permissions['delete any spatial_plan content'] = array(
+    'name' => 'delete any spatial_plan content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any subject content'.
+  $permissions['delete any subject content'] = array(
+    'name' => 'delete any subject content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any vac content'.
+  $permissions['delete any vac content'] = array(
+    'name' => 'delete any vac content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1519,6 +1665,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'delete foto_album content on assigned domains'.
+  $permissions['delete foto_album content on assigned domains'] = array(
+    'name' => 'delete foto_album content on assigned domains',
+    'roles' => array(),
     'module' => 'domain',
   );
 
@@ -1644,6 +1797,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own foto_album content'.
+  $permissions['delete own foto_album content'] = array(
+    'name' => 'delete own foto_album content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own image files'.
   $permissions['delete own image files'] = array(
     'name' => 'delete own image files',
@@ -1734,9 +1894,23 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own regulation content'.
+  $permissions['delete own regulation content'] = array(
+    'name' => 'delete own regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own rss content'.
   $permissions['delete own rss content'] = array(
     'name' => 'delete own rss content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own rss_source content'.
+  $permissions['delete own rss_source content'] = array(
+    'name' => 'delete own rss_source content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1749,6 +1923,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own spatial_plan content'.
+  $permissions['delete own spatial_plan content'] = array(
+    'name' => 'delete own spatial_plan content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own subject content'.
+  $permissions['delete own subject content'] = array(
+    'name' => 'delete own subject content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own vac content'.
+  $permissions['delete own vac content'] = array(
+    'name' => 'delete own vac content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -1833,6 +2028,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'delete regulation content on assigned domains'.
+  $permissions['delete regulation content on assigned domains'] = array(
+    'name' => 'delete regulation content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'delete revisions'.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -1850,6 +2052,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'delete rss_source content on assigned domains'.
+  $permissions['delete rss_source content on assigned domains'] = array(
+    'name' => 'delete rss_source content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'delete slide content on assigned domains'.
   $permissions['delete slide content on assigned domains'] = array(
     'name' => 'delete slide content on assigned domains',
@@ -1858,6 +2067,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'domain',
+  );
+
+  // Exported permission: 'delete spatial_plan content on assigned domains'.
+  $permissions['delete spatial_plan content on assigned domains'] = array(
+    'name' => 'delete spatial_plan content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'delete subject content on assigned domains'.
+  $permissions['delete subject content on assigned domains'] = array(
+    'name' => 'delete subject content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'delete terms in announcement_type'.
+  $permissions['delete terms in announcement_type'] = array(
+    'name' => 'delete terms in announcement_type',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in faq_categories'.
@@ -1890,6 +2120,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'delete terms in spatial_plan_status'.
+  $permissions['delete terms in spatial_plan_status'] = array(
+    'name' => 'delete terms in spatial_plan_status',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in spatial_plan_type'.
+  $permissions['delete terms in spatial_plan_type'] = array(
+    'name' => 'delete terms in spatial_plan_type',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in tags'.
   $permissions['delete terms in tags'] = array(
     'name' => 'delete terms in tags',
@@ -1898,6 +2142,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete vac content on assigned domains'.
+  $permissions['delete vac content on assigned domains'] = array(
+    'name' => 'delete vac content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
   );
 
   // Exported permission: 'delete webform content on assigned domains'.
@@ -1967,6 +2218,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download original image'.
+  $permissions['download original image'] = array(
+    'name' => 'download original image',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'lightbox2',
   );
 
   // Exported permission: 'download own audio files'.
@@ -2107,6 +2367,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any foto_album content'.
+  $permissions['edit any foto_album content'] = array(
+    'name' => 'edit any foto_album content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any image files'.
   $permissions['edit any image files'] = array(
     'name' => 'edit any image files',
@@ -2187,9 +2454,23 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any regulation content'.
+  $permissions['edit any regulation content'] = array(
+    'name' => 'edit any regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any rss content'.
   $permissions['edit any rss content'] = array(
     'name' => 'edit any rss content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any rss_source content'.
+  $permissions['edit any rss_source content'] = array(
+    'name' => 'edit any rss_source content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -2201,6 +2482,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any spatial_plan content'.
+  $permissions['edit any spatial_plan content'] = array(
+    'name' => 'edit any spatial_plan content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any subject content'.
+  $permissions['edit any subject content'] = array(
+    'name' => 'edit any subject content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any vac content'.
+  $permissions['edit any vac content'] = array(
+    'name' => 'edit any vac content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -2336,6 +2638,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own foto_album content'.
+  $permissions['edit own foto_album content'] = array(
+    'name' => 'edit own foto_album content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own image files'.
   $permissions['edit own image files'] = array(
     'name' => 'edit own image files',
@@ -2437,9 +2746,23 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own regulation content'.
+  $permissions['edit own regulation content'] = array(
+    'name' => 'edit own regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own rss content'.
   $permissions['edit own rss content'] = array(
     'name' => 'edit own rss content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own rss_source content'.
+  $permissions['edit own rss_source content'] = array(
+    'name' => 'edit own rss_source content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -2452,6 +2775,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own spatial_plan content'.
+  $permissions['edit own spatial_plan content'] = array(
+    'name' => 'edit own spatial_plan content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own subject content'.
+  $permissions['edit own subject content'] = array(
+    'name' => 'edit own subject content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own vac content'.
+  $permissions['edit own vac content'] = array(
+    'name' => 'edit own vac content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -2499,6 +2843,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit terms in announcement_type'.
+  $permissions['edit terms in announcement_type'] = array(
+    'name' => 'edit terms in announcement_type',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit terms in faq_categories'.
   $permissions['edit terms in faq_categories'] = array(
     'name' => 'edit terms in faq_categories',
@@ -2526,6 +2877,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in spatial_plan_status'.
+  $permissions['edit terms in spatial_plan_status'] = array(
+    'name' => 'edit terms in spatial_plan_status',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in spatial_plan_type'.
+  $permissions['edit terms in spatial_plan_type'] = array(
+    'name' => 'edit terms in spatial_plan_type',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -3110,6 +3475,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'update foto_album content on assigned domains'.
+  $permissions['update foto_album content on assigned domains'] = array(
+    'name' => 'update foto_album content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'update marketplace content on assigned domains'.
   $permissions['update marketplace content on assigned domains'] = array(
     'name' => 'update marketplace content on assigned domains',
@@ -3177,9 +3549,23 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'update regulation content on assigned domains'.
+  $permissions['update regulation content on assigned domains'] = array(
+    'name' => 'update regulation content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'update rss content on assigned domains'.
   $permissions['update rss content on assigned domains'] = array(
     'name' => 'update rss content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update rss_source content on assigned domains'.
+  $permissions['update rss_source content on assigned domains'] = array(
+    'name' => 'update rss_source content on assigned domains',
     'roles' => array(),
     'module' => 'domain',
   );
@@ -3191,6 +3577,27 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update spatial_plan content on assigned domains'.
+  $permissions['update spatial_plan content on assigned domains'] = array(
+    'name' => 'update spatial_plan content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update subject content on assigned domains'.
+  $permissions['update subject content on assigned domains'] = array(
+    'name' => 'update subject content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update vac content on assigned domains'.
+  $permissions['update vac content on assigned domains'] = array(
+    'name' => 'update vac content on assigned domains',
+    'roles' => array(),
     'module' => 'domain',
   );
 
@@ -3388,6 +3795,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'location',
   );
 
+  // Exported permission: 'view node map'.
+  $permissions['view node map'] = array(
+    'name' => 'view node map',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'gmap_location',
+  );
+
   // Exported permission: 'view own files'.
   $permissions['view own files'] = array(
     'name' => 'view own files',
@@ -3465,6 +3881,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'view user location details'.
+  $permissions['view user location details'] = array(
+    'name' => 'view user location details',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'gmap_location',
+  );
+
   // Exported permission: 'view user location table'.
   $permissions['view user location table'] = array(
     'name' => 'view user location table',
@@ -3472,6 +3897,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'location',
+  );
+
+  // Exported permission: 'view user map'.
+  $permissions['view user map'] = array(
+    'name' => 'view user map',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'gmap_location',
   );
 
   // Exported permission: 'vote on polls'.
