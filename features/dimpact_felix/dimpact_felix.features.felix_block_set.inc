@@ -123,6 +123,9 @@ function dimpact_felix_felix_default_block_sets() {
         'nodetype' => 'editorial',
       ),
       1 => array(
+        'nodetype' => 'poll',
+      ),
+      2 => array(
         'nodetype' => 'slide',
       ),
     ),
