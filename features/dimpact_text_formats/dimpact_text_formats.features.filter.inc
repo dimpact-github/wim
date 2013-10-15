@@ -30,11 +30,6 @@ function dimpact_text_formats_filter_default_formats() {
           'filter_url_length' => 72,
         ),
       ),
-      'inlinetabs' => array(
-        'weight' => 50,
-        'status' => 1,
-        'settings' => array(),
-      ),
       'filter_html' => array(
         'weight' => 1,
         'status' => 1,
@@ -56,6 +51,11 @@ function dimpact_text_formats_filter_default_formats() {
       ),
       'filter_htmlcorrector' => array(
         'weight' => 10,
+        'status' => 1,
+        'settings' => array(),
+      ),
+      'inlinetabs' => array(
+        'weight' => 50,
         'status' => 1,
         'settings' => array(),
       ),
@@ -85,11 +85,6 @@ function dimpact_text_formats_filter_default_formats() {
           'filter_url_length' => 72,
         ),
       ),
-      'inlinetabs' => array(
-        'weight' => 50,
-        'status' => 1,
-        'settings' => array(),
-      ),
       'filter_autop' => array(
         'weight' => -42,
         'status' => 1,
@@ -115,6 +110,11 @@ function dimpact_text_formats_filter_default_formats() {
       ),
       'filter_wiki_links' => array(
         'weight' => -38,
+        'status' => 1,
+        'settings' => array(),
+      ),
+      'inlinetabs' => array(
+        'weight' => 50,
         'status' => 1,
         'settings' => array(),
       ),
