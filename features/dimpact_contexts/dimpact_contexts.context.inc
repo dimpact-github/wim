@@ -13,39 +13,6 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'announcements';
-  $context->description = 'Bekendmakingen lijst- en kaartpagina';
-  $context->tag = 'Internet';
-  $context->conditions = array(
-    'path' => array(
-      'values' => array(
-        'bekendmakingen' => 'bekendmakingen',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views--exp-announcements-page' => array(
-          'module' => 'views',
-          'delta' => '-exp-announcements-page',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
-      ),
-    ),
-  );
-  $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Bekendmakingen lijst- en kaartpagina');
-  t('Internet');
-  $export['announcements'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
   $context->name = 'nodepage';
   $context->description = '';
   $context->tag = 'Algemeen';
