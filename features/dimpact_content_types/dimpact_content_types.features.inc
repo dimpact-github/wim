@@ -30,7 +30,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'announcement' => array(
-      'name' => t('Announcement'),
+      'name' => t('Bekendmaking'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -70,7 +70,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'marketplace' => array(
-      'name' => t('Marketplace'),
+      'name' => t('Marktplaats'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -86,7 +86,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'news' => array(
-      'name' => t('News'),
+      'name' => t('Nieuws'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -102,7 +102,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'person' => array(
-      'name' => t('Person'),
+      'name' => t('Persoon'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -150,7 +150,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'spatial_plan' => array(
-      'name' => t('Spatial Plan'),
+      'name' => t('Bestemmingsplan'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
