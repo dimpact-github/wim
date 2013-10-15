@@ -129,6 +129,60 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'profiel';
+  $context->description = '';
+  $context->tag = 'Intranet';
+  $context->conditions = array(
+    'domain' => array(
+      'values' => array(
+        2 => 2,
+        3 => 3,
+        4 => 4,
+      ),
+    ),
+    'user_page' => array(
+      'values' => array(
+        'view' => 'view',
+      ),
+      'options' => array(
+        'mode' => 'all',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'submenutree-2' => array(
+          'module' => 'submenutree',
+          'delta' => '2',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
+        'views-profiel-block_1' => array(
+          'module' => 'views',
+          'delta' => 'profiel-block_1',
+          'region' => 'region_363_third',
+          'weight' => '-10',
+        ),
+        'views-profiel-block_2' => array(
+          'module' => 'views',
+          'delta' => 'profiel-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Intranet');
+  $export['profiel'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide';
   $context->description = '';
   $context->tag = 'Algemeen';
