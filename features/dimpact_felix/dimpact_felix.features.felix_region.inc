@@ -67,7 +67,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-3-12-9-3'] = array(
     'name' => 'regio-3-12-9-3',
-    'title' => 'Regio 3/12 (9/3)',
+    'title' => 'Regio 4/12 (8/4)',
     'region' => 'region_93_second',
     'weight' => 0,
     'context' => 'sitewide',
@@ -193,7 +193,7 @@ function dimpact_felix_felix_default_regions() {
   );
   $regions['regio-9-12-9-3'] = array(
     'name' => 'regio-9-12-9-3',
-    'title' => 'Regio 9/12 (9/3)',
+    'title' => 'Regio 8/12 (8/4)',
     'region' => 'region_93_first',
     'weight' => 0,
     'context' => 'sitewide',
