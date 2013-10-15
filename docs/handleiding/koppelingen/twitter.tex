@@ -1,0 +1,14 @@
+\subsection{Twitter}
+%todo PVE
+
+Stap 1 in het hele proces is het registreren van een applicatie bij Twitter. Dit moet gebeuren voor alle omgevingen waarop de site draait (dus in het geval van ProRail op test, acceptatie en productie). Registratie verloopt via https://dev.twitter.com/apps/new
+
+De callback URL is /twitter/oauth
+
+In dit proces wordt een Consumer Key en Consumer Secret gegenereerd door Twitter. Deze zijn te vinden bij de Twitter applicatie.
+
+Stap 2: Vul deze keys in op admin/settings/twitter
+Stap 3: Koppel dit account \drupalpath{user/1/edit/twitter} door een nieuwe user toe te voegen.
+
+De koppeling met Twitter wordt nu tot stand gebracht. Je ziet een inlogscherm van Twitter. Vul de inloggegevens in van het account waarvan je de tweets wilt toevoegen. Indien de inloggegevens goed zijn kom je terug op user/1/edit/twitter.
+%todo screenshots

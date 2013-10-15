@@ -1,0 +1,12 @@
+\subsection{CRM}
+
+De koppeling naar het CRM is gebaseerd op de standaard Drupal formulieren\see{webform}. Hiermee zijn twee formulieren ingericht:
+\begin{itemize}
+\item Publiekscontacten
+\item Aanvragen applicaties (digitaal loket)
+\end{itemize}
+Deze formulieren zijn in beperkte mate aanpasbaar via het CMS. Wijzigingen kunnen worden doorgevoerd, maar de velden dienen te corresponderen met de velden die aangemaakt zijn in het CRM pakket. Bij het bewerken en toevoegen van de node is een veld zichtbaar met label "CRM entiteit". Dit is de technische naam waaronder inzendingen worden opgeslagen. Dit veld is niet verplicht. Bij geen invoer wordt het formulier niet aan CRM gekoppeld.
+
+Onder het tabblad "Webform" kunnen de velden worden ingesteld\see{webform}. De velden hebben een technische naam ("sleutelveld") die exact overeen moet komen met de naam in CRM. Velden die niet overeenkomen zullen niet in CRM terecht komen. Onder het tabblad "CRM fields" is een overzicht te zien van de velden die beschikbaar zijn in de gekozen entiteit. Velden worden rood getoont indien er geen veld gekoppeld is. De velden die groen zijn gekleurd zullen wel in CRM terechtkomen.
+
+De lijsten van beschikbare entiteiten en velden in CRM zijn afkomstig uit de WSDL en verwerkt in de Drupal module. Bij wijzigingen (nieuwe velden / entiteiten) in het CRM systeem zelf zal de module ook aangepast moeten worden. Dat proces gaat niet automatisch, maar het is wel mogelijk om via bovenstaande werkwijze nieuwe formulieren te maken die koppelen met bestaande entiteiten / velden.

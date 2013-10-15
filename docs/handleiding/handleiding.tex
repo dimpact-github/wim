@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+%\geometry{landscape}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{multind}
+\usepackage{microtype}
+
+\makeindex{pve}
+\newcommand{\pve}[1]{\index{pve}{#1}#1}
+\newcommand{\pvelist}[1]{ \begin{footnotesize} PvE: #1 \end{footnotesize} \\ }
+
+\makeindex{drupalpath}
+\newcommand{\drupalpath}[1]{\index{drupalpath}{#1}\texttt{prorail.nl/#1}}
+
+
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newcommand{\seeone}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seetwo}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\newcommand{\customer}{ProRail }
+\newcommand{\thecustomer}{\customer }
+\newcommand{\customerdomain}{prorail.nl}
+\newcommand{\customerdomainuc}{ProRail.nl}
+
+\title{Handleiding \customerdomainuc}
+\author{Mike Hens \\ Maurits Lawende \\ Patrick Kraaij}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+%\includegraphics{img/logo.jpg}
+
+Laatst bijgewerkt: \\ \ddmmyyyydate \today
+\end{center}
+\pagebreak
+
+\renewcommand*\contentsname{Inhoudsopgave}
+\tableofcontents
+\pagebreak
+
+%\include{workbench/workbench}
+\include{socialmedia/socialmedia}
+\include{contentedit/contentedit}
+\include{zoeken/zoeken}
+\include{config/config}
+\include{projecten/projecten}
+\include{koppelingen/koppelingen}
+\include{statistieken/statistieken}
+\clearpage
+
+\appendix
+%\appendixpage\label{appendices}
+\addappheadtotoc
+
+%\index{PvE}{shizzle|none}
+\printindex{pve}{PvE}
+
+%\index{Paden}{shizzle|none}
+\printindex{drupalpath}{Paden}
+
+
+%\input{parts/appendices/tools}
+%\include{parts/appendices/imagecache-presets} % Eerste appendix-pagina is alleen een titeltje, dus doorgaan op dezelfde pagina met \input ipv \include.
+
+
+\end{document}

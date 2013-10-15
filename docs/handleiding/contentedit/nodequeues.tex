@@ -1,0 +1,31 @@
+\subsection{Nodequeues}\label{nodequeues}
+Nodequeues zijn kort omschreven: \emph{wachtrijen voor content items (nodes)}. In een nodequeue kun je precies bepalen welke content er weergegeven wordt, het aantal en de volgorde van de toegevoegde content items.
+
+\subsubsection{Nodequeues aanmaken}
+Klik op de link “Structuur” en klik vervolgens op “Nodequeues” of ga direct naar \drupalpath{admin/structure/nodequeue}. Bovenaan de pagina verschijnen twee links: “exams queue toevoegen” en “simple queue toevoegen”.
+Klik op “simple queue toevoegen” om een nodequeue aan te maken.
+
+Je zult nu op de pagina terecht komen waar je een nieuwe queue kunt toevoegen.
+\begin{enumerate}
+\item Vul een titel in om de wachtrij een naam te geven
+\item Limiteer hoeveel content items er kunnen worden getoond in de wachtrij, vul “0” (nul) in voor een onbeperkt aantal.
+Kruis het vakje aan bij “Reverse in admin view” indien je content items vooraan de wachtrij wil toevoegen i.p.v. achteraan de wachtrij. 
+\item Sla de stappen bij de velden “Link ‘add to queue’ en ‘remove from queue’ text” over.
+\item Kruis aan bij “Rollen” welke gebruikers content items aan de nodequeue kunnen toevoegen.
+\item Kruis aan bij “Typen” welke content items behorende bij de content typen toegevoegd kunnen worden aan de nodequeue.
+\end{enumerate}
+
+\subsubsection{Content toevoegen aan nodequeues}
+
+Klik op de link “Structuur” en klik vervolgens op “Nodequeues” of ga direct naar \drupalpath{admin/structure/nodequeue}. Indien je al nodequeues hebt aangemaakt zal op deze pagina een lijst geladen worden met alle aangemaakte nodequeues. Klik op “Weergeven” in de meest rechter kolom om de wachtrij te tonen met alle toegevoegde content items. 
+
+In het veld welke gevuld is met de tekst “Enter the title of a node to add it to the nodequeue”, vul je (deels) de titel in van het content item dat je aan de wachtrij wilt toevoegen. De titel hoef je slechts deels in te vullen omdat de website de titel automatisch zal aanvullen (indien de titel bestaat). Klik op de gevonden titel en klik vervolgens op “Inhoud toevoegen”.
+
+Herhaal deze stappen om meerdere content items aan de nodequeue toe te voegen. Vervolgens kun je alle content items sorteren: handmatig, met de knop “omkeren” of “shuffle”.
+\begin{itemize}
+\item Handmatige sortering: houdt de muis ingedrukt op het kruisje in de meest linker kolom, sleep vervolgens het content item naar de gewenste positie. Wanneer je klaar bent met handmatig sorteren klik je op “Opslaan”.
+\item Knop “omkeren”: draait de wachtrij volledig om
+\item Knop “shuffle”: sorteer de wachtrij op willekeurige volgorde.
+\end{itemize}
+
+
