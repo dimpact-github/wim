@@ -1,0 +1,40 @@
+diff --git a/modules/dominion_apachesolr/schema.xml b/modules/dominion_apachesolr/schema.xml
+index e309111..e54120c 100644
+--- a/modules/dominion_apachesolr/schema.xml
++++ b/modules/dominion_apachesolr/schema.xml
+@@ -151,6 +151,25 @@
+       </analyzer>
+     </fieldType>
+ 
++    <fieldType name="textExact" class="solr.TextField" positionIncrementGap="100">
++      <analyzer type="index">
++        <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
++        <tokenizer class="solr.WhitespaceTokenizerFactory"/>
++        <filter class="solr.LimitTokenCountFilterFactory" maxTokenCount="20"/>
++        <filter class="solr.LowerCaseFilterFactory"/>
++        <filter class="solr.StopFilterFactory"
++                ignoreCase="true"
++                words="stopwords.txt"
++                enablePositionIncrements="true"/>
++
++      </analyzer>
++      <analyzer type="query">
++         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
++         <filter class="solr.LimitTokenCountFilterFactory" maxTokenCount="20"/>
++         <filter class="solr.LowerCaseFilterFactory"/>
++      </analyzer>
++    </fieldType>
++
+     <!-- A text field that uses WordDelimiterFilter to enable splitting and matching of
+         words on case-change, alpha numeric boundaries, and non-alphanumeric chars,
+         so that a query of "wifi" or "wi fi" could match a document containing "Wi-Fi".
+@@ -382,6 +401,9 @@
+    <field name="url" type="string" indexed="true" stored="true"/>
+    <!-- label is the default field for a human-readable string for this entity (e.g. the title of a node) -->
+    <field name="label" type="text" indexed="true" stored="true" termVectors="true" omitNorms="true"/>
++   <field name="labelExact" type="textExact" indexed="true" stored="true" termVectors="true" omitNorms="true"/>
++   <copyField source="label" dest="labelExact"/>
++
+    <!-- The string version of the title is used for sorting -->
+    <copyField source="label" dest="sort_label"/>
+    <!-- content is the default field for full text search - dump crap here -->

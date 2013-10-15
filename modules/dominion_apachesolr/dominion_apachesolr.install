@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function dominion_apachesolr_install() {
+  drupal_install_schema('dominion_apachesolr');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function dominion_apachesolr_uninstall() {
+  drupal_uninstall_schema('dominion_apachesolr');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function dominion_apachesolr_schema() {
+  $schema = array();
+
+  $schema['dominion_search_domain'] = array(
+    'fields' => array(
+      'domain_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Domain ID.',
+      ),
+      'search_domain_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Domain ID to include in the search results.',
+      ),
+    ),
+    'primary key' => array('domain_id', 'search_domain_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Create dominion_menu table.
+ */
+function dominion_apachesolr_update_6100() {
+  $ret = array();
+  
+  $table = drupal_get_schema_unprocessed('dominion_apachesolr', 'dominion_search_domain');
+  db_create_table($ret, 'dominion_search_domain', $table);
+  
+  variable_del('dominion_apachesolr_filter');
+  
+  return $ret;
+}

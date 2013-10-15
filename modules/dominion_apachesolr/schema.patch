@@ -1,0 +1,15 @@
+Index: schema.xml
+===================================================================
+--- schema.xml	2012-03-15 13:44:22.000000000 +0100
++++ schema.xml	2012-08-29 14:26:38.000000000 +0200
+@@ -369,6 +369,10 @@
+         when each document was indexed.-->
+    <field name="timestamp" type="tdate" indexed="true" stored="true" default="NOW" multiValued="false"/>
+ 
++   <!-- Required for dominion_apachesolr -->
++   <field name="domain_id"  type="integer" indexed="true" stored="true" multiValued="true"/>
++   <field name="domain_site"  type="integer" indexed="true" stored="true"/>
++
+ 	<!-- This field is used to build the spellchecker index -->
+    <field name="spell" type="textSpell" indexed="true" stored="true" multiValued="true"/>
+ 

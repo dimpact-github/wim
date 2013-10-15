@@ -1,0 +1,210 @@
+<?php
+
+define('DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID', 'dominion_apachesolr_field_domain_id');
+define('DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID_DEFAULT', 'domain_id');
+define('DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE', 'dominion_apachesolr_field_domain_site');
+define('DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE_DEFAULT', 'domain_site');
+define('DOMINION_APACHESOLR_VAR_SOLRFIELD', 'dominion_apachesolr_solrfield');
+define('DOMINION_APACHESOLR_VAR_SOLRFIELD_DEFAULT', 'domain_id');
+define('DOMINION_APACHESOLR_VAR_MAIN_SEARCH_DOMAINS', 'dominion_apachesolr_main_search_domains');
+
+/**
+ * Implements hook_menu().
+ */
+function dominion_apachesolr_menu() {
+  $menu = array();
+
+  $menu['admin/structure/dominion/settings/apachesolr'] = array(
+    'title' => t('ApacheSolr'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('dominion_apachesolr_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'dominion_apachesolr.admin.inc',
+    'weight' => 3,
+  );
+
+  return $menu;
+}
+
+/**
+ * Implements hook_apachesolr_index_document_build().
+ */
+function dominion_apachesolr_apachesolr_index_document_build(ApacheSolrDocument $document, $entity, $entity_type, $env_id) { // (&$document, $node) {
+  if (!isset($entity->domains)) {
+    return;
+  }
+
+  $field_domain_id = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID_DEFAULT);
+  $field_domain_site = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE_DEFAULT);
+
+  $domains = array();
+  foreach ($entity->domains as $domain_id) {
+    if ($domain_id == -1) {
+      $domain_id = 0;
+    }
+    $domains[] = $domain_id;
+  }
+
+  $document->setField($field_domain_id, $domains);
+  $document->setField($field_domain_site, $entity->domain_site ? 1 : 0);
+}
+
+/**
+ * Implements hook_apachesolr_query_alter().
+ */
+function dominion_apachesolr_apachesolr_query_alter($query) {
+  global $_domain;
+
+  $field_domain_id = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID_DEFAULT);
+  $field_domain_site = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE_DEFAULT);
+
+  if ($subsite = dominion_get_info() && isset($subsite->search_domains)) {
+    $search_domains = $subsite->search_domains;
+  }
+  else {
+    $search_domains = variable_get(DOMINION_APACHESOLR_VAR_MAIN_SEARCH_DOMAINS, array());
+    $search_domains = array_keys(array_filter($search_domains));
+  }
+
+  if (!in_array($_domain['domain_id'], $search_domains)) {
+    $search_domains[] = $_domain['domain_id'];
+  }
+
+  $subquery = apachesolr_drupal_query('', array(), '', 'search/' . arg(1));
+
+  $disallowed_domains = array();
+  if (module_exists('dominion_access')) {
+    $disallowed_domains = dominion_access_get_disallowed_domains();
+  }
+
+  foreach ($search_domains as $domain_id) {
+    $info = dominion_get_info($domain_id);
+    if ($info->domain_type === 'directory') {
+      $domains = db_select('domain', 'd')
+          ->fields('d', array('domain_id'))
+          ->condition('dominion_directory', db_like($info->directory . '/') . '%', 'LIKE')
+          ->condition('domain_id', (int)$domain_id, '<>')
+          ->execute()
+          ->fetchAll();
+
+      foreach ($domains as $domain) {
+        $added_domains[] = $domain->domain_id;
+      }
+    }
+
+    if ($domain_id == -1) $domain_id = 0;
+    $added_domains[] = $domain_id;
+  }
+
+  foreach (array_diff($added_domains, $disallowed_domains) as $domain_id) {
+    $subquery->addFilter($field_domain_id, $domain_id);
+  }
+
+  $subquery->addFilter($field_domain_site, 1);
+  $query->addFilterSubQuery($subquery, 'OR', 'AND');
+}
+
+/**
+ * Implements hook_dominion_insert()
+ */
+function dominion_apachesolr_dominion_insert($domain_id, $form_values = array()) {
+  $search_domains = $form_values['dominion_apachesolr_search_domains'];
+
+  foreach ($search_domains as $search_domain_id => $checked) {
+    if ($checked != 0) {
+      $search_domain_id > 0 or $search_domain_id = 0;
+      $query = db_insert('dominion_search_domain')->fields(array('domain_id' => $domain_id, 'search_domain_id' => $search_domain_id));
+      $query->execute();
+    }
+  }
+}
+
+/**
+ * Implements hook_dominion_update()
+ */
+function dominion_apachesolr_dominion_update($domain_id, $form_values = array()) {
+  dominion_apachesolr_dominion_delete($domain_id, $form_values);
+  dominion_apachesolr_dominion_insert($domain_id, $form_values);
+}
+
+/**
+ * Implements hook_dominion_delete()
+ */
+function dominion_apachesolr_dominion_delete($subsite) {
+  db_delete('dominion_search_domain')
+    ->condition('domain_id', $subsite->domain_id, '=')
+    ->execute();
+}
+
+/**
+ * Implements hook_dominion_load()
+ */
+function dominion_apachesolr_dominion_load(&$domain) {
+  $domain->search_domains = array();
+
+  $sql = 'SELECT search_domain_id FROM {dominion_search_domain} WHERE domain_id = :domainid';
+  $res = db_query($sql, array(':domainid' => $domain->domain_id));
+
+  while ($search_domain = $res->fetchObject()) {
+    $domain->search_domains[] = $search_domain->search_domain_id;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add the dominion apachesolr elements to the dominion form.
+ */
+function dominion_apachesolr_form_dominion_form_alter(&$form, &$form_state) {
+  $search_domains = array();
+  if (isset($form['#domain_id'])) {
+    if ($subsite = dominion_get_info($form['#domain_id'])) {
+      foreach ($subsite->search_domains as $search_domain_id) {
+        $search_domain_id > 0 or $search_domain_id = -1;
+        $search_domains[] = $search_domain_id;
+      }
+    }
+  }
+
+  $form['dominion_apachesolr'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Search'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $domain_id = (isset($subsite))?$subsite->domain_id:-1;
+
+  $sql = 'SELECT domain_id, sitename
+  FROM {domain}
+  WHERE domain_id != :domainid
+  ORDER BY sitename ASC';
+  $res = db_query($sql, array(':domainid' => $domain_id));
+  $options = array();
+  while ($domain = $res->fetchObject()) {
+    if ($domain->domain_id == 0) $domain->domain_id = -1;
+    $options[$domain->domain_id] = $domain->sitename;
+  }
+  $form['dominion_apachesolr']['dominion_apachesolr_search_domains'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Include these domains in the search result'),
+    '#default_value' => drupal_map_assoc($search_domains),
+    '#options' => $options,
+    '#description' => t('Include these additional domains in the search results. The current domain is always included and thus not listed in this setting.'),
+  );
+}
+
+/**
+ * Implements hook_apachesolr_search_result_alter()
+ */
+function dominion_apachesolr_apachesolr_search_result_alter(&$document, &$extra, DrupalSolrQueryInterface $query) {
+  if (!strstr($document->url, '//')) {
+    // We do this with a search_result_alter() because the result may be shown on
+    // different domains, depending on the availability of the document.
+    // Alternatively, we could decide on a canonical domain for each result and
+    // use that always.
+    $domain = domain_get_domain();
+    $document->url = $domain['path'] . drupal_get_path_alias($document->path);
+  }
+}

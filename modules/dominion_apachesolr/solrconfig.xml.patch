@@ -1,0 +1,19 @@
+diff --git a/solrconfig.xml b/solrconfig.xml
+index 2525202..07202cd 100644
+--- a/solrconfig.xml
++++ b/solrconfig.xml
+@@ -892,6 +892,8 @@
+   <requestHandler name="standard" class="solr.SearchHandler">
+      <lst name="defaults">
+        <str name="echoParams">explicit</str>
++       <str name="qf">title titleExact^10</str>
++       <str name="pf">title^10 titleExact^100</str>
+        <bool name="omitHeader">true</bool>
+      </lst>
+   </requestHandler>
+@@ -1610,3 +1612,4 @@
+   </xi:include>
+ 
+ </config>
++l
+\ No newline at end of file
