@@ -28,6 +28,9 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
       //}
     }
+    .poll .bar .foreground {
+      background-color: $colour;
+    }
     .block-search {
       background-color: $colourlight;
     }
