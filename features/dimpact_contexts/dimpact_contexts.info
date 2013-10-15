@@ -1,7 +1,7 @@
 name = Dimpact Contexts
 core = 7.x
 package = Features
-version = 7.x-1.0-beta12
+version = 7.x-1.0-beta13
 project = dimpact_contexts
 dependencies[] = block
 dependencies[] = context
@@ -24,6 +24,7 @@ dependencies[] = submenutree
 dependencies[] = subscriptions_ui
 dependencies[] = taxonomy
 dependencies[] = views
+features[context][] = announcements
 features[context][] = nodepage
 features[context][] = nodepage_intranet
 features[context][] = profiel
