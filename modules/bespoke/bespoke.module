@@ -126,3 +126,21 @@ function bespoke_apachesolr_search_page_alter(array &$build, array $search_page)
     }
   }
 }
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Make the forum only accessible on the main domain.
+ */
+function bespoke_menu_alter(&$menu) {
+  $menu['forum']['access callback'] = 'bespoke_forum_access';
+  $menu['forum']['access arguments'] = array();
+}
+
+/**
+ * Access callback for forum.
+ */
+function bespoke_forum_access() {
+  global $_domain;
+  return $_domain['domain_id'] == 1;
+}
