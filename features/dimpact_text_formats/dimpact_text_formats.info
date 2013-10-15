@@ -17,7 +17,6 @@ features[filter][] = filtered_html
 features[filter][] = full_html
 features[filter][] = php_code
 features[filter][] = plain_text
-features[linkit_profiles][] = default
 features[wysiwyg][] = filtered_html
 features[wysiwyg][] = full_html
 features_exclude[dependencies][ctools] = ctools
