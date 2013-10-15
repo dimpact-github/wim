@@ -498,11 +498,31 @@ function dimpact_service_links_node_format($variables) {
 
     return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '">' . implode(' ', $result) . '</div>';
   }
-  
+
   if (isset($label) && !empty($label)) {
     return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '"><div class="service-label">'. t('@label', array('@label' => $label)) .' </div>'. theme('links', array('links' => $links)) .'</div>';
   }
   else {
     return $dimpact_share_this_link_widget . '<div class="service-links ' . $dimpact_share_this_hide_class . '">'. theme('links', array('links' => $links)) .'</div>';
   }
+}
+
+function dimpact_site_map_box($variables) {
+  $title = '';
+  $content = $variables['content'];
+  $attributes = $variables['attributes'];
+
+  $output = '';
+  if (!empty($title) || !empty($content)) {
+    $output .= '<div' . drupal_attributes($attributes) . '>';
+    if (!empty($title)) {
+      $output .= '<h2 class="title">' . $title . '</h2>';
+    }
+    if (!empty($content)) {
+      $output .= '<div class="content">' . $content . '</div>';
+    }
+    $output .= '</div>';
+  }
+
+  return $output;
 }
