@@ -91,3 +91,8 @@
     @include border-right-radius(4px);
   }
 }
+
+.search-snippet strong {
+  color: #000;
+  background: #FF0;
+}
