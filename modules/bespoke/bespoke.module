@@ -69,12 +69,12 @@ function bespoke_page_alter(&$page) {
 }
 
 /**
- * Implements hook_form_alter
+ * Implements hook_form_FORM_ID_alter().
  */
 function bespoke_form_subscriptions_ui_node_form_alter(&$form, &$form_state) {
-  if (arg(0) == 'node' && arg(2) == 'subscribe') {
-    unset($form['wrapper']['#type']);
-  }  
+  unset($form['wrapper']['#type']);
+  unset($form['wrapper']['#theme']);
+  unset($form['wrapper']['footer']);
 }
 
 /**
