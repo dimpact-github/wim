@@ -17,8 +17,8 @@
 \usepackage{microtype}
 
 \makeindex{pve}
-\newcommand{\pve}[1]{\index{pve}{#1}#1}
-\newcommand{\pvelist}[1]{ \begin{footnotesize} PvE: #1 \end{footnotesize} \\ }
+\newcommand{\pve}[1]{ }
+\newcommand{\pvelist}[1]{  }
 
 \makeindex{drupalpath}
 \newcommand{\drupalpath}[1]{\index{drupalpath}{#1}\texttt{dimpact.nl/#1}}
@@ -56,7 +56,7 @@
 
 \newcommand{\customer}{Dimpact }
 \newcommand{\thecustomer}{\customer }
-\newcommand{\customerdomain}{dimpact}
+\newcommand{\customerdomain}{dimpact.nl}
 \newcommand{\customerdomainuc}{Dimpact.nl}
 
 \title{Handleiding \customerdomainuc}
@@ -76,28 +76,10 @@ Laatst bijgewerkt: \\ \ddmmyyyydate \today
 \tableofcontents
 \pagebreak
 
-%\include{workbench/workbench}
+\include{workbench/workbench}
 \include{socialmedia/socialmedia}
 \include{contentedit/contentedit}
 \include{zoeken/zoeken}
-\include{config/config}
-\include{projecten/projecten}
-\include{koppelingen/koppelingen}
 \clearpage
-
-\appendix
-%\appendixpage\label{appendices}
-\addappheadtotoc
-
-%\index{PvE}{shizzle|none}
-\printindex{pve}{PvE}
-
-%\index{Paden}{shizzle|none}
-\printindex{drupalpath}{Paden}
-
-
-%\input{parts/appendices/tools}
-%\include{parts/appendices/imagecache-presets} % Eerste appendix-pagina is alleen een titeltje, dus doorgaan op dezelfde pagina met \input ipv \include.
-
 
 \end{document}

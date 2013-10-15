@@ -80,21 +80,6 @@ Het bewerken van bestaande inhoud is voor een groot gedeelte gelijk aan het toev
 \pvelist{ \pve{2.3.2}, \pve{2.3.3}, \pve{2.3.4} }
 Het is mogelijk om van nieuwe inhoud een preview te bekijken die de pagina laat zien alsof de laatste versie gepubliceerd is. Voordat deze preview is te zien moet de pagina wel worden opgeslagen, maar hoeft niet te worden gepubliceerd. De pagina kan dus worden opgeslagen als \emph{draft}\seeone{workflow}. Ga na het opslaan weer terug naar de bewerkpagina en klik onderaan op het tabblad "Voorbeeldweergave".
 
-\begin{center}
-\includegraphics[width=\textwidth]{img/browserstack1.png}
-\end{center}
-
-Hier is een URL te zien die gebruikt kan worden om de pagina te bekijken. Hierop is altijd de laatste versie van de pagina te zien, zonder dat het nodig is om in te loggen. De link is beveiligd en is slechts 8 uur geldig, zie ook de datum onder de link. Met deze link kan de pagina zelf worden getest op een andere computer of mobiele telefoon, maar de pagina kan ook worden bekeken via \emph{Browserstack}. Dit is een dienst waarmee een breed scala aan browsers beschikbaar zijn om op te testen. Hierin zitten Windows, OS-X en mobiele platformen. Klik op \'{e}\'{e}n van de links in de tabel om de pagina direct in Browserstack te testen. Na het klikken op de link verschijnt het onderstaande scherm.
-
-\begin{center}
-\includegraphics[width=\textwidth]{img/browserstack2.png}
-\end{center}
-
-Het kan nodig zijn om eerst in te loggen bij Browserstack voordat dit scherm te zien is. In dit scherm kunnen eventueel andere browsers worden gekozen. Hier zijn meer browsers beschikbaar dan in het vorige overzicht. De URL is vooraf ingevuld. Klik op "Start testing" om te pagina in de gekozen browser te bekijken.
-
-
-
-
 \subsubsection{Scheduler}
 \pvelist{ \pve{2.3.1}, \pve{2.3.9}, \pve{2.9.2}, \pve{2.9.3} }
 Het is mogelijk om vooraf een publicatiedatum in te stellen voor nieuwe en bestaande inhoud. Klik hiervoor bij het toevoegen of bewerken van inhoud op de tab \emph{Planneropties}. Hier kunnen twee data worden opgegeven; een datum voor publicatie en een datum voor depublicatie. Biede velden zijn optioneel en werken in principe onafhankelijk van elkaar. Bij het klikken op \'{e}\'{e}n van deze velden verschijnt er een kalender waarop de datum kan worden gekozen.
@@ -104,8 +89,6 @@ Het is mogelijk om vooraf een publicatiedatum in te stellen voor nieuwe en besta
 Niet gepubliceerde inhoud kan wel worden voorzien van tags, menu-items etc. Ook kunnen niet gepubliceerde items worden opgenomen in redactionele blokken\seeone{felix}. Zolang deze niet gepubliceerd is zal dit voor bezoekers niet zichtbaar zijn. Na publicatie (manueel of automatisch) wordt dit item zichtbaar.
 
 Het (de)publiceren gebeurt in de cron (een achtergrond process dat om de 5 minuten draait) en kan daarom maximaal 5 minuten afwijken van de ingestelde tijd.
-
-
 
 
 \subsection{Workflow en modereren/revisies}\label{workflow}
@@ -158,67 +141,14 @@ Om een slide toe te voegen aan een Onder de aandacht carrousel ga je eerst naar 
 \end{enumerate}
 %todo: screenshots
 
-\subsubsection{Infographics}
-\pvelist{ \pve{4.16} }
-\begin{enumerate}
-\item Vul de titel in van de Infographic
-\item Klik op de \emph{Select media} button om een afbeelding te kiezen
-\item Klik op \emph{Library} om een afbeelding te gebruiken die eerder is toegevoegd,  of voeg een nieuwe afbeelding toe via \emph{Upload a new file}
-\item Vul een url in bij het \emph{Link} veld
-\end{enumerate}`
-%todo: screenshots
-
-
-\subsubsection{Storingen en werkzaamheden}
-\pvelist{ \pve{4.17} }
-Storingen en werkzaamheden zijn te bekijken via de pagina \drupalpath{reizigers/storingen}. Als de bezoeker op een storing klikt verschijnt er meer informatie, zoals de reden van de storing, extra reistijd en andere relevante informatie die uit de NS API komt.
-
-Om storingen te tonen op andere pagina's kan de redacteur blokken toevoegen via Felix, de blokken die over storingen en werkzaamheden gaan zijn:
-
-\begin{enumerate}
-\item Laatste 3 storingen
-\item Alle storingen
-\item Alle werkzaamheden
-\end{enumerate}`
-
-De storingen en werkzaamheden kunnen ook bekeken worden via RSS: \drupalpath{storingen/rss}.
-
-%todo: screenshots
-
 \subsubsection{Navigatie blokken}
 \pvelist{ \pve{4.19} }
 %todo: screenshots
 
-\subsubsection{Downloads}
-\pvelist{ \pve{4.20} }
-\begin{enumerate}
-\item Vul de titel in van het Redactionele blok
-\item Voeg de content toe in het \emph{Body} veld
-\item Vul een url in bij het \emph{Link} veld
-\item Klik op de \emph{Select media} button om een afbeelding te kiezen
-\item Klik op \emph{Library} om een download te gebruiken die eerder is toegevoegd,  of voeg een nieuwe download toe via \emph{Upload a new file}
-\item De downloads worden weergeven als het blok toegevoegd is via Felix
-\end{enumerate}
-%todo: screenshots
 
 \subsubsection{Standaard pagina}\label{pagenode}
 \pvelist{ \pve{4.21} }
 %todo: screenshots
-
-\subsubsection{Fotoalbum}
-\pvelist{ \pve{4.22} }
-Bij het toevoegen van afbeeldingen bij bijvoorbeeld een nieuwsartikel, heeft de redacteur de mogelijkheid om een fotoalbum te maken. Als de redacteur meer dan 1 afbeelding aan het nieuwsbericht toevoegt verschijnt er automatisch bij dat nieuwsbericht een fotoalbum. De foto's dienen breder te zijn dan 588, anders komt het niet in het fotoalbum terecht.
-
-Afbeeldingen via Flickr kunnen toegevoegd worden via de embed code van Flickr.
-
-Om Flickr sets toe te voegen op de website kan door middel van Felix. Kies hiervoor voor Flickr set en vul het gebruikersnummer en de setnummer in.
-
-\subsubsection{Stel een vraag}
-\pvelist{ \pve{4.23} }
-%todo: screenshots
-
-\subsubsection{Contactformulier}
-\pvelist{ \pve{4.24} }
 
 Het contacformulier staat op \drupalpath{contact}. Deze pagina is standaard leeg. Alle content wordt geplaatst via Felix\seeone{felix}.
 
@@ -236,9 +166,6 @@ Ga naar Inhoud $\Rightarrow$ Inhoud toevoegen $\Rightarrow$ Enqu\^{e}te, of dire
 \end{enumerate}
 
 Via Felix kan een poll worden geplaatst op de website.
-
-
-\subsubsection{Project}\label{projectnode}
 
 
 \subsubsection{Carousel}
@@ -261,85 +188,20 @@ Systeempagina's zijn gelijk aan een standaard pagina\seeone{pagenode} met het ve
 \subsubsection{Cookiebalk}
 Via \drupalpath{admin/config/user-interface/cookie-consent} kunnen de instellingen voor de cookiebalk worden aangepast. Hier kan bijvoorbeeld de link voor meer informatie worden aangepast. Ook kunnen domeinen uitgesloten worden van deze functionaliteit (dient alleen gebruikt te worden voor domeinen die niet publiekelijk bereikbaar zijn).
 
-\subsubsection{Twitterberichten}
-\begin{enumerate}
-\item Ga naar de pagina waar de Twitterberichten getoond moeten worden
-\item Kies de Felix regio en klik via het tandwieltje op \emph{Add block}
-\item Klik op \emph{Twitter}
-\item Geef een titel op en een gebruikersnaam, in dit geval wordt dat \emph{prorail}
-\item Klik op \emph{Opslaan}
-\end{enumerate}
-%todo: screenshots
-
-\subsubsection{Handige links blok}
-\begin{enumerate}
-\item Vul de titel in van het Redactionele blok
-\item Voeg de content toe in het \emph{Body} veld, hier worden de links ingevoerd. \\
-Links naar bestanden moeten beginnen met een slash (bijvoorbeeld: \\ "/sites/default/files/document.pdf").
-\item Klik op \emph{Opslaan}
-\item Plaats met Felix dit Redactionele blok op een pagina
-\end{enumerate}
-%todo: screenshots
-
-\subsubsection{Vrij blok}
-\begin{enumerate}
-\item Vul de titel in van het Redactionele blok
-\item Voeg de content toe in het \emph{Body} veld
-\item Vul een url in bij het \emph{Link} veld
-\item Plaats met Felix dit Redactionele blok op een pagina
-\end{enumerate}
-%todo: screenshots
-
 \subsubsection{Hoofdnavigatie}
 %todo: screenshots
 
-\subsubsection{Projectmenu}
-%todo: screenshots
-
-\subsubsection{Toevoegen veelgestelde vraag}
+\subsubsection{Toevoegen FAQ}
 
 \begin{enumerate}
-\item Ga naar Inhoud $\Rightarrow$ Inhoud toevoegen $\Rightarrow$ Veelgestelde vraag of direct naar \drupalpath{/node/add/faq}.
+\item Ga naar Inhoud $\Rightarrow$ Inhoud toevoegen $\Rightarrow$ FAQ of direct naar \drupalpath{/node/add/faq}.
 \item De volgende velden kunnen ingevoerd worden; vraag en body.
 \end{enumerate}
 
-\subsubsection{Koppelen van een veelgestelde vraag aan content}
-
-\emph{Dit geldt voor zowel projecten als onderwerpen}
+\subsubsection{Koppelen van een FAQ aan content}
 
 \begin{enumerate}
-\item Bewerk of maak een nieuw project/onderwerp aan.
-\item Bij het onderdeel Koppel veelgestelde vragen kan je middels een autocomplete veld vragen zoeken en koppelen aan het item.
-\item Sla daarna het project/onderwerp op.
+\item Bewerk of maak een nieuwe node aan.
+\item Bij het onderdeel Koppel FAQ kan je middels een autocomplete veld vragen zoeken en koppelen aan het item.
+\item Sla daarna de node op.
 \end{enumerate}
-
-\subsubsection{Project}
-
-Een voorbeeld van een project waar vragen aan gekoppeld zijn is http://prorail.staging.dop.nu/hanzelijn. Hierbij is het laatste blok onder de content de veelgestelde vragen-accordion.
-
-De overzichtspagina van alle vragen bij een project is te vinden op http://prorail.staging.dop.nu/node/29/vragen. Voor de URL moet nog een nette oplossingen gevonden worden.
-
-\subsubsection{Onderwerp}
-
-Een voorbeeld van een onderwerp waar vragen aan gekoppeld zijn is te vinden op http://prorail.staging.dop.nu/omwonenden/vervoer. Hierbij staan de vragen aan de rechterkant van de content.
-
-\subsubsection{Prestatiecijfers / infographics}
-\pvelist{ \pve{4.16} }
-Prestatiecijfers en Infographics kunnen worden toegevoegd via Inhoud $\Rightarrow$ Inhoud toevoegen $\Rightarrow$ Infographic of direct naar \drupalpath{/node/add/infographic}. Bij afbeelding kan een Infographic worden geupload. Via Felix kan dan een Infographic worden getoond op de website.
-
-\subsubsection{Filterblok}
-Het filterblok is beschikbaar als Felixblok. Het blok heet View: Categorieen: Block.
-\subsubsection{Aanmaken Live blog nieuws}
-Ga naar \drupalpath{/node/add/blognieuws} en voer een titel en body tekst op
-
-\subsubsection{Aanmaken live blog update}
-
-Ga naar \drupalpath{/node/add/blogpost}
-Vul de volgende velden in titel, body, foto en video
-Vul bij Liveblog nieuws endpoints de titel van de aangemaakte live blog nieuws in om hem te koppelen.
-
-\subsubsection{Live blog blok tonen}
-
-Ga naar de voorpagina en selecteer in felix bij eerste helft het blok View: Liveblog: Belangrijk nieuwsblok
-
-Standaard worden alle Felixblokken helemaal onderaan gezet en kunnen met move up bovenaan gezet worden.
