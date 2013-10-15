@@ -196,12 +196,12 @@
     overflow: hidden;
     border-bottom: 1px solid lighten($background-color, 5%);
     .views-row {
-      @include span-columns(6, 12);
-      border: 0;
-      margin-bottom: $gutter-width;
-      &:nth-child(2n) {
-        @include omega;
-      }
+      //@include span-columns(6, 12);
+      //border: 0;
+      //margin-bottom: $gutter-width;
+      //&:nth-child(2n) {
+      //  @include omega;
+      //}
       h2 {
         @include font-size(16);
         margin: 0 0 $gutter-width/4 0;
