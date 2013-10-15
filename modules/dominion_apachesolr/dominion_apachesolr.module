@@ -59,9 +59,17 @@ function dominion_apachesolr_apachesolr_query_alter($query) {
   $field_domain_id = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_ID_DEFAULT);
   $field_domain_site = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE_DEFAULT);
 
+  // Add subsites checked in dominion settings.
   if ($subsite = dominion_get_info() && isset($subsite->search_domains)) {
     $search_domains = $subsite->search_domains;
+  }
+  else {
+    $search_domains = variable_get(DOMINION_APACHESOLR_VAR_MAIN_SEARCH_DOMAINS, array());
+    $search_domains = array_keys(array_filter($search_domains));
+  }
 
+  // Add underlying subsites.
+  if ($subsite = dominion_get_info()) {
     $ids = db_select('domain', 'd')
       ->fields('d', array('domain_id'))
       ->condition('d.subdomain', $subsite->subdomain)
@@ -74,11 +82,8 @@ function dominion_apachesolr_apachesolr_query_alter($query) {
       }
     }
   }
-  else {
-    $search_domains = variable_get(DOMINION_APACHESOLR_VAR_MAIN_SEARCH_DOMAINS, array());
-    $search_domains = array_keys(array_filter($search_domains));
-  }
 
+  // Add current subsite.
   if (!in_array($_domain['domain_id'], $search_domains)) {
     $search_domains[] = $_domain['domain_id'];
   }
