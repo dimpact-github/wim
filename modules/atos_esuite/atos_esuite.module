@@ -1,18 +1,6 @@
 <?php
 
 /**
- * Implements hook_permission().
- */
-function atos_esuite_permission() {
-  return array(
-    'administer atos_esuite settings' => array(
-      'title' => t('Administer atos_esuite settings'),
-      'description' => t('Allows users to configure atos_esuite settings.'),
-    ),
-  );
-}
-
-/**
  * Implements hook_menu().
  */
 function atos_esuite_menu() {
@@ -23,7 +11,7 @@ function atos_esuite_menu() {
     'description' => 'Atos import settings.',
     'page arguments' => array('atos_esuite_admin_settings_form'),
     'page callback' => 'drupal_get_form',
-    'access arguments' => array('administer atos_esuite settings'),
+    'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
     'file' => 'atos_esuite.admin.inc',
   );
