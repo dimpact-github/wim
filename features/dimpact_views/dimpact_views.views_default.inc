@@ -525,6 +525,11 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -891,6 +896,11 @@ if (dominion_restrict_node_access(\'message\', \'create\', $user) != NODE_ACCESS
     'value' => '',
     'foto_album' => 'foto_album',
   );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1737,7 +1747,7 @@ if (dominion_restrict_node_access(\'marketplace\', \'create\', $user) != NODE_AC
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Queue */
+  /* Relatie: Nodequeue: Wachtrij */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -2830,7 +2840,7 @@ if (dominion_restrict_node_access(\'faq\', \'create\', $user) != NODE_ACCESS_DEN
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Queue */
+  /* Relatie: Nodequeue: Wachtrij */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -2970,6 +2980,11 @@ if (dominion_restrict_node_access(\'faq\', \'create\', $user) != NODE_ACCESS_DEN
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
