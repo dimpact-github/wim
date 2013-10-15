@@ -10,8 +10,8 @@
     border-bottom: 1px solid lighten($background-color, 5%);
     &:last-child {
       border: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
+      //margin: 0 !important;
+      //padding: 0 !important;
     }
     time {
       font-weight: 700;
