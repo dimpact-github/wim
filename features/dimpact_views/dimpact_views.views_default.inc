@@ -2398,12 +2398,6 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Domain Access: Available on current domain */
-  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
-  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
-  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
-  $handler->display->display_options['filters']['current_all']['value'] = '1';
-  $handler->display->display_options['filters']['current_all']['group'] = 1;
   /* Filtercriterium: Inhoud: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -2421,6 +2415,14 @@ if (node_access(\'create\', $node)) {
     'wiki' => 'wiki',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filtercriterium: Domain Access: Domain ID */
+  $handler->display->display_options['filters']['gid']['id'] = 'gid';
+  $handler->display->display_options['filters']['gid']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['gid']['field'] = 'gid';
+  $handler->display->display_options['filters']['gid']['operator'] = 'not in';
+  $handler->display->display_options['filters']['gid']['value'] = array(
+    1 => '1',
+  );
 
   /* Display: Updatesblok */
   $handler = $view->new_display('block', 'Updatesblok', 'block_1');
