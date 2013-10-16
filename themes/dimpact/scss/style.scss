@@ -1,6 +1,5 @@
 @import "base-theme";
 
-@import "layout/default";
 @import "general/forms";
 
 @import "font/font-awesome";
@@ -295,3 +294,6 @@ div.workbench-info-block {
     }
   }
 }
+
+// Leave this here please :)
+@import "layout/default";
