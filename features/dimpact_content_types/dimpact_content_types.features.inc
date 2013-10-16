@@ -62,9 +62,9 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'foto_album' => array(
-      'name' => t('Foto-album'),
+      'name' => t('Foto'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Foto wordt gebruikt om foto-albums op te bouwen.'),
       'has_title' => '1',
       'title_label' => t('Titel'),
       'help' => '',

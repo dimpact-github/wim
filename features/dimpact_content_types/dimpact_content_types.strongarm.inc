@@ -530,7 +530,7 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '6',
         ),
         'domain' => array(
           'weight' => '1',
@@ -587,10 +587,16 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '5',
+        ),
+        'domain' => array(
+          'weight' => '4',
+        ),
+        'detailed_question' => array(
+          'weight' => '0',
         ),
       ),
       'display' => array(),
@@ -712,6 +718,9 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
+          'weight' => '5',
+        ),
+        'domain' => array(
           'weight' => '3',
         ),
       ),
