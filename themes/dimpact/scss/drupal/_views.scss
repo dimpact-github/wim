@@ -10,8 +10,6 @@
     border-bottom: 1px solid lighten($background-color, 5%);
     &:last-child {
       border: 0 !important;
-      //margin: 0 !important;
-      //padding: 0 !important;
     }
     time {
       font-weight: 700;
@@ -50,13 +48,9 @@
   margin: 0 !important;
   .views-row {
     position: relative;
-    //float: left;
     margin-bottom: $gutter-width !important;
     padding: 0 !important;
     border-bottom: 0 !important;
-    //&:nth-child(2n) {
-    //  margin-left: 19px;
-    //}
     .views-field-title {
       background-color: rgba(0, 0, 0, 0.6);
       width: 100%;
@@ -196,12 +190,6 @@
     overflow: hidden;
     border-bottom: 1px solid lighten($background-color, 5%);
     .views-row {
-      //@include span-columns(6, 12);
-      //border: 0;
-      //margin-bottom: $gutter-width;
-      //&:nth-child(2n) {
-      //  @include omega;
-      //}
       h2 {
         @include font-size(16);
         margin: 0 0 $gutter-width/4 0;
@@ -272,7 +260,16 @@
     .item-list {
       border: 0;
       padding: 0;
-//      margin: 0;
+    }
+  }
+}
+.view-foto_album-display-page {
+  .views-rows {
+    overflow: hidden;
+    .views-row {
+      float: left;
+      margin: 0 $gutter-width/2;
+      border: 0;
     }
   }
 }
