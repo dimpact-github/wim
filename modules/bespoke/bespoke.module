@@ -144,3 +144,62 @@ function bespoke_forum_access() {
   global $_domain;
   return $_domain['domain_id'] == 1;
 }
+
+/**
+ * Implements hook_token_info().
+ */
+function bespoke_token_info() {
+  $info = array(
+    'tokens' => array(
+      'node' => array(
+        'event-year' => array(
+          'name' => t('Event year'),
+          'description' => t('The year of the event.'),
+          'type' => 'node',
+        ),
+        'event-month' => array(
+          'name' => t('Event month'),
+          'description' => t('The month of the event.'),
+          'type' => 'node',
+        ),
+        'event-day' => array(
+          'name' => t('Event day'),
+          'description' => t('The day of the event.'),
+          'type' => 'node',
+        ),
+      ),
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function bespoke_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+  if ($type === 'node' && isset($data['node']) && !empty($data['node'])) {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'event-year':
+        case 'event-month':
+        case 'event-day':
+          $formats = array(
+            'event-year' => 'Y',
+            'event-month' => 'n',
+            'event-day' => 'j',
+          );
+          if (!empty($data['node']->field_date) && !empty($data['node']->field_date[LANGUAGE_NONE][0]['value'])) {
+            $timestamp = strtotime($data['node']->field_date[LANGUAGE_NONE][0]['value']);
+          }
+          else {
+            $timestamp = $node->created;
+          }
+          $replacements[$original] = format_date($timestamp, 'custom', $formats[$name]);
+          break;
+      }
+    }
+  }
+  return $replacements;
+}
