@@ -295,5 +295,11 @@ div.workbench-info-block {
   }
 }
 
+.maintenance-page {
+  #main {
+    padding: $gutter-width 0;
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
