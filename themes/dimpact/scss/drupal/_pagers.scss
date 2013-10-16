@@ -1,28 +1,24 @@
 ul.pager {
   @include clearfix;
-  //line-height: 2;
   list-style: none;
   margin: 1em 0;
   padding-left: 0;
 }
-
+.pagination {
+  text-align: center;
+}
 .pager {
   li {
-
-    //border-left-width: 0;
-    float: left;
+    display: inline-block;
     list-style: none;
     margin: 0 $gutter-width/4;
     padding: 0;
-    //&.first {
-    //  border-left-width: 1px;
-    //}
   }
   a, .pager-current, .pager-ellipsis {
     @include border-radius(3px);
     font-family: $heading;
     border: solid 1px $background-color;
-    padding: $gutter-width/2;
+    padding: $gutter-width/4;
     line-height: 1;
     &:hover {
       background-color: $background-color;
