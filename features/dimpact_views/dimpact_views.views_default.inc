@@ -102,9 +102,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'agenda\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'agenda\')) {
  print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -156,9 +154,7 @@ if (node_access(\'create\', $node)) {
     t('List block'),
     t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'agenda\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'agenda\')) {
  print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -259,9 +255,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
-$node = new stdClass();
-$node->type = \'message\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'message\')) {
  print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -305,9 +299,7 @@ if (node_access(\'create\', $node)) {
     t('laatste »'),
     t('Berichtenblok'),
     t('<?php
-$node = new stdClass();
-$node->type = \'message\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'message\')) {
  print l(t(\'Bericht toevoegen\'), \'node/add/message\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -934,7 +926,9 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
+if (node_access(\'create\', \'foto-album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -1007,7 +1001,9 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
   $handler->display->display_options['footer']['area']['content'] = '<?php
+if (node_access(\'create\', \'foto-album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -1058,7 +1054,9 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 // print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 ?>'),
     t('<?php
+if (node_access(\'create\', \'foto-album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
 ?>'),
     t('Blok'),
     t('Overzicht: Foto-album Tags block'),
@@ -1161,9 +1159,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1198,9 +1194,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats/gevraagd">Meer gevraagd </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1265,9 +1259,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/actueel/marktplaats/aangeboden">Meer aangeboden </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1340,9 +1332,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1415,9 +1405,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1464,27 +1452,21 @@ if (node_access(\'create\', $node)) {
     t('Marktplaats'),
     t('<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
     t('Marktplaats gevraagd blok'),
     t('<span class="more-link"><a href="/actueel/marktplaats/gevraagd">Meer gevraagd </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
     t('Marktplaats aangeboden blok'),
     t('<span class="more-link"><a href="/actueel/marktplaats/aangeboden">Meer aangeboden </a></span>
 <?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -1497,9 +1479,7 @@ if (node_access(\'create\', $node)) {
     t('volgende ›'),
     t('laatste »'),
     t('<?php
-$node = new stdClass();
-$node->type = \'marketplace\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -2342,6 +2322,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
@@ -2385,6 +2366,40 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Tags */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Category */
+  $handler->display->display_options['fields']['field_category_marketplace']['id'] = 'field_category_marketplace';
+  $handler->display->display_options['fields']['field_category_marketplace']['table'] = 'field_data_field_category_marketplace';
+  $handler->display->display_options['fields']['field_category_marketplace']['field'] = 'field_category_marketplace';
+  $handler->display->display_options['fields']['field_category_marketplace']['label'] = '';
+  $handler->display->display_options['fields']['field_category_marketplace']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_category_marketplace']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_category_marketplace']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_category_marketplace']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_category_marketplace']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_category_marketplace']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Categorie */
+  $handler->display->display_options['fields']['field_faq_category']['id'] = 'field_faq_category';
+  $handler->display->display_options['fields']['field_faq_category']['table'] = 'field_data_field_faq_category';
+  $handler->display->display_options['fields']['field_faq_category']['field'] = 'field_faq_category';
+  $handler->display->display_options['fields']['field_faq_category']['label'] = '';
+  $handler->display->display_options['fields']['field_faq_category']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_faq_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_faq_category']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_faq_category']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_faq_category']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_faq_category']['field_api_classes'] = TRUE;
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -2538,9 +2553,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
-$node = new stdClass();
-$node->type = \'faq\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -2801,9 +2814,7 @@ if (node_access(\'create\', $node)) {
     t('Recente vragenblok'),
     t('meer'),
     t('<?php
-$node = new stdClass();
-$node->type = \'faq\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
@@ -3015,9 +3026,7 @@ if (node_access(\'create\', $node)) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<?php
-$node = new stdClass();
-$node->type = \'blog\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'blog\')) {
  print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -3079,9 +3088,7 @@ if (node_access(\'create\', $node)) {
     t('Block'),
     t('Blog'),
     t('<?php
-$node = new stdClass();
-$node->type = \'blog\';
-if (node_access(\'create\', $node)) {
+if (node_access(\'create\', \'blog\')) {
  print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
