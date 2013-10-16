@@ -711,15 +711,6 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'volle_breedte' => array(
-        'custom_settings' => TRUE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -733,20 +724,7 @@ function dimpact_content_types_strongarm() {
           'weight' => '3',
         ),
       ),
-      'display' => array(
-        'domain' => array(
-          'default' => array(
-            'weight' => '2',
-            'visible' => TRUE,
-          ),
-        ),
-        'flag_favorieten' => array(
-          'default' => array(
-            'weight' => '3',
-            'visible' => TRUE,
-          ),
-        ),
-      ),
+      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__marketplace'] = $strongarm;
@@ -1592,8 +1570,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_announcement';
   $strongarm->value = array(
-    0 => 'moderation',
-    1 => 'revision',
+    0 => 'status',
   );
   $export['node_options_announcement'] = $strongarm;
 
@@ -1698,8 +1675,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_product';
   $strongarm->value = array(
-    0 => 'moderation',
-    1 => 'revision',
+    0 => 'status',
   );
   $export['node_options_product'] = $strongarm;
 
