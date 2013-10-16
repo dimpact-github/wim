@@ -70,7 +70,7 @@ function dimpact_pathauto_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_agenda_pattern';
-  $strongarm->value = '[node:hansel-path]';
+  $strongarm->value = 'actueel/agenda/[node:event-year]/[node:event-month]/[node:event-day]/[node:title]';
   $export['pathauto_node_agenda_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -245,7 +245,7 @@ function dimpact_pathauto_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_punctuation_hyphen';
-  $strongarm->value = 1;
+  $strongarm->value = '1';
   $export['pathauto_punctuation_hyphen'] = $strongarm;
 
   $strongarm = new stdClass();
