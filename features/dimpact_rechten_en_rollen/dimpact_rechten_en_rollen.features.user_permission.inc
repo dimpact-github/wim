@@ -69,6 +69,17 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'backup_migrate',
   );
 
+  // Exported permission: 'access comments'.
+  $permissions['access comments'] = array(
+    'name' => 'access comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
+  );
+
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -95,6 +106,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'contextual',
   );
@@ -242,6 +254,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'block',
   );
 
+  // Exported permission: 'administer comments'.
+  $permissions['administer comments'] = array(
+    'name' => 'administer comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'comment',
+  );
+
   // Exported permission: 'administer content types'.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
@@ -375,6 +396,24 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'flag',
   );
 
+  // Exported permission: 'administer forums'.
+  $permissions['administer forums'] = array(
+    'name' => 'administer forums',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'forum',
+  );
+
+  // Exported permission: 'administer google analytics'.
+  $permissions['administer google analytics'] = array(
+    'name' => 'administer google analytics',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'googleanalytics',
+  );
+
   // Exported permission: 'administer hansel'.
   $permissions['administer hansel'] = array(
     'name' => 'administer hansel',
@@ -436,6 +475,24 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'mail_edit',
+  );
+
+  // Exported permission: 'administer mailchimp'.
+  $permissions['administer mailchimp'] = array(
+    'name' => 'administer mailchimp',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mailchimp',
+  );
+
+  // Exported permission: 'administer mailchimp campaigns'.
+  $permissions['administer mailchimp campaigns'] = array(
+    'name' => 'administer mailchimp campaigns',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mailchimp_campaign',
   );
 
   // Exported permission: 'administer masquerade'.
@@ -536,6 +593,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'administer piwik'.
+  $permissions['administer piwik'] = array(
+    'name' => 'administer piwik',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'piwik',
   );
 
   // Exported permission: 'administer quicktabs'.
@@ -989,6 +1055,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'file_entity',
   );
 
+  // Exported permission: 'create forum content'.
+  $permissions['create forum content'] = array(
+    'name' => 'create forum content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create forum content on assigned domains'.
+  $permissions['create forum content on assigned domains'] = array(
+    'name' => 'create forum content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'create foto_album content'.
   $permissions['create foto_album content'] = array(
     'name' => 'create foto_album content',
@@ -1440,6 +1520,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any forum content'.
+  $permissions['delete any forum content'] = array(
+    'name' => 'delete any forum content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any foto_album content'.
   $permissions['delete any foto_album content'] = array(
     'name' => 'delete any foto_album content',
@@ -1668,6 +1755,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'delete forum content on assigned domains'.
+  $permissions['delete forum content on assigned domains'] = array(
+    'name' => 'delete forum content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'delete foto_album content on assigned domains'.
   $permissions['delete foto_album content on assigned domains'] = array(
     'name' => 'delete foto_album content on assigned domains',
@@ -1794,6 +1888,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'teamlid' => 'teamlid',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own forum content'.
+  $permissions['delete own forum content'] = array(
+    'name' => 'delete own forum content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -2100,6 +2201,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'delete terms in forums'.
+  $permissions['delete terms in forums'] = array(
+    'name' => 'delete terms in forums',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in marketplace'.
   $permissions['delete terms in marketplace'] = array(
     'name' => 'delete terms in marketplace',
@@ -2367,6 +2475,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any forum content'.
+  $permissions['edit any forum content'] = array(
+    'name' => 'edit any forum content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any foto_album content'.
   $permissions['edit any foto_album content'] = array(
     'name' => 'edit any foto_album content',
@@ -2593,6 +2708,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own comments'.
+  $permissions['edit own comments'] = array(
+    'name' => 'edit own comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'comment',
+  );
+
   // Exported permission: 'edit own document files'.
   $permissions['edit own document files'] = array(
     'name' => 'edit own document files',
@@ -2635,6 +2759,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
       'teamlid' => 'teamlid',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own forum content'.
+  $permissions['edit own forum content'] = array(
+    'name' => 'edit own forum content',
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -2860,6 +2991,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'edit terms in forums'.
+  $permissions['edit terms in forums'] = array(
+    'name' => 'edit terms in forums',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit terms in marketplace'.
   $permissions['edit terms in marketplace'] = array(
     'name' => 'edit terms in marketplace',
@@ -2998,6 +3136,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manage felix blocks',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
     ),
     'module' => 'felix',
@@ -3133,6 +3272,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'pathauto',
   );
 
+  // Exported permission: 'opt-in or out of tracking'.
+  $permissions['opt-in or out of tracking'] = array(
+    'name' => 'opt-in or out of tracking',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'piwik',
+  );
+
   // Exported permission: 'perform backup'.
   $permissions['perform backup'] = array(
     'name' => 'perform backup',
@@ -3140,6 +3288,16 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'backup_migrate',
+  );
+
+  // Exported permission: 'post comments'.
+  $permissions['post comments'] = array(
+    'name' => 'post comments',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
   );
 
   // Exported permission: 'publish from assigned domain'.
@@ -3230,6 +3388,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'show format selection for comment'.
+  $permissions['show format selection for comment'] = array(
+    'name' => 'show format selection for comment',
+    'roles' => array(),
+    'module' => 'better_formats',
+  );
+
   // Exported permission: 'show format selection for file'.
   $permissions['show format selection for file'] = array(
     'name' => 'show format selection for file',
@@ -3294,6 +3459,16 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'better_formats',
+  );
+
+  // Exported permission: 'skip comment approval'.
+  $permissions['skip comment approval'] = array(
+    'name' => 'skip comment approval',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'comment',
   );
 
   // Exported permission: 'submit latitude/longitude'.
@@ -3475,6 +3650,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'update forum content on assigned domains'.
+  $permissions['update forum content on assigned domains'] = array(
+    'name' => 'update forum content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'update foto_album content on assigned domains'.
   $permissions['update foto_album content on assigned domains'] = array(
     'name' => 'update foto_album content on assigned domains',
@@ -3650,6 +3832,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'php',
   );
 
+  // Exported permission: 'use PHP for tracking visibility'.
+  $permissions['use PHP for tracking visibility'] = array(
+    'name' => 'use PHP for tracking visibility',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'piwik',
+  );
+
   // Exported permission: 'use advanced search'.
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
@@ -3686,6 +3877,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
     ),
+    'module' => 'filter',
+  );
+
+  // Exported permission: 'use text format mailchimp_campaign'.
+  $permissions['use text format mailchimp_campaign'] = array(
+    'name' => 'use text format mailchimp_campaign',
+    'roles' => array(),
     'module' => 'filter',
   );
 

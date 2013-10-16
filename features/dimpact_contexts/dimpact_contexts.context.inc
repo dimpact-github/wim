@@ -231,6 +231,7 @@ function dimpact_contexts_context_default_contexts() {
     'path' => array(
       'values' => array(
         '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
       ),
     ),
     'sitewide' => array(
@@ -279,6 +280,7 @@ function dimpact_contexts_context_default_contexts() {
     'path' => array(
       'values' => array(
         '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
       ),
     ),
   );
@@ -365,6 +367,7 @@ function dimpact_contexts_context_default_contexts() {
     'path' => array(
       'values' => array(
         '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
       ),
     ),
   );
