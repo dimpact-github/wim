@@ -2366,6 +2366,12 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
@@ -2420,6 +2426,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['type']['value'] = array(
     'agenda' => 'agenda',
     'announcement' => 'announcement',
+    'message' => 'message',
     'file' => 'file',
     'blog' => 'blog',
     'marketplace' => 'marketplace',
