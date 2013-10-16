@@ -163,6 +163,37 @@
       @include font-size(12);
       color: $gray;
     }
+    .views-field-type,
+    .field-tags,
+    .field-category-marketplace {
+      @include font-size(12);
+      @include border-radius(4px);
+      background-color: lighten($background-color, 7%);
+      padding: 4px 6px;
+      line-height: 1;
+      float: left;
+      margin-right: $gutter-width/4;
+      margin-top: $gutter-width/4;
+      color: ligthen($text-color, 25%);
+    }
+    .field-tags,
+    .field-category-marketplace {
+      &:before {
+        @include icon($tag);
+        color: lighten($text-color, 50%);
+      }
+    }
+    .views-field-type {
+      &:before {
+        @include icon($file);
+        color: lighten($text-color, 50%);
+      }
+      //color: lighten($background-color, 7%);
+      //background-color: transparent;
+    }
+    .update-info {
+      overflow: hidden;
+    }
   }
 }
 
