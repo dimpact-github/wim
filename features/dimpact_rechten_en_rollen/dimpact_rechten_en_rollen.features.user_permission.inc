@@ -4065,6 +4065,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
     ),
     'module' => 'system',
   );
