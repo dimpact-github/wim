@@ -21,7 +21,7 @@ function dimpact_profile_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Intern',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'field_functie',
       1 => 'field_doorkiesnummer',
@@ -50,7 +50,7 @@ function dimpact_profile_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Links',
-    'weight' => '3',
+    'weight' => '6',
     'children' => array(
       0 => 'field_interne_applicaties',
       1 => 'field_websites',
@@ -78,7 +78,7 @@ function dimpact_profile_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Persoonlijk',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_kennis_opleidingen_werk',
       1 => 'field_activiteiten_interesses',

@@ -2048,6 +2048,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
@@ -2064,6 +2065,11 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relatie: Domain Editor: Domain editors */
+  $handler->display->display_options['relationships']['domain_id']['id'] = 'domain_id';
+  $handler->display->display_options['relationships']['domain_id']['table'] = 'domain_editor';
+  $handler->display->display_options['relationships']['domain_id']['field'] = 'domain_id';
+  $handler->display->display_options['relationships']['domain_id']['required'] = TRUE;
   /* Veld: Gebruiker: Afbeelding */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -2077,11 +2083,24 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_type'] = 'h3';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Volledige naam */
+  $handler->display->display_options['fields']['field_volledige_naam']['id'] = 'field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['table'] = 'field_data_field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['field'] = 'field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['label'] = '';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['empty'] = '[name]';
+  $handler->display->display_options['fields']['field_volledige_naam']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['field_api_classes'] = TRUE;
   /* Veld: Gebruiker: Functie */
   $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
   $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
@@ -2108,6 +2127,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Domain Access: Domain ID */
+  $handler->display->display_options['filters']['gid']['id'] = 'gid';
+  $handler->display->display_options['filters']['gid']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['gid']['field'] = 'gid';
+  $handler->display->display_options['filters']['gid']['relationship'] = 'domain_id';
+  $handler->display->display_options['filters']['gid']['value'] = array(
+    '***CURRENT_DOMAIN***' => '***CURRENT_DOMAIN***',
+  );
 
   /* Display: Teamleden */
   $handler = $view->new_display('block', 'Teamleden', 'block_1');
@@ -2126,6 +2153,8 @@ if (node_access(\'create\', \'marketplace\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
+    t('Domain editors'),
+    t('[name]'),
     t('Functie'),
     t('Doorkiesnummer'),
     t('Teamleden'),
