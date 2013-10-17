@@ -197,12 +197,17 @@
   }
 }
 
+.block-views-personen-intranet-block-1,
 .block-views-personen-block-1 {
   background-color: lighten($background-color, 7%);
   @include container();
   padding: 0;
   h2.block-title {
     padding: $gutter-width/2 $gutter-width !important;
+  }
+  .view-personen-intranet {
+    overflow: hidden;
+    margin: 0 $gutter-width !important;
   }
   .views-row {
     @include span-columns(4, 12);
@@ -211,8 +216,18 @@
     &:nth-child(3n) {
       @include omega;
     }
+    .views-field-picture {
+      float: left;
+      margin-right: $gutter-width;
+    }
     img {
       @include border-radius(50%);
+    }
+    span {
+      font-weight: 700;
+    }
+    .field {
+      display: inline;
     }
   }
 }

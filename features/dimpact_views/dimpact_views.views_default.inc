@@ -1943,6 +1943,12 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Personenblok (intranet) */
   $handler = $view->new_display('block', 'Personenblok (intranet)', 'block_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
 
   /* Display: Smoelenboekblok (internet) */
   $handler = $view->new_display('block', 'Smoelenboekblok (internet)', 'block_2');
@@ -2023,6 +2029,108 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Smoelenboekblok (internet)'),
   );
   $export['personen'] = $view;
+
+  $view = new view();
+  $view->name = 'personen_intranet';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Personen intranet';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'meer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Veld: Gebruiker: Afbeelding */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'portret';
+  /* Veld: Gebruiker: Naam */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Functie */
+  $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
+  $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
+  $handler->display->display_options['fields']['field_functie']['field'] = 'field_functie';
+  $handler->display->display_options['fields']['field_functie']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_functie']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_functie']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Doorkiesnummer */
+  $handler->display->display_options['fields']['field_doorkiesnummer']['id'] = 'field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['table'] = 'field_data_field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['field'] = 'field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
+  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filtercriterium: Gebruiker: Actief */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Teamleden */
+  $handler = $view->new_display('block', 'Teamleden', 'block_1');
+  $translatables['personen_intranet'] = array(
+    t('Master'),
+    t('meer'),
+    t('Toepassen'),
+    t('Opnieuw instellen'),
+    t('Sorteren op'),
+    t('Oplopend'),
+    t('Aflopend'),
+    t('Items per pagina'),
+    t('- Alle -'),
+    t('Startpunt'),
+    t('« eerste'),
+    t('‹ vorige'),
+    t('volgende ›'),
+    t('laatste »'),
+    t('Functie'),
+    t('Doorkiesnummer'),
+    t('Teamleden'),
+  );
+  $export['personen_intranet'] = $view;
 
   $view = new view();
   $view->name = 'producten';
