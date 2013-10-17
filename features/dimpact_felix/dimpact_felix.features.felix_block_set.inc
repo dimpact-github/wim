@@ -115,17 +115,21 @@ function dimpact_felix_felix_default_block_sets() {
       ),
       25 => array(
         'module' => 'views',
-        'delta' => 'updates-block_1',
+        'delta' => 'producten-block_2',
       ),
       26 => array(
         'module' => 'views',
-        'delta' => 'veelgestelde_vragen-faq_recent',
+        'delta' => 'updates-block_1',
       ),
       27 => array(
         'module' => 'views',
-        'delta' => 'voorpagina_banners-block_1',
+        'delta' => 'veelgestelde_vragen-faq_recent',
       ),
       28 => array(
+        'module' => 'views',
+        'delta' => 'voorpagina_banners-block_1',
+      ),
+      29 => array(
         'module' => 'views',
         'delta' => 'weblog-block',
       ),

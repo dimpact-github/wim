@@ -2168,7 +2168,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Producten';
+  $view->human_name = 'PDC CVDR';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -2232,6 +2232,25 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Alle productenblok */
   $handler = $view->new_display('block', 'Alle productenblok', 'block_1');
+
+  /* Display: Alle regelingenblok */
+  $handler = $view->new_display('block', 'Alle regelingenblok', 'block_2');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'regulation' => 'regulation',
+  );
   $translatables['producten'] = array(
     t('Master'),
     t('Producten'),
@@ -2249,6 +2268,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Alle productenblok'),
+    t('Alle regelingenblok'),
   );
   $export['producten'] = $view;
 
