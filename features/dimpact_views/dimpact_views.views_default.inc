@@ -2107,6 +2107,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_functie']['field'] = 'field_functie';
   $handler->display->display_options['fields']['field_functie']['element_type'] = '0';
   $handler->display->display_options['fields']['field_functie']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_functie']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_functie']['field_api_classes'] = TRUE;
   /* Veld: Gebruiker: Doorkiesnummer */
   $handler->display->display_options['fields']['field_doorkiesnummer']['id'] = 'field_doorkiesnummer';
@@ -2114,6 +2115,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_doorkiesnummer']['field'] = 'field_doorkiesnummer';
   $handler->display->display_options['fields']['field_doorkiesnummer']['element_type'] = '0';
   $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_doorkiesnummer']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
   /* Sorteercriterium: Gebruiker: Aanmaakdatum */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
