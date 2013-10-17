@@ -110,14 +110,21 @@ ul.secondary {
 //------------------------------------------------------------------------------
 
 .actions {
-  background-color: #111111;
-  border-radius: 3px 3px 0 0;
-  position: absolute;
-  top: -4px;
-  right: 0;
+  @include border-radius(3px);
+  background-color: lighten($background-color, 7%);
+  border: 1px solid $background-color;
+  margin-bottom: $gutter-width/2;
+  float: right;
+  //position: absolute;
+  //top: -4px;
+  //right: 0;
   zoom: 1;
   .wrap {
-    padding: 8px 16px;
+    padding: 4px 8px;
+  }
+  a:before {
+    padding-right: 5px;
+    @include icon($edit);
   }
 }
 

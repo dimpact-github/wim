@@ -80,8 +80,8 @@ table {
       padding: 6px;
     }
     &:hover {
-      td, th {
-        background-color: $background-color;
+      td {
+        background-color: lighten($background-color, 10%);
       }
     }
   }
