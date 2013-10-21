@@ -11,6 +11,11 @@
 
   $(window).load(function () {
 
+    $('.print-page').click(function(e) {
+      window.print();
+      e.preventDefault();
+    });
+
     $('.quicktabs-tabpage').each(function(){
       var closeButton = $('<div>').addClass('close-button');
       $(this).append(closeButton);
@@ -103,7 +108,7 @@
     // show dimpact service links on mouse over
     $('.dimpact_service_links_share_this').hover(function() {
       $('.dimpact_hide_service_links').show(222)
-    }, 
+    },
     function() {
       $('.dimpact_hide_service_links').hide(222)
     });
