@@ -144,6 +144,9 @@ function dimpact_felix_felix_default_block_sets() {
       2 => array(
         'nodetype' => 'slide',
       ),
+      3 => array(
+        'nodetype' => 'webform',
+      ),
     ),
   );
   return $sets;
