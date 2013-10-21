@@ -66,7 +66,6 @@ hide($content['links']);
   <h3<?php print $title_attributes; ?>><?php print $title; ?></h3>
   <?php print render($title_suffix); ?>
   <footer>
-    <?php print $picture; ?>
     <p class="submitted"><?php print $submitted; ?></p>
   </footer>
   <div class="content"<?php print $content_attributes; ?>>

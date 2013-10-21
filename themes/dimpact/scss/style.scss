@@ -301,5 +301,22 @@ div.workbench-info-block {
   }
 }
 
+.comment {
+  margin-bottom: $gutter-width;
+  .submitted {
+    margin-bottom: 0.25em;
+  }
+  ul.inline {
+    list-style: none;
+    li {
+      float: left;
+      margin-right: 1em;
+    }
+  }
+}
+.indented {
+  margin-left: 1em;
+}
+
 // Leave this here please :)
 @import "layout/default";
