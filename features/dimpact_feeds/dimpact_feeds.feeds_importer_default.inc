@@ -57,6 +57,11 @@ function dimpact_feeds_feeds_importer_default() {
             'target' => 'created',
             'unique' => FALSE,
           ),
+          4 => array(
+            'source' => 'url',
+            'target' => 'field_url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'full_html',

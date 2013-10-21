@@ -714,15 +714,34 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['relationships']['feed_nid']['id'] = 'feed_nid';
   $handler->display->display_options['relationships']['feed_nid']['table'] = 'feeds_item';
   $handler->display->display_options['relationships']['feed_nid']['field'] = 'feed_nid';
+  /* Veld: Inhoud: URL */
+  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
+  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
+  $handler->display->display_options['fields']['field_url']['label'] = '';
+  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_url']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_url']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_url']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_url']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_url']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href="[field_url]">[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sorteercriterium: Inhoud: Datum van inzending */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -785,6 +804,7 @@ if (node_access(\'create\', \'message\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Owner feed'),
+    t('<a href="[field_url]">[title]</a>'),
     t('Type'),
     t('RSS NOS block'),
     t('RSS NU.nl block'),
@@ -988,8 +1008,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
