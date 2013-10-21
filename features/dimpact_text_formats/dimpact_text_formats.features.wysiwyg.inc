@@ -99,6 +99,7 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
           'Format' => 1,
           'Table' => 1,
           'Replace' => 1,
+          'Iframe' => 1,
         ),
         'ckeditor_citebutton' => array(
           'ckeditor_citebutton' => 1,
