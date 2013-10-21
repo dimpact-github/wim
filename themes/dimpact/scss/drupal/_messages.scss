@@ -12,14 +12,14 @@
       list-style-type: disc;
     }
   }
+  &.error {
+    background-color: #F2BFBB;
+    background-image: url('../img/message_err.png');
+  }
+  &.warning {
+    background-color: #FDF6BB;
+    background-image: url('../img/message_info.png');
+  }
 }
 
-.error {
-  background-color: #F2BFBB;
-  background-image: url('../img/message_err.png');
-}
 
-.warning {
-  background-color: #FDF6BB;
-  background-image: url('../img/message_info.png');
-}

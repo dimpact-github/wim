@@ -68,3 +68,15 @@ input[type="password"] {
   color: $text-color;
   padding: 0.5em;
 }
+input[type="submit"] {
+  @include border-radius(3px);
+}
+input[type="text"],
+input[type="search"],
+input[type="password"],
+textarea {
+  @include box-shadow(inset 2px 2px 6px rgba(0, 0, 0, 0.1));
+}
+.error {
+  border-color: #F2BFBB;
+}

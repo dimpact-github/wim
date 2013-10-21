@@ -318,5 +318,20 @@ div.workbench-info-block {
   margin-left: 1em;
 }
 
+.text-smaller {
+  &:after {
+    @include icon($minus-sign);
+    padding-left: 4px;
+    text-decoration: none;
+  }
+}
+.text-larger {
+  &:after {
+    @include icon($plus-sign);
+    padding-left: 4px;
+    text-decoration: none;
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
