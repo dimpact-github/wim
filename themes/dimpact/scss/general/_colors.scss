@@ -21,7 +21,10 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         box-shadow: lighten($colour, 35%) 0 1px 0 inset;
         border: 1px solid darken($colour, 10%);
         color: $linkcolor;
-        &:hover {
+        &:hover, &:focus {
+          @include background-image(linear-gradient(darken($colour, 3%), darken($colour, 10%)));
+        }
+        &:active {
           @include background-image(linear-gradient(darken($colour, 7%), $colour));
         }
       }
