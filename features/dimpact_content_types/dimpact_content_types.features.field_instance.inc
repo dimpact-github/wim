@@ -960,52 +960,6 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-foto_album-body'
-  $field_instances['node-foto_album-body'] = array(
-    'bundle' => 'foto_album',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'volle_breedte' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 3,
-    ),
-  );
-
   // Exported field_instance: 'node-foto_album-field_foto'
   $field_instances['node-foto_album-field_foto'] = array(
     'bundle' => 'foto_album',
@@ -1111,7 +1065,7 @@ function dimpact_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'fences_wrapper' => 'div',
     'field_name' => 'field_tags',
-    'label' => 'Tags',
+    'label' => 'Fotoalbum',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -3168,6 +3122,87 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-rss-field_url'
+  $field_instances['node-rss-field_url'] = array(
+    'bundle' => 'rss',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_url',
+    'label' => 'URL',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'mailchimp_campaign' => 'mailchimp_campaign',
+          'php_code' => 'php_code',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'full_html' => array(
+              'weight' => -10,
+            ),
+            'mailchimp_campaign' => array(
+              'weight' => 0,
+            ),
+            'php_code' => array(
+              'weight' => -7,
+            ),
+            'plain_text' => array(
+              'weight' => -8,
+            ),
+          ),
+        ),
+      ),
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'node-rss_source-body'
   $field_instances['node-rss_source-body'] = array(
     'bundle' => 'rss_source',
@@ -4338,6 +4373,7 @@ function dimpact_content_types_field_default_field_instances() {
   t('Contact');
   t('Datum');
   t('Foto');
+  t('Fotoalbum');
   t('Geratificeerd door');
   t('Illustratie');
   t('Image');
@@ -4360,6 +4396,7 @@ function dimpact_content_types_field_default_field_instances() {
   t('Time');
   t('Toelichting');
   t('Type');
+  t('URL');
   t('Uitgegeven');
   t('Uitwerkingtreding');
   t('Vaststellings Besluit');
