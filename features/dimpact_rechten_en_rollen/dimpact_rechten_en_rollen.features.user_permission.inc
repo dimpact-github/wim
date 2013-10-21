@@ -3136,8 +3136,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manage felix blocks',
     'roles' => array(
       'administrator' => 'administrator',
-      'eindredacteur' => 'eindredacteur',
-      'redacteur' => 'redacteur',
     ),
     'module' => 'felix',
   );
