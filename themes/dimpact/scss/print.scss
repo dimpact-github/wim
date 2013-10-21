@@ -1,0 +1,81 @@
+.region_meta_first,
+.region_meta_second,
+#header,
+.main-menu,
+#footer,
+.block-felix,
+.block-submenutree,
+.field-wrapper-field-location,
+.service-links,
+.skip-link,
+.element-invisible,
+.block-node .node h2{
+  display: none;
+}
+
+body {
+  font: 12pt Georgia, "Times New Roman", Times, serif;
+  line-height: 1.3;
+}
+#{headings()} {
+  margin: 0 0 12pt 0;
+  padding: 0;
+}
+h1 {
+  font-size: 20pt;
+}
+h2 {
+  font-size: 18pt;
+}
+h3 {
+  font-size: 16pt;
+}
+h4 {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p a:after {
+  content: " (" attr(href) ")";
+  font-size: 80%;
+}
+
+p a[href^="http://"]:after {
+  content: " (" attr(href) ")";
+  font-size: 90%;
+}
+
+p a[href^="#"]:after {
+  display: none;
+}
+
+p a[href^="http://"]:after, a[href^="https://"]:after {
+  content: " (" attr(href) ")";
+}
+
+p a {
+  word-wrap: break-word;
+  text-decoration: underline;
+}
+
+q:after {
+  content: " (Source: " attr(cite) ")";
+}
+
+.view {
+  .views-row {
+    overflow: hidden;
+    margin: 0 0 12pt 0;
+    padding: 0 0 12pt 0;
+    border-bottom: 1px solid #000;
+    .node {
+      .field-image {
+        float: left;
+        margin-right: 20px;
+      }
+    }
+  }
+}
