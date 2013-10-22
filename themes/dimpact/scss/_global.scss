@@ -13,8 +13,7 @@
   @extend .visually-hidden;
 }
 
-video,
-iframe,
+
 img {
   height: auto;
   // Need to hack in an IE8 fix here.
@@ -26,7 +25,10 @@ img {
     max-width: none;
   }
 }
-
+video,
+iframe {
+  max-width: 100%;
+}
 nav {
   ol, ul {
     @extend .clearfix;
