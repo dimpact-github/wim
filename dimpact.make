@@ -75,7 +75,6 @@ projects[location][subdir] = contrib
 projects[mail_edit][subdir] = contrib
 projects[mailchimp][subdir] = contrib
 projects[masquerade][subdir] = contrib
-projects[mb][subdir] = contrib
 projects[media][subdir] = contrib
 projects[media][version] = "2.0-alpha2"
 projects[media_youtube][subdir] = contrib
