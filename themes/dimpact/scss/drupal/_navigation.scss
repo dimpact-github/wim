@@ -279,7 +279,11 @@ body.front {
       &:hover {
         background-color: lighten($background-color, 4%);
       }
-      &.active {}
+      &.active,
+      &.active-trail {
+        color: $link-dark !important;
+        font-weight: 700;
+      }
     }
   }
 }
