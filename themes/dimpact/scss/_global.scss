@@ -13,6 +13,8 @@
   @extend .visually-hidden;
 }
 
+video,
+iframe,
 img {
   height: auto;
   // Need to hack in an IE8 fix here.
