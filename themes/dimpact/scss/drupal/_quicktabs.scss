@@ -36,6 +36,7 @@
     .inlinetabs,
     .quicktabs-wrapper {
       margin-top: $gutter-width;
+      clear: both;
       ul.tabs,
       ul.quicktabs-tabs {
         margin: 0 0 $gutter-width/2 0;
