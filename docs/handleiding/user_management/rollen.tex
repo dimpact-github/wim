@@ -2,8 +2,24 @@
 
 Rollen zijn een synoniem voor 'gebruikers typen', bijvoorbeeld: 'Anonieme gebruiker' en 'Administrator'.  Het is mogelijk om rollen specifieke rechten te geven. Op deze manier kun je bijvoorbeeld bepaalde gebieden of functionaliteiten van de website verbergen of juist tonen. 
 
+\begin{tabularx}{\textwidth}{ | p{5cm} |X|X|X|X| }
+  \hline
+  Actie & Beheerder & Eindredacteur & Redacteur & Medewerker \\ \hline
+  Content toevoegen  & J  & J  & J & N  \\ \hline
+  Content bewerken  & J  & J  & N & N  \\ \hline
+  Content verwijderen  & J  & J  & N & N  \\ \hline
+  Content publiceren  & J  & J  & N & N  \\ \hline
+  Webformulieren  & J  & J  & N & N  \\ \hline
+  Felix beheer  & J  & N  & N & N  \\ \hline
+  Menu beheer  & J  & J  & N & N  \\ \hline
+  Subsite beheer  & J  & J  & N & N  \\ \hline
+\end{tabularx}
+
 \subsubsection{Administrator}\label{administrator}
 Gebruikers met de rol 'Administrator' hebben ongelimiteerd toegang tot de gehele website. De 'Administrator' kan alle content bekijken, rechten toekennen en bijvoorbeeld menu's aanmaken en bewerken.
+
+\subsubsection{Beheerder}\label{beheerder}
+Gebruikers met de rol 'Beheerder' hebben gelimiteerde toegang tot de website. Wat een beheerder exact kan moet nog bepaald worden.
 
 \subsubsection{Medewerker}\label{medewerker}
 Gebruikers met de rol 'Medewerker' hebben een gelimiteerde toegang tot de website. Medewerkers kunnen o.a. content publiceren, nieuwe content toevoegen op de interne marktplaats en nieuwe wiki pagina's aanmaken.
