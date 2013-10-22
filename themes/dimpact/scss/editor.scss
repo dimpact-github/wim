@@ -1,0 +1,60 @@
+@import "base-theme";
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Sans Bold'), local('DroidSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/EFpQQyG9GqCrobXxL-KRMXbFhgvWbfSbdVg11QabG8w.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(http://themes.googleusercontent.com/static/fonts/robotoslab/v2/y7lebkjgREBJK96VQi37ZrrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'), url(http://themes.googleusercontent.com/static/fonts/robotoslab/v2/dazS1PrQQuCxC3iOAJFEJRbnBKKEOwRKgsHDreGcocg.woff) format('woff');
+}
+
+
+body {
+  @include font-size(13);
+  font-family: $body;
+  font-weight: 400;
+  line-height: $line-height;
+}
+img {
+  float: left;
+  margin-right: $gutter-width/2;
+  margin-bottom: $gutter-width/2;
+}
+
+#{headings()} {
+  font-family: $heading;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0;
+  margin-bottom: 0.25em;
+  margin-top: 0.75em;
+}
+
+h2 {
+  font-size: 145%;
+}
+
+h3 {
+  font-size: 135%;
+}
+
+h4, h5, h6 {
+  font-size: 118%;
+}

@@ -35,21 +35,6 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
           'Table' => 1,
           'Replace' => 1,
         ),
-        'ckeditor_citebutton' => array(
-          'ckeditor_citebutton' => 1,
-        ),
-        'ckeditor_abbrbutton' => array(
-          'ckeditor_abbrbutton' => 1,
-        ),
-        'ckeditor_acronym_button' => array(
-          'ckeditor_acronym_button' => 1,
-        ),
-        'ckeditor_definitionlist_button' => array(
-          'ckeditor_definitionlist_button' => 1,
-        ),
-        'ckeditor_languagebutton' => array(
-          'ckeditor_languagebutton' => 1,
-        ),
         'linkit' => array(
           'linkit' => 1,
         ),
@@ -68,8 +53,8 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
       'apply_source_formatting' => 0,
       'paste_auto_cleanup_on_paste' => 0,
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'css_setting' => 'none',
-      'css_path' => '',
+      'css_setting' => 'self',
+      'css_path' => '/%t/css/editor.css',
       'css_classes' => '',
     ),
     'rdf_mapping' => array(),
@@ -101,21 +86,6 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
           'Replace' => 1,
           'Iframe' => 1,
         ),
-        'ckeditor_citebutton' => array(
-          'ckeditor_citebutton' => 1,
-        ),
-        'ckeditor_abbrbutton' => array(
-          'ckeditor_abbrbutton' => 1,
-        ),
-        'ckeditor_acronym_button' => array(
-          'ckeditor_acronym_button' => 1,
-        ),
-        'ckeditor_definitionlist_button' => array(
-          'ckeditor_definitionlist_button' => 1,
-        ),
-        'ckeditor_languagebutton' => array(
-          'ckeditor_languagebutton' => 1,
-        ),
         'linkit' => array(
           'linkit' => 1,
         ),
@@ -134,8 +104,8 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
       'apply_source_formatting' => 0,
       'paste_auto_cleanup_on_paste' => 0,
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'css_setting' => 'none',
-      'css_path' => '',
+      'css_setting' => 'self',
+      'css_path' => '/%t/css/editor.css',
       'css_classes' => '',
     ),
     'rdf_mapping' => array(),
