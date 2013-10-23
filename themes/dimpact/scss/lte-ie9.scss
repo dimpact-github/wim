@@ -1,6 +1,12 @@
-#main-wrapper {
-  outline: 4px solid #e6e8e9;
-}
 img {
   width: auto !important;
+}
+
+.quicktabs-tabpage {
+  ul {
+    li {
+      float: left !important;
+      width: 33% !important;
+    }
+  }
 }

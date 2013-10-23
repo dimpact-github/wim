@@ -5,6 +5,23 @@
     }
   }
 }
+.onderwerpen-toggle,
+.menu-toggle {
+  a {
+    @include font-size(15);
+    font-family: $heading;
+    text-transform: uppercase;
+    padding: $gutter-width/2 $gutter-width;
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+    &:before {
+      @include icon($reorder);
+      padding-right: $gutter-width/3;
+    }
+  }
+}
 nav {
   &.main-menu {
     position: relative;
@@ -22,38 +39,19 @@ nav {
       ul ul ul {
         display: none !important;
       }
-      &.fixed {
-        top: 0;
-        position: fixed;
-        z-index: 300;
-        width: 1160px;
-        border: 0 !important;
-        a {
-          @include font-size(14);
-          padding: $gutter-width/2;
-        }
-        ul li ul {
-          top: 32px;
-          li {
-            a {
-              @include font-size(13);
-              padding: $gutter-width/4 $gutter-width/2;
-            }
-          }
-        }
-      }
-      > ul.menu > li.active-trail,
-      > ul.menu > li:hover {
-        margin-top: -4px;
-        border-top: 4px solid $background-color;
-      }
       ul {
+        display: none;
+        &.open {
+          ul {
+            display: block !important;
+          }
+          display: block !important;
+        }
         list-style: none outside none;
         margin: 0;
         padding: 0 $gutter-width;
         position: relative;
         li {
-          float: left;
           margin: 0;
           padding: 0;
           a {
@@ -66,13 +64,8 @@ nav {
             text-decoration: none;
           }
           ul {
-            position: absolute;
-            top: 46px;
-            display: none;
             z-index: 15;
             padding: 0;
-            max-width: 250px;
-            min-width: 194px;
             li {
               float: none;
             }

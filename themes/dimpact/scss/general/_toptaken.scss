@@ -8,15 +8,11 @@ $buttons: ($toptakentotal - $tabs);
     padding: 0;
     list-style: none;
   }
-  > ul {
-    width: $tabs;
-  }
 }
 .block-menu-menu-toptaken > ul > li {
   @include font-size(14);
   border-bottom: 1px solid #FFFFFF;
   line-height: 1;
-
   > a {
     font-family: $heading;
     color: $link-dark;
@@ -33,13 +29,11 @@ $buttons: ($toptakentotal - $tabs);
   border-left: 0;
   display: none;
   height: 100%;
-  left: $tabs;
+  margin-left: $gutter-width;
   position: absolute;
   top: 0;
-  width: $buttons;
 }
 .block-menu-menu-toptaken > ul > li.toptaken-active {
-  //border-right: 4px solid;
   > a {
     background-image: url('../img/toptaken-arrow.png');
     background-position: center right;
@@ -50,14 +44,15 @@ $buttons: ($toptakentotal - $tabs);
     display: block;
     > li {
       float: left;
-      width: 231px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
       a {
         @include border-radius(4px);
         @include font-size(12);
         background: #fff url('../img/icon-blue-124.png') no-repeat 8px 50%;
         display: block;
         height: 61px;
-        margin: $gutter-width/2 0 0 $gutter-width/2;
         padding: $gutter-width;
         padding-left: 52px;
         padding-right: $gutter-width;

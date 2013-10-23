@@ -55,7 +55,7 @@
     padding: 0 !important;
     border-bottom: 0 !important;
     .views-field-title {
-      background-color: rgba(0, 0, 0, 0.6);
+      @include rgba-background-inline(rgba(0,0,0,0.6));
       width: 100%;
       position: absolute;
       bottom: 0;

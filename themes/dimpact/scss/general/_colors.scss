@@ -17,14 +17,17 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
     }
     #main {
       input[type="submit"] {
+        background-color: $colour;
         @include background-image(linear-gradient($colour, darken($colour, 7%)));
         box-shadow: lighten($colour, 35%) 0 1px 0 inset;
         border: 1px solid darken($colour, 10%);
         color: $linkcolor;
         &:hover, &:focus {
+          background-color: darken($colour, 3%);
           @include background-image(linear-gradient(darken($colour, 3%), darken($colour, 10%)));
         }
         &:active {
+          background-color: darken($colour, 7%);
           @include background-image(linear-gradient(darken($colour, 7%), $colour));
         }
       }
@@ -58,13 +61,6 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         .block-dominion-menu {
           background-color: $colour;
           border-top: 4px solid $colourlight;
-          //> ul > li > a {
-          //  border-right: 1px solid $colourlight;
-          //  border-left: 1px solid rgba(255, 255, 255, 0.2);
-          //}
-          //> ul > li.last > a {
-          //  border: 0;
-          //}
           > ul.menu > li.active-trail,
           > ul.menu > li:hover {
             background-color: darken($colour, 10%);

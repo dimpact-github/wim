@@ -7,8 +7,11 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <?php print $styles; ?>
     <?php print $scripts; ?>
-    <!--[if lt IE 9]>
+    <!--[if lte IE 9]>
       <link rel="stylesheet" href="/<?php print $path; ?>/css/lte-ie9.css" media="all">
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="/<?php print $path; ?>/css/lt-ie9.css" media="all">
       <script src="/<?php print $path; ?>/js/libraries/html5shiv/src/html5shiv.js"></script>
       <script src="/<?php print $path; ?>/js/libraries/respond.min.js"></script>
     <![endif]-->

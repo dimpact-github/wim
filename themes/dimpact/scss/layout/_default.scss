@@ -1,34 +1,56 @@
-
-
 #header, #footer, #main {
   @extend .clearfix;
 }
 
 #main-wrapper {
-  @include container($total-columns);
-  padding: 0;
+  @include container;
+  padding: 0 !important;
 }
 
 .container {
-  //@include container;
-  //@include susy-grid-background;
+  @include container;
+  @include susy-grid-background;
   position: relative;
 }
 .container-nopadding {
   padding: 0 !important;
 }
 
+/**
+ * Breakpoint small
+ */
 @include at-breakpoint($break-small) {
+  #main-wrapper {
+    @include container($total-columns, $break-small);
+  }
   .container {
     @include container($total-columns, $break-small);
     @include susy-grid-background;
   }
-}
+  .region_meta_first {
+    @include span-columns($break-small/2, $break-small);
+  }
+  .region_meta_second {
+    @include span-columns($break-small/2 omega, $break-small);
+  }
 
-@include at-breakpoint($break-medium) {
-  .container {
-    @include container($total-columns, $break-medium);
-    @include susy-grid-background;
+  .region_363_first {
+    @include span-columns(2, $break-small);
+  }
+  #content {
+    @include span-columns(4 omega, $break-small);
+  }
+  .region_363_third {
+    @include span-columns($break-small, $break-small);
+  }
+
+  .view-voorpagina-banners {
+    .views-row {
+      @include span-columns(3, 6);
+      &:nth-child(2n) {
+        @include omega;
+      }
+    }
   }
   .alleen-mobiel,
   .only-mobile {
@@ -36,8 +58,145 @@
   }
 }
 
-//body {
+/**
+ * Breakpoint medium
+ */
+@include at-breakpoint($break-medium) {
+  #main-wrapper {
+    @include container($total-columns, $break-medium);
+  }
+  .container {
+    @include container($total-columns, $break-medium);
+    @include susy-grid-background;
+  }
+  .region_meta_first {
+    @include span-columns(5, 10);
+  }
+  .region_meta_second {
+    @include span-columns(5 omega, 10);
+  }
+  .region_93_first {
+    @include span-columns(6, $break-medium);
+  }
+  .region_93_second {
+    @include span-columns(3 omega, $break-medium);
+  }
+
+  .region_39_first {
+    @include span-columns(3, $break-medium);
+  }
+  .region_39_second {
+    @include span-columns(6 omega, $break-medium);
+  }
+
+  .region_363_first {
+    @include span-columns(2, $break-medium);
+  }
+  #content {
+    @include span-columns(4, $break-medium);
+  }
+  .region_363_third {
+    @include span-columns(3 omega, $break-medium);
+  }
+
+  // Toptaken
+  .block-menu-menu-toptaken > ul {
+    width: columns(2, 6);
+  }
+  .block-menu-menu-toptaken > ul > li > ul {
+    left: columns(2, 6);
+    width: columns(4, 6);
+  }
+  .block-menu-menu-toptaken > ul > li.toptaken-active > ul > li {
+    width: columns(3, 6);
+    margin-right: 10px;
+  }
+  .view-voorpagina-banners {
+    .views-row {
+      @include span-columns(3, 6);
+      &:nth-child(2n) {
+        @include omega;
+      }
+    }
+  }
+  .region_444_first,
+  .region_444_second,
+  .region_444_third,
+  .region_footer_first,
+  .region_footer_second,
+  .region_footer_third {
+    @include span-columns(3, $break-medium);
+  }
+  .region_444_third,
+  .region_footer_third {
+    @include omega;
+  }
+  .onderwerpen-toggle,
+  .menu-toggle {
+    display: none;
+  }
+  nav {
+    &.main-menu {
+      > .container > nav.block-menu,
+      .block-dominion-menu,
+      .block-system-main-menu {
+        > ul.menu > li.active-trail,
+        > ul.menu > li:hover {
+          margin-top: -4px;
+          border-top: 4px solid $background-color;
+        }
+        ul {
+          display: block;
+          li {
+            float: left;
+            a {
+              @include font-size(14);
+              padding: 12px $gutter-width/2;
+            }
+            ul {
+              position: absolute;
+              top: 38px;
+              display: none;
+              max-width: 250px;
+              min-width: 194px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  nav.main-menu .block-quicktabs-alfabet h2.block-title {
+    top: 24px;
+  }
+  .block-search {
+    position: absolute !important;
+    right: $gutter-width;
+    bottom: $gutter-width;
+    margin: 0 !important;
+  }
+  .js .nav-collapse {
+    position: relative;
+  }
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .closed {
+    display: block !important;
+  }
+
+}
+
+/**
+ * Breakpoint large
+ */
 @include at-breakpoint($break-large) {
+  #main-wrapper {
+    @include container($total-columns, $break-large);
+  }
   .container {
     @include container($total-columns, $break-large);
     @include susy-grid-background;
@@ -75,13 +234,15 @@
 
   .region_444_first,
   .region_444_second,
+  .region_444_third,
   .region_footer_first,
-  .region_footer_second{
+  .region_footer_second,
+  .region_footer_third {
     @include span-columns(4, $break-large);
   }
   .region_444_third,
   .region_footer_third {
-    @include span-columns(4 omega, $break-large);
+    @include omega;
   }
 
   .view-voorpagina-banners {
@@ -92,5 +253,30 @@
       }
     }
   }
+  .block-menu-menu-toptaken > ul > li.toptaken-active > ul > li {
+    margin-right: 15px;
+  }
+
+  nav {
+    &.main-menu {
+      > .container > nav.block-menu,
+      .block-dominion-menu,
+      .block-system-main-menu {
+        ul {
+          li {
+            a {
+              @include font-size(16);
+              padding: 15px $gutter-width/2;
+            }
+            ul {
+              top: 46px;
+            }
+          }
+        }
+      }
+    }
+  }
+  nav.main-menu .block-quicktabs-alfabet h2.block-title {
+    top: 9px;
+  }
 }
-//}

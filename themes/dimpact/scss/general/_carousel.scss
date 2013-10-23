@@ -10,10 +10,9 @@
     padding-bottom: 0 !important;
     border-bottom: 0 !important;
     .views-field-title {
+      @include rgba-background-inline(rgba(0,0,0,0.6));
       position: absolute;
       bottom: 0;
-      //background-image: url("../img/transparant-75.png");
-      background-color: rgba(0, 0, 0, 0.6);
       color: #fff;
       width: 100%;
       h2 {

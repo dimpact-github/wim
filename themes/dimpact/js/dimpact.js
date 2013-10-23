@@ -16,6 +16,26 @@
       e.preventDefault();
     });
 
+    //Hoofdmenu responsive menu
+    var mainMenu = $('.main-menu .block-system-main-menu > ul.menu');
+    var menuToggle = $('<div>').addClass('menu-toggle').html('<a href="#">Menu</a>');
+    mainMenu.before(menuToggle);
+
+    $('.menu-toggle a').live("click", function(e) {
+      if (mainMenu.hasClass('open')) {
+        mainMenu.removeClass('open');
+      }
+      else {
+        mainMenu.addClass('open');
+      }
+      e.preventDefault();
+    });
+
+    // Onderwerpen responsive menu
+    var onderwerpenMenu = $('#quicktabs-alfabet');
+    var onderwerpenToggle = $('<div>').addClass('onderwerpen-toggle').html('<a href="#">Onderwerpen</a>');
+    onderwerpenMenu.before(onderwerpenToggle)
+
     $('.quicktabs-tabpage').each(function(){
       var closeButton = $('<div>').addClass('close-button');
       $(this).append(closeButton);
