@@ -62,6 +62,7 @@ projects[google_analytics][subdir] = contrib
 projects[hansel][subdir] = contrib
 projects[hansel][revision] = 0715082
 projects[homebox][subdir] = contrib
+projects[homebox][revision] = 48e101a
 projects[i18n][subdir] = contrib
 projects[job_scheduler][subdir] = contrib
 projects[jquery_update][subdir] = contrib
