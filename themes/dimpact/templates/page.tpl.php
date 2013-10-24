@@ -4,40 +4,40 @@
  * Output for main HTML page content.
  */
 
-$header = render($page['header']);
-$navigation = render($page['navigation']);
-$help = render($page['help']);
+$header                 = render($page['header']);
+$navigation             = render($page['navigation']);
+$help                   = render($page['help']);
 
-$region_meta_first  = render($page['region_meta_first']);
-$region_meta_second = render($page['region_meta_second']);
+$region_meta_first      = render($page['region_meta_first']);
+$region_meta_second     = render($page['region_meta_second']);
 
-$region_full_top    = render($page['region_full_top']);
+$region_full_top        = render($page['region_full_top']);
 
-$region_93_first    = render($page['region_93_first']);
-$region_93_second   = render($page['region_93_second']);
+$region_93_first        = render($page['region_93_first']);
+$region_93_second       = render($page['region_93_second']);
 
-$region_39_first    = render($page['region_39_first']);
-$region_39_second   = render($page['region_39_second']);
+$region_39_first        = render($page['region_39_first']);
+$region_39_second       = render($page['region_39_second']);
 
-$region_363_first   = render($page['region_363_first']);
-$content_top        = render($page['content_top']);
-$content            = render($page['content']);
-$content_bottom     = render($page['content_bottom']);
-$region_363_third   = render($page['region_363_third']);
+$region_363_first       = render($page['region_363_first']);
+$content_top            = render($page['content_top']);
+$content                = render($page['content']);
+$content_bottom         = render($page['content_bottom']);
+$region_363_third       = render($page['region_363_third']);
 
-$region_444_first   = render($page['region_444_first']);
-$region_444_second  = render($page['region_444_second']);
-$region_444_third   = render($page['region_444_third']);
+$region_444_first       = render($page['region_444_first']);
+$region_444_second      = render($page['region_444_second']);
+$region_444_third       = render($page['region_444_third']);
 
-$region_footer_first   = render($page['region_footer_first']);
-$region_footer_second  = render($page['region_footer_second']);
-$region_footer_third   = render($page['region_footer_third']);
+$region_footer_first    = render($page['region_footer_first']);
+$region_footer_second   = render($page['region_footer_second']);
+$region_footer_third    = render($page['region_footer_third']);
 
-$region_full_bottom = render($page['region_full_bottom']);
+$region_full_bottom     = render($page['region_full_bottom']);
 
-$tabs = render($tabs);
-$actions = count($action_links);
-$action_links = render($action_links);
+$tabs                   = render($tabs);
+$actions                = count($action_links);
+$action_links           = render($action_links);
 ?>
 <?php if ($region_meta_first || $region_meta_second): ?>
   <div class="container container-nopadding">
@@ -132,9 +132,9 @@ $action_links = render($action_links);
     <?php // Region 3/6/3 ?>
     <?php if (!$hidecontent): ?>
       <div class="container">
-        <div class="region_363_first">
-          <?php print $region_363_first; ?>
-        </div>
+
+
+
         <div role="main" class="column-main">
           <div id="content">
             <?php print render($title_prefix); ?>
@@ -164,6 +164,11 @@ $action_links = render($action_links);
           </div>
           <?php // print $feed_icons; ?>
         </div>
+
+        <div class="region_363_first">
+          <?php print $region_363_first; ?>
+        </div>
+
         <div class="region_363_third">
           <?php print $region_363_third; ?>
         </div>

@@ -92,9 +92,11 @@
 
   .region_363_first {
     @include span-columns(2, $break-medium);
+    @include pull(6);
   }
   #content {
     @include span-columns(4, $break-medium);
+    @include push(2);
   }
   .region_363_third {
     @include span-columns(3 omega, $break-medium);
@@ -243,9 +245,11 @@
 
   .region_363_first {
     @include span-columns(3, $break-large);
+    @include pull(8);
   }
   #content {
     @include span-columns(5, $break-large);
+    @include push(3);
   }
   .region_363_third {
     @include span-columns(4 omega, $break-large);
