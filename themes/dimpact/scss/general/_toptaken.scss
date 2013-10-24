@@ -39,6 +39,8 @@ $buttons: ($toptakentotal - $tabs);
     background-position: center right;
     background-repeat: no-repeat;
     margin-right: -9px;
+    z-index: 9999;
+    position: relative;
   }
   > ul {
     display: block;

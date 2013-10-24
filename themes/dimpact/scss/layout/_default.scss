@@ -11,6 +11,7 @@
   @include container;
   @include susy-grid-background;
   position: relative;
+  padding: 0 $gutter-width/2;
 }
 .container-nopadding {
   padding: 0 !important;
