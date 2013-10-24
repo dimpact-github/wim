@@ -190,7 +190,7 @@ body.fixed-menu {
 body.front {
   nav {
     &.main-menu {
-      margin-bottom: $gutter-width;
+      margin-bottom: $gutter-width/2;
     }
   }
 }
@@ -226,8 +226,16 @@ body.front {
     }
   }
 }
+.region_meta_first {
+  .block-menu {
+    ul.menu {
+      display: none;
+    }
+  }
+}
 .region_meta_second {
   .block-menu {
+    display: none;
     ul {
       float: right
     }

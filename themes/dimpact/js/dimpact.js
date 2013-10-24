@@ -6,7 +6,6 @@
     $("#quicktabs-alfabet .quicktabs-tabs li").removeClass("active");
     $("#quicktabs-container-alfabet .quicktabs-tabpage").addClass("quicktabs-hide");
     $('body').removeClass('overlay-alpha');
-
   }
 
   $(window).load(function () {
@@ -44,6 +43,16 @@
       }
       e.preventDefault();
     });
+
+//    var menuSelect = $("<select>").addClass('resp-menu');
+//    menuSelect.append($("<option>").attr('value', '').text('-- menu --'));
+//    $('.region_meta_first ul.menu a').each(function(i, e) {
+//      menuSelect.append($("<option>").attr('value', $(e).attr('href')).text($(e).html()));
+//    });
+//    $('.region_meta_first ul.menu').before(menuSelect);
+//    $('.resp-menu').live("change", function() {
+//      document.location = $(this).attr('value');
+//    });
 
     $('.quicktabs-tabpage').each(function(){
       var closeButton = $('<div>').addClass('close-button');
@@ -123,17 +132,6 @@
       e.preventDefault();
     });
 
-//    var stickyHeaderTop = $('.block-system-main-menu').offset().top;
-//    $(window).scroll(function(){
-//      if( $(window).scrollTop() > stickyHeaderTop ) {
-//        $('.block-system-main-menu').addClass('fixed');
-//        $('body').addClass('fixed-menu');
-//      } else {
-//        $('.block-system-main-menu').removeClass('fixed');
-//        $('body').removeClass('fixed-menu');
-//      }
-//    });
-
     // show dimpact service links on mouse over
     $('.dimpact_service_links_share_this').hover(function() {
       $('.dimpact_hide_service_links').show(222)
@@ -144,29 +142,27 @@
 
 
     // Reset Font Size
-    var originalFontSize = $('html').css('font-size');
+    var htmlElem = $('html');
+    var originalFontSize = htmlElem.css('font-size');
     $(".resetFont").click(function(){
-      $('html').css('font-size', originalFontSize);
+      htmlElem.css('font-size', originalFontSize);
     });
     // Increase Font Size
     $(".text-larger").click(function(){
-      var currentFontSize = $('html').css('font-size');
+      var currentFontSize = htmlElem.css('font-size');
       var currentFontSizeNum = parseFloat(currentFontSize, 10);
       var newFontSize = currentFontSizeNum*1.2;
-      $('html').css('font-size', newFontSize);
+      htmlElem.css('font-size', newFontSize);
       return false;
     });
     // Decrease Font Size
     $(".text-smaller").click(function(){
-      var currentFontSize = $('html').css('font-size');
+      var currentFontSize = htmlElem.css('font-size');
       var currentFontSizeNum = parseFloat(currentFontSize, 10);
       var newFontSize = currentFontSizeNum*0.8;
-      $('html').css('font-size', newFontSize);
+      htmlElem.css('font-size', newFontSize);
       return false;
     });
-
   });
-
-
 
 })(window.jQuery);

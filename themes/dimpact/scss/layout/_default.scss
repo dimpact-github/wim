@@ -29,10 +29,20 @@
     @include susy-grid-background;
   }
   .region_meta_first {
-    @include span-columns($break-small/2, $break-small);
+//    @include span-columns($break-small/2, $break-small);
   }
   .region_meta_second {
-    @include span-columns($break-small/2 omega, $break-small);
+//    @include span-columns($break-small/2 omega, $break-small);
+    .block-menu {
+      display: block;
+    }
+  }
+  .region_meta_first {
+    .block-menu {
+      ul.menu {
+        display: block;
+      }
+    }
   }
 
   .region_363_first {
@@ -67,6 +77,13 @@
   }
   .site-name .name {
     display: inline;
+  }
+  body.front {
+    nav {
+      &.main-menu {
+        margin-bottom: $gutter-width;
+      }
+    }
   }
 }
 
@@ -197,12 +214,11 @@
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
   }
-
   nav.main-menu .block-quicktabs-alfabet h2.block-title {
     top: 24px;
   }
   .block-search {
-//    position: absolute !important;
+    position: absolute !important;
     right: $gutter-width;
     bottom: $gutter-width;
     top: auto;

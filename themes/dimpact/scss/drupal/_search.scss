@@ -64,7 +64,7 @@
 }
 
 .block-search {
-  position: absolute;
+  position: absolute !important;
   top: $gutter-width/2;
   right: $gutter-width/2;
   text-align: center;
