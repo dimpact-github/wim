@@ -174,10 +174,13 @@ p {
     vertical-align: bottom;
     margin-right: $gutter-width;
   }
+  .name {
+    display: block;
+  }
 }
 
 .branding {
-  padding: $gutter-width 0;
+  padding: $gutter-width/2 0;
 }
 
 #main {

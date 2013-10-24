@@ -59,7 +59,7 @@ $action_links           = render($action_links);
             <?php if ($logo): ?>
               <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="logo"><img src="<?php print $logo ?>" alt="<?php print $site_name ?> Logo"></a>
             <?php endif; ?>
-            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>"><?php print $site_name; ?></a>
+            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
           </h1>
         <?php endif; ?>
         <?php if ($site_slogan): ?>
