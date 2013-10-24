@@ -22,6 +22,12 @@
     }
   }
 }
+.onderwerpen-toggle {
+  background-color: $background-color;
+  a {
+    color: $link-dark !important;
+  }
+}
 nav {
   &.main-menu {
     position: relative;
@@ -39,14 +45,13 @@ nav {
       ul ul ul {
         display: none !important;
       }
-      ul {
+      > ul {
         display: none;
         &.open {
-          ul {
-            display: block !important;
-          }
           display: block !important;
         }
+      }
+      ul {
         list-style: none outside none;
         margin: 0;
         padding: 0 $gutter-width;
@@ -104,6 +109,7 @@ nav {
         top: 9px;
         left: $gutter-width*1.5;
         z-index: 12;
+        display: none;
       }
     }
     #quicktabs-alfabet {
@@ -114,6 +120,7 @@ nav {
         margin: 0;
       }
       .quicktabs-tabs {
+        display: none;
         padding: 0 $gutter-width 0 170px;
         li {
           display: block;
@@ -132,12 +139,14 @@ nav {
         }
       }
       #quicktabs-container-alfabet {
+        &.open {
+          .quicktabs-hide {
+            display: block;
+          }
+        }
         .quicktabs-tabpage {
-          @include column-count(3);
-          @include border-bottom-radius(4px);
           background-color: #fff;
           padding: $gutter-width;
-          position: absolute;
           z-index: 5;
           width: 100%;
           ul {
@@ -154,7 +163,6 @@ nav {
           a {
             display: inline-block;
             color: $text-color;
-            //padding: $gutter-width/3 0;
           }
           .close-button {
             &:after {

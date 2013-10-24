@@ -3,6 +3,7 @@ $tabs: 267px;
 $buttons: ($toptakentotal - $tabs);
 
 .block-menu-menu-toptaken {
+  border: 1px solid $background-color;
   ul {
     margin: 0;
     padding: 0;
@@ -25,13 +26,12 @@ $buttons: ($toptakentotal - $tabs);
   }
 }
 .block-menu-menu-toptaken > ul > li > ul {
-  border: 1px solid lighten($background-color, 5%);
   border-left: 0;
   display: none;
   height: 100%;
-  margin-left: $gutter-width;
-  position: absolute;
+  padding-left: $gutter-width;
   top: 0;
+  background-color: #fff;
 }
 .block-menu-menu-toptaken > ul > li.toptaken-active {
   > a {
@@ -44,6 +44,8 @@ $buttons: ($toptakentotal - $tabs);
     display: block;
     > li {
       float: left;
+      margin-top: 7px;
+      margin-bottom: 7px;
       &:nth-child(2n) {
         margin-right: 0;
       }
@@ -55,7 +57,6 @@ $buttons: ($toptakentotal - $tabs);
         height: 61px;
         padding: $gutter-width;
         padding-left: 52px;
-        padding-right: $gutter-width;
       }
     }
     a {

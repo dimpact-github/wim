@@ -164,6 +164,24 @@
         }
       }
     }
+    #quicktabs-container-alfabet {
+      .quicktabs-tabpage {
+        @include column-count(3);
+        @include border-bottom-radius(4px);
+        position: absolute;
+      }
+    }
+    .block-quicktabs-alfabet {
+      h2.block-title {
+        display: block !important;
+      }
+    }
+    .quicktabs-tabs {
+      display: block !important;
+    }
+  }
+  .block-menu-menu-toptaken > ul > li > ul {
+    position: absolute;
   }
 
   nav.main-menu .block-quicktabs-alfabet h2.block-title {

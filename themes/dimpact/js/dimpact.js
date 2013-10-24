@@ -34,7 +34,16 @@
     // Onderwerpen responsive menu
     var onderwerpenMenu = $('#quicktabs-alfabet');
     var onderwerpenToggle = $('<div>').addClass('onderwerpen-toggle').html('<a href="#">Onderwerpen</a>');
-    onderwerpenMenu.before(onderwerpenToggle)
+    onderwerpenMenu.before(onderwerpenToggle);
+    $('.onderwerpen-toggle a').live("click", function(e) {
+      if ($('#quicktabs-container-alfabet').hasClass('open')) {
+        $('#quicktabs-container-alfabet').removeClass('open');
+      }
+      else {
+        $('#quicktabs-container-alfabet').addClass('open');
+      }
+      e.preventDefault();
+    });
 
     $('.quicktabs-tabpage').each(function(){
       var closeButton = $('<div>').addClass('close-button');
