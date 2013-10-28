@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.0-beta46
+version = 7.x-1.0-beta47
 project = dimpact_content_types
 dependencies[] = ctools
 dependencies[] = date
@@ -90,6 +90,7 @@ features[field_instance][] = node-editorial-body
 features[field_instance][] = node-faq-body
 features[field_instance][] = node-faq-field_faq_category
 features[field_instance][] = node-file-field_bestand
+features[field_instance][] = node-foto_album-body
 features[field_instance][] = node-foto_album-field_foto
 features[field_instance][] = node-foto_album-field_tags
 features[field_instance][] = node-marketplace-body
