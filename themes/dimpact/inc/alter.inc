@@ -17,6 +17,7 @@ function dimpact_html_head_alter(&$head_elements) {
   $head_elements['system_meta_content_type_full'] = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
+    '#weight' => -100,
     '#attributes' => array(
       'http-equiv' => 'Content-type',
       'content' => 'text/html; charset=utf-8',
