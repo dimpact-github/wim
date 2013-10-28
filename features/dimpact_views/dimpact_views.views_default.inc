@@ -102,6 +102,7 @@ function dimpact_views_views_default_views() {
 
   /* Display: Teaser block */
   $handler = $view->new_display('block', 'Teaser block', 'block_1');
+  $handler->display->display_options['block_description'] = 'Agenda teaserblok';
 
   /* Display: List block */
   $handler = $view->new_display('block', 'List block', 'block_2');
@@ -156,6 +157,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Agenda lijstblok';
   $translatables['agenda'] = array(
     t('Master'),
     t('Agenda'),
@@ -173,6 +175,7 @@ if (node_access(\'create\', \'agenda\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Teaser block'),
+    t('Agenda teaserblok'),
     t('List block'),
     t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
 <?php
@@ -180,6 +183,7 @@ if (node_access(\'create\', \'agenda\')) {
  print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
+    t('Agenda lijstblok'),
   );
   $export['agenda'] = $view;
 
@@ -283,6 +287,7 @@ if (node_access(\'create\', \'message\')) {
 }
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['block_description'] = 'Berichtenblok';
 
   /* Display: Alle berichtenblok */
   $handler = $view->new_display('block', 'Alle berichtenblok', 'block_2');
@@ -300,6 +305,7 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['block_description'] = 'Alle berichtenblok';
 
   /* Display: Pagina */
   $handler = $view->new_display('page', 'Pagina', 'page_1');
@@ -458,6 +464,7 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['block_description'] = 'Teamdocumentenblok';
   $translatables['bestanden'] = array(
     t('Master'),
     t('meer'),
@@ -679,6 +686,7 @@ if (node_access(\'create\', \'message\')) {
 
   /* Display: Favorietenblok */
   $handler = $view->new_display('block', 'Favorietenblok', 'block_1');
+  $handler->display->display_options['block_description'] = 'Favorietenblok';
   $translatables['favorieten'] = array(
     t('Master'),
     t('Favorieten'),
@@ -1077,7 +1085,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['name']['alter']['path'] = 'foto-album/tag/[tid]';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Overzicht: Foto-album Tags block';
+  $handler->display->display_options['block_description'] = 'Fotoalbumblok';
   $translatables['foto_album'] = array(
     t('Master'),
     t('Foto-album'),
@@ -1111,6 +1119,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('Term-ID'),
     t('.'),
     t(','),
+    t('Fotoalbumblok'),
   );
   $export['foto_album'] = $view;
 
@@ -1212,6 +1221,7 @@ if (node_access(\'create\', \'marketplace\')) {
 }
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['block_description'] = 'Marktplaats lijstblok';
 
   /* Display: Marktplaats gevraagd blok */
   $handler = $view->new_display('block', 'Marktplaats gevraagd blok', 'block_2');
@@ -1278,6 +1288,7 @@ if (node_access(\'create\', \'marketplace\')) {
   );
   $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+  $handler->display->display_options['block_description'] = 'Marktplaats gevraagd blok';
 
   /* Display: Marktplaats aangeboden blok */
   $handler = $view->new_display('block', 'Marktplaats aangeboden blok', 'block_3');
@@ -1344,6 +1355,7 @@ if (node_access(\'create\', \'marketplace\')) {
   );
   $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+  $handler->display->display_options['block_description'] = 'Marktplaats aangeboden blok';
 
   /* Display: Marktplaats gevraagd page */
   $handler = $view->new_display('block', 'Marktplaats gevraagd page', 'block_4');
@@ -1418,6 +1430,7 @@ if (node_access(\'create\', \'marketplace\')) {
   );
   $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+  $handler->display->display_options['block_description'] = 'Marktplaats gevraagd pagina';
 
   /* Display: Marktplaats aangeboden page */
   $handler = $view->new_display('block', 'Marktplaats aangeboden page', 'block_5');
@@ -1492,6 +1505,7 @@ if (node_access(\'create\', \'marketplace\')) {
   );
   $handler->display->display_options['filters']['field_category_marketplace_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['vocabulary'] = 'marketplace';
+  $handler->display->display_options['block_description'] = 'Marktplaats aangeboden pagina';
   $translatables['marktplaats'] = array(
     t('Master'),
     t('meer'),
@@ -1535,7 +1549,9 @@ if (node_access(\'create\', \'marketplace\')) {
  print l(t(\'Advertentie toevoegen\'), \'node/add/marketplace\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
+    t('Marktplaats gevraagd pagina'),
     t('Marktplaats aangeboden page'),
+    t('Marktplaats aangeboden pagina'),
   );
   $export['marktplaats'] = $view;
 
@@ -1608,6 +1624,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Teaser block */
   $handler = $view->new_display('block', 'Teaser block', 'block_1');
+  $handler->display->display_options['block_description'] = 'Nieuws teaserblok';
 
   /* Display: List block */
   $handler = $view->new_display('block', 'List block', 'block_2');
@@ -1672,6 +1689,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time>[created]</time> &mdash; [field_intro]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Nieuws lijstblok';
 
   /* Display: List block image */
   $handler = $view->new_display('block', 'List block image', 'block_3');
@@ -1742,6 +1760,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['settings'] = array(
     'trim_length' => '150',
   );
+  $handler->display->display_options['block_description'] = 'Nieuws lijstblok + afbeelding';
   $translatables['nieuws'] = array(
     t('Master'),
     t('Nieuws'),
@@ -1759,11 +1778,14 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Teaser block'),
+    t('Nieuws teaserblok'),
     t('List block'),
     t('<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>'),
     t('[created] &mdash; [field_intro]'),
     t('<div><time>[created]</time> &mdash; [field_intro]</div>'),
+    t('Nieuws lijstblok'),
     t('List block image'),
+    t('Nieuws lijstblok + afbeelding'),
   );
   $export['nieuws'] = $view;
 
@@ -1876,7 +1898,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Queue \'Carousel 9/3\'';
+  $handler->display->display_options['block_description'] = 'Carrousel breed';
   $translatables['nodequeue_carousel_9_3'] = array(
     t('Defaults'),
     t('Queue \'Carousel 9/3\''),
@@ -1888,6 +1910,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Aflopend'),
     t('queue'),
     t('Carousel 9/3 block'),
+    t('Carrousel breed'),
   );
   $export['nodequeue_carousel_9_3'] = $view;
 
@@ -2001,6 +2024,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Personenblok intranet';
 
   /* Display: Smoelenboekblok (internet) */
   $handler = $view->new_display('block', 'Smoelenboekblok (internet)', 'block_2');
@@ -2069,6 +2093,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_category_person']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_category_person']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_category_person']['field_api_classes'] = TRUE;
+  $handler->display->display_options['block_description'] = 'Personenblok internet';
   $translatables['personen'] = array(
     t('Master'),
     t('meer'),
@@ -2078,7 +2103,9 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Oplopend'),
     t('Aflopend'),
     t('Personenblok (intranet)'),
+    t('Personenblok intranet'),
     t('Smoelenboekblok (internet)'),
+    t('Personenblok internet'),
   );
   $export['personen'] = $view;
 
@@ -2192,6 +2219,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Teamleden */
   $handler = $view->new_display('block', 'Teamleden', 'block_1');
+  $handler->display->display_options['block_description'] = 'Teamledenblok';
   $translatables['personen_intranet'] = array(
     t('Master'),
     t('meer'),
@@ -2212,6 +2240,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Functie'),
     t('Doorkiesnummer'),
     t('Teamleden'),
+    t('Teamledenblok'),
   );
   $export['personen_intranet'] = $view;
 
@@ -2284,6 +2313,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Alle productenblok */
   $handler = $view->new_display('block', 'Alle productenblok', 'block_1');
+  $handler->display->display_options['block_description'] = 'Productenblok';
 
   /* Display: Alle regelingenblok */
   $handler = $view->new_display('block', 'Alle regelingenblok', 'block_2');
@@ -2303,6 +2333,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['type']['value'] = array(
     'regulation' => 'regulation',
   );
+  $handler->display->display_options['block_description'] = 'Regelingenblok';
   $translatables['producten'] = array(
     t('Master'),
     t('Producten'),
@@ -2320,7 +2351,9 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Alle productenblok'),
+    t('Productenblok'),
     t('Alle regelingenblok'),
+    t('Regelingenblok'),
   );
   $export['producten'] = $view;
 
@@ -2748,6 +2781,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   /* Display: Updatesblok */
   $handler = $view->new_display('block', 'Updatesblok', 'block_1');
+  $handler->display->display_options['block_description'] = 'Updatesblok';
   $translatables['updates'] = array(
     t('Master'),
     t('Updates'),
@@ -3232,6 +3266,7 @@ if (node_access(\'create\', \'faq\')) {
 
   /* Display: Voorpagina bannerblok */
   $handler = $view->new_display('block', 'Voorpagina bannerblok', 'block_1');
+  $handler->display->display_options['block_description'] = 'Overige onderwerpenblok';
   $translatables['voorpagina_banners'] = array(
     t('Master'),
     t('meer'),
@@ -3249,6 +3284,7 @@ if (node_access(\'create\', \'faq\')) {
     t('laatste »'),
     t('queue'),
     t('Voorpagina bannerblok'),
+    t('Overige onderwerpenblok'),
   );
   $export['voorpagina_banners'] = $view;
 
@@ -3384,6 +3420,7 @@ if (node_access(\'create\', \'blog\')) {
     'trim_length' => '500',
   );
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
+  $handler->display->display_options['block_description'] = 'Weblog blok';
   $translatables['weblog'] = array(
     t('Master'),
     t('Blogs'),
@@ -3402,6 +3439,7 @@ if (node_access(\'create\', \'blog\')) {
 }
 ?>'),
     t('Door'),
+    t('Weblog blok'),
   );
   $export['weblog'] = $view;
 
