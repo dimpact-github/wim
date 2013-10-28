@@ -33,6 +33,30 @@ function dimpact_mark($vars) {
 }
 
 /**
+ * Implements hook_menu_link().
+ * @param $variables
+ * @return string
+ */
+function dimpact_menu_link__menu_toptaken($variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  if ($file = file_load($element['#localized_options']['content']['image'])) {
+    $image = '<img src="' . image_style_url('origineel', $file->uri). '">';
+    $element['#localized_options']['html'] = TRUE;
+    $output = l($image . $element['#title'], $element['#href'], $element['#localized_options']);
+  }
+  else {
+    $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  }
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
  * Overrides theme_menu_local_tasks().
  */
 function dimpact_menu_local_tasks(&$vars) {

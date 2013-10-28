@@ -54,11 +54,13 @@ $buttons: ($toptakentotal - $tabs);
       a {
         @include border-radius(4px);
         @include font-size(12);
-        background: #fff url('../img/icon-blue-124.png') no-repeat 8px 50%;
         display: block;
-        height: 61px;
-        padding: $gutter-width;
-        padding-left: 52px;
+        height: 60px;
+        line-height: 58px;
+        padding-left: $gutter-width/2;
+        img {
+          margin-right: $gutter-width/2;
+        }
       }
     }
     a {
