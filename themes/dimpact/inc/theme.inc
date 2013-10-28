@@ -46,7 +46,7 @@ function dimpact_menu_link__menu_toptaken($variables) {
   }
 
   if ($file = file_load($element['#localized_options']['content']['image'])) {
-    $image = '<img src="' . image_style_url('origineel', $file->uri). '">';
+    $image = '<img src="' . image_style_url('origineel', $file->uri). '" alt="' . $element['#title'] . '" title="' . $element['#title'] . '">';
     $element['#localized_options']['html'] = TRUE;
     $output = l($image . $element['#title'], $element['#href'], $element['#localized_options']);
   }
