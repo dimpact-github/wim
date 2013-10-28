@@ -127,6 +127,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'access overlay'.
+  $permissions['access overlay'] = array(
+    'name' => 'access overlay',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'overlay',
+  );
+
   // Exported permission: 'access own webform results'.
   $permissions['access own webform results'] = array(
     'name' => 'access own webform results',
@@ -905,6 +914,13 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'clear rss_nos feeds',
     'roles' => array(),
     'module' => 'feeds',
+  );
+
+  // Exported permission: 'context ajax block access'.
+  $permissions['context ajax block access'] = array(
+    'name' => 'context ajax block access',
+    'roles' => array(),
+    'module' => 'context_ui',
   );
 
   // Exported permission: 'create agenda content'.
@@ -3040,6 +3056,16 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'exclude nodes from apache solr'.
+  $permissions['exclude nodes from apache solr'] = array(
+    'name' => 'exclude nodes from apache solr',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'apachesolr_exclude_node',
   );
 
   // Exported permission: 'execute php code'.
