@@ -362,6 +362,7 @@ function dimpact_contexts_context_default_contexts() {
       'values' => array(
         2 => 2,
         3 => 3,
+        4 => 4,
       ),
     ),
     'path' => array(
@@ -422,9 +423,9 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_footer_second',
           'weight' => '-10',
         ),
-        'block-4' => array(
-          'module' => 'block',
-          'delta' => '4',
+        'dominion_social-links' => array(
+          'module' => 'dominion_social',
+          'delta' => 'links',
           'region' => 'region_footer_third',
           'weight' => '-10',
         ),
@@ -432,13 +433,13 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'block',
           'delta' => '3',
           'region' => 'region_footer_third',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'masquerade-masquerade' => array(
           'module' => 'masquerade',
           'delta' => 'masquerade',
           'region' => 'region_footer_third',
-          'weight' => '-8',
+          'weight' => '-7',
         ),
       ),
     ),
