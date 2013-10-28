@@ -70,6 +70,7 @@ function dimpact_hansel_hansel_default() {
         'children' => array(
           0 => 10,
           1 => 17,
+          2 => 23,
         ),
       ),
       5 => array(
@@ -161,6 +162,33 @@ function dimpact_hansel_hansel_default() {
         ),
         'action' => 'goto',
         'destination' => 2,
+        'children' => array(),
+      ),
+      12 => array(
+        'rid' => 12,
+        'pid' => 4,
+        'name' => 'wiki',
+        'crumb_action' => 'add single link',
+        'crumb_action_arguments' => array(
+          'title' => 'Wiki',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'wiki',
+        ),
+        'action' => 'goto',
+        'destination' => 13,
+        'children' => array(
+          0 => 24,
+        ),
+      ),
+      13 => array(
+        'rid' => 13,
+        'pid' => 12,
+        'name' => 'wikipage',
+        'crumb_action' => 'add wiki page',
+        'crumb_action_arguments' => array(),
+        'action' => 'leave',
+        'restore' => FALSE,
         'children' => array(),
       ),
     ),

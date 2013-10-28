@@ -203,3 +203,15 @@ function bespoke_tokens($type, $tokens, array $data = array(), array $options = 
   }
   return $replacements;
 }
+
+/**
+ * Implements hook_hansel_action_types().
+ */
+function bespoke_hansel_action_types() {
+  return array(
+    'add wiki page' => array(
+      'get crumbs' => 'bespoke_action_add_wiki_page_get_crumbs',
+      'file' => 'bespoke.hansel.inc',
+    ),
+  );
+}
