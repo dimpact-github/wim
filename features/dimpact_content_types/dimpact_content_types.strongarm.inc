@@ -478,15 +478,6 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'volle_breedte' => array(
-        'custom_settings' => TRUE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -500,20 +491,7 @@ function dimpact_content_types_strongarm() {
           'weight' => '5',
         ),
       ),
-      'display' => array(
-        'domain' => array(
-          'default' => array(
-            'weight' => '1',
-            'visible' => TRUE,
-          ),
-        ),
-        'subscriptions_ui' => array(
-          'default' => array(
-            'weight' => '100',
-            'visible' => TRUE,
-          ),
-        ),
-      ),
+      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__announcement'] = $strongarm;
