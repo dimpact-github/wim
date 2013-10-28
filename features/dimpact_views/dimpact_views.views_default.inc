@@ -747,6 +747,17 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextueel filter: Feeds item: Owner feed nid */
+  $handler->display->display_options['arguments']['feed_nid']['id'] = 'feed_nid';
+  $handler->display->display_options['arguments']['feed_nid']['table'] = 'feeds_item';
+  $handler->display->display_options['arguments']['feed_nid']['field'] = 'feed_nid';
+  $handler->display->display_options['arguments']['feed_nid']['relationship'] = 'feed_nid';
+  $handler->display->display_options['arguments']['feed_nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['feed_nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['feed_nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['feed_nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['feed_nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['feed_nid']['summary_options']['items_per_page'] = '25';
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -775,15 +786,8 @@ if (node_access(\'create\', \'message\')) {
     8 => 0,
   );
 
-  /* Display: RSS NOS block */
-  $handler = $view->new_display('block', 'RSS NOS block', 'block_1');
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-
-  /* Display: RSS NU.nl block */
-  $handler = $view->new_display('block', 'RSS NU.nl block', 'block_2');
+  /* Display: RSS Block */
+  $handler = $view->new_display('block', 'RSS Block', 'block_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
@@ -805,9 +809,9 @@ if (node_access(\'create\', \'message\')) {
     t('laatste »'),
     t('Owner feed'),
     t('<a href="[field_url]">[title]</a>'),
+    t('Alle'),
     t('Type'),
-    t('RSS NOS block'),
-    t('RSS NU.nl block'),
+    t('RSS Block'),
   );
   $export['feeds_intranet'] = $view;
 
@@ -1769,7 +1773,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Queue */
+  /* Relatie: Nodequeue: Wachtrij */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -3144,7 +3148,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Queue */
+  /* Relatie: Nodequeue: Wachtrij */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';

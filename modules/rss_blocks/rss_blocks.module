@@ -1,4 +1,6 @@
 <?php
+define('RSS_BLOCKS_DEFAULT_HOMEBOX_PAGE', 'dashboard_intranet');
+
 /**
  * Implements hook_block_info().
  */
@@ -36,6 +38,7 @@ function rss_blocks_block_view($delta) {
  */
 function rss_blocks_node_insert($node) {
   if ($node->type == 'rss_source') {
+    _rss_blocks_homebox_add($node);
     block_flush_caches();
   }
 }
@@ -45,6 +48,7 @@ function rss_blocks_node_insert($node) {
  */
 function rss_blocks_node_update($node) {
   if ($node->type == 'rss_source') {
+    _rss_blocks_homebox_add($node);
     block_flush_caches();
   }
 }
@@ -54,6 +58,41 @@ function rss_blocks_node_update($node) {
  */
 function rss_blocks_node_delete($node) {
   if ($node->type == 'rss_source') {
+    _rss_blocks_homebox_remove($node);
     block_flush_caches();
+  }
+}
+
+/**
+ * Helper function for adding a block to homebox.
+ */
+function _rss_blocks_homebox_add($node) {
+  if (module_exists('homebox')) {
+    $page = homebox_get_page(variable_get('rss_blocks_homebox_page', RSS_BLOCKS_DEFAULT_HOMEBOX_PAGE));
+
+    $page->settings['blocks']['rss_blocks_' . $node->nid] = array(
+      'module' => 'rss_blocks',
+      'delta' => $node->nid,
+      'region' => 2,
+      'movable' => 1,
+      'status' => 1,
+      'open' => 1,
+      'closable' => 1,
+      'title' => '',
+      'weight' => 0,
+    );
+
+    homebox_save_page($page);
+  }
+}
+
+/**
+ * Helper function for removing a block from homebox.
+ */
+function _rss_blocks_homebox_remove($node) {
+  if (module_exists('homebox')) {
+    $page = homebox_get_page(variable_get('rss_blocks_homebox_page', RSS_BLOCKS_DEFAULT_HOMEBOX_PAGE));
+    unset($page->settings['blocks']['rss_blocks-' . $node->nid]);
+    homebox_save_page($page);
   }
 }
