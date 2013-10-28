@@ -13,6 +13,16 @@ function dimpact_html_head_alter(&$head_elements) {
     'charset' => 'utf-8',
   );
 
+  // Simplify the meta charset element.
+  $head_elements['system_meta_content_type_full'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'http-equiv' => 'Content-type',
+      'content' => 'text/html; charset=utf-8',
+    ),
+  );
+
   // Use Chrome Frame.
   $head_elements['dimpact_chrome_frame'] = array(
     '#type' => 'html_tag',
