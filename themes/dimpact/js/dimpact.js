@@ -16,7 +16,7 @@
     });
 
     //Hoofdmenu responsive menu
-    var mainMenu = $('.main-menu .block-system-main-menu > ul.menu');
+    var mainMenu = $('.main-menu').find('ul.menu').eq(0);
     var menuToggle = $('<div>').addClass('menu-toggle').html('<a href="#">Menu</a>');
     mainMenu.before(menuToggle);
 

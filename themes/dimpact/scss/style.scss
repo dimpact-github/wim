@@ -336,5 +336,15 @@ div.workbench-info-block {
   }
 }
 
+.profile {
+  padding-bottom: $gutter-width;
+  .user-picture {
+    float: right;
+    img {
+      @include border-radius(50%);
+    }
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
