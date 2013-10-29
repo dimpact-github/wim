@@ -1,0 +1,7 @@
+name = RIS Corsa
+description = Import of RIS data from the Corsa export.
+package = Dimpact
+version = 1.0
+core = 7.x
+
+dependencies[] = ris

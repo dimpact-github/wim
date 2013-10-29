@@ -1,0 +1,7 @@
+<?php
+/**
+ * Implementation of hook_uninstall().
+ */
+function ris_ibabs_uninstall() {
+  variable_del('ris_ibabs_dir');
+}

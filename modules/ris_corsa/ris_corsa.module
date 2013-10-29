@@ -1,0 +1,26 @@
+<?php
+/**
+ * Implements hook_form_alter().
+ */
+function ris_corsa_form_ris_admin_settings_form_alter(&$form, &$form_state) {
+  $form['ris_settings']['ris_corsa_dir'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Corsa Directory'),
+    '#default_value' => variable_get('ris_corsa_dir', ''),
+    '#description' => t('For example "/var/export/corsa"'),
+  );
+}
+
+/**
+ * Implements hook_ris_info().
+ */
+function ris_corsa_ris_info() {
+  return array(
+    'ris_corsa' => array(
+      'name' => 'ris_corsa',
+      'module' => 'ris_corsa',
+      'batch_file' => drupal_get_path('module', 'ris_corsa') . '/ris_corsa.import.inc',
+      'batch_callback' => '_ris_corsa_import_batch_run',
+    ),
+  );
+}

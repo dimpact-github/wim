@@ -125,6 +125,22 @@ function dimpact_content_types_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'ris_agendaitem' => array(
+      'name' => t('Ris Agendaitem'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'ris_meeting' => array(
+      'name' => t('Ris Meeting'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'rss' => array(
       'name' => t('RSS'),
       'base' => 'node_content',

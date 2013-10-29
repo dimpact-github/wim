@@ -1,0 +1,7 @@
+name = RIS iBabs
+description = Import of RIS data from the iBabs export.
+package = Dimpact
+version = 1.0
+core = 7.x
+
+dependencies[] = ris

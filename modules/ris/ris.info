@@ -1,0 +1,7 @@
+name = RIS
+description = Base importer for RIS data.
+package = Dimpact
+version = 1.0
+core = 7.x
+
+dependencies[] = remote_stream_wrapper

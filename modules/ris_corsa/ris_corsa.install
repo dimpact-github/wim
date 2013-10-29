@@ -1,0 +1,7 @@
+<?php
+/**
+ * Implementation of hook_uninstall().
+ */
+function ris_corsa_uninstall() {
+  variable_del('ris_corsa_dir');
+}

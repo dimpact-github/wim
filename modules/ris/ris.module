@@ -1,0 +1,179 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function ris_menu() {
+  $items = array();
+
+  $items['admin/config/content/ris'] = array(
+    'title' => 'RIS',
+    'description' => 'Configure RIS settings.',
+    'page arguments' => array('ris_admin_settings_form'),
+    'page callback' => 'drupal_get_form',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'ris.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function ris_cron() {
+  module_load_include('inc', 'ris', 'ris.import');
+  ris_import_batch_start();
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function ris_node_delete($node) {
+  db_delete('ris')->condition('nid', $node->nid)->execute();
+
+  foreach ($node->field_ris_agendaitems[LANGUAGE_NONE] as $agendaitem) {
+    node_delete($agendaitem['target_id']);
+  }
+}
+
+/**
+ * Maps the meeting array to a node.
+ */
+function ris_map_node($meeting, $force = TRUE) {
+  // Get the current version from the database.
+  $current = db_select('ris', 'r')
+    ->fields('r', array('identifier', 'hash', 'nid'))
+    ->condition('identifier', $meeting['meeting_id'])
+    ->execute()
+    ->fetchAssoc();
+
+  $hash = md5(serialize($meeting));
+
+  // Is this an actual update.
+  if (!$force && $current && $hash == $current['hash']) {
+    return FALSE;
+  }
+
+  // Are we updating or inserting.
+  if ($current && !empty($current['nid'])) {
+    $node = node_load($current['nid']);
+  }
+  else {
+    $node = new stdClass();
+    $node->uid = 1;
+    $node->created = time();
+    $node->type = 'ris_meeting';
+  }
+
+  // Set common info.
+  $node->ris_identifier = $meeting['meeting_id'];
+  $node->title = $meeting['subject'];
+
+  $node->field_date = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => date('Y-m-d H:i:s', $meeting['timestamp']),
+      )
+    )
+  );
+  $node->field_ris_location = array(
+    LANGUAGE_NONE => array(
+      array(
+        'value' => $meeting['location'],
+      )
+    )
+  );
+
+  $node->field_ris_agendaitems = array(LANGUAGE_NONE => array());
+  foreach ($meeting['agendaitems'] as $agendaitem) {
+    $agenda_node = ris_map_node_agendaitem($meeting['meeting_id'], $agendaitem);
+    if ($agenda_node) {
+      $node->field_ris_agendaitems[LANGUAGE_NONE][] = array(
+        'target_id' => $agenda_node->nid,
+      );
+    }
+  }
+
+  node_save($node);
+
+  // Add to the RIS table for hash checking and identifying.
+  db_merge('ris')
+    ->key(array('identifier' => $meeting['meeting_id']))
+    ->fields(array('hash' => $hash, 'nid' => $node->nid, 'changed' => REQUEST_TIME))
+    ->execute();
+
+  return $node;
+}
+
+function ris_map_node_agendaitem($meeting_id, $agendaitem) {
+  $identifier = $meeting_id . '-' . $agendaitem['item_id'];
+
+  // Get the current version from the database.
+  $current = db_select('ris', 'r')
+    ->fields('r', array('nid'))
+    ->condition('identifier', $identifier)
+    ->execute()
+    ->fetchAssoc();
+
+  // Are we updating or inserting.
+  if ($current && !empty($current['nid'])) {
+    $node = node_load($current['nid']);
+  }
+  else {
+    $node = new stdClass();
+    $node->uid = 1;
+    $node->created = time();
+    $node->type = 'ris_agendaitem';
+  }
+
+  $node->title = $agendaitem['subject'];
+
+  $node->field_ris_characteristic = array(
+    LANGUAGE_NONE => array(
+      array('value' => $agendaitem['item_id']),
+    )
+  );
+
+  $node->field_ris_attachments = array(LANGUAGE_NONE => array());
+  foreach ($agendaitem['attachments'] as $attachment) {
+    $file = remote_stream_wrapper_file_load_by_uri($attachment['file_uri']);
+    if (!$file) {
+      $file = remote_stream_wrapper_file_create_by_uri($attachment['file_uri']);
+      $file->filename = $attachment['file_name'];
+      $file->type = 'document';
+      file_save($file);
+    }
+
+    $file_data = (array)$file;
+    $file_data['display'] = 1;
+    $node->field_ris_attachments[LANGUAGE_NONE][] = $file_data;
+  }
+
+  if (!empty($agendaitem['parent'])) {
+    $parent = db_select('ris', 'r')
+      ->fields('r', array('nid'))
+      ->condition('identifier', $meeting_id . '-' . $agendaitem['parent'])
+      ->execute()
+      ->fetchAssoc();
+
+    if ($parent && !empty($parent['nid'])) {
+      $node->field_ris_agenda_parent = array(
+        LANGUAGE_NONE => array(
+          array('target_id' => $parent['nid'])
+        )
+      );
+    }
+  }
+
+  node_save($node);
+
+  // Add to the RIS table for hash checking and identifying.
+  db_merge('ris')
+    ->key(array('identifier' => $identifier))
+    ->fields(array('nid' => $node->nid, 'changed' => REQUEST_TIME))
+    ->execute();
+
+  return $node;
+}
