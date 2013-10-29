@@ -453,7 +453,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'location_cck',
         'settings' => array(),
-        'type' => 'location_all',
+        'type' => 'location_default',
         'weight' => 1,
       ),
       'teaser' => array(
