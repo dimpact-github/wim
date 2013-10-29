@@ -2383,6 +2383,21 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['relationships']['domain_id']['table'] = 'domain_editor';
   $handler->display->display_options['relationships']['domain_id']['field'] = 'domain_id';
   $handler->display->display_options['relationships']['domain_id']['required'] = TRUE;
+  /* Veld: Gebruiker: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Link */
+  $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
+  $handler->display->display_options['fields']['view_user']['table'] = 'users';
+  $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
+  $handler->display->display_options['fields']['view_user']['label'] = '';
+  $handler->display->display_options['fields']['view_user']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
   /* Veld: Gebruiker: Afbeelding */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
@@ -2407,6 +2422,8 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_volledige_naam']['table'] = 'field_data_field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['field'] = 'field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['label'] = '';
+  $handler->display->display_options['fields']['field_volledige_naam']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_volledige_naam']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_volledige_naam']['element_type'] = 'h3';
   $handler->display->display_options['fields']['field_volledige_naam']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_volledige_naam']['element_wrapper_type'] = '0';
@@ -2414,6 +2431,16 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_volledige_naam']['empty'] = '[name]';
   $handler->display->display_options['fields']['field_volledige_naam']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_volledige_naam']['field_api_classes'] = TRUE;
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_volledige_naam]';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Veld: Gebruiker: Functie */
   $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
   $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
@@ -2471,6 +2498,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('laatste »'),
     t('Domain editors'),
     t('[name]'),
+    t('[field_volledige_naam]'),
     t('Functie'),
     t('Doorkiesnummer'),
     t('Teamleden'),
