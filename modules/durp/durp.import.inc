@@ -28,8 +28,30 @@ function durp_import_batch_start() {
  * Parse manifest and create queue items.
  */
 function durp_queue_import() {
+  $url = variable_get('durp_manifest', '');
+  if (!strstr($url, '://')) {
+    $filename = $url;
+  }
+  else {
+    // Given URI is an URL, download this file first.
+    $filename = 'temporary://import_' . md5(time() . $url) . '.xml';
+    if (!$data = drupal_http_request($url)) {
+      return FALSE;
+    }
+    if ($data->code != 200) {
+      return FALSE;
+    }
+    if (!$fp = fopen($filename, 'w')) {
+      return FALSE;
+    }
+    fwrite($fp, $data->data);
+    fclose($fp);
+    // Sleep 1s to wait for filesystem
+    sleep(1);
+  }
+
   $xmlReader = new XMLReader;
-  $xmlReader->open(variable_get('durp_manifest', ''));
+  $xmlReader->open($filename);
 
   // Move to the first <product /> node.
   while ($xmlReader->read() && $xmlReader->name !== 'Dossier');
