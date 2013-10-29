@@ -123,6 +123,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
       }
       .btn_next,
       .btn_prev {
+        color: #fff;
         &:hover {
           color: $colourlight;
         }

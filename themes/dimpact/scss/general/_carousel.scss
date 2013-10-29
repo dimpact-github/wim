@@ -49,14 +49,14 @@
     @include font-size(48);
     text-decoration: none;
     position: absolute;
-    top: 70px;
+    top: $gutter-width/2;
     color: $link-light;
     line-height: 1;
   }
   .btn_next {
-    right: $gutter-width;
+    right: $gutter-width/2;
   }
   .btn_prev {
-    left: $gutter-width;
+    left: $gutter-width/2;
   }
 }
