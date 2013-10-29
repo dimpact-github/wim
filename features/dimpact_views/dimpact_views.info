@@ -1,7 +1,7 @@
 name = Dimpact Views
 core = 7.x
 package = Features
-version = 7.x-1.0-beta47
+version = 7.x-1.0-beta48
 project = dimpact_views
 dependencies[] = entity
 dependencies[] = faq
@@ -15,6 +15,7 @@ features[views_view][] = blogs
 features[views_view][] = favorieten
 features[views_view][] = feeds_intranet
 features[views_view][] = foto_album
+features[views_view][] = maps
 features[views_view][] = marktplaats
 features[views_view][] = nieuws
 features[views_view][] = nodequeue_carousel_9_3
