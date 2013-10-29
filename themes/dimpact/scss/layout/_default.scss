@@ -245,6 +245,15 @@
   .closed {
     display: block !important;
   }
+  .block-views-personen-intranet-block-1,
+  .block-views-personen-block-1 {
+    .views-row {
+      @include span-columns(4, 12);
+      &:nth-child(3n) {
+        @include omega;
+      }
+    }
+  }
 }
 
 /**

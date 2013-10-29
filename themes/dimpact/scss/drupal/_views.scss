@@ -204,7 +204,6 @@
 .block-views-personen-intranet-block-1,
 .block-views-personen-block-1 {
   background-color: lighten($background-color, 7%);
-  @include container();
   padding: 0;
   h2.block-title {
     padding: $gutter-width/2 $gutter-width !important;
@@ -214,12 +213,8 @@
     margin: 0 $gutter-width !important;
   }
   .views-row {
-    @include span-columns(4, 12);
     border: 0;
     min-height: 150px;
-    &:nth-child(3n) {
-      @include omega;
-    }
     .views-field-picture {
       float: left;
       margin-right: $gutter-width;
