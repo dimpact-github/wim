@@ -97,8 +97,8 @@
     });
 
     // Carousels
-    if ($(".carousel-93 .views-rows").length) {
-      $(".carousel-93 .views-rows").carouFredSel({
+    if ($(".carousel .views-rows").length) {
+      $(".carousel .views-rows").carouFredSel({
         items: 1,
         responsive: true,
         scroll: {
@@ -108,15 +108,18 @@
         },
         auto: {
           timeoutDuration: 10000,
-          progress: ".progress",
-          button: ".btn_play_pause"
+          progress: ".progress"
         },
         next: {
-          button: ".btn_next",
+          button: function() {
+            return $(this).parents('.carousel').find('.btn_next');
+          },
           key: "right"
         },
         prev: {
-          button: ".btn_prev",
+          button: function() {
+            return $(this).parents('.carousel').find('.btn_prev');
+          },
           key: "left"
         }
       });
