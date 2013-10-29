@@ -146,7 +146,8 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
 
   if ($plan) {
     $plan_uri = $plan->getElementsByTagName('GeleideFormulier')->item(0)->nodeValue;
-    $planXML = file_get_contents($plan_uri);
+    $data = drupal_http_request($plan_uri);
+    $planXML = $data->data;
     $planDOM = new DOMDocument;
     $planDOM->loadXML($planXML);
     $planXpath = new DOMXPath($planDOM);
@@ -194,7 +195,8 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
 
     // Location
     $imro = $planXpath->query('/ns:GeleideFormulier/ns:Plan/ns:Onderdelen/ns:IMRO')->item(0)->nodeValue;
-    $gmlXML = file_get_contents($base_uri . $imro);
+    $data = drupal_http_request($base_uri . $imro);
+    $gmlXML = $data->data;
     if ($gmlXML) {
       // Load the Dom
       $gmlDOM = new DOMDocument;
