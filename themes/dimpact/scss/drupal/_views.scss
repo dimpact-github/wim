@@ -169,7 +169,8 @@
     }
     .views-field-type,
     .field-tags,
-    .field-category-marketplace {
+    .field-category-marketplace,
+    .field-faq-category {
       @include font-size(12);
       @include border-radius(4px);
       background-color: lighten($background-color, 7%);
@@ -178,10 +179,11 @@
       float: left;
       margin-right: $gutter-width/4;
       margin-top: $gutter-width/4;
-      color: ligthen($text-color, 25%);
+      color: lighten($text-color, 25%);
     }
     .field-tags,
-    .field-category-marketplace {
+    .field-category-marketplace,
+    .field-faq-category {
       &:before {
         @include icon($tag);
         color: lighten($text-color, 50%);
