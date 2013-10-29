@@ -1970,17 +1970,16 @@ if (node_access(\'create\', \'marketplace\')) {
 
   $view = new view();
   $view->name = 'nodequeue_carousel_9_3';
-  $view->description = 'Display a list of all nodes in queue \'Carousel 9/3\'';
+  $view->description = 'Display a list of all nodes in carousel queue';
   $view->tag = 'nodequeue';
   $view->base_table = 'node';
-  $view->human_name = '';
+  $view->human_name = 'Carrousel';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['title'] = 'Queue \'Carousel 9/3\'';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'meer';
@@ -2036,8 +2035,8 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['status_extra']['group'] = 0;
   $handler->display->display_options['filters']['status_extra']['expose']['operator'] = FALSE;
 
-  /* Display: Carousel 9/3 block */
-  $handler = $view->new_display('block', 'Carousel 9/3 block', 'block');
+  /* Display: Carousel 9/12 block */
+  $handler = $view->new_display('block', 'Carousel 9/12 block', 'block');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -2077,10 +2076,64 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Carrousel breed';
+  $handler->display->display_options['block_description'] = 'Carrousel breed (9/12)';
+
+  /* Display: Carousel 4/12 block */
+  $handler = $view->new_display('block', 'Carousel 4/12 block', 'block_1');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'carousel carousel-93';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relatie: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['queues'] = array(
+    'carrousel_4_12' => 'carrousel_4_12',
+    'carousel_9_3' => 0,
+    'voorpagina_banners' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'slide_412',
+  );
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Carrousel smal (4/12)';
   $translatables['nodequeue_carousel_9_3'] = array(
     t('Defaults'),
-    t('Queue \'Carousel 9/3\''),
     t('meer'),
     t('Toepassen'),
     t('Opnieuw instellen'),
@@ -2088,8 +2141,10 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Oplopend'),
     t('Aflopend'),
     t('queue'),
-    t('Carousel 9/3 block'),
-    t('Carrousel breed'),
+    t('Carousel 9/12 block'),
+    t('Carrousel breed (9/12)'),
+    t('Carousel 4/12 block'),
+    t('Carrousel smal (4/12)'),
   );
   $export['nodequeue_carousel_9_3'] = $view;
 
