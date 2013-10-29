@@ -465,6 +465,89 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['block_description'] = 'Teamdocumentenblok';
+
+  /* Display: Bijlagenblok */
+  $handler = $view->new_display('block', 'Bijlagenblok', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Bijlagen';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relatie: Inhoud: Bijlage (field_bijlage:fid) */
+  $handler->display->display_options['relationships']['field_bijlage_fid']['id'] = 'field_bijlage_fid';
+  $handler->display->display_options['relationships']['field_bijlage_fid']['table'] = 'field_data_field_bijlage';
+  $handler->display->display_options['relationships']['field_bijlage_fid']['field'] = 'field_bijlage_fid';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Bestand: Extensie */
+  $handler->display->display_options['fields']['extension']['id'] = 'extension';
+  $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['extension']['field'] = 'extension';
+  $handler->display->display_options['fields']['extension']['relationship'] = 'field_bijlage_fid';
+  $handler->display->display_options['fields']['extension']['label'] = '';
+  $handler->display->display_options['fields']['extension']['element_label_colon'] = FALSE;
+  /* Veld: Bestand: Naam */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['relationship'] = 'field_bijlage_fid';
+  $handler->display->display_options['fields']['filename']['label'] = '';
+  $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['filename']['element_label_colon'] = FALSE;
+  /* Veld: Bestand: Grootte */
+  $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
+  $handler->display->display_options['fields']['filesize']['relationship'] = 'field_bijlage_fid';
+  $handler->display->display_options['fields']['filesize']['label'] = '';
+  $handler->display->display_options['fields']['filesize']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['filesize']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['filesize']['alter']['text'] = '([filesize])';
+  $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div>[filename] <span class="views-field-filesize">[filesize]</span></div>
+<div>[created]</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextueel filter: Inhoud: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  /* Filtercriterium: Inhoud: Bijlage (field_bijlage:fid) */
+  $handler->display->display_options['filters']['field_bijlage_fid']['id'] = 'field_bijlage_fid';
+  $handler->display->display_options['filters']['field_bijlage_fid']['table'] = 'field_data_field_bijlage';
+  $handler->display->display_options['filters']['field_bijlage_fid']['field'] = 'field_bijlage_fid';
+  $handler->display->display_options['filters']['field_bijlage_fid']['operator'] = 'not empty';
+  $handler->display->display_options['block_description'] = 'Bijlagenblok';
   $translatables['bestanden'] = array(
     t('Master'),
     t('meer'),
@@ -486,6 +569,12 @@ if (node_access(\'create\', \'message\')) {
     t('Teamdocumentenblok'),
     t('bestand uit field_bestand'),
     t('auteur'),
+    t('Bijlagenblok'),
+    t('Bijlagen'),
+    t('bestand uit field_bijlage'),
+    t('<div>[filename] <span class="views-field-filesize">[filesize]</span></div>
+<div>[created]</div>'),
+    t('Alle'),
   );
   $export['bestanden'] = $view;
 
