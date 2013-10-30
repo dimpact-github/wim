@@ -2723,6 +2723,66 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_websites']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_websites']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_websites']['field_api_classes'] = TRUE;
+
+  /* Display: Interne applicatiesblok current user */
+  $handler = $view->new_display('block', 'Interne applicatiesblok current user', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Interne applicaties';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Interne applicaties */
+  $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
+  $handler->display->display_options['fields']['field_interne_applicaties']['label'] = '';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_interne_applicaties']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_interne_applicaties']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_interne_applicaties']['field_api_classes'] = TRUE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextueel filter: Gebruiker: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['block_description'] = 'Applicaties huidige gebruiker';
+
+  /* Display: Websitesblok current user */
+  $handler = $view->new_display('block', 'Websitesblok current user', 'block_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Websites';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Websites */
+  $handler->display->display_options['fields']['field_websites']['id'] = 'field_websites';
+  $handler->display->display_options['fields']['field_websites']['table'] = 'field_data_field_websites';
+  $handler->display->display_options['fields']['field_websites']['field'] = 'field_websites';
+  $handler->display->display_options['fields']['field_websites']['label'] = '';
+  $handler->display->display_options['fields']['field_websites']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_websites']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_websites']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_websites']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_websites']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_websites']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_websites']['field_api_classes'] = TRUE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextueel filter: Gebruiker: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['block_description'] = 'Websites huidige gebruiker';
   $translatables['profiel'] = array(
     t('Master'),
     t('meer'),
@@ -2743,6 +2803,10 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Interne applicaties'),
     t('Websitesblok'),
     t('Websites'),
+    t('Interne applicatiesblok current user'),
+    t('Applicaties huidige gebruiker'),
+    t('Websitesblok current user'),
+    t('Websites huidige gebruiker'),
   );
   $export['profiel'] = $view;
 
