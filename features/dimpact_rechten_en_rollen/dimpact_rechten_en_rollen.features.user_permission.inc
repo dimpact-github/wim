@@ -269,6 +269,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'administer comments',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'comment',
   );
