@@ -200,6 +200,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'user',
@@ -3381,6 +3382,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'scheduler',
   );
