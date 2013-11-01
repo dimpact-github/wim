@@ -1,15 +1,8 @@
 #homebox {
-  @include container($total-columns, $break-large);
   overflow: hidden;
   #homebox-buttons {
     text-align: right;
     margin-bottom: $gutter-width/2;
-  }
-  .homebox-column-wrapper {
-    @include span-columns(4, $break-large);
-  }
-  .homebox-column-wrapper-3 {
-    @include omega;
   }
   .homebox-column {
     margin: 0;

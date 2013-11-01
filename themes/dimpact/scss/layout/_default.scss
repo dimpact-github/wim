@@ -7,6 +7,7 @@
   padding: 0 !important;
 }
 
+#homebox,
 .container {
   @include container;
   @include susy-grid-background;
@@ -82,6 +83,27 @@
     nav {
       &.main-menu {
         margin-bottom: $gutter-width;
+      }
+    }
+  }
+  #homebox {
+    @include container($total-columns, $break-small);
+    @include susy-grid-background;
+    .homebox-column-wrapper {
+      @include span-columns(2, $break-small);
+    }
+    .homebox-column-wrapper-3 {
+      @include omega;
+    }
+  }
+  .view-updates-display-block_1,
+  .block-views-updates-block-1 {
+    .views-row {
+      .field-intro,
+      h3 {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
     }
   }
@@ -254,6 +276,16 @@
       }
     }
   }
+  #homebox {
+    @include container($total-columns, $break-medium);
+    @include susy-grid-background;
+    .homebox-column-wrapper {
+      @include span-columns(3, $break-medium);
+    }
+    .homebox-column-wrapper-3 {
+      @include omega;
+    }
+  }
 }
 
 /**
@@ -346,5 +378,15 @@
   }
   nav.main-menu .block-quicktabs-alfabet h2.block-title {
     top: 9px;
+  }
+  #homebox {
+    @include container($total-columns, $break-large);
+    @include susy-grid-background;
+    .homebox-column-wrapper {
+      @include span-columns(4, $break-large);
+    }
+    .homebox-column-wrapper-3 {
+      @include omega;
+    }
   }
 }
