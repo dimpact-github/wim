@@ -3,7 +3,7 @@
 /**
  * Implements hook_permission().
  */
-function atos_permission() {
+function atos_esuite_permission() {
   return array(
     'start atos import' => array(
       'title' => t('Start Atos import'),
