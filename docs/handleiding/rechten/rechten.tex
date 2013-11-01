@@ -1,0 +1,103 @@
+\section{Rechten en rollen}
+
+Drupal heeft de mogelijkheid om meerdere rollen aan te maken. Aan elke rol kunnen vervolgens rechten worden toegekend. Welke rechten er zijn is afhankelijk van de gebruikte modules een aanwezige contenttypes. Een gebruiker kan aan meerdere rollen worden gekoppeld. Doorgaans wordt \'{e}\'{e}n rol gebruikt voor redacteuren / beheerders.
+
+\subsection{Rollen}
+
+De volgende rollen zijn gedefin\"{i}eerd:
+\begin{itemize}
+\item Beheerder \\
+	Heeft toegang tot beheerpagina's en kan alle inhoud, subsites en gebruikers beheren.
+\item Eindredacteur \\
+	Kan alle inhoud en team subsites beheren.
+\item Redacteur \\
+	Kan inhoud beheren op eigen domeinen. Kan wel inhoud aanmaken, maar niet publiceren.
+\item Medewerker \\
+	Toegang tot bepaalde functionaliteit die exclusief is voor medewerkers (bijv. wiki).
+\item Teamlid \\
+	Kan inhoud beheren binnen eigen team subsites.
+\end{itemize}
+
+\subsection{Inhoudstypen}
+
+Hier worden de rechten op inhoud beschreven. Het aanmaken en publiceren zijn losse rechten. Wel kunnen aanmaken en niet kunnen publiceren betekend dat wijzigingen door een andere rol goedgekeurd moeten worden\seeone{workflow}. Bij het bewerken en verwijderen is er onderscheid tussen het muteren van eigen inhoud of het muteren van alle inhoud. Bij elke permissie zijn de rollen afgekort tot de eerste letter.
+\begin{itemize}
+\item \textbf{B}eheerder
+\item \textbf{E}indredacteur
+\item \textbf{R}edacteur
+\item \textbf{M}edewerker
+\item \textbf{T}eamlid
+\end{itemize}
+\begin{tabularx}{\textwidth}{ | p{5cm} |X|X|X|X|X|X| }
+  \hline
+  \textbf{Inhoudstype} & \rotatebox[origin=l]{90}{\textbf{Aanmaken}} & \rotatebox[origin=l]{90}{\textbf{Bewerken}} & \rotatebox[origin=l]{90}{\textbf{Alles bewerken}} & \rotatebox[origin=l]{90}{\textbf{Verwijderen}} & \rotatebox[origin=l]{90}{\textbf{Alles verwijderen }} & \rotatebox[origin=l]{90}{\textbf{Publiceren}} \\ \hline
+  Agenda & BERT & BERT & BE & BERT & BE & BE \\ \hline
+  Bekendmaking & B & B & B & B & B & B \\ \hline
+  Intranet bericht & BET & BET & BE & BET & BE & BE \\ \hline
+  Bestand & BET & BET & BE & BET & BE & BE \\ \hline
+  Bestemmingsplan & BE & BE & BE & BE & BE & BE \\ \hline
+  Blog & BERT & BERT & BE & BERT & BE & BE \\ \hline
+  Editorial & BER & BER & BE & BER & BE & BE \\ \hline
+  Eenvoudige pagina & BER & BER & BE & BER & BE & BE \\ \hline
+  FAQ & BER & BER & BE & BER & BE & BE \\ \hline
+  Forumonderwerp & BE & BE & BE & BE & BE & BE \\ \hline
+  Foto & BE & BE & BE & BE & BE & BE \\ \hline
+  Forumonderwerp & BE & BE & BE & BE & BE & BE \\ \hline
+  Marktplaats & BERM & BERM & BE & BERM & BE & BE \\ \hline
+  Nieuws & BER & BER & BE & BER & BE & BE \\ \hline
+  Onderwerp & BE & BE & BE & BE & BE & BE \\ \hline
+  Peiling & BER & BER & BE & BER & BE & BE \\ \hline
+  Persoon & BER & BER & BE & BER & BE & BE \\ \hline
+  Product & BER & BER & BE & BER & BE & BE \\ \hline
+  Regeilng & B & B & B & B & B & B \\ \hline
+  RSS & BE & BE & BE & BE & BE & BE \\ \hline
+  RSS Source & BE & BE & BE & BE & BE & BE \\ \hline
+  Slide & BER & BER & BE & BER & BE & BE \\ \hline
+  VAC & BE & BE & BE & BE & BE & BE \\ \hline
+  Webformulier & BE & BE & BE & BE & BE & BE \\ \hline
+  Wiki & BERMT & BERMT & BE & BERMT & BE & BE \\ \hline
+\end{tabularx}
+
+\clearpage
+\subsection{Permissies}
+
+Het volgende overzicht geeft aan welke rollen toegang hebben tot bepaald acties.
+Bij elke permissie zijn de rollen afgekort tot de eerste letter.
+
+\begin{tabularx}{\textwidth}{ | p{10cm} | X | } \hline 
+\textbf{Actie} & \textbf{Rollen} \\ \hline
+Beheerinterface gebruiken 	& BER \\ \hline
+Content uitsluiten van zoekmachine 	& BE \\ \hline
+Andere invoerformaten kiezen 	& BERT \\ \hline
+Reageren op content 	& BERTM \\ \hline
+Eigen reacties bewerken 	& B \\ \hline
+Blokken en context beheren 	& BE \\ \hline
+Contextual links gebruiken 	& BER \\ \hline
+Team subsites beheren 	& BE \\ \hline
+Subsite menu's beheren 	& BER \\ \hline
+Cron settings aanpassen 	& B \\ \hline
+Felix blokken beheren op eigen domein 	& BER \\ \hline
+Felix blokken beheren op alle domeinen 	& BE \\ \hline
+Toegang tot alle uploads 	& B \\ \hline
+Bestanden uploaden 	& BERT \\ \hline
+Eigen bestanden aanpassen 	& BERT \\ \hline
+Alle bestanden aanpassen 	& BE \\ \hline
+Volledige HTML gebruiken 	& BE \\ \hline
+Gefilterde HTML gebruiken 	& BERTM \\ \hline
+Forums beheren 	& B \\ \hline
+Vertalingen aanpassen 	& BE \\ \hline
+MailChimp campagnes beheren 	& B \\ \hline
+Inloggen als andere gebruikers 	& B \\ \hline
+Externe video's toevoegen (via media) 	& BER \\ \hline
+Nodequeues aanpassen 	& BER \\ \hline
+URL Aliasen beheren 	& BE \\ \hline
+Stemmen van de poll bekijken 	& BER \\ \hline
+Publiceren onder embargo 	& BER \\ \hline
+Termen in woordenlijsten beheren 	& BE \\ \hline
+Gebruikers beheren 	& B \\ \hline
+Gebruikersprofielen bekijken 	& BE \\ \hline
+Inzendingen van formulieren bekijken 	& BE \\ \hline
+Workbench gebruiken 	& BER \\ \hline
+\end{tabularx}
+
+
