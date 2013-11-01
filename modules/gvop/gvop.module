@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * Implements hook_permission().
+ */
+function gvop_permission() {
+  return array(
+    'start gvop import' => array(
+      'title' => t('Start GVOP import'),
+    ),
+  );
+}
+/**
  * Implements hook_menu().
  */
 function gvop_menu() {
@@ -11,7 +21,7 @@ function gvop_menu() {
     'description' => 'Configure GVOP settings.',
     'page arguments' => array('gvop_admin_settings_form'),
     'page callback' => 'drupal_get_form',
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('start gvop import'),
     'type' => MENU_NORMAL_ITEM,
     'file' => 'gvop.admin.inc',
   );

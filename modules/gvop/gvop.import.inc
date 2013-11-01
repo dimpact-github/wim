@@ -21,7 +21,7 @@ function gvop_import_batch_start() {
   }
 }
 
-/*
+/**
  * Callback for GVOP Batch.
  */
 function _gvop_batch_run($type_info, &$context) {

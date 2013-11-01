@@ -28,7 +28,6 @@ function atos_esuite_import_batch_start($types) {
 /**
  * Worker callback for batch process.
  *
- * @param array $types
  * @param array $context
  */
 function atos_esuite_import_batch_worker(&$context) {

@@ -15,44 +15,46 @@ function atos_esuite_admin_settings_form($form, &$form_state) {
   );
   $form['atos_esuite_actions']['run-all'] = array(
     '#type' => 'submit',
-    '#value' => t('Run all'),
+    '#value' => t('Start import'),
     '#submit' => array('atos_esuite_batch_run_all_submit'),
   );
 
-  // Settings.
-  $form['atos_esuite_settings'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Settings'),
-    '#collapsible' => FALSE,
-    '#collapsed' => FALSE,
-  );
-  $form['atos_esuite_settings']['atos_esuite_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Atos search callback'),
-    '#default_value' => variable_get('atos_esuite_url', ''),
-    '#description' => t('Full url to the search.xml callback. Do not include a query string.'),
-  );
+  if (user_access('administer site configuration')) {
+    // Settings.
+    $form['atos_esuite_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Settings'),
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+    );
+    $form['atos_esuite_settings']['atos_esuite_url'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Atos search callback'),
+      '#default_value' => variable_get('atos_esuite_url', ''),
+      '#description' => t('Full url to the search.xml callback. Do not include a query string.'),
+    );
 
-  $form['atos_esuite_settings']['atos_esuite_chunk_size'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Chunk site'),
-    '#default_value' => variable_get('atos_esuite_chunk_size', 10),
-    '#description' => t('Number of items to fetch per request'),
-  );
+    $form['atos_esuite_settings']['atos_esuite_chunk_size'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Chunk site'),
+      '#default_value' => variable_get('atos_esuite_chunk_size', 10),
+      '#description' => t('Number of items to fetch per request'),
+    );
 
-  $form['atos_esuite_settings']['atos_esuite_finish_margin'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Finished margin'),
-    '#default_value' => variable_get('atos_esuite_finish_margin', 250),
-    '#description' => t('Mark process as finished after retreiving this number of empty responses. This is required because a list of all elements is not available. We iterate over the id\'s.'),
-  );
+    $form['atos_esuite_settings']['atos_esuite_finish_margin'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Finished margin'),
+      '#default_value' => variable_get('atos_esuite_finish_margin', 250),
+      '#description' => t('Mark process as finished after retreiving this number of empty responses. This is required because a list of all elements is not available. We iterate over the id\'s.'),
+    );
 
-  $form['atos_esuite_settings']['atos_esuite_product_parts'] = array(
-    '#type' => 'textarea',
-    '#title' => t('Product body parts'),
-    '#default_value' => variable_get('atos_esuite_product_parts', ''),
-    '#description' => t('Parts of product node body text. One part per line. Separate tagname and label with a pipe.'),
-  );
+    $form['atos_esuite_settings']['atos_esuite_product_parts'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Product body parts'),
+      '#default_value' => variable_get('atos_esuite_product_parts', ''),
+      '#description' => t('Parts of product node body text. One part per line. Separate tagname and label with a pipe.'),
+    );
+  }
 
   return system_settings_form($form);
 }

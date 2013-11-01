@@ -1,12 +1,12 @@
 <?php
+
 /**
  * Implements hook_permission().
  */
 function durp_permission() {
   return array(
-    'administer durp settings' => array(
-      'title' => t('Administer durp settings'),
-      'description' => t('Allows users to configure durp settings.'),
+    'start durp import' => array(
+      'title' => t('Start Durp import'),
     ),
   );
 }
@@ -22,7 +22,7 @@ function durp_menu() {
     'description' => 'Durp import settings.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('durp_admin_settings_form'),
-    'access arguments' => array('administer durp settings'),
+    'access arguments' => array('start durp import'),
     'file' => 'durp.admin.inc',
     'type' => MENU_NORMAL_ITEM,
   );

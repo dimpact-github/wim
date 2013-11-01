@@ -15,23 +15,25 @@ function durp_admin_settings_form($form, &$form_state) {
   );
   $form['durp_actions']['run-all'] = array(
     '#type' => 'submit',
-    '#value' => t('Run all'),
+    '#value' => t('Start import'),
     '#submit' => array('durp_batch_run_all_submit'),
   );
 
-  // Settings
-  $form['durp_settings'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Settings'),
-    '#collapsible' => FALSE,
-    '#collapsed' => FALSE,
-  );
-  $form['durp_settings']['durp_manifest'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Manifest'),
-    '#description' => t('Full url to IMRO2012 formatted manifest XML file.'),
-    '#default_value' => variable_get('durp_manifest', ''),
-  );
+  if (user_access('administer site configuration')) {
+    // Settings
+    $form['durp_settings'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Settings'),
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+    );
+    $form['durp_settings']['durp_manifest'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Manifest'),
+      '#description' => t('Full url to IMRO2012 formatted manifest XML file.'),
+      '#default_value' => variable_get('durp_manifest', ''),
+    );
+  }
 
   return system_settings_form($form);
 }
