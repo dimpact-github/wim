@@ -19,19 +19,19 @@ function dimpact_rechten_en_rollen_user_default_roles() {
   // Exported role: eindredacteur.
   $roles['eindredacteur'] = array(
     'name' => 'eindredacteur',
-    'weight' => 5,
+    'weight' => 4,
   );
 
   // Exported role: medewerker.
   $roles['medewerker'] = array(
     'name' => 'medewerker',
-    'weight' => 3,
+    'weight' => 7,
   );
 
   // Exported role: redacteur.
   $roles['redacteur'] = array(
     'name' => 'redacteur',
-    'weight' => 4,
+    'weight' => 5,
   );
 
   // Exported role: teamlid.

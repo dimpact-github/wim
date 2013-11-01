@@ -1272,6 +1272,34 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'create ris_agendaitem content'.
+  $permissions['create ris_agendaitem content'] = array(
+    'name' => 'create ris_agendaitem content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create ris_agendaitem content on assigned domains'.
+  $permissions['create ris_agendaitem content on assigned domains'] = array(
+    'name' => 'create ris_agendaitem content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'create ris_meeting content'.
+  $permissions['create ris_meeting content'] = array(
+    'name' => 'create ris_meeting content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create ris_meeting content on assigned domains'.
+  $permissions['create ris_meeting content on assigned domains'] = array(
+    'name' => 'create ris_meeting content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
   // Exported permission: 'create rss content'.
   $permissions['create rss content'] = array(
     'name' => 'create rss content',
@@ -1635,6 +1663,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any regulation content'.
   $permissions['delete any regulation content'] = array(
     'name' => 'delete any regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any ris_agendaitem content'.
+  $permissions['delete any ris_agendaitem content'] = array(
+    'name' => 'delete any ris_agendaitem content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any ris_meeting content'.
+  $permissions['delete any ris_meeting content'] = array(
+    'name' => 'delete any ris_meeting content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -2020,6 +2062,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own ris_agendaitem content'.
+  $permissions['delete own ris_agendaitem content'] = array(
+    'name' => 'delete own ris_agendaitem content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own ris_meeting content'.
+  $permissions['delete own ris_meeting content'] = array(
+    'name' => 'delete own ris_meeting content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own rss content'.
   $permissions['delete own rss content'] = array(
     'name' => 'delete own rss content',
@@ -2162,6 +2218,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete ris_agendaitem content on assigned domains'.
+  $permissions['delete ris_agendaitem content on assigned domains'] = array(
+    'name' => 'delete ris_agendaitem content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'delete ris_meeting content on assigned domains'.
+  $permissions['delete ris_meeting content on assigned domains'] = array(
+    'name' => 'delete ris_meeting content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
   );
 
   // Exported permission: 'delete rss content on assigned domains'.
@@ -2594,6 +2664,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any ris_agendaitem content'.
+  $permissions['edit any ris_agendaitem content'] = array(
+    'name' => 'edit any ris_agendaitem content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any ris_meeting content'.
+  $permissions['edit any ris_meeting content'] = array(
+    'name' => 'edit any ris_meeting content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any rss content'.
   $permissions['edit any rss content'] = array(
     'name' => 'edit any rss content',
@@ -2898,6 +2982,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own regulation content'.
   $permissions['edit own regulation content'] = array(
     'name' => 'edit own regulation content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own ris_agendaitem content'.
+  $permissions['edit own ris_agendaitem content'] = array(
+    'name' => 'edit own ris_agendaitem content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own ris_meeting content'.
+  $permissions['edit own ris_meeting content'] = array(
+    'name' => 'edit own ris_meeting content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -3500,6 +3598,36 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'start atos import'.
+  $permissions['start atos import'] = array(
+    'name' => 'start atos import',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'atos_esuite',
+  );
+
+  // Exported permission: 'start durp import'.
+  $permissions['start durp import'] = array(
+    'name' => 'start durp import',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'durp',
+  );
+
+  // Exported permission: 'start gvop import'.
+  $permissions['start gvop import'] = array(
+    'name' => 'start gvop import',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'gvop',
+  );
+
   // Exported permission: 'submit latitude/longitude'.
   $permissions['submit latitude/longitude'] = array(
     'name' => 'submit latitude/longitude',
@@ -3763,6 +3891,20 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'update regulation content on assigned domains'.
   $permissions['update regulation content on assigned domains'] = array(
     'name' => 'update regulation content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update ris_agendaitem content on assigned domains'.
+  $permissions['update ris_agendaitem content on assigned domains'] = array(
+    'name' => 'update ris_agendaitem content on assigned domains',
+    'roles' => array(),
+    'module' => 'domain',
+  );
+
+  // Exported permission: 'update ris_meeting content on assigned domains'.
+  $permissions['update ris_meeting content on assigned domains'] = array(
+    'name' => 'update ris_meeting content on assigned domains',
     'roles' => array(),
     'module' => 'domain',
   );
