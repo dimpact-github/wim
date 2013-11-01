@@ -1,0 +1,31 @@
+\section{Imports}
+
+Dimpact bevat import modules om een deel van de inhoud te importeren uit gemeentelijke en landelijke voorzieningen. Het gaat hier om automatische processen die in de \emph{cron} worden gestart. De \emph{cron} is een proces dat periodiek op de achtergrond draait. Aangezien het om automatische imports gaat zijn de beheeropties minimaal. Wel is het mogelijk om imports handmatig te starten.
+
+\subsection{GVOP}
+
+De GVOP koppeling importeert regelingen (CVDR) en bekendmakingen. Hiervan wordt de dienst gebruikt op \texttt{zoek.officielebekendmakingen.nl}.
+
+Bekendmakingen komen in het nodetype \emph{Bekendmaking} en regelingen (CVDR) in het nodetype \emph{Regeling}.
+
+Een handmatige import kan gestart worden op de volgende pagina: \\
+\drupalpath{admin/config/content/gvop}
+
+\subsection{Atos eSuite}
+
+De importmodule van de Atos eSuite importeert producten en vraag antwoord combinaties (VAC's) die aanwezig zijn in de eSuite. Producten worden ge\"{i}mporteerd als \emph{Product} node en VAC's als \emph{VAC}.
+
+De export van de Atos eSuite bevat geen categorie\"{e}n. Na de import kunnen deze handmatig toegevoegd worden door de \emph{Product} nodes te bewerken. De categorie wordt niet overschreven door de import. Andere velden die wel uit de import mogen niet in Drupal worden aangepast, aangezien deze wijzigingen wel overschreven zullen worden.
+
+Een handmatige import kan gestart worden op de volgende pagina: \\
+\drupalpath{admin/config/content/atos-esuite}
+
+\subsection{DURP}
+
+Deze module importeert bestemmingsplannen via de standaard \emph{Digitale Uitwisseling in Ruimtelijke Processen}, oftewel \emph{DURP}. De gemeentes bieden zelf de plannen aan op een publiekelijk beschikbare URL. De XML bestanden zelf volgen de \emph{IMRO2012} standaard. Een voorbeeld van een dergelijk bestand is hier te vinden:
+\texttt{http://ro.zwolle.nl/manifest/manifest2012.xml}.
+
+Ge\"{i}mporteerde items zijn in Drupal terug te vinden als \emph{Bestemmingsplan} nodes.
+
+Een handmatige import kan gestart worden op de volgende pagina: \\
+\drupalpath{admin/config/content/durp}
