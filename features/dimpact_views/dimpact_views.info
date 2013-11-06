@@ -1,14 +1,16 @@
 name = Dimpact Views
 core = 7.x
 package = Features
-version = 7.x-1.0-20131101
+version = 7.x-1.0-20131106
 project = dimpact_views
 dependencies[] = entity
 dependencies[] = faq
+dependencies[] = gmap
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = agenda
+features[views_view][] = announcements
 features[views_view][] = berichten
 features[views_view][] = bestanden
 features[views_view][] = blogs
