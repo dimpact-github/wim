@@ -59,8 +59,6 @@
       $(this).append(closeButton);
     });
 
-    // Alphabet menus
-    hideProductTabs();
 
     $('#quicktabs-alfabet').mouseup(function() {
       $('body').addClass('overlay-alpha');

@@ -395,4 +395,7 @@
       @include omega;
     }
   }
+  html:not(.js) nav #quicktabs-container-alfabet .quicktabs-tabpage {
+    position: relative;
+  }
 }

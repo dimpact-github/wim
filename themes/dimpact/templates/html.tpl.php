@@ -5,6 +5,7 @@
     <title><?php print $head_title; ?></title>
     <link rel="dns-prefetch" href="//themes.googleusercontent.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <script src="/<?php print $path; ?>/js/modernizr.js"></script>
     <?php print $styles; ?>
     <?php print $scripts; ?>
     <!--[if lte IE 9]>
