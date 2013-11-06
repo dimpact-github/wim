@@ -305,3 +305,16 @@
     }
   }
 }
+#views-exposed-form-announcements-page {
+  .form-item {
+    margin: 0 0 $gutter-width/2 0;
+  }
+  input[type="text"] {
+    width: 100%;
+  }
+}
+.view-announcements {
+  .gmap {
+    margin-bottom: $gutter-width;
+  }
+}
