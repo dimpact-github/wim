@@ -22,7 +22,7 @@ $buttons: ($toptakentotal - $tabs);
     color: #000;
     text-decoration: none;
     display: block;
-    padding: 15px $gutter-width/2;
+    padding: 18px $gutter-width/2;
   }
   &.last {
     border: 0;
@@ -32,7 +32,6 @@ $buttons: ($toptakentotal - $tabs);
   border-left: 0;
   display: none;
   height: 100%;
-  padding-left: $gutter-width;
   top: 0;
   background-color: #fff;
 }
@@ -47,28 +46,6 @@ html:not(.js) .block-menu-menu-toptaken > ul > li:hover {
   }
   > ul {
     display: block;
-    > li {
-      float: left;
-      margin-top: 7px;
-      margin-bottom: 7px;
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-      a {
-        @include border-radius(4px);
-        @include font-size(12);
-        display: block;
-        height: 60px;
-        line-height: 58px;
-        padding-left: $gutter-width/2;
-        img {
-          margin-right: $gutter-width/2;
-        }
-      }
-    }
-    a {
-      color: $text-color !important;
-    }
   }
 }
 
@@ -83,22 +60,21 @@ html.js .block-menu-menu-toptaken > ul > li.toptaken-active {
   }
   > ul {
     display: block;
+  }
+}
+
+.block-menu-menu-toptaken > ul > li {
+  > ul {
     > li {
-      float: left;
-      margin-top: 7px;
-      margin-bottom: 7px;
       &:nth-child(2n) {
         margin-right: 0;
       }
       a {
-        @include border-radius(4px);
         @include font-size(12);
         display: block;
-        height: 60px;
-        line-height: 58px;
-        padding-left: $gutter-width/2;
+        padding: $gutter-width/2;
         img {
-          margin-right: $gutter-width/2;
+          margin: 0 $gutter-width/2 0 0;
         }
       }
     }

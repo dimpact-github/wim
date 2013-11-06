@@ -174,10 +174,26 @@
   .block-menu-menu-toptaken > ul > li > ul {
     left: columns(2, 6);
     width: columns(4, 6);
+    padding-left: $gutter-width;
   }
-  .block-menu-menu-toptaken > ul > li.toptaken-active > ul > li {
+  .block-menu-menu-toptaken > ul > li > ul > li {
     width: columns(3, 6);
     margin-right: 10px;
+    float: left;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    a {
+      @include border-radius(4px);
+//      height: 60px;
+//      line-height: 58px;
+      padding: $gutter-width/3 0;
+//      padding-left: $gutter-width/2;
+      text-align: center;
+      span {
+        display: block;
+        margin: 0 0 6px 0;
+      }
+    }
   }
   .view-voorpagina-banners {
     .views-row {
@@ -368,7 +384,7 @@
       }
     }
   }
-  .block-menu-menu-toptaken > ul > li.toptaken-active > ul > li {
+  .block-menu-menu-toptaken > ul > li > ul > li {
     margin-right: 15px;
   }
 
