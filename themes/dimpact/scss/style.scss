@@ -117,7 +117,7 @@ h2 {
 }
 
 h3 {
-  font-size: 135%;
+  font-size: 130%;
   &.field-content {
     @include font-size(14);
     line-height: $line-height;
@@ -128,10 +128,16 @@ h3 {
   }
 }
 
-h4, h5, h6 {
+h4{
   font-size: 118%;
 }
 
+h5, h6 {
+  font-size: 100%;
+}
+h6 {
+  font-style: italic;
+}
 dt {
   @extend h4;
   margin-top: 1em;
