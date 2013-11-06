@@ -62,7 +62,7 @@ nav {
           a {
             @include font-size(16);
             font-family: $heading;
-            font-weight: 300;
+            font-weight: 400;
             display: block;
             padding: 15px $gutter-width/2;
             line-height: 1;
@@ -103,7 +103,7 @@ nav {
       position: relative;
       h2.block-title {
         @include font-size(13);
-        font-weight: 300;
+        font-weight: 400;
         display: inline;
         position: absolute;
         top: 9px;
@@ -131,7 +131,7 @@ nav {
         a {
           @include font-size(13);
           font-family: $heading;
-          font-weight: 300;
+          font-weight: 400;
           display: block;
           padding: 0.75em 1em;
           line-height: 1;
