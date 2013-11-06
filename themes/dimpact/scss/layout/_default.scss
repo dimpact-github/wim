@@ -113,6 +113,15 @@
       margin-bottom: 0 !important;
     }
   }
+  .view {
+    .views-row {
+      .node {
+        .content {
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }
 
 /**
