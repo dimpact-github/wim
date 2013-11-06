@@ -44,21 +44,10 @@
       e.preventDefault();
     });
 
-//    var menuSelect = $("<select>").addClass('resp-menu');
-//    menuSelect.append($("<option>").attr('value', '').text('-- menu --'));
-//    $('.region_meta_first ul.menu a').each(function(i, e) {
-//      menuSelect.append($("<option>").attr('value', $(e).attr('href')).text($(e).html()));
-//    });
-//    $('.region_meta_first ul.menu').before(menuSelect);
-//    $('.resp-menu').live("change", function() {
-//      document.location = $(this).attr('value');
-//    });
-
     $('.quicktabs-tabpage').each(function(){
       var closeButton = $('<div>').addClass('close-button');
       $(this).append(closeButton);
     });
-
 
     $('#quicktabs-alfabet').mouseup(function() {
       $('body').addClass('overlay-alpha');
@@ -140,7 +129,6 @@
     function() {
       $('.dimpact_hide_service_links').hide(222)
     });
-
 
     // Reset Font Size
     var htmlElem = $('html');

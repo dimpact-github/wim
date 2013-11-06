@@ -15,8 +15,11 @@ $buttons: ($toptakentotal - $tabs);
   border-bottom: 1px solid #FFFFFF;
   line-height: 1;
   > a {
+    &.active {
+      color: #000;
+    }
     font-family: $heading;
-    color: $link-dark;
+    color: #000;
     text-decoration: none;
     display: block;
     padding: 15px $gutter-width/2;
@@ -33,7 +36,43 @@ $buttons: ($toptakentotal - $tabs);
   top: 0;
   background-color: #fff;
 }
-.block-menu-menu-toptaken > ul > li.toptaken-active {
+html:not(.js) .block-menu-menu-toptaken > ul > li:hover {
+  > a {
+    background-image: url('../img/toptaken-arrow.png');
+    background-position: center right;
+    background-repeat: no-repeat;
+    margin-right: -9px;
+    z-index: 1;
+    position: relative;
+  }
+  > ul {
+    display: block;
+    > li {
+      float: left;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      a {
+        @include border-radius(4px);
+        @include font-size(12);
+        display: block;
+        height: 60px;
+        line-height: 58px;
+        padding-left: $gutter-width/2;
+        img {
+          margin-right: $gutter-width/2;
+        }
+      }
+    }
+    a {
+      color: $text-color !important;
+    }
+  }
+}
+
+html.js .block-menu-menu-toptaken > ul > li.toptaken-active {
   > a {
     background-image: url('../img/toptaken-arrow.png');
     background-position: center right;

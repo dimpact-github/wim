@@ -48,7 +48,7 @@
 // @see http://compass-style.org/reference/compass/typography/links/link_colors/
 //------------------------------------------------------------------------------
 @mixin link-colors($normal, $hoverfocus: false, $active: false) {
-  &, &:visited {
+  &/*, &:visited*/ {
     color: $normal;
   }
   @if $hoverfocus {
