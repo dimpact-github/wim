@@ -16,8 +16,9 @@
       color: #fff;
       width: 100%;
       h2 {
+        @include font-size(13);
         margin: 0;
-        padding: $gutter-width/2 $gutter-width/2;
+        padding: $gutter-width/3 $gutter-width/2;
         line-height: $line-height;
         a {
           color: $link-light;
@@ -46,7 +47,7 @@
   .btn_next,
   .btn_prev {
     @include text-shadow(0 0 6px rgba(0, 0, 0, 0.2));
-    @include font-size(48);
+    @include font-size(24);
     text-decoration: none;
     position: absolute;
     top: $gutter-width/2;

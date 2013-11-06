@@ -317,6 +317,19 @@
       @include omega;
     }
   }
+  .carousel {
+    .views-row {
+      .views-field-title {
+        h2 {
+          @include font-size(18);
+        }
+      }
+    }
+    .btn_next,
+    .btn_prev {
+      @include font-size(42);
+    }
+  }
 }
 
 /**
