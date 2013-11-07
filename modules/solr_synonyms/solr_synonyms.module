@@ -4,9 +4,9 @@
  */
 function solr_synonyms_permission() {
   return array(
-    'administer solr_synonyms settings' => array(
-      'title' => t('Administer solr_synonyms settings'),
-      'description' => t('Allows users to configure solr_synonyms settings.'),
+    'administer solr synonyms' => array(
+      'title' => t('Administer Solr Synonyms'),
+      'description' => t('Allows users to manage the list of Solr synonyms.'),
     ),
   );
 }
@@ -18,24 +18,61 @@ function solr_synonyms_menu() {
   $items = array();
 
   $items['admin/config/search/apachesolr/synonyms'] = array(
-    'access arguments' => array('administer solr_synonyms settings'),
-    'page arguments' => array('solr_synonyms_admin_settings_form'),
+    'title' => 'Synonyms',
     'page callback' => 'drupal_get_form',
-    'title' => 'Solr Synonyms',
-    'description' => 'Configure solr_synonyms settings.',
+    'page arguments' => array('solr_synonyms_admin_list_form'),
+    'access arguments' => array('administer solr synonyms'),
+    'description' => 'Manage Solr synonyms.',
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'solr_synonyms.admin.inc',
+  );
+
+  $items['admin/config/search/apachesolr/synonyms/list'] = array(
+    'title' => 'List',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('solr_synonyms_admin_list_form'),
+    'access arguments' => array('administer solr synonyms'),
+    'description' => 'Manage Solr synonyms.',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'solr_synonyms.admin.inc',
+  );
+
+  $items['admin/config/search/apachesolr/synonyms/settings'] = array(
+    'title' => 'Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('solr_synonyms_admin_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'description' => 'Solr synonyms configuration',
     'type' => MENU_LOCAL_TASK,
     'file' => 'solr_synonyms.admin.inc',
   );
 
   $items['admin/config/search/apachesolr/synonyms/delete/%'] = array(
-    'access arguments' => array('administer solr_synonyms settings'),
-    'page arguments' => array('solr_synonyms_admin_settings_delete_form', 6),
     'page callback' => 'drupal_get_form',
+    'page arguments' => array('solr_synonyms_admin_list_delete_form', 6),
+    'access arguments' => array('administer solr_synonyms settings'),
     'type' => MENU_CALLBACK,
     'file' => 'solr_synonyms.admin.inc',
   );
 
+  $items['solr-synonyms-txt/%'] = array(
+    'page callback' => 'solr_synonyms_generate_txt',
+    'access callback' => 'solr_synonyms_generate_txt_access',
+    'access arguments' => array(1),
+    'type' => MENU_CALLBACK,
+    'file' => 'solr_synonyms.generate.inc',
+  );
+
   return $items;
+}
+
+/**
+ * Access callback for /solr-synonyms-txt/%
+ *
+ * @param string $token
+ */
+function solr_synonyms_generate_txt_access($token) {
+  return $token == md5('solr-synonyms' . drupal_get_private_key());
 }
 
 /**

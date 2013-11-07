@@ -1,8 +1,35 @@
 <?php
+
+/**
+ * Settings form for synonym pages.
+ */
+function solr_synonyms_admin_settings_form($form, &$form_state) {
+
+  $form['solr_synomyms_base'] = array(
+    '#type' => 'textfield',
+    '#title' => t('URL for base list'),
+    '#default_value' => variable_get('solr_synonyms_base', ''),
+    '#description' => t('This list is merged with our synonyms when creating the synonyms textfile. Our synonyms will have precedence over the synonyms in the basefile. Use a full URL, including protocol.'),
+  );
+
+  $token = md5('solr-synonyms' . drupal_get_private_key());
+  $url = url('solr-synonyms-txt/' . $token, array('absolute' => TRUE));
+
+  $form['url'] = array(
+    '#markup' => '<p>'
+      . t('The following URL will output the synonyms textfile. This should be used to fetch the file from the Solr server and can be used in other installations as base list.')
+      . '</p><p>'
+      . check_plain($url)
+      . '</p>'
+  );
+
+  return system_settings_form($form);
+}
+
 /**
  * Form for callback 'admin/config/search/apachesolr/synonyms'.
  */
-function solr_synonyms_admin_settings_form($form, &$form_state) {
+function solr_synonyms_admin_list_form($form, &$form_state) {
   $form['synonyms'] = array(
     '#title' => t("Synonyms"),
     '#type' => 'fieldset',
@@ -36,11 +63,6 @@ function solr_synonyms_admin_settings_form($form, &$form_state) {
       '#type' => 'submit',
       '#value' => t('Save'),
       '#submit' => array('solr_synonyms_save_submit'),
-    );
-    $form['synonyms']['download-button'] = array(
-      '#type' => 'submit',
-      '#value' => t('Download as synonyms.txt'),
-      '#submit' => array('solr_synonyms_download_submit'),
     );
   }
 
@@ -85,21 +107,6 @@ function solr_synonyms_save_submit($form, $form_state) {
   }
 
   drupal_set_message(t("Synonyms have been updated."));
-}
-
-/**
- * Submit handler for downloading synonyms.txt
- */
-function solr_synonyms_download_submit($form, $form_state) {
-  $rs = db_select('solr_synonyms', 's')
-    ->fields('s', array('keyword', 'synonyms'))
-    ->orderBy('s.keyword', 'ASC')
-    ->execute();
-
-  foreach ($rs as $row) {
-    print $row->synonyms . ' => ' . $row->keyword . "\n";
-  }
-  die();
 }
 
 /**
@@ -176,9 +183,9 @@ function theme_solr_synonyms_table_synonyms($form) {
 }
 
 /**
- * Form callback from 'admin/config/search/apachesolr/synonyms/delete/%'.
+ * Form callback from 'admin/config/search/apachesolr/synonyms/list/delete/%'.
  */
-function solr_synonyms_admin_settings_delete_form($form, $form_state, $keyword) {
+function solr_synonyms_admin_list_delete_form($form, $form_state, $keyword) {
   return confirm_form(array(
     'keyword' => array(
       '#type' => 'value',
@@ -190,7 +197,7 @@ function solr_synonyms_admin_settings_delete_form($form, $form_state, $keyword) 
 /**
  * Submit handler for removing a keyword.
  */
-function solr_synonyms_admin_settings_delete_form_submit($form, &$form_state) {
+function solr_synonyms_admin_list_delete_form_submit($form, &$form_state) {
   db_delete('solr_synonyms')
     ->condition('keyword', $form_state['values']['keyword'])
     ->execute();
