@@ -1,0 +1,45 @@
+\subsection{Raads informatie systeem}
+
+Dit onderdeel beschrijft de integratie met het Raads informatie systeem (RIS). Niet iedere gemeente gebruikt hetzelffde systeem. Er worden twee soorten integraties geschreven:
+\begin{itemize}
+\item XML import van iBabs
+\item Crawler voor opnemen van externe sites in zoekresultaten
+\end{itemize}
+De laatste optie wordt gebruikt voor \emph{Notudoc} en \emph{Gemeenteoplossingen}. Deze partijen bieden geen mogelijkheid aan waarmee de inhoud op een gestructureerde manier kan worden ge\"{i}mporteerd.
+
+\subsubsection{iBabs import}
+
+\subsubsection{Crawler}
+
+Voor de crawler wordt een module geschreven onder de naam \texttt{solrcrawler}. Deze zal periodiek (in de cron) de pagina's indexeren en in de Solr index opnemen. Uit tests is gebleken dat de \usemodule{apachesolr} module kan omgaan met inhoud in de Solr index die door andere modules daarin is gezet.
+
+In de database kan worden ingesteld welke sites worden opgenomen in de zoekresultaten. Er is niet voorzien in een admin interface voor deze taak. De volgende settings zijn beschikbaar per site:
+\begin{itemize}
+\item \texttt{url} \\ Startlocatie van de crawler. Enkel pagina's met dezelfde domeinnaam worden opgenomen in de index.
+\item \texttt{check\_interval} \\ Tijdsduur tussen de indexaties, in seconden
+\item \texttt{max\_depth} \\ Maximale diepte van crawling
+\item \texttt{nofollow} \\ Lijst van pagina's waar de links niet worden gevolgd
+\item \texttt{noindex} \\ Lijst van pagina's die niet worden ge\"{i}ndexeerd
+\item \texttt{content\_include} \\ Lijst van HTML tags waarvan de content wordt opgenomen in de index
+\item \texttt{content\_exclude} \\ Lijst van HTML tags waarvan de content wordt uitgesloten van indexatie. Deze heeft voorrang op \texttt{content\_include}. Dus een \texttt{<div id="share">} in \texttt{content\_exclude} wordt niet meegenomen als deze toch in een \texttt{<div id="content">} staat die in \texttt{content\_include} staat.
+\end{itemize}
+De diepte van de crawling wil zeggen dat pagina's die gevonden zijn via meer dan het ingestelde aantal links niet meer worden meegenomen. Als de diepte op 5 staat dan zal in de kalender bijvoorbeeld niet meer dan 5 maanden terug gezocht worden, tenzij deze pagina's via een andere weg met minder dan 5 kliks te benaderen zijn. Een limiet is nodig om oneindige loops in bepaalde functionaliteiten te voorkomen (bijv. wanneer tot in de oneindigheid doorgeklikt kan worden naar de volgende maand). Wel is het zo dat pagina's die reeds gevonden zijn in de index blijven staan, ook wanneer deze niet langer binnen 5 kliks te vinden zijn. Om dit mogelijk te maken wordt per pagina (in de tabel \texttt{solrcrawler\_page} een diepte aangegeven. Wanneer een pagina gevonden wordt op diepte 5, maar al in de database staat met 3, dan blijven we 3 hanteren.
+
+De \texttt{nofollow} en \texttt{noindex} velden kunnen meerdere waarden bevatten en worden opgeslagen als tekstvelden. Iedere waarde staat op een aparte regel. Iedere regel geldt voor het volledige \emph{pad}. De domeinnaam wordt niet in de filtering meegenomen. Een regel kan bijvoorbeeld zijn \texttt{*png}. Dat wil zeggen dat url's die eindigen op "png" niet worden meegegeven. De regel \texttt{*agenda*} wil zeggen dat alle url's waarin "agenda" voorkomt niet mee worden genomen.
+
+De velden \texttt{content\_include} en \texttt{content\_exclude} werken op basis van HTML tags. Hierin moeten volledige HTML tags worden opgegeven. Ook hier zijn meerdere waarden mogelijk en staat elke waarde op een aparte regel. Een tag kan bijvoorbeeld zijn \texttt{<div id="maincontent">}. De module haalt dan zelf het relevante stuk HTML uit de bron wat begint bij deze tag en eindigt bij de bijbehorende sluit-tag. Code voor deze functie is reeds beschikbaar.
+
+Bij het indexeren van pagina's worden eerst bovenstaande filters toegepast en de links uit de HTML gehaald. De links worden in de queue opgenomen om later te worden verwerkt. Hiervoor wordt een implementatie van de \emph{DrupalQueue} gebruikt.
+Hierna wordt de pagina in de Solr index gezet via de functie \texttt{solrcrawler\_save\_page}. In het geval van een 404 wordt de pagina niet opgeslagen maar wordt deze juist uit de index gehaald. Hiervoor is de functie \texttt{solrcrawler\_delete\_page} beschikbaar.
+
+Bij het extraheren van de links uit de broncode dient uiteraard rekening gehouden te worden met de 4 mogelijk vormen van URI's:
+\begin{itemize}
+\item Absolute (beginnend met het protocol)
+\item Relatief t.o.v. protocol (bijv. \texttt{//example.com/path})
+\item Relatief t.o.v. domein (bijv. \texttt{/agenda})
+\item Relatief t.o.v. huidig pad (bijv. \texttt{agenda})
+\end{itemize}
+Links met alleen een anchor (\#) zullen we negeren.
+
+In de \texttt{hook\_cron} implementatie van deze module zullen we enkel de pagina's die verlopen zijn opnemen in de queue. De indexatie zelf vindt alleen plaats via queue jobs.
+
