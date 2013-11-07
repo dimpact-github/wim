@@ -1549,6 +1549,10 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relatie: Inhoud: Auteur */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1570,6 +1574,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['field_category_marketplace']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_category_marketplace']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_category_marketplace']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Naam */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Door';
   /* Sorteercriterium: Inhoud: Datum van inzending */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1905,6 +1915,8 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
+    t('auteur'),
+    t('Door'),
     t('Marktplaats lijstblok'),
     t('Marktplaats'),
     t('<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
