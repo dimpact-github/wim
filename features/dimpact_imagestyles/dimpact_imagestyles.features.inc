@@ -155,6 +155,29 @@ function dimpact_imagestyles_image_default_styles() {
     ),
   );
 
+  // Exported image style: portret_groot.
+  $styles['portret_groot'] = array(
+    'name' => 'portret_groot',
+    'label' => 'Portret groot',
+    'effects' => array(
+      7 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 265,
+          'height' => 265,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: slide_4_12.
   $styles['slide_4_12'] = array(
     'name' => 'slide_4_12',
