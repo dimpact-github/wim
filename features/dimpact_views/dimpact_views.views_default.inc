@@ -2207,7 +2207,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relatie: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -2295,7 +2295,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relatie: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -2579,14 +2579,8 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relatie: Domain Editor: Domain editors */
@@ -2615,7 +2609,6 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret';
   /* Veld: Gebruiker: Naam */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -2680,6 +2673,103 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Teamleden */
+  $handler = $view->new_display('block', 'Teamleden', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Medewerkers';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Link */
+  $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
+  $handler->display->display_options['fields']['view_user']['table'] = 'users';
+  $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
+  $handler->display->display_options['fields']['view_user']['label'] = '';
+  $handler->display->display_options['fields']['view_user']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
+  /* Veld: Gebruiker: Afbeelding */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'portret';
+  /* Veld: Gebruiker: Naam */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Volledige naam */
+  $handler->display->display_options['fields']['field_volledige_naam']['id'] = 'field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['table'] = 'field_data_field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['field'] = 'field_volledige_naam';
+  $handler->display->display_options['fields']['field_volledige_naam']['label'] = '';
+  $handler->display->display_options['fields']['field_volledige_naam']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_volledige_naam']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_volledige_naam']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['empty'] = '[name]';
+  $handler->display->display_options['fields']['field_volledige_naam']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_volledige_naam']['field_api_classes'] = TRUE;
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_volledige_naam]';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Veld: Gebruiker: Functie */
+  $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
+  $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
+  $handler->display->display_options['fields']['field_functie']['field'] = 'field_functie';
+  $handler->display->display_options['fields']['field_functie']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_functie']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_functie']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_functie']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Doorkiesnummer */
+  $handler->display->display_options['fields']['field_doorkiesnummer']['id'] = 'field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['table'] = 'field_data_field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['field'] = 'field_doorkiesnummer';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_doorkiesnummer']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Mobiel */
+  $handler->display->display_options['fields']['field_mobiel']['id'] = 'field_mobiel';
+  $handler->display->display_options['fields']['field_mobiel']['table'] = 'field_data_field_mobiel';
+  $handler->display->display_options['fields']['field_mobiel']['field'] = 'field_mobiel';
+  $handler->display->display_options['fields']['field_mobiel']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_mobiel']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_mobiel']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_mobiel']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_mobiel']['field_api_classes'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Gebruiker: Actief */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filtercriterium: Domain Access: Domain ID */
   $handler->display->display_options['filters']['gid']['id'] = 'gid';
   $handler->display->display_options['filters']['gid']['table'] = 'domain_access';
@@ -2688,10 +2778,50 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['gid']['value'] = array(
     '***CURRENT_DOMAIN***' => '***CURRENT_DOMAIN***',
   );
-
-  /* Display: Teamleden */
-  $handler = $view->new_display('block', 'Teamleden', 'block_1');
   $handler->display->display_options['block_description'] = 'Teamledenblok';
+
+  /* Display: Teamlid foto */
+  $handler = $view->new_display('block', 'Teamlid foto', 'block_2');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Gebruiker: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Veld: Gebruiker: Afbeelding */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'portret_groot';
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Foto aanpassen';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]/edit#edit-picture';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextueel filter: Gebruiker: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'user';
+  $handler->display->display_options['arguments']['uid']['default_argument_options']['user'] = FALSE;
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['block_description'] = 'Teamlid foto';
   $translatables['personen_intranet'] = array(
     t('Master'),
     t('meer'),
@@ -2700,20 +2830,18 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('Items per pagina'),
-    t('- Alle -'),
-    t('Startpunt'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
     t('Domain editors'),
     t('[name]'),
     t('[field_volledige_naam]'),
     t('Functie'),
     t('Doorkiesnummer'),
     t('Teamleden'),
+    t('Medewerkers'),
+    t('Mobiel'),
     t('Teamledenblok'),
+    t('Teamlid foto'),
+    t('Foto aanpassen'),
+    t('Alle'),
   );
   $export['personen_intranet'] = $view;
 
@@ -3742,7 +3870,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relatie: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
