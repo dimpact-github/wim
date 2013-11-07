@@ -21,9 +21,10 @@ hide($content['field_tabcontent']);
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php if ($display_submitted || !empty($content['field_tags'])): ?>
-    <?php // print $user_picture; ?>
-    <?php // print render($content['field_tags']); ?>
+  <?php if ($node->type == 'marketplace'): ?>
+    <div class="submitted">
+      Door: <?php print theme('username', array('account' => user_load($node->uid))); ?>
+    </div>
   <?php endif; ?>
   <div class="content"<?php print $content_attributes; ?>>
     <?php if ($node->type == 'news'): ?>
