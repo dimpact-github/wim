@@ -189,8 +189,6 @@ function dimpact_contexts_context_default_contexts() {
         2 => 2,
         3 => 3,
         4 => 4,
-        6 => 6,
-        7 => 7,
       ),
     ),
     'user_page' => array(
@@ -205,11 +203,17 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-personen_intranet-block_2' => array(
+          'module' => 'views',
+          'delta' => 'personen_intranet-block_2',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
         'submenutree-2' => array(
           'module' => 'submenutree',
           'delta' => '2',
           'region' => 'region_363_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-profiel-block_1' => array(
           'module' => 'views',
@@ -466,9 +470,41 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'sitewide_teams';
+  $context->description = '';
+  $context->tag = 'Teamsite';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'team' => 'team',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-personen_intranet-block_1' => array(
+          'module' => 'views',
+          'delta' => 'personen_intranet-block_1',
+          'region' => 'region_full_bottom',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Teamsite');
+  $export['sitewide_teams'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'zoeken';
   $context->description = '';
-  $context->tag = '';
+  $context->tag = 'Algemeen';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -489,6 +525,10 @@ function dimpact_contexts_context_default_contexts() {
     ),
   );
   $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Algemeen');
   $export['zoeken'] = $context;
 
   return $export;
