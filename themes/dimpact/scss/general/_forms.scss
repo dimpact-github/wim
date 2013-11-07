@@ -84,3 +84,14 @@ textarea {
 #edit-submit {
   margin-right: 1em;
 }
+
+#user-profile-form {
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+  }
+}
+.fieldset-legend {
+  @include font-size(16);
+  font-family: $heading;
+  font-weight: 400;
+}

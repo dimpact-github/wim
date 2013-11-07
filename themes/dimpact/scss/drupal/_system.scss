@@ -208,3 +208,7 @@ table.sticky-header {
 .element-focusable {
   @extend .focusable;
 }
+
+.field-multiple-table {
+  margin-bottom: $gutter-width;
+}

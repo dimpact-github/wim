@@ -220,3 +220,8 @@ function bespoke_hansel_action_types() {
     ),
   );
 }
+
+function bespoke_admin_paths_alter(&$paths) {
+  // Treat all user pages as not administrative.
+  $paths['user/*'] = FALSE;
+}
