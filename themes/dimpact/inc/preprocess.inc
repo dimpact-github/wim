@@ -387,3 +387,11 @@ function dimpact_preprocess_homebox(&$variables) {
     unset($variables['classes_array'][$classes['column-count-3']]);
   }
 }
+
+/**
+ * Implements template_preprocess_user_profile().
+ * @param $variables
+ */
+function dimpact_preprocess_user_profile(&$variables) {
+  unset($variables['user_profile']['user_picture']);
+}
