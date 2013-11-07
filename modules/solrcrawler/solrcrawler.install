@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function solrcrawler_schema() {
+  $schema = array();
+
+  $schema['solrcrawler_site'] = array(
+    'fields' => array(
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'check_interval' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'max_depth' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nofollow' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'noindex' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'content_include' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'content_exclude' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('name'),
+    'unique keys' => array(
+      'url' => array('url'),
+    ),
+  );
+
+  $schema['solrcrawler_page'] = array(
+    'fields' => array(
+      'pagekey' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'date' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'depth' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('pagekey'),
+  );
+
+  return $schema;
+}

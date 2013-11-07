@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function solrcrawler_menu() {
+  $menu = array();
+  
+  $menu['admin/config/search/apachesolr/solrcrawler'] = array(
+    'title' => 'Crawler',
+    'page callback' => 'solrcrawler_page_list',
+    'access arguments' => array('administer site settings'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'solrcrawler.admin.inc',
+  );
+  
+  return $menu;
+}
+
+/**
+ * Save page in Solr index.
+ * 
+ * @param string $pagekey
+ * @param string $url
+ * @param string $title
+ * @param string $body
+ */
+function solrcrawler_save_page($pagekey, $url, $title, $body, $path = NULL) {
+  module_load_include('inc', 'solrcrawler');
+  
+  $env_id = variable_get('solrcrawler_solr_env', 'solr');
+  
+  $documents = array();
+  $documents[] = solrcrawler_build_document($pagekey, $url, $title, $body, $path);
+  
+  $solr = apachesolr_get_solr($env_id);
+  $solr->addDocuments($documents);
+  
+  db_merge('solrcrawler_page')
+    ->key(array('pagekey' => $pagekey))
+    ->fields(array('date' => REQUEST_TIME))
+    ->execute();
+}
+
+/**
+ * Delete page from Solr index.
+ * 
+ * @param string $pagekey
+ */
+function solrcrawler_delete_page($pagekey) {
+  // @todo: Load in setting via apachesolr_load_all_environments().
+  $env_id = 'solr';
+  
+  $solr = apachesolr_get_solr($env_id);
+  $solr->deleteById(apachesolr_document_id($pagekey, 'solrcrawler'));
+  
+  db_delete('solrcrawler_page')
+    ->condition('pagekey', $pagekey)
+    ->execute();
+}
+
+/**
+ * Implements hook_cron().
+ */
+function solrcrawler_cron() {
+  module_load_include('inc', 'solrcrawler');
+  
+  $cron_limit = variable_get('solrcrawler_cron_limit', 10);
+  $sites = db_select('solrcrawler_site', 's')
+    ->fields('s', array('name', 'url', 'check_interval'))
+    ->condition('s.next_check', REQUEST_TIME, '<')
+    ->range(0, $cron_limit)
+    ->execute()
+    ->fetchAll();
+  foreach ($sites as $site) {
+    db_update('solrcrawler_site')->fields(array(
+      'next_check' => REQUEST_TIME + $site->check_interval,
+    ))->condition('name', $site->name)->execute();
+    
+    _solrcrawler_index_page($site->url, $site);
+  }
+}
