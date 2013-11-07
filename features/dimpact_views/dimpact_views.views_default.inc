@@ -1331,7 +1331,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   /* Display: Blok */
   $handler = $view->new_display('block', 'Blok', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Overzicht: Foto-album Tags block';
+  $handler->display->display_options['title'] = 'Fotoalbums';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['defaults']['query'] = FALSE;
@@ -1415,7 +1415,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 }
 ?>'),
     t('Blok'),
-    t('Overzicht: Foto-album Tags block'),
+    t('Fotoalbums'),
     t('tag'),
     t('Term-ID'),
     t('.'),
