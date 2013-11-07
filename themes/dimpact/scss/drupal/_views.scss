@@ -319,3 +319,15 @@
     margin-bottom: $gutter-width;
   }
 }
+.view-profiel {
+  .field {
+    @include font-size(14);
+    font-family: $heading;
+    margin-bottom: $gutter-width/2;
+    padding-bottom: $gutter-width/2;
+    border-bottom: 1px solid lighten($background-color, 5%);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
