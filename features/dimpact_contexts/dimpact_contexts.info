@@ -31,6 +31,7 @@ features[context][] = profiel
 features[context][] = sitewide
 features[context][] = sitewide_internet
 features[context][] = sitewide_intranet
+features[context][] = sitewide_team
 features[context][] = sitewide_teams
 features[context][] = zoeken
 features[ctools][] = context:context:3
