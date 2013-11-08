@@ -1080,7 +1080,6 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['arguments']['feed_nid']['id'] = 'feed_nid';
   $handler->display->display_options['arguments']['feed_nid']['table'] = 'feeds_item';
   $handler->display->display_options['arguments']['feed_nid']['field'] = 'feed_nid';
-  $handler->display->display_options['arguments']['feed_nid']['relationship'] = 'feed_nid';
   $handler->display->display_options['arguments']['feed_nid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['feed_nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['feed_nid']['default_argument_type'] = 'fixed';
