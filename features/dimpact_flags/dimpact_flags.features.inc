@@ -16,11 +16,14 @@ function dimpact_flags_flag_default_flags() {
     'global' => 0,
     'types' => array(
       0 => 'agenda',
-      1 => 'blog',
-      2 => 'marketplace',
-      3 => 'news',
-      4 => 'product',
-      5 => 'wiki',
+      1 => 'message',
+      2 => 'blog',
+      3 => 'faq',
+      4 => 'forum',
+      5 => 'marketplace',
+      6 => 'news',
+      7 => 'product',
+      8 => 'wiki',
     ),
     'flag_short' => 'Toevoegen aan favorieten',
     'flag_long' => '',
@@ -37,6 +40,7 @@ function dimpact_flags_flag_default_flags() {
       'rss' => 0,
       'search_index' => 0,
       'search_result' => 0,
+      'volle_breedte' => 0,
       'diff_standard' => 0,
       'token' => 0,
     ),
@@ -45,11 +49,11 @@ function dimpact_flags_flag_default_flags() {
     'access_author' => '',
     'show_contextual_link' => 0,
     'i18n' => 0,
-    'api_version' => 3,
     'module' => 'dimpact_flags',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 3,
   );
   return $flags;
 

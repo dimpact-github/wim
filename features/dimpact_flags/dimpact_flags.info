@@ -1,7 +1,7 @@
 name = Dimpact Flags
 core = 7.x
 package = Features
-version = 7.x-1.0-beta1
+version = 7.x-1.0-20131108
 project = dimpact_flags
 dependencies[] = flag
 features[features_api][] = api:2
