@@ -30,7 +30,9 @@
   }
   &.view-mode-full {
     time {
-      background-color: lighten($background-color, 5%);
+      background-color: lighten($background-color, 7%);
+      border-top: 1px solid $background-color;
+//      background-color: lighten($background-color, 5%);
       display: block;
       margin-bottom: 1em;
       padding: $gutter-width/3 $gutter-width/2;
@@ -42,18 +44,44 @@
     .field-image {
       margin-bottom: $gutter-width/2;
     }
-    .field-wrapper-field-location,
-    .field-wrapper-field-date {
-      background-color: lighten($background-color, 5%);
-      margin-bottom: 1em;
-      padding: $gutter-width/2 $gutter-width/2;
-    }
-    .field-wrapper-field-location {
-      margin-top: 1em;
-    }
+//    .field-wrapper-field-location,
+//    .field-wrapper-field-date {
+//      background-color: lighten($background-color, 5%);
+//      margin-bottom: 1em;
+//      padding: $gutter-width/2 $gutter-width/2;
+//    }
+//    .field-wrapper-field-location {
+//      margin-top: 1em;
+//    }
+    .field-wrapper-field-location .field-label,
     h3.field-label {
-      @include font-size(15);
-      margin: 0 0 $gutter-width/2 0;
+      @include font-size(14);
+      padding: $gutter-width/2;
+      background-color: lighten($background-color, 7%);
+      border-top: 1px solid $background-color;
+    }
+    .field-wrapper-field-location .field-label {
+      font-family: $heading;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.75em;
+      margin-top: 1.25em;
+    }
+    .field-wrapper {
+      margin-bottom: $gutter-width;
+//      padding: 0 $gutter-width/2;
+//      h3.field-label {
+//        margin-left: -$gutter-width/2;
+//        margin-right: -$gutter-width/2;
+//      }
+      .field {
+        padding-left: $gutter-width/2;
+        padding-right: $gutter-width/2;
+      }
+    }
+    .field-announcement-type {
+      padding-left: $gutter-width/2;
+      padding-right: $gutter-width/2;
     }
     .field-body {
       img {

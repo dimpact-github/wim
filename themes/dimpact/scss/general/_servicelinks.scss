@@ -1,6 +1,8 @@
 .service-links {
   background-color: lighten($background-color, 7%);
-  //margin: $gutter-width/2 0;
+  border-top: 1px solid $background-color;
+//  background-color: lighten($background-color, 7%);
+  margin: $gutter-width/2 0;
   padding: $gutter-width/2;
   overflow: hidden;
   ul.links {
