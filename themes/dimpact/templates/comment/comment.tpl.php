@@ -63,18 +63,17 @@ hide($content['links']);
   <?php if ($new): ?>
     <mark class="new"><?php print $new; ?></mark>
   <?php endif; ?>
-  <h3<?php print $title_attributes; ?>><?php print $title; ?></h3>
   <?php print render($title_suffix); ?>
-  <footer>
-    <p class="submitted"><?php print $submitted; ?></p>
-  </footer>
   <div class="content"<?php print $content_attributes; ?>>
     <?php print render($content); ?>
     <?php if ($signature): ?>
-    <div class="user-signature">
-      <?php print $signature; ?>
-    </div>
+      <div class="user-signature">
+        <?php print $signature; ?>
+      </div>
     <?php endif; ?>
   </div>
+  <footer>
+    <p class="submitted"><?php print $submitted; ?></p>
+  </footer>
   <?php print render($content['links']) ?>
 </article>
