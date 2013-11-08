@@ -322,7 +322,9 @@ div.workbench-info-block {
 }
 
 .comment {
-  margin-bottom: $gutter-width;
+  border-bottom: 1px solid $background-color;
+  margin-bottom: $gutter-width/2;
+  padding-bottom: $gutter-width/2;
   .submitted {
     margin-bottom: 0.25em;
   }
