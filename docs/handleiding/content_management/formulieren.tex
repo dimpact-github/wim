@@ -31,7 +31,7 @@ Er zijn regels gemaakt om te valideren wat de gebruiker heeft ingevoerd in het f
 Op deze pagina staat een heel scala aan opties. De volgende zijn met name relevant:
 \begin{itemize}
 \item Equal values \\
-Controleert of de waarde van een veld overeenkomt met de waarde van een ander veld. Dit kan worden gebruikt voor een extra controle op bijv. e-mailadres. Hierbij worden twee e-mail velden aangemaakt. Daarna kan deze regel worden toegevoegt. De regel moet altijd een naam hebben, bijv. "emailcheck" (deze wordt niet getoont aan de gebruiker). Vink daarna de velden aan die gelijk moeten zijn.
+Controleert of de waarde van een veld overeenkomt met de waarde van een ander veld. Dit kan worden gebruikt voor een extra controle op bijv. e-mailadres. Hierbij worden twee e-mail velden aangemaakt. Daarna kan deze regel worden toegevoegt. De regel moet altijd een naam hebben, bijv. \emph{emailcheck} (deze wordt niet getoont aan de gebruiker). Vink daarna de velden aan die gelijk moeten zijn.
 \item Regular expression, case insensitive \\
 Kan voor diverse doeleinden worden gebruikt. Reguliere expressies zijn een aparte taal dat specifiek voor validatie is bedoeld. Zie verder voor voorbeelden.
 \item Regular expression, case sensitive \\
@@ -39,11 +39,11 @@ Idem, maar dan hoofdletter gevoelig.
 \end{itemize}
 Bij de reguliere expressies moeten de volgende gegevens worden opgegeven:
 \begin{itemize}
-\item Naam, bijv. "postcodecheck" (deze wordt niet getoont aan de gebruiker)
+\item Naam, bijv. \emph{postcodecheck} (deze wordt niet getoont aan de gebruiker)
 \item Velden waarop de validatie van toepassing is (aanvinken)
 \item Regex code (zie verder)
-\item Aangepaste foutmelding, bijv. "De postcode is onjuist."
-\item Negate rule: vink deze aan om de regel om te draaien ("mag niet voldoen aan"). In de praktijk wordt deze zelden gebruikt.
+\item Aangepaste foutmelding, bijv. \emph{De postcode is onjuist.}
+\item Negate rule: vink deze aan om de regel om te draaien (\emph{mag niet voldoen aan}). In de praktijk wordt deze zelden gebruikt.
 \end{itemize}
 De regex code bepaald welke invoer valide is. Deze kunnen direct overgenomen worden van de volgende voorbeelden:
 \begin{verbatim}
@@ -57,11 +57,11 @@ Huisnummer:                              ^[1-9][0-9]* ?[a-z]{,5}.?[0-9]*$
 \end{verbatim}
 Enkel het stuk van \texttt{\^} t/m \texttt{\$} dient overgenomen te worden.
 
-Voor het valideren van een e-mailadres wordt geen reguliere expressie gebruikt. Er is een type "email" dat gebruikt kan worden als veldtype waar automatisch de goede validatie inzit.
+Voor het valideren van een e-mailadres wordt geen reguliere expressie gebruikt. Er is een type \emph{email} dat gebruikt kan worden als veldtype waar automatisch de goede validatie inzit.
 
 Voor valideren van internationele postcodes is geen reguliere expressie beschikbaar omdat er internationaal geen vast patroon is waar deze aan voldoen. Bij huisnummers moet erop worden gelet dat er uitzonderingen zijn voor bijv. woonboten waarbij "t/o museum" als geldig huisnummer aangemerkt dient te worden. De reguliere expressie houd geen rekening met deze uitzonderingen. Het huisnummer moet hierbij altijd beginnen met tenminste \'{e}\'{e}n cijfer (hoger dan 0), eventueel gevolgd door een letter en evt. weer een cijfer (waarbij spaties gebruikt mogen worden).
 
-Op internet zijn talloze voorbeelden van reguliere expressies te vinden. De site \texttt{regexlib.com} bevat een uitgebreide bibliotheek. Ook via Google zijn deze makkelijk te vinden. Echter zijn er wel meerdere 'dialecten'. In Drupal wordt het "Perl" dialect gebruikt (de term "perl compatible" kom je hier weleens tegen). Dit is het meestgebruikte dialect, maar goed testen is altijd van belang!
+Op internet zijn talloze voorbeelden van reguliere expressies te vinden. De site \texttt{regexlib.com} bevat een uitgebreide bibliotheek. Ook via Google zijn deze makkelijk te vinden. Echter zijn er wel meerdere \emph{dialecten}. In Drupal wordt het \emph{Perl} dialect gebruikt (de term \emph{perl compatible} kom je hier weleens tegen). Dit is het meestgebruikte dialect, maar goed testen is altijd van belang!
 
 \subsubsection{Bedankttekst}
 Op \drupalpath{node/86/webform/configure} kan een bedankttekst geplaatst worden.
@@ -74,7 +74,7 @@ Bij het aanmaken van een Formulier, kun je nu een veld toevoegen dat niet zichtb
 \begin{center}
 \includegraphics[width=\textwidth]{img/verborgenveld1.png}
 \end{center}
-Je kunt deze velden nu ook invullen als ingelogde gebruiker in het 'gewone' formulier.
+Je kunt deze velden nu ook invullen als ingelogde gebruiker in het \emph{gewone} formulier.
 
 Als je dus een besturingselement hebt toegevoegd waarvan het sleutelveld begint met een underscore, zie je dit veld staan bij de inzendingen in de backend
 
