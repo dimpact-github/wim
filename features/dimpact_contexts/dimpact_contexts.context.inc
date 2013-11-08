@@ -29,7 +29,7 @@ function dimpact_contexts_context_default_contexts() {
         'views--exp-announcements-page' => array(
           'module' => 'views',
           'delta' => '-exp-announcements-page',
-          'region' => 'region_363_first',
+          'region' => 'region_39_first',
           'weight' => '-10',
         ),
       ),
