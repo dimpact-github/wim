@@ -95,7 +95,6 @@ features[field_instance][] = node-editorial-body
 features[field_instance][] = node-faq-body
 features[field_instance][] = node-faq-field_faq_category
 features[field_instance][] = node-file-field_bestand
-features[field_instance][] = node-foto_album-body
 features[field_instance][] = node-foto_album-field_foto
 features[field_instance][] = node-foto_album-field_tags
 features[field_instance][] = node-marketplace-body

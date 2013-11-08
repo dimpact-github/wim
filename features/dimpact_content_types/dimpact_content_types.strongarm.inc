@@ -1177,6 +1177,9 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1193,11 +1196,19 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
             'weight' => '10',
             'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
           ),
         ),
       ),
@@ -1616,10 +1627,13 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
           'weight' => '4',
+        ),
+        'domain' => array(
+          'weight' => '2',
         ),
       ),
       'display' => array(),
