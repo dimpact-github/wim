@@ -46,6 +46,49 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'frontpage_team';
+  $context->description = '';
+  $context->tag = 'team subsites';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'team' => 'team',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'dominion_menu-3' => array(
+          'module' => 'dominion_menu',
+          'delta' => '3',
+          'region' => 'region_39_first',
+          'weight' => '-10',
+        ),
+        'views-personen_intranet-block_1' => array(
+          'module' => 'views',
+          'delta' => 'personen_intranet-block_1',
+          'region' => 'region_full_bottom',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('team subsites');
+  $export['frontpage_team'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'nodepage';
   $context->description = '';
   $context->tag = 'Algemeen';
@@ -479,6 +522,11 @@ function dimpact_contexts_context_default_contexts() {
         'team' => 'team',
       ),
     ),
+    'path' => array(
+      'values' => array(
+        '~<front>' => '~<front>',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
@@ -486,7 +534,7 @@ function dimpact_contexts_context_default_contexts() {
         'dominion_menu-3' => array(
           'module' => 'dominion_menu',
           'delta' => '3',
-          'region' => 'region_39_first',
+          'region' => 'region_363_first',
           'weight' => '-10',
         ),
         'views-personen_intranet-block_1' => array(
