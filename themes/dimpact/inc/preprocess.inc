@@ -113,6 +113,14 @@ function dimpact_preprocess_page(&$vars) {
       unset($vars['page']['region_363_first']['submenutree_2']);
     }
   }
+
+  if (arg(0) == 'user' && is_numeric(arg(1))) {
+    $user = user_load(arg(1));
+    if ($full_name = field_get_items('user', $user, 'field_volledige_naam')) {
+      $name = reset($full_name);
+      drupal_set_title($name['value']);
+    }
+  }
 }
 
 /**

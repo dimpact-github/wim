@@ -252,6 +252,16 @@ span.ext {
     }
   }
 }
+.region_full_top {
+  .block {
+    &.block-node {
+      .node {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}
 .region_full_bottom {
   .row-margin {
     .view {
