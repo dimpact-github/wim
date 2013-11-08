@@ -4790,12 +4790,9 @@ function dimpact_content_types_field_default_field_instances() {
   t('Redactionele Toevoeging');
   t('Regels');
   t('Status');
-  t('Tabcontent');
-  t('Tabtitel');
   t('Tags');
   t('Termijn');
   t('Terugwerkende kracht');
-  t('Time');
   t('Toelichting');
   t('Type');
   t('URL');

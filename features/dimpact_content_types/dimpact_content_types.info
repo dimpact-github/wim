@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.0-20131029
+version = 7.x-1.0-20131108
 project = dimpact_content_types
 dependencies[] = ctools
 dependencies[] = date
@@ -274,6 +274,7 @@ features[variable][] = field_bundle_settings_node__slide
 features[variable][] = field_bundle_settings_node__spatial_plan
 features[variable][] = field_bundle_settings_node__vac
 features[variable][] = field_bundle_settings_node__webform
+features[variable][] = field_bundle_settings_node__wiki
 features[variable][] = language_content_type_blog
 features[variable][] = language_content_type_file
 features[variable][] = language_content_type_foto_album

@@ -838,7 +838,20 @@ function dimpact_content_types_strongarm() {
           'weight' => '3',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__marketplace'] = $strongarm;
@@ -1026,11 +1039,19 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'default' => array(
             'weight' => '10',
             'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -1311,6 +1332,32 @@ function dimpact_content_types_strongarm() {
     ),
   );
   $export['field_bundle_settings_node__webform'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__wiki';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(
+        'domain' => array(
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['field_bundle_settings_node__wiki'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
