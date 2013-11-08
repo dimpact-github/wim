@@ -93,6 +93,10 @@ function dimpact_preprocess_page(&$vars) {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'node-add-page';
   }
+  if (arg(0) == 'bekendmakingen') {
+    $vars['hidecontent'] = TRUE;
+    $vars['pagetype'] = 'bekendmakingen';
+  }
   if ($status = drupal_get_http_header("status")) {
     switch ($status) {
       case '403 Forbidden':

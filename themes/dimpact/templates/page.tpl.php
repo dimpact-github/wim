@@ -115,13 +115,13 @@ $action_links           = render($action_links);
     <?php endif; ?>
 
     <?php // Region 3/9 ?>
-    <?php if ($region_39_first || $region_39_second || (in_array($pagetype, array('searchpage', 'node-add-page')) && $content)): ?>
+    <?php if ($region_39_first || $region_39_second || (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen')) && $content)): ?>
       <div class="container">
         <div class="region_39_first">
           <?php print $region_39_first; ?>
         </div>
         <div class="region_39_second">
-          <?php if (in_array($pagetype, array('searchpage', 'node-add-page'))): ?>
+          <?php if (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen'))): ?>
             <?php print $content; ?>
           <?php endif; ?>
           <?php print $region_39_second; ?>
