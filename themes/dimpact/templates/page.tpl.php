@@ -122,6 +122,9 @@ $action_links           = render($action_links);
         </div>
         <div class="region_39_second">
           <?php if (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen'))): ?>
+            <?php if ($title): ?>
+              <h1 class="title" id="page-title"><?php print $title; ?></h1>
+            <?php endif; ?>
             <?php print $content; ?>
           <?php endif; ?>
           <?php print $region_39_second; ?>
