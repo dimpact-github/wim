@@ -82,31 +82,10 @@ function _solrcrawler_fetch_page($url, $site) {
       $title = html_entity_decode($match[1]);
     }
 
-    $html = _bespoke_get_content($html, 'div', '<div class="row domain-frontpage">');
+    // @todo: Extract content from $html.
+    // @todo: Remove content content_filter
 
-    // Remove footer.
-    $part = _bespoke_get_content($html, 'footer', '<footer>');
-    $html = str_replace($part, '', $html);
 
-    // Remove comment block.
-    $part = _bespoke_get_content($html, 'div', '<div class="block block-comment-block');
-    $html = str_replace($part, '', $html);
-
-    // Remove mimetype info.
-    $part = _bespoke_get_content($html, 'td', '<td class="mimetype">');
-    $html = str_replace($part, '', $html);
-
-    // Remove version info.
-    $part = _bespoke_get_content($html, 'td', '<td class="versie">');
-    $html = str_replace($part, '', $html);
-
-    // Remove filesize info.
-    $part = _bespoke_get_content($html, 'td', '<td class="filesize">');
-    $html = str_replace($part, '', $html);
-
-    // Remove thead. Does not contain meaningful information for search engine.
-    $part = _bespoke_get_content($html, 'thead', '<thead>');
-    $html = str_replace($part, '', $html);
 
     $output = new stdClass();
     $output->title = $title;
