@@ -821,6 +821,9 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -837,11 +840,19 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
             'weight' => '10',
             'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '6',
+            'visible' => TRUE,
           ),
         ),
       ),
