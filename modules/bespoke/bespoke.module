@@ -251,6 +251,15 @@ function bespoke_menu() {
  */
 function bespoke_settings_form($form, &$form_state) {
   $form = array(
+    'bespoke_readspeaker_status' => array(
+      '#type' => 'select',
+      '#title' => t('Readspeaker status'),
+      '#options' => array(
+        0 => t('Deactivated'),
+        1 => t('Activated'),
+      ),
+      '#default_value' => variable_get('bespoke_readspeaker_status', 0),
+    ),
     'bespoke_readspeaker_id' => array(
       '#type' => 'textfield',
       '#title' => t('Readspeaker ID'),

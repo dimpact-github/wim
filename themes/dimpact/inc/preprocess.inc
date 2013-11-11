@@ -64,6 +64,11 @@ function dimpact_preprocess_html(&$vars) {
 
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/libraries/jquery.carouFredSel-6.2.1-packed.js');
+
+  // if readspeaker is activated load the readspeaker js file
+  if (variable_get('bespoke_readspeaker_status') == 1) {
+    drupal_add_js(drupal_get_path('theme', 'dimpact') . '/readspeaker/ReadSpeaker.js');
+  }
 }
 
 /**
@@ -121,6 +126,7 @@ function dimpact_preprocess_page(&$vars) {
       drupal_set_title($name['value']);
     }
   }
+
 }
 
 /**

@@ -38,6 +38,9 @@ $region_full_bottom     = render($page['region_full_bottom']);
 $tabs                   = render($tabs);
 $actions                = count($action_links);
 $action_links           = render($action_links);
+
+$readspeaker_status     = variable_get('bespoke_readspeaker_status', 0);
+$readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 ?>
 <?php if ($region_meta_first || $region_meta_second): ?>
   <div class="container container-nopadding">
@@ -68,6 +71,14 @@ $action_links           = render($action_links);
       </hgroup>
       <?php print $header; ?>
     </div>
+    <?php if ($readspeaker_status == 1): ?>
+      <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+        <a class="rsbtn_play" title="<?php print t('Laat de tekst voorlezen met ReadSpeaker'); ?>" href="//app.eu.readspeaker.com/cgi-bin/rsent?customerid=<?php print $readspeaker_id; ?>&amp;lang=nl_nl&amp;readid=main&amp;url=<?php echo urlencode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">
+          <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php print t('Lees voor'); ?></span></span></span>
+          <span class="rsbtn_right rsimg rsplay rspart"></span>
+        </a>
+      </div>
+    <?php endif; ?>
   </header>
   <?php if ($navigation): ?>
     <nav role="navigation" class="main-menu">
