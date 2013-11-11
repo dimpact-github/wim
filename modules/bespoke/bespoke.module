@@ -143,6 +143,18 @@ function bespoke_menu_alter(&$menu) {
 }
 
 /**
+ * Implements hook_menu_link_alter().
+ */
+function bespoke_menu_link_alter(&$link) {
+  // Clear the menu cache once (issue #185).
+  $cleared = drupal_static(__FUNCTION__, FALSE);
+  if (!$cleared) {
+    menu_cache_clear_all();
+    $cleared = TRUE;
+  }
+}
+
+/**
  * Access callback for forum.
  */
 function bespoke_forum_access() {
