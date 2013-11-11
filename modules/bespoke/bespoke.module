@@ -225,3 +225,38 @@ function bespoke_admin_paths_alter(&$paths) {
   // Treat all user pages as not administrative.
   $paths['user/*'] = FALSE;
 }
+
+
+// added by maarten hartman
+// implements a form in which the user can set a readspeaker ID
+/**
+ * Implements hook_menu().
+ */
+function bespoke_menu() {
+
+  $items['admin/config/dimpact/miscellaneous'] =  array(
+    'title' => t('Miscellaneous settings'),
+    'description' => t('Various settings for the Dimpact Drupal CMS'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bespoke_settings_form'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback for settings page.
+ */
+function bespoke_settings_form($form, &$form_state) {
+  $form = array(
+    'bespoke_readspeaker_id' => array(
+      '#type' => 'textfield',
+      '#title' => t('Readspeaker ID'),
+      '#default_value' => variable_get('bespoke_readspeaker_id', '01234'),
+    ),
+  );
+
+  return system_settings_form($form);
+}
