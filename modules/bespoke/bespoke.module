@@ -234,9 +234,9 @@ function bespoke_admin_paths_alter(&$paths) {
  */
 function bespoke_menu() {
 
-  $items['admin/config/dimpact/miscellaneous'] =  array(
-    'title' => t('Miscellaneous settings'),
-    'description' => t('Various settings for the Dimpact Drupal CMS'),
+  $items['admin/config/dimpact/readspeaker'] =  array(
+    'title' => t('Readspeaker settings'),
+    'description' => t('Readspeaker settings for the Dimpact Drupal CMS'),
     'page callback' => 'drupal_get_form',
     'page arguments' => array('bespoke_settings_form'),
     'access arguments' => array('access administration pages'),
