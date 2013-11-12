@@ -1,0 +1,14 @@
+{
+    "name": "dimpact/solrcrawler",
+    "description": "SolrCrawler for Dimpact",
+    "authors": [
+        {
+            "name": "Raymond Muilwijk",
+            "email": "r.muilwijk@trinoco.nl"
+        }
+    ],
+    "require": {
+      "symfony/dom-crawler": ">=2.0",
+      "symfony/css-selector": ">=2.0"
+    }
+}

@@ -25,20 +25,20 @@ function solrcrawler_menu() {
  * @param string $title
  * @param string $body
  */
-function solrcrawler_save_page($pagekey, $url, $title, $body, $path = NULL) {
+function solrcrawler_save_page($pagedata, $document) {
   module_load_include('inc', 'solrcrawler');
   
   $env_id = variable_get('solrcrawler_solr_env', 'solr');
   
   $documents = array();
-  $documents[] = solrcrawler_build_document($pagekey, $url, $title, $body, $path);
+  $documents[] = solrcrawler_build_document($pagedata['pagekey'], $document['url'], $document['title'], $document['body']);
   
   $solr = apachesolr_get_solr($env_id);
   $solr->addDocuments($documents);
-  
+
   db_merge('solrcrawler_page')
-    ->key(array('pagekey' => $pagekey))
-    ->fields(array('date' => REQUEST_TIME))
+    ->key(array('pagekey' => $pagedata['pagekey']))
+    ->fields($pagedata)
     ->execute();
 }
 
@@ -64,19 +64,82 @@ function solrcrawler_delete_page($pagekey) {
  */
 function solrcrawler_cron() {
   module_load_include('inc', 'solrcrawler');
-  
-  $cron_limit = variable_get('solrcrawler_cron_limit', 10);
+
   $sites = db_select('solrcrawler_site', 's')
-    ->fields('s', array('name', 'url', 'check_interval'))
-    ->condition('s.next_check', REQUEST_TIME, '<')
-    ->range(0, $cron_limit)
-    ->execute()
-    ->fetchAll();
+    ->fields('s')
+    ->execute();
+
   foreach ($sites as $site) {
-    db_update('solrcrawler_site')->fields(array(
-      'next_check' => REQUEST_TIME + $site->check_interval,
-    ))->condition('name', $site->name)->execute();
-    
-    _solrcrawler_index_page($site->url, $site);
+    // First check or this site has ever run from root.
+    $pagekey = _solrcrawler_generate_pagekey($site, $site->url);
+    $pagedata = _solrcrawler_get_pagedata($pagekey);
+    if (!$pagedata['date']) {
+      _solrcrawler_index_page($site->url, $site);
+    }
+
+    // Setup query to retrieve the pages.
+    $or = db_or();
+    $or->condition('p.date', time()-$site->check_interval, '<=');
+    $or->isNull('p.date');
+    $pages = db_select('solrcrawler_page', 'p')
+      ->fields('p', array('url'))
+      ->condition($or)
+      ->orderBy('p.date', 'ASC')
+      ->range(0, $site->max_run)
+      ->execute();
+
+    // Index the pages.
+    foreach ($pages as $page) {
+      _solrcrawler_index_page($page->url, $site);
+    }
   }
+}
+
+/**
+ * Helper function for retrieving the page key.
+ *
+ * @param $site
+ * @param $url
+ * @return string
+ */
+function _solrcrawler_generate_pagekey($site, $url) {
+  return 'crawler/' . $site->name . '/' . md5($url);
+}
+
+/**
+ * Helper function for loading the vendor code.
+ */
+function solrcrawler_load_vendor() {
+  static $loaded = FALSE;
+
+  if (!$loaded) {
+    include_once drupal_get_path('module', 'solrcrawler') . '/vendor/autoload.php';
+    $loaded = TRUE;
+  }
+}
+
+/**
+ * Helper function for retrieving the page data.
+ *
+ * @param $pagekey
+ * @return array
+ */
+function _solrcrawler_get_pagedata($pagekey, $new_data = array()) {
+  $pagedata = db_select('solrcrawler_page', 's')
+    ->fields('s')
+    ->condition('pagekey', $pagekey)
+    ->execute()
+    ->fetchAssoc();
+
+  if (!$pagedata) {
+    $pagedata = $new_data + array(
+      'pagekey' => $pagekey,
+      'site_id' => NULL,
+      'url' => NULL,
+      'date' => NULL,
+      'depth' => 1,
+      'title' => NULL,
+    );
+  }
+  return $pagedata;
 }
