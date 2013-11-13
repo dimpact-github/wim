@@ -14,7 +14,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_agenda';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_agenda'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -41,6 +41,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_blog';
+  $strongarm->value = 0;
+  $export['comment_anonymous_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_editorial';
   $strongarm->value = 0;
   $export['comment_anonymous_editorial'] = $strongarm;
@@ -58,6 +65,27 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'comment_anonymous_file';
   $strongarm->value = 0;
   $export['comment_anonymous_file'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_foto_album';
+  $strongarm->value = 0;
+  $export['comment_anonymous_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_marketplace';
+  $strongarm->value = 0;
+  $export['comment_anonymous_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_message';
+  $strongarm->value = 0;
+  $export['comment_anonymous_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -139,6 +167,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_blog';
+  $strongarm->value = '2';
+  $export['comment_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_agenda';
   $strongarm->value = 1;
   $export['comment_default_mode_agenda'] = $strongarm;
@@ -149,6 +184,13 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'comment_default_mode_announcement';
   $strongarm->value = 1;
   $export['comment_default_mode_announcement'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_blog';
+  $strongarm->value = 1;
+  $export['comment_default_mode_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -170,6 +212,27 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'comment_default_mode_file';
   $strongarm->value = 1;
   $export['comment_default_mode_file'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_foto_album';
+  $strongarm->value = 1;
+  $export['comment_default_mode_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_marketplace';
+  $strongarm->value = 1;
+  $export['comment_default_mode_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_message';
+  $strongarm->value = 1;
+  $export['comment_default_mode_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -265,6 +328,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_blog';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_editorial';
   $strongarm->value = '50';
   $export['comment_default_per_page_editorial'] = $strongarm;
@@ -282,6 +352,27 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'comment_default_per_page_file';
   $strongarm->value = '50';
   $export['comment_default_per_page_file'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_foto_album';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_marketplace';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_message';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -371,7 +462,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_faq';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_faq'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -398,6 +489,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_blog';
+  $strongarm->value = 1;
+  $export['comment_form_location_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_editorial';
   $strongarm->value = 1;
   $export['comment_form_location_editorial'] = $strongarm;
@@ -415,6 +513,27 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'comment_form_location_file';
   $strongarm->value = 1;
   $export['comment_form_location_file'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_foto_album';
+  $strongarm->value = 1;
+  $export['comment_form_location_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_marketplace';
+  $strongarm->value = 1;
+  $export['comment_form_location_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_message';
+  $strongarm->value = 1;
+  $export['comment_form_location_message'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -496,8 +615,29 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_foto_album';
+  $strongarm->value = '2';
+  $export['comment_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_marketplace';
+  $strongarm->value = '2';
+  $export['comment_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_message';
+  $strongarm->value = '2';
+  $export['comment_message'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_news';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -511,15 +651,22 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_agenda';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_agenda'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_announcement';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_announcement'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_blog';
+  $strongarm->value = '0';
+  $export['comment_preview_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -532,21 +679,42 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_faq';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_faq'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_file';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_file'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_foto_album';
+  $strongarm->value = '0';
+  $export['comment_preview_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_marketplace';
+  $strongarm->value = '0';
+  $export['comment_preview_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_message';
+  $strongarm->value = '0';
+  $export['comment_preview_message'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_news';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -672,15 +840,22 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_agenda';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_agenda'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_announcement';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_announcement'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_blog';
+  $strongarm->value = 0;
+  $export['comment_subject_field_blog'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -693,21 +868,42 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_faq';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_faq'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_file';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_file'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_foto_album';
+  $strongarm->value = 0;
+  $export['comment_subject_field_foto_album'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_marketplace';
+  $strongarm->value = 0;
+  $export['comment_subject_field_marketplace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_message';
+  $strongarm->value = 0;
+  $export['comment_subject_field_message'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_news';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_news'] = $strongarm;
 
   $strongarm = new stdClass();
