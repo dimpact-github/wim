@@ -432,7 +432,7 @@ function dimpact_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'fences_wrapper' => 'div',
     'field_name' => 'field_announcement_type',
-    'label' => 'Announcement Type',
+    'label' => 'Soort',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -5658,7 +5658,6 @@ function dimpact_content_types_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Aanvraag');
   t('Agendaitems');
-  t('Announcement Type');
   t('Antwoord');
   t('Attachments');
   t('Beleids Document');
@@ -5691,6 +5690,7 @@ function dimpact_content_types_field_default_field_instances() {
   t('Parent');
   t('Redactionele Toevoeging');
   t('Regels');
+  t('Soort');
   t('Status');
   t('Tags');
   t('Termijn');
