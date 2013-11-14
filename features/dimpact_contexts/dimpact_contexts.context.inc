@@ -327,6 +327,29 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'sitewide-without-node';
+  $context->description = '';
+  $context->tag = 'Algemeen';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
+        '~node/*' => '~node/*',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Algemeen');
+  $export['sitewide-without-node'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide_internet';
   $context->description = '';
   $context->tag = 'Internet';
