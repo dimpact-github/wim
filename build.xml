@@ -28,6 +28,15 @@
     <copy todir="code/sites/all/libraries">
       <fileset dir="libraries" />
     </copy>
+
+    <if>
+      <not>
+        <available file="private" type="dir" />
+      </not>
+      <then>
+        <mkdir dir="private" />
+      </then>
+    </if>
   </target>
 
   <target name="cleanup">

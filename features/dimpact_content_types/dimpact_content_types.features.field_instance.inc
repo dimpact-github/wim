@@ -202,6 +202,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -672,6 +673,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1045,6 +1047,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1119,6 +1122,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1599,6 +1603,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -2312,6 +2317,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -2429,6 +2435,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -3804,6 +3811,7 @@ function dimpact_content_types_field_default_field_instances() {
           'http' => 'http',
           'https' => 'https',
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -4456,6 +4464,7 @@ function dimpact_content_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
+          'private' => 'private',
           'youtube' => 0,
         ),
         'allowed_types' => array(
