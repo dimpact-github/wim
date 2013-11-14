@@ -211,7 +211,7 @@ function bespoke_tokens($type, $tokens, array $data = array(), array $options = 
             $timestamp = strtotime($data['node']->field_date[LANGUAGE_NONE][0]['value']);
           }
           else {
-            $timestamp = $node->created;
+            $timestamp = $data['node']->created;
           }
           $replacements[$original] = format_date($timestamp, 'custom', $formats[$name]);
           break;
@@ -280,4 +280,45 @@ function bespoke_settings_form($form, &$form_state) {
   );
 
   return system_settings_form($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function bespoke_form_menu_edit_item_alter(&$form, &$form_state) {
+  if (module_exists('linkit')) {
+    $profile_name = variable_get('bespoke_menu_linkit_profile', 'default');
+    $profile_insert = variable_get('bespoke_menu_linkit_insert', 'raw_url');
+
+    // Load the profile.
+    $profile = linkit_profile_load($profile_name);
+
+    // Load the insert plugin for the profile.
+    $insert_plugin = linkit_insert_plugin_load($profile_insert);
+
+    // Setup the field id.
+    $field_id = 'edit-link-path';
+
+    $field_js = array(
+      'data' => array(
+        'linkit' => array(
+          'fields' => array(
+            $field_id => array(
+              'profile' => $profile_name,
+              'insert_plugin' => $profile_insert,
+              'url_method' => $profile->data['insert_plugin']['url_method'],
+            ),
+          ),
+        ),
+      ),
+      'type' => 'setting',
+    );
+
+    // Attach js files and settings Linkit needs.
+    $form['link_path']['#attached']['library'][] = array('linkit', 'base');
+    $form['link_path']['#attached']['library'][] = array('linkit', 'field');
+    $form['link_path']['#attached']['js'][] = $insert_plugin['javascript'];
+    $form['link_path']['#attached']['js'][] = $field_js;
+    $form['link_path']['#field_suffix'] = '<a class="button linkit-field-button linkit-field-' . $field_id . '" href="#">' . t('Search') . '</a>';
+  }
 }
