@@ -201,8 +201,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -672,8 +672,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1046,8 +1046,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1121,8 +1121,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -1602,8 +1602,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -2316,8 +2316,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -2434,8 +2434,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -3810,8 +3810,8 @@ function dimpact_content_types_field_default_field_instances() {
           'feed' => 0,
           'http' => 'http',
           'https' => 'https',
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
@@ -4463,8 +4463,8 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'public' => 'public',
           'private' => 'private',
+          'public' => 'public',
           'youtube' => 0,
         ),
         'allowed_types' => array(
