@@ -20,6 +20,7 @@ features[field_base][] = field_overige_informatie
 features[field_base][] = field_persoonlijke_gegevens
 features[field_base][] = field_volledige_naam
 features[field_base][] = field_websites
+features[field_group][] = group_account|user|user|form
 features[field_group][] = group_intern|user|user|form
 features[field_group][] = group_links|user|user|form
 features[field_group][] = group_persoonlijk|user|user|form
