@@ -1,7 +1,7 @@
 name = Dimpact Views
 core = 7.x
 package = Features
-version = 7.x-1.0-20131108
+version = 7.x-1.0-20131115
 project = dimpact_views
 dependencies[] = entity
 dependencies[] = faq
@@ -14,6 +14,7 @@ features[views_view][] = announcements
 features[views_view][] = berichten
 features[views_view][] = bestanden
 features[views_view][] = blogs
+features[views_view][] = faq_categorieen
 features[views_view][] = favorieten
 features[views_view][] = feeds_intranet
 features[views_view][] = foto_album
