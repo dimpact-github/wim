@@ -3736,7 +3736,6 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Veelgestelde vragen';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['link_display'] = FALSE;
   $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -3755,7 +3754,8 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<?php
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="<?php print url(\'veelgestelde-vragen\'); ?>">Meer veelgestelde vragen </a></span>
+<?php
 if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
@@ -4065,7 +4065,8 @@ if (node_access(\'create\', \'faq\')) {
     t('laatste »'),
     t('Recente vragenblok'),
     t('meer'),
-    t('<?php
+    t('<span class="more-link"><a href="<?php print url(\'veelgestelde-vragen\'); ?>">Meer veelgestelde vragen </a></span>
+<?php
 if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
