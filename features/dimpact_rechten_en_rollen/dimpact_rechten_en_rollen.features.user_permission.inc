@@ -1090,14 +1090,22 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'create foto_album content'.
   $permissions['create foto_album content'] = array(
     'name' => 'create foto_album content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'create foto_album content on assigned domains'.
   $permissions['create foto_album content on assigned domains'] = array(
     'name' => 'create foto_album content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1576,7 +1584,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete any foto_album content'.
   $permissions['delete any foto_album content'] = array(
     'name' => 'delete any foto_album content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -1825,7 +1837,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete foto_album content on assigned domains'.
   $permissions['delete foto_album content on assigned domains'] = array(
     'name' => 'delete foto_album content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
@@ -1961,7 +1977,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'delete own foto_album content'.
   $permissions['delete own foto_album content'] = array(
     'name' => 'delete own foto_album content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -2573,7 +2593,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit any foto_album content'.
   $permissions['edit any foto_album content'] = array(
     'name' => 'edit any foto_album content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -2874,7 +2898,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'edit own foto_album content'.
   $permissions['edit own foto_album content'] = array(
     'name' => 'edit own foto_album content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'node',
   );
 
@@ -3817,7 +3845,11 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'update foto_album content on assigned domains'.
   $permissions['update foto_album content on assigned domains'] = array(
     'name' => 'update foto_album content on assigned domains',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
     'module' => 'domain',
   );
 
