@@ -1,7 +1,7 @@
 name = Dimpact Text formats
 core = 7.x
 package = Features
-version = 7.x-1.0-beta9
+version = 7.x-1.0-beta10
 project = dimpact_text_formats
 dependencies[] = dimpact_wiki_links
 dependencies[] = features

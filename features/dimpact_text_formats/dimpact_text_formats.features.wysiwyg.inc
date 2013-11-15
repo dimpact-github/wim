@@ -19,7 +19,7 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
       'user_choose' => 0,
       'show_toggle' => 1,
       'theme' => 'advanced',
-      'language' => 'en',
+      'language' => 'nl',
       'buttons' => array(
         'default' => array(
           'Bold' => 1,
@@ -27,13 +27,38 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
           'BulletedList' => 1,
           'NumberedList' => 1,
           'Undo' => 1,
+          'Link' => 1,
+          'Unlink' => 1,
           'Anchor' => 1,
           'Blockquote' => 1,
+          'Source' => 1,
           'PasteText' => 1,
+          'PasteFromWord' => 1,
           'RemoveFormat' => 1,
+          'SpecialChar' => 1,
           'Format' => 1,
           'Table' => 1,
+          'Find' => 1,
           'Replace' => 1,
+          'Iframe' => 1,
+        ),
+        'ckeditor_abbrbutton' => array(
+          'ckeditor_abbrbutton' => 1,
+        ),
+        'ckeditor_acronym_button' => array(
+          'ckeditor_acronym_button' => 1,
+        ),
+        'ckeditor_definitionlist_button' => array(
+          'ckeditor_definitionlist_button' => 1,
+        ),
+        'ckeditor_insertionbutton' => array(
+          'ckeditor_insertionbutton' => 1,
+        ),
+        'ckeditor_languagebutton' => array(
+          'ckeditor_languagebutton' => 1,
+        ),
+        'ckeditor_deletionbutton' => array(
+          'ckeditor_deletionbutton' => 1,
         ),
         'linkit' => array(
           'linkit' => 1,
@@ -69,7 +94,7 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
       'user_choose' => 0,
       'show_toggle' => 1,
       'theme' => 'advanced',
-      'language' => 'en',
+      'language' => 'nl',
       'buttons' => array(
         'default' => array(
           'Bold' => 1,
@@ -77,14 +102,38 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
           'BulletedList' => 1,
           'NumberedList' => 1,
           'Undo' => 1,
+          'Link' => 1,
+          'Unlink' => 1,
           'Anchor' => 1,
           'Blockquote' => 1,
+          'Source' => 1,
           'PasteText' => 1,
+          'PasteFromWord' => 1,
           'RemoveFormat' => 1,
+          'SpecialChar' => 1,
           'Format' => 1,
           'Table' => 1,
+          'Find' => 1,
           'Replace' => 1,
           'Iframe' => 1,
+        ),
+        'ckeditor_abbrbutton' => array(
+          'ckeditor_abbrbutton' => 1,
+        ),
+        'ckeditor_acronym_button' => array(
+          'ckeditor_acronym_button' => 1,
+        ),
+        'ckeditor_definitionlist_button' => array(
+          'ckeditor_definitionlist_button' => 1,
+        ),
+        'ckeditor_insertionbutton' => array(
+          'ckeditor_insertionbutton' => 1,
+        ),
+        'ckeditor_languagebutton' => array(
+          'ckeditor_languagebutton' => 1,
+        ),
+        'ckeditor_deletionbutton' => array(
+          'ckeditor_deletionbutton' => 1,
         ),
         'linkit' => array(
           'linkit' => 1,
