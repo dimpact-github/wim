@@ -268,7 +268,10 @@
     position: absolute;
   }
   nav.main-menu .block-quicktabs-alfabet h2.block-title {
-    top: 24px;
+//    top: 24px;
+  }
+  nav.main-menu #quicktabs-alfabet .quicktabs-tabs a {
+    padding: 0.75em 8px;
   }
   .block-search {
     position: absolute !important;
@@ -422,6 +425,9 @@
   }
   nav.main-menu .block-quicktabs-alfabet h2.block-title {
     top: 9px;
+  }
+  nav.main-menu #quicktabs-alfabet .quicktabs-tabs a {
+    padding: 0.75em 1em;
   }
   #homebox {
     @include container($total-columns, $break-large);
