@@ -496,29 +496,11 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_meta_second',
           'weight' => '-10',
         ),
-        'menu-menu-footer-menu' => array(
-          'module' => 'menu',
-          'delta' => 'menu-footer-menu',
-          'region' => 'region_footer_first',
-          'weight' => '-10',
-        ),
-        'block-2' => array(
-          'module' => 'block',
-          'delta' => '2',
-          'region' => 'region_footer_second',
-          'weight' => '-10',
-        ),
-        'dominion_social-links' => array(
-          'module' => 'dominion_social',
-          'delta' => 'links',
+        'masquerade-masquerade' => array(
+          'module' => 'masquerade',
+          'delta' => 'masquerade',
           'region' => 'region_footer_third',
           'weight' => '-10',
-        ),
-        'block-3' => array(
-          'module' => 'block',
-          'delta' => '3',
-          'region' => 'region_footer_third',
-          'weight' => '-9',
         ),
       ),
     ),
@@ -589,30 +571,6 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => '2',
           'region' => 'region_363_first',
           'weight' => '-10',
-        ),
-        'menu-menu-footer-menu' => array(
-          'module' => 'menu',
-          'delta' => 'menu-footer-menu',
-          'region' => 'region_footer_first',
-          'weight' => '-10',
-        ),
-        'block-2' => array(
-          'module' => 'block',
-          'delta' => '2',
-          'region' => 'region_footer_second',
-          'weight' => '-10',
-        ),
-        'dominion_social-links' => array(
-          'module' => 'dominion_social',
-          'delta' => 'links',
-          'region' => 'region_footer_third',
-          'weight' => '-10',
-        ),
-        'block-3' => array(
-          'module' => 'block',
-          'delta' => '3',
-          'region' => 'region_footer_third',
-          'weight' => '-8',
         ),
         'masquerade-masquerade' => array(
           'module' => 'masquerade',

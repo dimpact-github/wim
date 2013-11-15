@@ -5,6 +5,7 @@ version = 7.x-1.0-20131115
 project = dimpact_felix
 features[features_api][] = api:2
 features[felix_block_set][] = default
+features[felix_block_set][] = footer-blokken
 features[felix_region][] = footer-first
 features[felix_region][] = footer-second
 features[felix_region][] = footer-third

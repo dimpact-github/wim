@@ -14,12 +14,11 @@ function dimpact_felix_felix_default_regions() {
     'title' => 'Footer first',
     'region' => 'region_footer_first',
     'weight' => 0,
-    'context' => 'sitewide-without-node',
-    'block_set' => 'default',
+    'context' => 'sitewide',
+    'block_set' => 'footer-blokken',
     'data' => array(
       'hash' => array(
-        0 => 'path',
-        1 => 'domain',
+        0 => 'domain',
       ),
     ),
   );
@@ -28,12 +27,11 @@ function dimpact_felix_felix_default_regions() {
     'title' => 'Footer second',
     'region' => 'region_footer_second',
     'weight' => 0,
-    'context' => 'sitewide-without-node',
-    'block_set' => 'default',
+    'context' => 'sitewide',
+    'block_set' => 'footer-blokken',
     'data' => array(
       'hash' => array(
-        0 => 'path',
-        1 => 'domain',
+        0 => 'domain',
       ),
     ),
   );
@@ -42,12 +40,11 @@ function dimpact_felix_felix_default_regions() {
     'title' => 'Footer third',
     'region' => 'region_footer_third',
     'weight' => 0,
-    'context' => 'sitewide-without-node',
-    'block_set' => 'default',
+    'context' => 'sitewide',
+    'block_set' => 'footer-blokken',
     'data' => array(
       'hash' => array(
-        0 => 'path',
-        1 => 'domain',
+        0 => 'domain',
       ),
     ),
   );
