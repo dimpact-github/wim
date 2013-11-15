@@ -106,9 +106,9 @@
     &:last-child {
       border: 0;
     }
-    a {
+//    a {
       @include font-size(16);
       font-family: $heading;
-    }
+//    }
   }
 }
