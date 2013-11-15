@@ -164,7 +164,12 @@ function dimpact_felix_felix_default_block_sets() {
   $sets['footer-blokken'] = array(
     'name' => 'footer-blokken',
     'title' => 'Footer blokken',
-    'blocks' => array(),
+    'blocks' => array(
+      0 => array(
+        'module' => 'dominion_social',
+        'delta' => 'links',
+      ),
+    ),
     'nodetypes' => array(
       0 => array(
         'nodetype' => 'editorial',
