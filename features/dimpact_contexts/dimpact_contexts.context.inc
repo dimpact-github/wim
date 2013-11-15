@@ -89,6 +89,27 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'nodedetail';
+  $context->description = '';
+  $context->tag = 'Felix';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*' => 'node/*',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Felix');
+  $export['nodedetail'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'nodepage';
   $context->description = '';
   $context->tag = 'Algemeen';
@@ -223,6 +244,78 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'onderwerp';
+  $context->description = '';
+  $context->tag = 'Felix';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'subject' => 'subject',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Felix');
+  $export['onderwerp'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'overigenodes';
+  $context->description = '';
+  $context->tag = 'Felix';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'agenda' => 'agenda',
+        'announcement' => 'announcement',
+        'blog' => 'blog',
+        'editorial' => 'editorial',
+        'faq' => 'faq',
+        'file' => 'file',
+        'forum' => 'forum',
+        'foto_album' => 'foto_album',
+        'marketplace' => 'marketplace',
+        'message' => 'message',
+        'news' => 'news',
+        'page' => 'page',
+        'person' => 'person',
+        'poll' => 'poll',
+        'product' => 'product',
+        'regulation' => 'regulation',
+        'ris_agendaitem' => 'ris_agendaitem',
+        'ris_meeting' => 'ris_meeting',
+        'rss' => 'rss',
+        'rss_source' => 'rss_source',
+        'slide' => 'slide',
+        'spatial_plan' => 'spatial_plan',
+        'vac' => 'vac',
+        'webform' => 'webform',
+        'wiki' => 'wiki',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Felix');
+  $export['overigenodes'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'profiel';
   $context->description = '';
   $context->tag = 'Intranet';
@@ -329,13 +422,17 @@ function dimpact_contexts_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'sitewide-without-node';
   $context->description = '';
-  $context->tag = 'Algemeen';
+  $context->tag = 'Felix';
   $context->conditions = array(
+    'context' => array(
+      'values' => array(
+        '~overigenodes' => '~overigenodes',
+      ),
+    ),
     'path' => array(
       'values' => array(
         '~admin/*' => '~admin/*',
         '~login-required-for-subsite' => '~login-required-for-subsite',
-        '~node/*' => '~node/*',
       ),
     ),
   );
@@ -344,7 +441,7 @@ function dimpact_contexts_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Algemeen');
+  t('Felix');
   $export['sitewide-without-node'] = $context;
 
   $context = new stdClass();
