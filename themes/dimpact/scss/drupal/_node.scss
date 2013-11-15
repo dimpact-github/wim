@@ -108,3 +108,10 @@
 .date-display-end {
   font-weight: 700;
 }
+body {
+  &.not-logged-in.node-type-subject {
+    h1#page-title {
+      margin-left: -274px;
+    }
+  }
+}
