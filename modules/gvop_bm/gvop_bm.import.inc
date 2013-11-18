@@ -104,7 +104,11 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 }
 
 function _gvop_bm_geo_request($address) {
-  // @todo, add caching for requests.
+  $cid = 'gvop_bm:geo:' . md5($address);
+  if ($cache = cache_get($cid)) {
+    return $cache->data;
+  }
+
   $query = array(
     'region' => 'nl',
     'sensor' => 'false',
@@ -113,5 +117,8 @@ function _gvop_bm_geo_request($address) {
   $uri = 'http://maps.googleapis.com/maps/api/geocode/json';
   $uri = $uri . '?' . drupal_http_build_query($query);
   $request = drupal_http_request($uri);
-  return json_decode($request->data);
+  $output = json_decode($request->data);
+
+  cache_set($cid, $output, 'cache', REQUEST_TIME + 604800);
+  return $output;
 }

@@ -72,7 +72,10 @@ function _gvop_retrieve_dom($type_info, $start, $limit, $params = array()) {
   $uri = _gvop_build_uri($type_info, $start, $limit, $params);
   $data = drupal_http_request($uri);
   if ($data->code != 200) {
-    // @todo, add error reporting for HTTP request and Diagnose response
+    watchdog('gvop', 'Unable to retreive XML from GVOP (code: %code, url: %url)', array(
+      '%code' => $data->code,
+      '%url' => $uri,
+    ), WATCHDOG_ERROR);
   }
   else {
     $dom = new DOMDocument();
