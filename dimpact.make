@@ -69,6 +69,7 @@ projects[job_scheduler][subdir] = contrib
 projects[jquery_update][subdir] = contrib
 projects[jquery_update][revision] = baff5d1
 projects[l10n_update][subdir] = contrib
+projects[login_destination][subdir] = contrib
 projects[libraries][subdir] = contrib
 projects[lightbox2][subdir] = contrib
 projects[link][subdir] = contrib
