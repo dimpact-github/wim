@@ -354,3 +354,74 @@ function bespoke_node_update($node) {
 function bespoke_node_delete($node) {
   bespoke_clear_node_cache($node->type);
 }
+
+/**
+ * Implements hook_hansel_menus_alter().
+ *
+ * Filter the list of menu's to contain only the menu's displayed on the current subsite.
+ */
+function bespoke_hansel_menus_alter(&$menus) {
+  if ($subsite = dominion_get_info()) {
+    $menus = array();
+    foreach ($subsite->menus as $menu) {
+      $menus[] = $menu->menu_name;
+    }
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_insert().
+ */
+function bespoke_taxonomy_term_insert($term) {
+  bespoke_save_tag_alias($term);
+}
+
+/**
+ * Implements hook_taxonomy_term_update().
+ */
+function bespoke_taxonomy_term_update($term) {
+  bespoke_save_tag_alias($term);
+}
+
+/**
+ * Implements hook_taxonomy_term_delete().
+ */
+function bespoke_taxonomy_term_delete($term) {
+  if ($term->vocabulary_machine_name == 'tags') {
+    db_delete('url_alias')
+      ->condition('source', 'foto-album/tag/' . $term->tid)
+      ->execute();
+  }
+}
+
+/**
+ * Implements hook_pathauto_alias_alter().
+ */
+function bespoke_save_tag_alias($term) {
+  if ($term->vocabulary_machine_name == 'tags') {
+    module_load_include('inc', 'pathauto');
+    $dst = 'fotoalbums/' . pathauto_clean_alias($term->name);
+    $new = new stdClass();
+    $new->source = 'foto-album/tag/' . $term->tid;
+    $new->alias = $dst;
+    $new->language = LANGUAGE_NONE;
+    $old = db_select('url_alias', 'ua')
+      ->fields('ua', array('pid', 'alias'))
+      ->condition('ua.source', $new->source)
+      ->condition('ua.language', $new->language)
+      ->execute()
+      ->fetch();
+
+    if ($old && $old->alias != $new->alias) {
+      // An alias already exists, but is different from the new alias.
+      $new->pid = $old->pid;
+      drupal_write_record('url_alias', $new, array('pid'));
+      drupal_path_alias_whitelist_rebuild($new->alias);
+    }
+    elseif (!$old) {
+      // There is no old alias. Create a new one.
+      drupal_write_record('url_alias', $new);
+      drupal_path_alias_whitelist_rebuild($new->alias);
+    }
+  }
+}
