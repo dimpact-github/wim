@@ -1385,7 +1385,8 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<?php
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+<?php
 if (node_access(\'create\', \'foto-album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
@@ -1586,25 +1587,25 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('<?php
 // print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 ?>'),
-    t('<?php
-if (node_access(\'create\', \'foto-album\')) {
-print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
-}
-?>'),
-    t('Blok'),
-    t('Fotoalbums'),
     t('<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
 <?php
 if (node_access(\'create\', \'foto-album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
+    t('Blok'),
+    t('Fotoalbums'),
     t('tag'),
     t('Term-ID'),
     t('.'),
     t(','),
     t('Fotoalbumblok'),
     t('Fotoalbumsblok'),
+    t('<?php
+if (node_access(\'create\', \'foto-album\')) {
+print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
   );
   $export['foto_album'] = $view;
 
