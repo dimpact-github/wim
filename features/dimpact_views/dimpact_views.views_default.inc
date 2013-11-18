@@ -695,6 +695,13 @@ if (node_access(\'create\', \'message\')) {
 
   /* Display: Teamdocumentenblok */
   $handler = $view->new_display('block', 'Teamdocumentenblok', 'block_1');
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Alle documenten';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relatie: Inhoud: Bestand (field_bestand:fid) */
   $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
@@ -788,6 +795,34 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['filters']['field_bijlage_fid']['field'] = 'field_bijlage_fid';
   $handler->display->display_options['filters']['field_bijlage_fid']['operator'] = 'not empty';
   $handler->display->display_options['block_description'] = 'Bijlagenblok';
+
+  /* Display: Pagina */
+  $handler = $view->new_display('page', 'Pagina', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Documenten';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '3';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relatie: Inhoud: Bestand (field_bestand:fid) */
+  $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
+  $handler->display->display_options['relationships']['field_bestand_fid']['table'] = 'field_data_field_bestand';
+  $handler->display->display_options['relationships']['field_bestand_fid']['field'] = 'field_bestand_fid';
+  /* Relatie: Inhoud: Auteur */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['path'] = 'documenten';
   $translatables['bestanden'] = array(
     t('Master'),
     t('meer'),
@@ -807,6 +842,7 @@ if (node_access(\'create\', \'message\')) {
     t('<div>[title] <span class="views-field-filesize">[filesize]</span></div>
 <div>Door: [name], op [created]</div>'),
     t('Teamdocumentenblok'),
+    t('Alle documenten'),
     t('bestand uit field_bestand'),
     t('auteur'),
     t('Bijlagenblok'),
@@ -815,6 +851,8 @@ if (node_access(\'create\', \'message\')) {
     t('<div>[filename] <span class="views-field-filesize">[filesize]</span></div>
 <div>[created]</div>'),
     t('Alle'),
+    t('Pagina'),
+    t('Documenten'),
   );
   $export['bestanden'] = $view;
 
