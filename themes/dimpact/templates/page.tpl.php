@@ -126,13 +126,13 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
     <?php endif; ?>
 
     <?php // Region 3/9 ?>
-    <?php if ($region_39_first || $region_39_second || (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen')) && $content)): ?>
+    <?php if ($region_39_first || $region_39_second || (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen', 'fotoalbum')) && $content)): ?>
       <div class="container">
         <div class="region_39_first">
           <?php print $region_39_first; ?>
         </div>
         <div class="region_39_second">
-          <?php if (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen'))): ?>
+          <?php if (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen', 'fotoalbum'))): ?>
             <?php if ($title): ?>
               <h1 class="title" id="page-title"><?php print $title; ?></h1>
             <?php endif; ?>
