@@ -89,7 +89,7 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
       }
     }
-    #quicktabs-alfabet {
+    .quicktabs-wrapper {
       .quicktabs-tabs {
         li.active a {
           background-color: #fff;

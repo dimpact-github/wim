@@ -248,14 +248,14 @@
         }
       }
     }
-    #quicktabs-container-alfabet {
+    .quicktabs_main {
       .quicktabs-tabpage {
         @include column-count(3);
         @include border-bottom-radius(4px);
         position: absolute;
       }
     }
-    .block-quicktabs-alfabet {
+    .block-quicktabs {
       h2.block-title {
         display: block !important;
       }
@@ -267,10 +267,10 @@
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
   }
-  nav.main-menu .block-quicktabs-alfabet h2.block-title {
+  nav.main-menu .block-quicktabs h2.block-title {
 //    top: 24px;
   }
-  nav.main-menu #quicktabs-alfabet .quicktabs-tabs a {
+  nav.main-menu .block-quicktabs .quicktabs-tabs a {
     padding: 0.75em 8px;
   }
   .block-search {
@@ -423,10 +423,10 @@
       }
     }
   }
-  nav.main-menu .block-quicktabs-alfabet h2.block-title {
+  nav.main-menu .block-quicktabs h2.block-title {
     top: 9px;
   }
-  nav.main-menu #quicktabs-alfabet .quicktabs-tabs a {
+  nav.main-menu .block-quicktabs .quicktabs-tabs a {
     padding: 0.75em 1em;
   }
   #homebox {
@@ -439,7 +439,7 @@
       @include omega;
     }
   }
-  html:not(.js) nav #quicktabs-container-alfabet .quicktabs-tabpage {
+  html:not(.js) nav .quicktabs_main .quicktabs-tabpage {
     position: relative;
   }
 }

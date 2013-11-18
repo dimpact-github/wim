@@ -3,8 +3,8 @@
    * Hide all the tabs.
    */
   function hideProductTabs(){
-    $("#quicktabs-alfabet .quicktabs-tabs li").removeClass("active");
-    $("#quicktabs-container-alfabet .quicktabs-tabpage").addClass("quicktabs-hide");
+    $(".main-menu .block-quicktabs .quicktabs-tabs li").removeClass("active");
+    $(".main-menu .block-quicktabs .quicktabs_main .quicktabs-tabpage").addClass("quicktabs-hide");
     $('body').removeClass('overlay-alpha');
   }
 
@@ -31,15 +31,15 @@
     });
 
     // Onderwerpen responsive menu
-    var onderwerpenMenu = $('#quicktabs-alfabet');
+    var onderwerpenMenu = $('.main-menu .block-quicktabs');
     var onderwerpenToggle = $('<div>').addClass('onderwerpen-toggle').html('<a href="#">Onderwerpen</a>');
     onderwerpenMenu.before(onderwerpenToggle);
     $('.onderwerpen-toggle a').live("click", function(e) {
-      if ($('#quicktabs-container-alfabet').hasClass('open')) {
-        $('#quicktabs-container-alfabet').removeClass('open');
+      if ($('.main-menu .block-quicktabs .quicktabs_main').hasClass('open')) {
+        $('.main-menu .block-quicktabs .quicktabs_main').removeClass('open');
       }
       else {
-        $('#quicktabs-container-alfabet').addClass('open');
+        $('.main-menu .block-quicktabs .quicktabs_main').addClass('open');
       }
       e.preventDefault();
     });
@@ -49,18 +49,18 @@
       $(this).append(closeButton);
     });
 
-    $('#quicktabs-alfabet').mouseup(function() {
+    $('.main-menu .block-quicktabs').mouseup(function() {
       $('body').addClass('overlay-alpha');
     });
 
     $(document).mouseup(function(e) {
-      var container = $("#quicktabs-alfabet .quicktabs-tabs li");
+      var container = $(".main-menu .block-quicktabs .quicktabs-tabs li");
       if (container.has(e.target).length === 0){
         hideProductTabs();
       }
     });
 
-    var quicktabscontainer = $("#quicktabs-alfabet");
+    var quicktabscontainer = $(".main-menu .block-quicktabs");
     var leave = false;
     var enter = false;
     var opacityValue = 1;

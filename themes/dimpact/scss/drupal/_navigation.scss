@@ -99,7 +99,7 @@ nav {
       }
     }
 
-    .block-quicktabs-alfabet {
+    .block-quicktabs {
       position: relative;
       h2.block-title {
         @include font-size(13);
@@ -112,7 +112,7 @@ nav {
         display: none;
       }
     }
-    #quicktabs-alfabet {
+    .quicktabs-wrapper {
       background-color: $background-color;
       position: relative;
       z-index: 11;
@@ -138,7 +138,7 @@ nav {
           color: $text-color;
         }
       }
-      #quicktabs-container-alfabet {
+      .quicktabs_main {
         &.open {
           .quicktabs-hide {
             display: block;
@@ -180,11 +180,6 @@ nav {
         }
       }
     }
-  }
-}
-body.fixed-menu {
-  .block-quicktabs-alfabet {
-    margin-top: 34px;
   }
 }
 body.front {
