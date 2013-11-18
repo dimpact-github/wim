@@ -369,5 +369,17 @@ div.workbench-info-block {
   display: block;
 }
 
+.page-view-foto-album-page {
+  #page-title {
+    background-color: lighten($background-color, 7%);
+    border-top: 1px solid $background-color;
+    font-size: 130%;
+    margin-top: 0;
+    margin-bottom: $gutter-width/2;
+    padding: $gutter-width/2;
+    line-height: 1;
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
