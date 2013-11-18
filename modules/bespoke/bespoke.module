@@ -322,3 +322,35 @@ function bespoke_form_menu_edit_item_alter(&$form, &$form_state) {
     $form['link_path']['#field_suffix'] = '<a class="button linkit-field-button linkit-field-' . $field_id . '" href="#">' . t('Search') . '</a>';
   }
 }
+
+/**
+ * Clear page caches of pages displaying this nodetype (issue #231).
+ *
+ * @param string $type
+ */
+function bespoke_clear_node_cache($type) {
+  if (in_array($type, array('announcement', 'regulation', 'product', 'vac'))) {
+    cache_clear_all('*', 'cache_page', TRUE);
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function bespoke_node_insert($node) {
+  bespoke_clear_node_cache($node->type);
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function bespoke_node_update($node) {
+  bespoke_clear_node_cache($node->type);
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function bespoke_node_delete($node) {
+  bespoke_clear_node_cache($node->type);
+}
