@@ -381,5 +381,13 @@ div.workbench-info-block {
   }
 }
 
+.zoek-bekendmakingen {
+  float: right;
+  margin: 0 0 $gutter-width/2 $gutter-width/2;
+  input[type="submit"] {
+    margin-left: $gutter-width/2;
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
