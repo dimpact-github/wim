@@ -105,6 +105,10 @@ function dimpact_preprocess_page(&$vars) {
   if (arg(0) == 'foto-album' && arg(1) == 'tag' && is_numeric(arg(2))) {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'fotoalbum';
+    if (isset($vars['page']['region_363_first']['submenutree_2'])) {
+      $vars['page']['region_39_first']['submenutree_2'] = $vars['page']['region_363_first']['submenutree_2'];
+      unset($vars['page']['region_363_first']['submenutree_2']);
+    }
   }
 
   if (arg(0) == 'fotoalbums') {
