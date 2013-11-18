@@ -1,5 +1,5 @@
 \subsection{Dominion}\label{dominion}
-De \emph{Dominion} module wordt gebruikt voor het aanmaken van subsites. Ga naar \drupalpath{admin/structure/dominion} voor een overzicht van alle subsites. 
+De \emph{Dominion} module wordt gebruikt voor het aanmaken van subsites. Ga naar \drupalpath{admin/structure/dominion} voor een overzicht van alle subsites. Het aanmaken van een subsite kan serveraanpassingen vereisen. Dit is zeker het geval wanneer een SSL certificaat op een van de (sub)sites actief is.
 
 \bigskip
 
@@ -7,15 +7,22 @@ De \emph{Dominion} module wordt gebruikt voor het aanmaken van subsites. Ga naar
 	\includegraphics[width=\textwidth]{img/dominion1.png}
 \end{center}
 
+\subsubsection{Subsite toevoegen}\label{teamsubsitetoevoegen}
+Klik op \emph{Add (internet/intranet/team) subsite} om een nieuwe subsite toe te voegen. 
 
-\subsubsection{Team subsite toevoegen}\label{teamsubsitetoevoegen}
-Klik op \emph{Add team subsite} om een nieuwe team subsite toe te voegen. 
+Onder \emph{Domain type} staan maximaal drie keuzes. Niet alle keuzes kunnen actief zijn.
+
+\begin{itemize}
+\item Use a subdomein of .\drupalpath{}. Hiermee kan je subsites aanmaken waarvan de naam \emph{voor} het domein gezet worden. Dat kan dus \emph{intranet}.\drupalpath{} worden.
+\item Use a custom domainname. Hier kan je een eigen domein opgeven die helemaal losstaat van het huidige domein. Let wel op dat hiervoor serveraanpassingen vereist zijn.
+\item Use a directory. Hiermee kan je subsites aanmaken waarvan de naam \emph{achter} het domein gezet worden. Dat kan dus \drupalpath{}\emph{intranet} worden. Wanneer deze optie geselecteerd wordt zullen er een extra opties getoond worden. Kies bij \emph{Domein} voor het domein waar het achter moet komen. Kies bij \emph{Map} de url, in het voorbeeld zou dat dus \emph{intranet} zijn. 
+\end{itemize}
+
+\bigskip
 
 \begin{enumerate}
 \item Vul bij het veld \emph{Naam} een naam in voor de subsite.
-\item Kies bij \emph{Domain type} voor \emph{Use a directory}.
-\item Kies bij \emph{Domein} voor \emph{intranet.dimpact.nl}.
-\item Vul bij het veld \emph{Map} de map in voor de subsite.
+\item Kies het juiste \emph{Domain type}.
 \item Specificeer eventueel de overige opties.
 \item Klik op de knop \emph{Opslaan} om de subsite toe te voegen .
 \end{enumerate}
