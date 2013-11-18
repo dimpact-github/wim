@@ -65,7 +65,11 @@ a {
     color: $text-color !important;
   }
 }
-
+.maintenance-page {
+  a {
+    color: $text-color;
+  }
+}
 table {
   border: 1px solid $border;
   width: 100%;
