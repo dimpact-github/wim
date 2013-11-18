@@ -1,11 +1,12 @@
 name = Dimpact Quicktabs
 core = 7.x
 package = Features
-version = 7.x-1.0-beta6
+version = 7.x-1.0-20131118
 project = dimpact_quicktabs
 dependencies[] = ctools
 dependencies[] = quicktabs
 features[ctools][] = quicktabs:quicktabs:1
 features[features_api][] = api:2
 features[quicktabs][] = alfabet
+features[quicktabs][] = kies_uw_onderwerp_intranet
 features[quicktabs][] = nieuws_agenda

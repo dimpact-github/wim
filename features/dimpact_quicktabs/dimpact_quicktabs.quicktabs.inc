@@ -241,6 +241,234 @@ function dimpact_quicktabs_quicktabs_default_quicktabs() {
   $quicktabs = new stdClass();
   $quicktabs->disabled = FALSE; /* Edit this to true to make a default quicktabs disabled initially */
   $quicktabs->api_version = 1;
+  $quicktabs->machine_name = 'kies_uw_onderwerp_intranet';
+  $quicktabs->ajax = 0;
+  $quicktabs->hide_empty_tabs = FALSE;
+  $quicktabs->default_tab = 999999;
+  $quicktabs->title = 'Kies uw onderwerp (intranet)';
+  $quicktabs->tabs = array(
+    0 => array(
+      'bid' => 'menu_delta_menu-alfabet-a-intranet',
+      'hide_title' => 1,
+      'title' => 'A',
+      'weight' => '-100',
+      'type' => 'block',
+    ),
+    1 => array(
+      'bid' => 'menu_delta_menu-alfabet-b-intranet',
+      'hide_title' => 1,
+      'title' => 'B',
+      'weight' => '-99',
+      'type' => 'block',
+    ),
+    2 => array(
+      'bid' => 'menu_delta_menu-alfabet-c-intranet',
+      'hide_title' => 1,
+      'title' => 'C',
+      'weight' => '-98',
+      'type' => 'block',
+    ),
+    3 => array(
+      'bid' => 'menu_delta_menu-alfabet-d-intranet',
+      'hide_title' => 1,
+      'title' => 'D',
+      'weight' => '-97',
+      'type' => 'block',
+    ),
+    4 => array(
+      'bid' => 'menu_delta_menu-alfabet-e-intranet',
+      'hide_title' => 1,
+      'title' => 'E',
+      'weight' => '-96',
+      'type' => 'block',
+    ),
+    5 => array(
+      'bid' => 'menu_delta_menu-alfabet-f-intranet',
+      'hide_title' => 1,
+      'title' => 'F',
+      'weight' => '-95',
+      'type' => 'block',
+    ),
+    6 => array(
+      'bid' => 'menu_delta_menu-alfabet-g-intranet',
+      'hide_title' => 1,
+      'title' => 'G',
+      'weight' => '-94',
+      'type' => 'block',
+    ),
+    7 => array(
+      'bid' => 'menu_delta_menu-alfabet-h-intranet',
+      'hide_title' => 1,
+      'title' => 'H',
+      'weight' => '-93',
+      'type' => 'block',
+    ),
+    8 => array(
+      'bid' => 'menu_delta_menu-alfabet-i-intranet',
+      'hide_title' => 1,
+      'title' => 'I',
+      'weight' => '-92',
+      'type' => 'block',
+    ),
+    9 => array(
+      'bid' => 'menu_delta_menu-alfabet-j-intranet',
+      'hide_title' => 1,
+      'title' => 'J',
+      'weight' => '-91',
+      'type' => 'block',
+    ),
+    10 => array(
+      'bid' => 'menu_delta_menu-alfabet-k-intranet',
+      'hide_title' => 1,
+      'title' => 'K',
+      'weight' => '-90',
+      'type' => 'block',
+    ),
+    11 => array(
+      'bid' => 'menu_delta_menu-alfabet-l-intranet',
+      'hide_title' => 1,
+      'title' => 'L',
+      'weight' => '-89',
+      'type' => 'block',
+    ),
+    12 => array(
+      'bid' => 'menu_delta_menu-alfabet-m-intranet',
+      'hide_title' => 1,
+      'title' => 'M',
+      'weight' => '-88',
+      'type' => 'block',
+    ),
+    13 => array(
+      'bid' => 'menu_delta_menu-alfabet-n-intranet',
+      'hide_title' => 1,
+      'title' => 'N',
+      'weight' => '-87',
+      'type' => 'block',
+    ),
+    14 => array(
+      'bid' => 'menu_delta_menu-alfabet-o-intranet',
+      'hide_title' => 1,
+      'title' => 'O',
+      'weight' => '-86',
+      'type' => 'block',
+    ),
+    15 => array(
+      'bid' => 'menu_delta_menu-alfabet-p-intranet',
+      'hide_title' => 1,
+      'title' => 'P',
+      'weight' => '-85',
+      'type' => 'block',
+    ),
+    16 => array(
+      'bid' => 'menu_delta_menu-alfabet-q-intranet',
+      'hide_title' => 1,
+      'title' => 'Q',
+      'weight' => '-84',
+      'type' => 'block',
+    ),
+    17 => array(
+      'bid' => 'menu_delta_menu-alfabet-r-intranet',
+      'hide_title' => 1,
+      'title' => 'R',
+      'weight' => '-83',
+      'type' => 'block',
+    ),
+    18 => array(
+      'bid' => 'menu_delta_menu-alfabet-s-intranet',
+      'hide_title' => 1,
+      'title' => 'S',
+      'weight' => '-82',
+      'type' => 'block',
+    ),
+    19 => array(
+      'bid' => 'menu_delta_menu-alfabet-t-intranet',
+      'hide_title' => 1,
+      'title' => 'T',
+      'weight' => '-81',
+      'type' => 'block',
+    ),
+    20 => array(
+      'bid' => 'menu_delta_menu-alfabet-u-intranet',
+      'hide_title' => 1,
+      'title' => 'U',
+      'weight' => '-80',
+      'type' => 'block',
+    ),
+    21 => array(
+      'bid' => 'menu_delta_menu-alfabet-v-intranet',
+      'hide_title' => 1,
+      'title' => 'V',
+      'weight' => '-79',
+      'type' => 'block',
+    ),
+    22 => array(
+      'bid' => 'menu_delta_menu-alfabet-w-intranet',
+      'hide_title' => 1,
+      'title' => 'W',
+      'weight' => '-78',
+      'type' => 'block',
+    ),
+    23 => array(
+      'bid' => 'menu_delta_menu-alfabet-x-intranet',
+      'hide_title' => 1,
+      'title' => 'X',
+      'weight' => '-77',
+      'type' => 'block',
+    ),
+    24 => array(
+      'bid' => 'menu_delta_menu-alfabet-y-intranet',
+      'hide_title' => 1,
+      'title' => 'Y',
+      'weight' => '-76',
+      'type' => 'block',
+    ),
+    25 => array(
+      'bid' => 'menu_delta_menu-alfabet-z-intranet',
+      'hide_title' => 1,
+      'title' => 'Z',
+      'weight' => '-75',
+      'type' => 'block',
+    ),
+  );
+  $quicktabs->renderer = 'quicktabs';
+  $quicktabs->style = 'nostyle';
+  $quicktabs->options = array();
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('A');
+  t('B');
+  t('C');
+  t('D');
+  t('E');
+  t('F');
+  t('G');
+  t('H');
+  t('I');
+  t('J');
+  t('K');
+  t('Kies uw onderwerp (intranet)');
+  t('L');
+  t('M');
+  t('N');
+  t('O');
+  t('P');
+  t('Q');
+  t('R');
+  t('S');
+  t('T');
+  t('U');
+  t('V');
+  t('W');
+  t('X');
+  t('Y');
+  t('Z');
+
+  $export['kies_uw_onderwerp_intranet'] = $quicktabs;
+
+  $quicktabs = new stdClass();
+  $quicktabs->disabled = FALSE; /* Edit this to true to make a default quicktabs disabled initially */
+  $quicktabs->api_version = 1;
   $quicktabs->machine_name = 'nieuws_agenda';
   $quicktabs->ajax = 0;
   $quicktabs->hide_empty_tabs = FALSE;

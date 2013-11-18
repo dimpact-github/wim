@@ -548,11 +548,11 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-9',
         ),
-        'quicktabs-alfabet' => array(
+        'quicktabs-kies_uw_onderwerp_intranet' => array(
           'module' => 'quicktabs',
-          'delta' => 'alfabet',
+          'delta' => 'kies_uw_onderwerp_intranet',
           'region' => 'navigation',
-          'weight' => '-8',
+          'weight' => '-7',
         ),
         'menu-menu-meta-menu-links-intranet' => array(
           'module' => 'menu',
