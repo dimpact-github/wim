@@ -28,8 +28,8 @@ function dimpact_hansel_hansel_default() {
         'handler' => 'blueprint',
         'arguments' => array(),
         'children' => array(
-          0 => 13,
-          1 => 15,
+          0 => 39,
+          1 => 46,
         ),
       ),
       2 => array(
@@ -42,10 +42,11 @@ function dimpact_hansel_hansel_default() {
         'handler' => 'url argument',
         'arguments' => array(),
         'children' => array(
-          0 => 11,
-          1 => 12,
-          2 => 14,
-          3 => 19,
+          0 => 38,
+          1 => 40,
+          2 => 42,
+          3 => 45,
+          4 => 49,
         ),
       ),
       3 => array(
@@ -68,13 +69,28 @@ function dimpact_hansel_hansel_default() {
         'handler' => 'node type',
         'arguments' => array(),
         'children' => array(
-          0 => 10,
-          1 => 17,
-          2 => 23,
+          0 => 37,
+          1 => 41,
+          2 => 47,
         ),
       ),
       5 => array(
         'rid' => 5,
+        'pid' => 11,
+        'name' => '<default>',
+        'crumb_action' => 'add single link',
+        'crumb_action_arguments' => array(
+          'title' => 'Fotoalbums',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'fotoalbums',
+        ),
+        'action' => 'leave',
+        'restore' => FALSE,
+        'children' => array(),
+      ),
+      6 => array(
+        'rid' => 6,
         'pid' => 2,
         'name' => 'dashboard',
         'crumb_action' => '',
@@ -83,26 +99,9 @@ function dimpact_hansel_hansel_default() {
         'restore' => FALSE,
         'children' => array(),
       ),
-      6 => array(
-        'rid' => 6,
-        'pid' => 4,
-        'name' => 'forum',
-        'crumb_action' => 'add single link',
-        'crumb_action_arguments' => array(
-          'title' => 'Forum',
-          'translate' => 0,
-          'remove_tokens' => 0,
-          'path' => 'forum',
-        ),
-        'action' => 'goto',
-        'destination' => 8,
-        'children' => array(
-          0 => 16,
-        ),
-      ),
       7 => array(
         'rid' => 7,
-        'pid' => 2,
+        'pid' => 4,
         'name' => 'forum',
         'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
@@ -114,20 +113,25 @@ function dimpact_hansel_hansel_default() {
         'action' => 'goto',
         'destination' => 9,
         'children' => array(
-          0 => 18,
+          0 => 43,
         ),
       ),
       8 => array(
         'rid' => 8,
-        'pid' => 6,
-        'name' => 'forumpath',
-        'crumb_action' => 'add forum path',
+        'pid' => 2,
+        'name' => 'forum',
+        'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
-          'inc_containers' => 0,
+          'title' => 'Forum',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'forum',
         ),
         'action' => 'goto',
-        'destination' => 2,
-        'children' => array(),
+        'destination' => 10,
+        'children' => array(
+          0 => 44,
+        ),
       ),
       9 => array(
         'rid' => 9,
@@ -137,12 +141,42 @@ function dimpact_hansel_hansel_default() {
         'crumb_action_arguments' => array(
           'inc_containers' => 0,
         ),
-        'action' => 'leave',
-        'restore' => FALSE,
+        'action' => 'goto',
+        'destination' => 2,
         'children' => array(),
       ),
       10 => array(
         'rid' => 10,
+        'pid' => 8,
+        'name' => 'forumpath',
+        'crumb_action' => 'add forum path',
+        'crumb_action_arguments' => array(
+          'inc_containers' => 0,
+        ),
+        'action' => 'leave',
+        'restore' => FALSE,
+        'children' => array(),
+      ),
+      11 => array(
+        'rid' => 11,
+        'pid' => 2,
+        'name' => 'foto-album',
+        'crumb_action' => 'add single link',
+        'crumb_action_arguments' => array(
+          'title' => 'Actueel',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'actueel',
+        ),
+        'action' => 'switch',
+        'handler' => 'url argument',
+        'arguments' => array(),
+        'children' => array(
+          0 => 50,
+        ),
+      ),
+      12 => array(
+        'rid' => 12,
         'pid' => 2,
         'name' => 'node',
         'crumb_action' => 'add link to node',
@@ -151,8 +185,8 @@ function dimpact_hansel_hansel_default() {
         'restore' => FALSE,
         'children' => array(),
       ),
-      11 => array(
-        'rid' => 11,
+      13 => array(
+        'rid' => 13,
         'pid' => 1,
         'name' => 'team',
         'crumb_action' => 'add parent subsites',
@@ -164,8 +198,8 @@ function dimpact_hansel_hansel_default() {
         'destination' => 2,
         'children' => array(),
       ),
-      12 => array(
-        'rid' => 12,
+      14 => array(
+        'rid' => 14,
         'pid' => 4,
         'name' => 'wiki',
         'crumb_action' => 'add single link',
@@ -176,14 +210,14 @@ function dimpact_hansel_hansel_default() {
           'path' => 'wiki',
         ),
         'action' => 'goto',
-        'destination' => 13,
+        'destination' => 15,
         'children' => array(
-          0 => 24,
+          0 => 48,
         ),
       ),
-      13 => array(
-        'rid' => 13,
-        'pid' => 12,
+      15 => array(
+        'rid' => 15,
+        'pid' => 14,
         'name' => 'wikipage',
         'crumb_action' => 'add wiki page',
         'crumb_action_arguments' => array(),
@@ -220,6 +254,14 @@ function dimpact_hansel_hansel_default() {
       'news' => array(
         'path' => 'actueel/nieuws',
         'title' => 'Nieuws',
+      ),
+      'product' => array(
+        'path' => 'pdc/producten',
+        'title' => 'Producten',
+      ),
+      'regulation' => array(
+        'path' => 'pdc/regelingen',
+        'title' => 'Regelingen',
       ),
       'wiki' => array(
         'path' => 'wiki',
@@ -262,6 +304,14 @@ function dimpact_hansel_hansel_default() {
         'news' => array(
           'path' => 'actueel/nieuws',
           'title' => 'Nieuws',
+        ),
+        'product' => array(
+          'path' => 'pdc/producten',
+          'title' => 'Producten',
+        ),
+        'regulation' => array(
+          'path' => 'pdc/regelingen',
+          'title' => 'Regelingen',
         ),
         'wiki' => array(
           'path' => 'wiki',

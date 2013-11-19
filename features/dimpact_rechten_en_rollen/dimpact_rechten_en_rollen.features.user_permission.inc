@@ -292,6 +292,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'context_ui',
   );
 
+  // Exported permission: 'administer cookie_consent'.
+  $permissions['administer cookie_consent'] = array(
+    'name' => 'administer cookie_consent',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'cookie_consent',
+  );
+
   // Exported permission: 'administer domains'.
   $permissions['administer domains'] = array(
     'name' => 'administer domains',
@@ -707,6 +716,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'administer solr synonyms'.
+  $permissions['administer solr synonyms'] = array(
+    'name' => 'administer solr synonyms',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'solr_synonyms',
+  );
+
   // Exported permission: 'administer sub content'.
   $permissions['administer sub content'] = array(
     'name' => 'administer sub content',
@@ -1024,6 +1042,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1035,6 +1054,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -1094,6 +1114,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1105,6 +1126,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
   );
@@ -1560,6 +1582,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1952,6 +1975,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -1981,6 +2005,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2569,6 +2594,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2873,6 +2899,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -2902,6 +2929,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
       'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'node',
   );
@@ -3290,6 +3318,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'manage felix blocks',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'felix',
   );
@@ -4139,6 +4168,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'eindredacteur' => 'eindredacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'faq',
   );
