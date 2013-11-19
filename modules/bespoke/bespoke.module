@@ -425,3 +425,50 @@ function bespoke_save_tag_alias($term) {
     }
   }
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function bespoke_views_query_alter(&$view, &$query) {
+  if ($view->name == 'inhoud_zoeken') {
+    foreach ($query->where[1]['conditions'] as $cid => $condition) {
+      $conjunction = 'AND';
+      $values = array();
+      if (is_object($condition['field'])) {
+        $conditions = $condition['field']->conditions();
+        $conjuction = $conditions['#conjunction'];
+        $field = '';
+        $values = array();
+        foreach ($conditions as $sub) {
+          if (is_array($sub)) {
+            $operator = $sub['operator'];
+            $field = $sub['field'];
+            $values[] = $sub['value'];
+          }
+        }
+      }
+      else {
+        $operator = $condition['operator'];
+        $field = $condition['field'];
+        $values = array($condition['value']);
+      }
+      if ($field == 'field_data_body.body_value') {
+        $or = array();
+        foreach (array('field_data_body.body_value', 'node.title') as $field) {
+          $sub = array();
+          foreach ($values as $value) {
+            $value = addslashes($value);
+            $sub[] = "$field $operator '$value'";
+          }
+          $or[] = implode(" $conjuction ", $sub);
+        }
+        $expression = '(' . implode(') OR (', $or) . ')';
+        $query->where[1]['conditions'][$cid] = array(
+          'field' => $expression,
+          'value' => array(),
+          'operator' => 'formula',
+        );
+      }
+    }
+  }
+}
