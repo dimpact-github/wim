@@ -21,8 +21,8 @@ function dimpact_process_html(&$vars) {
     $vars['body_attributes'] = $vars['attributes'];
   }
 
-  if (module_exists('color')) {
-    _color_html_alter($vars);
+  if (module_exists('domain_scss')) {
+    _domain_scss_html_alter($vars);
   }
 }
 

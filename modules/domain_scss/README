@@ -50,8 +50,8 @@ your sass files.
 $colour: get_env_color('dcolor', '#07ef00');
 
 Step 4. Add the following code to your theme's hook_process_html()
-if (module_exists('color')) {
-  _color_html_alter($vars);
+if (module_exists('domain_scss')) {
+  _domain_scss_html_alter($vars);
 }
 
 Step 5. Enable the module.

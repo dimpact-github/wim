@@ -18,6 +18,17 @@ function domain_scss_form_system_theme_settings_alter(&$form, &$form_state) {
 }
 
 /**
+ * Implements hook_flush_caches().
+ */
+function domain_scss_flush_caches() {
+  // This hook is mainly uses for returning tables that should be flushes.
+  // We do not have any database data. Instead we return an empty array
+  // and clear the color generated cache.
+  file_unmanaged_delete_recursive('public://color');
+  return array();
+}
+
+/**
  * Retrieves the Domain SCSS module information for a particular theme.
  */
 function domain_scss_get_info($theme) {
@@ -174,10 +185,24 @@ function domain_scss_scheme_form_submit($form, &$form_state) {
   variable_del('color_' . $theme . '_stylesheets');
   variable_del('color_' . $theme . '_files');
 
-  // Prepare target locations for generated files.
-  $id = $theme . '-' . substr(hash('sha256', serialize($palette) . microtime()), 0, 8);
+  // Save data.
+  variable_set('color_' . $theme . '_palette', $palette);
+  domain_scss_generate($theme, $info, $palette);
+}
+
+function domain_scss_generate($theme, $info, $palette, $target = NULL) {
+  // Set Color directory.
+  $paths = array();
   $paths['color'] = 'public://color';
-  $paths['target'] = $paths['color'] . '/' . $id;
+
+  // Set Target directory.
+  if (!$target) {
+    $id = $theme . '-' . substr(hash('sha256', serialize($palette) . microtime()), 0, 8);
+    $target = $paths['color'] . '//' . $id;
+  }
+  $paths['target'] = $target;
+
+  // Create the directories.
   foreach ($paths as $path) {
     file_prepare_directory($path, FILE_CREATE_DIRECTORY);
   }
@@ -203,7 +228,21 @@ function domain_scss_scheme_form_submit($form, &$form_state) {
   }
 
   // Save data.
-  variable_set('color_' . $theme . '_palette', $palette);
   variable_set('color_' . $theme . '_files', $paths['target']);
   variable_set('color_' . $theme . '_stylesheets', $css);
+}
+
+function _domain_scss_html_alter(&$vars) {
+  global $theme_key;
+
+  $color_dir = variable_get('color_' . $theme_key . '_files', FALSE);
+  $palette = variable_get('color_' . $theme_key . '_palette', FALSE);
+
+  if ($color_dir && $palette && !is_dir($color_dir)) {
+    $info = domain_scss_get_info($theme_key);
+    $palette = variable_get('color_' . $theme_key . '_palette', FALSE);
+    domain_scss_generate($theme_key, $info, $palette, $color_dir);
+  }
+
+  _color_html_alter($vars);
 }
