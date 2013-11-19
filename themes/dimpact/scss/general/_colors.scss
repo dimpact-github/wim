@@ -1,87 +1,81 @@
-// Documenteren
-$color-names:         dark-brown purple dark-green ruby red violet moss-green brown green azure light-blue pink yellow dark-yellow mint-green orange;
-$color-values:        $dark-brown $purple $dark-green $ruby $red $violet $moss-green $brown $green $azure $light-blue $pink $yellow $dark-yellow $mint-green $orange;
-$color-values-light:  $dark-brown-light $purple-light $dark-green-light $ruby-light $red-light $violet-light $moss-green-light $brown-light $green-light $azure-light $light-blue-light $pink-light $yellow-light $dark-yellow-light $mint-green-light $orange-light;
-$link-color:          $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-light $link-dark $link-dark $link-dark $link-dark $link-dark $link-dark;
-$colors: zip($color-names, $color-values, $color-values-light, $link-color);
+/**
+ * Setup the color values from the environment and provide defaults if they are not set.
+ */
+$colour: get_env_color('dcolor', $azure);
+$colourlight: get_env_color('dcolorlight', $azure-light);
+$linkcolor: get_env_color('dlinkcolor', $link-light);
+$background-color: get_env_color('dbackgroundcolor', #dddddd);
 
-@each $color in $colors {
-  $type: nth($color, 1);
-  $colour: nth($color, 2);
-  $colourlight: nth($color, 3);
-  $linkcolor: nth($color, 4);
-
-  body.#{$type} {
-    a {
-      @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
-    }
-    #main {
-      input[type="submit"] {
-        background-color: $colour;
-        @include background-image(linear-gradient($colour, darken($colour, 7%)));
-        box-shadow: lighten($colour, 35%) 0 1px 0 inset;
-        border: 1px solid darken($colour, 10%);
-        color: $linkcolor;
-        &:hover, &:focus {
-          background-color: darken($colour, 3%);
-          @include background-image(linear-gradient(darken($colour, 3%), darken($colour, 10%)));
-        }
-        &:active {
-          background-color: darken($colour, 7%);
-          @include background-image(linear-gradient(darken($colour, 7%), $colour));
-        }
-      }
-      //.region_363_first,
-      //.region_363_third,
-      //.region_93_second,
-      //.region_39_first {
-        .block {
-          h2.block-title {
-            background-color: lighten($background-color, 7%);
-            border-top: 1px solid $background-color;
-          }
-        }
-      //}
-    }
-    .poll .bar .foreground {
+body {
+  a {
+    @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
+  }
+  #main {
+    input[type="submit"] {
       background-color: $colour;
-    }
-    .block-search {
-      background-color: $colourlight;
-    }
-    #search-form {
-      input[type="text"] {
-        //border: 5px solid $colourlight;;
+      @include background-image(linear-gradient($colour, darken($colour, 7%)));
+      box-shadow: lighten($colour, 35%) 0 1px 0 inset;
+      border: 1px solid darken($colour, 10%);
+      color: $linkcolor;
+      &:hover, &:focus {
+        background-color: darken($colour, 3%);
+        @include background-image(linear-gradient(darken($colour, 3%), darken($colour, 10%)));
+      }
+      &:active {
+        background-color: darken($colour, 7%);
+        @include background-image(linear-gradient(darken($colour, 7%), $colour));
       }
     }
-    nav {
-      &.main-menu {
-        > .container > nav.block-menu,
-        .block-system-main-menu,
-        .block-dominion-menu {
-          background-color: $colour;
-          border-top: 4px solid $colourlight;
-          > ul.menu > li.active-trail,
-          > ul.menu > li:hover {
-            background-color: darken($colour, 10%);
-            a {
-              color: $linkcolor !important;
-            }
-          }
+    //.region_363_first,
+    //.region_363_third,
+    //.region_93_second,
+    //.region_39_first {
+      .block {
+        h2.block-title {
+          background-color: lighten($background-color, 7%);
+          border-top: 1px solid $background-color;
+        }
+      }
+    //}
+  }
+  .poll .bar .foreground {
+    background-color: $colour;
+  }
+  .block-search {
+    background-color: $colourlight;
+  }
+  #search-form {
+    input[type="text"] {
+      //border: 5px solid $colourlight;;
+    }
+  }
+  nav {
+    &.main-menu {
+      > .container > nav.block-menu,
+      .block-system-main-menu,
+      .block-dominion-menu {
+        background-color: $colour;
+        border-top: 4px solid $colourlight;
+        > ul.menu > li.active-trail,
+        > ul.menu > li:hover {
+          background-color: darken($colour, 10%);
           a {
             color: $linkcolor !important;
-            &.active,
-            &:hover {
-            }
           }
-          ul {
-            li {
-              ul {
-                background-color: darken($colour, 10%);
-                a {
-                  &:hover {
-                    background-color: $colour;
-                  }
+        }
+        a {
+          color: $linkcolor !important;
+          &.active,
+          &:hover {
+          }
+        }
+        ul {
+          li {
+            ul {
+              background-color: darken($colour, 10%);
+              a {
+                &:hover {
+                  background-color: $colour;
                 }
               }
             }
@@ -89,77 +83,77 @@ $colors: zip($color-names, $color-values, $color-values-light, $link-color);
         }
       }
     }
-    .quicktabs-wrapper {
-      .quicktabs-tabs {
-        li.active a {
+  }
+  .quicktabs-wrapper {
+    .quicktabs-tabs {
+      li.active a {
+        background-color: #fff;
+        color: $link-dark;
+      }
+      a:hover {
+        background-color: $colour;
+        color: $linkcolor;
+      }
+    }
+  }
+
+  .carousel {
+    .progress {
+      background-color: $colourlight;
+    }
+    .pager {
+      a {
+        text-decoration: none;
+        span {
           background-color: #fff;
-          color: $link-dark;
         }
-        a:hover {
-          background-color: $colour;
+        &:hover,
+        &.selected {
+          span {
+            background-color: $colour;
+            color: $linkcolor !important;
+          }
+        }
+      }
+    }
+    .btn_next,
+    .btn_prev {
+      color: #fff;
+      &:hover {
+        color: $colourlight;
+      }
+    }
+  }
+  .block-menu-menu-toptaken > ul {
+    background-color: lighten($background-color, 0%);
+    & > li {
+      &.toptaken-active,
+      &:hover {
+        background-color: $colour;
+        a {
           color: $linkcolor;
         }
       }
-    }
-
-    .carousel {
-      .progress {
-        background-color: $colourlight;
+      &.toptaken-active > ul a:hover {
+        background-color: lighten($background-color, 5%);
       }
-      .pager {
-        a {
-          text-decoration: none;
-          span {
-            background-color: #fff;
-          }
-          &:hover,
-          &.selected {
-            span {
-              background-color: $colour;
-              color: $linkcolor !important;
+    }
+  }
+  .node {
+    .content {
+      .inlinetabs,
+      .quicktabs-wrapper {
+        ul.tabs,
+        ul.quicktabs-tabs {
+          li {
+            a {
+              background-color: $background-color;
             }
-          }
-        }
-      }
-      .btn_next,
-      .btn_prev {
-        color: #fff;
-        &:hover {
-          color: $colourlight;
-        }
-      }
-    }
-    .block-menu-menu-toptaken > ul {
-      background-color: lighten($background-color, 0%);
-      & > li {
-        &.toptaken-active,
-        &:hover {
-          background-color: $colour;
-          a {
-            color: $linkcolor;
-          }
-        }
-        &.toptaken-active > ul a:hover {
-          background-color: lighten($background-color, 5%);
-        }
-      }
-    }
-    .node {
-      .content {
-        .inlinetabs,
-        .quicktabs-wrapper {
-          ul.tabs,
-          ul.quicktabs-tabs {
-            li {
+            &.active,
+            &:hover {
               a {
-                background-color: $background-color;
-              }
-              &.active,
-              &:hover {
-                a {
-                  background-color: $colour;
-                  color: $linkcolor;
-                }
+                background-color: $colour;
+                color: $linkcolor;
               }
             }
           }

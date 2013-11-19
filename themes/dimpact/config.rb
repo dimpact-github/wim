@@ -28,3 +28,20 @@ preferred_syntax = :scss
 
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+module Sass::Script::Functions
+  def get_env_color(var_name, default_value)
+    assert_type var_name, :String
+    assert_type default_value, :Color
+
+    safe_var_name = "DOMAIN_SCSS_" + var_name.value
+
+    if (ENV[safe_var_name])
+      rgb = ENV[safe_var_name].scan(/^#?(..?)(..?)(..?)$/).first.map {|a| a.ljust(2, a).to_i(16)}
+      Sass::Script::Color.new(rgb)
+    else
+      default_value
+    end
+  end
+  declare :get_env_color, :args => [:string, :color]
+end

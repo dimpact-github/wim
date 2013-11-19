@@ -1,0 +1,8 @@
+name = Domain SCSS
+description = Domain SCSS
+package = Dutch Open Projects
+core = 7.x
+
+dependencies[] = color
+dependencies[] = domain
+dependencies[] = domain_theme

@@ -1,0 +1,57 @@
+Step 1. Add the following code to your config.rb in your template directory.
+
+module Sass::Script::Functions
+  def get_env_color(var_name, default_value)
+    assert_type var_name, :String
+    assert_type default_value, :Color
+
+    safe_var_name = "DOMAIN_SCSS_" + var_name.value
+
+    if (ENV[safe_var_name])
+      rgb = ENV[safe_var_name].scan(/^#?(..?)(..?)(..?)$/).first.map {|a| a.ljust(2, a).to_i(16)}
+      Sass::Script::Color.new(rgb)
+    else
+      default_value
+    end
+  end
+  declare :get_env_color, :args => [:string, :color]
+end
+
+
+Step 2. Add a domain_sccs/domain_scss.inc to your theme with the following
+contents. Do not use - and _ in your field names because color.js, form api and
+bash will handle this differently.
+$info = array(
+  // Available colors and color labels used in theme.
+  'fields' => array(
+    'dcolor' => t('Base Color'),
+    ...
+  ),
+  // Pre-defined color schemes.
+  'schemes' => array(
+    'default' => array(
+      'title' => t('Azure'),
+      'colors' => array(
+        'dcolor' => '#007bc7',
+        ...
+      ),
+    ),
+    ...
+   ),
+
+  // CSS files to override compiled from the SCSS
+  'css' => array(
+    'style.css',
+  ),
+);
+
+Step 3. Use the function (field_name, default_value) wherever you want in
+your sass files.
+$colour: get_env_color('dcolor', '#07ef00');
+
+Step 4. Add the following code to your theme's hook_process_html()
+if (module_exists('color')) {
+  _color_html_alter($vars);
+}
+
+Step 5. Enable the module.

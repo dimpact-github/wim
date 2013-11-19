@@ -20,6 +20,10 @@ function dimpact_process_html(&$vars) {
   if ($vars['classes']) {
     $vars['body_attributes'] = $vars['attributes'];
   }
+
+  if (module_exists('color')) {
+    _color_html_alter($vars);
+  }
 }
 
 /**
