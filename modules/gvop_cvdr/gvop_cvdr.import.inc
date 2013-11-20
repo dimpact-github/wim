@@ -96,21 +96,27 @@ function _gvop_cvdr_xml_read_text(DOMElement $element, $level = 1) {
     if ($child instanceof DOMElement) {
       switch ($child->tagName) {
         case 'intitule':
-          // Currently no implementation.
-          break;
         case 'aanhef':
         case 'preambule':
         case 'regeling-tekst':
+        case 'regeling-sluiting':
         case 'hoofdstuk':
+        case 'structuurtekst':
+        case 'slotformulering':
+        case 'nota-toelichting':
           $output .= _gvop_cvdr_xml_read_text($child, $level);
           break;
+        case 'deel':
         case 'artikel':
           $output .= _gvop_cvdr_xml_read_text($child, $level + 1);
           break;
         case 'al':
-          $output .= '<p>';
-          $output .= _gvop_cvdr_xml_read_text($child, $level);
-          $output .= '</p>';
+          $text = _gvop_cvdr_xml_read_text($child, $level);
+          if (trim(str_replace('&nbsp;', '', $text)) != '') {
+            $output .= '<p>';
+            $output .= $text;
+            $output .= '</p>';
+          }
           break;
         case 'vet':
           $output .= '<strong>';
