@@ -1,8 +1,0 @@
-\contentsline {section}{\numberline {1}Toevoegen van content}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Nieuws toevoegen}{3}{subsection.1.1}
-\contentsline {section}{\numberline {2}Beheren van content (Workbench)}{4}{section.2}
-\contentsline {section}{\numberline {3}Pagina aanmaken}{4}{section.3}
-\contentsline {subsection}{\numberline {3.1}Onderwerpenpagina maken}{6}{subsection.3.1}
-\contentsline {section}{\numberline {4}Pagina koppelen als menuitem}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Hoofdmenuitem}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Submenuitem}{7}{subsection.4.2}
