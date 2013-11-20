@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{color}
+\usepackage{multind}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{fancybox}
+
+\makeindex{pve}
+\newcommand{\pve}[1]{ }
+\newcommand{\pvelist}[1]{  }
+
+\makeindex{drupalpath}
+\newcommand{\drupalpath}[1]{\index{drupalpath}{#1}\url{gemeente.nl/#1}}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newcommand{\seeone}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seetwo}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\newcommand{\customer}{Dimpact}
+\newcommand{\thecustomer}{\customer}
+\newcommand{\customerdomain}{schijndel.nl}
+\newcommand{\customerdomainuc}{Schijndel.nl}
+
+\title{Training \customer \\ \customerdomainuc}
+\author{David van Dijk}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+
+Laatst bijgewerkt: \\ \ddmmyyyydate \today
+\end{center}
+\pagebreak
+
+\renewcommand*\contentsname{Inhoudsopgave}
+\tableofcontents
+\pagebreak
+
+\include{cases}
+\clearpage
+
+\end{document}
