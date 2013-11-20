@@ -122,6 +122,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
     $node->uid = 1;
     $node->created = $modified;
     $node->type = $type_info['nodetype'];
+    $node->status = 1;
   }
 
   // Set common info.
