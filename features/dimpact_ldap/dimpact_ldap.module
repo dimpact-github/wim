@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact LDAP feature.
+ */
+
+include_once 'dimpact_ldap.features.inc';
