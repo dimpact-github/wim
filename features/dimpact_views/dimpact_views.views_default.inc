@@ -617,6 +617,18 @@ if (node_access(\'create\', \'message\')) {
     'name' => 'name',
     'created' => 'created',
   );
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+<?php
+if (node_access(\'create\', \'file\')) {
+ print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
   /* Veld: Bestand: Extensie */
   $handler->display->display_options['fields']['extension']['id'] = 'extension';
   $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
@@ -696,7 +708,6 @@ if (node_access(\'create\', \'message\')) {
   /* Display: Teamdocumentenblok */
   $handler = $view->new_display('block', 'Teamdocumentenblok', 'block_1');
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_always'] = TRUE;
@@ -838,6 +849,12 @@ if (node_access(\'create\', \'message\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
+    t('<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+<?php
+if (node_access(\'create\', \'file\')) {
+ print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
     t('([filesize])'),
     t('<div>[title] <span class="views-field-filesize">[filesize]</span></div>
 <div>Door: [name], op [created]</div>'),
@@ -1500,7 +1517,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
   $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
 <?php
-if (node_access(\'create\', \'foto-album\')) {
+if (node_access(\'create\', \'foto_album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>';
@@ -1633,6 +1650,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>'),
     t('Blok'),
     t('Fotoalbums'),
+    t('<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+<?php
+if (node_access(\'create\', \'foto_album\')) {
+print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
     t('tag'),
     t('Term-ID'),
     t('.'),
