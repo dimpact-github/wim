@@ -1,7 +1,7 @@
 name = Dimpact Rechten en Rollen
 core = 7.x
 package = Features
-version = 7.x-1.0-20131119
+version = 7.x-1.0-20131122
 project = dimpact_rechten_en_rollen
 dependencies[] = admin_menu
 dependencies[] = apachesolr_exclude_node
