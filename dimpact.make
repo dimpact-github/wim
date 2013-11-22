@@ -10,6 +10,7 @@ projects[admin_menu][subdir] = contrib
 projects[admin_views][subdir] = contrib
 projects[apachesolr][subdir] = contrib
 projects[apachesolr_attachments][subdir] = contrib
+projects[apachesolr_attachments][patches][bodytext] = patches/apachesolr-attachments-body.patch
 projects[apachesolr_exclude_node][subdir] = contrib
 projects[backup_migrate][subdir] = contrib
 projects[better_formats][subdir] = contrib

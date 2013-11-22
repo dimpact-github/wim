@@ -1,0 +1,26 @@
+diff --git a/apachesolr_attachments.module b/apachesolr_attachments.module
+index 4a95d37..9765801 100644
+--- a/apachesolr_attachments.module
++++ b/apachesolr_attachments.module
+@@ -248,6 +248,21 @@ function apachesolr_attachments_node_solr_document(ApacheSolrDocument &$document
+         }
+       }
+     }
++    $body = $parent_entity->body['und'][0]['value'];
++    preg_match_all('/\[\[\{\"fid\"\:\"([0-9]+)\"/', $body, $matches);
++    foreach (array_map('intval', $matches[1]) as $fid) {
++      $file = file_load($fid);
++      $status = ($file->status == 1 ? 1 : 0);
++      // Check if the mimetype is allowed
++      $status = $status & apachesolr_attachments_is_file($file);
++      $status = $status & apachesolr_attachments_allowed_mime($file->filemime);
++
++      if ($status) {
++        $text = apachesolr_attachments_get_attachment_text($file);
++        // append extracted text to index content field
++        $document->content .= $text;
++      }
++    }
+   }
+   return array(); // all alterations are made to $document passed in by reference
+ }
