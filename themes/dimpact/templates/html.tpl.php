@@ -13,6 +13,7 @@
     <![endif]-->
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="/<?php print $path; ?>/css/lt-ie9.css" media="all">
+      <script src="/<?php print $path . '/readspeaker/ReadSpeaker.js?pids=embhl'; ?>"></script>
       <script src="/<?php print $path; ?>/js/libraries/html5shiv/src/html5shiv.js"></script>
       <script src="/<?php print $path; ?>/js/libraries/respond.min.js"></script>
     <![endif]-->
