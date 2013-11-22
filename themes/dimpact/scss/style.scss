@@ -392,6 +392,37 @@ div.workbench-info-block {
   }
 }
 
+#cc-notification {
+  ul.cc-notification-buttons {
+    top: $gutter-width;
+    right: $gutter-width;
+  }
+  #cc-notification-wrapper {
+    padding-top: $gutter-width/2;
+    margin-left: $gutter-width;
+    margin-right: $gutter-width;
+    label {
+      font-weight: normal;
+    }
+    ul {
+      margin: 0;
+    }
+    li {
+      margin: 0 0 $gutter-width/2 0;
+      padding: 0;
+    }
+    a,
+    .cc-link {
+      @include border-radius(4px);
+      background-color: get_env_color('dcolor', $azure);
+      color: get_env_color('dlinkcolor', $link-light);
+      font-weight: normal;
+      font-family: $heading;
+      display: inline-block;
+      padding: 2px $gutter-width/4;
+    }
+  }
+}
 // Leave this here please :)
 @import "layout/default";
 @import "general/colors";
