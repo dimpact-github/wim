@@ -51,6 +51,7 @@ projects[features_extra][subdir] = contrib
 projects[feeds][subdir] = contrib
 projects[felix][subdir] = contrib
 projects[felix][revision] = ebe1b1f
+projects[felix][patches] = patches/felix-nolinkit.patch
 projects[fences][subdir] = contrib
 projects[field_group][subdir] = contrib
 projects[field_group_multiple][subdir] = contrib
