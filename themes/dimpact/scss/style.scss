@@ -423,8 +423,12 @@ div.workbench-info-block {
     }
   }
 }
-
-
+#forum {
+  margin-bottom: $gutter-width;
+}
+#forum td.created, #forum td.posts, #forum td.topics, #forum td.last-reply, #forum td.replies, #forum td.pager {
+  white-space: normal;
+}
 
 // Leave this here please :)
 @import "layout/default";
