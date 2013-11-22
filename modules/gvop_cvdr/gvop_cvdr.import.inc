@@ -18,7 +18,11 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
   foreach ($mapping as $query => $field) {
     if (($item = $xpath->query($query, $record)->item(0)) && trim($item->nodeValue) != '') {
       $node->$field = array(
-        LANGUAGE_NONE => array(array('value' => $item->nodeValue)),
+        LANGUAGE_NONE => array(array(
+          'value' => $item->nodeValue,
+          'format' => NULL,
+          'safe_value' => $item->nodeValue
+        )),
       );
     }
   }
@@ -27,9 +31,9 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
   $mapping = array(
     './/dcterms:subject' => 'field_intro',
     './/dcterms:isRatifiedBy' => 'field_ratified_by',
-    './/overheidrg:betreft' => 'field_concerning',
-    './/overheidrg:kenmerk' => 'field_characteristic',
-    './/overheidrg:onderwerp' => 'field_subject',
+    './/overheidrg:betreft' => 'field_reg_concerning',
+    './/overheidrg:kenmerk' => 'field_reg_characteristic',
+    './/overheidrg:onderwerp' => 'field_reg_subject',
   );
   foreach ($mapping as $query => $field) {
     if (($item = $xpath->query($query, $record)->item(0)) && !empty($item->nodeValue)) {
