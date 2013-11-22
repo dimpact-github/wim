@@ -160,6 +160,34 @@ function dimpact_felix_felix_default_regions() {
       ),
     ),
   );
+  $regions['regio-5-12-content-bottom-node'] = array(
+    'name' => 'regio-5-12-content-bottom-node',
+    'title' => 'Regio 5/12 content bottom node',
+    'region' => 'content_bottom',
+    'weight' => 0,
+    'context' => 'nodedetail',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-5-12-content-top-node'] = array(
+    'name' => 'regio-5-12-content-top-node',
+    'title' => 'Regio 5/12 content top node',
+    'region' => 'content_top',
+    'weight' => 0,
+    'context' => 'nodedetail',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
   $regions['regio-6-12-content-bottom'] = array(
     'name' => 'regio-6-12-content-bottom',
     'title' => 'Regio 5/12 content bottom',
