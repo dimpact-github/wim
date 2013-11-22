@@ -8,12 +8,16 @@
     <script src="/<?php print $path; ?>/js/modernizr.js"></script>
     <?php print $styles; ?>
     <?php print $scripts; ?>
+
+    <?php if (variable_get('bespoke_readspeaker_status') == 1): ?>
+    <script type="text/javascript" src="http://f1.eu.readspeaker.com/script/26/ReadSpeaker.js?pids=embhl"></script>
+    <?php endif; ?>
+
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="/<?php print $path; ?>/css/lte-ie9.css" media="all">
     <![endif]-->
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="/<?php print $path; ?>/css/lt-ie9.css" media="all">
-      <script src="/<?php print $path . '/readspeaker/ReadSpeaker.js?pids=embhl'; ?>"></script>
       <script src="/<?php print $path; ?>/js/libraries/html5shiv/src/html5shiv.js"></script>
       <script src="/<?php print $path; ?>/js/libraries/respond.min.js"></script>
     <![endif]-->
