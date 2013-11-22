@@ -122,6 +122,11 @@
       }
     }
   }
+  #readspeaker_button1 {
+    position: absolute;
+    top: 60px;
+    right: $gutter-width;
+  }
 }
 
 /**
@@ -276,7 +281,7 @@
   .block-search {
     position: absolute !important;
     right: $gutter-width;
-    bottom: $gutter-width;
+    bottom: $gutter-width/2;
     top: auto;
     margin: 0 !important;
     padding: $gutter-width/4;
@@ -332,6 +337,11 @@
     .btn_prev {
       @include font-size(42);
     }
+  }
+  #readspeaker_button1 {
+    position: absolute;
+    top: $gutter-width/2;
+    right: $gutter-width;
   }
 }
 
