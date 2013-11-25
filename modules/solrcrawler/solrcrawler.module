@@ -5,7 +5,7 @@
  */
 function solrcrawler_menu() {
   $menu = array();
-  
+
   $menu['admin/config/search/apachesolr/solrcrawler'] = array(
     'title' => 'Crawler',
     'page callback' => 'solrcrawler_page_list',
@@ -13,13 +13,13 @@ function solrcrawler_menu() {
     'type' => MENU_LOCAL_TASK,
     'file' => 'solrcrawler.admin.inc',
   );
-  
+
   return $menu;
 }
 
 /**
  * Save page in Solr index.
- * 
+ *
  * @param string $pagekey
  * @param string $url
  * @param string $title
@@ -27,12 +27,12 @@ function solrcrawler_menu() {
  */
 function solrcrawler_save_page($pagedata, $document) {
   module_load_include('inc', 'solrcrawler');
-  
+
   $env_id = variable_get('solrcrawler_solr_env', 'solr');
-  
+
   $documents = array();
   $documents[] = solrcrawler_build_document($pagedata['pagekey'], $document['url'], $document['title'], $document['body']);
-  
+
   $solr = apachesolr_get_solr($env_id);
   $solr->addDocuments($documents);
 
@@ -44,16 +44,16 @@ function solrcrawler_save_page($pagedata, $document) {
 
 /**
  * Delete page from Solr index.
- * 
+ *
  * @param string $pagekey
  */
 function solrcrawler_delete_page($pagekey) {
   // @todo: Load in setting via apachesolr_load_all_environments().
   $env_id = 'solr';
-  
+
   $solr = apachesolr_get_solr($env_id);
   $solr->deleteById(apachesolr_document_id($pagekey, 'solrcrawler'));
-  
+
   db_delete('solrcrawler_page')
     ->condition('pagekey', $pagekey)
     ->execute();
@@ -142,4 +142,13 @@ function _solrcrawler_get_pagedata($pagekey, $new_data = array()) {
     );
   }
   return $pagedata;
+}
+
+/**
+ * Fix link in search results.
+ */
+function solrcrawler_preprocess_search_result(&$variables) {
+  if ($variables['result']['fields']['entity_type'] == 'solrcrawler') {
+    $variables['url'] = $variables['result']['fields']['url'];
+  }
 }
