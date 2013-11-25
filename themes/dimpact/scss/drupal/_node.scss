@@ -110,7 +110,8 @@
 }
 body {
   &.not-logged-in.node-type-subject {
-    h1#page-title {
+    h1#page-title,
+    .subject .field-body {
       margin-left: -274px;
     }
   }
