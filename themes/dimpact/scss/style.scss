@@ -325,9 +325,14 @@ div.workbench-info-block {
 }
 
 .comment {
-  border-bottom: 1px solid $background-color;
-  margin-bottom: $gutter-width/2;
-  padding-bottom: $gutter-width/2;
+  @include border-radius(3px);
+  position: relative;
+  background-color: lighten($background-color, 7%);
+  margin: 0 0 $gutter-width 0;
+  padding: $gutter-width/2;
+//  border-top: 1px solid $background-color;
+//  margin-top: $gutter-width/2;
+//  padding-top: $gutter-width/2;
   .submitted {
     margin-bottom: 0.25em;
   }
@@ -337,6 +342,15 @@ div.workbench-info-block {
       float: left;
       margin-right: 1em;
     }
+  }
+  &:after {
+    @include icon($comment);
+    @include font-size(40);
+    position: absolute;
+    bottom: $gutter-width/2;
+    right: $gutter-width/2;
+    color: lighten($background-color, 9%);
+    line-height: 1;
   }
 }
 .indented {

@@ -105,6 +105,14 @@ function dimpact_preprocess_page(&$vars) {
       unset($vars['page']['region_363_first']['submenutree_2']);
     }
   }
+  if (arg(0) == 'forum') {
+    $vars['hidecontent'] = TRUE;
+    $vars['pagetype'] = 'forum';
+    if (isset($vars['page']['region_363_first']['submenutree_2'])) {
+      $vars['page']['region_39_first']['submenutree_2'] = $vars['page']['region_363_first']['submenutree_2'];
+      unset($vars['page']['region_363_first']['submenutree_2']);
+    }
+  }
 
   if (arg(0) == 'fotoalbums') {
     if (isset($vars['page']['region_363_first']['submenutree_2'])) {
