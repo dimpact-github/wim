@@ -13,7 +13,16 @@ hide($content['field_tabcontent']);
 ?>
 <article<?php print $attributes; ?>>
   <?php !$page ? print render($content['field_date']) : ''; ?>
-  <?php print render($content['field_image']); ?>
+  <?php if ($teaser): ?>
+    <?php if ($content['field_image'][0]): ?>
+      <div class="field field-image">
+      <?php $path = image_style_url('list_thumbnail', $content['field_image'][0]['file']['#item']['uri']); ?>
+      <?php print l('<img src="' . $path . '">', 'node/' . $node->nid, array('html' => TRUE)); ?>
+      </div>
+    <?php endif; ?>
+  <?php else: ?>
+    <?php print render($content['field_image']); ?>
+  <?php endif; ?>
   <?php print render($title_prefix); ?>
   <?php if ($page): /* ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
