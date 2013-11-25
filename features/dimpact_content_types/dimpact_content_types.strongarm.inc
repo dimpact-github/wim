@@ -1402,6 +1402,9 @@ function dimpact_content_types_strongarm() {
         'path' => array(
           'weight' => '7',
         ),
+        'domain' => array(
+          'weight' => '1',
+        ),
       ),
       'display' => array(
         'domain' => array(
