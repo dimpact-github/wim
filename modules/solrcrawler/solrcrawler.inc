@@ -114,6 +114,8 @@ function _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $from_url
  * @param object $site
  */
 function _solrcrawler_index_page($url, $site) {
+  module_load_include('inc', 'apachesolr_attachments', 'apachesolr_attachments.index');
+
   // Load required libaries.
   solrcrawler_load_vendor();
 
