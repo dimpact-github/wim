@@ -1,0 +1,6 @@
+name = Custom Lists
+description = Custom Lists
+package = Dutch Open Projects
+core = 7.x
+
+dependencies[] = domain

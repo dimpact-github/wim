@@ -1,0 +1,8 @@
+.form-item-menu-item {
+  display: none;
+}
+
+#edit-general .form-item {
+  float: left;
+  margin-right: 10px;
+}
