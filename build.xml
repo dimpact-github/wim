@@ -37,6 +37,16 @@
         <mkdir dir="private" />
       </then>
     </if>
+
+    <if>
+      <not>
+        <available file="composer.phar" type="file" />
+      </not>
+      <then>
+        <exec command="curl -sS https://getcomposer.org/installer | php" logoutput="true" />
+      </then>
+    </if>
+    <exec command="php composer.phar --working-dir=modules/solrcrawler/ install" logoutput="true" />
   </target>
 
   <target name="cleanup">
