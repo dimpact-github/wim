@@ -84,7 +84,10 @@ function _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $from_url
       // Only start crawling the page if it's from current domain.
       $link_data = parse_url($link->getUri());
       $url_data = parse_url($from_url);
-      if ($link_data['host'] == $url_data['host']) {
+
+      $is_excluded = drupal_match_path($link->getUri(), $site->url_exclude);
+
+      if ($link_data['host'] == $url_data['host'] && !$is_excluded) {
         $new_pagedata = _solrcrawler_get_pagedata(
           _solrcrawler_generate_pagekey($site, $link->getUri()),
           array(
@@ -128,34 +131,24 @@ function _solrcrawler_index_page($url, $site) {
     $document['title'] = $pagedata['title'];
     $document['body'] = '';
 
-    if (strpos($result->headers['content-type'], 'text/html') !== FALSE) {
-      $crawler = new Crawler($result->data);
+    // Get mime type from the returned Content-Type header.
+    $content_type_parts = explode('; ', $result->headers['content-type']);
+    $content_type_mime = $content_type_parts[0];
 
-      if ($site->content_include) {
-        $included = $crawler->filter($site->content_include)->each(function (Crawler $nodeCrawler, $i) {
-          return $nodeCrawler;
-        });
-      }
-      else {
-        $included = array($crawler);
-      }
+    // Get mime type from the extension in the url.
+    $ext_parts = explode('.', $url);
+    $ext = $ext_parts[count($ext_parts)-1];
+    include_once DRUPAL_ROOT . '/includes/file.mimetypes.inc';
+    $ext_mapping = file_mimetype_mapping();
+    $ext_mime = isset($ext_mapping['extensions'][$ext]) ? $ext_mapping['mimetypes'][$ext_mapping['extensions'][$ext]] : '';
 
-      // Set the page title.
-      $document['title'] = $crawler->filter('title')->text();
-
-      foreach ($included as $nodeCrawler) {
-        if ($site->exclude) {
-          // Remove from excluded.
-          _solrcrawler_domcrawler_exclude($nodeCrawler, explode(',', $site->content_exclude));
-        }
-
-        // Add HTML for the index.
-        $document['body'] .= $nodeCrawler->html();
-
-        // Crawl for new pages.
-        _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $url);
-      }
+    if ($content_type_mime == 'text/html') {
+      _solrcrawler_index_page_html($site, $result, $document, $pagedata, $url);
     }
+    else if (apachesolr_attachments_allowed_mime($content_type_mime) || apachesolr_attachments_allowed_mime($ext_mime)) {
+      _solrcrawler_index_page_document($site, $result, $document, $pagedata, $url);
+    }
+
 
     // Set latest crawl data.
     $pagedata['date'] = time();
@@ -173,4 +166,39 @@ function _solrcrawler_index_page($url, $site) {
   else {
     watchdog('solrcrawler', 'There was an error crawling !pagekey.<pre>@data</pre>', array('!pagekey' => $pagekey, '@data' => print_r($result, TRUE)), WATCHDOG_ERROR);
   }
+}
+
+function _solrcrawler_index_page_html($site, $result, &$document, &$pagedata, $url) {
+  $crawler = new Crawler($result->data);
+
+  if ($site->content_include) {
+    $included = $crawler->filter($site->content_include)->each(function (Crawler $nodeCrawler, $i) {
+      return $nodeCrawler;
+    });
+  }
+  else {
+    $included = array($crawler);
+  }
+
+  // Set the page title.
+  $document['title'] = $crawler->filter('title')->text();
+
+  foreach ($included as $nodeCrawler) {
+    if ($site->exclude) {
+      // Remove from excluded.
+      _solrcrawler_domcrawler_exclude($nodeCrawler, explode(',', $site->content_exclude));
+    }
+
+    // Add HTML for the index.
+    $document['body'] .= $nodeCrawler->html();
+
+    // Crawl for new pages.
+    _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $url);
+  }
+}
+
+
+function _solrcrawler_index_page_document($site, $result, &$document, &$pagedata, $url) {
+  $filepath = file_unmanaged_save_data($result->data);
+  $document['body'] .= apachesolr_attachments_extract_using_tika($filepath);
 }

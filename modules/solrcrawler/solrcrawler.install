@@ -48,6 +48,10 @@ function solrcrawler_schema() {
         'type' => 'text',
         'not null' => TRUE,
       ),
+      'url_exclude' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+      ),
     ),
     'primary key' => array('site_id'),
     'index keys' => array(
