@@ -1,11 +1,15 @@
 name = Dimpact Menus
 core = 7.x
 package = Features
-version = 7.x-1.0-20131119
+version = 7.x-1.0-20131128
 project = dimpact_menus
+dependencies[] = ctools
 dependencies[] = features
+dependencies[] = linkit
 dependencies[] = menu
+features[ctools][] = linkit:linkit_profiles:1
 features[features_api][] = api:2
+features[linkit_profiles][] = menu_links
 features[menu_custom][] = menu-alfabet
 features[menu_custom][] = menu-alfabet-a
 features[menu_custom][] = menu-alfabet-b

@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Dimpact Menus feature.
  */
+
+include_once 'dimpact_menus.features.inc';
