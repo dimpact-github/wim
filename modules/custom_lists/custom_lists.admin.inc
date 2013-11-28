@@ -14,8 +14,8 @@ function custom_lists_admin() {
     if ($list['domain_id'] == $domain['domain_id']) {
       $row = array();
       $row[] = $list['title'];
-      $row[] = l($list['path'], $list['path']);
-      $row[] = $list['items'];
+      $row[] = $list['provide-page'] ? l($list['path'], $list['path']) : t('No');
+      $row[] = $list['provide-block'] ? t('Yes') : t('No');
       $row[] = ucfirst($list['type']);
 
       $data = array();
@@ -40,7 +40,7 @@ function custom_lists_admin() {
     }
   }
 
-  return theme('table', array('header' => array(t('TItle'), t('Path'), t('# Items'), t('Type'), t('Data'), t('Operations')), 'rows' => $rows));
+  return theme('table', array('header' => array(t('TItle'), t('Page'), t('Block'), t('Type'), t('Data'), t('Operations')), 'rows' => $rows));
 }
 
 /**
@@ -90,26 +90,11 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
 
   $form['general']['title'] = array(
     '#type' => 'textfield',
-    '#title' => t('Page Title'),
+    '#title' => t('Title'),
     '#size' => 30,
     '#required' => TRUE,
     '#default_value' => !empty($list['title']) ? $list['title']: '',
   );
-  $form['general']['path'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Path'),
-    '#required' => TRUE,
-    '#size' => 30,
-    '#default_value' => !empty($list['path']) ? $list['path']: '',
-  );
-  $form['general']['items'] = array(
-    '#type' => 'textfield',
-    '#title' => t('# Items'),
-    '#required' => TRUE,
-    '#default_value' => !empty($list['items']) ? $list['items']: 10,
-    '#size' => 5,
-  );
-
   $form['general']['type'] = array(
     '#type' => 'select',
     '#title' => t('Type'),
@@ -118,12 +103,6 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'menu' => t('Menu'),
     ),
     '#default_value' => !empty($list['type']) ? $list['type']: 'content',
-  );
-
-  $form['general']['provide-block'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Provide block'),
-    '#default_value' => !empty($list['provide-block']) ? $list['provide-block']: FALSE,
   );
 
   $form['type-settings'] = array(
@@ -177,14 +156,57 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#default_value' => !empty($list['menu-item']) ? $list['menu-item']: '',
   );
 
-  // Init message.
-  $form['intro'] = array(
+  /**
+   * Provide Block
+   */
+  $form['block'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Introduction text'),
+    '#title' => t('Block'),
     '#tree' => FALSE,
   );
-  $form['intro']['intro-text'] = array(
+  $form['block']['provide-block'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Provide block'),
+    '#default_value' => isset($list['provide-block']) ? $list['provide-block']: FALSE,
+  );
+  $form['block']['block-items'] = array(
+    '#type' => 'textfield',
+    '#title' => t('# Items'),
+    '#required' => TRUE,
+    '#default_value' => !empty($list['block-items']) ? $list['block-items']: 5,
+    '#size' => 5,
+  );
+
+  /**
+   * Provide page
+   */
+  $form['page'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Page'),
+    '#tree' => FALSE,
+  );
+  $form['page']['provide-page'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Provide page'),
+    '#default_value' => isset($list['provide-page']) ? $list['provide-page']: TRUE,
+  );
+  $form['page']['path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Path'),
+    '#required' => TRUE,
+    '#size' => 30,
+    '#default_value' => !empty($list['path']) ? $list['path']: '',
+  );
+  $form['page']['page-items'] = array(
+    '#type' => 'textfield',
+    '#title' => t('# Items'),
+    '#required' => TRUE,
+    '#default_value' => !empty($list['page-items']) ? $list['page-items']: 10,
+    '#size' => 5,
+  );
+  $form['page']['intro-text'] = array(
     '#type' => 'text_format',
+    '#title' => t('Intro text'),
     '#format' => 'filtered_html',
     '#default_value' => !empty($list['intro-text']) ? $list['intro-text']: '',
   );
@@ -229,9 +251,11 @@ function custom_lists_list_form_submit($form, &$form_state) {
   $list = array(
     'path' => $form_state['values']['path'],
     'title' => $form_state['values']['title'],
-    'items' => $form_state['values']['items'],
+    'page-items' => $form_state['values']['page-items'],
+    'block-items' => $form_state['values']['block-items'],
     'type' => $form_state['values']['type'],
     'provide-block' => $form_state['values']['provide-block'],
+    'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],
     'taxonomy' => $form_state['values']['taxonomy'],
     'sort' => $form_state['values']['sort'],
@@ -252,13 +276,6 @@ function custom_lists_list_form_submit($form, &$form_state) {
  * need a field to exists.
  */
 function custom_lists_taxonomy_autocomplete($term_search = '', $node_type = '') {
-  // Part of the criteria for the query come from the field's own settings.
-  /* $vids = array();
-   $vocabularies = taxonomy_vocabulary_get_names();
-   foreach ($vocabularies as $voc) {
-     $vids[] = $voc->vid;
-   } */
-
   $query = db_select('taxonomy_term_data', 't');
   $query->addTag('translatable');
   $query->addTag('term_access');

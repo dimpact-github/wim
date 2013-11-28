@@ -52,12 +52,14 @@ function custom_lists_menu() {
 
   $lists = custom_lists_get();
   foreach ($lists as $list) {
-    $items[$list['path']] = array(
-      'title' => $list['title'],
-      'page callback' => 'custom_lists_page',
-      'access arguments' => array('access content'),
-      'type' => MENU_NORMAL_ITEM,
-    );
+    if ($list['provide-page']) {
+      $items[$list['path']] = array(
+        'title' => $list['title'],
+        'page callback' => 'custom_lists_page',
+        'access arguments' => array('access content'),
+        'type' => MENU_NORMAL_ITEM,
+      );
+    }
   }
 
   return $items;
@@ -86,16 +88,31 @@ function custom_lists_block_info() {
  */
 function custom_lists_block_view($delta = '') {
   $list = custom_lists_get($delta);
-  $list['items'] = 5; // Override amount of items.
   $block = array();
   $block['subject'] = $list['title'];
   $block['content'] = array();
 
+  $items = array();
   if ($list['type'] == 'node') {
-    $nodes = custom_lists_content_nodes($list);
-    $items = array();
+    $nodes = custom_lists_content_nodes($list, $list['block-items']);
     foreach ($nodes as $node) {
       $items[] = l($node->title, 'node/' . $node->nid);
+    }
+  }
+  else if ($list['type'] == 'menu') {
+    $tree = _custom_lists_get_menu_tree($list);
+
+    $rows = array();
+    foreach ($tree as $link) {
+      if ($link['link']['router_path'] == 'node/%') {
+        $parts = explode('/', $link['link']['link_path']);
+        if ($node = node_load($parts[1])) {
+          $items[] = l($node->title, 'node/' . $node->nid);
+          continue;
+        }
+      }
+
+      $items[] = l($link['link']['link_title'], $link['link']['link_path']);
     }
   }
 
@@ -104,11 +121,13 @@ function custom_lists_block_view($delta = '') {
     '#items' => $items,
   );
 
-  $block['content']['more-link'] = array(
-    '#theme' => 'more_link',
-    '#url' => $list['path'],
-    '#title' => $list['title'],
-  );
+  if ($list['provide-page']) {
+    $block['content']['more-link'] = array(
+      '#theme' => 'more_link',
+      '#url' => $list['path'],
+      '#title' => $list['title'],
+    );
+  }
 
   return $block;
 }
@@ -142,7 +161,7 @@ function custom_lists_page() {
 
   // If multiple domains have the same path the title might be different.
   // Set it again.
-  drupal_set_title($list['title']);
+  drupal_set_title($found_list['title']);
 
   $output['intro-text'] = array(
     '#type' => 'markup',
@@ -160,7 +179,7 @@ function custom_lists_page() {
 }
 
 function custom_lists_page_content($list) {
-  $nodes = custom_lists_content_nodes($list);
+  $nodes = custom_lists_content_nodes($list, $list['page-items']);
   $output['nodes'] = node_view_multiple($nodes, 'teaser');
   $output['pager'] = array(
     '#theme' => 'pager',
@@ -175,13 +194,13 @@ function custom_lists_page_content($list) {
  * @param $list
  * @return array
  */
-function custom_lists_content_nodes($list) {
+function custom_lists_content_nodes($list, $items) {
   // Default query.
   $query = db_select('node', 'n')->extend('PagerDefault');
   $query
     ->fields('n', array('nid'))
     ->condition('n.status', 1)
-    ->limit($list['items']);
+    ->limit($items);
 
   // Conditions
   if (!empty($list['node-type'])) {
@@ -206,17 +225,7 @@ function custom_lists_content_nodes($list) {
 }
 
 function custom_lists_page_menu($list) {
-  $menu_item = menu_link_load($list['menu-item']);
-
-  $tree = menu_build_tree($menu_item['menu_name'],
-    array(
-      'conditions' => array(
-        'plid' => $menu_item['mlid']
-      ),
-      'min_depth' => $menu_item['depth']+1,
-      'max_depth' => $menu_item['depth']+1,
-    )
-  );
+  $tree = _custom_lists_get_menu_tree($list);
 
   $rows = array();
   foreach ($tree as $link) {
@@ -237,6 +246,20 @@ function custom_lists_page_menu($list) {
 
   $output['rows'] = $rows;
   return $output;
+}
+
+function _custom_lists_get_menu_tree($list) {
+  $menu_item = menu_link_load($list['menu-item']);
+
+  return menu_build_tree($menu_item['menu_name'],
+    array(
+      'conditions' => array(
+        'plid' => $menu_item['mlid']
+      ),
+      'min_depth' => $menu_item['depth']+1,
+      'max_depth' => $menu_item['depth']+1,
+    )
+  );
 }
 
 /*
