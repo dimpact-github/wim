@@ -1,7 +1,7 @@
 name = Dimpact Felix
 core = 7.x
 package = Features
-version = 7.x-1.0-20131122
+version = 7.x-1.0-20131128
 project = dimpact_felix
 features[features_api][] = api:2
 features[felix_block_set][] = default
