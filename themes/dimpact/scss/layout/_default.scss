@@ -343,6 +343,22 @@
     top: $gutter-width/2;
     right: $gutter-width;
   }
+  nav.block-menu-menu-tabbladen {
+    position: absolute;
+    top: 0;
+    right: $gutter-width;
+    ul {
+      li {
+        margin-right: 0;
+        margin-left: $gutter-width/2;
+        a {
+          @include border-top-radius(0);
+          @include border-bottom-radius(5px);
+          padding: $gutter-width/2 $gutter-width;
+        }
+      }
+    }
+  }
 }
 
 /**

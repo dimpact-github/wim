@@ -291,3 +291,32 @@ body.front {
     }
   }
 }
+nav.block-menu-menu-tabbladen {
+  .block-title {
+    display: none;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      line-height: 1;
+      margin-right: $gutter-width/2;
+//      display: block;
+      a {
+        @include border-top-radius(5px);
+        @include border-bottom-radius(0);
+        font-family: $heading;
+        background-color: get_env_color('dbackgroundcolor', #dddddd);
+        padding: 8px 6px;
+        display: inline-block;
+        text-decoration: none;
+        &:hover {
+          background-color: get_env_color('dcolor', $azure);
+          color: get_env_color('dlinkcolor', $link-light);
+        }
+      }
+    }
+  }
+}
