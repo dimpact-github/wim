@@ -442,3 +442,16 @@ function dimpact_preprocess_homebox(&$variables) {
 function dimpact_preprocess_user_profile(&$variables) {
   unset($variables['user_profile']['user_picture']);
 }
+
+function dimpact_preprocess_search_results(&$variables) {
+  $variables['search_results'] = '';
+  foreach ($variables['results'] as $result) {
+    if (isset($result['node']->bundle) && $result['node']->bundle == 'person') {
+      $person_node = node_load($result['node']->entity_id);
+      $variables['search_results'] .= '<li class="search-result">' . drupal_render(node_view($person_node, 'search_result')) . '</li>';
+    }
+    else {
+      $variables['search_results'] .= theme('search_result', array('result' => $result, 'module' => $variables['module']));
+    }
+  }
+}
