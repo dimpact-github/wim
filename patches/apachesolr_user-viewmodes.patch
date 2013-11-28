@@ -1,0 +1,34 @@
+diff --git a/apachesolr_user.module b/apachesolr_user.module
+index a0655d1..c0ceba1 100644
+--- a/apachesolr_user.module
++++ b/apachesolr_user.module
+@@ -17,6 +17,20 @@ function apachesolr_user_apachesolr_entity_info_alter(&$entity_info) {
+ }
+ 
+ /**
++ * Implements hook_entity_info_alter().
++ */
++function apachesolr_user_entity_info_alter(&$entity_info) {
++  $entity_info['user']['view modes']['search_index'] = array(
++    'label' => t('Search Index'),
++    'custom settings' => TRUE,
++  );
++  $entity_info['user']['view modes']['search_result'] = array(
++    'label' => t('Search Result'),
++    'custom settings' => TRUE,
++  );
++}
++
++/**
+  * Status callback for ApacheSolr, for users.
+  */
+ function apachesolr_user_status_callback($entity_id, $entity_type) {
+@@ -183,7 +197,7 @@ function apachesolr_user_facetapi_facet_info($searcher_info) {
+       'dependency plugins' => array('bundle', 'role'),
+     );
+ 
+-    // Add facets for all fields attached to the user entity. 
++    // Add facets for all fields attached to the user entity.
+     $facets = array_merge($facets, apachesolr_entity_field_facets('user'));
+   }
+   return $facets;

@@ -119,6 +119,15 @@ function dominion_apachesolr_apachesolr_query_alter($query) {
   }
 
   $subquery->addFilter($field_domain_site, 1);
+
+  // Add support of apachesolr_user.
+  if (module_exists('apachesolr_user')) {
+    $current_domain = domain_get_domain();
+    if (in_array($current_domain['domain_id'], variable_get('dominion_apachesolr_user_domains', array()))) {
+      $subquery->addFilter('entity_type', 'user');
+    }
+  }
+
   $query->addFilterSubQuery($subquery, 'OR', 'AND');
 }
 

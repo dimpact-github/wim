@@ -450,7 +450,7 @@ function dimpact_preprocess_user_profile(&$variables) {
 function dimpact_preprocess_search_results(&$variables) {
   $variables['search_results'] = '';
   foreach ($variables['results'] as $result) {
-    if (isset($result['node']->bundle) && $result['node']->bundle == 'person') {
+    if ($result['entity_type'] == 'node' && isset($result['node']->bundle) && $result['node']->bundle == 'person') {
       $person_node = node_load($result['node']->entity_id);
       $variables['search_results'] .= '<li class="search-result">' . drupal_render(node_view($person_node, 'search_result')) . '</li>';
     }
