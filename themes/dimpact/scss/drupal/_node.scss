@@ -114,3 +114,14 @@ body {
     }
   }
 }
+li.search-result {
+  overflow: hidden;
+}
+.view-mode-search-result {
+  .field-image {
+    float: right;
+    img {
+      @include border-radius(50%);
+    }
+  }
+}
