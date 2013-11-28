@@ -335,6 +335,16 @@ function dimpact_preprocess_field(&$vars) {
     'clearfix',
   );
   $vars['classes_array'] = array_diff($vars['classes_array'], $classes_to_remove);
+
+  if ($vars['element']['#field_name'] == 'field_ris_agendaitems') {
+    if ($vars['element']['#items']) {
+      foreach ($vars['element']['#items'] as $delta => $target) {
+        if ($node = node_load($target['target_id'])) {
+          $vars['files'][$delta] = field_view_field('node', $node, 'field_ris_attachments');
+        }
+      }
+    }
+  }
 }
 
 /**
