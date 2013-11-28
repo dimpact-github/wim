@@ -472,6 +472,12 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
+        'menu-menu-tabbladen' => array(
+          'module' => 'menu',
+          'delta' => 'menu-tabbladen',
+          'region' => 'header',
+          'weight' => '-9',
+        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',

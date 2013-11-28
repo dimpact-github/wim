@@ -43,4 +43,5 @@ features[menu_custom][] = menu-meta-menu-links
 features[menu_custom][] = menu-meta-menu-links-intranet
 features[menu_custom][] = menu-meta-menu-rechts
 features[menu_custom][] = menu-service-menu-right
+features[menu_custom][] = menu-tabbladen
 features[menu_custom][] = menu-toptaken

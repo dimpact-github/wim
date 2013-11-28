@@ -208,6 +208,12 @@ function dimpact_menus_menu_default_menu_custom() {
     'title' => 'Service menu right',
     'description' => 'Service menu appears in the upper right corner of the page.',
   );
+  // Exported menu: menu-tabbladen.
+  $menus['menu-tabbladen'] = array(
+    'menu_name' => 'menu-tabbladen',
+    'title' => 'Tabbladen',
+    'description' => '',
+  );
   // Exported menu: menu-toptaken.
   $menus['menu-toptaken'] = array(
     'menu_name' => 'menu-toptaken',
@@ -252,6 +258,7 @@ function dimpact_menus_menu_default_menu_custom() {
   t('Meta menu rechts');
   t('Service menu appears in the upper right corner of the page.');
   t('Service menu right');
+  t('Tabbladen');
   t('Toptaken');
 
 
