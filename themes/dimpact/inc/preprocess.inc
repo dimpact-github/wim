@@ -89,15 +89,19 @@ function dimpact_preprocess_page(&$vars) {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'searchpage';
   }
-  if (arg(0) == 'node' && arg(1) == 'add') {
+  else if (arg(0) == 'node' && arg(1) == 'add') {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'node-add-page';
   }
-  if (arg(0) == 'bekendmakingen') {
+  else if (arg(0) == 'bekendmakingen') {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'bekendmakingen';
   }
-  if (arg(0) == 'foto-album' && arg(1) == 'tag' && is_numeric(arg(2))) {
+  else if (arg(0) == 'bestemmingsplannen') {
+    $vars['hidecontent'] = TRUE;
+    $vars['pagetype'] = 'bestemmingsplannen';
+  }
+  else if (arg(0) == 'foto-album' && arg(1) == 'tag' && is_numeric(arg(2))) {
     $vars['hidecontent'] = TRUE;
     $vars['pagetype'] = 'fotoalbum';
     if (isset($vars['page']['region_363_first']['submenutree_2'])) {

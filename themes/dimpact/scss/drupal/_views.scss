@@ -319,6 +319,20 @@
     margin-bottom: $gutter-width;
   }
 }
+#views-exposed-form-spatial-plans-page {
+  padding: 0 $gutter-width/2;
+  .form-item {
+    margin: 0 0 $gutter-width/2 0;
+  }
+  input[type="text"] {
+    width: 100%;
+  }
+}
+.view-spatial-plans {
+  .gmap {
+    margin-bottom: $gutter-width;
+  }
+}
 .view-profiel {
   .field {
     @include font-size(14);
