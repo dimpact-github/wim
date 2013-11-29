@@ -40,12 +40,23 @@
  * @see template_preprocess_block()
  * @see template_process()
  */
+
+$icon = '';
+if (preg_match('|block-node-([0-9]+)|', $block_html_id, $matches)) {
+  if ($node = node_load($matches[1])) {
+    if ($node->type == 'editorial' && $field = field_get_items('node', $node, 'field_foto')) {
+      $file_path = image_style_url('pictogram', $field[0]['uri']);
+      $icon = '<img src="' . $file_path . '" class="pictogram">';
+    }
+  }
+}
+
 ?>
 <div<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
   <?php if (!empty($content_attributes)): ?><div<?php print $content_attributes; ?>><?php endif; ?>
     <?php if ($block->subject): ?>
-      <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
+      <h2<?php print $title_attributes; ?>><?php print $icon; ?><?php print $block->subject ?></h2>
     <?php endif;?>
     <?php print render($title_suffix); ?>
     <?php print $content; ?>

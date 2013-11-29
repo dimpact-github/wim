@@ -116,6 +116,10 @@ h2 {
     font-size: 130%;
     margin-top: 0;
     margin-bottom: $gutter-width/2;
+    .pictogram {
+      margin-right: $gutter-width/2;
+      vertical-align: middle;
+    }
   }
 }
 
