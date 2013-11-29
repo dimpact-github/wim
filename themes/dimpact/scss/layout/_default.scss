@@ -281,8 +281,8 @@
   .block-search {
     position: absolute !important;
     right: $gutter-width;
-    bottom: $gutter-width/2;
-    top: auto;
+    top: $gutter-width/2;
+    bottom: auto;
     margin: 0 !important;
     padding: $gutter-width/4;
     input[type="text"] {
@@ -345,15 +345,15 @@
   }
   nav.block-menu-menu-tabbladen {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: $gutter-width;
     ul {
       li {
         margin-right: 0;
         margin-left: $gutter-width/2;
         a {
-          @include border-top-radius(0);
-          @include border-bottom-radius(5px);
+          @include border-top-radius(5px);
+          @include border-bottom-radius(0);
           padding: $gutter-width/2 $gutter-width;
         }
       }
