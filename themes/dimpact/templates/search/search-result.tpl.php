@@ -84,11 +84,9 @@ if ($result['bundle'] == 'user') {
   <?php print render($title_suffix); ?>
   <div class="search-snippet-info">
     <?php if ($snippet): ?>
+      <?php print $avatar; ?>
       <p class="search-snippet"<?php print $content_attributes; ?>>
-        <?php print $avatar; ?>
-        <div class="snippet">
-          <?php print $snippet; ?>
-        </div>
+        <?php print $snippet; ?>
       </p>
     <?php endif; ?>
     <?php if ($info): ?>
