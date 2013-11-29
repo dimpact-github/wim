@@ -2,7 +2,7 @@ name = Dimpact
 core = 7.x
 description = Dimpact moedersjabloon
 
-stylesheets[screen][] = css/style.css
+stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 
 regions[header] = Header
