@@ -205,7 +205,7 @@ function dimpact_more_link($vars) {
   return l($title, $vars['url'], array(
     'attributes' => array(
       'title' => !empty($vars['title']) ? $vars['title'] : t('More'),
-      'class' => 'more-link ' . drupal_html_class($vars['title']),
+      'class' => array('more-link ' . drupal_html_class($vars['title'])),
       )
     )
   );

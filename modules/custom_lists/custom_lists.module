@@ -93,7 +93,7 @@ function custom_lists_block_view($delta = '') {
   $block['content'] = array();
 
   $items = array();
-  if ($list['type'] == 'node') {
+  if ($list['type'] == 'content') {
     $nodes = custom_lists_content_nodes($list, $list['block-items']);
     foreach ($nodes as $node) {
       $items[] = l($node->title, 'node/' . $node->nid);
@@ -125,7 +125,7 @@ function custom_lists_block_view($delta = '') {
     $block['content']['more-link'] = array(
       '#theme' => 'more_link',
       '#url' => $list['path'],
-      '#title' => $list['title'],
+      '#title' => t('More'), //$list['title'],
     );
   }
 
