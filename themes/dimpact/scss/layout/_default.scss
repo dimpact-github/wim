@@ -82,7 +82,7 @@
   body.front {
     nav {
       &.main-menu {
-        margin-bottom: $gutter-width;
+//        margin-bottom: $gutter-width;
       }
     }
   }
@@ -123,9 +123,9 @@
     }
   }
   #readspeaker_button1 {
-    position: absolute;
-    top: 60px;
-    right: $gutter-width;
+//    position: absolute;
+//    top: 60px;
+//    right: $gutter-width;
   }
 }
 
@@ -339,9 +339,9 @@
     }
   }
   #readspeaker_button1 {
-    position: absolute;
-    top: $gutter-width/2;
-    left: 150px;
+//    position: absolute;
+//    top: $gutter-width/2;
+//    left: 150px;
   }
   nav.block-menu-menu-tabbladen {
     position: absolute;

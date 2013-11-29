@@ -448,6 +448,13 @@ div.workbench-info-block {
   white-space: normal;
 }
 
+#readspeaker_button1 {
+  position: absolute;
+  right: $gutter-width;
+  bottom : -4px;
+  margin: 0;
+}
+
 // Leave this here please :)
 @import "layout/default";
 @import "general/colors";
