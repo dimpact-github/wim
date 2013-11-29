@@ -16,3 +16,20 @@ Er is een storingspagina aanwezig die getoond wordt bij technische problemen. De
 \subsection{Reageren}
 
 Op de meeste contenttypes kan worden gereageerd. Content types die zijn uitgesloten van reactiemogelijkheden zijn rss, rss\_source (intranet nieuws), slide en editorial (redacitonele blokken).
+
+\subsection{Geocoding}\label{geocoding}
+
+Voor de Google Maps functionaliteit is het mogelijk om automatisch de lengtegraad en breedtegraad op te halen bij de ingevoerde adressen. Hiervoor is een API key noodzakelijk welke aangevraagd kan worden bij Google. De API key kan door een beheerder in Drupal worden ingesteld.
+\begin{enumerate}
+\item Ga naar \texttt{https://code.google.com/apis/console/} en login met een Google-account
+\item Klik in de linkerkolom op \emph{Services}
+\item Zet \emph{Google Maps Geolocation API} aan
+\item Klik links op \emph{API Access}
+\item Kopieer de tekst achter "API key:"
+\item Ga naar \texttt{admin/config/content/location/geocoding}
+\item Kies voor \emph{Google Maps} bij \emph{Nederland}
+\item Sla de settings op
+\item Klik op \emph{Parameters instellen} achter \emph{Nederland}
+\item Vul de API key in
+\item Klik op \emph{Instellingen opslaan}
+\end{enumerate}
