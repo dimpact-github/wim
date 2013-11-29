@@ -68,7 +68,7 @@ function _ris_ibabs_read_file($file) {
       $meetings[$meeting_id]['agendaitems'][$item_id] = array(
         'item_id' => $item_id,
         'parent' => NULL,
-        'subject' => $xpath->query('./onderwerp', $itemNode)->item(0)->nodeValue,
+        'subject' => $ordernr . ' ' . $xpath->query('./onderwerp', $itemNode)->item(0)->nodeValue,
         'attachments' => array(),
       );
 
