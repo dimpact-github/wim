@@ -112,3 +112,22 @@
 //    }
   }
 }
+
+.search-snippet-info {
+  .user-picture {
+    float: left;
+    margin-right: $gutter-width;
+    img {
+      @include border-radius(50%);
+    }
+  }
+  .snippet {
+    overflow: hidden;
+  }
+  h3 {
+    margin-top: 0;
+  }
+  .field {
+    margin-bottom: $gutter-width/2;
+  }
+}
