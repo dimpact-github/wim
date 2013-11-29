@@ -210,7 +210,9 @@ function domain_scss_generate($theme, $info, $palette, $target = NULL) {
   $css_dir = drupal_realpath($paths['target']);
   $theme_dir = DRUPAL_ROOT . '/'. drupal_get_path('theme', $theme);
 
-  $cmd = "compass compile --boring --css-dir $css_dir $theme_dir;";
+  $binary = variable_get('domain_csss_compass_binary', '/var/lib/gems/1.8/bin/compass');
+
+  $cmd = "$binary compile --boring --css-dir $css_dir $theme_dir;";
   foreach ($palette as $key => $value) {
     $key = 'DOMAIN_SCSS_' . $key;
 
