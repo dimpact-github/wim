@@ -132,6 +132,30 @@ function dimpact_imagestyles_image_default_styles() {
     ),
   );
 
+  // Exported image style: pictogram.
+  $styles['pictogram'] = array(
+    'name' => 'pictogram',
+    'label' => 'Pictogram',
+    'effects' => array(
+      1 => array(
+        'label' => 'Schalen',
+        'help' => 'Door te schalen worden de originele verhoudingen behouden. Als één van de dimensies wordt ingevuld zal de andere worden berekend.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 25,
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: portret.
   $styles['portret'] = array(
     'name' => 'portret',

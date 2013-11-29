@@ -1,7 +1,7 @@
 name = Dimpact imagestyles
 core = 7.x
 package = Features
-version = 7.x-1.0-beta10
+version = 7.x-1.0-20131128
 project = dimpact_imagestyles
 dependencies[] = image
 features[features_api][] = api:2
@@ -11,6 +11,7 @@ features[image][] = list_thumbnail
 features[image][] = node_thumbnail
 features[image][] = origineel
 features[image][] = overige_onderwerp
+features[image][] = pictogram
 features[image][] = portret
 features[image][] = portret_groot
 features[image][] = slide_4_12
