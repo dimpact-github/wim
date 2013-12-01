@@ -69,7 +69,15 @@ function ris_map_node($meeting, $force = TRUE) {
 
   // Set common info.
   $node->ris_identifier = $meeting['meeting_id'];
-  $node->title = $meeting['subject'];
+  $node->title = $meeting['subject'] . ' ' . date('d-m-Y', $meeting['timestamp']);
+
+  $node->field_ris_category = array(
+    LANGUAGE_NONE => array(
+      0 => array(
+        'tid' => ris_get_category_tid($meeting['subject']),
+      ),
+    ),
+  );
 
   $node->field_date = array(
     LANGUAGE_NONE => array(
@@ -176,4 +184,34 @@ function ris_map_node_agendaitem($meeting_id, $agendaitem) {
     ->execute();
 
   return $node;
+}
+
+/**
+ * Get category term id by given name. Creates new term if not found.
+ *
+ * @param string $name
+ * @return int
+ */
+function ris_get_category_tid($name) {
+  $vid = db_select('taxonomy_vocabulary', 'v')
+    ->fields('v', array('vid'))
+    ->condition('v.machine_name', 'ris_category')
+    ->execute()
+    ->fetchField();
+  if ($vid) {
+    $tid = db_select('taxonomy_term_data', 'td')
+      ->fields('td', array('tid'))
+      ->condition('td.vid', $vid)
+      ->condition('td.name', $name)
+      ->execute()
+      ->fetchField();
+    if (!$tid) {
+      $term = new stdClass();
+      $term->vid = $vid;
+      $term->name = $name;
+      taxonomy_term_save($term);
+      $tid = $term->tid;
+    }
+    return $tid;
+  }
 }
