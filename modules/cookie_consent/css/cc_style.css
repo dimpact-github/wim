@@ -117,7 +117,7 @@ CORE STYLES
 #cc-modal #cc-modal-wrapper,
 #cc-settingsmodal #cc-settingsmodal-wrapper {
 
-  margin: 100px auto;
+  margin: 40px auto;
 }
 
 #cc-modal,
@@ -607,10 +607,10 @@ DARK STYLE
 }
 
 #cc-notification ul.cc-notification-buttons {
-  position: absolute;
-  right: 50px;
-  top: 50px;
-  width: 360px;
+  /*position: absolute;*/
+  /*right: 50px;*/
+  /*top: 50px;*/
+  /*width: 360px;*/
 }
 
 #cc-notification #cc-notification-wrapper {
@@ -916,20 +916,20 @@ DARK STYLE
 }
 
 #cc-modal #cc-modal-wrapper {
-  width: 686px;
-  margin: 40px auto;
+  width: 75%;
+  /*margin: 40px auto;*/
   background-color: #1d1d1d;
   color: #f5f5f5;
-  padding: 25px 15px 5px;
+  padding: 20px;
   text-align: left;
   position: relative;
-  max-height: 8%;
+  /*max-height: 8%;*/
   overflow-y: auto;
   overflow-x: hidden;
-  min-height: 560px;
-  box-shadow: 0px 0px 30px #000;
-  -moz-box-shadow: 0px 0px 30px #000;
-  -webkit-box-shadow: 0px 0px 30px #000;
+  /*min-height: 560px;*/
+  box-shadow: 0 0 30px #000;
+  -moz-box-shadow: 0 0 30px #000;
+  -webkit-box-shadow: 0 0 30px #000;
 }
 
 #cc-modal #cc-modal-wrapper a,
@@ -974,7 +974,7 @@ DARK STYLE
   top: 28px;
   right: 8px;
   float: right;
-  width: 150px;
+  /*width: 150px;*/
 }
 
 #cc-settingsmodal.cc-mobile #cc-settingsmodal-wrapper select,
@@ -990,13 +990,13 @@ DARK STYLE
 
 #cc-settingsmodal #cc-settingsmodal-wrapper ul li label,
 #cc-modal #cc-modal-wrapper ul li label {
-  float: left;
+  /*float: left;*/
 }
 
 #cc-settingsmodal #cc-settingsmodal-wrapper ul,
 #cc-modal #cc-modal-wrapper ul {
   margin: 0;
-  padding: 0 100px;
+  /*padding: 0 100px;*/
   list-style: none;
 }
 
@@ -1029,12 +1029,12 @@ DARK STYLE
 
 #cc-settingsmodal #cc-settingsmodal-wrapper li span,
 #cc-modal #cc-modal-wrapper li span {
-  width: 470px;
+  /*width: 470px;*/
   float: left;
   clear: left;
   display: block;
   color: #7A7A7A;
-  margin-top: 8px;
+  margin-top: 20px;
 
 }
 
@@ -1112,8 +1112,8 @@ DARK STYLE
 
 #cc-modal #cc-modal-wrapper h2,
 #cc-settingsmodal #cc-settingsmodal-wrapper h2 {
-  margin: 0 57px;
-  width: 712px;
+  /*margin: 0 57px;*/
+  /*width: 712px;*/
   color: #FFF;
 }
 
@@ -1133,11 +1133,11 @@ DARK STYLE
 #cc-settingsmodal #cc-settingsmodal-wrapper p.cc-subtitle,
 #cc-modal #cc-modal-wrapper p.cc-subtitle {
   color: #7a7a7a;
-  margin: 16px 0 0 57px;
+  /*margin: 16px 0 0 57px;*/
 }
 
 #cc-settingsmodal #cc-settingsmodal-wrapper p.cc-subtitle {
-  margin: 16px 0 0 73px;
+  /*margin: 16px 0 0 73px;*/
 }
 
 #cc-modal.cc-mobile #cc-modal-wrapper p.cc-subtitle {
