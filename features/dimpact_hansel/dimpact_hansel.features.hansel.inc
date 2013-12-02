@@ -263,6 +263,10 @@ function dimpact_hansel_hansel_default() {
         'path' => 'pdc/regelingen',
         'title' => 'Regelingen',
       ),
+      'ris_meeting' => array(
+        'path' => 'bestuur-en-organisatie/vergaderingen',
+        'title' => 'Vergaderingen',
+      ),
       'wiki' => array(
         'path' => 'wiki',
         'title' => 'Wiki',
@@ -312,6 +316,10 @@ function dimpact_hansel_hansel_default() {
         'regulation' => array(
           'path' => 'pdc/regelingen',
           'title' => 'Regelingen',
+        ),
+        'ris_meeting' => array(
+          'path' => 'bestuur-en-organisatie/vergaderingen',
+          'title' => 'Vergaderingen',
         ),
         'wiki' => array(
           'path' => 'wiki',
