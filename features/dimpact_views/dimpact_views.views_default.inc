@@ -1734,17 +1734,16 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     'multiple_to' => '',
   );
   $handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;
-  /* Contextueel filter: Inhoud: Titel */
-  $handler->display->display_options['arguments']['title']['id'] = 'title';
-  $handler->display->display_options['arguments']['title']['table'] = 'node';
-  $handler->display->display_options['arguments']['title']['field'] = 'title';
-  $handler->display->display_options['arguments']['title']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['title']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['title']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['title']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['title']['limit'] = '0';
+  /* Contextueel filter: Inhoud: Categorie (field_ris_category) */
+  $handler->display->display_options['arguments']['field_ris_category_tid']['id'] = 'field_ris_category_tid';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['table'] = 'field_data_field_ris_category';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['field'] = 'field_ris_category_tid';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary_options']['items_per_page'] = '25';
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1798,7 +1797,6 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 
   /* Display: Pagina */
   $handler = $view->new_display('page', 'Pagina', 'page_1');
-  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -1818,6 +1816,18 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextueel filter: Inhoud: Categorie (field_ris_category) */
+  $handler->display->display_options['arguments']['field_ris_category_tid']['id'] = 'field_ris_category_tid';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['table'] = 'field_data_field_ris_category';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['field'] = 'field_ris_category_tid';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_ris_category_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filtercriterium: Inhoud: Gepubliceerd */
@@ -1834,7 +1844,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['filters']['type']['value'] = array(
     'ris_meeting' => 'ris_meeting',
   );
-  $handler->display->display_options['path'] = 'bestuur-en-organisatie/vergaderingen';
+  $handler->display->display_options['path'] = 'bestuur-en-organisatie/vergaderingen/%';
 
   /* Display: Blok */
   $handler = $view->new_display('block', 'Blok', 'block_2');
@@ -1848,6 +1858,14 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Ongefilterde tekst */
+  $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['footer']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area_text_custom']['content'] = '<a href="/bestuur-en-organisatie/vergaderingen/!1">Meer vergaderingen</a>';
+  $handler->display->display_options['footer']['area_text_custom']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteercriterium: Inhoud: Datum van inzending */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -1942,6 +1960,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('Meer vergaderingen'),
     t('RIS vergaderingen'),
     t('Pagina'),
+    t('<a href="/bestuur-en-organisatie/vergaderingen/!1">Meer vergaderingen</a>'),
     t('RIS vergaderingen gegroepeerd'),
     t('Bijlage'),
   );
