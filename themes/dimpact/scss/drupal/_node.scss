@@ -76,6 +76,7 @@
       margin-bottom: $gutter-width/2;
       padding-bottom: $gutter-width/2;
       border-bottom: 1px solid lighten($background-color, 7%);
+      font-weight: 700;
       &:last-child {
         margin-bottom: 0;
         border: 0;
@@ -84,6 +85,7 @@
     .field-ris-attachments {
       padding-left: $gutter-width;
       margin-bottom: 6px;
+      font-weight: 400;
       .file-icon {
         margin-top: -2px;
       }
