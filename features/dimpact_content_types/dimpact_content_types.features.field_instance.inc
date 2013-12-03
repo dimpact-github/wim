@@ -4151,7 +4151,7 @@ function dimpact_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -4161,7 +4161,7 @@ function dimpact_content_types_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4218,7 +4218,7 @@ function dimpact_content_types_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4262,10 +4262,9 @@ function dimpact_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'inline',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'teaser' => array(
@@ -4306,11 +4305,11 @@ function dimpact_content_types_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4328,7 +4327,7 @@ function dimpact_content_types_field_default_field_instances() {
     'entity_type' => 'node',
     'fences_wrapper' => 'div',
     'field_name' => 'field_ris_location',
-    'label' => 'Location',
+    'label' => 'Locatie',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -5883,7 +5882,6 @@ function dimpact_content_types_field_default_field_instances() {
   t('Kosten');
   t('Link');
   t('Locatie');
-  t('Location');
   t('Onderwerp');
   t('Parent');
   t('Redactionele Toevoeging');
