@@ -213,7 +213,7 @@ function custom_lists_content_nodes($list, $items) {
 
   // Sorting
   $parts = explode('_', $list['sort']);
-  $query->orderBy($parts[0], $parts[1]);
+  $query->orderBy('n.' . $parts[0], $parts[1]);
 
   $rs = $query->execute();
   $nodes = array();
