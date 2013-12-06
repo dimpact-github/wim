@@ -47,6 +47,7 @@ function dimpact_hansel_hansel_default() {
           2 => 42,
           3 => 45,
           4 => 49,
+          5 => 51,
         ),
       ),
       3 => array(
@@ -76,7 +77,7 @@ function dimpact_hansel_hansel_default() {
       ),
       5 => array(
         'rid' => 5,
-        'pid' => 11,
+        'pid' => 12,
         'name' => '<default>',
         'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
@@ -92,6 +93,29 @@ function dimpact_hansel_hansel_default() {
       6 => array(
         'rid' => 6,
         'pid' => 2,
+        'name' => 'bestuur-en-organisatie',
+        'crumb_action' => 'add single link',
+        'crumb_action_arguments' => array(
+          'title' => 'Bestuur en organisatie',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'bestuur-en-organisatie',
+          'skipalias' => 0,
+        ),
+        'action' => 'switch',
+        'handler' => 'url argument',
+        'arguments' => array(
+          'argument' => 2,
+          'cs' => 0,
+          'regex' => 0,
+        ),
+        'children' => array(
+          0 => 52,
+        ),
+      ),
+      7 => array(
+        'rid' => 7,
+        'pid' => 2,
         'name' => 'dashboard',
         'crumb_action' => '',
         'crumb_action_arguments' => array(),
@@ -99,26 +123,9 @@ function dimpact_hansel_hansel_default() {
         'restore' => FALSE,
         'children' => array(),
       ),
-      7 => array(
-        'rid' => 7,
-        'pid' => 4,
-        'name' => 'forum',
-        'crumb_action' => 'add single link',
-        'crumb_action_arguments' => array(
-          'title' => 'Forum',
-          'translate' => 0,
-          'remove_tokens' => 0,
-          'path' => 'forum',
-        ),
-        'action' => 'goto',
-        'destination' => 9,
-        'children' => array(
-          0 => 43,
-        ),
-      ),
       8 => array(
         'rid' => 8,
-        'pid' => 2,
+        'pid' => 4,
         'name' => 'forum',
         'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
@@ -130,20 +137,25 @@ function dimpact_hansel_hansel_default() {
         'action' => 'goto',
         'destination' => 10,
         'children' => array(
-          0 => 44,
+          0 => 43,
         ),
       ),
       9 => array(
         'rid' => 9,
-        'pid' => 7,
-        'name' => 'forumpath',
-        'crumb_action' => 'add forum path',
+        'pid' => 2,
+        'name' => 'forum',
+        'crumb_action' => 'add single link',
         'crumb_action_arguments' => array(
-          'inc_containers' => 0,
+          'title' => 'Forum',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'forum',
         ),
         'action' => 'goto',
-        'destination' => 2,
-        'children' => array(),
+        'destination' => 11,
+        'children' => array(
+          0 => 44,
+        ),
       ),
       10 => array(
         'rid' => 10,
@@ -153,12 +165,24 @@ function dimpact_hansel_hansel_default() {
         'crumb_action_arguments' => array(
           'inc_containers' => 0,
         ),
-        'action' => 'leave',
-        'restore' => FALSE,
+        'action' => 'goto',
+        'destination' => 2,
         'children' => array(),
       ),
       11 => array(
         'rid' => 11,
+        'pid' => 9,
+        'name' => 'forumpath',
+        'crumb_action' => 'add forum path',
+        'crumb_action_arguments' => array(
+          'inc_containers' => 0,
+        ),
+        'action' => 'leave',
+        'restore' => FALSE,
+        'children' => array(),
+      ),
+      12 => array(
+        'rid' => 12,
         'pid' => 2,
         'name' => 'foto-album',
         'crumb_action' => 'add single link',
@@ -175,8 +199,8 @@ function dimpact_hansel_hansel_default() {
           0 => 50,
         ),
       ),
-      12 => array(
-        'rid' => 12,
+      13 => array(
+        'rid' => 13,
         'pid' => 2,
         'name' => 'node',
         'crumb_action' => 'add link to node',
@@ -185,8 +209,8 @@ function dimpact_hansel_hansel_default() {
         'restore' => FALSE,
         'children' => array(),
       ),
-      13 => array(
-        'rid' => 13,
+      14 => array(
+        'rid' => 14,
         'pid' => 1,
         'name' => 'team',
         'crumb_action' => 'add parent subsites',
@@ -198,8 +222,24 @@ function dimpact_hansel_hansel_default() {
         'destination' => 2,
         'children' => array(),
       ),
-      14 => array(
-        'rid' => 14,
+      15 => array(
+        'rid' => 15,
+        'pid' => 6,
+        'name' => 'vergaderingen',
+        'crumb_action' => 'add single link',
+        'crumb_action_arguments' => array(
+          'title' => 'Vergaderingen',
+          'translate' => 0,
+          'remove_tokens' => 0,
+          'path' => 'bestuur-en-organisatie/vergaderingen',
+          'skipalias' => 0,
+        ),
+        'action' => 'leave',
+        'restore' => FALSE,
+        'children' => array(),
+      ),
+      16 => array(
+        'rid' => 16,
         'pid' => 4,
         'name' => 'wiki',
         'crumb_action' => 'add single link',
@@ -210,14 +250,14 @@ function dimpact_hansel_hansel_default() {
           'path' => 'wiki',
         ),
         'action' => 'goto',
-        'destination' => 15,
+        'destination' => 17,
         'children' => array(
           0 => 48,
         ),
       ),
-      15 => array(
-        'rid' => 15,
-        'pid' => 14,
+      17 => array(
+        'rid' => 17,
+        'pid' => 16,
         'name' => 'wikipage',
         'crumb_action' => 'add wiki page',
         'crumb_action_arguments' => array(),
@@ -264,7 +304,7 @@ function dimpact_hansel_hansel_default() {
         'title' => 'Regelingen',
       ),
       'ris_meeting' => array(
-        'path' => 'bestuur-en-organisatie/vergaderingen',
+        'path' => 'node/15322',
         'title' => 'Vergaderingen',
       ),
       'wiki' => array(
@@ -318,7 +358,7 @@ function dimpact_hansel_hansel_default() {
           'title' => 'Regelingen',
         ),
         'ris_meeting' => array(
-          'path' => 'bestuur-en-organisatie/vergaderingen',
+          'path' => 'node/15322',
           'title' => 'Vergaderingen',
         ),
         'wiki' => array(
