@@ -455,6 +455,19 @@ div.workbench-info-block {
   margin: 0;
 }
 
+.block-custom-lists {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin-bottom: $gutter-width/2;
+      padding-bottom: $gutter-width/2;
+      border-bottom: 1px solid lighten($background-color, 5%);
+    }
+  }
+}
+
 // Leave this here please :)
 @import "layout/default";
 @import "general/colors";
