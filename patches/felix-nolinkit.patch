@@ -1,76 +1,12 @@
 diff --git a/felix.pages.inc b/felix.pages.inc
-index 985c059..3ead129 100644
+index 60b9744..938713e 100644
 --- a/felix.pages.inc
 +++ b/felix.pages.inc
-@@ -134,7 +134,7 @@ function _felix_add_block_nodetype_page($region, $nodetype, $path, $viewmode) {
-           ->orderBy('n.changed', 'DESC')
-           ->range(0, 10)
-           ->addTag('node_access');
--  $q->join('users', 'u', 'n.uid = u.uid');        
-+  $q->join('users', 'u', 'n.uid = u.uid');
-   $nodes = $q->execute();
-   $items = array();
- 
-@@ -151,7 +151,7 @@ function _felix_add_block_nodetype_page($region, $nodetype, $path, $viewmode) {
- 
-   while ($node = $nodes->fetchObject()) {
-     $table['#nodes'][] = $node;
--    
-+
-     $url = l($node->title, 'felix-blocks/add', array(
-       'query' => array(
-         'nid' => $node->nid,
-@@ -168,10 +168,10 @@ function _felix_add_block_nodetype_page($region, $nodetype, $path, $viewmode) {
-       format_date($node->created, 'short'),
-     );
-   }
--  
-+
-   // Allow other modules to alter the recent content table.
-   drupal_alter('felix_recent_content', $table);
--  
-+
-   if (count($table['#rows'])) {
-     $output .= drupal_render($table);
-   }
-@@ -187,7 +187,7 @@ function _felix_add_block_nodetype_page($region, $nodetype, $path, $viewmode) {
-  */
- function _felix_autocomplete($type) {
-   $search = $_GET['s'];
--  
-+
-   $results = array();
-   $nodes = db_select('node', 'n')
-     ->fields('n', array('nid', 'title', 'changed'))
-@@ -207,10 +207,10 @@ function _felix_autocomplete($type) {
-       'addClass' => NULL,
-     );
-   }
--  
-+
-   // Let other modules alter the autocomplete results.
-   drupal_alter('felix_autocomplete', $results);
--  
-+
-   if (empty($results)) {
-     $results = array(array(
-       'title' => t('No results'),
-@@ -218,7 +218,7 @@ function _felix_autocomplete($type) {
-       'disabled' => TRUE,
-     ));
-   }
--  
-+
-   drupal_json_output($results);
-   drupal_exit();
- }
-@@ -238,8 +238,8 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
-     '#autocomplete_path' => 'felix-blocks/autocomplete-node/' . $nodetype,
+@@ -239,7 +239,7 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
      '#required' => TRUE,
    );
--  
+ 
 -  if (module_exists('linkit')) {
-+
 +  if (module_exists('linkit')) { /*
      // Use the better autocomplete widget from linkit.
      drupal_add_library('linkit', 'linkit_bac');
@@ -84,12 +20,3 @@ index 985c059..3ead129 100644
  
    $form['submit'] = array(
      '#type' => 'submit',
-@@ -321,7 +321,7 @@ function _felix_add_block($region, $path, $module, $delta, $detail_path = NULL,
-     $delta = $tnid ? $tnid : $delta;
-     $detail_path = "node/$delta";
-   }
--  
-+
-   $hash = _felix_get_hash($region, $path);
- 
-   $block = new stdClass();

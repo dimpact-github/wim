@@ -61,7 +61,6 @@ projects[felix][download][type] = git
 projects[felix][download][revision] = ebe1b1f
 projects[felix][download][branch] = 7.x-1.x
 projects[felix][patch] = patches/felix-nolinkit.patch
-projects[felix][patch] = patches/felix-allblocks.patch
 projects[fences][subdir] = contrib
 projects[field_group][subdir] = contrib
 projects[field_group_multiple][subdir] = contrib
