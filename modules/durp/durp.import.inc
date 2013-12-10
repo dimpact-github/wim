@@ -147,6 +147,7 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
   if ($plan) {
     $plan_uri = $plan->getElementsByTagName('GeleideFormulier')->item(0)->nodeValue;
     $data = drupal_http_request($plan_uri);
+
     $planXML = $data->data;
     $planDOM = new DOMDocument;
     $planDOM->loadXML($planXML);
@@ -169,6 +170,10 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
     if (empty($node->title)) {
       return FALSE;
     }
+
+    $node->field_spatial_plan_id = array(
+      LANGUAGE_NONE => array(array('value' =>  $plan->getAttribute('Id')))
+    );
 
     // Taxonomy type fields.
     $type = $planXpath->query('/ns:GeleideFormulier/ns:Plan/ns:Eigenschappen/ns:Type')->item(0)->nodeValue;

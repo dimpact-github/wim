@@ -300,8 +300,15 @@ function dimpact_preprocess_node(&$vars) {
     }
     $vars['tabs'] = quicktabs_build_quicktabs($node->nid, $settings = array(), $tabs);
   }
-}
 
+  if ($node->type == 'spatial_plan' && $vars['view_mode'] == 'teaser') {
+    if (!empty($node->field_spatial_plan_id[LANGUAGE_NONE])) {
+      $plannen_url = variable_get('spatial_plan_uri', 'http://www.ruimtelijkeplannen.nl/web-roo/roo/bestemmingsplannen?planidn=');
+      $plan_id = $node->field_spatial_plan_id[LANGUAGE_NONE][0]['value'];
+      $vars['node_url'] = $plannen_url . $plan_id;
+    }
+  }
+}
 
 /**
  * Implements template_preprocess_field().

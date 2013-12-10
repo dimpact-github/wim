@@ -3903,13 +3903,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_options']['bubbletextenabled'] = 1;
   $handler->display->display_options['style_options']['bubbletextfield'] = 'title';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Veld: Inhoud: Plan ID */
+  $handler->display->display_options['fields']['field_spatial_plan_id']['id'] = 'field_spatial_plan_id';
+  $handler->display->display_options['fields']['field_spatial_plan_id']['table'] = 'field_data_field_spatial_plan_id';
+  $handler->display->display_options['fields']['field_spatial_plan_id']['field'] = 'field_spatial_plan_id';
+  $handler->display->display_options['fields']['field_spatial_plan_id']['label'] = '';
+  $handler->display->display_options['fields']['field_spatial_plan_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_spatial_plan_id']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_spatial_plan_id']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_spatial_plan_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_spatial_plan_id']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_spatial_plan_id']['type'] = 'text_plain';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'http://www.ruimtelijkeplannen.nl/web-roo/roo/bestemmingsplannen?planidn=[field_spatial_plan_id]';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Veld: Tooltip */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
