@@ -12,7 +12,7 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
   $node->body = array(
     LANGUAGE_NONE => array(
       array(
-        'value' => $xpath->query('.//dcterms:description', $record)->item(0)->nodeValue,
+        'value' => $xpath->query('.//dcterms:description')->item(0)->nodeValue,
         'format' => 'filtered_html',
       )
     )
@@ -20,7 +20,7 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   // Locations
   $node->field_location = array(LANGUAGE_NONE => array());
-  $locs = $xpath->query('.//overheidbm:object', $record);
+  $locs = $xpath->query('.//overheidbm:object');
   foreach ($locs as $loc) {
     $number_query = $xpath->query('.//overheidbm:huisnummer', $loc);
     $number = $number_query->item(0) ? $number_query->item(0)->nodeValue : FALSE;
@@ -68,7 +68,7 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
       }
     }
     else {
-      $municipality = $xpath->query('.//dcterms:spatial', $record)->item(0)->nodeValue;
+      $municipality = $xpath->query('.//dcterms:spatial')->item(0)->nodeValue;
 
       $geo_muni = _gvop_bm_geo_request('Gemeente ' . $municipality . ', Nederland');
 
@@ -90,14 +90,14 @@ function gvop_bm_map(DOMElement $record, $node, DOMXPath $xpath) {
   }
 
   // Type bekendmaking.
-  $type = $xpath->query('.//overheidbm:producttype', $record)->item(0)->nodeValue;
+  $type = $xpath->query('.//overheidbm:producttype')->item(0)->nodeValue;
   $term = bespoke_get_term_id($type, 'announcement_type');
   $node->field_announcement_type = array(
     LANGUAGE_NONE => array(array('tid' => $term->tid))
   );
 
   // Datum
-  $date = $xpath->query('.//dcterms:temporal/*', $record)->item(0)->nodeValue;
+  $date = $xpath->query('.//dcterms:temporal/*')->item(0)->nodeValue;
   $node->field_date = array(
     LANGUAGE_NONE => array(array('value' => $date))
   );
