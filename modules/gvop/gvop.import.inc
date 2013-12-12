@@ -29,10 +29,6 @@ function _gvop_batch_run($type_info, &$context) {
     $context['sandbox']['progress'] = 0;
   }
 
-  if ($type_info['file']) {
-    include_once($type_info['file']);
-  }
-
   $limit = variable_get('gvop_limit', 20);
   $dom = _gvop_retrieve_dom($type_info, $context['sandbox']['progress'], $limit);
   $xpath = new DOMXPath($dom);
@@ -94,7 +90,11 @@ function _gvop_retrieve_dom($type_info, $start, $limit, $params = array()) {
  * @return bool|mixed|stdClass
  */
 function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force = FALSE) {
-  $identifier = $xpath->query('.//dcterms:identifier', $record)->item(0)->nodeValue;
+  if ($type_info['file']) {
+    include_once($type_info['file']);
+  }
+
+  $identifier = $xpath->query('.//dcterms:identifier')->item(0)->nodeValue;
 
   // Get the current version from the database.
   $current = db_select('gvop', 'g')
@@ -104,7 +104,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
     ->fetchAssoc();
 
   // Generate an hash for checking the update.
-  $xml = $record->ownerDocument->saveXML($record);
+  $xml = $record->saveXML($record);
   $xml_hash = md5($xml);
 
   // Is this an actual update.
@@ -113,7 +113,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   }
 
   // Are we updating or inserting.
-  $modified = strtotime($xpath->query('.//dcterms:modified', $record)->item(0)->nodeValue);
+  $modified = strtotime($xpath->query('.//dcterms:modified')->item(0)->nodeValue);
   if ($current && !empty($current['nid'])) {
     $node = node_load($current['nid']);
   }
@@ -127,7 +127,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
 
   // Set common info.
   $node->gvop_identifier = $identifier;
-  $node->title = substr($xpath->query('.//dcterms:title', $record)->item(0)->nodeValue, 0, 255);
+  $node->title = substr($xpath->query('.//dcterms:title')->item(0)->nodeValue, 0, 255);
   $node->changed = $modified;
 
   // Run the callback for mapping this type.
