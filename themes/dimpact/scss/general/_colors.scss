@@ -6,24 +6,28 @@ $colourlight: get_env_color('dcolorlight', $azure-light);
 $linkcolor: get_env_color('dlinkcolor', $link-light);
 $background-color: get_env_color('dbackgroundcolor', #dddddd);
 
+$toptakencolour: get_env_color('dtoptakencolor', $azure);
+$headingcolour: get_env_color('dheadingcolor', #333);
+$buttoncolour: get_env_color('dbuttoncolor', $azure);
+
 body {
   a {
     @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
   }
   #main {
     input[type="submit"] {
-      background-color: $colour;
-      @include background-image(linear-gradient($colour, darken($colour, 7%)));
-      box-shadow: lighten($colour, 35%) 0 1px 0 inset;
-      border: 1px solid darken($colour, 10%);
+      background-color: $buttoncolour;
+      @include background-image(linear-gradient($buttoncolour, darken($buttoncolour, 7%)));
+      box-shadow: lighten($buttoncolour, 35%) 0 1px 0 inset;
+      border: 1px solid darken($buttoncolour, 10%);
       color: $linkcolor;
       &:hover, &:focus {
-        background-color: darken($colour, 3%);
-        @include background-image(linear-gradient(darken($colour, 3%), darken($colour, 10%)));
+        background-color: darken($buttoncolour, 3%);
+        @include background-image(linear-gradient(darken($buttoncolour, 3%), darken($buttoncolour, 10%)));
       }
       &:active {
-        background-color: darken($colour, 7%);
-        @include background-image(linear-gradient(darken($colour, 7%), $colour));
+        background-color: darken($buttoncolour, 7%);
+        @include background-image(linear-gradient(darken($buttoncolour, 7%), $buttoncolour));
       }
     }
     //.region_363_first,
@@ -129,7 +133,7 @@ body {
     & > li {
       &.toptaken-active,
       &:hover {
-        background-color: $colour;
+        background-color: $toptakencolour;
         a {
           color: $linkcolor;
         }

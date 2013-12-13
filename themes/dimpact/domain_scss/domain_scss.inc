@@ -2,10 +2,13 @@
 $info = array(
   // Available colors and color labels used in theme.
   'fields' => array(
-    'dcolor' => t('Base Color'),
-    'dcolorlight' => t('Light Color'),
-    'dlinkcolor' => t('Link Color'),
-    'dbackgroundcolor' => t('Background Color'),
+    'dcolor' => t('Base color'),
+    'dcolorlight' => t('Light color'),
+    'dlinkcolor' => t('Link color'),
+    'dbackgroundcolor' => t('Background color'),
+    'dtoptakencolor' => t('Toptaken color'),
+    'dheadingcolor' => t('Heading color'),
+    'dbuttoncolor' => t('Button color'),
   ),
 
   // Pre-defined color schemes.
@@ -16,7 +19,10 @@ $info = array(
         'dcolor' => '#007bc7',
         'dcolorlight' => '#B2D7EE',
         'dlinkcolor' => '#ffffff',
-        'dbackgroundcolor' => '#dddddd'
+        'dbackgroundcolor' => '#dddddd',
+        'dtoptakencolor' => '#007bc7',
+        'dheadingcolor' => '#333',
+        'dbuttoncolor' => '#007bc7',
       ),
     ),
     'dark-brown' => array(
@@ -25,7 +31,10 @@ $info = array(
         'dcolor' => '#623327',
         'dcolorlight' => '#D1C1BE',
         'dlinkcolor' => '#ffffff',
-        'dbackgroundcolor' => '#dddddd'
+        'dbackgroundcolor' => '#dddddd',
+        'dtoptakencolor' => '#623327',
+        'dheadingcolor' => '#333',
+        'dbuttoncolor' => '#623327',
       ),
     ),
     'dark-green' => array(
@@ -34,7 +43,10 @@ $info = array(
         'dcolor' => '#275937',
         'dcolorlight' => '#BECDC3',
         'dlinkcolor' => '#ffffff',
-        'dbackgroundcolor' => '#dddddd'
+        'dbackgroundcolor' => '#dddddd',
+        'dtoptakencolor' => '#275937',
+        'dheadingcolor' => '#333',
+        'dbuttoncolor' => '#275937',
       ),
     ),
     'purple' => array(
@@ -43,7 +55,10 @@ $info = array(
         'dcolor' => '#42145f',
         'dcolorlight' => '#C6B8CF',
         'dlinkcolor' => '#ffffff',
-        'dbackgroundcolor' => '#dddddd'
+        'dbackgroundcolor' => '#dddddd',
+        'dtoptakencolor' => '#42145f',
+        'dheadingcolor' => '#333',
+        'dbuttoncolor' => '#42145f',
       ),
     ),
   ),

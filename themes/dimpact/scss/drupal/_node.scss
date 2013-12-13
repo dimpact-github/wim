@@ -4,6 +4,9 @@
     a {
       text-decoration: underline;
     }
+    #{headings()} {
+      color: get_env_color('dheadingcolor', $azure);
+    }
   }
 
   &.view-mode-teaser {
