@@ -15,6 +15,8 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
     './/overheidrg:uitwerkingtredingDatum' => 'field_date_recall',
     './/overheidrg:terugwerkendekrachtDatum' => 'field_date_retroactively',
   );
+  $xpath->registerNamespace('dcterms', 'http://purl.org/dc/terms/');
+  $xpath->registerNamespace('overheidrg', 'http://standaarden.overheid.nl/cvdr/terms/');
   foreach ($mapping as $query => $field) {
     if (($item = $xpath->query($query)->item(0)) && trim($item->nodeValue) != '') {
       $node->$field = array(

@@ -30,50 +30,11 @@ function gvop_menu() {
 }
 
 /**
- * Implements hook_cron_queue_info().
- */
-function gvop_cron_queue_info() {
-  $queues = array();
-  $queues['gvop_retrieve_items_queue'] = array(
-    'worker callback' => 'gvop_retrieve_items_queue_worker',
-    'time' => 30,
-  );
-
-  $queues['gvop_map_node_queue'] = array(
-    'worker callback' => 'gvop_map_node_queue_worker',
-    'time' => 10,
-  );
-  return $queues;
-}
-
-/**
  * Implements hook_cron().
  */
 function gvop_cron() {
   module_load_include('inc', 'gvop', 'gvop.import');
-
-  $gvop_info = module_invoke_all('gvop_info');
-  foreach ($gvop_info as $type_info) {
-    // Retrieve DOM to get max count.
-    $dom = _gvop_retrieve_dom($type_info, 0, 1);
-    $items = (int) $dom->getElementsByTagName('numberOfRecords')->item(0)->nodeValue;
-
-    // Get the Queue.
-    $queue = DrupalQueue::get('gvop_retrieve_items_queue');
-
-    // Calculate how many runs to fetch all items.
-    $gvop_limit = variable_get('gvop_limit', 20);
-    $runs = $items / $gvop_limit;
-
-    // Add all runs to the queue.
-    for ($i = 0; $i < $runs; $i++) {
-      $item = new stdClass();
-      $item->offset = $i * $gvop_limit;
-      $item->limit = $gvop_limit;
-      $item->type_info = $type_info;
-      $queue->createItem($item);
-    }
-  }
+  gvop_import_batch_start();
 }
 
 /**
@@ -118,12 +79,17 @@ function gvop_retrieve_items_queue_worker($item) {
 function gvop_map_node_queue_worker($item) {
   module_load_include('inc', 'gvop', 'gvop.import');
 
-
-
   // Setup DOM and XPath..
   $record = new DOMDocument();
   $record->loadXML($item->recordXML);
   $xpath = new DOMXPath($record);
+  $xpath->registerNamespace('dcterms', 'http://purl.org/dc/terms/');
+  $xpath->registerNamespace('overheid', 'http://standaarden.overheid.nl/owms/terms/');
+  $xpath->registerNamespace('overheidbm', 'http://standaarden.overheid.nl/bm/terms/');
+  $xpath->registerNamespace('overheidproduct', 'http://standaarden.overheid.nl/product/terms/');
+  $xpath->registerNamespace('overheidrg', 'http://standaarden.overheid.nl/cvdr/terms/');
+  $xpath->registerNamespace('overheidvac', 'http://standaarden.overheid.nl/vac/terms/');
+  $xpath->registerNamespace('overheidvg', 'http://standaarden.overheid.nl/vergunningen/terms');
 
   $node = _gvop_map_node($item->type_info, $record, $xpath);
 }
