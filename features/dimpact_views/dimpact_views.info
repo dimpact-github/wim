@@ -14,6 +14,7 @@ features[views_view][] = announcements
 features[views_view][] = berichten
 features[views_view][] = bestanden
 features[views_view][] = blogs
+features[views_view][] = carrousel_keuze
 features[views_view][] = faq_categorieen
 features[views_view][] = favorieten
 features[views_view][] = feeds_intranet
