@@ -257,6 +257,13 @@ span.ext {
     .node {
       margin-left: $gutter-width/2;
       margin-right: $gutter-width/2;
+      
+      &.view-mode-slide-312,
+      &.view-mode-slide-412,
+      &.view-mode-slide-912,
+      &.view-mode-slide-812 {
+        margin: 0;
+      }
     }
   }
 }
