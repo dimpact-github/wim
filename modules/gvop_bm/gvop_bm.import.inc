@@ -242,6 +242,7 @@ function _gvop_bm_xml_read_text(DOMElement $element, $level = 1) {
         case 'nota-toelichting':
         case 'considerans':
         case 'tekst':
+        case 'zakelijke-mededeling-tekst':
           $output .= _gvop_bm_xml_read_text($child, $level);
           break;
         case 'deel':
