@@ -78,20 +78,19 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
       <div class="container container-nopadding">
         <?php print $navigation; ?>
       </div>
-      <?php if ($breadcrumb): ?>
-        <div class="container container-nopadding">
+      <div class="container container-nopadding">
+        <?php if ($breadcrumb): ?>
           <?php print $breadcrumb; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($readspeaker_status == 1): ?>
-        <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-          <a class="rsbtn_play" title="<?php print t('Laat de tekst voorlezen met ReadSpeaker'); ?>" href="//app.readspeaker.com/cgi-bin/rsent?customerid=<?php print $readspeaker_id; ?>&amp;lang=nl_nl&amp;readid=main&amp;url=<?php echo urlencode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">
-            <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php print t('Lees voor'); ?></span></span></span>
-            <span class="rsbtn_right rsimg rsplay rspart"></span>
-          </a>
-        </div>
-      <?php endif; ?>
+        <?php endif; ?>
+        <?php if ($readspeaker_status == 1): ?>
+          <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+            <a class="rsbtn_play" title="<?php print t('Laat de tekst voorlezen met ReadSpeaker'); ?>" href="//app.readspeaker.com/cgi-bin/rsent?customerid=<?php print $readspeaker_id; ?>&amp;lang=nl_nl&amp;readid=main&amp;url=<?php echo urlencode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">
+              <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php print t('Lees voor'); ?></span></span></span>
+              <span class="rsbtn_right rsimg rsplay rspart"></span>
+            </a>
+          </div>
+        <?php endif; ?>
+      </div>
     </nav>
   <?php endif; ?>
 
