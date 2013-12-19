@@ -240,6 +240,7 @@ body.front {
   @include font-size(11);
   margin: $gutter-width/2 $gutter-width 0 $gutter-width*1.5;
   color: lighten($gray, 30%);
+  float: left;
   .active,
   a {
     color: $gray !important;
@@ -322,6 +323,6 @@ nav.block-menu-menu-tabbladen {
 }
 
 body.front nav.main-menu {
-  padding-bottom: 26px;
-  margin-bottom: 8px;
+//  padding-bottom: 26px;
+//  margin-bottom: 8px;
 }
