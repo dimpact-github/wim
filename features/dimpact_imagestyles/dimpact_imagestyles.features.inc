@@ -38,7 +38,7 @@ function dimpact_imagestyles_image_default_styles() {
     'name' => 'full_width',
     'label' => 'Full width',
     'effects' => array(
-      6 => array(
+      1 => array(
         'label' => 'Schalen en bijsnijden',
         'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -48,8 +48,8 @@ function dimpact_imagestyles_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1120,
-          'height' => 200,
+          'width' => 1116,
+          'height' => 372,
         ),
         'weight' => 1,
       ),
@@ -195,6 +195,98 @@ function dimpact_imagestyles_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 265,
+          'height' => 265,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: slide_1_3.
+  $styles['slide_1_3'] = array(
+    'name' => 'slide_1_3',
+    'label' => 'Slide-1-3',
+    'effects' => array(
+      2 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 359,
+          'height' => 359,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: slide_1_4.
+  $styles['slide_1_4'] = array(
+    'name' => 'slide_1_4',
+    'label' => 'Slide-1-4',
+    'effects' => array(
+      4 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 265,
+          'height' => 265,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: slide_2_3.
+  $styles['slide_2_3'] = array(
+    'name' => 'slide_2_3',
+    'label' => 'Slide-2-3',
+    'effects' => array(
+      3 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 738,
+          'height' => 359,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: slide_3_4.
+  $styles['slide_3_4'] = array(
+    'name' => 'slide_3_4',
+    'label' => 'Slide-3-4',
+    'effects' => array(
+      5 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 832,
           'height' => 265,
         ),
         'weight' => 1,

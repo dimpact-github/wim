@@ -1967,6 +1967,40 @@ function dimpact_content_types_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'slide_412' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'slide_812' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'slide_312' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'slide_912' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'slide_412' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'slide_812' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'slide_312' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'slide_912' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
         ),
       ),
     ),
