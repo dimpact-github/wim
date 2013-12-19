@@ -1968,11 +1968,11 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'slide_412' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => FALSE,
           ),
           'slide_812' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => FALSE,
           ),
           'slide_312' => array(
@@ -1986,11 +1986,11 @@ function dimpact_content_types_strongarm() {
         ),
         'subscriptions_ui' => array(
           'slide_412' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
           'slide_812' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
           'slide_312' => array(
@@ -1999,6 +1999,10 @@ function dimpact_content_types_strongarm() {
           ),
           'slide_912' => array(
             'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'volle_breedte' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
