@@ -38,9 +38,49 @@ function bespoke_entity_info_alter(&$entity_info) {
     'label' => t('Portret'),
     'custom settings' => TRUE,
   );
+  
+  $entity_info['file']['view modes']['slide_1_3'] = array(
+    'label' => t('Slide 4/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['file']['view modes']['slide_2_3'] = array(
+    'label' => t('Slide 8/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['file']['view modes']['slide_1_4'] = array(
+    'label' => t('Slide 3/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['file']['view modes']['slide_3_4'] = array(
+    'label' => t('Slide 9/12'),
+    'custom settings' => TRUE,
+  );
 
   $entity_info['node']['view modes']['volle_breedte'] = array(
     'label' => t('Volle breedte'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['node']['view modes']['slide_412'] = array(
+    'label' => t('Slide 4/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['node']['view modes']['slide_812'] = array(
+    'label' => t('Slide 8/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['node']['view modes']['slide_312'] = array(
+    'label' => t('Slide 3/12'),
+    'custom settings' => TRUE,
+  );
+
+  $entity_info['node']['view modes']['slide_912'] = array(
+    'label' => t('Slide 9/12'),
     'custom settings' => TRUE,
   );
 }
