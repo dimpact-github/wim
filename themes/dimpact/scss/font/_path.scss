@@ -3,11 +3,11 @@
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../font/fontawesome/fontawesome-webfont.eot?v=#{$FontAwesomeVersion}');
-  src: url('../font/fontawesome/fontawesome-webfont.eot?#iefix&v=#{$FontAwesomeVersion}') format('embedded-opentype'),
-    url('../font/fontawesome/fontawesome-webfont.woff?v=#{$FontAwesomeVersion}') format('woff'),
-    url('../font/fontawesome/fontawesome-webfont.ttf?v=#{$FontAwesomeVersion}') format('truetype'),
-    url('../font/fontawesome/fontawesome-webfont.svg#fontawesomeregular?v=#{$FontAwesomeVersion}') format('svg');
+  src: url('/sites/all/themes/subtheme/dimpact/font/fontawesome/fontawesome-webfont.eot?v=#{$FontAwesomeVersion}');
+  src: url('/sites/all/themes/subtheme/dimpact/font/fontawesome/fontawesome-webfont.eot?#iefix&v=#{$FontAwesomeVersion}') format('embedded-opentype'),
+    url('/sites/all/themes/subtheme/dimpact/font/fontawesome/fontawesome-webfont.woff?v=#{$FontAwesomeVersion}') format('woff'),
+    url('/sites/all/themes/subtheme/dimpact/font/fontawesome/fontawesome-webfont.ttf?v=#{$FontAwesomeVersion}') format('truetype'),
+    url('/sites/all/themes/subtheme/dimpact/font/fontawesome/fontawesome-webfont.svg#fontawesomeregular?v=#{$FontAwesomeVersion}') format('svg');
 //  src: url('#{$FontAwesomePath}/FontAwesome.otf') format('opentype'); // used when developing fonts
   font-weight: normal;
   font-style: normal;
