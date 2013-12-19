@@ -106,6 +106,7 @@ projects[memcache][subdir] = contrib
 projects[menu_attributes][subdir] = contrib
 projects[menu_block][subdir] = contrib
 projects[menu_token][subdir] = contrib
+projects[menu_view_unpublished][subdir] = contrib
 projects[menuimage][subdir] = contrib
 projects[metatag][subdir] = contrib
 projects[module_filter][subdir] = contrib
