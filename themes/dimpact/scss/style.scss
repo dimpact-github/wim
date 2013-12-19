@@ -202,7 +202,7 @@ p {
     overflow: hidden;
     position: relative;
   }
-  .region_full_top,
+//  .region_full_top,
   .region_full_bottom {
     .block {
       margin-bottom: 0;
@@ -257,11 +257,11 @@ span.ext {
     .node {
       margin-left: $gutter-width/2;
       margin-right: $gutter-width/2;
-      
       &.view-mode-slide-312,
       &.view-mode-slide-412,
       &.view-mode-slide-912,
-      &.view-mode-slide-812 {
+      &.view-mode-slide-812,
+      &.slide {
         margin: 0;
       }
     }
@@ -456,10 +456,12 @@ div.workbench-info-block {
 }
 
 #readspeaker_button1 {
-  position: absolute;
+//  position: absolute;
   right: $gutter-width;
-  bottom : -4px;
+  top: 5px;
+//  bottom : -4px;
   margin: 0;
+  float: right;
 }
 
 .block-custom-lists {
