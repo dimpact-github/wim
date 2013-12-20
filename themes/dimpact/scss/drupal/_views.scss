@@ -303,6 +303,10 @@
       margin: 0 $gutter-width/2;
       border: 0;
       width: 100px;
+      
+      .views-field-title {
+        height: 41px;
+      }
     }
   }
 }
