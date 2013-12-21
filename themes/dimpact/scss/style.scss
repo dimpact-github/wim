@@ -199,10 +199,8 @@ p {
 #main {
   .block {
     margin-bottom: $gutter-width;
-    overflow: hidden;
     position: relative;
   }
-//  .region_full_top,
   .region_full_bottom {
     .block {
       margin-bottom: 0;
@@ -257,7 +255,7 @@ span.ext {
     .node {
       margin-left: $gutter-width/2;
       margin-right: $gutter-width/2;
-      
+
       &.view-mode-volle-breedte,
       &.view-mode-slide-312,
       &.view-mode-slide-412,
@@ -266,7 +264,7 @@ span.ext {
       &.slide {
         margin: 0;
         position: relative;
-        
+
         .field-link {
           a {
             position: absolute;
@@ -279,7 +277,7 @@ span.ext {
             overflow: hidden;
           }
         }
-        
+
       }
     }
   }

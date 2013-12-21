@@ -61,4 +61,5 @@ if (preg_match('|block-node-([0-9]+)|', $block_html_id, $matches)) {
     <?php print render($title_suffix); ?>
     <?php print $content; ?>
   <?php if (!empty($content_attributes)): ?></div><?php endif; ?>
+  <div class="clearfix"></div>
 </div>
