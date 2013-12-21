@@ -108,14 +108,14 @@ nav {
         position: absolute;
         top: 9px;
         left: $gutter-width*1.5;
-        z-index: 12;
+        z-index: 120;
         display: none;
       }
     }
     .quicktabs-wrapper {
       background-color: $background-color;
       position: relative;
-      z-index: 11;
+      z-index: 110;
       ul {
         margin: 0;
       }
