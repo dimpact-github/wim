@@ -8,8 +8,16 @@ hide($content['field_link']);
 
 ?>
 <article<?php print $attributes; ?>>
-
-<?php print render($content['field_image']); ?>
-<?php print render($content['field_link']); ?>
- 
+  <?php if ($content['field_link']['#items']): ?>
+    <?php
+      print l(
+        strip_tags(render($content['field_image']), '<img>'),
+        $content['field_link']['#items'][0]['url'], array(
+          'html' => TRUE
+        )
+      );
+    ?>
+  <?php else: ?>
+    <?php print render($content['field_image']); ?>
+  <?php endif; ?>
 </article>
