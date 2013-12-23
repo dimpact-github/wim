@@ -33,6 +33,13 @@ function _rijkshuisstijl_defined_colours() {
 }
 
 function dimpact_form_system_theme_settings_alter(&$form, $form_state) {
+  $form['hide_site_title'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide site title'),
+    '#weight' => -20,
+    '#default_value' => theme_get_setting('hide_site_title', 'dimpact'),
+  );
+
   $form['color'] = array(
     '#type' => 'fieldset',
     '#title' => t('Color settings'),

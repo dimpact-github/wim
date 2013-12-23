@@ -62,12 +62,14 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
             <?php if ($logo): ?>
               <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="logo"><img src="<?php print $logo ?>" alt="<?php print $site_name ?> Logo"></a>
             <?php endif; ?>
-            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
+            <?php if (!theme_get_setting('hide_site_title', 'dimpact')): ?>
+              <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
+            <?php endif; ?>
           </h1>
         <?php endif; ?>
-        <?php if ($site_slogan): ?>
+        <?php /* if ($site_slogan): ?>
           <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
-        <?php endif; ?>
+        <?php endif; */ ?>
       </hgroup>
       <?php print $header; ?>
     </div>
