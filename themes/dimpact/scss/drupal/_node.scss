@@ -63,6 +63,7 @@
       margin-bottom: $gutter-width;
     }
     .field-body {
+      @extend .clearfix;
       img {
         float: left;
         margin-right: $gutter-width/2;
