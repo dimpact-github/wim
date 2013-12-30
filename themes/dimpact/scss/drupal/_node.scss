@@ -112,14 +112,7 @@
 .date-display-end {
   font-weight: 700;
 }
-body {
-  &.not-logged-in.node-type-subject {
-    h1#page-title,
-    .subject .field-body {
-      margin-left: -274px;
-    }
-  }
-}
+
 .view-mode-search-result {
   .field-image {
     float: right;

@@ -127,6 +127,14 @@
 //    top: 60px;
 //    right: $gutter-width;
   }
+  body {
+    &.not-logged-in.node-type-subject {
+      h1#page-title,
+      .subject .field-body {
+        margin-left: -172px;
+      }
+    }
+  }
 }
 
 /**
@@ -359,6 +367,14 @@
       }
     }
   }
+  body {
+    &.not-logged-in.node-type-subject {
+      h1#page-title,
+      .subject .field-body {
+        margin-left: -176px;
+      }
+    }
+  }
 }
 
 /**
@@ -467,5 +483,14 @@
   }
   html:not(.js) nav .quicktabs_main .quicktabs-tabpage {
     position: relative;
+  }
+
+  body {
+    &.not-logged-in.node-type-subject {
+      h1#page-title,
+      .subject .field-body {
+        margin-left: -274px;
+      }
+    }
   }
 }
