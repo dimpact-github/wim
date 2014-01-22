@@ -1,16 +1,13 @@
 #main-wrapper {
   outline: 2px solid #e6e8e9;
 }
+
 .form-text {
   max-width: none !important;
 }
 
-
 .view-voorpagina-banners {
-//  background-color: yellow !important;
   .views-row {
-//    background-color: cyan !important;
-
     margin: 0 1% 5px 0 !important;
     padding: 0 !important;
     width: 48% !important;
@@ -26,6 +23,14 @@
     .field-intro,
     h3 {
       display: inline !important;
+    }
+  }
+}
+
+.block-menu-menu-toptaken > ul > li {
+  > ul {
+    > li + li {
+      margin-right: 0;
     }
   }
 }
