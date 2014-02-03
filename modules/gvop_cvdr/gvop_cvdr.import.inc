@@ -48,26 +48,31 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
   $node->field_red_addition = array(
     LANGUAGE_NONE => array(
       array(
-        'value' => $xpath->query('.//overheidrg:redactioneleToevoeging')->item(0)->nodeValue,
+        'value' => $xpath->query('.//overheidrg:redactioneleToevoeging', $record)->item(0)->nodeValue,
         'format' => 'filtered_html',
       )
     )
   );
 
   if (module_exists('scheduler')) {
-    $publish_on_str = $xpath->query('.//overheidrg:inwerkingtredingDatum')->item(0)->nodeValue;
+    $node->publish_on = FALSE;
+    $node->unpublish_on = FALSE;
+    $publish_on_str = trim($xpath->query('.//overheidrg:inwerkingtredingDatum', $record)->item(0)->nodeValue);
     if (!empty($publish_on_str)) {
       $node->publish_on =  strtotime($publish_on_str);
     }
 
-    $unpublish_on_str = $xpath->query('.//overheidrg:uitwerkingtredingDatum')->item(0)->nodeValue;
+    $unpublish_on_str = trim($xpath->query('.//overheidrg:uitwerkingtredingDatum', $record)->item(0)->nodeValue);
     if (!empty($unpublish_on_str)) {
       $node->unpublish_on = strtotime($unpublish_on_str);
+      if ($node->unpublish_on <= REQUEST_TIME) {
+        $node->status = 0;
+      }
     }
   }
 
   $xpath->registerNamespace('ns1', "http://standaarden.overheid.nl/sru");
-  $pubUrl = $xpath->query('.//ns1:publicatieurl_xml')->item(0)->nodeValue;
+  $pubUrl = $xpath->query('.//ns1:publicatieurl_xml', $record)->item(0)->nodeValue;
   if ($pubUrl) {
     $data = drupal_http_request($pubUrl);
     if ($data->code == 200) {

@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Reschedule all regulations for import.
+ */
+function gvop_cvdr_update_7101() {
+  $sql = 'UPDATE {gvop}
+  SET hash = \'\'
+  WHERE xml LIKE \'%overheidrg:uitwerkingtredingDatum%\'';
+  db_query($sql);
+}
