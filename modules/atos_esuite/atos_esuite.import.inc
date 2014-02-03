@@ -34,27 +34,59 @@ function atos_esuite_import_batch_worker(&$context) {
   if (empty($context['sandbox'])) {
     $context['sandbox']['done'] = 0;
     $context['sandbox']['max'] = variable_get('atos_esuite_finish_margin', 250);
-    $context['sandbox']["last"] = 0;
-    $context['sandbox']["last_found"] = 0;
+    $context['sandbox']['last'] = 0;
+    $context['sandbox']['last_found'] = 0;
+    $context['sandbox']['errors'] = 0;
+    $context['sandbox']['starttime'] = time();
   }
 
   $url = variable_get('atos_esuite_url', '');
   $query = array(
-    'id' => implode(',', range($context['sandbox']["last"] + 1, $context['sandbox']["last"] + variable_get('atos_esuite_chunk_size', 10))),
+    'id' => implode(',', range($context['sandbox']['last'] + 1, $context['sandbox']['last'] + variable_get('atos_esuite_chunk_size', 10))),
   );
   $url = "$url?" . http_build_query($query, '', '&');
-  list($done, $errors, $last_atos_id) = _atos_esuite_process_feed($url);
-  $context['sandbox']['done'] += $done;
-  $context['sandbox']["last_found"] = max($context['sandbox']["last_found"], $last_atos_id);
-  $context['sandbox']["last"] += variable_get('atos_esuite_chunk_size', 10);
+  if ($result = _atos_esuite_process_feed($url)) {
+    list($done, $errors, $last_atos_id) = $result;
+    $context['sandbox']['done'] += $done;
+    $context['sandbox']['last_found'] = max($context['sandbox']['last_found'], $last_atos_id);
+    $context['sandbox']['last'] += variable_get('atos_esuite_chunk_size', 10);
+    $context['sandbox']['max'] = $context['sandbox']['last_found'] + variable_get('atos_esuite_finish_margin', 250);
+  }
+  else {
+    $context['sandbox']['errors']++;
+  }
 
   $context['message'] = t('Imported @count items.', array(
     '@count' => $context['sandbox']['done'],
   ));
-  $context['sandbox']['max'] = $context['sandbox']["last_found"] + variable_get('atos_esuite_finish_margin', 250);
-  $context['finished'] = $context['sandbox']["last"] >= $context['sandbox']['max'];
+  $context['finished'] = $context['sandbox']['last'] >= $context['sandbox']['max'];
   if ($context['finished']) {
+    _atos_esuite_delete_nodes($context['sandbox']['starttime']);
     $context['results']['count'] = $context['sandbox']['done'];
+  }
+}
+
+/**
+ * Delete nodes which were not found during the batch.
+ *
+ * @param int $starttime
+ */
+function _atos_esuite_delete_nodes($starttime) {
+  // Sleep a second to wait for database changes to be completed.
+  sleep(1);
+
+  $count = db_query('SELECT COUNT(*) FROM {atos_esuite}')->fetchField();
+  $deleted = db_select('atos_esuite', 'a')
+    ->fields('a', array('identifier', 'nid'))
+    ->condition('a.changed', $starttime, '<')
+    ->execute()
+    ->fetchAll();
+  if (count($deleted) == $count) {
+    // Looks like all items are deleted. We don't proceed in this case as a safety measure.
+    return FALSE;
+  }
+  foreach ($deleted as $node) {
+    node_delete($node->nid);
   }
 }
 
@@ -166,6 +198,11 @@ function atos_esuite_map_node($documentXML, $force = FALSE) {
 
     // Is this an actual update.
     if (!$force && $current && $xml_hash == $current['hash']) {
+      // Update the changed date, so we know that this item still exists.
+      db_merge('atos_esuite')
+        ->key(array('identifier' => $id))
+        ->fields(array('changed' => REQUEST_TIME))
+        ->execute();
       return FALSE;
     }
 
