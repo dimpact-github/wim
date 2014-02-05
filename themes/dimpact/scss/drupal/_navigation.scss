@@ -99,6 +99,12 @@ nav {
       }
     }
 
+    #quicktabs-container-alfabet {
+      &.open {
+        margin-top: $gutter-width;
+      }
+    }
+
     .block-quicktabs {
       position: relative;
       h2.block-title {
@@ -146,7 +152,6 @@ nav {
         }
         .quicktabs-tabpage {
           background-color: #fff;
-          padding: $gutter-width;
           z-index: 5;
           width: 100%;
           ul {
@@ -163,6 +168,9 @@ nav {
           a {
             display: inline-block;
             color: $text-color;
+          }
+          .block-menu {
+            padding: 0 $gutter-width;
           }
           .close-button {
             &:after {
@@ -305,7 +313,6 @@ nav.block-menu-menu-tabbladen {
       float: left;
       line-height: 1;
       margin-right: $gutter-width/2;
-//      display: block;
       a {
         @include border-top-radius(5px);
         @include border-bottom-radius(0);
@@ -321,9 +328,4 @@ nav.block-menu-menu-tabbladen {
       }
     }
   }
-}
-
-body.front nav.main-menu {
-//  padding-bottom: 26px;
-//  margin-bottom: 8px;
 }

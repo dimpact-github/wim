@@ -191,6 +191,10 @@
       }
     }
   }
+  .quicktabs-tabpage {
+    padding-top: $gutter-width;
+    padding-bottom: $gutter-width;
+  }
   .view-voorpagina-banners {
     .views-row {
       @include span-columns(3, 6);
