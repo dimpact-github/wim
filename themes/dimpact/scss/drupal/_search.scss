@@ -27,7 +27,6 @@
 }
 
 .block-search {
-  position: absolute !important;
   top: $gutter-width/2;
   right: $gutter-width/2;
   text-align: center;
@@ -43,13 +42,14 @@
   input[type="text"] {
     @include border-left-radius(4px);
     border-right: 0;
-    width: 100px;
+    width: 80%;
     &:focus  {
       @include background-image(linear-gradient(#eee, #fff));
     }
   }
   input[type="submit"] {
     @include border-right-radius(4px);
+    width: 20%;
   }
 }
 

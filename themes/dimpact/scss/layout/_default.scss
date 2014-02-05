@@ -66,11 +66,11 @@
   .only-mobile {
     display: none;
   }
-  .block-search {
-    input[type="text"] {
-      width: 200px;
-    }
-  }
+//  .block-search {
+//    input[type="text"] {
+//      width: 200px;
+//    }
+//  }
   .branding {
     padding: $gutter-width 0;
   }
@@ -284,6 +284,9 @@
       &:focus  {
         width: 330px;
       }
+    }
+    input[type="submit"] {
+      width: auto;
     }
   }
   .js .nav-collapse {
