@@ -51,10 +51,6 @@ html:not(.js) .block-menu-menu-toptaken > ul > li:hover {
 
 html.js .block-menu-menu-toptaken > ul > li.toptaken-active {
   > a {
-//    background-image: url('../img/toptaken-arrow.png');
-//    background-position: center right;
-//    background-repeat: no-repeat;
-//    margin-right: -9px;
     z-index: 1;
     position: relative;
     &:after {
