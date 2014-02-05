@@ -30,10 +30,8 @@
     @include susy-grid-background;
   }
   .region_meta_first {
-//    @include span-columns($break-small/2, $break-small);
   }
   .region_meta_second {
-//    @include span-columns($break-small/2 omega, $break-small);
     .block-menu {
       display: block;
     }
@@ -79,13 +77,6 @@
   .site-name .name {
     display: inline;
   }
-  body.front {
-    nav {
-      &.main-menu {
-//        margin-bottom: $gutter-width;
-      }
-    }
-  }
   #homebox {
     @include container($total-columns, $break-small);
     @include susy-grid-background;
@@ -121,11 +112,6 @@
         }
       }
     }
-  }
-  #readspeaker_button1 {
-//    position: absolute;
-//    top: 60px;
-//    right: $gutter-width;
   }
   body {
     &.not-logged-in.node-type-subject {
@@ -197,10 +183,7 @@
     margin-bottom: 7px;
     a {
       @include border-radius(4px);
-//      height: 60px;
-//      line-height: 58px;
       padding: $gutter-width/3 0;
-//      padding-left: $gutter-width/2;
       text-align: center;
       span {
         display: block;
@@ -280,9 +263,6 @@
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
   }
-  nav.main-menu .block-quicktabs h2.block-title {
-//    top: 24px;
-  }
   nav.main-menu .block-quicktabs .quicktabs-tabs a {
     padding: 0.75em 8px;
   }
@@ -345,11 +325,6 @@
     .btn_prev {
       @include font-size(42);
     }
-  }
-  #readspeaker_button1 {
-//    position: absolute;
-//    top: $gutter-width/2;
-//    left: 150px;
   }
   nav.block-menu-menu-tabbladen {
     position: absolute;
