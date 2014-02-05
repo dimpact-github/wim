@@ -163,9 +163,6 @@ p {
   &:first-child {
     margin-top: 0;
   }
-  //&:last-child {
-  //  margin-bottom: 0;
-  //}
 }
 
 #toolbar-home {
@@ -356,9 +353,6 @@ div.workbench-info-block {
   background-color: lighten($background-color, 7%);
   margin: 0 0 $gutter-width 0;
   padding: $gutter-width/2;
-//  border-top: 1px solid $background-color;
-//  margin-top: $gutter-width/2;
-//  padding-top: $gutter-width/2;
   .submitted {
     margin-bottom: 0.25em;
   }
@@ -471,10 +465,8 @@ div.workbench-info-block {
 }
 
 #readspeaker_button1 {
-//  position: absolute;
   right: $gutter-width;
   top: 5px;
-//  bottom : -4px;
   margin: 0;
   float: right;
 }
