@@ -234,6 +234,14 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['style_options']['bubbletextenabled'] = 1;
   $handler->display->display_options['style_options']['bubbletextfield'] = 'title';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Gedrag bij ontbreken van resultaten: Algemeen: Tekstveld */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Er zijn geen bekendmakingen gevonden met de ingevoerde criteria.
+U kunt de filters links aanpassen om verder te zoeken.';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -373,6 +381,7 @@ if (node_access(\'create\', \'agenda\')) {
   /* Display: Bijlage */
   $handler = $view->new_display('attachment', 'Bijlage', 'attachment_1');
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
     'default' => 0,
@@ -394,6 +403,8 @@ if (node_access(\'create\', \'agenda\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
+    t('Er zijn geen bekendmakingen gevonden met de ingevoerde criteria.
+U kunt de filters links aanpassen om verder te zoeken.'),
     t('Titel'),
     t('Type bekendmaking'),
     t('Postcode'),
@@ -1613,17 +1624,11 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['field_tags_tid']['id'] = 'field_tags_tid';
   $handler->display->display_options['arguments']['field_tags_tid']['table'] = 'field_data_field_tags';
   $handler->display->display_options['arguments']['field_tags_tid']['field'] = 'field_tags_tid';
-  $handler->display->display_options['arguments']['field_tags_tid']['exception']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_tags_tid']['exception']['title'] = '%1';
-  $handler->display->display_options['arguments']['field_tags_tid']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['field_tags_tid']['title'] = '%1';
+  $handler->display->display_options['arguments']['field_tags_tid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['field_tags_tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_tags_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_tags_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_tags_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_tags_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_tags_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_tags_tid']['validate']['fail'] = 'empty';
   /* Filtercriterium: Inhoud: Gepubliceerd */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1653,7 +1658,8 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'teaser';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Kop: Algemeen: Tekstveld */
@@ -1679,33 +1685,42 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Foto */
-  $handler->display->display_options['fields']['field_foto']['id'] = 'field_foto';
-  $handler->display->display_options['fields']['field_foto']['table'] = 'field_data_field_foto';
-  $handler->display->display_options['fields']['field_foto']['field'] = 'field_foto';
-  $handler->display->display_options['fields']['field_foto']['label'] = '';
-  $handler->display->display_options['fields']['field_foto']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_foto']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_foto']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_foto']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_foto']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_foto']['type'] = 'lightbox2__lightbox__list_thumbnail__origineel';
-  $handler->display->display_options['fields']['field_foto']['settings'] = array(
-    'image_style' => 'list_thumbnail',
-    'image_link' => 'content',
-  );
-  $handler->display->display_options['fields']['field_foto']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['max_length'] = '30';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Veld: Inhoud: Tags */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['label'] = '';
+  $handler->display->display_options['fields']['field_tags']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['alter']['path'] = 'foto-album/tag/[field_tags-tid]';
+  $handler->display->display_options['fields']['field_tags']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_tags']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_tags']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Bestand */
+  $handler->display->display_options['fields']['field_bestand']['id'] = 'field_bestand';
+  $handler->display->display_options['fields']['field_bestand']['table'] = 'field_data_field_bestand';
+  $handler->display->display_options['fields']['field_bestand']['field'] = 'field_bestand';
+  $handler->display->display_options['fields']['field_bestand']['label'] = '';
+  $handler->display->display_options['fields']['field_bestand']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_bestand']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_bestand']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_bestand']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_bestand']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_bestand']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_bestand']['settings'] = array(
+    'file_view_mode' => 'teaser',
+  );
+  $handler->display->display_options['fields']['field_bestand']['field_api_classes'] = TRUE;
   $handler->display->display_options['path'] = 'foto-album/tag/%';
 
   /* Display: Blok */
@@ -1859,7 +1874,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('volgende ›'),
     t('laatste »'),
     t('term van field_tags'),
-    t('%1'),
+    t('Alle'),
     t('Page'),
     t('<?php
 // print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
