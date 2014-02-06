@@ -370,7 +370,7 @@ function dimpact_preprocess_views_view(&$vars) {
     // Add a class to the view. We're not wrapping this in yet another div.
     $vars['classes_array'][] = 'view-empty';
   }
-  else {
+  elseif (empty($vars['empty'])) {
     // Give it an empty string so it can just be printed. Simpler template.
     $vars['empty'] = '';
   }
