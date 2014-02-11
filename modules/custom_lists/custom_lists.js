@@ -31,12 +31,15 @@
       $('#edit-provide-page').change(function() {
         if ($(this).is(':checked')) {
           $('.form-item-page-items').show();
-          $('.form-item-path').show();
+          var $path = $('.form-item-path'),
+              $input = $path.find('input');
+          $input.val($input.val() === '<none>' ? '' : $input.val());
+          $path.show();
           $('.text-format-wrapper').show();
         }
         else {
           $('.form-item-page-items').hide();
-          $('.form-item-path').hide();
+          $('.form-item-path').find('input').val('<none>').end().hide();
           $('.text-format-wrapper').hide();
         }
       });

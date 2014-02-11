@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Update all custom lists to incorporate the new hashing mechanism.
+ */
+function custom_lists_update_7101() {
+  $lists = custom_lists_get();
+
+  $new_lists = array();
+  foreach ($lists as $list_key => $list_definition) {
+    $new_key = md5(serialize($list_definition));
+    $new_lists[$new_key] = $list_definition;
+
+    if (module_exists('felix'))  {
+      db_update('felix_block')
+        ->fields(array(
+          'delta' => $new_key,
+        ))
+        ->condition('delta', $list_key)
+        ->execute();
+    }
+  }
+
+  if (!empty($new_lists)) {
+    _custom_lists_set($new_lists);
+  }
+}

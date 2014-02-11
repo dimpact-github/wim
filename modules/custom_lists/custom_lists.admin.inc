@@ -176,6 +176,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#default_value' => !empty($list['block-items']) ? $list['block-items']: 5,
     '#size' => 5,
   );
+  $form['block']['more-link'] = array(
+    '#type' => 'textfield',
+    '#title' => t('More link'),
+    '#description' => t('Fill in the Drupal URL for the \'more\' link. Leave empty to omit.'),
+    '#default_value' => !empty($list['more-link']) ? $list['more-link'] : '',
+  );
 
   /**
    * Provide page
@@ -195,7 +201,7 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#title' => t('Path'),
     '#required' => TRUE,
     '#size' => 30,
-    '#default_value' => !empty($list['path']) ? $list['path']: '',
+    '#default_value' => (!empty($list['path']) && $list['path'] !== '<none>') ? $list['path']: '',
   );
   $form['page']['page-items'] = array(
     '#type' => 'textfield',
@@ -231,7 +237,6 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
  */
 function custom_lists_list_form_submit($form, &$form_state) {
   $domain = domain_get_domain();
-  $list_key = md5($domain['domain_id'] . '-' . $form_state['values']['path']);
 
   // Get taxonomy term id.
   if (!empty($form_state['values']['taxonomy'])) {
@@ -255,6 +260,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'block-items' => $form_state['values']['block-items'],
     'type' => $form_state['values']['type'],
     'provide-block' => $form_state['values']['provide-block'],
+    'more-link' => $form_state['values']['more-link'],
     'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],
     'taxonomy' => $form_state['values']['taxonomy'],
@@ -263,6 +269,8 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'intro-text' => $form_state['values']['intro-text']['value'],
     'domain_id' => $domain['domain_id'],
   );
+
+  $list_key = md5(serialize($list));
 
   drupal_set_message(t('The list has been added.'));
   custom_lists_add($list_key, $list);

@@ -121,6 +121,12 @@ function custom_lists_block_view($delta = '') {
     '#items' => $items,
   );
 
+  if (isset($list['more-link'])) {
+    $block['content']['more'] = array(
+      '#markup' => '<div class="more-link">' . l(t('More'), $list['more-link']) . '</div>',
+    );
+  }
+
   if ($list['provide-page']) {
     $block['content']['more-link'] = array(
       '#theme' => 'more_link',
@@ -152,6 +158,7 @@ function custom_lists_page() {
   foreach ($lists as $list) {
     if ($list['domain_id'] == $domain['domain_id'] && $list['path'] == $_GET['q']) {
       $found_list = $list;
+      break;
     }
   }
 
