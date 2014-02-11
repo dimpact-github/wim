@@ -301,6 +301,16 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'cookie_consent',
   );
 
+  // Exported permission: 'administer custom lists'.
+  $permissions['administer custom lists'] = array(
+    'name' => 'administer custom lists',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+    ),
+    'module' => 'custom_lists',
+  );
+
   // Exported permission: 'administer domains'.
   $permissions['administer domains'] = array(
     'name' => 'administer domains',

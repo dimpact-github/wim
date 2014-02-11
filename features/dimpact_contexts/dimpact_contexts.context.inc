@@ -401,6 +401,12 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-10',
         ),
+        'dominion_menu-1' => array(
+          'module' => 'dominion_menu',
+          'delta' => '1',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
         'submenutree-2' => array(
           'module' => 'submenutree',
           'delta' => '2',
@@ -477,12 +483,6 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => 'menu-tabbladen',
           'region' => 'header',
           'weight' => '-9',
-        ),
-        'dominion_menu-1' => array(
-          'module' => 'dominion_menu',
-          'delta' => '1',
-          'region' => 'navigation',
-          'weight' => '-10',
         ),
         'quicktabs-alfabet' => array(
           'module' => 'quicktabs',
