@@ -478,9 +478,9 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-9',
         ),
-        'system-main-menu' => array(
-          'module' => 'system',
-          'delta' => 'main-menu',
+        'dominion_menu-1' => array(
+          'module' => 'dominion_menu',
+          'delta' => '1',
           'region' => 'navigation',
           'weight' => '-10',
         ),
