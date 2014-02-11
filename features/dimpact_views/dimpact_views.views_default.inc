@@ -2221,6 +2221,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
@@ -4207,7 +4208,6 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_spatial_plan_id']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_spatial_plan_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_spatial_plan_id']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_spatial_plan_id']['type'] = 'text_plain';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
