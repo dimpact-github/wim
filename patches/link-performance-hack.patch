@@ -1,0 +1,20 @@
+diff --git a/link.module b/link.module
+index 4d821e4..91f05af 100644
+--- a/link.module
++++ b/link.module
+@@ -288,8 +288,13 @@ function link_field_update($entity_type, $entity, $field, $instance, $langcode,
+  */
+ function link_field_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items) {
+   foreach ($items as $entity_id => $entity_items) {
+-    foreach ($entity_items as $delta => $value) {
+-      _link_sanitize($items[$entity_id][$delta], $delta, $field, $instances[$entity_id], $entities[$entity_id]);
++    if (arg(0) == 'bestemmingsplannen') {
++      $items[$entity_id] = array();
++    }
++    else {
++      foreach ($entity_items as $delta => $value) {
++        _link_sanitize($items[$entity_id][$delta], $delta, $field, $instances[$entity_id], $entities[$entity_id]);
++      }
+     }
+   }
+ }
