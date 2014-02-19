@@ -491,6 +491,10 @@ div.workbench-info-block {
   }
 }
 
+.gmnoprint {
+  width: auto !important;
+}
+
 // Leave this here please :)
 @import "layout/default";
 @import "general/colors";
