@@ -68,7 +68,6 @@ function custom_lists_delete_form_submit($form, &$form_state) {
  */
 function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
   $list = array();
-
   if ($list_key) {
     $lists = custom_lists_get();
     $list = $lists[$list_key];
@@ -95,6 +94,14 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#required' => TRUE,
     '#default_value' => !empty($list['title']) ? $list['title']: '',
   );
+  if (!empty($list_key)){
+  $form['general']['key'] = array(
+    '#type' => 'hidden',
+    '#title' => t('Key'),
+    '#required' => TRUE,
+    '#default_value' => $list_key,
+  );
+  }
   $form['general']['type'] = array(
     '#type' => 'select',
     '#title' => t('Type'),
@@ -271,10 +278,18 @@ function custom_lists_list_form_submit($form, &$form_state) {
   );
 
   $list_key = md5(serialize($list));
+  if (isset($form_state['values']['key'])) {
+    $old_key = $form_state['values']['key'];
 
-  drupal_set_message(t('The list has been added.'));
-  custom_lists_add($list_key, $list);
-  $form_state['redirect'] = 'admin/structure/lists';
+    drupal_set_message(t('The list has been updated.'));
+    custom_lists_add($old_key, $list);
+    $form_state['redirect'] = 'admin/structure/lists';
+ 
+  } else {
+    drupal_set_message(t('The list has been added.'));
+    custom_lists_add($list_key, $list);
+    $form_state['redirect'] = 'admin/structure/lists';
+  }
 }
 
 /**
