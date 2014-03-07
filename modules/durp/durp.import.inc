@@ -148,11 +148,15 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
     return FALSE;
   }
 
+  // Search for the most recent plan.
   $plans = $dossierDOM->getElementsByTagName('Plan');
-  $plan = FALSE;
+  $plansByDate = array();
   foreach ($plans as $plan) {
-    // @todo, Loop through plans.. for now we only use the latest plan.
+    $date = $plan->getElementsByTagName('Datum')->item(0)->nodeValue;
+    $plansByDate[$date] = $plan;
   }
+  krsort($plansByDate);
+  $plan = reset($plansByDate);
 
   if ($plan) {
     $plan_uri = $plan->getElementsByTagName('GeleideFormulier')->item(0)->nodeValue;
