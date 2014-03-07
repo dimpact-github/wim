@@ -94,7 +94,7 @@ function dimpact_content_types_node_info() {
       'help' => '',
     ),
     'page' => array(
-      'name' => t('Eenvoudige pagina'),
+      'name' => t('Pagina'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
