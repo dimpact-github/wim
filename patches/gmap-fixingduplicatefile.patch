@@ -1,0 +1,12 @@
+diff --git a/gmap.module b/gmap.module
+index b93e618..afef1ce 100755
+--- a/gmap.module
++++ b/gmap.module
+@@ -455,6 +455,7 @@ function gmap_regenerate_markers() {
+ 
+   // Make sure js/ exists in the files folder.
+   if (file_prepare_directory($dir, FILE_CREATE_DIRECTORY)) {
++    db_delete('file_managed')->condition('filename', 'gmap_markers.js')->execute();
+     $file = file_save_data($contents, 'public://js/gmap_markers.js', FILE_EXISTS_REPLACE);
+     if (!empty($file)) {
+       variable_set('gmap_marker_file', $file->fid);
