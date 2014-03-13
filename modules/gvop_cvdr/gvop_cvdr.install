@@ -1,11 +1,21 @@
 <?php
 
 /**
- * Reschedule all regulations for import.
+ * Reschedule regulations for import.
  */
 function gvop_cvdr_update_7101() {
   $sql = 'UPDATE {gvop}
   SET hash = \'\'
   WHERE xml LIKE \'%overheidrg:uitwerkingtredingDatum%\'';
+  db_query($sql);
+}
+
+/**
+ * Reschedule regulations for import.
+ */
+function gvop_cvdr_update_7102() {
+  $sql = 'UPDATE {gvop}
+  SET hash = \'\'
+  WHERE xml LIKE \'%<publicatieurl_xhtml>http://decentrale.regelgeving.overheid.nl%\'';
   db_query($sql);
 }

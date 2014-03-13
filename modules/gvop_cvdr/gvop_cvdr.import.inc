@@ -59,28 +59,41 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
     $node->unpublish_on = FALSE;
     $publish_on_str = trim($xpath->query('.//overheidrg:inwerkingtredingDatum', $record)->item(0)->nodeValue);
     if (!empty($publish_on_str)) {
-      $node->publish_on =  strtotime($publish_on_str);
+      if ($node->publish_on <= REQUEST_TIME) {
+        $node->status = 1;
+      }
+      else {
+        $node->publish_on =  strtotime($publish_on_str);
+      }
     }
 
     $unpublish_on_str = trim($xpath->query('.//overheidrg:uitwerkingtredingDatum', $record)->item(0)->nodeValue);
     if (!empty($unpublish_on_str)) {
-      $node->unpublish_on = strtotime($unpublish_on_str);
       if ($node->unpublish_on <= REQUEST_TIME) {
         $node->status = 0;
+      }
+      else {
+        $node->unpublish_on = strtotime($unpublish_on_str);
       }
     }
   }
 
   $xpath->registerNamespace('ns1', "http://standaarden.overheid.nl/sru");
   $pubUrl = $xpath->query('.//ns1:publicatieurl_xml', $record)->item(0)->nodeValue;
+  $pubUrlHTML = $xpath->query('.//ns1:publicatieurl_xhtml', $record)->item(0)->nodeValue;
   if ($pubUrl) {
     $data = drupal_http_request($pubUrl);
     if ($data->code == 200) {
       $pubXML = $data->data;
       $pubDOM = new DOMDocument;
       $pubDOM->loadXML($pubXML);
-      $regeling = $pubDOM->getElementsByTagName('regeling')->item(0);
-      $body_str = _gvop_cvdr_xml_read_text($regeling);
+
+      $body_str = _gvop_cvdr_get_text($pubUrlHTML);
+      if (empty($body_str)) {
+        // If we failed fetching the original HTML, generate our own HTML based on the XML data.
+        $regeling = $pubDOM->getElementsByTagName('regeling')->item(0);
+        $body_str = _gvop_cvdr_xml_read_text($regeling);
+      }
 
       $node->body = array(
         LANGUAGE_NONE => array(
@@ -243,4 +256,34 @@ function _gvop_cvdr_xml_read_lid(DOMElement $element) {
   }
   $output .= $text;
   return $output;
+}
+
+function _gvop_cvdr_get_text($url) {
+  $data = drupal_http_request($url);
+  if ($data->code != 200) {
+    return FALSE;
+  }
+  $dom = new DOMDocument();
+  $dom->loadHTML($data->data);
+  if (!$text = $dom->getElementById('broodtekst')) {
+    // There is no guarantee that this HTML will not change, but KOOP does not
+    // provide other ways to get the HTML either (i.e. XSLT). A change is not
+    // likely, but if they do so, we need to update this module immediately.
+    watchdog('gvop_cvdr', t('No <div id="broodtekst"> found in CVDR HTML. Module needs to be updated. URL: %url'), array(
+      '%url' => $url,
+    ), WATCHDOG_CRITICAL);
+    return FALSE;
+  }
+  $text = $text->C14N();
+
+  // Strip unnecessary whitespace.
+  $text = preg_replace('/[\s]+/', ' ', $text);
+
+  // Strip outer div.
+  $text = preg_replace('/^<div[^>]*>(.*)<\\/div>$/s', '\\1', $text);
+
+  // Fix double bullets.
+  $text = preg_replace('/<span class\\="ol">[^<]{1,10}<\\/span>/s', '', $text);
+
+  return $text;
 }
