@@ -24,8 +24,11 @@ function domain_scss_flush_caches() {
   // This hook is mainly uses for returning tables that should be flushes.
   // We do not have any database data. Instead we return an empty array
   // and clear the color generated cache.
-  file_unmanaged_delete_recursive('public://color');
-  return array();
+  if (!drupal_is_cli()) {
+    // Do not flush cache in CLI, will result in broken pages.
+    file_unmanaged_delete_recursive('public://color');
+    return array();
+  }
 }
 
 /**
