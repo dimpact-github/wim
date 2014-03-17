@@ -1226,29 +1226,49 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
       ),
       'display' => array(
         'domain' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
         'subscriptions_ui' => array(
           'default' => array(
-            'weight' => '100',
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '3',
             'visible' => TRUE,
           ),
         ),
