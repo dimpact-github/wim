@@ -441,11 +441,15 @@
   .region_444_third,
   .region_footer_first,
   .region_footer_second,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_first,
+  .region_444_2_second,
+  .region_444_2_third {
     @include span-columns(4, $break-large);
   }
   .region_444_third,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_third {
     @include omega;
   }
 
