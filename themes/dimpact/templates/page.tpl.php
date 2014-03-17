@@ -29,6 +29,18 @@ $region_444_first       = render($page['region_444_first']);
 $region_444_second      = render($page['region_444_second']);
 $region_444_third       = render($page['region_444_third']);
 
+$region_84_first        = render($page['region_84_first']);
+$region_84_second       = render($page['region_84_second']);
+
+$region_48_first        = render($page['region_48_first']);
+$region_48_second       = render($page['region_48_second']);
+
+$region_444_2_first     = render($page['region_444_2_first']);
+$region_444_2_second    = render($page['region_444_2_second']);
+$region_444_2_third     = render($page['region_444_2_third']); 
+
+$region_content_full_bottom = render($page['region_content_full_bottom']);
+
 $region_footer_first    = render($page['region_footer_first']);
 $region_footer_second   = render($page['region_footer_second']);
 $region_footer_third    = render($page['region_footer_third']);
@@ -214,6 +226,54 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
         </div>
         <div class="region_444_third">
           <?php print $region_444_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 8/4  ?>
+    <?php if ($region_84_first || $region_84_second): ?>
+      <div class="container">
+          <div class="region_84_first">
+            <?php print $region_84_first; ?>
+          </div>
+          <div class="region_84_second">
+            <?php print $region_84_second; ?>
+          </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/8 ?>
+    <?php if ($region_48_first || $region_48_second): ?>
+      <div class="container">
+          <div class="region_48_first">
+            <?php print $region_48_first; ?>
+          </div>
+          <div class="region_48_second">
+            <?php print $region_48_second; ?>
+          </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/4/4 2 ?>
+    <?php if ($region_444_2_first || $region_444_2_second || $region_444_2_third): ?>
+      <div class="container">
+        <div class="region_444_2_first">
+          <?php print $region_444_2_first; ?>
+        </div>
+        <div class="region_444_2_second">
+          <?php print $region_444_2_second; ?>
+        </div>
+        <div class="region_444_2_third">
+          <?php print $region_444_2_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 12/12 bottom content ?>
+    <?php if ($region_content_full_bottom): ?>
+      <div class="container">
+        <div class="region_content_full_bottom">
+          <?php print $region_content_full_bottom; ?>
         </div>
       </div>
     <?php endif; ?>

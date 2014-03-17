@@ -37,6 +37,22 @@ regions[region_444_first]   = Regio 4/12 first
 regions[region_444_second]  = Regio 4/12 second
 regions[region_444_third]   = Regio 4/12 third
 
+; Region 8/4
+regions[region_84_first]    = Regio 8/12 first
+regions[region_84_second]   = Regio 4/12 second 
+
+; Region 4/8
+regions[region_48_first]    = Regio 4/12 first 
+regions[region_48_second]   = Regio 8/12 second
+
+; Region 4/4/4 2
+regions[region_444_2_first] = Regio 4/12 2 first
+regions[region_444_2_second]= Regio 4/12 2 second
+regions[region_444_2_third] = Regio 4/12 2 third
+
+; Region Content full Bottom
+regions[region_content_full_bottom] = Regio breed onder content
+
 ; Region Footer
 regions[region_footer_first]   = Regio footer 4/12 first
 regions[region_footer_second]  = Regio footer 4/12 second

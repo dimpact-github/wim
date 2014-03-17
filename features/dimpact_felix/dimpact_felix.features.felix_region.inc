@@ -118,6 +118,76 @@ function dimpact_felix_felix_default_regions() {
       ),
     ),
   );
+  $regions['regio-4-12-2-4-8'] = array(
+    'name' => 'regio-4-12-2-4-8',
+    'title' => 'Regio 4/12 2 (4/8)',
+    'region' => 'region_48_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-2-first'] = array(
+    'name' => 'regio-4-12-2-first',
+    'title' => 'Regio 4/12 2 first',
+    'region' => 'region_444_2_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-2-second'] = array(
+    'name' => 'regio-4-12-2-second',
+    'title' => 'Regio 4/12 2 second',
+    'region' => 'region_444_2_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-2-third'] = array(
+    'name' => 'regio-4-12-2-third',
+    'title' => 'Regio 4/12 2 third',
+    'region' => 'region_444_2_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-8-4'] = array(
+    'name' => 'regio-4-12-8-4',
+    'title' => 'Regio 4/12 (8/4)',
+    'region' => 'region_84_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
   $regions['regio-4-12-first'] = array(
     'name' => 'regio-4-12-first',
     'title' => 'Regio 4/12 first',
@@ -216,6 +286,34 @@ function dimpact_felix_felix_default_regions() {
       ),
     ),
   );
+  $regions['regio-8-12-2-4-8'] = array(
+    'name' => 'regio-8-12-2-4-8',
+    'title' => 'Regio 8/12 2 (4/8)',
+    'region' => 'region_48_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-8-12-8-4'] = array(
+    'name' => 'regio-8-12-8-4',
+    'title' => 'Regio 8/12 (8/4)',
+    'region' => 'region_84_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
   $regions['regio-9-12-3-9'] = array(
     'name' => 'regio-9-12-3-9',
     'title' => 'Regio 9/12 (3/9)',
@@ -236,6 +334,20 @@ function dimpact_felix_felix_default_regions() {
     'region' => 'region_93_first',
     'weight' => 0,
     'context' => 'sitewide-without-node',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-breed-onder-content'] = array(
+    'name' => 'regio-breed-onder-content',
+    'title' => 'Regio breed onder content',
+    'region' => 'region_content_full_bottom',
+    'weight' => 0,
+    'context' => 'sitewide',
     'block_set' => 'default',
     'data' => array(
       'hash' => array(
