@@ -174,6 +174,174 @@ function dimpact_felix_felix_default_regions() {
       ),
     ),
   );
+  $regions['regio-4-12-3-first'] = array(
+    'name' => 'regio-4-12-3-first',
+    'title' => 'Regio 4/12 3 first',
+    'region' => 'region_444_3_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-3-second'] = array(
+    'name' => 'regio-4-12-3-second',
+    'title' => 'Regio 4/12 3 second',
+    'region' => 'region_444_3_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-3-third'] = array(
+    'name' => 'regio-4-12-3-third',
+    'title' => 'Regio 4/12 3 third',
+    'region' => 'region_444_3_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-4-first'] = array(
+    'name' => 'regio-4-12-4-first',
+    'title' => 'Regio 4/12 4 first',
+    'region' => 'region_444_4_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-4-second'] = array(
+    'name' => 'regio-4-12-4-second',
+    'title' => 'Regio 4/12 4 second',
+    'region' => 'region_444_4_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-4-third'] = array(
+    'name' => 'regio-4-12-4-third',
+    'title' => 'Regio 4/12 4 third',
+    'region' => 'region_444_4_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-5-first'] = array(
+    'name' => 'regio-4-12-5-first',
+    'title' => 'Regio 4/12 5 first',
+    'region' => 'region_444_5_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-5-second'] = array(
+    'name' => 'regio-4-12-5-second',
+    'title' => 'Regio 4/12 5 second',
+    'region' => 'region_444_5_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-5-third'] = array(
+    'name' => 'regio-4-12-5-third',
+    'title' => 'Regio 4/12 5 third',
+    'region' => 'region_444_5_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-6-first'] = array(
+    'name' => 'regio-4-12-6-first',
+    'title' => 'Regio 4/12 6 first',
+    'region' => 'region_444_6_first',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-6-second'] = array(
+    'name' => 'regio-4-12-6-second',
+    'title' => 'Regio 4/12 6 second',
+    'region' => 'region_444_6_second',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
+  $regions['regio-4-12-6-third'] = array(
+    'name' => 'regio-4-12-6-third',
+    'title' => 'Regio 4/12 6 third',
+    'region' => 'region_444_6_third',
+    'weight' => 0,
+    'context' => 'sitewide',
+    'block_set' => 'default',
+    'data' => array(
+      'hash' => array(
+        0 => 'path',
+        1 => 'domain',
+      ),
+    ),
+  );
   $regions['regio-4-12-8-4'] = array(
     'name' => 'regio-4-12-8-4',
     'title' => 'Regio 4/12 (8/4)',

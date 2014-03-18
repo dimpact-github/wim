@@ -37,7 +37,23 @@ $region_48_second       = render($page['region_48_second']);
 
 $region_444_2_first     = render($page['region_444_2_first']);
 $region_444_2_second    = render($page['region_444_2_second']);
-$region_444_2_third     = render($page['region_444_2_third']); 
+$region_444_2_third     = render($page['region_444_2_third']);
+
+$region_444_3_first     = render($page['region_444_3_first']);
+$region_444_3_second    = render($page['region_444_3_second']);
+$region_444_3_third     = render($page['region_444_3_third']); 
+
+$region_444_4_first     = render($page['region_444_4_first']);
+$region_444_4_second    = render($page['region_444_4_second']);
+$region_444_4_third     = render($page['region_444_4_third']); 
+
+$region_444_5_first     = render($page['region_444_5_first']);
+$region_444_5_second    = render($page['region_444_5_second']);
+$region_444_5_third     = render($page['region_444_5_third']); 
+
+$region_444_6_first     = render($page['region_444_6_first']);
+$region_444_6_second    = render($page['region_444_6_second']);
+$region_444_6_third     = render($page['region_444_6_third']);  
 
 $region_content_full_bottom = render($page['region_content_full_bottom']);
 
@@ -121,7 +137,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 
     <?php // Region 12/12 top ?>
     <?php if ($region_full_top): ?>
-      <div class="container">
+      <div class="container grid12 row01">
         <div class="region_full_top">
           <?php print $region_full_top; ?>
         </div>
@@ -130,7 +146,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 
     <?php // Region 9/3 ?>
     <?php if ($region_93_first || $region_93_second): ?>
-      <div class="container">
+      <div class="container grid84 row02">
         <div class="region_93_first">
           <?php print $region_93_first; ?>
         </div>
@@ -142,7 +158,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 
     <?php // Region 3/9 ?>
     <?php if ($region_39_first || $region_39_second || (in_array($pagetype, array('searchpage', 'node-add-page', 'bekendmakingen', 'bestemmingsplannen', 'fotoalbum', 'forum')) && $content)): ?>
-      <div class="container">
+      <div class="container grid39 row03">
         <div class="region_39_first">
           <?php print $region_39_first; ?>
         </div>
@@ -171,7 +187,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 
     <?php // Region 3/6/3 ?>
     <?php if (!$hidecontent): ?>
-      <div class="container">
+      <div class="container grid354 row04">
 
 
 
@@ -217,7 +233,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
 
     <?php // Region 4/4/4 bottom ?>
     <?php if ($region_444_first || $region_444_second || $region_444_third): ?>
-      <div class="container">
+      <div class="container grid444 row05">
         <div class="region_444_first">
           <?php print $region_444_first; ?>
         </div>
@@ -230,33 +246,9 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
       </div>
     <?php endif; ?>
 
-    <?php // Region 8/4  ?>
-    <?php if ($region_84_first || $region_84_second): ?>
-      <div class="container">
-          <div class="region_84_first">
-            <?php print $region_84_first; ?>
-          </div>
-          <div class="region_84_second">
-            <?php print $region_84_second; ?>
-          </div>
-      </div>
-    <?php endif; ?>
-
-    <?php // Region 4/8 ?>
-    <?php if ($region_48_first || $region_48_second): ?>
-      <div class="container">
-          <div class="region_48_first">
-            <?php print $region_48_first; ?>
-          </div>
-          <div class="region_48_second">
-            <?php print $region_48_second; ?>
-          </div>
-      </div>
-    <?php endif; ?>
-
     <?php // Region 4/4/4 2 ?>
     <?php if ($region_444_2_first || $region_444_2_second || $region_444_2_third): ?>
-      <div class="container">
+      <div class="container grid444 row06">
         <div class="region_444_2_first">
           <?php print $region_444_2_first; ?>
         </div>
@@ -269,18 +261,102 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
       </div>
     <?php endif; ?>
 
+    <?php // Region 8/4  ?>
+    <?php if ($region_84_first || $region_84_second): ?>
+      <div class="container grid84 row07">
+          <div class="region_84_first">
+            <?php print $region_84_first; ?>
+          </div>
+          <div class="region_84_second">
+            <?php print $region_84_second; ?>
+          </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/4/4 3 ?>
+    <?php if ($region_444_3_first || $region_444_3_second || $region_444_3_third): ?>
+      <div class="container grid444 row08">
+        <div class="region_444_3_first">
+          <?php print $region_444_3_first; ?>
+        </div>
+        <div class="region_444_3_second">
+          <?php print $region_444_3_second; ?>
+        </div>
+        <div class="region_444_3_third">
+          <?php print $region_444_3_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
     <?php // Region 12/12 bottom content ?>
     <?php if ($region_content_full_bottom): ?>
-      <div class="container">
+      <div class="container grid12 row09">
         <div class="region_content_full_bottom">
           <?php print $region_content_full_bottom; ?>
         </div>
       </div>
     <?php endif; ?>
 
+    <?php // Region 4/4/4 4 ?>
+    <?php if ($region_444_4_first || $region_444_4_second || $region_444_4_third): ?>
+      <div class="container grid444 row10">
+        <div class="region_444_4_first">
+          <?php print $region_444_4_first; ?>
+        </div>
+        <div class="region_444_4_second">
+          <?php print $region_444_4_second; ?>
+        </div>
+        <div class="region_444_4_third">
+          <?php print $region_444_4_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/8 ?>
+    <?php if ($region_48_first || $region_48_second): ?>
+      <div class="container grid48 row11">
+          <div class="region_48_first">
+            <?php print $region_48_first; ?>
+          </div>
+          <div class="region_48_second">
+            <?php print $region_48_second; ?>
+          </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/4/4 5 ?>
+    <?php if ($region_444_5_first || $region_444_5_second || $region_444_5_third): ?>
+      <div class="container grid444 row12">
+        <div class="region_444_5_first">
+          <?php print $region_444_5_first; ?>
+        </div>
+        <div class="region_444_5_second">
+          <?php print $region_444_5_second; ?>
+        </div>
+        <div class="region_444_5_third">
+          <?php print $region_444_5_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <?php // Region 4/4/4 6 ?>
+    <?php if ($region_444_6_first || $region_444_6_second || $region_444_6_third): ?>
+      <div class="container grid444 row13">
+        <div class="region_444_6_first">
+          <?php print $region_444_6_first; ?>
+        </div>
+        <div class="region_444_6_second">
+          <?php print $region_444_6_second; ?>
+        </div>
+        <div class="region_444_6_third">
+          <?php print $region_444_6_third; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
     <?php // Region 12/12 bottom ?>
     <?php if ($region_full_bottom): ?>
-      <div class="container container-nopadding">
+      <div class="container container-nopadding grid12 row14">
         <div class="region_full_bottom">
           <?php print $region_full_bottom; ?>
         </div>

@@ -226,12 +226,28 @@
   .region_footer_third,
   .region_444_2_first,
   .region_444_2_second,
-  .region_444_2_third {
+  .region_444_2_third,
+  .region_444_3_first,
+  .region_444_3_second,
+  .region_444_3_third,
+  .region_444_4_first,
+  .region_444_4_second,
+  .region_444_4_third,
+  .region_444_5_first,
+  .region_444_5_second,
+  .region_444_5_third,
+  .region_444_6_first,
+  .region_444_6_second,
+  .region_444_6_third {
     @include span-columns(3, $break-medium);
   }
   .region_444_third,
   .region_footer_third,
-  .region_444_2_third {
+  .region_444_2_third,
+  .region_444_3_third,
+  .region_444_4_third,
+  .region_444_5_third,
+  .region_444_6_third, {
     @include omega;
   }
   .onderwerpen-toggle,
@@ -444,12 +460,28 @@
   .region_footer_third,
   .region_444_2_first,
   .region_444_2_second,
-  .region_444_2_third {
+  .region_444_2_third,
+  .region_444_3_first,
+  .region_444_3_second,
+  .region_444_3_third,
+  .region_444_4_first,
+  .region_444_4_second,
+  .region_444_4_third,
+  .region_444_5_first,
+  .region_444_5_second,
+  .region_444_5_third,
+  .region_444_6_first,
+  .region_444_6_second,
+  .region_444_6_third { 
     @include span-columns(4, $break-large);
   }
   .region_444_third,
   .region_footer_third,
-  .region_444_2_third {
+  .region_444_2_third,
+  .region_444_3_third,
+  .region_444_4_third,
+  .region_444_5_third,
+  .region_444_6_third  {
     @include omega;
   }
 
