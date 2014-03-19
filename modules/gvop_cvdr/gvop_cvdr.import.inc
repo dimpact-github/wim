@@ -263,6 +263,11 @@ function _gvop_cvdr_get_text($url) {
   if ($data->code != 200) {
     return FALSE;
   }
+
+  // Fix XHTML errors before loading document.
+  $data->data = preg_replace('/<\\!DOCTYPE[^>]+>/si', '', $data->data);
+  $data->data = str_replace('></meta>', '/>', $data->data);
+
   $dom = new DOMDocument();
   $dom->loadHTML($data->data);
   if (!$text = $dom->getElementById('broodtekst')) {
