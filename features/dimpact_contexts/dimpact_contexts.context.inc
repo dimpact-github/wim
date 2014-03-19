@@ -146,30 +146,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
-        'views-maps-block_1' => array(
-          'module' => 'views',
-          'delta' => 'maps-block_1',
-          'region' => 'region_363_third',
-          'weight' => '-10',
-        ),
-        'views-bestanden-block_2' => array(
-          'module' => 'views',
-          'delta' => 'bestanden-block_2',
-          'region' => 'region_363_third',
-          'weight' => '-9',
-        ),
-        'views-nieuws-block_2' => array(
-          'module' => 'views',
-          'delta' => 'nieuws-block_2',
-          'region' => 'region_363_third',
-          'weight' => '-8',
-        ),
-        'views-agenda-block_2' => array(
-          'module' => 'views',
-          'delta' => 'agenda-block_2',
-          'region' => 'region_363_third',
-          'weight' => '-7',
-        ),
       ),
     ),
   );
