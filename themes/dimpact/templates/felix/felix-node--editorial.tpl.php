@@ -12,8 +12,10 @@
  * - $content: Content array (objects selected by felix)
  * - $full_content: Content array for full node teaseer
  * - $view_mode: The view mode for this node
+ *
+ * Mogelijke oplossing als jeroen de titel terug wil $content['field_link'][0]['#element']['title'] = $content['body']['#object']->title;
+ *
  */
-
 ?>
 
 <?php print drupal_render($content); ?>

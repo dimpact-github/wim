@@ -56,7 +56,13 @@ if (preg_match('|block-node-([0-9]+)|', $block_html_id, $matches)) {
   <?php print render($title_prefix); ?>
   <?php if (!empty($content_attributes)): ?><div<?php print $content_attributes; ?>><?php endif; ?>
     <?php if ($block->subject): ?>
-      <h2<?php print $title_attributes; ?>><?php print $icon; ?><?php print $block->subject ?></h2>
+      <h2<?php print $title_attributes; ?>><?php print $icon; ?>
+      <?php if(!empty($node->field_link)) : ?> 
+        <?php print '<a href="' . $node->field_link['und'][0]['url'] . '">' . $block->subject . '</a>'; ?>
+      <?php else: ?>
+        <?php print$block->subject; ?>
+      <?php endif; ?>
+    </h2>
     <?php endif;?>
     <?php print render($title_suffix); ?>
     <?php print $content; ?>
