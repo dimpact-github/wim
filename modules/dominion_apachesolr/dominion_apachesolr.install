@@ -26,3 +26,47 @@ function dominion_apachesolr_schema() {
 
   return $schema;
 }
+
+/**
+ * Implements hook_requirements().
+ *
+ * Check if the dominion specific fields are added to the schema.xml.
+ */
+function dominion_apachesolr_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $solr = apachesolr_get_solr();
+    $url = $solr->getUrl() . 'admin/file/?contentType=text/xml;charset=utf-8&file=schema.xml';
+    $data = drupal_http_request($url, array('timeout' => 5));
+    if ($data->code != 200) {
+      $requirements['dominion_apachesolr'] = array(
+        'title' => $t('Dominion Apachesolr'),
+        'value' => $t('Unable to retreive the schema.xml. No config check could be done.'),
+        'severity' => REQUIREMENT_WARNING,
+      );
+    }
+    else {
+      $errors = NULL;
+      $fields = array();
+      $fields[] = variable_get('dominion_apachesolr_field_domain_id', 'domain_id');
+      $fields[] = variable_get('dominion_apachesolr_field_domain_site', 'domain_site');
+      foreach ($fields as $field) {
+        if (!preg_match('/\\<field[^\\>]*name\\="' . preg_quote($field, '/') . '"[^\\>]*\\>/si', $data->data)) {
+          $error = $t('The fields %domain_id and %domain_site were not found in the schema.xml. Please review INSTALL.txt for the required changes. The fieldnames can be changed on the <a href="@settings">settings</a> page.', array(
+            '%domain_id' => $fields[0],
+            '%domain_site' => $fields[1],
+            '@settings' => url('admin/structure/dominion/settings/apachesolr'),
+          ));
+        }
+      }
+      $requirements['dominion_apachesolr'] = array(
+        'title' => $t('Dominion Apachesolr'),
+        'value' => $error ? $error : $t('Solr is properly configured for Dominion.'),
+        'severity' => $error ? REQUIREMENT_ERROR : REQUIREMENT_OK,
+      );
+    }
+
+  }
+  return $requirements;
+}
