@@ -1,0 +1,4 @@
+name = Custom CSS upload
+description = Uploading custom CSS files
+package = Dimpact
+core = 7.x
