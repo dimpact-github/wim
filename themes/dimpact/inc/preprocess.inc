@@ -7,7 +7,12 @@
 function dimpact_preprocess_html(&$vars) {
   // Create a variable for the path to the theme.
   $vars['path'] = drupal_get_path('theme', 'dimpact');
+  $item = menu_get_item();
 
+  $viewsclass = variable_get($item['path'], FALSE);
+  if ($viewsclass) {
+    $vars['classes_array'][] = $emptypage_class;
+  }
   $curentpath = current_path();
   $emptypage_class = variable_get($curentpath,FALSE);
   if ($emptypage_class) {

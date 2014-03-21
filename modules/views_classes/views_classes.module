@@ -1,0 +1,18 @@
+<?php
+
+/*
+ * Implements hook_menu.
+ */
+function views_classes_menu() {
+   $items['admin/config/viewsclasses'] = array(
+    'title' => 'Configuration postcodeform module',
+    'description' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_classes_admin_form'),
+    'file' => 'views_classes.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+   return $items;
+}
