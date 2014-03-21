@@ -64,3 +64,44 @@ function durp_uninstall() {
   variable_del('durp_manifest');
   variable_del('durp_cron_last_run');
 }
+
+/**
+ * Implements hook_requirements().
+ */
+function durp_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $error = NULL;
+    $url = variable_get('durp_manifest', '');
+    if (empty($url)) {
+      $error = $t('No DURP manifest URL is set in the <a href="@url">DURP settings</a>.', array(
+        '@url' => url('admin/config/content/durp'),
+      ));
+    }
+    else {
+      $data = drupal_http_request($url, array('timeout', 5));
+      if ($data->code == 200 && !(substr($data->data, 0, 5) != '<?xml' || substr($data->data, 2, 5) != '<?xml')) {
+        $error = $t('The DURP manifest can be reached, but is not responding with XML data. Please review the <a href="@url">DURP settings</a>.', array(
+          '@url' => url('admin/config/content/durp'),
+        ));
+      }
+      if ($data->code != 200) {
+        $error = $t('The DURP manifest cannot be reached. The URL is responding with HTTP code @code. Please review the <a href="@url">DURP settings</a>.', array(
+          '@code' => $data->code,
+          '@url' => url('admin/config/content/durp'),
+        ));
+      }
+    }
+    $message = $t('DURP is importing from %url. If this is incorrect, please change it in the <a href="@url">settings</a>.', array(
+      '%url' => $url,
+      '@url' => url('admin/config/content/durp'),
+    ));
+    $requirements['durp'] = array(
+      'title' => $t('DURP'),
+      'value' => $error ? $error : $message,
+      'severity' => $error ? REQUIREMENT_ERROR : REQUIREMENT_OK,
+    );
+  }
+  return $requirements;
+}

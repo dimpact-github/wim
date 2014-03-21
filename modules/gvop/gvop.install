@@ -53,3 +53,30 @@ function gvop_uninstall() {
   variable_del('gvop_creator');
   variable_del('gvop_limit');
 }
+
+/**
+ * Implements hook_requirements().
+ */
+function gvop_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $error = NULL;
+    $creator = variable_get('gvop_creator', '');
+    if (empty($creator)) {
+      $error = $t('No creator set in <a href="@url">GVOP settings</a>.', array(
+        '@url' => url('admin/config/content/gvop'),
+      ));
+    }
+    $message = $t('GVOP is importing data with creator %creator. If this is incorrect, please change it in the <a href="@url">GVOP settings</a>.', array(
+      '%creator' => $creator,
+      '@url' => url('admin/config/content/gvop'),
+    ));
+    $requirements['gvop'] = array(
+      'title' => $t('GVOP'),
+      'value' => $error ? $error : $message,
+      'severity' => $error ? REQUIREMENT_ERROR : REQUIREMENT_OK,
+    );
+  }
+  return $requirements;
+}
