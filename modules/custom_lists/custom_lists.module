@@ -314,3 +314,35 @@ function _custom_lists_set($lists) {
   variable_set('custom_lists_lists', $lists);
   variable_set('menu_rebuild_needed', TRUE);
 }
+
+/**
+ * Implements hook_hansel_get_parent().
+ */
+function custom_lists_hansel_get_parent($path) {
+  global $_domain;
+  if (preg_match('/^node\\/([0-9]+)/', $path, $match) && ($node = node_load($match[1]))) {
+    $lists = custom_lists_get();
+    foreach ($lists as $list) {
+      $contains_node = FALSE;
+      if ($list['type'] == 'content' && $list['provide-page'] && $list['node-type'] == $node->type && $list['domain_id'] == $_domain['domain_id']) {
+        $contains_node = TRUE;
+      }
+      if ($contains_node && !empty($list['taxonomy'])) {
+        $tags = field_get_items('node', $node, 'field_tags');
+        $contains_node = FALSE;
+        foreach ($tags as $item) {
+          if ($item['tid'] == $list['taxonomy']) {
+            $contains_node = TRUE;
+          }
+        }
+      }
+      if ($contains_node) {
+        return array(
+          'path' => $list['path'],
+          'title' => $list['title'],
+        );
+      }
+    }
+  }
+  return FALSE;
+}
