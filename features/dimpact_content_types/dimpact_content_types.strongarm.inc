@@ -1020,6 +1020,18 @@ function dimpact_content_types_strongarm() {
       'volle_breedte' => array(
         'custom_settings' => TRUE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1027,10 +1039,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(
@@ -1050,13 +1062,17 @@ function dimpact_content_types_strongarm() {
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '8',
             'visible' => TRUE,
           ),
         ),
@@ -1095,6 +1111,18 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1102,16 +1130,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'domain' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
       'display' => array(
         'domain' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -1122,6 +1150,10 @@ function dimpact_content_types_strongarm() {
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '6',
             'visible' => TRUE,
           ),
         ),
@@ -1157,6 +1189,21 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1164,10 +1211,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
       ),
       'display' => array(
@@ -1189,6 +1236,12 @@ function dimpact_content_types_strongarm() {
           'teaser' => array(
             'weight' => '2',
             'visible' => FALSE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => TRUE,
           ),
         ),
       ),
@@ -1298,23 +1351,63 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'detailed_question' => array(
           'weight' => '0',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'flag_favorieten' => array(
+          'default' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__faq'] = $strongarm;
@@ -1372,17 +1465,29 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(
@@ -1397,6 +1502,12 @@ function dimpact_content_types_strongarm() {
           ),
           'volle_breedte' => array(
             'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '3',
             'visible' => TRUE,
           ),
         ),
@@ -1426,6 +1537,27 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1433,10 +1565,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
       ),
       'display' => array(
@@ -1445,16 +1577,28 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
             'weight' => '10',
             'visible' => FALSE,
           ),
+          'default' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
@@ -1468,17 +1612,54 @@ function dimpact_content_types_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__message';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
       ),
       'display' => array(
@@ -1487,16 +1668,28 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
             'weight' => '10',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
@@ -1535,6 +1728,18 @@ function dimpact_content_types_strongarm() {
       'volle_breedte' => array(
         'custom_settings' => TRUE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1542,7 +1747,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
+        ),
+        'domain' => array(
+          'weight' => '2',
         ),
       ),
       'display' => array(
@@ -1562,13 +1770,17 @@ function dimpact_content_types_strongarm() {
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '10',
+            'weight' => '6',
             'visible' => TRUE,
           ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),
@@ -1605,10 +1817,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
@@ -1646,6 +1858,18 @@ function dimpact_content_types_strongarm() {
       'search_index' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1653,10 +1877,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(
@@ -1666,7 +1890,7 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'search_result' => array(
@@ -1676,7 +1900,7 @@ function dimpact_content_types_strongarm() {
         ),
         'subscriptions_ui' => array(
           'default' => array(
-            'weight' => '100',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'search_result' => array(
@@ -1719,6 +1943,18 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1726,10 +1962,10 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '8',
         ),
         'domain' => array(
-          'weight' => '3',
+          'weight' => '5',
         ),
       ),
       'display' => array(
@@ -1756,6 +1992,10 @@ function dimpact_content_types_strongarm() {
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '11',
             'visible' => TRUE,
           ),
         ),
@@ -2061,17 +2301,29 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '12',
+          'weight' => '13',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
       ),
       'display' => array(
@@ -2097,20 +2349,70 @@ function dimpact_content_types_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__subject';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '1',
+          'weight' => '2',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__subject'] = $strongarm;

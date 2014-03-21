@@ -123,6 +123,30 @@ function bespoke_form_subscriptions_ui_node_form_alter(&$form, &$form_state) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+
+function bespoke_form_empty_page_callbacks_form_alter(&$form, &$form_state) {
+
+  $newfield = array('empty_page_callback_cssclass' => array(
+    '#type' => 'textfield',
+    '#title' => 'Add css class',
+    '#description' => '',
+    '#default_value' => variable_get($form['empty_page_basic']['empty_page_callback_path']['#default_value'],''),
+    )
+  );
+
+  array_splice($form['empty_page_basic'], 6, 0, $newfield);
+
+  array_unshift($form['#submit'],'bespoke_form_empty_page_callbacks_form_submit');
+}
+
+function bespoke_form_empty_page_callbacks_form_submit($form_id, &$form_state) {
+
+  variable_set($form_state['input']['empty_page_callback_path'], $form_state['input'][0]);
+}
+
+/**
  * Function for retrieving terms. If a term does not exist adds it.
  *
  * @param $name Name of the term.

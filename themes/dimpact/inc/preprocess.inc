@@ -8,6 +8,19 @@ function dimpact_preprocess_html(&$vars) {
   // Create a variable for the path to the theme.
   $vars['path'] = drupal_get_path('theme', 'dimpact');
 
+  $curentpath = current_path();
+  $emptypage_class = variable_get($curentpath,FALSE);
+  if ($emptypage_class) {
+    $vars['classes_array'][] = $emptypage_class;
+  }
+
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $node = node_load(arg(1));
+    if(!empty($node->field_css_class['und'][0]['value'])) {
+      $vars['classes_array'][] = $node->field_css_class['und'][0]['value'];
+    }
+  }
+
   // Initializes attributes which are specific to the html and body elements.
   $vars['html_attributes_array'] = array();
   $vars['body_attributes_array'] = array();
