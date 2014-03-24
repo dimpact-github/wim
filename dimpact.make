@@ -204,6 +204,9 @@ projects[mail_edit][version] = "1.0"
 projects[mailchimp][subdir] = contrib
 projects[mailchimp][version] = "2.12"
 
+projects[mailsystem][subdir] = contrib 
+projects[mailsystem][version] =  "2.34"
+
 projects[masquerade][subdir] = contrib
 projects[masquerade][version] = "1.0-rc7"
 
@@ -238,6 +241,9 @@ projects[menuimage][version] = "1.1"
 
 projects[metatag][subdir] = contrib
 projects[metatag][version] = "1.0-beta9"
+
+projects[mimemail][subdir] = contrib
+projects[mimemail][version] = "1.0-beta3"
 
 projects[module_filter][subdir] = contrib
 projects[module_filter][version] = "2.0-alpha2"

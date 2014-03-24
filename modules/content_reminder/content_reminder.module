@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function content_reminder_menu() {
+
+  $items['admin/config/reminder'] = array(
+    'title' => 'Configuration Content Reminder',
+    'description' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('content_reminder_admin_form'),
+    'file' => 'content_reminder.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron
+ */
+function content_reminder_cron() {
+  module_load_include('inc', 'content_reminder', 'content_reminder');
+  $nodes = _get_required_nodes();
+  $old_nodes = _get_old_nodes();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function content_reminder_theme($existing, $type, $theme, $path) {
+  return array(
+    'content_reminder' => array(
+      'variables' => array(
+        'nodes' => NULL,
+        'kip' => NULL,
+      ),
+      'template' => 'content_reminder',
+    ),
+  );
+}
