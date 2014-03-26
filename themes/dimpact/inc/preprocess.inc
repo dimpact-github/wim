@@ -9,15 +9,17 @@ function dimpact_preprocess_html(&$vars) {
 
   module_load_include('admin.inc', 'dimpact_custom_css', 'dimpact_custom_css');
 
-  foreach (dimpact_custom_css_files() as $key => $title) {
-    $file = file_load(domain_conf_variable_get($_domain['domain_id'], $key));
-    $paths = str_replace(drupal_realpath('.'), '', drupal_realpath($file->uri));
+  if (domain_conf_variable_get($_domain['domain_id'], 'css_killswitch')) {
 
-    $realpath = drupal_realpath($file->uri);
-    $path = str_replace($_SERVER['DOCUMENT_ROOT'].'/','',$realpath);
-    drupal_add_css($path);
+    foreach (dimpact_custom_css_files() as $key => $title) {
+      $file = file_load(domain_conf_variable_get($_domain['domain_id'], $key));
+      $paths = str_replace(drupal_realpath('.'), '', drupal_realpath($file->uri));
+
+      $realpath = drupal_realpath($file->uri);
+      $path = str_replace($_SERVER['DOCUMENT_ROOT'].'/','',$realpath);
+      drupal_add_css($path);
+    }
   }
-
   // Create a variable for the path to the theme.
   $vars['path'] = drupal_get_path('theme', 'dimpact');
 

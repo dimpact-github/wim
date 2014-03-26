@@ -7,9 +7,11 @@
  * @return mixed
  */
 function dimpact_custom_css_upload($form, &$form_state) {
+
   $form['css_killswitch'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable custom CSS files to override the main theme'),
+    '#default_value' => domain_conf_variable_get(_dimpact_custom_css_domainid(), 'css_killswitch'),
   );
 
   foreach (dimpact_custom_css_files() as $key => $title) {
@@ -28,9 +30,12 @@ function dimpact_custom_css_upload($form, &$form_state) {
  * Submit hook.
  */
 function dimpact_custom_css_upload_submit(&$form, &$form_state) {
+  global $_domain;
+
   foreach (dimpact_custom_css_files() as $key => $title) {
     _dimpact_custom_css_handle_upload($key);
   }
+  domain_conf_variable_set(_dimpact_custom_css_domainid(),'css_killswitch',$form_state['values']['css_killswitch']);
 }
 
 /**
@@ -53,8 +58,8 @@ function _dimpact_custom_css_form_elements($source, $title,  &$form) {
       ),
     ),
   );
-  if (domain_conf_variable_get($_domain['domain_id'], $source)) {
-    $file = file_load(domain_conf_variable_get($_domain['domain_id'], $source));
+  if (domain_conf_variable_get(_dimpact_custom_css_domainid(), $source)) {
+    $file = file_load(domain_conf_variable_get(_dimpact_custom_css_domainid(), $source));
     $form[$source . '_file'] = array(
       '#markup' => '<div>' . t('File') . ': ' . $file->filename . '</div>',
     );
@@ -81,7 +86,7 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
             'bundle' => 'document',
             'entity_id' => $file->fid,
             'revision_id' => $file->fid,
-            'domain_file_domain_id' => $_domain['domain_id'],
+            'domain_file_domain_id' => _dimpact_custom_css_domainid(),
             'delta' => 0,
           )
         )->execute();
@@ -89,7 +94,7 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
       $file->status = 1;
       file_save($file);
       
-      domain_conf_variable_set($_domain['domain_id'], $source, $file->fid);
+      domain_conf_variable_set(_dimpact_custom_css_domainid(), $source, $file->fid);
       variable_set($source, $file->fid);
     }
   }
@@ -102,4 +107,9 @@ function dimpact_custom_css_files() {
     'custom_css_lteie9' => t('CSS LTE IE9'),
     'custom_css_ltie9' => t('CSS LT IE9'),
   );
+}
+
+function _dimpact_custom_css_domainid() {
+  global $_domain;
+  return $_domain['domain_id'];
 }
