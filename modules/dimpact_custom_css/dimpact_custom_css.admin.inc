@@ -12,7 +12,7 @@ function dimpact_custom_css_upload($form, &$form_state) {
     '#title' => t('Enable custom CSS files to override the main theme'),
   );
 
-  foreach (_dimpact_custom_css_files() as $key => $title) {
+  foreach (dimpact_custom_css_files() as $key => $title) {
     _dimpact_custom_css_form_elements($key, $title, $form);
   }
 
@@ -28,7 +28,7 @@ function dimpact_custom_css_upload($form, &$form_state) {
  * Submit hook.
  */
 function dimpact_custom_css_upload_submit(&$form, &$form_state) {
-  foreach (_dimpact_custom_css_files() as $key => $title) {
+  foreach (dimpact_custom_css_files() as $key => $title) {
     _dimpact_custom_css_handle_upload($key);
   }
 }
@@ -40,6 +40,9 @@ function dimpact_custom_css_upload_submit(&$form, &$form_state) {
  * @param array $form
  */
 function _dimpact_custom_css_form_elements($source, $title,  &$form) {
+
+  global $_domain;
+
   $form[$source] = array(
     '#name' => 'files[' . $source . ']',
     '#type'   => 'file',
@@ -50,9 +53,8 @@ function _dimpact_custom_css_form_elements($source, $title,  &$form) {
       ),
     ),
   );
-
-  if (variable_get($source, NULL)) {
-    $file = file_load(variable_get($source, NULL));
+  if (domain_conf_variable_get($_domain['domain_id'], $source)) {
+    $file = file_load(domain_conf_variable_get($_domain['domain_id'], $source));
     $form[$source . '_file'] = array(
       '#markup' => '<div>' . t('File') . ': ' . $file->filename . '</div>',
     );
@@ -64,6 +66,7 @@ function _dimpact_custom_css_form_elements($source, $title,  &$form) {
  * @param string $source
  */
 function _dimpact_custom_css_handle_upload($source = NULL) {
+  global $_domain;
   if ($source) {
     if ($file = file_save_upload($source, array('file_validate_extensions' => array('css')), CUSTOM_CSS_PATH, FILE_EXISTS_REPLACE)) {
       $result = db_select('field_data_domain_file', 'fddf')
@@ -78,18 +81,21 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
             'bundle' => 'document',
             'entity_id' => $file->fid,
             'revision_id' => $file->fid,
+            'domain_file_domain_id' => $_domain['domain_id'],
             'delta' => 0,
           )
         )->execute();
       }
       $file->status = 1;
       file_save($file);
+      
+      domain_conf_variable_set($_domain['domain_id'], $source, $file->fid);
       variable_set($source, $file->fid);
     }
   }
 }
 
-function _dimpact_custom_css_files() {
+function dimpact_custom_css_files() {
   return array(
     'custom_css_screen' => t('CSS Screen'),
     'custom_css_print' => t('CSS Print'),
