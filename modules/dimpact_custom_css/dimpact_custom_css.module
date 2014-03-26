@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ */
+
+define('CUSTOM_CSS_PATH', 'public://custom_css');
+
+/**
+ * Implements hook_menu().
+ */
+function dimpact_custom_css_menu() {
+  return array('admin/appearance/css' => array(
+    'title' => t('Custom CSS'),
+    'description' => t('Uploading custom CSS files.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('dimpact_custom_css_upload'),
+    'access arguments' => array('administer custom css files'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'dimpact_custom_css.admin.inc',
+  ));
+}
+
+/**
+ * Implements hook_permission().
+ */
+function dimpact_custom_css_permission() {
+  return array(
+    'administer custom css files' => array(
+      'title' => t('Administer custom CSS files'),
+      'description' => t('Add custom CSS files to your theme.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_init().
+ */
+function dimpact_custom_css_init() {
+
+}
