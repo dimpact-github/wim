@@ -123,7 +123,7 @@ projects[feeds][version] = "2.0-alpha8"
 
 projects[felix][subdir] = contrib
 projects[felix][download][type] = git
-projects[felix][download][revision] = b71d233
+projects[felix][download][revision] = ae9b95d
 projects[felix][download][branch] = 7.x-1.x
 projects[felix][patch] = patches/felix-nolinkit.patch
 
