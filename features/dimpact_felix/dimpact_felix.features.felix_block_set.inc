@@ -188,6 +188,7 @@ function dimpact_felix_felix_default_block_sets() {
         'nodetype' => 'webform',
       ),
     ),
+    'viewmodes' => array(),
   );
   $sets['footer-blokken'] = array(
     'name' => 'footer-blokken',
@@ -203,6 +204,7 @@ function dimpact_felix_felix_default_block_sets() {
         'nodetype' => 'editorial',
       ),
     ),
+    'viewmodes' => array(),
   );
   return $sets;
 }
