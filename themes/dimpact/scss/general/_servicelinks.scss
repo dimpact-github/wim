@@ -5,7 +5,7 @@
   margin: $gutter-width/2 0;
   padding: $gutter-width/2;
   overflow: hidden;
-  ul.links {
+  ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -13,6 +13,10 @@
       float: left;
       margin-right: $gutter-width/2;
     }
+  }
+  a {
+    float: left;
+    margin-right: $gutter-width/2;
   }
 }
 

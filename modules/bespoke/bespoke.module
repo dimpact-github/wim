@@ -531,3 +531,18 @@ function bespoke_views_query_alter(&$view, &$query) {
     }
   }
 }
+
+/**
+* Implements hook_block_view_alter.
+*/
+
+function bespoke_block_view_alter(&$data, $block) {
+
+  if ($block->module == 'service_links' ) {
+    // Determin the starting position of the label
+    // The string orignates from the service_links module
+    $strlength = drupal_strlen('<div class="service-links">');
+
+    $data['content'] = substr_replace ($data['content'], '<div class="service-label">' . t('Share') . ' </div>',$strlength,0);
+  }
+}

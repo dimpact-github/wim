@@ -186,7 +186,7 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
   $form['block']['more-link'] = array(
     '#type' => 'textfield',
     '#title' => t('More link'),
-    '#description' => t('Fill in the Drupal URL for the \'more\' link. Leave empty to omit.'),
+    '#description' => t('Fill in the Label for the \'more\' link. Leave empty to use the standard \'more\''),
     '#default_value' => !empty($list['more-link']) ? $list['more-link'] : '',
   );
 

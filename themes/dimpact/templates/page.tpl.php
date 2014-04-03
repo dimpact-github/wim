@@ -24,7 +24,8 @@ $content_top            = render($page['content_top']);
 $content                = render($page['content']);
 $content_bottom         = render($page['content_bottom']);
 $region_363_third       = render($page['region_363_third']);
-
+$region_d               = render($page['region_d']);
+  
 $region_444_first       = render($page['region_444_first']);
 $region_444_second      = render($page['region_444_second']);
 $region_444_third       = render($page['region_444_third']);
@@ -217,6 +218,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
             <?php endif; ?>
             <?php print $content; ?>
             <?php print $content_bottom; ?>
+            <?php print $region_d; ?>
           </div>
           <?php // print $feed_icons; ?>
         </div>

@@ -31,6 +31,7 @@ regions[content_top]        = Content top (5/12)
 regions[content]            = Content (5/12)
 regions[content_bottom]     = Content bottom(5/12)
 regions[region_363_third]   = Regio 4/12 (third 3/5/4)
+regions[region_d]           = Regio voor Social Media
 
 ; Region 4/4/4
 regions[region_444_first]   = Regio 4/12 first
