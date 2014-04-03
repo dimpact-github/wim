@@ -121,17 +121,11 @@ function custom_lists_block_view($delta = '') {
     '#items' => $items,
   );
 
-  if (isset($list['more-link'])) {
-    $block['content']['more'] = array(
-      '#markup' => '<div class="more-link">' . l(t('More'), $list['more-link']) . '</div>',
-    );
-  }
-
   if ($list['provide-page']) {
     $block['content']['more-link'] = array(
       '#theme' => 'more_link',
       '#url' => $list['path'],
-      '#title' => t('More'), //$list['title'],
+      '#title' => !empty($list['more-link']) ? $list['more-link']: t('More'),
     );
   }
 
@@ -227,7 +221,6 @@ function custom_lists_content_nodes($list, $items) {
   foreach ($rs as $row) {
     $nodes[] = node_load($row->nid);
   }
-
   return $nodes;
 }
 

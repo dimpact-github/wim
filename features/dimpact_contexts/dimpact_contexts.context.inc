@@ -123,14 +123,16 @@ function dimpact_contexts_context_default_contexts() {
       'values' => array(
         'agenda' => 'agenda',
         'announcement' => 'announcement',
-        'blog' => 'blog',
-        'editorial' => 'editorial',
-        'faq' => 'faq',
-        'marketplace' => 'marketplace',
         'news' => 'news',
         'page' => 'page',
         'person' => 'person',
         'product' => 'product',
+        'regulation' => 'regulation',
+        'ris_agendaitem' => 'ris_agendaitem',
+        'ris_meeting' => 'ris_meeting',
+        'spatial_plan' => 'spatial_plan',
+        'vac' => 'vac',
+        'webform' => 'webform',
       ),
       'options' => array(
         'node_form' => '0',
@@ -140,10 +142,10 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'subscriptions_ui-0' => array(
-          'module' => 'subscriptions_ui',
-          'delta' => '0',
-          'region' => 'content_bottom',
+        'service_links-service_links' => array(
+          'module' => 'service_links',
+          'delta' => 'service_links',
+          'region' => 'region_d',
           'weight' => '-10',
         ),
       ),
