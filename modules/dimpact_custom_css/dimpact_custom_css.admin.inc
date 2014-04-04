@@ -8,10 +8,17 @@
  */
 function dimpact_custom_css_upload($form, &$form_state) {
 
+  $form['description'] = array(
+    '#type' => 'markup',
+    '#markup' => t('Please note, make sure you have a license for using the uploaded webfonts'),
+    '#prefix' => '<div><strong>',
+    '#suffix' => '</div></strong>',
+  );
+
   $form['css_killswitch'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable custom CSS files to override the main theme'),
-    '#default_value' => domain_conf_variable_get(_dimpact_custom_css_domainid(), 'css_killswitch'),
+    '#default_value' => domain_conf_variable_get(_dimpact_custom_css_domainid(), 'css_killswitch')
   );
 
   foreach (dimpact_custom_css_files() as $key => $title) {
