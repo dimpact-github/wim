@@ -106,12 +106,12 @@ function dimpact_custom_css_files() {
     'custom_css_print'  => t('CSS Print'),
     'custom_css_lteie9' => t('CSS LTE IE9'),
     'custom_css_ltie9'  => t('CSS LT IE9'),
-    'custom_comp_med'   => t('DINComp-Medium ttf'),
-    'custom_comp'       => t('DINComp ttf'),
-    'custom_web_medium' => t('DINWeb-Medium eot'),
-    'custom_web_mediumw'=> t('DINWeb-Medium woff'),
-    'custom_web'        => t('DINWeb eot'),
-    'custom_webw'       => t('DINweb woff'),
+    'custom_comp_med'   => t('Comp Medium font'),
+    'custom_comp'       => t('Comp font'),
+    'custom_web_medium' => t('Web-Medium font'),
+    'custom_web_mediumw'=> t('Web-Medium font'),
+    'custom_web'        => t('Web font'),
+    'custom_webw'       => t('Web font'),
   );
 }
 
