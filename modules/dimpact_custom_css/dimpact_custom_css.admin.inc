@@ -111,7 +111,7 @@ function dimpact_custom_css_files() {
     'custom_web_medium' => t('Web-Medium font'),
     'custom_web_mediumw'=> t('Web-Medium font'),
     'custom_web'        => t('Web font'),
-    'custom_webw'       => t('Web font'),
+    'custom_webw'       => t('Web font 2'),
   );
 }
 
