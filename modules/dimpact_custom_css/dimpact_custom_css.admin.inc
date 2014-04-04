@@ -54,7 +54,7 @@ function _dimpact_custom_css_form_elements($source, $title,  &$form) {
     '#title'  => $title,
     '#upload_validators'  => array(
       'file_validate_extensions' => array(
-        'css',
+        'css ttf eot woff',
       ),
     ),
   );
@@ -73,7 +73,7 @@ function _dimpact_custom_css_form_elements($source, $title,  &$form) {
 function _dimpact_custom_css_handle_upload($source = NULL) {
   global $_domain;
   if ($source) {
-    if ($file = file_save_upload($source, array('file_validate_extensions' => array('css')), CUSTOM_CSS_PATH, FILE_EXISTS_REPLACE)) {
+    if ($file = file_save_upload($source, array('file_validate_extensions' => array('css ttf eot woff')), CUSTOM_CSS_PATH, FILE_EXISTS_REPLACE)) {
       $result = db_select('field_data_domain_file', 'fddf')
         ->fields('fddf')
         ->condition('entity_id', $file->fid, '=')
@@ -103,9 +103,15 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
 function dimpact_custom_css_files() {
   return array(
     'custom_css_screen' => t('CSS Screen'),
-    'custom_css_print' => t('CSS Print'),
+    'custom_css_print'  => t('CSS Print'),
     'custom_css_lteie9' => t('CSS LTE IE9'),
-    'custom_css_ltie9' => t('CSS LT IE9'),
+    'custom_css_ltie9'  => t('CSS LT IE9'),
+    'custom_comp_med'   => t('DINComp-Medium ttf'),
+    'custom_comp'       => t('DINComp ttf'),
+    'custom_web_medium' => t('DINWeb-Medium eot'),
+    'custom_web_mediumw'=> t('DINWeb-Medium woff'),
+    'custom_web'        => t('DINWeb eot'),
+    'custom_webw'       => t('DINweb woff'),
   );
 }
 
