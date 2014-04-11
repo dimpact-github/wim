@@ -34,8 +34,19 @@ function dimpact_custom_css_permission() {
 }
 
 /**
- * Implements hook_init().
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
  */
-function dimpact_custom_css_init() {
-
+function dimpact_custom_css_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'file_entity_add_upload') {
+    $form['description'] = array(
+      '#type' => 'markup',
+      '#markup' => t('Please note, make sure you have a license for using the uploaded webfonts'),
+      '#prefix' => '<div><strong>',
+      '#suffix' => '</strong></div>',
+    );
+  }
 }

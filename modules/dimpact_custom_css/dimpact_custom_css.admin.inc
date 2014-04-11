@@ -10,9 +10,9 @@ function dimpact_custom_css_upload($form, &$form_state) {
 
   $form['description'] = array(
     '#type' => 'markup',
-    '#markup' => t('Please note, make sure you have a license for using the uploaded webfonts'),
+    '#markup' => t('Font uploading has moved to !link.', array('!link' => l(t('this location'), 'file/add'))),
     '#prefix' => '<div><strong>',
-    '#suffix' => '</div></strong>',
+    '#suffix' => '</strong></div><br>',
   );
 
   $form['css_killswitch'] = array(
@@ -100,7 +100,7 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
       }
       $file->status = 1;
       file_save($file);
-      
+
       domain_conf_variable_set(_dimpact_custom_css_domainid(), $source, $file->fid);
       variable_set($source, $file->fid);
     }
@@ -113,12 +113,6 @@ function dimpact_custom_css_files() {
     'custom_css_print'  => t('CSS Print'),
     'custom_css_lteie9' => t('CSS LTE IE9'),
     'custom_css_ltie9'  => t('CSS LT IE9'),
-    'custom_comp_med'   => t('Comp Medium font'),
-    'custom_comp'       => t('Comp font'),
-    'custom_web_medium' => t('Web-Medium font'),
-    'custom_web_mediumw'=> t('Web-Medium font'),
-    'custom_web'        => t('Web font'),
-    'custom_webw'       => t('Web font 2'),
   );
 }
 
