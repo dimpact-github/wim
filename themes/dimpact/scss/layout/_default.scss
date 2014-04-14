@@ -215,60 +215,62 @@
   .region_footer_third {
     @include omega;
   }
-  .onderwerpen-toggle,
-  .menu-toggle {
-    display: none;
-  }
-  nav {
-    &.main-menu {
-      > .container > nav.block-menu,
-      .block-dominion-menu,
-      .block-system-main-menu {
-        > ul.menu > li.active-trail,
-        > ul.menu > li:hover {
-          margin-top: -4px;
-          border-top: 4px solid $background-color;
-        }
-        ul {
-          display: block;
-          li {
-            float: left;
-            a {
-              @include font-size(14);
-              padding: 12px $gutter-width/2;
-            }
-            ul {
-              position: absolute;
-              top: 38px;
-              display: none;
-              max-width: 250px;
-              min-width: 194px;
+  .no-touch {
+    .onderwerpen-toggle,
+    .menu-toggle {
+      display: none;
+    }
+    nav {
+      &.main-menu {
+        > .container > nav.block-menu,
+        .block-dominion-menu,
+        .block-system-main-menu {
+          > ul.menu > li.active-trail,
+          > ul.menu > li:hover {
+            margin-top: -4px;
+            border-top: 4px solid $background-color;
+          }
+          ul {
+            display: block;
+            li {
+              float: left;
+              a {
+                @include font-size(14);
+                padding: 12px $gutter-width/2;
+              }
+              ul {
+                position: absolute;
+                top: 38px;
+                display: none;
+                max-width: 250px;
+                min-width: 194px;
+              }
             }
           }
         }
       }
-    }
-    .quicktabs_main {
-      .quicktabs-tabpage {
-        @include column-count(3);
-        @include border-bottom-radius(4px);
-        position: absolute;
+      .quicktabs_main {
+        .quicktabs-tabpage {
+          @include column-count(3);
+          @include border-bottom-radius(4px);
+          position: absolute;
+        }
       }
-    }
-    .block-quicktabs {
-      h2.block-title {
+      .block-quicktabs {
+        h2.block-title {
+          display: block !important;
+        }
+      }
+      .quicktabs-tabs {
         display: block !important;
       }
     }
-    .quicktabs-tabs {
-      display: block !important;
+    nav.main-menu .block-quicktabs .quicktabs-tabs a {
+      padding: 0.75em 8px;
     }
-  }
+  } // end .no-touch
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
-  }
-  nav.main-menu .block-quicktabs .quicktabs-tabs a {
-    padding: 0.75em 8px;
   }
   .block-search {
     position: absolute !important;
@@ -428,30 +430,32 @@
     margin-right: 15px;
   }
 
-  nav {
-    &.main-menu {
-      > .container > nav.block-menu,
-      .block-dominion-menu,
-      .block-system-main-menu {
-        ul {
-          li {
-            a {
-              @include font-size(16);
-              padding: 15px $gutter-width/2;
-            }
-            ul {
-              top: 46px;
+  .no-touch {
+    nav {
+      &.main-menu {
+        > .container > nav.block-menu,
+        .block-dominion-menu,
+        .block-system-main-menu {
+          ul {
+            li {
+              a {
+                @include font-size(16);
+                padding: 15px $gutter-width/2;
+              }
+              ul {
+                top: 46px;
+              }
             }
           }
         }
       }
     }
-  }
-  nav.main-menu .block-quicktabs h2.block-title {
-    top: 9px;
-  }
-  nav.main-menu .block-quicktabs .quicktabs-tabs a {
-    padding: 0.75em 1em;
+    nav.main-menu .block-quicktabs h2.block-title {
+      top: 9px;
+    }
+    nav.main-menu .block-quicktabs .quicktabs-tabs a {
+      padding: 0.75em 1em;
+    }
   }
   #homebox {
     @include container($total-columns, $break-large);
