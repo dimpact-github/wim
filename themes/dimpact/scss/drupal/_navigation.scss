@@ -88,11 +88,8 @@ nav {
             ul {
               @include border-bottom-radius(6px);
               display: block;
-              // repeat styles for the li- and a-elements of lines above,
-              // otherwise the .no-touch adds too much weight to the cascade
-              li {
-                float: none;
-              }
+              // repeat styles for the a-element of lines above, because the
+              // .no-touch class adds too much weight to the cascade
               a {
                 @include font-size(13);
                 line-height: $line-height;
