@@ -84,10 +84,17 @@ nav {
               }
             }
           }
-          &:hover {
+          .no-touch &:hover {
             ul {
               @include border-bottom-radius(6px);
               display: block;
+              // repeat styles for the a-element of lines above, because the
+              // .no-touch class adds too much weight to the cascade
+              a {
+                @include font-size(13);
+                line-height: $line-height;
+                padding: $gutter-width/2 $gutter-width;
+              }
               li.last {
                 a {
                   @include border-bottom-radius(6px);
