@@ -11,36 +11,45 @@ function _get_required_nodes() {
 
   $types = _get_reminder_types();
 
+  $orcondswitch = false;
+
   foreach($types as $type) {
     if (variable_get('content_reminder_types_' . $type->type, 0) == 1) {
         $dband = db_and();
         $duedate = time() - (variable_get('content_reminder_types_' . $type->type . '_days', 20) * 86400);
         $dband->condition('n.type', $type->type, '=');
-        $dband->condition('n.changed', $duedate,'<');
+        $dband->condition('nr.timestamp', $duedate,'<');
         $orcond->condition($dband);
+        $orcondswitch = true;
     }
   }
 
+  if ($orcondswitch == true) {
     $query = db_select('node','n');
-    $query->leftjoin('node_revision','nr', 'nr.nid = n.nid');
+    $query->leftjoin('field_data_field_reminder_email', 're', 're.entity_id = n.nid');
+    $query->leftjoin('node_revision','nr', 'nr.vid = n.vid');
     $query->leftjoin('users','u', 'u.uid = nr.uid');
-    $query->fields('n', array('nid', 'title', 'changed', 'type'))
-          ->fields('u', array('mail'));
-    $query->addExpression('MAX(nr.vid)');
+    $query->fields('n', array('nid', 'title', 'changed', 'type',))
+          ->fields('nr', array('status'))
+          ->fields('u', array('mail'))
+          ->fields('re',array('field_reminder_email_email'));
     $query->condition($orcond)
           ->groupBy('n.nid')
           ->orderBy('n.type','ASC');
     $results = $query->execute()->fetchAll();
-    
-  return $results;
 
+    return $results;
+  } else {
+    return NULL;
+  }
 }
 
 /*
  * Private function to send an e-mail with nodes that require an update
  */
 
-function _send_reminder_mail($nodes) {
+function _prepare_nodes($nodes, $mailtype) {
+
   $email_nodes = array();
   foreach ($nodes as $node) {
     if (!isset($email_nodes[$node->mail])) {
@@ -49,31 +58,32 @@ function _send_reminder_mail($nodes) {
     $email_nodes[$node->mail][] = $node;
   }
 
-  foreach ($email_nodes as $email_node) {
-    $build = array(
-      '#theme' => 'content_reminder',
-      '#nodes' => $email_node,
-      '#kip' => 5,
-    );
-
-    $mail_token = microtime();
-    $from = variable_get('system_mail', 'My Email Address <example@example.com>');
-    $message = array(
-      'id' => 'custom' . '_' . $mail_token,
-      'to' => $email_node[0]->mail,
-      'subject' => 'update',
-      'body' => drupal_render($build),
-      'headers' => array(
-        'From' => $from,
-        'Sender' => $from,
-        'Return-Path' => $from,
-      ),
-    );
-    $system = drupal_mail_system('custom', $mail_token);
-    $message = $system->format($message);
-    $system->mail($message);
-
+  $loaded_node = array();
+  foreach ($nodes as $node) {
+    $loaded_node[$node->nid] = node_load($node->nid);
   }
+
+  $emailremindernodes = array();
+  foreach ($loaded_node as $node) {
+    if (!empty($node->field_reminder_email)) {
+      foreach ($node->field_reminder_email['und'] as $mail_list) {
+        foreach ($mail_list as $key => $value) {
+
+          $emailremindernodes[$value][$node->nid]->nid = $node->nid;
+          $emailremindernodes[$value][$node->nid]->title = $node->title;
+          $emailremindernodes[$value][$node->nid]->changed = $node->changed;
+          $emailremindernodes[$value][$node->nid]->type = $node->type;
+          $emailremindernodes[$value][$node->nid]->mail = $value;
+          $emailremindernodes[$value][$node->nid]->status = $node->status;
+
+        }
+      }
+    }
+  }
+
+  _send_mails($email_nodes, $mailtype);
+  _send_mails($emailremindernodes, $mailtype);
+
 }
 
 /*
@@ -87,23 +97,95 @@ function _get_reminder_types() {
   return $types;
 }
 
+/*
+ * Private function to get expired nodes and update the status to 0 if needed
+ */
+
 function _get_old_nodes() {
 
   $orcond = db_or();
   $types = _get_reminder_types();
+  $orcondswitch = false;
 
   foreach ($types as $type) {
-    if (variable_get('content_reminder_types_' . $type->type, 0) == 1) {
+    if ((variable_get('content_reminder_types_' . $type->type, 0) == 1) || variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1) {
         $dband = db_and();
         $duedate = time() - (variable_get('content_reminder_types_' . $type->type . '_depub', 20) * 86400);
-        $dband->condition('type', $type->type, '=');
-        $dband->condition('changed', $duedate,'<');
+        $dband->condition('n.type', $type->type, '=');
+        $dband->condition('nr.timestamp', $duedate,'<');
         $orcond->condition($dband);
+        $orcondswitch = true;
     }
   }
-    $query = db_update('node');
-    $query->fields(array('status' => 0));
-    $query->condition($orcond);
-    $results = $query->execute();
-  return $results;
+
+  if ($orcondswitch == true) {
+     $query = db_select('node','n');
+      $query->leftjoin('field_data_field_reminder_email', 're', 're.entity_id = n.nid');
+      $query->leftjoin('node_revision','nr', 'nr.vid = n.vid');
+      $query->leftjoin('users','u', 'u.uid = nr.uid');
+      $query->fields('n', array('nid', 'title', 'changed', 'type'))
+            ->fields('nr', array('status'))
+            ->fields('u', array('mail'))
+            ->fields('re',array('field_reminder_email_email'));
+      $query->condition($orcond)
+            ->groupBy('n.nid')
+            ->orderBy('n.type','ASC');
+      $mailnodes = $query->execute()->fetchAll();
+    
+    foreach ($types as $type) {
+      if (variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1) {
+        $query = db_select('node_revision', 'nr');
+        $query->leftjoin('node','n', 'n.vid = nr.vid');
+        $query->fields('n', array('nid'));
+        $query->condition($orcond);
+        $results = $query->execute()->fetchAll();
+        foreach ($results as $result) {
+          foreach ($mailnodes as &$mailnode) {
+            if ($result->nid == $mailnode->nid) {
+              $mailnode->status = 0;
+            }
+          }
+          $node = node_load($result->nid);
+          $node->status = 0;
+          $a[$result->nid]->status = 0;
+          //node_save($node);
+        }
+      }
+    }
+    return $mailnodes;
+  } else {
+    return NULL;
+  }
+
+}
+
+/*
+ * Private function to send e-mails
+ */
+
+function _send_mails($nodes, $mailtype) {
+  foreach ($nodes as $node) {
+    $build = array(
+      '#theme' => 'content_reminder',
+      '#nodes' => $node,
+      '#mailtype' => $mailtype,
+    );
+
+    $mail_token = microtime();
+    $from = variable_get('system_mail', '<reminder@zwolle.nl>');
+    $message = array(
+      'id' => 'custom' . '_' . $mail_token,
+      'to' => $node[key($node)]->mail,
+      'subject' => 'update',
+      'body' => drupal_render($build),
+      'headers' => array(
+        'From' => $from,
+        'Sender' => $from,
+        'Return-Path' => $from,
+      ),
+    );
+    $system = drupal_mail_system('custom', $mail_token);
+    $message = $system->format($message);
+    $system->mail($message);
+  }
 }

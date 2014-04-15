@@ -12,6 +12,20 @@ function content_reminder_admin_form($form, &$form_state) {
     '#type' => 'item',
     '#title' => t('A form to configure content reminders for each content types.'),
   );
+  $form['content_reminder_reminder_text'] = array(
+    '#type' => 'textarea',
+    '#title' => t('A form to configure content reminders for each content types.'),
+    '#default_value' => variable_get('content_reminder_reminder_text', 0),
+  );
+  $form['content_reminder_expire_text'] = array(
+    '#type' => 'textarea',
+    '#title' => t('A form to configure content reminders for each content types.'),
+    '#default_value' => variable_get('content_reminder_expire_text', 0),
+  );
+  $form['description'] = array(
+    '#type' => 'item',
+    '#title' => t('A form to configure content reminders for each content types.'),
+  );
   foreach ($types as $type) {
     $form['content_reminder_' .  $type->type . '_header'] = array(
       '#type' => 'markup',
@@ -28,6 +42,11 @@ function content_reminder_admin_form($form, &$form_state) {
       '#default_value' => variable_get('content_reminder_types_' . $type->type . '_days', 182),
       '#maxlength' => 255,
       '#element_validate' => 'element_validate_number',
+      );
+    $form['content_reminder_types_' . $type->type . '_depub_box'] = array(
+      '#type' => 'checkbox',
+      '#title' => $type->type . t('Has to be de published when expired'),
+      '#default_value' => variable_get('content_reminder_types_' . $type->type . '_depub_box', 0),
       );
     $form['content_reminder_types_' . $type->type . '_depub'] = array(
       '#type' => 'textfield',
