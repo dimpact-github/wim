@@ -249,6 +249,9 @@ projects[nodequeue][download][branch] = 7.x-3.x
 projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync-queue-1154948-15.patch
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
+projects[password_policy][subdir] = contrib
+projects[password_policy][version] = "1.5"
+
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"
 
@@ -272,6 +275,9 @@ projects[remote_stream_wrapper][version] = "1.0-beta4"
 
 projects[rules][subdir] = contrib
 projects[rules][version] = "2.6"
+
+projects[securelogin][subdir] = contrib
+projects[securelogin][version] = "1.4"
 
 projects[static_404][subdir] = contrib
 projects[static_404][version] = "1.0-beta4"
