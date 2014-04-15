@@ -148,7 +148,7 @@ function _get_old_nodes() {
           $node = node_load($result->nid);
           $node->status = 0;
           $a[$result->nid]->status = 0;
-          //node_save($node);
+          node_save($node);
         }
       }
     }
