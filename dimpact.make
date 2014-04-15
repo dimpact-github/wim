@@ -276,6 +276,9 @@ projects[remote_stream_wrapper][version] = "1.0-beta4"
 projects[rules][subdir] = contrib
 projects[rules][version] = "2.6"
 
+projects[securepages][subdir] = contrib
+projects[securepages][version] = "1.0-beta2"
+
 projects[static_404][subdir] = contrib
 projects[static_404][version] = "1.0-beta4"
 
