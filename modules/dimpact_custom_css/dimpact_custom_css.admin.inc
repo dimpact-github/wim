@@ -21,6 +21,12 @@ function dimpact_custom_css_upload($form, &$form_state) {
     '#default_value' => domain_conf_variable_get(_dimpact_custom_css_domainid(), 'css_killswitch')
   );
 
+  $form['font_killswitch'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Dissable Google Fonts'),
+    '#default_value' => domain_conf_variable_get(_dimpact_custom_css_domainid(), 'font_killswitch')
+  );
+
   foreach (dimpact_custom_css_files() as $key => $title) {
     _dimpact_custom_css_form_elements($key, $title, $form);
   }
@@ -43,6 +49,7 @@ function dimpact_custom_css_upload_submit(&$form, &$form_state) {
     _dimpact_custom_css_handle_upload($key);
   }
   domain_conf_variable_set(_dimpact_custom_css_domainid(),'css_killswitch',$form_state['values']['css_killswitch']);
+  domain_conf_variable_set(_dimpact_custom_css_domainid(),'font_killswitch',$form_state['values']['font_killswitch']);
 }
 
 /**
