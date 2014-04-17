@@ -1,0 +1,4 @@
+name = Scheduler revision
+description = Allows scheduled publication of new revisions
+core = 7.x
+dependencies[] = workbench_moderation

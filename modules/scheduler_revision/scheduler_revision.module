@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_TYPE_alter().
+ */
+function scheduler_revision_form_node_form_alter(&$form, &$form_state) {
+  if (!isset($form['scheduler_settings']) || empty($form['#node']->vid) || !workbench_moderation_node_type_moderated($form['type']['#value'])) {
+    // Not applicable. Scheduler is not enabled, we are creating a new node or moderation is not active on this nodetype.
+    return;
+  }
+
+  module_load_include('inc', 'scheduler_revision');
+  if (!_scheduler_revision_allow_publication($form['#node'])) {
+    // No permission to schedule publication.
+    return false;
+  }
+
+  $date_format = variable_get('scheduler_date_format', SCHEDULER_DATE_FORMAT);
+  $date_only_format = variable_get('scheduler_date_only_format', SCHEDULER_DATE_ONLY_FORMAT);
+  $time_only_format = variable_get('scheduler_time_only_format', SCHEDULER_TIME_ONLY_FORMAT);
+  $date_only_allowed = variable_get('scheduler_allow_date_only', FALSE);
+
+  $default = isset($form['#node']->publish_revision_on) ? $form['#node']->publish_revision_on : NULL;
+  $form['scheduler_settings']['publish_revision_on'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Publish revision on'),
+    '#maxlength' => 25,
+    '#description' => t('Publish the changes on this date.'),
+    '#default_value' => isset($default) && $default ? format_date($default, 'custom', 'Y-m-d H:i:s') : '',
+    '#value_callback' => 'scheduler_date_value_callback',
+    '#weight' => -1,
+  );
+  if (_scheduler_use_date_popup()) {
+    $form['scheduler_settings']['publish_revision_on']['#type'] = 'date_popup';
+    $form['scheduler_settings']['publish_revision_on']['#date_format'] = $date_format;
+    $form['scheduler_settings']['publish_revision_on']['#date_year_range'] = '0:+10';
+    $form['scheduler_settings']['publish_revision_on']['#date_increment'] = variable_get('scheduler_date_popup_minute_increment', 1);
+    unset($descriptions['format']);
+    unset($form['scheduler_settings']['publish_revision_on']['#maxlength']);
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function scheduler_revision_node_delete($node) {
+  db_delete('scheduler_revision')->condition('nid', $node->nid)->execute();
+}
+
+/**
+ * Implements hook_node_load().
+ */
+function scheduler_revision_node_load($nodes, $types) {
+  $nids = array_keys($nodes);
+  $result = db_query('SELECT * FROM {scheduler_revision} WHERE nid IN (:nids)', array(':nids' => $nids));
+  foreach ($result as $record) {
+    $nid = $record->nid;
+    if ($nodes[$nid]->vid == $record->vid) {
+      $nodes[$nid]->publish_revision_on = $record->publish_revision_on;
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function scheduler_revision_node_update($node) {
+  if (!is_numeric($node->publish_revision_on)) {
+    $node->publish_revision_on = strtotime($node->publish_revision_on);
+  }
+  if (!empty($node->publish_revision_on)) {
+    db_merge('scheduler_revision')->key(array(
+      'nid' => $node->nid,
+      'vid' => $node->vid
+    ))->fields(array(
+      'publish_revision_on' => $node->publish_revision_on,
+    ))->execute();
+
+    // We can create multiple concepts. Keeping the publication dates will publish
+    // all concepts, which is confusing. Only keep the most recent informatino.
+    db_delete('scheduler_revision')
+      ->condition('nid', $node->nid)
+      ->condition('vid', $node->vid, '!=')
+      ->execute();
+  }
+  else {
+    scheduler_node_delete($node);
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function scheduler_revision_cron() {
+  module_load_include('inc', 'scheduler_revision');
+  _scheduler_revision_cron();
+}
+
+/**
+ * Implements hook_cronapi().
+ *
+ * Provide defaults for elysia_cron module.
+ */
+function scheduler_revision_cronapi($op, $job = NULL) {
+  return array(
+    'scheduler_revision_cron' => array(
+      'description' => 'Publish scheduled revisions',
+      'rule' => '* * * * *',
+    ),
+  );
+}

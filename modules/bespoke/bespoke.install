@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Enable scheduler_revision and scheduler_workbench mdoules.
+ */
+function bespoke_update_7100() {
+  module_enable(array(
+    'scheduler_revision',
+    'scheduler_workbench',
+  ));
+}
