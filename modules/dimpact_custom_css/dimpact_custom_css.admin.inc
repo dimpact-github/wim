@@ -50,6 +50,9 @@ function dimpact_custom_css_upload_submit(&$form, &$form_state) {
   }
   domain_conf_variable_set(_dimpact_custom_css_domainid(),'css_killswitch',$form_state['values']['css_killswitch']);
   domain_conf_variable_set(_dimpact_custom_css_domainid(),'font_killswitch',$form_state['values']['font_killswitch']);
+
+  // Set a cache key. This string is added to the URL to force renewal of browser and Varnish cache.
+  variable_set('dimpact_custom_css_cache_key', dechex(REQUEST_TIME));
 }
 
 /**
