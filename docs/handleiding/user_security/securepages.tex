@@ -1,0 +1,13 @@
+\subsection{Secure pages}\label{securepages}
+
+Voor bepaalde websites zal gebruik worden gemaakt van SSL. Dit kan zo worden ingericht dat:
+
+\begin{itemize}
+\item bezoekers automatisch op https terecht komen wanneer ze op de website terecht komen of inloggen;
+\item session cookies niet over http verstuurd worden;
+\item bezoekers automatisch op https terecht komen wanneer ze ingelogd zijn (op https) en ze bezoeken een pagina over http.
+\end{itemize}
+
+In Drupal wordt de settings.php aangepast. In een module wordt code toegevoegd om een ssl cookie te zetten wanneer men op ssl zit. Deze wordt gebruikt om bezoekers op http te redirecten naar https indien ze daar mogelijk ingelogd zijn. Als laatste wordt de Secure pages module ingezet om ervoor te zorgen dat bezoekers automatisch op https terecht komen wanneer ze inloggen of de website bezoeken.
+
+Voor de Drupal-configuratie ga naar \emph{Instellingen}, klik op \emph{Systeem} en dan op \emph{Secure pages}. Of ga rechtstreeks naar \drupalpath{admin/config/system/securepages}.
