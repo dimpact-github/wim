@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * Implements hook_init().
+ *
+ * Add SSL cookie if not present.
+ */
+function bespoke_init() {
+  global $is_https;
+
+  if ($is_https && empty($_COOKIE['ssl'])) {
+    // Set a marker to know that the user is logged in via SSL.
+    $params = session_get_cookie_params();
+    $expire = $params['lifetime'] ? REQUEST_TIME + $params['lifetime'] : 0;
+    setcookie('ssl', 1, $expire, $params['path'], $params['domain'], FALSE, TRUE);
+  }
+}
+
+/**
  * Implements hook_entity_info_alter().
  */
 function bespoke_entity_info_alter(&$entity_info) {
