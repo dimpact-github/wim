@@ -55,7 +55,7 @@ function bespoke_entity_info_alter(&$entity_info) {
     'label' => t('Portret'),
     'custom settings' => TRUE,
   );
-  
+
   $entity_info['file']['view modes']['slide_1_3'] = array(
     'label' => t('Slide 4/12'),
     'custom settings' => TRUE,
