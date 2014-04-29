@@ -256,7 +256,6 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
     }
   }
 
-  $node->field_tags= array(LANGUAGE_NONE => array());
   foreach ($xpath->query('/result/keywords/keyword') as $item) {
     $node->field_tags[LANGUAGE_NONE][] = array('tid' => atos_esuite_get_term_tid($item->nodeValue));
   }
@@ -290,4 +289,28 @@ function atos_esuite_map_node_vac($node, $documentDOM, $xpath) {
       )
     )
   );
+}
+
+/**
+ * Get category term id by given name. Creates new term if not found.
+ *
+ * @param string $name
+ * @return int
+ */
+function atos_esuite_get_term_tid($term_name) {
+  $vocabulary_name = variable_get('atos_esuite_tags_vocabulary_name', 'tags');
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+
+  $terms = taxonomy_get_term_by_name($term_name, $vocabulary_name);
+  if (!count($terms)) {
+    $term = new stdClass();
+    $term->vid = $vocabulary->vid;
+    $term->name = $term_name;
+    taxonomy_term_save($term);
+  }
+  else {
+    $term = reset($terms);
+  }
+
+  return $term->tid;
 }
