@@ -8,7 +8,8 @@
 function bespoke_init() {
   global $is_https;
 
-  if ($is_https && empty($_COOKIE['ssl'])) {
+  // Unconditional https redirects or a Secure Pages based solution is used.
+  if ($is_https && empty($_COOKIE['ssl']) && module_exists('securepages')) {
     // Set a marker to know that the user is logged in via SSL.
     $params = session_get_cookie_params();
     $expire = $params['lifetime'] ? REQUEST_TIME + $params['lifetime'] : 0;
