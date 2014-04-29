@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * Implements hook_init().
+ *
+ * Add SSL cookie if not present.
+ */
+function bespoke_init() {
+  global $is_https;
+
+  // Unconditional https redirects or a Secure Pages based solution is used.
+  if ($is_https && empty($_COOKIE['ssl']) && module_exists('securepages')) {
+    // Set a marker to know that the user is logged in via SSL.
+    $params = session_get_cookie_params();
+    $expire = $params['lifetime'] ? REQUEST_TIME + $params['lifetime'] : 0;
+    setcookie('ssl', 1, $expire, $params['path'], $params['domain'], FALSE, TRUE);
+  }
+}
+
+/**
  * Implements hook_entity_info_alter().
  */
 function bespoke_entity_info_alter(&$entity_info) {
@@ -38,7 +55,7 @@ function bespoke_entity_info_alter(&$entity_info) {
     'label' => t('Portret'),
     'custom settings' => TRUE,
   );
-  
+
   $entity_info['file']['view modes']['slide_1_3'] = array(
     'label' => t('Slide 4/12'),
     'custom settings' => TRUE,
