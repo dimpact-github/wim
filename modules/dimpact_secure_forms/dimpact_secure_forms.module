@@ -1,0 +1,20 @@
+<?php
+/**
+ * Enables secure forms functionality.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function dimpact_secure_forms_form_alter(&$form, &$form_state, $form_id) {
+  if (variable_get('securepages_enable', 0) && basename($_SERVER['PHP_SELF']) == 'index.php' && php_sapi_name() != 'cli') {
+    global $is_https;
+
+    if (!$is_https) {
+      $path = isset($_GET['q']) ? $_GET['q'] : '';
+
+      securepages_log('Switch User to secure', $path);
+      securepages_goto(TRUE);
+    }
+  }
+}
