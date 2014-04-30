@@ -1,0 +1,6 @@
+name = Secure Forms
+description = Forces forms to be send over https.
+package = Dimpact
+core = 7.x
+
+dependencies[] = securepages
