@@ -1,7 +1,7 @@
 name = Dimpact imagestyles
 core = 7.x
 package = Features
-version = 7.x-1.0-20131128
+version = 7.x-1.0-20140430
 project = dimpact_imagestyles
 dependencies[] = image
 features[features_api][] = api:2
