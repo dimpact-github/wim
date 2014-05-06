@@ -256,6 +256,21 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
     }
   }
 
+  $node->field_tags= array(LANGUAGE_NONE => array());
+  foreach ($xpath->query('/result/keywords/keyword') as $item) {
+    $node->field_tags[LANGUAGE_NONE][] = array('tid' => atos_esuite_get_term_tid($item->nodeValue));
+  }
+
+  $node->field_related_vac = array(LANGUAGE_NONE => array());
+  foreach ($xpath->query('/result/relatedvac/id') as $item) {
+    $node->field_related_vac[LANGUAGE_NONE][] = array('value' => $item->nodeValue);
+  }
+
+  $node->field_related_pdc = array(LANGUAGE_NONE => array());
+  foreach ($xpath->query('/result/relatedpdc/id') as $item) {
+    $node->field_related_pdc[LANGUAGE_NONE][] = array('value' => $item->nodeValue);
+  }
+
   $node->body = array(
     LANGUAGE_NONE => array(
       array(

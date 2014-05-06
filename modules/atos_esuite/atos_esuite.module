@@ -46,3 +46,90 @@ function atos_esuite_cron() {
   module_load_include('inc', 'atos_esuite', 'atos_esuite.import');
   atos_esuite_import_batch_start(array('product', 'vac'));
 }
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function atos_esuite_field_formatter_info() {
+  return array(
+    'atos_title' => array(
+      'label' => t('Atos eSuite title'),
+      'field types' => array('number_integer'),
+      'settings' => array(
+        'entity_bundle' => 'product',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function atos_esuite_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element['entity_bundle'] = array(
+    '#title' => t('Entity Bundle'),
+    '#type' => 'select',
+    '#default_value' => 'product',
+    '#options' => array(
+      'product' => 'Product',
+      'vac' => 'Vraag/Antwoord Combinatie'
+    ),
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function atos_esuite_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = t('Entity bundle: @bundle', array('@bundle' => $settings['entity_bundle']));
+
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function atos_esuite_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+
+  switch ($display['type']) {
+    case 'atos_title':
+      $ids = array();
+      foreach ($items as $delta => $item) {
+        $ids[] = $settings['entity_bundle'] . '-' . $item['value'];
+      }
+
+      $q = db_select('atos_esuite', 'a')
+        ->fields('a', array('identifier', 'nid'))
+        ->condition('a.identifier', $ids, 'IN');
+      $q->join('node', 'n', 'n.nid = a.nid');
+      $q->fields('n' , array('title'));
+      $rs = $q->execute();
+      $data = array();
+      foreach ($rs as $row) {
+        $data[$row->identifier] = $row;
+      }
+
+      foreach ($ids as $delta => $identifier) {
+        if (isset($data[$identifier])) {
+          $element[$delta] = array('#markup' => l($data[$identifier]->title, 'node/' . $data[$identifier]->nid));
+        }
+        else {
+          $element[$delta] = array('#markup' => $identifier);
+        }
+      }
+
+      break;
+  }
+
+  return $element;
+}

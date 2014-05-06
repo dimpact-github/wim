@@ -1699,6 +1699,18 @@ function dimpact_content_types_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1735,6 +1747,10 @@ function dimpact_content_types_strongarm() {
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
+            'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'default' => array(
             'weight' => '100',
             'visible' => TRUE,
           ),
