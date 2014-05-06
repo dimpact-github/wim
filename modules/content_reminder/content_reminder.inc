@@ -55,6 +55,7 @@ function _prepare_nodes($nodes, $mailtype) {
     if (!isset($email_nodes[$node->mail])) {
       $email_nodes[$node->mail] = array();
     }
+    $node->url = l($node->title, 'node/' . $node->nid, array('absolute' => TRUE));
     $email_nodes[$node->mail][] = $node;
   }
 
@@ -75,6 +76,7 @@ function _prepare_nodes($nodes, $mailtype) {
           $emailremindernodes[$value][$node->nid]->type = $node->type;
           $emailremindernodes[$value][$node->nid]->mail = $value;
           $emailremindernodes[$value][$node->nid]->status = $node->status;
+          $emailremindernodes[$value][$node->nid]->url = l($node->title, 'node/' . $node->nid, array('absolute' => TRUE));
 
         }
       }
@@ -131,7 +133,7 @@ function _get_old_nodes() {
             ->groupBy('n.nid')
             ->orderBy('n.type','ASC');
       $mailnodes = $query->execute()->fetchAll();
-    
+
     foreach ($types as $type) {
       if (variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1) {
         $query = db_select('node_revision', 'nr');
@@ -163,29 +165,31 @@ function _get_old_nodes() {
  * Private function to send e-mails
  */
 
-function _send_mails($nodes, $mailtype) {
-  foreach ($nodes as $node) {
+function _send_mails($mailnodes, $mailtype) {
+  foreach ($mailnodes as $mail => $nodes) {
     $build = array(
       '#theme' => 'content_reminder',
-      '#nodes' => $node,
+      '#nodes' => $nodes,
       '#mailtype' => $mailtype,
+      '#content_reminder_text' => variable_get('content_reminder_' . $mailtype . '_text', 'mijn tekstje'),
     );
 
     $mail_token = microtime();
     $from = variable_get('system_mail', '<reminder@zwolle.nl>');
     $message = array(
       'id' => 'custom' . '_' . $mail_token,
-      'to' => $node[key($node)]->mail,
+      'to' => $mail,
       'subject' => 'update',
       'body' => drupal_render($build),
       'headers' => array(
         'From' => $from,
         'Sender' => $from,
         'Return-Path' => $from,
+        'Content-Type' => 'text/html; charset=UTF-8; format=flowed',
       ),
     );
+
     $system = drupal_mail_system('custom', $mail_token);
-    $message = $system->format($message);
     $system->mail($message);
   }
 }

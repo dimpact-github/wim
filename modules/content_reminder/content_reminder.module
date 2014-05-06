@@ -43,6 +43,7 @@ function content_reminder_theme($existing, $type, $theme, $path) {
       'variables' => array(
         'nodes' => NULL,
         'mailtype' => NULL,
+        'content_reminder_text' => NULL,
       ),
       'template' => 'content_reminder',
     ),

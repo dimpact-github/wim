@@ -5,19 +5,11 @@
   </head>
 
   <body style="background-color: #FFFFFF">
-    <?php 
-      print '<p>';
-        print variable_get('content_reminder_' . $mailtype . '_text', 0);
-      print '</p>';
-        print '<ul>';
-        foreach($nodes as $node) {
-          if ($node->type) {
-              print '<li>' . '<strong>' . $node->type . '</strong>: ' . '<a href="/node/' . $node->nid . '">';
-                print $node->title;
-              print '</a> ' . ($node->status == 1 ? 'Published' : 'Unpublished') . '</li>';
-          }
-        }
-        print '</ul>';
-     ?>
+    <p><?php print $content_reminder_text; ?></p>
+    <ul>
+      <?php foreach ($nodes as $node): ?>
+        <li><strong><?php print $node->type; ?></strong>: <?php print $node->url; ?> <?php print ($node->status == 1 ? 'Published' : 'Unpublished'); ?></li>
+      <?php endforeach; ?>
+    </ul>
   </body>
 </html>
