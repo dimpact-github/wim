@@ -13,6 +13,27 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_related_pdc_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_related_pdc_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_related_vac_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_related_vac_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_tags_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_tags_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_agenda';
   $strongarm->value = '2';
   $export['comment_agenda'] = $strongarm;
