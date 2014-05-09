@@ -140,35 +140,53 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'cck_blocks-field_tags' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_tags',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
         'subscriptions_ui-0' => array(
           'module' => 'subscriptions_ui',
           'delta' => '0',
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_363_third',
+          'weight' => '-90',
+        ),
+        'cck_blocks-field_related_vac' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_vac',
+          'region' => 'region_363_third',
+          'weight' => '-89',
+        ),
         'views-maps-block_1' => array(
           'module' => 'views',
           'delta' => 'maps-block_1',
           'region' => 'region_363_third',
-          'weight' => '-10',
+          'weight' => '-88',
         ),
         'views-bestanden-block_2' => array(
           'module' => 'views',
           'delta' => 'bestanden-block_2',
           'region' => 'region_363_third',
-          'weight' => '-9',
+          'weight' => '-87',
         ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
           'delta' => 'nieuws-block_2',
           'region' => 'region_363_third',
-          'weight' => '-8',
+          'weight' => '-86',
         ),
         'views-agenda-block_2' => array(
           'module' => 'views',
           'delta' => 'agenda-block_2',
           'region' => 'region_363_third',
-          'weight' => '-7',
+          'weight' => '-85',
         ),
       ),
     ),

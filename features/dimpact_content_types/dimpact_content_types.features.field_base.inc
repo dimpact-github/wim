@@ -930,6 +930,7 @@ function dimpact_content_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_related_pdc',
     'foreign keys' => array(),
+    'global_block_settings' => 2,
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -946,6 +947,7 @@ function dimpact_content_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_related_vac',
     'foreign keys' => array(),
+    'global_block_settings' => 2,
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -1512,6 +1514,7 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'taxonomy_term_data',
       ),
     ),
+    'global_block_settings' => 2,
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
