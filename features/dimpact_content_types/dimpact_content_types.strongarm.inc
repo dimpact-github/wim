@@ -1711,6 +1711,9 @@ function dimpact_content_types_strongarm() {
       'slide_912' => array(
         'custom_settings' => TRUE,
       ),
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1727,22 +1730,30 @@ function dimpact_content_types_strongarm() {
       'display' => array(
         'domain' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'teaser' => array(
             'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'cck_blocks' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
         'flag_favorieten' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '9',
             'visible' => TRUE,
           ),
           'teaser' => array(
             'weight' => '10',
             'visible' => FALSE,
+          ),
+          'cck_blocks' => array(
+            'weight' => '1',
+            'visible' => TRUE,
           ),
         ),
         'subscriptions_ui' => array(
@@ -1751,7 +1762,11 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '100',
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'cck_blocks' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
