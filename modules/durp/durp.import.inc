@@ -36,12 +36,15 @@ function durp_queue_import() {
     // Given URI is an URL, download this file first.
     $filename = 'temporary://import_' . md5(time() . $url) . '.xml';
     if (!$data = drupal_http_request($url)) {
+      watchdog('durp', 'Could not retrieve data to !url', array('!url' => $url), WATCHDOG_ERROR);
       return FALSE;
     }
     if ($data->code != 200) {
+      watchdog('durp', 'Wrong response code for !url: !code', array('!url' => $url, '!code' => $data->code), WATCHDOG_ERROR);
       return FALSE;
     }
     if (!$fp = fopen($filename, 'w')) {
+      watchdog('durp', 'Could not write data to !file', array('!file' => $filename), WATCHDOG_ERROR);
       return FALSE;
     }
     fwrite($fp, $data->data);
@@ -53,7 +56,7 @@ function durp_queue_import() {
   $xmlReader = new XMLReader;
   $xmlReader->open($filename);
 
-  // Move to the first <product /> node.
+  // Move to the first <Dossier /> node.
   while ($xmlReader->read() && $xmlReader->name !== 'Dossier');
 
   $queue = DrupalQueue::get('durp');
@@ -143,6 +146,7 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
     return FALSE;
   }
 
+
   // Is this an actual update.
   if (!$force && $current && $xml_hash == $current['hash']) {
     return FALSE;
@@ -158,15 +162,30 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
   krsort($plansByDate);
   $plan = reset($plansByDate);
 
+
   if ($plan) {
-    $plan_uri = $plan->getElementsByTagName('GeleideFormulier')->item(0)->nodeValue;
+    $plan_uri = trim($plan->getElementsByTagName('GeleideFormulier')->item(0)->nodeValue);
+    if (!$plan_uri) {
+      watchdog('durp', 'Could not load proper plan uri for !dossier_id: !plan_uri', array('!dossier_id' => $dossier_id, '!plan_uri' => $plan_uri), WATCHDOG_ERROR);
+      return FALSE;
+    }
     $data = drupal_http_request($plan_uri);
+    if (!$data->data) {
+      watchdog('durp', 'Could not load plan uri for !dossier_id: !data', array('!dossier_id' => $dossier_id, '!data' => $data->data), WATCHDOG_ERROR);
+      return FALSE;
+    }
 
     $planXML = $data->data;
     $planDOM = new DOMDocument;
     $planDOM->loadXML($planXML);
     $planXpath = new DOMXPath($planDOM);
-    $planXpath->registerNamespace('ns', 'http://www.geonovum.nl/stri/2008/1');
+
+    // Setup namespace.
+    $namespace = trim($planDOM->getElementsByTagName('GeleideFormulier')->item(0)->getAttribute('xmlns'));
+    if (!$namespace) {
+      $namespace = variable_get('durp_default_namespace', 'http://www.geonovum.nl/stri/2008/1');
+    }
+    $planXpath->registerNamespace('ns', $namespace);
 
     if ($current && !empty($current['nid'])) {
       $node = node_load($current['nid']);
@@ -182,6 +201,7 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
     $node->changed = $node->created;
 
     if (empty($node->title)) {
+      watchdog('durp', 'Could not determine node title for !dossier_id', array('!dossier_id' => $dossier_id), WATCHDOG_ERROR);
       return FALSE;
     }
 
