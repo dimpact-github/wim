@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_requirements().
+ */
+function bespoke_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $requirements['bespoke'] = array(
+      'title' => $t('Dimpact version'),
+      'value' => DIMPACT_VERSION,
+      'severity' => REQUIREMENT_INFO,
+      'weight' => -10,
+    );
+  }
+  return $requirements;
+}
+
+/**
+ * Enable scheduler_revision and scheduler_workbench mdoules.
+ */
+function bespoke_update_7100() {
+  module_enable(array(
+    'scheduler_revision',
+    'scheduler_workbench',
+  ));
+}

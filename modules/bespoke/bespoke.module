@@ -1,5 +1,7 @@
 <?php
 
+define('DIMPACT_VERSION', '1.02');
+
 /**
  * Implements hook_init().
  *
