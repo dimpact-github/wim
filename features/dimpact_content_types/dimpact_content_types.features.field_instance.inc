@@ -4333,11 +4333,15 @@ function dimpact_content_types_field_default_field_instances() {
     'display' => array(
       'cck_blocks' => array(
         'label' => 'hidden',
-        'module' => 'atos_esuite',
+        'module' => 'number',
         'settings' => array(
+          'decimal_separator' => '.',
           'entity_bundle' => 'product',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
         ),
-        'type' => 'atos_title',
+        'type' => 'number_integer',
         'weight' => 3,
       ),
       'default' => array(
@@ -4413,11 +4417,15 @@ function dimpact_content_types_field_default_field_instances() {
     'display' => array(
       'cck_blocks' => array(
         'label' => 'hidden',
-        'module' => 'atos_esuite',
+        'module' => 'number',
         'settings' => array(
+          'decimal_separator' => '.',
           'entity_bundle' => 'vac',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
         ),
-        'type' => 'atos_title',
+        'type' => 'number_integer',
         'weight' => 4,
       ),
       'default' => array(
@@ -4579,8 +4587,9 @@ function dimpact_content_types_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'taxonomy_term_reference_link',
         'weight' => 11,
       ),
       'slide_312' => array(

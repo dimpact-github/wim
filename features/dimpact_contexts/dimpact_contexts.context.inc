@@ -140,12 +140,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'cck_blocks-field_tags' => array(
-          'module' => 'cck_blocks',
-          'delta' => 'field_tags',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
         'subscriptions_ui-0' => array(
           'module' => 'subscriptions_ui',
           'delta' => '0',
@@ -156,37 +150,31 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'cck_blocks',
           'delta' => 'field_related_pdc',
           'region' => 'region_363_third',
-          'weight' => '-90',
-        ),
-        'cck_blocks-field_related_vac' => array(
-          'module' => 'cck_blocks',
-          'delta' => 'field_related_vac',
-          'region' => 'region_363_third',
-          'weight' => '-89',
+          'weight' => '-10',
         ),
         'views-maps-block_1' => array(
           'module' => 'views',
           'delta' => 'maps-block_1',
           'region' => 'region_363_third',
-          'weight' => '-88',
+          'weight' => '-9',
         ),
         'views-bestanden-block_2' => array(
           'module' => 'views',
           'delta' => 'bestanden-block_2',
           'region' => 'region_363_third',
-          'weight' => '-87',
+          'weight' => '-8',
         ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
           'delta' => 'nieuws-block_2',
           'region' => 'region_363_third',
-          'weight' => '-86',
+          'weight' => '-7',
         ),
         'views-agenda-block_2' => array(
           'module' => 'views',
           'delta' => 'agenda-block_2',
           'region' => 'region_363_third',
-          'weight' => '-85',
+          'weight' => '-6',
         ),
       ),
     ),
@@ -330,6 +318,41 @@ function dimpact_contexts_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Felix');
   $export['overigenodes'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'product_detail';
+  $context->description = '';
+  $context->tag = 'Product';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'product' => 'product',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'custom_lists-785282b1576dd2f698d7b9b4f525b62e' => array(
+          'module' => 'custom_lists',
+          'delta' => '785282b1576dd2f698d7b9b4f525b62e',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Product');
+  $export['product_detail'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
