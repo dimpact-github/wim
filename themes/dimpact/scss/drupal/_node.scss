@@ -52,6 +52,9 @@
       background-color: lighten($background-color, 7%);
       border-top: 1px solid $background-color;
     }
+    .field-tags {
+	    display: inline;
+    }
     .field-wrapper-field-location .field-label {
       font-family: $heading;
       display: block;
