@@ -209,6 +209,11 @@ body.front {
   .block-dominion-menu, .block-menu {
     overflow: hidden;
     margin: 0 !important;
+    
+    &.contextual-links-region {
+	    overflow: visible;
+    }
+    
     h2 {
       display: none;
     }
