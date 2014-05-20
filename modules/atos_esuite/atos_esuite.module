@@ -108,15 +108,17 @@ function atos_esuite_field_formatter_view($entity_type, $entity, $field, $instan
         $ids[] = $settings['entity_bundle'] . '-' . $item['value'];
       }
 
-      $q = db_select('atos_esuite', 'a')
-        ->fields('a', array('identifier', 'nid'))
-        ->condition('a.identifier', $ids, 'IN');
-      $q->join('node', 'n', 'n.nid = a.nid');
-      $q->fields('n' , array('title'));
-      $rs = $q->execute();
-      $data = array();
-      foreach ($rs as $row) {
-        $data[$row->identifier] = $row;
+      if (count($ids) > 0) {
+	      $q = db_select('atos_esuite', 'a')
+	        ->fields('a', array('identifier', 'nid'))
+	        ->condition('a.identifier', $ids, 'IN');
+	      $q->join('node', 'n', 'n.nid = a.nid');
+	      $q->fields('n' , array('title'));
+	      $rs = $q->execute();
+	      $data = array();
+	      foreach ($rs as $row) {
+	        $data[$row->identifier] = $row;
+	      }
       }
 
       foreach ($ids as $delta => $identifier) {
