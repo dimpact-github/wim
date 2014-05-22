@@ -163,9 +163,7 @@ projects[hansel][download][revision] = 63dff87
 projects[hansel][download][branch] = 7.x-1.x
 
 projects[homebox][subdir] = contrib
-projects[homebox][download][type] = git
-projects[homebox][download][revision] = 48e101a
-projects[homebox][download][branch] = 7.x-2.x
+projects[homebox][version] = "2.0-beta7"
 
 projects[i18n][subdir] = contrib
 projects[i18n][version] = "1.10"
