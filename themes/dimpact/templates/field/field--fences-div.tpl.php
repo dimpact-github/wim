@@ -20,7 +20,7 @@
   <?php endif; ?>
 
   <?php foreach ($items as $delta => $item): ?>
-    <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
+    <div<?php print $attributes; ?>>
       <?php print render($item); ?>
       <?php if (isset($files[$delta]) && !empty($files[$delta])): ?>
         <div class="ris-attachments">
