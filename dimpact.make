@@ -1,6 +1,7 @@
 api = 2
 core = 7.x
 projects[drupal][type] = core
+projects[drupal][version] = "7.28"
 projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 projects[drupal][patch][htaccess_directories404] = patches/htaccess_directories404.patch
 projects[drupal][patch][etag] = patches/etag.patch
@@ -23,7 +24,9 @@ projects[apachesolr_exclude_node][subdir] = contrib
 projects[apachesolr_exclude_node][version] = "1.1"
 
 projects[apachesolr_user][subdir] = contrib
-projects[apachesolr_user][version] = "1.x-dev"
+projects[apachesolr_user][download][type] = git
+projects[apachesolr_user][download][revision] = cadb26b
+projects[apachesolr_user][download][branch] = 7.x-1.x
 projects[apachesolr_user][patch][viewmodes] = patches/apachesolr_user-viewmodes.patch
 
 projects[backup_migrate][subdir] = contrib
@@ -71,7 +74,9 @@ projects[domain_entity][subdir] = contrib
 projects[domain_entity][version] = "1.3"
 
 projects[domain_taxonomy][subdir] = contrib
-projects[domain_taxonomy][version] = "3.x-dev"
+projects[domain_taxonomy][download][type] = git
+projects[domain_taxonomy][download][revision] = e489da0
+projects[domain_taxonomy][download][branch] = 7.x-3.x
 
 projects[domain_views][subdir] = contrib
 projects[domain_views][version] = "1.5"
