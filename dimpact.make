@@ -306,9 +306,7 @@ projects[subscriptions][subdir] = contrib
 projects[subscriptions][version] = "1.1"
 
 projects[token][subdir] = contrib
-projects[token][download][type] = git
-projects[token][download][revision] = c5b20e0
-projects[token][download][branch] = 7.x-1.x
+projects[token][version] = "1.4"
 
 projects[translation_helpers][subdir] = contrib
 projects[translation_helpers][version] = "1.0"
