@@ -29,6 +29,9 @@
   }
   .progress {
     height: 2px;
+// overwrite the style-attribute, calculated by carouFredSel
+// in case there is only one item in the carousel
+    max-width: 100% !important;
   }
   .pager {
     top: $gutter-width/2;
