@@ -96,3 +96,8 @@ function atos_esuite_requirements($phase) {
   }
   return $requirements;
 }
+
+function atos_esuite_update_7100() {
+  variable_del('atos_esuite_product_parts');
+  return t('Reverted atos_esuite_product_parts to the new default settings.');
+}
