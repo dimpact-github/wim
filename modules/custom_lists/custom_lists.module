@@ -224,10 +224,12 @@ function custom_lists_content_nodes($list, $items) {
   $query->orderBy('n.' . $parts[0], $parts[1]);
 
   $rs = $query->execute();
-  $nodes = array();
+  $nids = array();
   foreach ($rs as $row) {
-    $nodes[] = node_load($row->nid);
+    $nids[] = $row->nid;
   }
+
+  $nodes = node_load_multiple($nids);
 
   return $nodes;
 }
