@@ -30,6 +30,25 @@ function atos_esuite_menu() {
   return $items;
 }
 
+function atos_esuite_default_product_parts() {
+  $defaults = array(
+    'aanvraag' => 'Aanvraag',
+    'kosten' => 'Kosten',
+    'contact' => 'Contact',
+    'bezwaar' => 'Bezwaar',
+    'bijzonderheden' => 'Bijzonderheden',
+    'termijn' => 'Termijn',
+    'voorwaarden' => 'Voorwaarden'
+  );
+
+  $return_str = '';
+  foreach ($defaults as $key => $value) {
+    $return_str .= $key . '|' . $value . "\n";
+  }
+
+  return $return_str;
+}
+
 /**
  * Implements hook_node_delete().
  */

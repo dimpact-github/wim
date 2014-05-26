@@ -51,7 +51,7 @@ function atos_esuite_admin_settings_form($form, &$form_state) {
     $form['atos_esuite_settings']['atos_esuite_product_parts'] = array(
       '#type' => 'textarea',
       '#title' => t('Product body parts'),
-      '#default_value' => variable_get('atos_esuite_product_parts', ''),
+      '#default_value' => variable_get('atos_esuite_product_parts', atos_esuite_default_product_parts()),
       '#description' => t('Parts of product node body text. One part per line. Separate tagname and label with a pipe.'),
     );
   }
