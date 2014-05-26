@@ -340,6 +340,9 @@ projects[workbench_moderation][version] = "1.3"
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][version] = "2.2"
 
+projects[xmlsitemap][subdir] = contrib
+projects[xmlsitemap][version] = "2.0"
+
 ; Themes
 projects[] = rijkshuisstijl
 
