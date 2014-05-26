@@ -23,13 +23,17 @@ function inlinetabs_process_html($text, $filter, $format = NULL, $langcode = NUL
     // No tabs are used, return original text.
     return $text;
   }
-  
+
   $tabs = '';
   $panes = '';
-  
+
+  // Add general pane
+  $tabs .= '<li><a href="#tab-general"><span>' . t('Beschrijving'). '</span></a></li>';
+  $panes .= '<div id="tab-general">' . $parts[0] . '</div>';
+
   // Use a random number to generate unique id's within the page.
   $rand = rand(0, 262144);
-  
+
   // Loop through parts from second element. This gives an altering tab link and tab pane.
   $tab = 0;
   for ($i = 1; $i < $count; ++$i) {
@@ -45,8 +49,8 @@ function inlinetabs_process_html($text, $filter, $format = NULL, $langcode = NUL
       $panes .= '<div id="tab-' . $id . '">' . $parts[$i] . '</div>';
     }
   }
-  
-  return '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $parts[0] . $panes . '</nav>';
+
+  return '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $panes . '</nav>';
 }
 
 /**
