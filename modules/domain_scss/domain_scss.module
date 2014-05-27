@@ -1,4 +1,34 @@
 <?php
+
+/**
+ * Implements hook_menu().
+ */
+function domain_scss_menu() {
+  $items = array();
+
+  if (module_exists('dominion')) {
+    $items['admin/structure/dominion/list/%/theme'] = array(
+      'title' => 'Theme',
+      'page callback' => 'domain_scss_dominion_theme',
+      'page arguments' => array(4),
+      'access arguments' => array('manage dominion subsites'),
+      'type' => MENU_LOCAL_TASK,
+      'weight' => 5,
+    );
+  }
+
+  return $items;
+}
+
+/**
+ * Implements dominion_operations_alter().
+ */
+function bespoke_dominion_operations_alter(&$operations, $domain) {
+  // Dummy url for our theme form.
+  $operations['theme'] = l(t('Theme'), 'admin/structure/dominion/list/' . $domain->domain_id . '/theme');
+}
+
+
 /**
 * Implements hook_form_FORM_ID_alter().
 */
@@ -250,4 +280,35 @@ function _domain_scss_html_alter(&$vars) {
   }
 
   _color_html_alter($vars);
+}
+
+
+/**
+ * Page callback for theme settings of dominion.
+ */
+function domain_scss_dominion_theme($domain_id) {
+  $domain = domain_load($domain_id);
+  $theme = domain_theme_lookup($domain['domain_id']);
+  if ($theme['theme']) {
+    $default_theme = $theme['theme'];
+  }
+  else {
+    $default_theme = variable_get('theme_default', 'bartik');
+  }
+
+  module_load_include('inc', 'domain_theme', 'domain_theme.admin');
+
+  // form alter of domain_theme has arg(2) == 'domain' so fake it.
+  // also domain_theme expects the theme in arg(6);
+  $orig_q = $_GET['q'];
+  $_GET['q'] = str_replace('/dominion/', '/domain/', $_GET['q']) . '/' . $default_theme;
+  $_GET['destination'] = $orig_q;
+
+  // Setup form.
+  $output = domain_theme_settings($domain, $default_theme);
+
+  // Restore correct path.
+  $_GET['q'] = $orig_q;
+
+  return $output;
 }
