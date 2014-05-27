@@ -87,7 +87,7 @@ projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
 projects[dominion][download][type] = git
-projects[dominion][download][revision] = 2b55463
+projects[dominion][download][revision] = ef71088
 projects[dominion][download][branch] = 7.x-1.x
 
 projects[elysia_cron][subdir] = contrib
