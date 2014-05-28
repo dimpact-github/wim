@@ -16,6 +16,26 @@ De ingevoerde plaatsnaam moet aanwezig zijn in de GVOP. Er kan gezocht worden op
 Klik hiervoor op \emph{Organisatie toevoegen}.
 Elke gemeente heeft een unieke naam binnen de GVOP. Meestal is dit de naam in kleine letters. Bij uitzonderingen zijn deze afwijkend, zoals bij "Bergen (NH)" en "Bergen (Li)" voor respectievelijk Bergen in Noord Holland en in Limburg.
 
+\subsubsection{Bekendmakingen kaart}
+
+Beheerders kunnen het centrum van de bekendmakingen kaart zelf instellen. Hiervoor kun je de Google Geocode API gebruiken. Je gaat voor bijv. Zwolle naar de volgende url:
+\url{https://maps.googleapis.com/maps/api/geocode/json?address=Zwolle,Netherlands&sensor=false}
+
+Hier krijg je een resultaat terug met de volgende gegevens:
+
+\begin{verbatim}
+  "location" : {
+           "lat" : 52.5167747,
+           "lng" : 6.083021899999999
+        },
+\end{verbatim}
+In je dimpact installatie ga je vervolgens naar \drupalpath{admin/config/services/gmap}.
+
+In het veld 'Default center' vul je deze "lat" en "lng" vervolgens in:
+\begin{verbatim}
+52.516774699999914,6.083021899999936
+\end{verbatim}
+
 \subsection{Atos eSuite}
 
 De importmodule van de Atos eSuite importeert producten en vraag antwoord combinaties (VAC's) die aanwezig zijn in de eSuite. Producten worden ge\"{i}mporteerd als \emph{Product} node en VAC's als \emph{VAC}.
