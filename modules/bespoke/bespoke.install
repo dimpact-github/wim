@@ -26,3 +26,15 @@ function bespoke_update_7100() {
     'scheduler_workbench',
   ));
 }
+
+/**
+ * Make our password_policy config available for sites that enable the module.
+ */
+function bespoke_update_7101() {
+  module_enable(array(
+    'dimpact_password_policy',
+  ));
+  module_disable(array(
+    'dimpact_password_policy',
+  ));
+}
