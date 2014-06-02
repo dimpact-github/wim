@@ -255,10 +255,12 @@ function _gvop_bm_xml_read_text(DOMElement $element, $level = 1) {
         case 'voornaam':
         case 'achternaam':
           $output .= _gvop_bm_xml_read_text($child, $level);
+          $output .= PHP_EOL;
           break;
         case 'deel':
         case 'artikel':
           $output .= _gvop_bm_xml_read_text($child, $level + 1);
+          $output .= PHP_EOL;
           break;
         case 'al':
           $text = _gvop_bm_xml_read_text($child, $level);
@@ -266,6 +268,7 @@ function _gvop_bm_xml_read_text(DOMElement $element, $level = 1) {
             $output .= '<p>';
             $output .= $text;
             $output .= '</p>';
+            $output .= PHP_EOL;
           }
           break;
         case 'vet':
@@ -291,9 +294,11 @@ function _gvop_bm_xml_read_text(DOMElement $element, $level = 1) {
         case 'lid':
           $output .= _gvop_bm_xml_read_lid($child);
           break;
+        case 'extref':
+          $output .= '<a href="' . $child->getAttribute('doc') . '">' . $child->nodeValue . '</a>';
+          break;
       }
     }
-    $output .= PHP_EOL;
   } while ($child = $child->nextSibling);
   return $output;
 }
