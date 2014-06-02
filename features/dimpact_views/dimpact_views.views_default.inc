@@ -316,7 +316,7 @@ U kunt de filters links aanpassen om verder te zoeken.';
   );
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'announcement_type';
-  /* Filtercriterium: Locatie: Postcode */
+  /* Filtercriterium: Location: Postcode */
   $handler->display->display_options['filters']['postal_code']['id'] = 'postal_code';
   $handler->display->display_options['filters']['postal_code']['table'] = 'location';
   $handler->display->display_options['filters']['postal_code']['field'] = 'postal_code';
@@ -2265,12 +2265,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Locatie: Breedtegraad */
+  /* Filtercriterium: Location: Breedtegraad */
   $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['table'] = 'location';
   $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['operator'] = '!=';
-  /* Filtercriterium: Locatie: Lengtegraad */
+  /* Filtercriterium: Location: Lengtegraad */
   $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
   $handler->display->display_options['filters']['longitude']['table'] = 'location';
   $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
@@ -3741,6 +3741,10 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Sorteercriterium: Inhoud: Titel */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Sorteercriterium: Inhoud: Datum van inzending */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
