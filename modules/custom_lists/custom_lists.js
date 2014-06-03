@@ -5,13 +5,19 @@
         if ($(this).val() == 'content') {
           $('.form-item-menu-item').hide();
           $('.form-item-node-type').show();
+          $('.form-item-node-queues').show();
           $('.form-item-sort').show();
           $('.form-item-taxonomy').show();
+          $('.form-item-block-view-mode').show();
+          $('.form-item-page-view-mode').show();
         }
         else if ($(this).val() == 'menu') {
           $('.form-item-node-type').hide();
+          $('.form-item-node-queues').hide();
           $('.form-item-sort').hide();
           $('.form-item-taxonomy').hide();
+          $('.form-item-block-view-mode').hide();
+          $('.form-item-page-view-mode').hide();
           $('.form-item-menu-item').show();
         }
       });
