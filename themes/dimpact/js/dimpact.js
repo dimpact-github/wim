@@ -1,4 +1,5 @@
 (function($) {
+
   /**
    * Hide all the tabs.
    */
@@ -10,6 +11,9 @@
 
   $(window).load(function () {
 
+    // test
+    $('#header').prepend('<div style="position: absolute; background-color: lime;">tell me is it on?</div>');
+
     $('.print-page').click(function(e) {
       window.print();
       e.preventDefault();
@@ -19,6 +23,11 @@
     var mainMenu = $('.main-menu').find('ul.menu').eq(0);
     var menuToggle = $('<div>').addClass('menu-toggle').html('<a href="#">Menu</a>');
     mainMenu.before(menuToggle);
+
+    // collapse hoofdmenu if the menu-toggle is visible
+    if (menuToggle.css("display") != "none") {
+      mainMenu.css("display", "none");
+    }
 
     $('.menu-toggle a').live("click", function(e) {
       if (mainMenu.hasClass('open')) {

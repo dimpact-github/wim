@@ -18,6 +18,24 @@
   padding: 0 !important;
 }
 
+// make sure the first instance of .region_363_third is not displayed by default
+// on wider screens this is displayed and the second one (outside the content area) is displayed
+// this way we can “move” this region to different positions in the document flow, depending on screen size
+.region_363_third {
+  display: block;
+  #content & {
+    display: none;
+  }
+}
+@include at-breakpoint($break-medium) {
+  .region_363_third {
+    display: none;
+    #content & {
+      display: block;
+    }
+  }
+}
+
 /**
  * Breakpoint small
  */
@@ -147,6 +165,21 @@
     @include span-columns(3 omega, $break-medium);
   }
 
+  .region_84_first {
+    @include span-columns(6, $break-medium);
+  }
+  .region_84_second {
+    @include span-columns(3 omega, $break-medium);
+  }
+
+  .region_48_first {
+    @include span-columns(3, $break-medium);
+  }
+
+  .region_48_second {
+    @include span-columns(6 omega, $break-medium);
+  }
+
   .region_39_first {
     @include span-columns(3, $break-medium);
   }
@@ -156,14 +189,18 @@
 
   .region_363_first {
     @include span-columns(2, $break-medium);
-    @include pull(6);
+    @include pull(9);
   }
   #content {
-    @include span-columns(4, $break-medium);
+    @include span-columns(7, $break-medium);
     @include push(2);
   }
+  .content-inner,
+  .region-content-bottom-wrapper {
+    @include span-columns(4, 7);
+  }
   .region_363_third {
-    @include span-columns(3 omega, $break-medium);
+    @include span-columns(3 omega, 7);
   }
 
   // Toptaken
@@ -208,69 +245,87 @@
   .region_444_third,
   .region_footer_first,
   .region_footer_second,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_first,
+  .region_444_2_second,
+  .region_444_2_third,
+  .region_444_3_first,
+  .region_444_3_second,
+  .region_444_3_third,
+  .region_444_4_first,
+  .region_444_4_second,
+  .region_444_4_third,
+  .region_444_5_first,
+  .region_444_5_second,
+  .region_444_5_third,
+  .region_444_6_first,
+  .region_444_6_second,
+  .region_444_6_third {
     @include span-columns(3, $break-medium);
   }
   .region_444_third,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_third,
+  .region_444_3_third,
+  .region_444_4_third,
+  .region_444_5_third,
+  .region_444_6_third, {
     @include omega;
   }
-  .no-touch {
-    .onderwerpen-toggle,
-    .menu-toggle {
-      display: none;
-    }
-    nav {
-//      &.main-menu {
-        > .container > nav.block-menu,
-        .block-dominion-menu,
-        .block-system-main-menu {
-          > ul.menu > li.active-trail,
-          > ul.menu > li:hover {
-            margin-top: -4px;
-            border-top: 4px solid $background-color;
-          }
-          ul {
-            display: block;
-            li {
-              float: left;
-              a {
-                @include font-size(14);
-                padding: 12px $gutter-width/2;
-              }
-              ul {
-                position: absolute;
-                top: 38px;
-                display: none;
-                max-width: 250px;
-                min-width: 194px;
-              }
+  .onderwerpen-toggle,
+  .menu-toggle {
+    display: none;
+  }
+  nav {
+    &.main-menu {
+      > .container > nav.block-menu,
+      .block-dominion-menu,
+      .block-system-main-menu {
+        > ul.menu > li.active-trail,
+        > ul.menu > li:hover {
+          margin-top: -4px;
+          border-top: 4px solid $background-color;
+        }
+        ul {
+          display: block;
+          li {
+            float: left;
+            a {
+              @include font-size(14);
+              padding: 12px $gutter-width/2;
+            }
+            ul {
+              position: absolute;
+              top: 38px;
+              display: none;
+              max-width: 250px;
+              min-width: 194px;
             }
           }
-//        }
-      }
-      .quicktabs_main {
-        .quicktabs-tabpage {
-          @include column-count(3);
-          @include border-bottom-radius(4px);
-          position: absolute;
         }
       }
-      .block-quicktabs {
-        h2.block-title {
-          display: block !important;
-        }
+    }
+    .quicktabs_main {
+      .quicktabs-tabpage {
+        @include column-count(3);
+        @include border-bottom-radius(4px);
+        position: absolute;
       }
-      .quicktabs-tabs {
+    }
+    .block-quicktabs {
+      h2.block-title {
         display: block !important;
       }
     }
-    nav.main-menu .block-quicktabs .quicktabs-tabs a {
-      padding: 0.75em 8px;
+    .quicktabs-tabs {
+      display: block !important;
     }
-  } // end .no-touch
+  }
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
+  }
+  nav.main-menu .block-quicktabs .quicktabs-tabs a {
+    padding: 0.75em 8px;
   }
   .block-search {
     position: absolute !important;
@@ -386,6 +441,20 @@
     @include span-columns(4 omega, $break-large);
   }
 
+  .region_84_first {
+    @include span-columns(8, $break-large);
+  }
+  .region_84_second {
+    @include span-columns(4 omega, $break-large);
+  }
+
+  .region_48_first {
+    @include span-columns(4, $break-large);
+  }
+  .region_48_second {
+    @include span-columns(8 omega, $break-large);
+  }
+
   .region_39_first {
     @include span-columns(3, $break-large);
   }
@@ -395,14 +464,18 @@
 
   .region_363_first {
     @include span-columns(3, $break-large);
-    @include pull(8);
+    @include pull(12);
   }
   #content {
-    @include span-columns(5, $break-large);
+    @include span-columns(9, $break-large);
     @include push(3);
   }
+  .content-inner,
+  .region-content-bottom-wrapper {
+    @include span-columns(6, 9);
+  }
   .region_363_third {
-    @include span-columns(4 omega, $break-large);
+    @include span-columns(3 omega, 9);
   }
 
   .region_444_first,
@@ -410,11 +483,31 @@
   .region_444_third,
   .region_footer_first,
   .region_footer_second,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_first,
+  .region_444_2_second,
+  .region_444_2_third,
+  .region_444_3_first,
+  .region_444_3_second,
+  .region_444_3_third,
+  .region_444_4_first,
+  .region_444_4_second,
+  .region_444_4_third,
+  .region_444_5_first,
+  .region_444_5_second,
+  .region_444_5_third,
+  .region_444_6_first,
+  .region_444_6_second,
+  .region_444_6_third {
     @include span-columns(4, $break-large);
   }
   .region_444_third,
-  .region_footer_third {
+  .region_footer_third,
+  .region_444_2_third,
+  .region_444_3_third,
+  .region_444_4_third,
+  .region_444_5_third,
+  .region_444_6_third  {
     @include omega;
   }
 
@@ -430,32 +523,30 @@
     margin-right: 15px;
   }
 
-  .no-touch {
-    nav {
-      &.main-menu {
-        > .container > nav.block-menu,
-        .block-dominion-menu,
-        .block-system-main-menu {
-          ul {
-            li {
-              a {
-                @include font-size(16);
-                padding: 15px $gutter-width/2;
-              }
-              ul {
-                top: 46px;
-              }
+  nav {
+    &.main-menu {
+      > .container > nav.block-menu,
+      .block-dominion-menu,
+      .block-system-main-menu {
+        ul {
+          li {
+            a {
+              @include font-size(16);
+              padding: 15px $gutter-width/2;
+            }
+            ul {
+              top: 46px;
             }
           }
         }
       }
     }
-    nav.main-menu .block-quicktabs h2.block-title {
-      top: 9px;
-    }
-    nav.main-menu .block-quicktabs .quicktabs-tabs a {
-      padding: 0.75em 1em;
-    }
+  }
+  nav.main-menu .block-quicktabs h2.block-title {
+    top: 9px;
+  }
+  nav.main-menu .block-quicktabs .quicktabs-tabs a {
+    padding: 0.75em 1em;
   }
   #homebox {
     @include container($total-columns, $break-large);
