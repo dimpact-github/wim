@@ -328,6 +328,9 @@ projects[webform][subdir] = contrib
 projects[webform][download][type] = git
 projects[webform][download][tag] = 7.x-3.20
 
+projects[weight][subdir] = contrib
+projects[weight][version] = "2.3"
+
 projects[wikitools][subdir] = contrib
 projects[wikitools][version] = "1.0-alpha1"
 

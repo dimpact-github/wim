@@ -170,6 +170,8 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'title_desc' => t('Title: descending'),
       'queue_asc' => t('Nodequeue: ascending'),
       'queue_desc' => t('Nodequeue: descending'),
+      'weight_asc' => t('Weight: ascending'),
+      'weight_desc' => t('Weight: descending'),
     ),
     '#default_value' => !empty($list['sort']) ? $list['sort']: '',
   );

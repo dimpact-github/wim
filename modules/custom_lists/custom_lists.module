@@ -277,10 +277,10 @@ function custom_lists_content_nodes($list, $items) {
     ->limit($items);
 
   // Conditions
-  if (!empty($list['node-type'])) {
+  if ($list['node-type'] != '_any' && !empty($list['node-type'])) {
     $query->condition('n.type', $list['node-type']);
   }
-  if (!empty($list['node-queues'])) {
+  if ($list['node-queues'] != '_any' && !empty($list['node-queues'])) {
     $query->join('nodequeue_nodes', 'q', 'q.nid = n.nid');
     $query->condition('q.name', $list['node-queues']);
   }
@@ -293,6 +293,10 @@ function custom_lists_content_nodes($list, $items) {
   $parts = explode('_', $list['sort']);
   if ($list['node-queues'] && $parts[0] == 'queue') {
     $query->orderBy('q.position', $parts[1]);
+  }
+  else if ($parts[0] == 'weight') {
+    $query->join('weight_weights', 'w', 'w.entity_id = n.nid');
+    $query->orderBy('w.weight', $parts[1]);
   }
   else {
     $query->orderBy('n.' . $parts[0], $parts[1]);
