@@ -4,3 +4,4 @@ package = Dutch Open Projects
 core = 7.x
 
 dependencies[] = domain
+dependencies[] = weight
