@@ -1605,6 +1605,10 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'short_teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
@@ -1615,10 +1619,18 @@ function dimpact_content_types_strongarm() {
             'weight' => '10',
             'visible' => TRUE,
           ),
+          'short_teaser' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
             'weight' => '100',
+            'visible' => TRUE,
+          ),
+          'short_teaser' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
