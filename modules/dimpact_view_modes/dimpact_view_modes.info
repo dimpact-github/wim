@@ -1,0 +1,5 @@
+name = Dimpact View Modes
+description = Adds alternative view modes for Dimpact.
+package = Dimpact
+core = 7.x
+files[] = dimpact_view_modes.module
