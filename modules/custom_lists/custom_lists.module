@@ -214,6 +214,10 @@ function custom_lists_content_nodes($list, $items) {
   if (!empty($list['node-type'])) {
     $query->condition('n.type', $list['node-type']);
   }
+  if (!empty($list['node-queues'])) {
+    $query->join('nodequeue_nodes', 'q', 'q.nid = n.nid');
+    $query->condition('q.name', $list['node-queues']);
+  }
   if (!empty($list['taxonomy'])) {
     $query->join('taxonomy_index', 'ti', 'ti.nid = n.nid');
     $query->condition('ti.tid', $list['taxonomy']);
@@ -221,7 +225,12 @@ function custom_lists_content_nodes($list, $items) {
 
   // Sorting
   $parts = explode('_', $list['sort']);
-  $query->orderBy('n.' . $parts[0], $parts[1]);
+  if ($list['node-queues'] && $parts[0] == 'queue') {
+    $query->orderBy('q.position', $parts[1]);
+  }
+  else {
+    $query->orderBy('n.' . $parts[0], $parts[1]);
+  }
 
   $rs = $query->execute();
   $nids = array();

@@ -126,6 +126,15 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#options' => array('_any' => t('Any')) + node_type_get_names(),
     '#default_value' => !empty($list['node-type']) ? $list['node-type']: '_any',
   );
+
+  $queues = nodequeue_get_all_queues();
+  $form['type-settings']['node-queues'] = array(
+    '#type' => 'select',
+    '#title' => t('Nodequeue'),
+    '#options' => array('_any' => t('Any')) + $queues,
+    '#default_value' => !empty($list['node-queues']) ? $list['node-queues']: '_any',
+  );
+
   $def_taxonomy = '';
   if (!empty($list['taxonomy'])) {
     $term = taxonomy_term_load($list['taxonomy']);
@@ -148,6 +157,8 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'changed_asc' => t('Changed date: oldest first'),
       'title_asc' => t('Title: ascending'),
       'title_desc' => t('Title: descending'),
+      'queue_asc' => t('Nodequeue: ascending'),
+      'queue_desc' => t('Nodequeue: descending'),
     ),
     '#default_value' => !empty($list['sort']) ? $list['sort']: '',
   );
@@ -270,6 +281,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'more-link' => $form_state['values']['more-link'],
     'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],
+    'node-queues' => $form_state['values']['node-queues'],
     'taxonomy' => $form_state['values']['taxonomy'],
     'sort' => $form_state['values']['sort'],
     'menu-item' => $form_state['values']['menu-item'],
@@ -284,7 +296,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     drupal_set_message(t('The list has been updated.'));
     custom_lists_add($old_key, $list);
     $form_state['redirect'] = 'admin/structure/lists';
- 
+
   } else {
     drupal_set_message(t('The list has been added.'));
     custom_lists_add($list_key, $list);
