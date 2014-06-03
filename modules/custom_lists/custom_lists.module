@@ -92,14 +92,11 @@ function custom_lists_block_view($delta = '') {
   $block['subject'] = $list['title'];
   $block['content'] = array();
 
-  $items = array();
   if ($list['type'] == 'content') {
-    $nodes = custom_lists_content_nodes($list, $list['block-items']);
-    foreach ($nodes as $node) {
-      $items[] = l($node->title, 'node/' . $node->nid);
-    }
+    $block['content']['items'] = custom_lists_render_nodes($list['block-view-mode'], $list['block-items'], $list);
   }
   else if ($list['type'] == 'menu') {
+    $items = array();
     $tree = _custom_lists_get_menu_tree($list);
 
     $rows = array();
@@ -114,14 +111,15 @@ function custom_lists_block_view($delta = '') {
 
       $items[] = l($link['link']['link_title'], $link['link']['link_path']);
     }
+
+    $block['content']['items'] = array(
+      '#theme' => 'item_list',
+      '#items' => $items,
+    );
   }
 
-  $block['content']['items'] = array(
-    '#theme' => 'item_list',
-    '#items' => $items,
-  );
 
-  if (count($nodes) == $list['block-items']) {
+  if (count($block['content']['items']) == $list['block-items']) {
     if (isset($list['more-link'])) {
       $block['content']['more'] = array(
         '#markup' => '<div class="more-link">' . l(t('More'), $list['more-link']) . '</div>',
@@ -140,6 +138,35 @@ function custom_lists_block_view($delta = '') {
 }
 
 /**
+ * Implements hook_felix_block_view().
+ *
+ * @see custom_lists_block_view()
+ * @see felix_felix_block_view()
+ * @see custom_lists_module_implements_alter()
+ */
+function custom_lists_felix_block_view(&$block) {
+  if ($block->module == 'custom_lists') {
+    // Link Felix Block Manager block title the same way as non-overridden Custom Lists block title.
+    if (isset($block->data['subject']) && strlen($block->data['subject']) && $block->data['subject'] != '<none>') {
+      $list = custom_lists_get($block->delta);
+      $block->subject = l($block->data['subject'], $list['path']);
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function custom_lists_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'felix_block_view') {
+    // Our implementation must run after the felix implementation.
+    $group = $implementations['custom_lists'];
+    unset($implementations['custom_lists']);
+    $implementations['custom_lists'] = $group;
+  }
+}
+
+/**
  * Implements hook_permission().
  */
 function custom_lists_permission() {
@@ -151,17 +178,22 @@ function custom_lists_permission() {
   );
 }
 
-function custom_lists_page() {
+function custom_lists_get_current() {
   $lists = custom_lists_get();
   $domain = domain_get_domain();
 
   $found_list = FALSE;
   foreach ($lists as $list) {
     if ($list['domain_id'] == $domain['domain_id'] && $list['path'] == $_GET['q']) {
-      $found_list = $list;
-      break;
+      return $list;
     }
   }
+
+  return FALSE;
+}
+
+function custom_lists_page() {
+  $found_list = custom_lists_get_current();
 
   if (!$found_list) {
     return MENU_NOT_FOUND;
@@ -169,7 +201,7 @@ function custom_lists_page() {
 
   // If multiple domains have the same path the title might be different.
   // Set it again.
-  drupal_set_title($found_list['title']);
+  drupal_set_title($found_list['display_title']);
 
   $output['intro-text'] = array(
     '#type' => 'markup',
@@ -187,13 +219,47 @@ function custom_lists_page() {
 }
 
 function custom_lists_page_content($list) {
-  $nodes = custom_lists_content_nodes($list, $list['page-items']);
-  $output['nodes'] = node_view_multiple($nodes, 'teaser');
+  $output['nodes'] = custom_lists_render_nodes($list['page-view-mode'], $list['page-items'], $list, true);
   $output['pager'] = array(
     '#theme' => 'pager',
     '#weight' => 5,
   );
   return $output;
+}
+
+function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
+  $nodes = custom_lists_content_nodes($list, $items);
+
+  if ($view_mode == 'titles' || empty($view_mode)) {
+    $items = array();
+    foreach ($nodes as $node) {
+      $items[] = l($node->title, 'node/' . $node->nid);
+    }
+
+    return array(
+      '#theme' => 'item_list',
+      '#items' => $items,
+    );
+  }
+  else {
+    $node_list = node_view_multiple($nodes, $view_mode);
+    if ($page) {
+      return $node_list;
+    }
+    else {
+      return array(
+        '#theme' => 'item_list',
+        '#items' => array_filter(reset($node_list), function(&$node) {
+          if (!is_array($node)) {
+            return false;
+          }
+
+          $node = drupal_render($node);
+          return true;
+        }),
+      );
+    }
+  }
 }
 
 /**
@@ -316,4 +382,36 @@ function custom_lists_delete($list_key) {
 function _custom_lists_set($lists) {
   variable_set('custom_lists_lists', $lists);
   variable_set('menu_rebuild_needed', TRUE);
+}
+
+/**
+ * Implements hook_hansel_get_parent().
+ */
+function custom_lists_hansel_get_parent($path) {
+  global $_domain;
+  if (preg_match('/^node\\/([0-9]+)/', $path, $match) && ($node = node_load($match[1]))) {
+    $lists = custom_lists_get();
+    foreach ($lists as $list) {
+      $contains_node = FALSE;
+      if ($list['type'] == 'content' && $list['provide-page'] && $list['node-type'] == $node->type && $list['domain_id'] == $_domain['domain_id']) {
+        $contains_node = TRUE;
+      }
+      if ($contains_node && !empty($list['taxonomy'])) {
+        $tags = field_get_items('node', $node, 'field_tags');
+        $contains_node = FALSE;
+        foreach ($tags as $item) {
+          if ($item['tid'] == $list['taxonomy']) {
+            $contains_node = TRUE;
+          }
+        }
+      }
+      if ($contains_node) {
+        return array(
+          'path' => $list['path'],
+          'title' => $list['display_title'],
+        );
+      }
+    }
+  }
+  return FALSE;
 }
