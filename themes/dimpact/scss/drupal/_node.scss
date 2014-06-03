@@ -31,6 +31,10 @@
       }
     }
   }
+  &.view-mode-short-teaser .day-month-year {
+    font-weight: bold;
+  }
+
   &.view-mode-full {
     time {
       background-color: lighten($background-color, 7%);
