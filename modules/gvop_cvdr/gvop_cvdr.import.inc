@@ -270,16 +270,17 @@ function _gvop_cvdr_get_text($url) {
 
   $dom = new DOMDocument();
   $dom->loadHTML($data->data);
-  if (!$text = $dom->getElementById('broodtekst')) {
+  $text = $dom->getElementsByTagName('body');
+  if ($text->length == 0) {
     // There is no guarantee that this HTML will not change, but KOOP does not
     // provide other ways to get the HTML either (i.e. XSLT). A change is not
     // likely, but if they do so, we need to update this module immediately.
-    watchdog('gvop_cvdr', t('No <div id="broodtekst"> found in CVDR HTML. Module needs to be updated. URL: %url'), array(
+    watchdog('gvop_cvdr', t('No <body> found in CVDR HTML. Module needs to be updated. URL: %url'), array(
       '%url' => $url,
     ), WATCHDOG_CRITICAL);
     return FALSE;
   }
-  $text = $text->C14N();
+  $text = $text->item(0)->C14N();
 
   // Strip unnecessary whitespace.
   $text = preg_replace('/[\s]+/', ' ', $text);
