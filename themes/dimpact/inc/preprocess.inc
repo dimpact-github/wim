@@ -484,3 +484,13 @@ function dimpact_preprocess_search_results(&$variables) {
     }
   }
 }
+
+function dimpact_preprocess_search_result(&$variables) {
+  if (isset($variables['info_split']['user'])) {
+    unset($variables['info_split']['user']);
+  }
+  if (isset($variables['info_split']['date'])) {
+    unset($variables['info_split']['date']);
+  }
+  $variables['info'] = implode(' - ', $info);
+}
