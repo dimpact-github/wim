@@ -247,6 +247,9 @@ function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
     return array(
       '#theme' => 'item_list',
       '#items' => $items,
+			'#attributes' => array(
+			  'class' => 'custom-list-view-mode-titles',
+			),
     );
   }
   else {
@@ -265,6 +268,9 @@ function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
           $node = drupal_render($node);
           return true;
         }),
+				'#attributes' => array(
+				  'class' => 'custom-list-view-mode-' . $view_mode,
+				),
       );
     }
   }
