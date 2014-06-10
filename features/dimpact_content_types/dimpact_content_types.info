@@ -145,6 +145,7 @@ features[field_instance][] = node-regulation-field_reg_characteristic
 features[field_instance][] = node-regulation-field_reg_concerning
 features[field_instance][] = node-regulation-field_reg_issued
 features[field_instance][] = node-regulation-field_reg_subject
+features[field_instance][] = node-regulation-field_tags
 features[field_instance][] = node-ris_agendaitem-field_ris_agenda_parent
 features[field_instance][] = node-ris_agendaitem-field_ris_attachments
 features[field_instance][] = node-ris_agendaitem-field_ris_characteristic
