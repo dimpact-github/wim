@@ -4210,7 +4210,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4295,7 +4295,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4460,7 +4460,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4548,7 +4548,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4881,16 +4881,16 @@ function dimpact_content_types_field_default_field_instances() {
     'display' => array(
       'cck_blocks' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'default' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 9,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4973,7 +4973,7 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 8,
       ),
       'short_teaser' => array(
         'label' => 'above',

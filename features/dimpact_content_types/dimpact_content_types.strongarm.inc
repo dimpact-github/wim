@@ -1800,6 +1800,9 @@ function dimpact_content_types_strongarm() {
       'cck_blocks' => array(
         'custom_settings' => TRUE,
       ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1816,7 +1819,7 @@ function dimpact_content_types_strongarm() {
       'display' => array(
         'domain' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -1825,12 +1828,12 @@ function dimpact_content_types_strongarm() {
           ),
           'cck_blocks' => array(
             'weight' => '0',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
         'flag_favorieten' => array(
           'default' => array(
-            'weight' => '9',
+            'weight' => '10',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -1848,7 +1851,7 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '10',
+            'weight' => '11',
             'visible' => TRUE,
           ),
           'cck_blocks' => array(
