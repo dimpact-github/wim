@@ -73,7 +73,7 @@ function dimpact_social_service_links_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_link_view_modes';
   $strongarm->value = array(
-    'full' => 1,
+    'full' => 0,
     'teaser' => 0,
     'rss' => 0,
     'search_index' => 0,
