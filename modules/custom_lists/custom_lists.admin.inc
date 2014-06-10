@@ -311,7 +311,7 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
   $form['page']['path'] = array(
     '#type' => 'textfield',
     '#title' => t('Path'),
-    '#required' => TRUE,
+    '#required' => empty($form_state['input']) ? !empty($form['page']['provide-page']) : !empty($form_state['input']['provide-page']),
     '#size' => 30,
     '#default_value' => (!empty($list['path']) && $list['path'] !== '<none>') ? $list['path']: '',
     '#attributes' => array(
