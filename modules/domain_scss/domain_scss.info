@@ -6,3 +6,4 @@ core = 7.x
 dependencies[] = color
 dependencies[] = domain
 dependencies[] = domain_theme
+dependencies[] = domain_conf
