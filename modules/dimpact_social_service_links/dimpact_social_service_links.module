@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Service links feature.
+ */
+
+include_once 'dimpact_social_service_links.features.inc';
