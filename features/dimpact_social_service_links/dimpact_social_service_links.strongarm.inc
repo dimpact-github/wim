@@ -259,7 +259,7 @@ function dimpact_social_service_links_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_weight_in_node';
-  $strongarm->value = '10';
+  $strongarm->value = '100';
   $export['service_links_weight_in_node'] = $strongarm;
 
   return $export;
