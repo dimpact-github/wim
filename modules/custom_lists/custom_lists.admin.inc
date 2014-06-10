@@ -136,6 +136,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#title' => t('Nodetype'),
     '#options' => array('_any' => t('Any')) + node_type_get_names(),
     '#default_value' => !empty($list['node-type']) ? $list['node-type']: '_any',
+    '#attributes' => array(
+      'class' => array(
+        'type-setting',
+        'type-setting-content',
+      ),
+    ),
   );
 
   $queues = nodequeue_get_all_queues();
@@ -144,6 +150,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#title' => t('Nodequeue'),
     '#options' => array('_any' => t('Any')) + $queues,
     '#default_value' => !empty($list['node-queues']) ? $list['node-queues']: '_any',
+    '#attributes' => array(
+      'class' => array(
+        'type-setting',
+        'type-setting-content',
+      ),
+    ),
   );
 
   $def_taxonomy = '';
@@ -157,6 +169,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#autocomplete_path' => 'custom_lists/taxonomy/autocomplete',
     '#maxlength' => 255,
     '#default_value' => $def_taxonomy,
+    '#attributes' => array(
+      'class' => array(
+        'type-setting',
+        'type-setting-content',
+      ),
+    ),
   );
   $form['type-settings']['sort'] = array(
     '#type' => 'select',
@@ -174,6 +192,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'weight_desc' => t('Weight: descending'),
     ),
     '#default_value' => !empty($list['sort']) ? $list['sort']: '',
+    '#attributes' => array(
+      'class' => array(
+        'type-setting',
+        'type-setting-content',
+      ),
+    ),
   );
 
   // Setup view modes.
@@ -192,6 +216,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#options' => $options,
     '#attributes' => array('class' => array('menu-title-select')),
     '#default_value' => !empty($list['menu-item']) ? $list['menu-item']: '',
+    '#attributes' => array(
+      'class' => array(
+        'type-setting',
+        'type-setting-menu',
+      ),
+    ),
   );
 
   /**
@@ -212,6 +242,13 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#title' => t('View mode'),
     '#options' => $modes,
     '#default_value' => !empty($list['block-view-mode']) ? $list['block-view-mode']: 'titles',
+    '#attributes' => array(
+      'class' => array(
+        'block-setting',
+        'block-setting-content',
+        'block-setting-menu',
+      ),
+    ),
   );
   $form['block']['block-items'] = array(
     '#type' => 'textfield',
@@ -219,12 +256,43 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#required' => TRUE,
     '#default_value' => !empty($list['block-items']) ? $list['block-items']: 5,
     '#size' => 5,
+    '#attributes' => array(
+      'class' => array(
+        'block-setting',
+        'block-setting-content',
+        'block-setting-menu',
+      ),
+    ),
+  );
+  $form['block']['show-more-link'] = array(
+    '#type' => 'select',
+    '#title' => t('Show more link'),
+    '#options' => array(
+      'hide' => t('Hide'),
+      'default' => t('Default (Links to page)'),
+      'custom' => t('Custom (Provide custom uri)'),
+    ),
+    '#default_value' => !empty($list['show-more-link']) ? $list['show-more-link']: 'default',
+    '#attributes' => array(
+      'class' => array(
+        'block-setting',
+        'block-setting-content',
+        'block-setting-menu',
+      ),
+    ),
   );
   $form['block']['more-link'] = array(
     '#type' => 'textfield',
-    '#title' => t('More link'),
-    '#description' => t('Fill in the Drupal URL for the \'more\' link. Leave empty to omit.'),
+    '#title' => t('Custom more link'),
+    '#description' => t('Fill in the Drupal URL for the \'more\' link.'),
     '#default_value' => !empty($list['more-link']) ? $list['more-link'] : '',
+    '#attributes' => array(
+      'class' => array(
+        'block-setting',
+        'block-setting-content',
+        'block-setting-menu',
+      ),
+    ),
   );
 
   /**
@@ -246,12 +314,26 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#required' => TRUE,
     '#size' => 30,
     '#default_value' => (!empty($list['path']) && $list['path'] !== '<none>') ? $list['path']: '',
+    '#attributes' => array(
+      'class' => array(
+        'page-setting',
+        'page-setting-content',
+        'page-setting-menu',
+      ),
+    ),
   );
   $form['page']['page-view-mode'] = array(
     '#type' => 'select',
     '#title' => t('View mode'),
     '#options' => $modes,
     '#default_value' => !empty($list['page-view-mode']) ? $list['page-view-mode']: 'teaser',
+    '#attributes' => array(
+      'class' => array(
+        'page-setting',
+        'page-setting-content',
+        'page-setting-menu',
+      ),
+    ),
   );
   $form['page']['page-items'] = array(
     '#type' => 'textfield',
@@ -259,12 +341,26 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#required' => TRUE,
     '#default_value' => !empty($list['page-items']) ? $list['page-items']: 10,
     '#size' => 5,
+    '#attributes' => array(
+      'class' => array(
+        'page-setting',
+        'page-setting-content',
+        'page-setting-menu',
+      ),
+    ),
   );
   $form['page']['intro-text'] = array(
     '#type' => 'text_format',
     '#title' => t('Intro text'),
     '#format' => 'filtered_html',
     '#default_value' => !empty($list['intro-text']) ? $list['intro-text']: '',
+    '#attributes' => array(
+      'class' => array(
+        'page-setting',
+        'page-setting-content',
+        'page-setting-menu',
+      ),
+    ),
   );
 
   $form['actions'] = array(
@@ -311,6 +407,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'block-items' => $form_state['values']['block-items'],
     'type' => $form_state['values']['type'],
     'provide-block' => $form_state['values']['provide-block'],
+    'show-more-link' => $form_state['values']['show-more-link'],
     'more-link' => $form_state['values']['more-link'],
     'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],

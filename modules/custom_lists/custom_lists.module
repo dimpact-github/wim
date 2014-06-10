@@ -119,19 +119,27 @@ function custom_lists_block_view($delta = '') {
   }
 
 
-  if (count($block['content']['items']) == $list['block-items']) {
-    if (isset($list['more-link'])) {
-      $block['content']['more'] = array(
-        '#markup' => '<div class="more-link">' . l(t('More'), $list['more-link']) . '</div>',
-      );
-    }
-    else if ($list['provide-page']) {
-      $block['content']['more-link'] = array(
-        '#theme' => 'more_link',
-        '#url' => $list['path'],
-        '#title' => t('More'), //$list['title'],
-      );
-    }
+  $show_more_link = isset($list['show-more-link']) ? $list['show-more-link'] : 'default';
+  $more_link_uri = FALSE;
+  switch ($show_more_link) {
+    case 'hide':
+      // Nothing to do.
+      break;
+    case 'default':
+      if ($list['provide-page']) {
+        $more_link_uri = $list['path'];
+      }
+      break;
+    case 'custom':
+      if ($list['more-link']) {
+        $more_link_uri = $list['more-link'];
+      }
+      break;
+  }
+  if ($more_link_uri) {
+    $block['content']['more-link'] = array(
+      '#markup' => '<div class="more-link">' . l(t('More'), $more_link_uri) . '</div>',
+    );
   }
 
   return $block;

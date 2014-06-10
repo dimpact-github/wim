@@ -1,55 +1,55 @@
 (function ($) {
   Drupal.behaviors.customlists = {
     attach: function(context) {
+
+      function showSettings() {
+        $('.block-setting').parent().hide();
+        $('.page-setting').parent().hide();
+        $('.type-setting').parent().hide();
+        $('.text-format-wrapper').hide();
+
+
+        if ($('#edit-type').val() == 'content') {
+          $('.type-setting-content').parent().show();
+          if ($('#edit-provide-block').is(':checked')) {
+            $('.block-setting-content').parent().show();
+            if ($('#edit-show-more-link').val() != 'custom') {
+              $('#edit-more-link').parent().hide();
+            }
+          }
+          if ($('#edit-provide-page').is(':checked')) {
+            $('.page-setting-content').parent().show();
+            $('.text-format-wrapper').show();
+          }
+        }
+        else if ($('#edit-type').val() == 'menu') {
+          $('.type-setting-menu').parent().show();
+          if ($('#edit-provide-block').is(':checked')) {
+            $('.block-setting-menu').parent().show();
+          }
+          if ($('#edit-provide-page').is(':checked')) {
+            $('.page-setting-menu').parent().show();
+            $('.text-format-wrapper').show();
+          }
+        }
+      }
+
+      // Trigger to change the shown settings fields.
       $('#edit-type').change(function(e) {
-        if ($(this).val() == 'content') {
-          $('.form-item-menu-item').hide();
-          $('.form-item-node-type').show();
-          $('.form-item-node-queues').show();
-          $('.form-item-sort').show();
-          $('.form-item-taxonomy').show();
-          $('.form-item-block-view-mode').show();
-          $('.form-item-page-view-mode').show();
-        }
-        else if ($(this).val() == 'menu') {
-          $('.form-item-node-type').hide();
-          $('.form-item-node-queues').hide();
-          $('.form-item-sort').hide();
-          $('.form-item-taxonomy').hide();
-          $('.form-item-block-view-mode').hide();
-          $('.form-item-page-view-mode').hide();
-          $('.form-item-menu-item').show();
-        }
+        showSettings();
       });
-      $('#edit-type').trigger('change');
-
-
       $('#edit-provide-block').change(function() {
-        if ($(this).is(':checked')) {
-          $('.form-item-block-items').show();
-        }
-        else {
-          $('.form-item-block-items').hide();
-        }
+        showSettings();
       });
-      $('#edit-provide-block').trigger('change');
-
       $('#edit-provide-page').change(function() {
-        if ($(this).is(':checked')) {
-          $('.form-item-page-items').show();
-          var $path = $('.form-item-path'),
-              $input = $path.find('input');
-          $input.val($input.val() === '<none>' ? '' : $input.val());
-          $path.show();
-          $('.text-format-wrapper').show();
-        }
-        else {
-          $('.form-item-page-items').hide();
-          $('.form-item-path').find('input').val('<none>').end().hide();
-          $('.text-format-wrapper').hide();
-        }
+        showSettings();
       });
-      $('#edit-provide-page').trigger('change');
+      $('#edit-show-more-link').change(function() {
+        showSettings();
+      });
+
+      // Initialise fields.
+      showSettings();
     }
   };
 })(jQuery);
