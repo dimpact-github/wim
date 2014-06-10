@@ -33,6 +33,7 @@ function dimpact_social_service_links_strongarm() {
     4 => 0,
     2 => 0,
     3 => 0,
+    9 => 0,
     6 => 0,
     7 => 0,
     1 => 0,
@@ -78,7 +79,13 @@ function dimpact_social_service_links_strongarm() {
     'search_index' => 0,
     'search_result' => 0,
     'volle_breedte' => 0,
+    'slide_412' => 0,
+    'slide_812' => 0,
+    'slide_312' => 0,
+    'slide_912' => 0,
+    'cck_blocks' => 0,
     'diff_standard' => 0,
+    'short_teaser' => 0,
     'token' => 0,
   );
   $export['service_links_link_view_modes'] = $strongarm;
@@ -98,8 +105,8 @@ function dimpact_social_service_links_strongarm() {
     'agenda' => 'agenda',
     'announcement' => 'announcement',
     'spatial_plan' => 'spatial_plan',
-    'page' => 'page',
     'news' => 'news',
+    'page' => 'page',
     'person' => 'person',
     'product' => 'product',
     'regulation' => 'regulation',
@@ -120,6 +127,7 @@ function dimpact_social_service_links_strongarm() {
     'rss' => 0,
     'rss_source' => 0,
     'slide' => 0,
+    'standaard_pagina' => 0,
     'wiki' => 0,
   );
   $export['service_links_node_types'] = $strongarm;
@@ -135,7 +143,13 @@ function dimpact_social_service_links_strongarm() {
     'search_index' => 0,
     'search_result' => 0,
     'volle_breedte' => 0,
+    'slide_412' => 0,
+    'slide_812' => 0,
+    'slide_312' => 0,
+    'slide_912' => 0,
+    'cck_blocks' => 0,
     'diff_standard' => 0,
+    'short_teaser' => 0,
     'token' => 0,
   );
   $export['service_links_node_view_modes'] = $strongarm;
