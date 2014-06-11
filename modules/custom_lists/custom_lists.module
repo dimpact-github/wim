@@ -119,27 +119,32 @@ function custom_lists_block_view($delta = '') {
   }
 
 
-  $show_more_link = isset($list['show-more-link']) ? $list['show-more-link'] : 'default';
-  $more_link_uri = FALSE;
-  switch ($show_more_link) {
-    case 'hide':
-      // Nothing to do.
-      break;
-    case 'default':
-      if ($list['provide-page']) {
-        $more_link_uri = $list['path'];
-      }
-      break;
-    case 'custom':
-      if ($list['more-link']) {
-        $more_link_uri = $list['more-link'];
-      }
-      break;
-  }
-  if ($more_link_uri) {
-    $block['content']['more-link'] = array(
-      '#markup' => '<div class="more-link">' . l(t('More'), $more_link_uri) . '</div>',
-    );
+  // Only show the more link if there are more items available.
+  $num_items = isset($block['content']['items']) ? count($block['content']['items']['#items']) : FALSE;
+  $num_items = isset($block['content']['items']['nodes']) ? count(element_children($block['content']['items']['nodes'])) : $num_items;
+  if ($num_items >= $list['block-items']) {
+    $show_more_link = isset($list['show-more-link']) ? $list['show-more-link'] : 'default';
+    $more_link_uri = FALSE;
+    switch ($show_more_link) {
+      case 'hide':
+        // Nothing to do.
+        break;
+      case 'default':
+        if ($list['provide-page']) {
+          $more_link_uri = $list['path'];
+        }
+        break;
+      case 'custom':
+        if ($list['more-link']) {
+          $more_link_uri = $list['more-link'];
+        }
+        break;
+    }
+    if ($more_link_uri) {
+      $block['content']['more-link'] = array(
+        '#markup' => '<div class="more-link">' . l(t('More'), $more_link_uri) . '</div>',
+      );
+    }
   }
 
   return $block;
