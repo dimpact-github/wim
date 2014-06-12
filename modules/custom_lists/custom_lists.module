@@ -89,7 +89,7 @@ function custom_lists_block_info() {
 function custom_lists_block_view($delta = '') {
   $list = custom_lists_get($delta);
   $block = array();
-  $block['subject'] = $list['title'];
+  $block['subject'] = $list['display_title'];
   $block['content'] = array();
 
   if ($list['type'] == 'content') {

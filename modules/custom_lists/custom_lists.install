@@ -25,3 +25,53 @@ function custom_lists_update_7101() {
     _custom_lists_set($new_lists);
   }
 }
+
+/**
+ * Fill in display_title for existing lists.
+ */
+function custom_lists_update_7102() {
+  $has_felix = db_table_exists('felix_block');
+
+  $lists = variable_get('custom_lists_lists', array());
+  foreach ($lists as $key => $list) {
+    if (!empty($list['display_title'])) {
+      continue;
+    }
+
+    $title = $list['title'];
+
+    $blocks = db_select('block', 'b')
+      ->fields('b', array('title'))
+      ->condition('b.module', 'custom_lists')
+      ->condition('b.delta', $key)
+      ->execute()
+      ->fetchAll();
+    foreach ($blocks as $block) {
+      if (!empty($block->title)) {
+        $title = $block->title;
+      }
+    }
+
+    if ($has_felix) {
+      $blocks = db_select('felix_block', 'fb')
+        ->fields('fb', array('data'))
+        ->condition('fb.module', 'custom_lists')
+        ->condition('fb.delta', $key)
+        ->execute()
+        ->fetchAll();
+      foreach ($blocks as $block) {
+        $block->data = unserialize($block->data);
+        if (!empty($block->data['subject'])) {
+          $title = $block->data['subject'];
+        }
+      }
+    }
+
+    $lists[$key]['display_title'] = $title;
+  }
+
+  if ($lists) {
+    variable_set('custom_lists_lists', $lists);
+    variable_set('menu_rebuild_needed', TRUE);
+  }
+}
