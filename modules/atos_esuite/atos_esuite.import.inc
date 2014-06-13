@@ -246,7 +246,7 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
   $body = '<h2>**' . t('Beschrijving') . '</h2>' . $description;
   $summary = $description;
 
-  $parts = variable_get('atos_esuite_product_parts', '');
+  $parts = variable_get('atos_esuite_product_parts', atos_esuite_default_product_parts());
   $parts = array_filter(array_unique(array_map('trim', explode("\n", $parts))));
 
   foreach ($parts as $part) {
@@ -258,6 +258,7 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
     }
   }
 
+  $node->field_tags= array(LANGUAGE_NONE => array());
   foreach ($xpath->query('/result/keywords/keyword') as $item) {
     $node->field_tags[LANGUAGE_NONE][] = array('tid' => atos_esuite_get_term_tid($item->nodeValue));
   }
