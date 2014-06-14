@@ -241,7 +241,7 @@ function custom_lists_page_content($list) {
 }
 
 function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
-  $nodes = custom_lists_content_nodes($list, $items);
+  $nodes = custom_lists_content_nodes($list, $items, $view_mode != 'titles');
 
   if ($view_mode == 'titles' || empty($view_mode)) {
     $items = array();
@@ -283,15 +283,12 @@ function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
 
 /**
  * Helper function for retrieving the nodes of a list.
- *
- * @param $list
- * @return array
  */
-function custom_lists_content_nodes($list, $items) {
+function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
   // Default query.
   $query = db_select('node', 'n')->extend('PagerDefault');
   $query
-    ->fields('n', array('nid'))
+    ->fields('n', $full_load ? array('nid') : array('nid', 'title'))
     ->condition('n.status', 1)
     ->limit($items);
 
@@ -322,12 +319,13 @@ function custom_lists_content_nodes($list, $items) {
   }
 
   $rs = $query->execute();
-  $nids = array();
-  foreach ($rs as $row) {
-    $nids[] = $row->nid;
+  if ($full_load) {
+    $nids = $rs->fetchCol();
+    $nodes = node_load_multiple($nids);
   }
-
-  $nodes = node_load_multiple($nids);
+  else {
+    $nodes = $rs->fetchAll();
+  }
 
   return $nodes;
 }
