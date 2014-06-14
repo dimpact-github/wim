@@ -370,50 +370,67 @@ function _custom_lists_get_menu_tree($list) {
   );
 }
 
-/*
+/**
  * Helper function for retrieving all lists.
  */
 function custom_lists_get($list_key = NULL) {
-  $lists = variable_get('custom_lists_lists', array());
-
+  $query = db_select('custom_lists', 'cl')->fields('cl');
   if ($list_key) {
-    return $lists[$list_key];
+    $query->condition('cl.lid', $list_key);
   }
-
+  $lists = array();
+  foreach ($query->execute()->fetchAll() as $list) {
+    $list->data = unserialize($list->data);
+    $list->data['title'] = $list->title;
+    $lists[$list->lid] = $list->data;
+  }
+  if ($list_key) {
+    return isset($lists[$list_key]) ? $lists[$list_key] : FALSE;
+  }
   return $lists;
 }
 
 /**
  * Helper function for adding a list.
- *
- * @param $list_key
- * @param $list
  */
 function custom_lists_add($list_key, $list) {
-  $lists = custom_lists_get();
-  $lists[$list_key] = $list;
-  _custom_lists_set($lists);
+  $old = custom_lists_get($list_key);
+
+  // Determine if we need to rebuild the menu.
+  $rebuild_menu = FALSE;
+  if ($old) {
+    if ($old['provide-page'] != $list['provide-page']) {
+      $rebuild_menu = TRUE;
+    }
+    if ($list['provide-page'] && $old['display_title'] != $list['display_title']) {
+      $rebuild_menu = TRUE;
+    }
+  }
+  elseif ($list['provide-page']) {
+    $rebuild_menu = TRUE;
+  }
+
+  $item = new stdClass();
+  $item->lid = $list_key;
+  $item->title = $list['title'];
+  unset($list['title']);
+  $item->data = $list;
+  drupal_write_record('custom_lists', $item, $old ? array('lid') : FALSE);
+
+  if ($rebuild_menu) {
+    variable_set('menu_rebuild_needed', TRUE);
+  }
 }
 
 /**
  * Helper function for deleting a list.
- *
- * @param $list_key
  */
 function custom_lists_delete($list_key) {
-  $lists = custom_lists_get();
-  unset($lists[$list_key]);
-  _custom_lists_set($lists);
-}
-
-/**
- * Helper function for setting the lists.
- *
- * @param $lists
- */
-function _custom_lists_set($lists) {
-  variable_set('custom_lists_lists', $lists);
-  variable_set('menu_rebuild_needed', TRUE);
+  $old = custom_lists_get($list_key);
+  db_delete('custom_lists')->condition('lid', $list_key)->execute();
+  if ($old['provide-page']) {
+    variable_set('menu_rebuild_needed', TRUE);
+  }
 }
 
 /**
