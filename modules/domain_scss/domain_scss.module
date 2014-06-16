@@ -105,7 +105,9 @@ function domain_scss_scheme_form($complete_form, &$form_state, $theme) {
 
   // See if we're using a predefined scheme.
   // Note: we use the original theme when the default scheme is chosen.
-  $current_scheme = variable_get('color_' . $theme . '_palette', array());
+  // Paths admin/structure/[dominion|domain]/list/%domain_id/theme
+  $domain_id = arg(4);
+  $current_scheme = domain_conf_variable_get($domain_id, 'color_' . $theme . '_palette');
   foreach ($schemes as $key => $scheme) {
     if ($current_scheme == $scheme) {
       $scheme_name = $key;
@@ -142,7 +144,7 @@ function domain_scss_scheme_form($complete_form, &$form_state, $theme) {
         array(
           'data' => array(
             'color' => array(
-              'reference' => domain_scss_get_palette($theme, TRUE),
+              'reference' => domain_scss_get_palette($theme, NULL, TRUE),
               'schemes' => $schemes,
             ),
           ),
@@ -153,7 +155,7 @@ function domain_scss_scheme_form($complete_form, &$form_state, $theme) {
   );
 
   // Add palette fields.
-  $palette = domain_scss_get_palette($theme);
+  $palette = domain_scss_get_palette($theme, $domain_id);
   $names = $info['fields'];
   $form['palette']['#tree'] = TRUE;
   foreach ($palette as $name => $value) {
@@ -175,13 +177,20 @@ function domain_scss_scheme_form($complete_form, &$form_state, $theme) {
 /**
  * Retrieves the color palette for a particular theme.
  */
-function domain_scss_get_palette($theme, $default = FALSE) {
+function domain_scss_get_palette($theme, $domain_id = NULL, $default = FALSE) {
   // Fetch and expand default palette.
   $info = domain_scss_get_info($theme);
   $palette = $info['schemes']['default']['colors'];
 
   // Load variable.
-  return $default ? $palette : variable_get('color_' . $theme . '_palette', $palette);
+  if (!$domain_id) {
+    $domain = domain_get_domain();
+    $domain_id = $domain['domain_id'];
+  }
+
+  $domain_pallette = domain_conf_variable_get($domain_id, 'color_' . $theme . '_palette');
+
+  return $default || !$domain_pallette ? $palette : domain_conf_variable_get($domain_id, 'color_' . $theme . '_palette');
 }
 
 /**
@@ -211,19 +220,19 @@ function domain_scss_scheme_form_submit($form, &$form_state) {
   }
 
   // Delete old setup.
-  if ($old_dir = variable_get('color_' . $theme . '_files', FALSE)) {
+  if ($old_dir = domain_conf_variable_get($form_state['values']['domain_id'], 'color_' . $theme . '_files')) {
     file_unmanaged_delete_recursive($old_dir);
   }
-  variable_del('color_' . $theme . '_palette');
-  variable_del('color_' . $theme . '_stylesheets');
-  variable_del('color_' . $theme . '_files');
+  domain_conf_variable_delete($form_state['values']['domain_id'], 'color_' . $theme . '_palette');
+  domain_conf_variable_delete($form_state['values']['domain_id'], 'color_' . $theme . '_stylesheets');
+  domain_conf_variable_delete($form_state['values']['domain_id'], 'color_' . $theme . '_files');
 
   // Save data.
-  variable_set('color_' . $theme . '_palette', $palette);
-  domain_scss_generate($theme, $info, $palette);
+  domain_conf_variable_set($form_state['values']['domain_id'], 'color_' . $theme . '_palette', $palette);
+  domain_scss_generate($theme, $info, $palette, $form_state['values']['domain_id']);
 }
 
-function domain_scss_generate($theme, $info, $palette, $target = NULL) {
+function domain_scss_generate($theme, $info, $palette, $domain_id, $target = NULL) {
   // Set Color directory.
   $paths = array();
   $paths['color'] = 'public://color';
@@ -263,8 +272,8 @@ function domain_scss_generate($theme, $info, $palette, $target = NULL) {
   }
 
   // Save data.
-  variable_set('color_' . $theme . '_files', $paths['target']);
-  variable_set('color_' . $theme . '_stylesheets', $css);
+  domain_conf_variable_set($domain_id, 'color_' . $theme . '_files', $paths['target']);
+  domain_conf_variable_set($domain_id, 'color_' . $theme . '_stylesheets', $css);
 }
 
 function _domain_scss_html_alter(&$vars) {
@@ -273,15 +282,16 @@ function _domain_scss_html_alter(&$vars) {
   $color_dir = variable_get('color_' . $theme_key . '_files', FALSE);
   $palette = variable_get('color_' . $theme_key . '_palette', FALSE);
 
-  if ($color_dir && $palette && !is_dir($color_dir)) {
-    $info = domain_scss_get_info($theme_key);
-    $palette = variable_get('color_' . $theme_key . '_palette', FALSE);
-    domain_scss_generate($theme_key, $info, $palette, $color_dir);
+  if ($color_dir && $palette) {
+    if (!is_dir($color_dir)) {
+      $domain = domain_get_domain();
+      $info = domain_scss_get_info($theme_key);
+      domain_scss_generate($theme_key, $info, $palette, $domain['domain_id'], $color_dir);
+    }
+
+    _color_html_alter($vars);
   }
-
-  _color_html_alter($vars);
 }
-
 
 /**
  * Page callback for theme settings of dominion.

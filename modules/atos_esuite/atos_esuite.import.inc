@@ -242,7 +242,9 @@ function atos_esuite_map_node($documentXML, $force = FALSE) {
 }
 
 function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath $xpath) {
-  $body = $xpath->query('/result/beschrijving')->item(0)->nodeValue;
+  $description = $xpath->query('/result/beschrijving')->item(0)->nodeValue;
+  $body = '<h2>**' . t('Beschrijving') . '</h2>' . $description;
+  $summary = $description;
 
   $parts = variable_get('atos_esuite_product_parts', atos_esuite_default_product_parts());
   $parts = array_filter(array_unique(array_map('trim', explode("\n", $parts))));
@@ -275,6 +277,7 @@ function atos_esuite_map_node_product($node, DOMDocument $documentDOM, DOMXPath 
     LANGUAGE_NONE => array(
       array(
         'value' => $body,
+        'summary' => $summary,
         'format' => 'filtered_html',
       )
     )

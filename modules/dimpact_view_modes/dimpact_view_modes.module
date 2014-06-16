@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Add view modes to the file entity type, appropriate for displaying media.
+ */
+function dimpact_view_modes_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['short_teaser'] = array(
+    'label' => t('Short Teaser'),
+    'custom settings' => TRUE
+  );
+}

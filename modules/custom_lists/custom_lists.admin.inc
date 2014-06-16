@@ -89,11 +89,22 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
 
   $form['general']['title'] = array(
     '#type' => 'textfield',
+    '#title' => t('Administration title'),
+    '#size' => 30,
+    '#required' => TRUE,
+    '#description' => t('This title is only used on admin pages to identify the custom list.'),
+    '#default_value' => !empty($list['title']) ? $list['title']: '',
+  );
+
+  $form['general']['display_title'] = array(
+    '#type' => 'textfield',
     '#title' => t('Title'),
     '#size' => 30,
     '#required' => TRUE,
-    '#default_value' => !empty($list['title']) ? $list['title']: '',
+    '#description' => t('This title is used as block and page title.'),
+    '#default_value' => !empty($list['display_title']) ? $list['display_title']: '',
   );
+
   if (!empty($list_key)){
   $form['general']['key'] = array(
     '#type' => 'hidden',
@@ -126,6 +137,15 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#options' => array('_any' => t('Any')) + node_type_get_names(),
     '#default_value' => !empty($list['node-type']) ? $list['node-type']: '_any',
   );
+
+  $queues = nodequeue_get_all_queues();
+  $form['type-settings']['node-queues'] = array(
+    '#type' => 'select',
+    '#title' => t('Nodequeue'),
+    '#options' => array('_any' => t('Any')) + $queues,
+    '#default_value' => !empty($list['node-queues']) ? $list['node-queues']: '_any',
+  );
+
   $def_taxonomy = '';
   if (!empty($list['taxonomy'])) {
     $term = taxonomy_term_load($list['taxonomy']);
@@ -148,9 +168,20 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'changed_asc' => t('Changed date: oldest first'),
       'title_asc' => t('Title: ascending'),
       'title_desc' => t('Title: descending'),
+      'queue_asc' => t('Nodequeue: ascending'),
+      'queue_desc' => t('Nodequeue: descending'),
+      'weight_asc' => t('Weight: ascending'),
+      'weight_desc' => t('Weight: descending'),
     ),
     '#default_value' => !empty($list['sort']) ? $list['sort']: '',
   );
+
+  // Setup view modes.
+  $modes = array('titles' => t('Titles as link'));
+  $entity_info = entity_get_info('node');
+  foreach ($entity_info['view modes'] as $view_mode => $data) {
+    $modes[$view_mode] = $data['label'];
+  }
 
   // Menu type data.
   // Generate a list of possible parents (not including this link or descendants).
@@ -175,6 +206,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#type' => 'checkbox',
     '#title' => t('Provide block'),
     '#default_value' => isset($list['provide-block']) ? $list['provide-block']: FALSE,
+  );
+  $form['block']['block-view-mode'] = array(
+    '#type' => 'select',
+    '#title' => t('View mode'),
+    '#options' => $modes,
+    '#default_value' => !empty($list['block-view-mode']) ? $list['block-view-mode']: 'titles',
   );
   $form['block']['block-items'] = array(
     '#type' => 'textfield',
@@ -209,6 +246,12 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
     '#required' => TRUE,
     '#size' => 30,
     '#default_value' => (!empty($list['path']) && $list['path'] !== '<none>') ? $list['path']: '',
+  );
+  $form['page']['page-view-mode'] = array(
+    '#type' => 'select',
+    '#title' => t('View mode'),
+    '#options' => $modes,
+    '#default_value' => !empty($list['page-view-mode']) ? $list['page-view-mode']: 'teaser',
   );
   $form['page']['page-items'] = array(
     '#type' => 'textfield',
@@ -263,6 +306,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
   $list = array(
     'path' => $form_state['values']['path'],
     'title' => $form_state['values']['title'],
+    'display_title' => $form_state['values']['display_title'],
     'page-items' => $form_state['values']['page-items'],
     'block-items' => $form_state['values']['block-items'],
     'type' => $form_state['values']['type'],
@@ -270,8 +314,11 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'more-link' => $form_state['values']['more-link'],
     'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],
+    'node-queues' => $form_state['values']['node-queues'],
     'taxonomy' => $form_state['values']['taxonomy'],
     'sort' => $form_state['values']['sort'],
+    'block-view-mode' => $form_state['values']['block-view-mode'],
+    'page-view-mode' => $form_state['values']['page-view-mode'],
     'menu-item' => $form_state['values']['menu-item'],
     'intro-text' => $form_state['values']['intro-text']['value'],
     'domain_id' => $domain['domain_id'],
@@ -284,7 +331,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     drupal_set_message(t('The list has been updated.'));
     custom_lists_add($old_key, $list);
     $form_state['redirect'] = 'admin/structure/lists';
- 
+
   } else {
     drupal_set_message(t('The list has been added.'));
     custom_lists_add($list_key, $list);
