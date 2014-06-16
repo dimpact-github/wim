@@ -4110,15 +4110,11 @@ function dimpact_content_types_field_default_field_instances() {
     'display' => array(
       'cck_blocks' => array(
         'label' => 'hidden',
-        'module' => 'number',
+        'module' => 'atos_esuite',
         'settings' => array(
-          'decimal_separator' => '.',
           'entity_bundle' => 'vac',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
         ),
-        'type' => 'number_integer',
+        'type' => 'atos_title',
         'weight' => 4,
       ),
       'default' => array(
@@ -4282,6 +4278,7 @@ function dimpact_content_types_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 9,
