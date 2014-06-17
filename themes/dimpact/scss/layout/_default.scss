@@ -320,8 +320,12 @@
       display: block !important;
     }
   }
-  // make menu only expand when javascript enabled
-  html.js.no-touch .main-menu .block-dominion-menu li:hover ul {
+  // Submenu-items worden niet opklapbaar op een touch-enabled device
+  // consequentie daarvan is dat er javascript nodig is, anders is
+  // touch/no-touch niet van elkaar te onderscheiden.
+  // De uitgangssituatie (geen javascript, dus onduidelijk of het touch is) is
+  // niet opklapbaar.
+  html.no-touch .main-menu .block-dominion-menu li:hover ul {
     display: block;
   }
   .block-menu-menu-toptaken > ul > li > ul {
