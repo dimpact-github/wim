@@ -294,13 +294,12 @@
               @include font-size(14);
               padding: 12px $gutter-width/2;
             }
-            ul {
-              position: absolute;
-              top: 38px;
-              display: none;
-              max-width: 250px;
-              min-width: 194px;
-            }
+          }
+          ul {
+            position: absolute;
+            top: 38px;
+            max-width: 250px;
+            min-width: 194px;
           }
         }
       }
@@ -320,6 +319,10 @@
     .quicktabs-tabs {
       display: block !important;
     }
+  }
+  // make menu only expand when javascript enabled
+  html.js.no-touch .main-menu .block-dominion-menu li:hover ul {
+    display: block;
   }
   .block-menu-menu-toptaken > ul > li > ul {
     position: absolute;
