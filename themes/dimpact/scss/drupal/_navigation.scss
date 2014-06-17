@@ -69,10 +69,17 @@ nav {
             text-decoration: none;
           }
           ul {
-            z-index: 150;
+            @include border-bottom-radius(6px);
+            display: none;
             padding: 0;
+            z-index: 150;
             li {
               float: none;
+              &.last {
+                a {
+                  @include border-bottom-radius(6px);
+                }
+              }
             }
             a {
               @include font-size(13);
@@ -81,17 +88,6 @@ nav {
               &:before {
                 font-family: FontAwesome;
                 content: "\f105\00a0";
-              }
-            }
-          }
-          &:hover {
-            ul {
-              @include border-bottom-radius(6px);
-              display: block;
-              li.last {
-                a {
-                  @include border-bottom-radius(6px);
-                }
               }
             }
           }
@@ -190,6 +186,7 @@ nav {
     }
   }
 }
+
 body.front {
   nav {
     &.main-menu {

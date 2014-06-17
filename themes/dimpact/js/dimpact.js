@@ -11,9 +11,6 @@
 
   $(window).load(function () {
 
-    // test
-    $('#header').prepend('<div style="position: absolute; background-color: lime;">tell me is it on?</div>');
-
     $('.print-page').click(function(e) {
       window.print();
       e.preventDefault();
@@ -28,15 +25,22 @@
     if (menuToggle.css("display") != "none") {
       mainMenu.css("display", "none");
     }
+    else {
+      mainMenu.css("display", "block");
+    }
 
-    $('.menu-toggle a').live("click", function(e) {
-      if (mainMenu.hasClass('open')) {
-        mainMenu.removeClass('open');
+    $(window).resize(function(){
+      if (menuToggle.css("display") != "none") {
+        mainMenu.css("display", "none");
       }
       else {
-        mainMenu.addClass('open');
+        mainMenu.css("display", "block");
       }
-      e.preventDefault();
+    });
+
+    $('.menu-toggle a').live("click", function(e) {
+        mainMenu.toggleClass('open');
+        e.preventDefault();
     });
 
     // Onderwerpen responsive menu
