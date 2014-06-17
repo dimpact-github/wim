@@ -22,20 +22,15 @@
     mainMenu.before(menuToggle);
 
     // collapse hoofdmenu if the menu-toggle is visible
-    if (menuToggle.css("display") != "none") {
-      mainMenu.css("display", "none");
+    function toggleMainMenu() {
+      var displayMode = (menuToggle.css("display") != "none") ? "none" : "block";
+      mainMenu.css("display", displayMode);
     }
-    else {
-      mainMenu.css("display", "block");
-    }
-
+    // set initial display level
+    toggleMainMenu();
+    // set display level when changing window size, including switching layout mode for touch-enabled devices
     $(window).resize(function(){
-      if (menuToggle.css("display") != "none") {
-        mainMenu.css("display", "none");
-      }
-      else {
-        mainMenu.css("display", "block");
-      }
+      toggleMainMenu();
     });
 
     $('.menu-toggle a').live("click", function(e) {
