@@ -123,23 +123,7 @@ function custom_lists_block_view($delta = '') {
   $num_items = isset($block['content']['items']) ? count($block['content']['items']['#items']) : FALSE;
   $num_items = isset($block['content']['items']['nodes']) ? count(element_children($block['content']['items']['nodes'])) : $num_items;
   if ($num_items >= $list['block-items']) {
-    $show_more_link = isset($list['show-more-link']) ? $list['show-more-link'] : 'default';
-    $more_link_uri = FALSE;
-    switch ($show_more_link) {
-      case 'hide':
-        // Nothing to do.
-        break;
-      case 'default':
-        if ($list['provide-page']) {
-          $more_link_uri = $list['path'];
-        }
-        break;
-      case 'custom':
-        if ($list['more-link']) {
-          $more_link_uri = $list['more-link'];
-        }
-        break;
-    }
+    $more_link_uri = custom_lists_get_more_uri($list);
     if ($more_link_uri) {
       $block['content']['more-link'] = array(
         '#markup' => '<div class="more-link">' . l(t('More'), $more_link_uri) . '</div>',
@@ -162,7 +146,10 @@ function custom_lists_felix_block_view(&$block) {
     // Link Felix Block Manager block title the same way as non-overridden Custom Lists block title.
     if (isset($block->data['subject']) && strlen($block->data['subject']) && $block->data['subject'] != '<none>') {
       $list = custom_lists_get($block->delta);
-      $block->subject = l($block->data['subject'], $list['path']);
+      $more_link_uri = custom_lists_get_more_uri($list);
+      if ($more_link_uri) {
+        $block->subject = l($block->data['subject'], $more_link_uri);
+      }
     }
   }
 }
@@ -459,6 +446,24 @@ function custom_lists_hansel_get_parent($path) {
         );
       }
     }
+  }
+  return FALSE;
+}
+
+function custom_lists_get_more_uri($list) {
+  $show_more_link = isset($list['show-more-link']) ? $list['show-more-link'] : 'default';
+
+  switch ($show_more_link) {
+    case 'default':
+      if ($list['provide-page']) {
+        return $list['path'];
+      }
+      break;
+    case 'custom':
+      if ($list['more-link']) {
+        return $list['more-link'];
+      }
+      break;
   }
   return FALSE;
 }
