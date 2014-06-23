@@ -50,3 +50,23 @@ function dimpact_custom_css_form_alter(&$form, &$form_state, $form_id) {
     );
   }
 }
+
+/**
+ * Helper function for returning the default custom_css files.
+ */
+function dimpact_custom_css_files() {
+  return array(
+    'custom_css_screen' => t('CSS Screen'),
+    'custom_css_print'  => t('CSS Print'),
+    'custom_css_lteie9' => t('CSS LTE IE9'),
+    'custom_css_ltie9'  => t('CSS LT IE9'),
+  );
+}
+
+/**
+ * Helper function for returning the current domain.
+ */
+function _dimpact_custom_css_domainid() {
+  global $_domain;
+  return $_domain['domain_id'];
+}

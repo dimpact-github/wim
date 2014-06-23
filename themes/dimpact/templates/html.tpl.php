@@ -6,7 +6,6 @@
     <script src="/<?php print $path; ?>/js/modernizr.js"></script>
     <?php print $styles; ?>
     <?php
-      module_load_include('admin.inc', 'dimpact_custom_css', 'dimpact_custom_css');
       global $_domain;
       global $base_url;
 
