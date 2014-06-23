@@ -65,7 +65,7 @@ projects[diff][subdir] = contrib
 projects[diff][version] = "3.2"
 
 projects[domain][subdir] = contrib
-projects[domain][version] = "3.10"
+projects[domain][version] = "3.11"
 
 projects[domaincontext][subdir] = contrib
 projects[domaincontext][version] = "1.0-alpha1"
