@@ -363,6 +363,7 @@ function custom_lists_get($list_key = NULL) {
   if ($list_key) {
     $query->condition('cl.lid', $list_key);
   }
+  $query->orderBy('cl.title', 'ASC');
   $lists = array();
   foreach ($query->execute()->fetchAll() as $list) {
     $list->data = unserialize($list->data);
