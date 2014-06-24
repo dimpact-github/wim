@@ -19,13 +19,13 @@ function dimpact_menus_default_linkit_profiles() {
   $linkit_profile->profile_type = '2';
   $linkit_profile->data = array(
     'search_plugins' => array(
-      'entity:taxonomy_term' => array(
-        'enabled' => 0,
-        'weight' => '-9',
-      ),
       'entity:node' => array(
         'enabled' => 1,
         'weight' => '-10',
+      ),
+      'entity:taxonomy_term' => array(
+        'enabled' => 0,
+        'weight' => '-9',
       ),
       'entity:comment' => array(
         'enabled' => 0,
@@ -50,13 +50,13 @@ function dimpact_menus_default_linkit_profiles() {
         'comment_node_spatial_plan' => 0,
         'comment_node_blog' => 0,
         'comment_node_editorial' => 0,
-        'comment_node_page' => 0,
         'comment_node_faq' => 0,
         'comment_node_forum' => 0,
         'comment_node_foto_album' => 0,
         'comment_node_marketplace' => 0,
         'comment_node_news' => 0,
         'comment_node_subject' => 0,
+        'comment_node_page' => 0,
         'comment_node_poll' => 0,
         'comment_node_person' => 0,
         'comment_node_product' => 0,
@@ -66,6 +66,7 @@ function dimpact_menus_default_linkit_profiles() {
         'comment_node_ris_agendaitem' => 0,
         'comment_node_ris_meeting' => 0,
         'comment_node_slide' => 0,
+        'comment_node_standaard_pagina' => 0,
         'comment_node_vac' => 0,
         'comment_node_webform' => 0,
         'comment_node_wiki' => 0,
@@ -81,17 +82,18 @@ function dimpact_menus_default_linkit_profiles() {
         'file' => 'file',
         'spatial_plan' => 'spatial_plan',
         'blog' => 'blog',
-        'page' => 'page',
         'faq' => 'faq',
         'foto_album' => 'foto_album',
         'marketplace' => 'marketplace',
         'news' => 'news',
         'subject' => 'subject',
+        'page' => 'page',
         'poll' => 'poll',
         'person' => 'person',
         'product' => 'product',
         'regulation' => 'regulation',
         'slide' => 'slide',
+        'standaard_pagina' => 'standaard_pagina',
         'vac' => 'vac',
         'webform' => 'webform',
         'wiki' => 'wiki',
@@ -132,6 +134,7 @@ function dimpact_menus_default_linkit_profiles() {
         'spatial_plan_status' => 0,
         'spatial_plan_type' => 0,
         'forums' => 0,
+        'ris_category' => 0,
       ),
       'group_by_bundle' => 0,
     ),
@@ -143,19 +146,7 @@ function dimpact_menus_default_linkit_profiles() {
       'url_method' => '1',
     ),
     'attribute_plugins' => array(
-      'rel' => array(
-        'enabled' => 0,
-        'weight' => '-10',
-      ),
-      'title' => array(
-        'enabled' => 0,
-        'weight' => '-10',
-      ),
-      'class' => array(
-        'enabled' => 0,
-        'weight' => '-10',
-      ),
-      'id' => array(
+      'accesskey' => array(
         'enabled' => 0,
         'weight' => '-10',
       ),
@@ -163,7 +154,19 @@ function dimpact_menus_default_linkit_profiles() {
         'enabled' => 0,
         'weight' => '-10',
       ),
-      'accesskey' => array(
+      'class' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
+      'rel' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
+      'id' => array(
+        'enabled' => 0,
+        'weight' => '-10',
+      ),
+      'title' => array(
         'enabled' => 0,
         'weight' => '-10',
       ),
