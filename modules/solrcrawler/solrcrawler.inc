@@ -199,8 +199,28 @@ function _solrcrawler_index_page_html($site, $result, &$document, &$pagedata, $u
   }
 }
 
-
+/**
+ * @see _solrcrawler_index_page_document()
+ */
 function _solrcrawler_index_page_document($site, $result, &$document, &$pagedata, $url) {
   $filepath = file_unmanaged_save_data($result->data);
-  $document['body'] .= apachesolr_attachments_extract_using_tika($filepath);
+
+  if (variable_get('apachesolr_attachments_extract_using', 'tika') == 'tika') {
+    $text = apachesolr_attachments_extract_using_tika($filepath);
+  }
+  else {
+    // Extract using Solr.
+    try {
+      list($text, $metadata) = apachesolr_attachments_extract_using_solr($filepath);
+    }
+    catch (Exception $e) {
+      // Exceptions from Solr may be transient, or indicate a problem with a specific file.
+      watchdog('Apache Solr Attachments', "Exception occurred sending %filepath to Solr\n!message", array('%filepath' => $filepath, '!message' => nl2br(check_plain($e->getMessage()))), WATCHDOG_ERROR);
+      return FALSE;
+    }
+  }
+
+  if (isset($text)) {
+    $document['body'] .= $text;
+  }
 }
