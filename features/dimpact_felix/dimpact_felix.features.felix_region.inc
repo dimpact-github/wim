@@ -108,7 +108,7 @@ function dimpact_felix_felix_default_regions() {
     'name' => 'regio-3-12-third-3-6-3-node',
     'title' => 'Regio 4/12 (3/5/4) Node',
     'region' => 'region_363_third',
-    'weight' => -100,
+    'weight' => -90,
     'context' => 'nodedetail',
     'block_set' => 'default',
     'data' => array(
