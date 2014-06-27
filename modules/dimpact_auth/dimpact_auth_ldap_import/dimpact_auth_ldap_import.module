@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_dimpact_auth_authnames_to_delete().
+ */
+function dimpact_auth_ldap_import_dimpact_auth_authnames_to_delete() {
+  $sql = 'SELECT da.authname FROM {dimpact_auth} da LEFT JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn WHERE dli.sn IS NULL';
+  $authnames = db_query($sql)->fetchCol();
+  return $authnames;
+}
+
+/**
+ * Implements hook_dimpact_auth_authnames_to_update().
+ */
+function dimpact_auth_ldap_import_dimpact_auth_authnames_to_update() {
+  $sql = 'SELECT da.authname FROM {dimpact_auth} da INNER JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn';
+  $authnames = db_query($sql)->fetchCol();
+  return $authnames;
+}
+
+/**
+ * Implements hook_dimpact_auth_authnames_to_insert().
+ */
+function dimpact_auth_ldap_import_dimpact_auth_authnames_to_insert() {
+  $sql = 'SELECT dli.sn FROM {dimpact_auth_ldap_import} dli LEFT JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname IS NULL';
+  $authnames = db_query($sql)->fetchCol();
+  return $authnames;
+}

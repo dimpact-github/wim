@@ -1,0 +1,27 @@
+ <?php
+ 
+ /**
+  * Implements hook_schema().
+  */
+function dimpact_auth_schema() {
+  $schema = array();
+  // Directory base table.
+  $schema['dimpact_auth'] = array(
+    'fields' => array(
+      'authname' => array(
+         'type' => 'varchar',
+         'length' => 128,
+         'not null' => TRUE,
+         'default' => '',
+         'description' => 'Unique authentication name.',
+      ),
+      'created' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when user was created.',
+      ),
+    ),
+  );
+  return $schema;
+}

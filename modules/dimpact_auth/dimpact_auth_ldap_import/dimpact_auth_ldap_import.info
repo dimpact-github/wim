@@ -1,0 +1,5 @@
+name = Dimpact Auth LDAP Import
+description = "Provides LDAP-data to the Dimpact Auth system."
+core = 7.x
+package = Dimpact
+dependencies[] = dimpact_auth
