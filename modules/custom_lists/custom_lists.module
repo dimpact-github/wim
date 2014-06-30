@@ -292,6 +292,16 @@ function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
     $query->condition('ti.tid', $list['taxonomy']);
   }
 
+  // Custom filters for certain use cases.
+  if (!empty($list['extra-filters']) && $list['extra-filters'] != '_none') {
+    switch ($list['extra-filters']) {
+      case 'node_type_agenda_upcoming':
+        $query->join('field_data_field_date', 'fd', 'fd.entity_id = n.nid');
+        $query->condition('fd.field_date_value', date('Y-m-d'), '>=');
+        break;
+    }
+  }
+
   // Sorting
   $parts = explode('_', $list['sort']);
   if ($list['node-queues'] && $parts[0] == 'queue') {
@@ -300,6 +310,13 @@ function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
   else if ($parts[0] == 'weight') {
     $query->join('weight_weights', 'w', 'w.entity_id = n.nid');
     $query->orderBy('w.weight', $parts[1]);
+  }
+  else if ($parts[0] == 'agenda') {
+    $tables = $query->getTables();
+    if (!isset($tables['fd'])) {
+      $query->join('field_data_field_date', 'fd', 'fd.entity_id = n.nid');
+    }
+    $query->orderBy('fd.field_date_value', $parts[1]);
   }
   else {
     $query->orderBy('n.' . $parts[0], $parts[1]);

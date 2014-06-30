@@ -176,6 +176,16 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       ),
     ),
   );
+  $form['type-settings']['extra-filters'] = array(
+    '#type' => 'select',
+    '#title' => t('Filters'),
+    '#default_value' => !empty($list['extra-filters']) ? $list['extra-filters']: '_none',
+    '#options' => array(
+      '_none' => t('No filter'),
+      'node_type_agenda_upcoming' => t('Agenda: Upcoming'),
+    ),
+  );
+
   $form['type-settings']['sort'] = array(
     '#type' => 'select',
     '#title' => t('Sort'),
@@ -190,6 +200,8 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
       'queue_desc' => t('Nodequeue: descending'),
       'weight_asc' => t('Weight: ascending'),
       'weight_desc' => t('Weight: descending'),
+      'agenda_asc' => t('Agenda date: ascending'),
+      'agenda_desc' => t('Agenda date: descending'),
     ),
     '#default_value' => !empty($list['sort']) ? $list['sort']: '',
     '#attributes' => array(
@@ -411,6 +423,7 @@ function custom_lists_list_form_submit($form, &$form_state) {
     'more-link' => $form_state['values']['more-link'],
     'provide-page' => $form_state['values']['provide-page'],
     'node-type' => $form_state['values']['node-type'],
+    'extra-filters' => $form_state['values']['extra-filters'],
     'node-queues' => $form_state['values']['node-queues'],
     'taxonomy' => $form_state['values']['taxonomy'],
     'sort' => $form_state['values']['sort'],

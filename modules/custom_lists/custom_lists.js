@@ -8,6 +8,8 @@
         $('.type-setting').parent().hide();
         $('.text-format-wrapper').hide();
 
+        // Only available with some settings.
+        $('#edit-extra-filters').parent().hide();
 
         if ($('#edit-type').val() == 'content') {
           $('.type-setting-content').parent().show();
@@ -32,19 +34,16 @@
             $('.text-format-wrapper').show();
           }
         }
+
+        // Custom filters.
+        if ($('#edit-node-type').val() == 'agenda') {
+          $('#edit-extra-filters').parent().show();
+          $('#edit-extra-filters').val('node_type_agenda_upcoming');
+        }
       }
 
       // Trigger to change the shown settings fields.
-      $('#edit-type').change(function(e) {
-        showSettings();
-      });
-      $('#edit-provide-block').change(function() {
-        showSettings();
-      });
-      $('#edit-provide-page').change(function() {
-        showSettings();
-      });
-      $('#edit-show-more-link').change(function() {
+      $('#edit-type, #edit-node-type, #edit-provide-block, #edit-provide-page, #edit-show-more-link').change(function(e) {
         showSettings();
       });
 
