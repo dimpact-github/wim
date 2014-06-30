@@ -46,7 +46,7 @@ function inlinetabs_process_html($text, $filter, $format = NULL, $langcode = NUL
     }
   }
 
-  return '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $parts[0] . $panes . '</nav>';
+  return $parts[0] . '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $panes . '</nav>';
 }
 
 /**
