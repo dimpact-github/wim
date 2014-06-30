@@ -2,7 +2,8 @@ name = Dimpact
 core = 7.x
 description = Dimpact moedersjabloon
 
-stylesheets[screen][] = css/style.css
+; Color module expects the 'all' instead of 'screen' method.
+stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 
 regions[header] = Header
