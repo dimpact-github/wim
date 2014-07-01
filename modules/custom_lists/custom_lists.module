@@ -451,9 +451,11 @@ function custom_lists_hansel_get_parent($path) {
       if ($contains_node && !empty($list['taxonomy'])) {
         $tags = field_get_items('node', $node, 'field_tags');
         $contains_node = FALSE;
-        foreach ($tags as $item) {
-          if ($item['tid'] == $list['taxonomy']) {
-            $contains_node = TRUE;
+        if (is_array($tags)) {
+          foreach ($tags as $item) {
+            if ($item['tid'] == $list['taxonomy']) {
+              $contains_node = TRUE;
+            }
           }
         }
       }
