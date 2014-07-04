@@ -9,8 +9,13 @@ function dimpact_auth_ldap_import_schema() {
     'fields' => array(
       'sn' => array(
         'type' => 'varchar',
-        'length' => 128,
+        'length' => 255,
         'description' => 'Unique authentication name.',
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Email address.',
       ),
     ),
     'unique keys' => array(

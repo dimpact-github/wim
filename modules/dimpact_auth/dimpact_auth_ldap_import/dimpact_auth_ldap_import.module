@@ -10,12 +10,16 @@ function dimpact_auth_ldap_import_dimpact_auth_authnames_to_delete() {
 }
 
 /**
- * Implements hook_dimpact_auth_authnames_to_update().
+ * Implements hook_dimpact_auth_authnames_check_update().
  */
-function dimpact_auth_ldap_import_dimpact_auth_authnames_to_update() {
-  $sql = 'SELECT da.authname FROM {dimpact_auth} da INNER JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn';
-  $authnames = db_query($sql)->fetchCol();
-  return $authnames;
+function dimpact_auth_ldap_import_dimpact_auth_authnames_check_update() {
+  $existing = array();
+  $sql = 'SELECT da.authname, da.hash FROM {dimpact_auth} da INNER JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn WHERE da.needs_updating=0';
+  $result = db_query($sql);
+  foreach ($result as $row) {
+    $existing[$row->authname] = $row->hash;
+  }
+  return $existing;
 }
 
 /**
@@ -25,4 +29,22 @@ function dimpact_auth_ldap_import_dimpact_auth_authnames_to_insert() {
   $sql = 'SELECT dli.sn FROM {dimpact_auth_ldap_import} dli LEFT JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname IS NULL';
   $authnames = db_query($sql)->fetchCol();
   return $authnames;
+}
+
+/**
+ * Implements hook_dimpact_auth_load().
+ */
+function dimpact_auth_ldap_import_dimpact_auth_load($authname) {
+  $sql = 'SELECT * FROM {dimpact_auth_ldap_import} dli INNER JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname=:authname';
+  return db_query($sql, array(':authname' => $authname))->fetchAssoc();
+}
+
+/**
+ * Implements hook dimpact_auth_field_update().
+ *
+ */
+function dimpact_auth_ldap_import_dimpact_auth_field_update($dimpact_user_data, &$edit, $account) {
+  if (isset($dimpact_user_data['email']) && valid_email_address($dimpact_user_data['email'])) {
+    $edit['mail'] = $dimpact_user_data['email'];
+  }
 }
