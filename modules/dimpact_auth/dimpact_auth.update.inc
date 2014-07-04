@@ -23,12 +23,14 @@ function dimpact_auth_update($provider) {
   foreach($authnames as $authname) {
     $dimpact_user_data = module_invoke($provider, 'dimpact_auth_load', $authname);
     $account = user_external_load($authname);
-    $edit = array();
-    foreach (module_implements('dimpact_auth_field_update') as $module) {
-      $function = $module . '_dimpact_auth_field_update';
-      $function($dimpact_user_data, $edit, $account);
+    if ($account) {
+      $edit = array();
+      foreach (module_implements('dimpact_auth_field_update') as $module) {
+          $function = $module . '_dimpact_auth_field_update';
+          $function($dimpact_user_data, $edit, $account);
+      }
+      user_save($account, $edit);
     }
-    user_save($account, $edit);
   }
 }
 
