@@ -74,13 +74,15 @@ function dimpact_auth_update_insert_authnames($provider) {
   // Insert users into directory list.
   if ($authnames) {
     foreach ($authnames as $authname) {
-      db_insert('dimpact_auth')
-        ->fields(array(
-            'authname' => $authname,
-            'created' => REQUEST_TIME,
-            'needs_updating' => 1,
-          ))
-        ->execute();
+      if (isset($authname)) {
+        db_insert('dimpact_auth')
+          ->fields(array(
+              'authname' => $authname,
+              'created' => REQUEST_TIME,
+              'needs_updating' => 1,
+            ))
+          ->execute();
+      }
     }
   }
 }

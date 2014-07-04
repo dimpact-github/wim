@@ -26,7 +26,7 @@ function dimpact_auth_ldap_import_dimpact_auth_authnames_check_update() {
  * Implements hook_dimpact_auth_authnames_to_insert().
  */
 function dimpact_auth_ldap_import_dimpact_auth_authnames_to_insert() {
-  $sql = 'SELECT dli.sn FROM {dimpact_auth_ldap_import} dli LEFT JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname IS NULL';
+  $sql = 'SELECT dli.sn FROM {dimpact_auth_ldap_import} dli LEFT JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname IS NULL and dli.sn IS NOT NULL';
   $authnames = db_query($sql)->fetchCol();
   return $authnames;
 }
