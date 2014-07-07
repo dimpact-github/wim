@@ -30,6 +30,7 @@ function dimpact_auth_update($provider) {
           $function($dimpact_user_data, $edit, $account);
       }
       user_save($account, $edit);
+      dimpact_auth_update_update_performed($authname, hash('sha256', serialize($dimpact_user_data)));
     }
   }
 }
@@ -93,4 +94,15 @@ function dimpact_auth_update_authnames_to_update() {
   $sql = 'SELECT da.authname FROM {dimpact_auth} da WHERE da.needs_updating=1';
   $authnames = db_query($sql)->fetchCol();
   return $authnames;
+}
+
+function dimpact_auth_update_update_performed($authname, $hash) {
+  db_update('dimpact_auth')
+    ->fields(array(
+      'needs_updating' => 0,
+      'hash' => $hash,
+      )
+    )
+    ->condition('authname', $authname)
+    ->execute();
 }
