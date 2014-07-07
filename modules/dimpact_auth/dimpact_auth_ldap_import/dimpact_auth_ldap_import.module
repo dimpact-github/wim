@@ -47,4 +47,14 @@ function dimpact_auth_ldap_import_dimpact_auth_field_update($dimpact_user_data, 
   if (isset($dimpact_user_data['email']) && valid_email_address($dimpact_user_data['email'])) {
     $edit['mail'] = $dimpact_user_data['email'];
   }
+
+  // field_volledige_naam.
+  // @todo Make more intelligent and robust.
+  if (isset($dimpact_user_data['name'])) {
+    $edit['field_volledige_naam'][LANGUAGE_NONE][0] = array(
+      'value' => $dimpact_user_data['name'],
+      'format' => NULL,
+      'safe_value' => check_plain($dimpact_user_data['name']),
+    );
+  }
 }
