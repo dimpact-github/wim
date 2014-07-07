@@ -14,7 +14,8 @@ function dimpact_auth_drush_command() {
   return $items;
 }
 
-function drush_dimpact_auth_update($provider = 'dimpact_auth_ldap_import') {
+function drush_dimpact_auth_update() {
+  $provider = variable_get('dimpact_auth_directory_provider', 'dimpact_auth_ldap_import');
   module_load_include('inc', 'dimpact_auth', 'dimpact_auth.update');
   dimpact_auth_update($provider);
 }
