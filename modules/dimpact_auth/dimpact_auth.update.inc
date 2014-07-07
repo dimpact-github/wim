@@ -91,7 +91,7 @@ function dimpact_auth_update_insert_authnames($provider) {
 }
 
 function dimpact_auth_update_authnames_to_update() {
-  $sql = 'SELECT da.authname FROM {dimpact_auth} da WHERE da.needs_updating=1';
+  $sql = 'SELECT da.authname FROM {dimpact_auth} da INNER JOIN {authmap} am ON da.authname=am.authname WHERE da.needs_updating=1';
   $authnames = db_query($sql)->fetchCol();
   return $authnames;
 }

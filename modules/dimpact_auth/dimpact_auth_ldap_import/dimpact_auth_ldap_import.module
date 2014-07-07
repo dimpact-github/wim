@@ -14,7 +14,7 @@ function dimpact_auth_ldap_import_dimpact_auth_authnames_to_delete() {
  */
 function dimpact_auth_ldap_import_dimpact_auth_authnames_check_update() {
   $existing = array();
-  $sql = 'SELECT da.authname, da.hash FROM {dimpact_auth} da INNER JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn WHERE da.needs_updating=0';
+  $sql = 'SELECT da.authname, da.hash FROM {dimpact_auth} da INNER JOIN {authmap} am ON da.authname=am.authname INNER JOIN {dimpact_auth_ldap_import} dli ON da.authname=dli.sn WHERE da.needs_updating=0';
   $result = db_query($sql);
   foreach ($result as $row) {
     $existing[$row->authname] = $row->hash;
