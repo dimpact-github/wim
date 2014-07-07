@@ -53,5 +53,8 @@ function dimpact_auth_login_validate($form, &$form_state) {
   // Log in if password is ok.
   if ($password_ok) {
     user_external_login_register($directory_account->authname, 'dimpact_auth');
+    if (!$account) {
+      dimpact_auth_update_update_account($directory_account->authname);
+    }
   }
 }

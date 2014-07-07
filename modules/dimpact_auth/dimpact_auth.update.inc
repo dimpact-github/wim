@@ -21,17 +21,7 @@ function dimpact_auth_update($provider) {
   $authnames = dimpact_auth_update_authnames_to_update();
   // @todo Convert to Batch API.
   foreach($authnames as $authname) {
-    $dimpact_user_data = module_invoke($provider, 'dimpact_auth_load', $authname);
-    $account = user_external_load($authname);
-    if ($account) {
-      $edit = array();
-      foreach (module_implements('dimpact_auth_field_update') as $module) {
-          $function = $module . '_dimpact_auth_field_update';
-          $function($dimpact_user_data, $edit, $account);
-      }
-      user_save($account, $edit);
-      dimpact_auth_update_update_performed($authname, hash('sha256', serialize($dimpact_user_data)));
-    }
+    dimpact_auth_update_update_account($authname);
   }
 }
 
@@ -105,4 +95,19 @@ function dimpact_auth_update_update_performed($authname, $hash) {
     )
     ->condition('authname', $authname)
     ->execute();
+}
+
+function dimpact_auth_update_update_account($authname) {
+  $account = user_external_load($authname);
+  if ($account) {
+    $provider = variable_get('dimpact_auth_directory_provider', 'dimpact_auth_ldap_import');
+    $dimpact_user_data = module_invoke($provider, 'dimpact_auth_load', $authname);
+    $edit = array();
+    foreach (module_implements('dimpact_auth_field_update') as $module) {
+        $function = $module . '_dimpact_auth_field_update';
+        $function($dimpact_user_data, $edit, $account);
+    }
+    user_save($account, $edit);
+    dimpact_auth_update_update_performed($authname, hash('sha256', serialize($dimpact_user_data)));
+  }
 }
