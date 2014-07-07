@@ -35,7 +35,7 @@ function dimpact_auth_ldap_import_dimpact_auth_authnames_to_insert() {
  * Implements hook_dimpact_auth_load().
  */
 function dimpact_auth_ldap_import_dimpact_auth_load($authname) {
-  $sql = 'SELECT * FROM {dimpact_auth_ldap_import} dli INNER JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname=:authname';
+  $sql = 'SELECT dli.* FROM {dimpact_auth_ldap_import} dli INNER JOIN {dimpact_auth} da ON dli.sn=da.authname WHERE da.authname=:authname';
   return db_query($sql, array(':authname' => $authname))->fetchAssoc();
 }
 
