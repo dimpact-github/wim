@@ -39,8 +39,8 @@
 <?php print $attachment_before; ?>
   <?php print $rows; ?>
 <div class="progress"></div>
-<a href="#" class="btn_prev"><span class="icon-chevron-sign-left"></span></a>
-<a href="#" class="btn_next"><span class="icon-chevron-sign-right"></span></a>
+<a href="#" class="btn_prev"><span class="icon-chevron-sign-left"><span class="element-invisible"><?php print t('Previous'); ?></span></span></a>
+<a href="#" class="btn_next"><span class="icon-chevron-sign-right"><span class="element-invisible"><?php print t('Next'); ?></span></span></a>
 <?php print $empty; ?>
 <?php print $pager; ?>
 <?php print $attachment_after; ?>
