@@ -391,6 +391,33 @@ function custom_lists_list_form($form, &$form_state, $list_key = NULL) {
 }
 
 /**
+ * Validate handler.
+ */
+function custom_lists_list_form_validate($form, &$form_state) {
+  // Don't try to create or update a list using a router path that already exists.
+  // Updating a existing list with the same router path is allowed.
+  $error = FALSE;
+  if ($form_state['values']['provide-page']) {
+    $sql = 'SELECT path FROM {menu_router} WHERE path=:path';
+    $existing = db_query($sql, array(':path' => $form_state['values']['path']))->fetchField();
+    if ($existing) {
+      if (isset($form_state['values']['key'])) {
+        $list = custom_lists_get($form_state['values']['key']);
+        if (strtolower($list['path']) != strtolower($existing)) {
+          $error = TRUE;
+        }
+      }
+      else {
+        $error = TRUE;
+      }
+    }
+  }
+  if ($error) {
+    form_set_error('path', t('Path already exists.'));
+  }
+}
+
+/**
  * Submit handler.
  */
 function custom_lists_list_form_submit($form, &$form_state) {
