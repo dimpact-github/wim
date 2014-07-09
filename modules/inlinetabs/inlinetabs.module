@@ -38,15 +38,15 @@ function inlinetabs_process_html($text, $filter, $format = NULL, $langcode = NUL
       ++$tab;
       $id = dechex(($rand << 6) + $tab);
       preg_match('/\\<h[1-6][^\\>]*\\>\\*\\*([^\\<]*)\\<\\/h[1-6]\\>/si', $parts[$i], $match);
-      $tabs .= '<li><a href="#tab-' . $id . '"><span>' . $match[1] . '</span></a></li>';
+      $tabs .= '<li><a role="tab" aria-selected="false" href="#tab-' . $id . '"><span>' . $match[1] . '</span></a></li>';
     }
     else {
       // Add corresponding tab contents to $panes.
-      $panes .= '<div id="tab-' . $id . '">' . $parts[$i] . '</div>';
+      $panes .= '<div role="tabpanel" id="tab-' . $id . '">' . $parts[$i] . '</div>';
     }
   }
 
-  return $parts[0] . '<nav class="inlinetabs tabs"><ul class="tabs">' . $tabs . '</ul>' . $panes . '</nav>';
+  return $parts[0] . '<nav class="inlinetabs tabs"><ul role="tablist" class="tabs">' . $tabs . '</ul>' . $panes . '</nav>';
 }
 
 /**
