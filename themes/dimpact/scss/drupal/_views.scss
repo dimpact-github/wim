@@ -80,6 +80,12 @@
 .view-agenda-display-block_2 {
   .views-row {
     overflow: hidden;
+    h3 {
+      box-sizing: border-box;
+      float: right;
+      padding-left: 48px;
+      width: 100%;
+    }
     .views-field-changed,
     .field-date .date-display-single {
       @include transition-property(background);
@@ -91,7 +97,7 @@
       font-family: $heading;
       width: 40px;
       height: 46px;
-      float: left;
+//      float: left;
       font-weight: 400;
       margin-right: 0.5em;
       display: block;
@@ -303,7 +309,7 @@
       margin: 0 $gutter-width/2;
       border: 0;
       width: 100px;
-      
+
       .views-field-title {
         height: 41px;
       }
