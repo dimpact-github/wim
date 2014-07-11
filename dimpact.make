@@ -89,6 +89,7 @@ projects[dominion][subdir] = contrib
 projects[dominion][download][type] = git
 projects[dominion][download][revision] = 170ace5
 projects[dominion][download][branch] = 7.x-1.x
+projects[dominion][patch][cache] = patches/dominion-menu-cache.patch
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib

@@ -1,0 +1,32 @@
+diff --git a/dominion_menu/dominion_menu.module b/dominion_menu/dominion_menu.module
+index 710d358..b246dab 100644
+--- a/dominion_menu/dominion_menu.module
++++ b/dominion_menu/dominion_menu.module
+@@ -171,10 +171,10 @@ function dominion_menu_block_view($delta = '') {
+   }
+   foreach ($subsite->menus as $menu) {
+     if ($menu->cid == $delta) {
+-      $cid = $user->uid ? NULL : 'dominion_menu:' . $delta . ':' . $subsite->domain_id;
+-      if ($cid && ($cache = cache_get($cid, 'cache_dominion'))) {
+-        return $cache->data;
+-      }
++//      $cid = $user->uid ? NULL : 'dominion_menu:' . $delta . ':' . $subsite->domain_id;
++//      if ($cid && ($cache = cache_get($cid, 'cache_dominion'))) {
++//        return $cache->data;
++//      }
+ 
+       $block = NULL;
+       $menus = menu_get_menus();
+@@ -184,9 +184,9 @@ function dominion_menu_block_view($delta = '') {
+           'content' => menu_tree($menu->menu_name),
+         );
+       }
+-      if ($cid) {
+-        cache_set($cid, $block, 'cache_dominion', 60);
+-      }
++//      if ($cid) {
++//        cache_set($cid, $block, 'cache_dominion', 60);
++//      }
+       return $block;
+     }
+   }
