@@ -253,7 +253,7 @@ projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
 projects[password_policy][subdir] = contrib
-projects[password_policy][version] = "1.6"
+projects[password_policy][version] = "1.8"
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"
