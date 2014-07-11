@@ -131,6 +131,7 @@ projects[felix][download][type] = git
 projects[felix][download][revision] = b71d233
 projects[felix][download][branch] = 7.x-1.x
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
+projects[felix][patch][2300865-3] = felix-domain_user_set-2300865-3.patch
 
 projects[fences][subdir] = contrib
 projects[fences][version] = "1.0"
