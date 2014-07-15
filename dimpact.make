@@ -160,7 +160,7 @@ projects[google_analytics][version] = "1.4"
 
 projects[hansel][subdir] = contrib
 projects[hansel][download][type] = git
-projects[hansel][download][revision] = 63dff87
+projects[hansel][download][revision] = cb6c701
 projects[hansel][download][branch] = 7.x-1.x
 
 projects[homebox][subdir] = contrib
