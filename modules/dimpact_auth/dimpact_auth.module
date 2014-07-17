@@ -37,8 +37,11 @@ function dimpact_auth_login_validate($form, &$form_state) {
   }
 
   // Check password (existing Drupal account).
-  if ($directory_account && $account && user_check_password($password, $account)) {
-    $password_ok = TRUE;
+  if ($directory_account && $account) {
+    require_once DRUPAL_ROOT . '/' . variable_get('password_inc', 'includes/password.inc');
+    if (user_check_password($password, $account)) {
+      $password_ok = TRUE;
+    }
   }
 
   // Check password (no Drupal account yet).
@@ -52,9 +55,38 @@ function dimpact_auth_login_validate($form, &$form_state) {
 
   // Log in if password is ok.
   if ($password_ok) {
-    user_external_login_register($directory_account->authname, 'dimpact_auth');
-    if (!$account) {
-      dimpact_auth_update_update_account($directory_account->authname);
-    }
+    dimpact_auth_user_external_login_register($directory_account->authname, $account, $form_state);
   }
+}
+
+function dimpact_auth_user_external_login_register($name, $account, &$form_state) {
+  if (!$account) {
+    // Register this new user.
+    $userinfo = array(
+      'name' => $name,
+      'pass' => trim($form_state['values']['pass']),
+      'init' => $name,
+      'status' => 1,
+      'access' => REQUEST_TIME,
+      'roles' => array(
+        5 => 'medewerker',
+      ),
+      'domain_user' => array(
+        2 => 2,
+      ),
+    );
+    $account = user_save(drupal_anonymous_user(), $userinfo);
+    // Terminate if an error occurred during user_save().
+    if (!$account) {
+      drupal_set_message(t("Error saving user account."), 'error');
+      return;
+    }
+    user_set_authmaps($account, array("authname_dimpact_auth" => $name));
+    module_load_include('inc', 'dimpact_auth', 'dimpact_auth.update');
+    dimpact_auth_update_update_account($name);
+  }
+
+  // Log user in.
+  $form_state['uid'] = $account->uid;
+  user_login_submit(array(), $form_state);
 }
