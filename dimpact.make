@@ -65,7 +65,7 @@ projects[diff][subdir] = contrib
 projects[diff][version] = "3.2"
 
 projects[domain][subdir] = contrib
-projects[domain][version] = "3.10"
+projects[domain][version] = "3.11"
 
 projects[domaincontext][subdir] = contrib
 projects[domaincontext][version] = "1.0-alpha1"
@@ -131,6 +131,7 @@ projects[felix][download][type] = git
 projects[felix][download][revision] = b71d233
 projects[felix][download][branch] = 7.x-1.x
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
+projects[felix][patch][2300865-3] = patches/felix-domain_user_set-2300865-3.patch
 
 projects[fences][subdir] = contrib
 projects[fences][version] = "1.0"
@@ -253,7 +254,7 @@ projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
 projects[password_policy][subdir] = contrib
-projects[password_policy][version] = "1.6"
+projects[password_policy][version] = "1.8"
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"

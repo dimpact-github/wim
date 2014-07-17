@@ -1,4 +1,5 @@
 (function($) {
+
   /**
    * Hide all the tabs.
    */
@@ -20,14 +21,21 @@
     var menuToggle = $('<div>').addClass('menu-toggle').html('<a href="#">Menu</a>');
     mainMenu.before(menuToggle);
 
+    // collapse hoofdmenu if the menu-toggle is visible
+    function toggleMainMenu() {
+      var displayMode = (menuToggle.css("display") != "none") ? "none" : "block";
+      mainMenu.css("display", displayMode);
+    }
+    // set initial display level
+    toggleMainMenu();
+    // set display level when changing window size, including switching layout mode for touch-enabled devices
+    $(window).resize(function(){
+      toggleMainMenu();
+    });
+
     $('.menu-toggle a').live("click", function(e) {
-      if (mainMenu.hasClass('open')) {
-        mainMenu.removeClass('open');
-      }
-      else {
-        mainMenu.addClass('open');
-      }
-      e.preventDefault();
+        mainMenu.toggleClass('open');
+        e.preventDefault();
     });
 
     // Onderwerpen responsive menu

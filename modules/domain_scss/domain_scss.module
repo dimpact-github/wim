@@ -240,7 +240,7 @@ function domain_scss_generate($theme, $info, $palette, $domain_id, $target = NUL
   // Set Target directory.
   if (!$target) {
     $id = $theme . '-' . substr(hash('sha256', serialize($palette) . microtime()), 0, 8);
-    $target = $paths['color'] . '//' . $id;
+    $target = $paths['color'] . '/' . $id;
   }
   $paths['target'] = $target;
 
@@ -282,15 +282,16 @@ function _domain_scss_html_alter(&$vars) {
   $color_dir = variable_get('color_' . $theme_key . '_files', FALSE);
   $palette = variable_get('color_' . $theme_key . '_palette', FALSE);
 
-  if ($color_dir && $palette && !is_dir($color_dir)) {
-    $info = domain_scss_get_info($theme_key);
-    $palette = variable_get('color_' . $theme_key . '_palette', array());
-    domain_scss_generate($theme_key, $info, $palette, $color_dir);
+  if ($color_dir && $palette) {
+    if (!is_dir($color_dir)) {
+      $domain = domain_get_domain();
+      $info = domain_scss_get_info($theme_key);
+      domain_scss_generate($theme_key, $info, $palette, $domain['domain_id'], $color_dir);
+    }
+
+    _color_html_alter($vars);
   }
-
-  _color_html_alter($vars);
 }
-
 
 /**
  * Page callback for theme settings of dominion.

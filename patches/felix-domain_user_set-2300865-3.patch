@@ -1,0 +1,33 @@
+diff --git a/domain/felix_domain.module b/domain/felix_domain.module
+index 006063f..56e8a63 100644
+--- a/domain/felix_domain.module
++++ b/domain/felix_domain.module
+@@ -26,7 +26,9 @@ function felix_domain_felix_access($op = 'add', $region = NULL, $block = NULL) {
+   if (user_access('manage felix blocks on all domains')) {
+     return FELIX_ALLOW;
+   }
+-  elseif (!empty($user->domain_user[$_domain['domain_id']])) {
++  // @todo Replace with domain_user_set() when felix_domain depends on domain-7.x-3.11.
++  _felix_domain_user_set($user);
++  if (!empty($user->domain_user[$_domain['domain_id']])) {
+     return FELIX_ALLOW;
+   }
+   else {
+@@ -60,3 +62,17 @@ function felix_domain_felix_hash_options() {
+     'domain' => t('Domain'),
+   );
+ }
++
++/**
++ * Ensures that a user object has been loaded properly with domain data.
++ *
++ * @todo This is needed until felix_domain requires domain-7.x-3.11.
++ * @param $account
++ *   An account object.
++ */
++function _felix_domain_user_set($account) {
++  if (!isset($account->domain_user)) {
++    $accounts = array($account->uid => $account);
++    domain_user_load($accounts);
++  }
++}
