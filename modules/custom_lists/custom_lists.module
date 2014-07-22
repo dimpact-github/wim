@@ -144,8 +144,11 @@ function custom_lists_block_view($delta = '') {
 function custom_lists_felix_block_view(&$block) {
   if ($block->module == 'custom_lists') {
     // Link Felix Block Manager block title the same way as non-overridden Custom Lists block title.
-    if (isset($block->data['subject']) && strlen($block->data['subject']) && $block->data['subject'] != '<none>') {
+    if (isset($block->data['subject']) && $block->data['subject'] != '<none>') {
       $list = custom_lists_get($block->delta);
+      if (empty($block->data['subject'])) {
+        $block->data['subject'] = $list['display_title'];
+      }
       $more_link_uri = custom_lists_get_more_uri($list);
       if ($more_link_uri) {
         $block->subject = l($block->data['subject'], $more_link_uri);
