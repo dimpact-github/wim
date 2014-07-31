@@ -84,7 +84,8 @@
       }
     }
 
-    &:hover,
+    .no-touch &:hover,
+    html.no-js &:hover,
     &:focus {
       ul {
         z-index: 2;
