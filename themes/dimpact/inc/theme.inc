@@ -486,7 +486,7 @@ function dimpact_date_display_single($variables) {
   $attributes = $variables['attributes'];
 
   if (preg_match("|([a-z]{3})\s([0-9]{2,3})|", $date, $matches)) {
-    $date = '<span class="month">' . $matches[1] . '</span><span class="day">' . $matches[2] . '</span>';
+    $date = '<span class="day">' . $matches[2] . '</span><span class="month">' . $matches[1] . '</span>';
   }
 
   // Wrap the result with the attributes.
