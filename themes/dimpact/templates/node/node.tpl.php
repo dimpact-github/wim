@@ -4,15 +4,10 @@
 hide($content['comments']);
 hide($content['links']);
 hide($content['field_image']);
-
-if (!$page) {
-  hide($content['field_date']);
-}
 hide($content['field_tabtitel']);
 hide($content['field_tabcontent']);
 ?>
 <article<?php print $attributes; ?>>
-  <?php !$page ? print render($content['field_date']) : ''; ?>
   <?php if ($teaser): ?>
     <?php if ($content['field_image'][0]): ?>
       <div class="field field-image">
