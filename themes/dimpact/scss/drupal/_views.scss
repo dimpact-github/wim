@@ -127,21 +127,42 @@
     }
   }
 }
-.block-views-updates-block-1 {
-  .views-row {
-    margin-bottom: $gutter-width/2;
+.view-agenda-display-block_1 .views-row {
+  min-height: 4em;
+  h2 {
+    padding-left: 48px;
+  }
+  .field-date .date-display-single {
+    left: 0;
+    position: absolute;
+    top: 0;
   }
 }
+
 .view-agenda-team,
 .block-views-agenda-team-block-2,
 .view-agenda-display-block_1 {
-  .has-image {
+  .agenda {
     position: relative;
+    .field-intro {
+      display: block;
+      padding-left: 48px;
+    }
+  }
+  .has-image {
     .field-date .date-display-single {
-      position: absolute;
       top: 10px;
       left: 5px;
     }
+    .field-intro {
+      padding-left: 0;
+    }
+  }
+}
+
+.block-views-updates-block-1 {
+  .views-row {
+    margin-bottom: $gutter-width/2;
   }
 }
 
