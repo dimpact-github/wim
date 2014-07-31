@@ -122,11 +122,11 @@
 
     // Toptaken block
     $('.block-menu-menu-toptaken > ul > li.first').addClass('toptaken-active');
-    $('.block-menu-menu-toptaken > ul > li').click(function() {
-      $('.block-menu-menu-toptaken > ul > li').removeClass('toptaken-active');
-      $(this).addClass('toptaken-active');
-    });
     $('.block-menu-menu-toptaken > ul > li > a').click(function(e) {
+      if (!$(this).parent().hasClass('toptaken-active')) {
+        $('.block-menu-menu-toptaken > ul > li').removeClass('toptaken-active');
+        $(this).parent().addClass('toptaken-active');
+      }
       e.preventDefault();
     });
 
