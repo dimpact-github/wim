@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html<?php print $html_attributes; ?>>
+<html<?php print $html_attributes; ?> class="no-js">
   <head>
     <?php print $head; ?>
     <title><?php print $head_title; ?></title>
