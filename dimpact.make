@@ -29,9 +29,6 @@ projects[apachesolr_user][download][revision] = cadb26b
 projects[apachesolr_user][download][branch] = 7.x-1.x
 projects[apachesolr_user][patch][viewmodes] = patches/apachesolr_user-viewmodes.patch
 
-projects[backup_migrate][subdir] = contrib
-projects[backup_migrate][version] = "2.8"
-
 projects[better_formats][subdir] = contrib
 projects[better_formats][version] = "1.0-beta1"
 
@@ -243,9 +240,6 @@ projects[menuimage][version] = "1.1"
 
 projects[metatag][subdir] = contrib
 projects[metatag][version] = "1.0-beta9"
-
-projects[module_filter][subdir] = contrib
-projects[module_filter][version] = "2.0-alpha2"
 
 projects[nodequeue][subdir] = contrib
 projects[nodequeue][download][type] = git
