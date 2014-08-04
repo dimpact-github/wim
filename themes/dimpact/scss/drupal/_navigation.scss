@@ -316,11 +316,15 @@ nav.block-menu-menu-tabbladen {
       a {
         @include border-top-radius(5px);
         @include border-bottom-radius(0);
-        font-family: $heading;
         background-color: get_env_color('dcolorlight', $azure-light);;
-        padding: 8px 6px;
         display: inline-block;
+        font-family: $heading;
+        padding: 8px 6px;
         text-decoration: none;
+        &:link {
+          color: darken($link-colour, 10%);
+        }
+        &:focus,
         &:hover {
           background-color: get_env_color('dcolor', $azure);
           color: get_env_color('dlinkcolor', $link-light);
