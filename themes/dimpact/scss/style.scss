@@ -402,10 +402,6 @@ div.workbench-info-block {
   }
 }
 
-#cc-notification #cc-notification-permissions {
-  display: block;
-}
-
 .page-view-foto-album-page {
   #page-title {
     background-color: lighten($background-color, 7%);
@@ -427,14 +423,17 @@ div.workbench-info-block {
 }
 
 #cc-notification {
+  #cc-notification-permissions {
+    display: block;
+  }
   ul.cc-notification-buttons {
-    top: $gutter-width;
     right: $gutter-width;
+    top: $gutter-width;
   }
   #cc-notification-wrapper {
-    padding-top: $gutter-width/2;
     margin-left: $gutter-width;
     margin-right: $gutter-width;
+    padding-top: $gutter-width/2;
     label {
       font-weight: normal;
     }
@@ -457,6 +456,15 @@ div.workbench-info-block {
     }
   }
 }
+#cc-modal.cc-light #cc-modal-wrapper {
+  h2 span,
+  li span,
+  p.cc-subtitle {
+    // higher contrast
+    color: $text-color;
+  }
+}
+
 #forum {
   margin-bottom: $gutter-width;
 }
