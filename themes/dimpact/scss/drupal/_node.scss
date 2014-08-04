@@ -6,7 +6,11 @@
     }
     #{headings()} {
       color: get_env_color('dheadingcolor', $azure);
+      [role="contentinfo"] & {
+        color: get_env_color('dheadingcolor', $hover);
+      }
     }
+
   }
 
   &.view-mode-short-teaser,
