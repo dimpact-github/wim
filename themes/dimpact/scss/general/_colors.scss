@@ -14,6 +14,9 @@ body {
   a {
     @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
   }
+  [role="contentinfo"] a {
+    @include link-colors(darken($colour, 10%), darken($colour, 20%), darken($colour, 30%));
+  }
   #main {
     input[type="submit"] {
       background-color: $buttoncolour;
