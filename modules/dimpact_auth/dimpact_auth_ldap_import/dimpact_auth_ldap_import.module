@@ -57,4 +57,34 @@ function dimpact_auth_ldap_import_dimpact_auth_field_update($dimpact_user_data, 
       'safe_value' => check_plain($dimpact_user_data['name']),
     );
   }
+
+  // field_functie.
+  // @todo Make more intelligent and robust.
+  if (isset($dimpact_user_data['title'])) {
+    $edit['field_functie'][LANGUAGE_NONE][0] = array(
+      'value' => $dimpact_user_data['title'],
+      'format' => NULL,
+      'safe_value' => check_plain($dimpact_user_data['title']),
+    );
+  }
+
+  // field_doorkiesnummer.
+  // @todo Make more intelligent and robust.
+  if (isset($dimpact_user_data['telephonenumber'])) {
+    $edit['field_doorkiesnummer'][LANGUAGE_NONE][0] = array(
+      'value' => $dimpact_user_data['telephonenumber'],
+      'format' => NULL,
+      'safe_value' => check_plain($dimpact_user_data['telephonenumber']),
+    );
+  }
+
+  // field_mobiel.
+  // @todo Make more intelligent and robust.
+  if (isset($dimpact_user_data['mobile'])) {
+    $edit['field_mobiel'][LANGUAGE_NONE][0] = array(
+      'value' => $dimpact_user_data['mobile'],
+      'format' => NULL,
+      'safe_value' => check_plain($dimpact_user_data['mobile']),
+    );
+  }
 }
