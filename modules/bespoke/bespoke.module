@@ -526,3 +526,19 @@ function bespoke_views_query_alter(&$view, &$query) {
     }
   }
 }
+
+/**
+ * Implements hook_apachesolr_exclude
+ *
+ * Do not index nodes with 50MB or more attached.
+ */
+function bespoke_apachesolr_exclude($entity_id, $entity_type, $row, $env_id) {
+  if ($entity_type == 'node') {
+    $result = db_query('SELECT SUM(managed.filesize) total_filesize FROM {file_managed} managed, {file_usage} file_usage WHERE file_usage.id=:nid AND managed.fid=file_usage.fid', array(':nid' => $entity_id));
+    foreach($result as $record) {
+      if ($record->total_filesize > variable_get('bespoke_apachesolr_max_attachments_size', 50000000)) {
+        return TRUE;
+      }
+    }
+  }
+}
