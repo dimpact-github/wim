@@ -316,7 +316,7 @@ nav.block-menu-menu-tabbladen {
       a {
         @include border-top-radius(5px);
         @include border-bottom-radius(0);
-        background-color: get_env_color('dcolorlight', $azure-light);;
+        background-color: get_env_color('dcolorlight', $azure-light);
         display: inline-block;
         font-family: $heading;
         padding: 8px 6px;
