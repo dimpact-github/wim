@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -25,7 +26,7 @@ function domain_scss_menu() {
  */
 function bespoke_dominion_operations_alter(&$operations, $domain) {
   // Dummy url for our theme form.
-  $operations['theme'] = l(t('Theme'), 'admin/structure/dominion/list/' . $domain->domain_id . '/theme');
+  $operations['theme'] = l(t('Theme'), $domain->scheme . '://' . $domain->subdomain . '/' . (empty($domain->dominion_directory) ? '' : ($domain->dominion_directory . '/')) . 'admin/structure/dominion/list/' . $domain->domain_id . '/theme');
 }
 
 
@@ -33,6 +34,9 @@ function bespoke_dominion_operations_alter(&$operations, $domain) {
 * Implements hook_form_FORM_ID_alter().
 */
 function domain_scss_form_system_theme_settings_alter(&$form, &$form_state) {
+  $domain = dominion_get_info();
+  $form['#prefix'] = (empty($form['#prefix']) ? '' : $form['#prefix']) . (t('You are on @site (@domain)', array('@site' => $domain->sitename, '@domain' => $domain->subdomain . '/' . $domain->directory)));
+
   if (isset($form_state['build_info']['args'][0]) && ($theme = $form_state['build_info']['args'][0]) && domain_scss_get_info($theme)) {
     $form['color'] = array(
       '#type' => 'fieldset',
