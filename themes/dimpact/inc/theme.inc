@@ -561,7 +561,7 @@ function dimpact_menu_link(array $variables) {
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
   }
-  $output = l($element['#title'], $element['<script src="../js/quicktab.js" type="text/javascript" charset="utf-8"></script>#href'], $element['#localized_options']);
+  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 

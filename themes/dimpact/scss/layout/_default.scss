@@ -313,21 +313,6 @@
         }
       }
     }
-    .quicktabs_main {
-      .quicktabs-tabpage {
-        @include column-count(3);
-        @include border-bottom-radius(4px);
-        position: absolute;
-      }
-    }
-    .block-quicktabs {
-      h2.block-title {
-        display: block !important;
-      }
-    }
-    .quicktabs-tabs {
-      display: block !important;
-    }
   }
   // Submenu-items worden niet opklapbaar op een touch-enabled device
   // consequentie daarvan is dat er javascript nodig is, anders is
