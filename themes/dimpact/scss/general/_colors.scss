@@ -97,9 +97,13 @@ body {
         background-color: #fff;
         color: $link-dark;
       }
+      a:focus,
       a:hover {
         background-color: $colour;
         color: $linkcolor;
+      }
+      a:focus {
+        outline: auto;
       }
     }
   }
