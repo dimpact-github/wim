@@ -561,6 +561,55 @@ function dimpact_menu_link(array $variables) {
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
   }
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+  $output = l($element['#title'], $element['<script src="../js/quicktab.js" type="text/javascript" charset="utf-8"></script>#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+
+/**
+ * Theme function to output content for classic Quicktabs style tabs.
+ *
+ * @ingroup themeable
+ */
+function dimpact_qt_quicktabs($variables) {
+  $element = $variables['element'];
+
+  $list = array(
+    'attributes' => array(
+      'class' => 'quicktabs-tabs quicktabs-style-' . $element['tabs']['#options']['style'],
+    ),
+    'items' => array(),
+  );
+
+  foreach (element_children($element['tabs']['tablinks']) as $key) {
+    $item = array();
+    if (is_array($element['tabs']['tablinks'][$key])) {
+      $tab = $element['tabs']['tablinks'][$key];
+      if ($key == $element['tabs']['#options']['active']) {
+        $item['class'] = array('active');
+      }
+      $item['data'] = drupal_render($tab) . drupal_render($element['container']['divs'][$key]);
+			// $item['data'] = drupal_render($tab);
+      $list['items'][] = $item;
+    }
+  }
+  // return theme('item_list', $list);
+
+  $output = '<div '. drupal_attributes($element['#options']['attributes']) .'>';
+  // $output .= drupal_render($element['tabs']);
+  $output .= theme('item_list', $list);
+  // $output .= drupal_render($element['container']);
+  $output .= '</div>';
+  return $output;
+}
+
+// hook_js_alter(). Use our own vesion of quicktabs.js
+function dimpact_js_alter(&$javascript) {
+	// $oldfile = drupal_get_path('module', 'quicktabs') . '/js/quicktabs.js';
+	//   $newfile = drupal_get_path('theme', 'dimpact') . '/js/quicktabs.js';
+	//   $javascript[$oldfile] = drupal_js_defaults($newfile);
+	$old_path = drupal_get_path('module', 'quicktabs');
+	$new_path = drupal_get_path('theme', 'dimpact');
+	$file = '/js/quicktabs.js';
+	$javascript[$old_path . $file] = drupal_js_defaults($new_path . $file);
 }
