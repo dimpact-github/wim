@@ -11,6 +11,8 @@ function rss_blocks_block_info() {
     ->condition('type', 'rss_source')
     ->execute();
 
+  $blocks = array();
+
   foreach ($feeds as $feed) {
     $blocks[$feed->nid] = array(
       'info' => t('RSS Feed: !feed', array('!feed' => $feed->title)),
