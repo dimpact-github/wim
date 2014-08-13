@@ -107,23 +107,7 @@ nav {
       }
     }
     .close-button {
-      float: right;
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
-      width: auto;
-      &:focus,
-      &:hover,
-      &:active {
-        text-decoration: none;
-      }
-      &:after {
-        @include icon($remove-sign);
-        @include font-size(20);
-        color: $gray;
-        line-height: 1;
-        margin-top:  $line-height*-.25em;
-        padding-left: $line-height*.25em;
-      }
+      display: none;
     }
     .quicktabs-wrapper {
       background-color: $background-color;
@@ -156,12 +140,12 @@ nav {
     .quicktabs-tabpage {
       &.open {
         display: block;
-        a {
-          display: block;
-        }
       }
       .menu {
         padding-left: 0;
+        a {
+          display: block;
+        }
       }
       .contextual-links-wrapper {
         a:focus,
