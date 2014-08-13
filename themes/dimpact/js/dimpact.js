@@ -77,6 +77,13 @@
         hideProductTabs();
       }
     });
+    // Sluit de quicktabs bij aan esc
+    $(document).keydown(function(e) {
+      var keycode = (e.keyCode ? e.keyCode : e.which);
+      if(keycode == '27') {
+        hideProductTabs();
+      }
+    });
 
     var quicktabscontainer = $(".main-menu .block-quicktabs");
     var leave = false;
