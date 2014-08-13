@@ -314,6 +314,26 @@
           display: block;
         }
       }
+      .close-button {
+        display: block;
+        float: right;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+        width: auto;
+        &:focus,
+        &:hover,
+        &:active {
+          text-decoration: none;
+        }
+        &:after {
+          @include icon($remove-sign);
+          @include font-size(20);
+          color: $gray;
+          line-height: 1;
+          margin-top:  $line-height*-.25em;
+          padding-left: $line-height*.25em;
+        }
+      }
       .quicktabs-tabs {
         padding: 0 $gutter-width 0 170px;
         li {
