@@ -43,12 +43,7 @@
     var onderwerpenToggle = $('<div>').addClass('onderwerpen-toggle').html('<a href="#">Onderwerpen</a>');
     onderwerpenMenu.before(onderwerpenToggle);
     $('.onderwerpen-toggle a').live("click", function(e) {
-      if ($('.main-menu .block-quicktabs .quicktabs_main').hasClass('open')) {
-        $('.main-menu .block-quicktabs .quicktabs_main').removeClass('open');
-      }
-      else {
-        $('.main-menu .block-quicktabs .quicktabs_main').addClass('open');
-      }
+      $('.quicktabs-tabpage').toggleClass('open');
       e.preventDefault();
     });
 

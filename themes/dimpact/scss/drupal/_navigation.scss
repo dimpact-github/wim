@@ -105,7 +105,6 @@ nav {
       position: relative;
       h2.block-title {
         @include font-size(13);
-        display: none;
         font-weight: 400;
         left: $gutter-width*1.5;
         position: absolute;
@@ -140,13 +139,9 @@ nav {
           color: $text-color;
         }
       }
-//      .quicktabs_main {
-//        &.open {
-//          .quicktabs-hide {
-//            display: block;
-//          }
-//        }
-//      }
+      .quicktabs-tabs .open {
+        display: block !important;
+      }
       .quicktabs-tabpage {
         @include column-count(3);
         @include border-bottom-radius(4px);
