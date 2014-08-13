@@ -48,9 +48,9 @@
     });
 
     // Sluiten quicktab-tabpage
-    // voeg close-button link toe
+    // voeg close-button link aan iedere quicktabs-tabpage toe
     $('.quicktabs-tabpage').each(function(){
-      var closeButton = $('<a href="#">').addClass('close-button');
+      var closeButton = $('<a href="#">Sluit dit menu</a>').addClass('close-button');
       $(this).append(closeButton);
     });
     // sluit de quicktabs bij aan muisklik op de close-button link
