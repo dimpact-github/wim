@@ -95,12 +95,6 @@ nav {
       }
     }
 
-    #quicktabs-container-alfabet {
-      &.open {
-        margin-top: $gutter-width;
-      }
-    }
-
     .block-quicktabs {
       position: relative;
       h2.block-title {
@@ -121,65 +115,33 @@ nav {
       }
       .quicktabs-tabs {
         display: block;
-        padding: 0 $gutter-width 0 170px;
+        padding: 0;
         position: relative;
         li {
           display: block;
-          float: left;
           margin: 0;
           padding: 0;
+          white-space: normal;
         }
         a {
           @include font-size(13);
+          color: $text-color;
+          display: none;
           font-family: $heading;
           font-weight: 400;
-          display: none;
-          padding: 0.75em 1em;
           line-height: 1;
-          color: $text-color;
+          padding: $gutter-width/2 $gutter-width;
         }
-      }
-      .quicktabs-tabs .open {
-        display: block !important;
       }
       .quicktabs-tabpage {
-        @include column-count(3);
-        @include border-bottom-radius(4px);
-        background-color: #fff;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        z-index: 5;
-        ul {
-          padding: 0;
-          margin: 0;
-        }
-        li {
-          display: inline-block;
-          width: 100%;
-          margin-bottom: 6px;
-          padding-bottom: 6px;
-          border-bottom: 1px solid $background-color;
-        }
-        a {
-          display: inline-block;
-          color: $text-color;
-        }
-        .block-menu {
-          padding: 0 $gutter-width;
-        }
-        .close-button {
-          &:after {
-            @include icon($remove-sign);
-            @include font-size(20);
-            line-height: 1;
-            color: $gray;
+        &.open {
+          display: block;
+          a {
+            display: block;
           }
-          position: absolute;
-          top: $gutter-width/2;
-          right: $gutter-width/2;
-          z-index: 9999;
-          cursor: pointer;
+        }
+        .menu {
+          padding-left: 0;
         }
       }
     }

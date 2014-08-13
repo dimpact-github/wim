@@ -318,15 +318,54 @@
           display: block;
         }
       }
-      .quicktabs-wrapper .quicktabs-tabs a {
-        display: block;
-      }
-    }
-    .quicktabs_main {
-      .quicktabs-tabpage {
-        @include column-count(3);
-        @include border-bottom-radius(4px);
-        position: absolute;
+      .quicktabs-wrapper {
+        .quicktabs-tabs {
+          padding: 0 $gutter-width 0 170px;
+          li {
+            float: left;
+          }
+          a {
+            display: block;
+          }
+        }
+        .quicktabs-tabpage {
+          @include column-count(3);
+          @include border-bottom-radius(4px);
+          background-color: #fff;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          z-index: 5;
+          ul {
+            padding: 0;
+            margin: 0;
+          }
+          li {
+            border-bottom: 1px solid $background-color;
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+            width: 100%;
+          }
+          a {
+            color: $text-color;
+          }
+          .block-menu {
+            padding: 0 $gutter-width;
+          }
+          .close-button {
+            &:after {
+              @include icon($remove-sign);
+              @include font-size(20);
+              line-height: 1;
+              color: $gray;
+            }
+            position: absolute;
+            top: $gutter-width/2;
+            right: $gutter-width/2;
+            z-index: 9999;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
