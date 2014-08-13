@@ -576,7 +576,7 @@ function dimpact_qt_quicktabs($variables) {
 
   $list = array(
     'attributes' => array(
-      'class' => 'quicktabs-tabs quicktabs-style-' . $element['tabs']['#options']['style'],
+      'class' => 'quicktabs-tabs',
     ),
     'items' => array(),
   );
@@ -603,11 +603,15 @@ function dimpact_qt_quicktabs($variables) {
   return $output;
 }
 
-// hook_js_alter(). Use our own vesion of quicktabs.js
+
+/**
+ * Override or insert javascript on the site.
+ *
+ * @param $js
+ *   An array of all JavaScript being presented on the page.
+ */
 function dimpact_js_alter(&$javascript) {
-	// $oldfile = drupal_get_path('module', 'quicktabs') . '/js/quicktabs.js';
-	//   $newfile = drupal_get_path('theme', 'dimpact') . '/js/quicktabs.js';
-	//   $javascript[$oldfile] = drupal_js_defaults($newfile);
+	// Use our own vesion of quicktabs.js
 	$old_path = drupal_get_path('module', 'quicktabs');
 	$new_path = drupal_get_path('theme', 'dimpact');
 	$file = '/js/quicktabs.js';
