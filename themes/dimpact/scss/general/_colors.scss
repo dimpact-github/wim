@@ -91,16 +91,20 @@ body {
       }
     }
   }
-  .quicktabs-wrapper {
-    .quicktabs-tabs {
-      li.active a {
-        background-color: #fff;
-        color: $link-dark;
-      }
-      a:hover {
+  .quicktabs-tabs {
+    li.active a {
+      background-color: #fff;
+      color: $link-dark;
+    }
+    > li {
+      > a:focus,
+      > a:hover {
         background-color: $colour;
         color: $linkcolor;
       }
+    }
+    a:focus {
+      outline: auto;
     }
   }
 
@@ -166,6 +170,29 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+nav.main-menu .quicktabs-tabpage .close-button {
+  &:link,
+  &:visited {
+    color: $colour;
+    &:after {
+      color: $colour;
+    }
+  }
+  &:focus,
+  &:hover {
+    color: darken($colour, 10%);
+    &:after {
+      color: darken($colour, 10%);
+    }
+  }
+  &:active {
+    color: darken($colour, 20%);
+    &:after {
+      color: darken($colour, 20%);
     }
   }
 }
