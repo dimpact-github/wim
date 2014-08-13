@@ -105,7 +105,7 @@ nav {
       position: relative;
       h2.block-title {
         @include font-size(13);
-        display: block;
+        display: none;
         font-weight: 400;
         left: $gutter-width*1.5;
         position: absolute;
@@ -134,7 +134,7 @@ nav {
           @include font-size(13);
           font-family: $heading;
           font-weight: 400;
-          display: block;
+          display: none;
           padding: 0.75em 1em;
           line-height: 1;
           color: $text-color;
