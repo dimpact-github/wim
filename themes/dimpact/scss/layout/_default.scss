@@ -303,6 +303,22 @@
           }
         }
       }
+      .block-quicktabs {
+        display: block;
+        h2.block-title {
+          display: block;
+        }
+      }
+      .quicktabs-wrapper .quicktabs-tabs a {
+        display: block;
+      }
+    }
+    .quicktabs_main {
+      .quicktabs-tabpage {
+        @include column-count(3);
+        @include border-bottom-radius(4px);
+        position: absolute;
+      }
     }
   }
   // Submenu-items worden niet opklapbaar op een touch-enabled device
