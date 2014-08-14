@@ -369,6 +369,9 @@
         .block-menu {
           padding: 0 $gutter-width;
         }
+        .contextual-links-wrapper {
+          @include column-count(1);
+        }
       }
     }
   }
