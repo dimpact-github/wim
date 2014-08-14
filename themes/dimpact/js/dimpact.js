@@ -58,8 +58,8 @@
       hideProductTabs();
     });
     // sluit de quicktabs bij aan enter op de close-button link
-    $('.quicktabs-tabpage .close-button').keydown(function() {
-      var keycode = (event.keyCode ? event.keyCode : event.which);
+    $('.quicktabs-tabpage .close-button').keydown(function(e) {
+      var keycode = (e.keyCode ? e.keyCode : e.which);
       if(keycode == '13') {
         hideProductTabs();
       }
@@ -77,7 +77,7 @@
         hideProductTabs();
       }
     });
-    // Sluit de quicktabs bij aan esc
+    // Sluit de quicktabs bij een esc
     $(document).keydown(function(e) {
       var keycode = (e.keyCode ? e.keyCode : e.which);
       if(keycode == '27') {
