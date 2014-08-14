@@ -60,13 +60,18 @@
     // sluit de quicktabs bij aan enter op de close-button link
     $('.quicktabs-tabpage .close-button').keydown(function(e) {
       var keycode = (e.keyCode ? e.keyCode : e.which);
-      if(keycode == '13') {
+      if (keycode == '13') {
         hideProductTabs();
       }
     });
 
     // Voeg donkere achtergrond toe zodra de alfabet-balk focus krijgt
     $('.quicktabs-tabs').focusin(function() {
+      $('body').addClass('overlay-alpha');
+    });
+    // Voeg donkere achtergrond als er op een letter geklikt wordt
+    // (webkit en blink browsers ondersteunen focusin niet op niet-form elementen)
+    $('.quicktabs-tabs').mouseup(function() {
       $('body').addClass('overlay-alpha');
     });
 
@@ -77,10 +82,18 @@
         hideProductTabs();
       }
     });
+    // Sluit de quicktabs als de muis niet meer over de quicktabs hovered
+    // (speciaal voor webkit en blink browsers)
+    $(document).mouseup(function(e) {
+      var container = $(".main-menu .block-quicktabs .quicktabs-tabs li");
+      if (container.has(e.target).length === 0){
+        hideProductTabs();
+      }
+    });
     // Sluit de quicktabs bij een esc
     $(document).keydown(function(e) {
       var keycode = (e.keyCode ? e.keyCode : e.which);
-      if(keycode == '27') {
+      if (keycode == '27') {
         hideProductTabs();
       }
     });
