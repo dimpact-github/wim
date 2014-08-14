@@ -89,6 +89,7 @@ projects[dominion][subdir] = contrib
 projects[dominion][download][type] = git
 projects[dominion][download][revision] = ef71088
 projects[dominion][download][branch] = 7.x-1.x
+projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
