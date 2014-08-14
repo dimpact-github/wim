@@ -5,7 +5,7 @@
    */
   function hideProductTabs(){
     $(".main-menu .block-quicktabs .quicktabs-tabs li").removeClass("active");
-    $(".main-menu .block-quicktabs .quicktabs_main .quicktabs-tabpage").addClass("quicktabs-hide");
+    $(".main-menu .block-quicktabs .quicktabs-tabpage").addClass("quicktabs-hide");
     $('body').removeClass('overlay-alpha');
   }
 
@@ -34,8 +34,8 @@
     });
 
     $('.menu-toggle a').live("click", function(e) {
-        mainMenu.toggleClass('open');
-        e.preventDefault();
+      mainMenu.toggleClass('open');
+      e.preventDefault();
     });
 
     // Onderwerpen responsive menu
@@ -43,27 +43,57 @@
     var onderwerpenToggle = $('<div>').addClass('onderwerpen-toggle').html('<a href="#">Onderwerpen</a>');
     onderwerpenMenu.before(onderwerpenToggle);
     $('.onderwerpen-toggle a').live("click", function(e) {
-      if ($('.main-menu .block-quicktabs .quicktabs_main').hasClass('open')) {
-        $('.main-menu .block-quicktabs .quicktabs_main').removeClass('open');
-      }
-      else {
-        $('.main-menu .block-quicktabs .quicktabs_main').addClass('open');
-      }
+      $('.quicktabs-tabpage').toggleClass('open');
       e.preventDefault();
     });
 
+    // Sluiten quicktab-tabpage
+    // voeg close-button link aan iedere quicktabs-tabpage toe
     $('.quicktabs-tabpage').each(function(){
-      var closeButton = $('<div>').addClass('close-button');
+      var closeButton = $('<a href="#">Sluit dit menu</a>').addClass('close-button');
       $(this).append(closeButton);
     });
+    // sluit de quicktabs bij aan muisklik op de close-button link
+    $('.quicktabs-tabpage .close-button').click(function() {
+      hideProductTabs();
+    });
+    // sluit de quicktabs bij aan enter op de close-button link
+    $('.quicktabs-tabpage .close-button').keydown(function(e) {
+      var keycode = (e.keyCode ? e.keyCode : e.which);
+      if (keycode == '13') {
+        hideProductTabs();
+      }
+    });
 
-    $('.main-menu .block-quicktabs').mouseup(function() {
+    // Voeg donkere achtergrond toe zodra de alfabet-balk focus krijgt
+    $('.quicktabs-tabs').focusin(function() {
+      $('body').addClass('overlay-alpha');
+    });
+    // Voeg donkere achtergrond als er op een letter geklikt wordt
+    // (webkit en blink browsers ondersteunen focusin niet op niet-form elementen)
+    $('.quicktabs-tabs').mouseup(function() {
       $('body').addClass('overlay-alpha');
     });
 
+    // Sluit de quicktabs als het de focus verliest
+    $(document).focusin(function(e) {
+      var container = $(".main-menu .block-quicktabs .quicktabs-tabs li");
+      if (container.has(e.target).length === 0){
+        hideProductTabs();
+      }
+    });
+    // Sluit de quicktabs als de muis niet meer over de quicktabs hovered
+    // (speciaal voor webkit en blink browsers)
     $(document).mouseup(function(e) {
       var container = $(".main-menu .block-quicktabs .quicktabs-tabs li");
       if (container.has(e.target).length === 0){
+        hideProductTabs();
+      }
+    });
+    // Sluit de quicktabs bij een esc
+    $(document).keydown(function(e) {
+      var keycode = (e.keyCode ? e.keyCode : e.which);
+      if (keycode == '27') {
         hideProductTabs();
       }
     });
@@ -72,7 +102,7 @@
     var leave = false;
     var enter = false;
     var opacityValue = 1;
-    quicktabscontainer.mouseleave(function(){
+    quicktabscontainer.focusout(function(){
       leave = true;
       enter = false;
       $('*').clearQueue();
@@ -83,7 +113,7 @@
         leave = false;
       });
     });
-    quicktabscontainer.mouseenter(function(){
+    quicktabscontainer.focusin(function(){
       enter = true;
       if(leave){
         $('*').clearQueue();
