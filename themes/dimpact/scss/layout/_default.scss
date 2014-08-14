@@ -345,6 +345,7 @@
       }
       .quicktabs-tabpage {
         @include border-bottom-radius(4px);
+        @include column-count(3);
         background-color: #fff;
         left: 0;
         padding-top: $gutter-width;
@@ -353,7 +354,6 @@
         width: 100%;
         z-index: 5;
         .menu {
-          @include column-count(3);
           padding: 0;
           margin: 0;
           li {
