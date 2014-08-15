@@ -1,0 +1,88 @@
+<?php
+function phalanx_menu() {
+  $items['admin/phalanx'] = array(
+    'title' => 'Phalanx Suite',
+    'page callback' => 'phalanx_main_page',
+    'description' => 'Phalanx Guard Suite.',
+    'access arguments' => array('access phalanx'),
+    'file' => 'phalanx.pages.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/phalanx/overview'] = array(
+    'title' => 'Overview',
+    'page callback' => 'phalanx_main_page',
+    'description' => 'Phalanx Guard Suite.',
+    'access arguments' => array('access phalanx'),
+    'file' => 'phalanx.pages.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/phalanx/settings'] = array(
+    'title' => 'Phalanx settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('phalanx_admin'),
+    'description' => 'Phalanx settings',
+    'access arguments' => array('access phalanx settings'),
+    'file' => 'phalanx.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/phalanx/forms'] = array(
+    'title' => 'Phalanx forms',
+    'page callback' => 'phalanx_form_overview',
+    'description' => 'Phalanx form submission info',
+    'access arguments' => array('access phalanx form information'),
+    'file' => 'phalanx.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/phalanx/forms/form/%'] = array(
+    'title' => '',
+    'page callback' => 'phalanx_form_history',
+    'page arguments' => array(4),
+    'description' => 'Phalanx form update history',
+    'access arguments' => array('access phalanx form information'),
+    'file' => 'phalanx.pages.inc',
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function phalanx_form_submit($form, &$form_state) {
+	global $user;
+  
+  module_load_include('inc', 'phalanx', 'phalanx.database');
+  module_load_include('inc', 'phalanx', 'phalanx.helpers');
+
+  if (variable_get('phalanx_forms_enable', TRUE)) {
+    global $user;
+    if (variable_get('phalanx_admin_stealth_mode', FALSE) && $user->uid == 1) {
+      return;
+    }
+
+    if (phalanx_log($form['#action'])) {
+      phalanx_insert_record($user, $form, $form_state);
+    }
+  }
+}
+
+function phalanx_form_alter(&$form, $form_state, $form_id) {
+	$form['#submit'][] = 'phalanx_form_submit';
+}
+
+function phalanx_permission() {
+  return array(
+    'access phalanx' => array(
+      'description' => t('Access Phalanx'),
+      'title' => t('Access Phalanx information'),
+      'restrict access' => TRUE,
+    ),
+    'access phalanx form information' => array(
+      'description' => t('View Phalanx form submit information'),
+      'title' => t('Access Phalanx form submit information'),
+      'restrict access' => TRUE,
+    ),
+    'access phalanx settings' => array(
+      'description' => t('Access Phalanx settings'),
+      'title' => t('Access Phalanx settings'),
+      'restrict access' => TRUE,
+    ),
+  );
+}

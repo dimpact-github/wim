@@ -1,0 +1,7 @@
+name = Phalanx
+description = "Phalanx Monitoring Suite"
+package = Phalanx
+core = 7.x
+
+dependencies[] = phalanx_guard
+
