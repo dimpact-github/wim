@@ -47,3 +47,19 @@ function bespoke_update_7102() {
     'dimpact_social_service_links',
   ));
 }
+
+/**
+ * Do not publish content on all domains.
+ */
+function bespoke_update_7105() {
+  foreach (node_type_get_names() as $type => $name) {
+    $settings = variable_get('domain_node_' . $type, array());
+    if (($key = array_search('DOMAIN_ALL', $settings)) !== false) {
+      unset($settings[$key]);
+    }
+    if (empty($settings)) {
+      $settings = array('DOMAIN_ACTIVE');
+    }
+    variable_set('domain_node_' . $type, $settings);
+  }
+}
