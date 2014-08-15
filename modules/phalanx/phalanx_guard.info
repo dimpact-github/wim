@@ -1,0 +1,5 @@
+name = Phalanx Guard
+description = "Phalanx Guard"
+package = Phalanx
+core = 7.x
+dependencies[] = phalanx

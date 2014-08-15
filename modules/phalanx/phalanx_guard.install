@@ -1,0 +1,39 @@
+<?php
+
+function phalanx_guard_schema() {
+	$schema['phalanx_guard_log'] = array(
+	  'description' => 'Phalanx Guard Log',
+	  'fields' => array(
+	    'id' => array(
+	      'description' => 'Primary key',
+	      'type' => 'serial',
+	      'unsigned' => TRUE,
+	      'not null' => TRUE,
+	    ),
+	    'uid' => array(
+	      'description' => 'The user who validated Phalanx Guard',
+	      'type' => 'int',
+	      'not null' => FALSE,
+	    ),
+	    'form_id' => array(
+	      'description' => 'The form the user tried to change',
+	      'type' => 'text',
+	      'not null' => FALSE,
+	    ),
+	    'updated' => array(
+	      'description' => 'When the violation occured',
+	      'type' => 'int',
+	      'not null' => FALSE,
+	    ),
+	    'message' => array(
+	      'description' => 'Optional message',
+	      'type' => 'text',
+	      'size' => 'big',
+	      'not null' => FALSE,
+	    ),
+	  ),
+	  'primary key' => array('id'),
+	);
+
+	return $schema;
+}

@@ -1,0 +1,48 @@
+<?php
+
+function phalanx_schema() {
+	$schema['phalanx_forms'] = array(
+	  'description' => 'Phalanx form monitor',
+	  'fields' => array(
+	    'id' => array(
+	      'description' => 'Internal id',
+	      'type' => 'serial',
+	      'unsigned' => TRUE,
+	      'not null' => TRUE,
+	    ),
+	    'uid' => array(
+	      'description' => 'The user who posted the form',
+	      'type' => 'int',
+	      'not null' => FALSE,
+	    ),
+	    'nid' => array(
+	      'description' => 'The node id (if node tracking is on)',
+	      'type' => 'int',
+	      'not null' => FALSE,
+	    ),
+	    'form_id' => array(
+	      'description' => 'The form id',
+	      'type' => 'text',
+	      'not null' => FALSE,
+	    ),
+	    'action' => array(
+	      'description' => 'The form action (for admin recognition)',
+	      'type' => 'text',
+	      'not null' => FALSE,
+	    ),
+	    'updated' => array(
+	      'description' => 'When the form was updated',
+	      'type' => 'int',
+	      'not null' => FALSE,
+	    ),
+	    'form_data' => array(
+	      'description' => 'The new data of the form',
+	      'type' => 'text',
+	      'size' => 'big',
+	      'not null' => FALSE,
+	    ),
+	  ),
+	  'primary key' => array('id'),
+	);
+	return $schema;
+}

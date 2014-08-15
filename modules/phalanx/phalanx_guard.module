@@ -1,0 +1,149 @@
+<?php
+
+function phalanx_guard_menu() {
+	$items['admin/phalanx/guard'] = array(
+		'title' => 'Phalanx Guard Violations',
+    	'page callback' => 'phalanx_guard_violations',
+    	'description' => 'Phalanx Guard Violations',
+    	'access arguments' => array('access phalanx guard violations'),
+    	'file' => 'phalanx_guard.pages.inc',
+    	'type' => MENU_LOCAL_TASK,
+	);
+
+	$items['admin/phalanx/guard-settings'] = array(
+		'title' => 'Phalanx Guard Settings',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('phalanx_guard_admin'),
+		'access arguments' => array('access phalanx guard settings'),
+		'file' => 'phalanx_guard.admin.inc',
+		'type' => MENU_LOCAL_TASK,
+	);
+	return $items;
+}
+
+function phalanx_guard_form_alter(&$form, $form_state, $form_id) {
+	$form['#validate'][] = 'phalanx_guard_form_validate';
+}
+
+function phalanx_guard_form_validate($form, &$form_state) {
+	if(!variable_get('phalanx_guard_enable', TRUE)) {
+		return;
+	}
+
+	global $user;
+
+	$violate = FALSE;
+
+	if (phalanx_guard_admin_protect($user->uid, $form)) {
+		form_set_error('', t('Phalanx Guard: You are not allowed to change the admin users credentials, your actions have been logged.'));
+		phalanx_guard_log($user->uid, $form['#id'], 'User tried to edit admin credentials');
+		$violate = TRUE;
+	}
+	if (phalanx_guard_masquerade_protect($user->uid, $form, $form_state)) {
+		form_set_error('', t('Phalanx Guard: You are not allowed to masquarede as admin, your actions have been logged.'));
+		phalanx_guard_log($user->uid, $form['#id'], 'User tried to masquarede as admin');
+		$violate = TRUE;
+	}
+	if (phalanx_guard_self_protect($user->uid, $form)) {
+		form_set_error('', t('Phalanx Guard: You are not allowed to change the settings of Phalanx Guard, your actions have been logged and the admin had been informed.'));
+		phalanx_guard_log($user->uid, $form['#id'], 'User tried to change the settings of Phalanx Guard');
+		$violate = TRUE;
+	}
+	if (phalanx_guard_phalanx($user->uid, $form)) {
+		form_set_error('', t('Phalanx Guard: You are not allowed to change the settings of Phalanx, your actions have been logged and the admin has been informed.'));
+		phalanx_guard_log($user->uid, $form['#id'], 'User tried to change the settings of Phalanx');
+		$violate = TRUE;
+	}
+
+	if ($violate) {
+		phalanx_guard_force_logout($user->uid);
+	}
+}
+
+function phalanx_guard_force_logout($uid) {
+	if (variable_get('phalanx_guard_force_logout', TRUE)) {
+		require_once(drupal_get_path('module', 'user') . '/user.pages.inc');
+		phalanx_guard_log($uid, 'LOGOUT', 'User has been logged out');
+		user_logout();
+	}
+}
+
+function phalanx_guard_user_logout()
+{
+	if (variable_get('phalanx_guard_force_logout', TRUE)) {
+		user_cookie_save(array('phalanx_guard.logoff' => 1));
+	}
+}
+
+function phalanx_guard_preprocess_page() {
+	if (array_key_exists('Drupal_visitor_phalanx_guard_logoff', $_COOKIE)) {
+		if ($_COOKIE['Drupal_visitor_phalanx_guard_logoff'] == 1) {
+			drupal_set_message(t('Phalanx Guard: You have violated Phalanx Guard and have been logged out. This violation has been logged and the admin has been informed.'), 'error');
+			user_cookie_save(array('phalanx_guard.logoff' => 0));
+		}
+	}
+}
+
+function phalanx_guard_phalanx($uid, $form) {
+	if ($uid == 1) {
+		return FALSE;
+	}
+	else if ($form['#id'] == 'phalanx-admin') {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+function phalanx_guard_self_protect($uid, $form) {
+	if ($uid == 1) {
+		return FALSE;
+	}
+	else if ($form['#id'] == 'phalanx-guard-admin') {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+function phalanx_guard_admin_protect($uid, $form) {
+	if($uid == 1) {
+		return FALSE;
+	}
+	else if ($form['#id'] == 'user-profile-form') {
+		if ($form['#user']->uid == 1) {
+			return TRUE;
+		}
+		return FALSE;
+	}	
+}
+
+function phalanx_guard_masquerade_protect($uid, $form, $form_state) {
+	if ($uid == 1) {
+		return FALSE;
+	}
+	else if ($form['#id'] == 'masquerade-block-1') {
+		$user = user_load(1);
+		if ($form_state['input']['masquerade_user_field'] == $user->name) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+}
+
+function phalanx_guard_log($uid, $formid, $message = '') {
+	module_load_include('inc', 'phalanx_guard', 'phalanx_guard_database');
+	phalanx_guard_insert_log($uid, $formid, $message);
+}
+
+function phalanx_guard_permission() {
+  return array(
+    'access phalanx guard violations' => array(
+      'description' => t('Access Phalanx Guard Violations'),
+      'title' => t('Access Phalanx Guard Violations information'),
+    ),
+    'access phalanx guard settings' => array(
+      'description' => t('Access Phalanx Guard Settings'),
+      'title' => t('Access Phalanx Guard settings'),
+      'restrict access' => TRUE,
+    ),
+  );
+}
