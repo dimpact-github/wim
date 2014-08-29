@@ -21,20 +21,20 @@
 // make sure the first instance of .region_363_third is not displayed by default
 // on wider screens this is displayed and the second one (outside the content area) is displayed
 // this way we can "move" this region to different positions in the document flow, depending on screen size
-.region_363_third {
-  display: block;
-  #content & {
-    display: none;
-  }
-}
-@include at-breakpoint($break-medium) {
-  .region_363_third {
-    display: none;
-    #content & {
-      display: block;
-    }
-  }
-}
+//.region_363_third {
+//  display: block;
+//  #content & {
+//    display: none;
+//  }
+//}
+//@include at-breakpoint($break-medium) {
+//  .region_363_third {
+//    display: none;
+//    #content & {
+//      display: block;
+//    }
+//  }
+//}
 
 /**
  * Breakpoint small
@@ -62,12 +62,15 @@
     }
   }
 
-  .region_363_first {
-    @include span-columns(2, $break-small);
-  }
+// content, "rechterkolom"
   #content {
     @include span-columns(4 omega, $break-small);
   }
+// eerste sidebar "linkerkolom"
+  .region_363_first {
+    @include span-columns(2, $break-small);
+  }
+// tweede sidebar, volle breedte onder de content
   .region_363_third {
     @include span-columns($break-small, $break-small);
   }
@@ -131,14 +134,16 @@
       }
     }
   }
-  body {
-    &.not-logged-in.node-type-subject {
-      h1#page-title,
-      .subject .field-body {
-        margin-left: -172px;
-      }
-    }
-  }
+
+  // why is this? subject can have a left sidebar
+//  body {
+//    &.not-logged-in.node-type-subject {
+//      h1#page-title,
+//      .subject .field-body {
+////        margin-left: -172px;
+//      }
+//    }
+//  }
 }
 
 /**
@@ -152,55 +157,54 @@
     @include container($total-columns, $break-medium);
     @include susy-grid-background;
   }
+// twee regio's boven, gelijk verdeeld
   .region_meta_first {
     @include span-columns(5, 10);
   }
   .region_meta_second {
     @include span-columns(5 omega, 10);
   }
+// twee regio's 2/3 en 1/3 breed
   .region_93_first {
     @include span-columns(6, $break-medium);
   }
   .region_93_second {
     @include span-columns(3 omega, $break-medium);
   }
-
+// twee regio's 2/3 en 1/3 breed
   .region_84_first {
     @include span-columns(6, $break-medium);
   }
   .region_84_second {
     @include span-columns(3 omega, $break-medium);
   }
-
+// twee regio's 1/3 en 2/3 verdeeld
   .region_48_first {
     @include span-columns(3, $break-medium);
   }
-
   .region_48_second {
     @include span-columns(6 omega, $break-medium);
   }
-
+// twee regio's 1/3 en 2/3 verdeeld
   .region_39_first {
     @include span-columns(3, $break-medium);
   }
   .region_39_second {
     @include span-columns(6 omega, $break-medium);
   }
-
-  .region_363_first {
-    @include span-columns(2, $break-medium);
-    @include pull(9);
-  }
+// content, "middenkolom"
   #content {
-    @include span-columns(7, $break-medium);
+    @include span-columns(4, $break-medium);
     @include push(2);
   }
-  .content-inner,
-  .region-content-bottom-wrapper {
-    @include span-columns(4, 7);
+// eerste sidebar "linkerkolom"
+  .region_363_first {
+    @include span-columns(2, $break-medium);
+    @include pull(6);
   }
+// tweede sidebar "rechterkolom"
   .region_363_third {
-    @include span-columns(3 omega, 7);
+    @include span-columns(3 omega, $break-medium);
   }
 
   // Toptaken
@@ -413,14 +417,15 @@
       }
     }
   }
-  body {
-    &.not-logged-in.node-type-subject {
-      h1#page-title,
-      .subject .field-body {
-        margin-left: -176px;
-      }
-    }
-  }
+  // why is this? subject can have a left sidebar
+//  body {
+//    &.not-logged-in.node-type-subject {
+//      h1#page-title,
+//      .subject .field-body {
+////        margin-left: -176px;
+//      }
+//    }
+//  }
 }
 
 /**
@@ -434,55 +439,54 @@
     @include container($total-columns, $break-large);
     @include susy-grid-background;
   }
+// twee regio's boven, gelijk verdeeld
   .region_meta_first {
     @include span-columns(6, $break-large);
   }
   .region_meta_second {
     @include span-columns(6 omega, $break-large);
   }
-
+// twee regio's 2/3 en 1/3 breed
   .region_93_first {
     @include span-columns(8, $break-large);
   }
   .region_93_second {
     @include span-columns(4 omega, $break-large);
   }
-
+// twee regio's 2/3 en 1/3 breed
   .region_84_first {
     @include span-columns(8, $break-large);
   }
   .region_84_second {
     @include span-columns(4 omega, $break-large);
   }
-
+// twee regio's 1/3 en 2/3 verdeeld
   .region_48_first {
     @include span-columns(4, $break-large);
   }
   .region_48_second {
     @include span-columns(8 omega, $break-large);
   }
-
+// twee regio's 1/4 en 3/4 verdeeld
   .region_39_first {
     @include span-columns(3, $break-large);
   }
   .region_39_second {
     @include span-columns(9 omega, $break-large);
   }
-
-  .region_363_first {
-    @include span-columns(3, $break-large);
-    @include pull(12);
-  }
+// content, "middenkolom"
   #content {
-    @include span-columns(9, $break-large);
+    @include span-columns(6, $break-large);
     @include push(3);
   }
-  .content-inner,
-  .region-content-bottom-wrapper {
-    @include span-columns(6, 9);
+// eerste sidebar "linkerkolom"
+  .region_363_first {
+    @include span-columns(3, $break-large);
+    @include pull(9);
   }
+// tweede sidebar "rechterkolom"
   .region_363_third {
-    @include span-columns(3 omega, 9);
+    @include span-columns(3 omega, $break-large);
   }
 
   .region_444_first,
@@ -569,12 +573,13 @@
     position: relative;
   }
 
-  body {
-    &.not-logged-in.node-type-subject {
-      h1#page-title,
-      .subject .field-body {
-        margin-left: -274px;
-      }
-    }
-  }
+// why is this? subject can have a left sidebar
+//  body {
+//    &.not-logged-in.node-type-subject {
+//      h1#page-title,
+//      .subject .field-body {
+////        margin-left: -274px;
+//      }
+//    }
+//  }
 }
