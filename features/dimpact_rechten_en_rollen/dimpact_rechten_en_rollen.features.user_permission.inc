@@ -195,6 +195,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'access the domain content page'.
+  $permissions['access the domain content page'] = array(
+    'name' => 'access the domain content page',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'domain_content',
+  );
+
   // Exported permission: 'access user profiles'.
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
@@ -3541,6 +3550,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'review content for all domains'.
+  $permissions['review content for all domains'] = array(
+    'name' => 'review content for all domains',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'domain_content',
   );
 
   // Exported permission: 'schedule (un)publishing of nodes'.
