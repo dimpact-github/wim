@@ -1051,6 +1051,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
@@ -1063,6 +1064,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
@@ -2908,6 +2910,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
