@@ -30,6 +30,12 @@ function dimpact_contexts_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
       ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'slide_312' => array(
         'label' => 'above',
         'settings' => array(),
@@ -107,6 +113,12 @@ function dimpact_contexts_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 2,
       ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'slide_312' => array(
         'label' => 'above',
         'settings' => array(),
@@ -180,6 +192,12 @@ function dimpact_contexts_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'slide_312' => array(
         'label' => 'above',

@@ -13,6 +13,45 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'agenda_blokken';
+  $context->description = '';
+  $context->tag = 'team subsites';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'team' => 'team',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+        'team-agenda' => 'team-agenda',
+        'actueel/agenda/*' => 'actueel/agenda/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-agenda_team-block_2' => array(
+          'module' => 'views',
+          'delta' => 'agenda_team-block_2',
+          'region' => 'region_444_second',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('team subsites');
+  $export['agenda_blokken'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'announcements';
   $context->description = 'Bekendmakingen lijst- en kaartpagina';
   $context->tag = 'Internet';
@@ -425,12 +464,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
-        'submenutree-2' => array(
-          'module' => 'submenutree',
-          'delta' => '2',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
@@ -615,6 +648,45 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'sitewide_not_team';
+  $context->description = '';
+  $context->tag = 'Algemeen';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'default' => 'default',
+        'internet' => 'internet',
+        'intranet' => 'intranet',
+      ),
+    ),
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'submenutree-2' => array(
+          'module' => 'submenutree',
+          'delta' => '2',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Algemeen');
+  $export['sitewide_not_team'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide_team';
   $context->description = '';
   $context->tag = 'team subsites';
@@ -622,11 +694,6 @@ function dimpact_contexts_context_default_contexts() {
     'blueprint' => array(
       'values' => array(
         'team' => 'team',
-      ),
-    ),
-    'path' => array(
-      'values' => array(
-        '~<front>' => '~<front>',
       ),
     ),
   );
@@ -638,6 +705,36 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => '3',
           'region' => 'region_363_first',
           'weight' => '-10',
+        ),
+        'views-berichten-block_1' => array(
+          'module' => 'views',
+          'delta' => 'berichten-block_1',
+          'region' => 'region_444_first',
+          'weight' => '-10',
+        ),
+        'views-berichten-block_2' => array(
+          'module' => 'views',
+          'delta' => 'berichten-block_2',
+          'region' => 'region_444_first',
+          'weight' => '-9',
+        ),
+        'views-faq-faq_recent' => array(
+          'module' => 'views',
+          'delta' => 'faq-faq_recent',
+          'region' => 'region_444_second',
+          'weight' => '-8',
+        ),
+        'views-bestanden-block_1' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_1',
+          'region' => 'region_444_third',
+          'weight' => '-10',
+        ),
+        'views-foto_album-block_1' => array(
+          'module' => 'views',
+          'delta' => 'foto_album-block_1',
+          'region' => 'region_444_third',
+          'weight' => '-9',
         ),
         'views-personen_intranet-block_1' => array(
           'module' => 'views',
