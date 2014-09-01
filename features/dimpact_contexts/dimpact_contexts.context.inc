@@ -706,6 +706,18 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_363_first',
           'weight' => '-10',
         ),
+        'views-maps-block_1' => array(
+          'module' => 'views',
+          'delta' => 'maps-block_1',
+          'region' => 'region_363_third',
+          'weight' => '-10',
+        ),
+        'views-bestanden-block_2' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-9',
+        ),
         'views-berichten-block_1' => array(
           'module' => 'views',
           'delta' => 'berichten-block_1',
@@ -718,11 +730,23 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_444_first',
           'weight' => '-9',
         ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_444_second',
+          'weight' => '-7',
+        ),
+        'cck_blocks-field_related_vac' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_vac',
+          'region' => 'region_444_second',
+          'weight' => '-6',
+        ),
         'views-faq-faq_recent' => array(
           'module' => 'views',
           'delta' => 'faq-faq_recent',
           'region' => 'region_444_second',
-          'weight' => '-8',
+          'weight' => '-5',
         ),
         'views-bestanden-block_1' => array(
           'module' => 'views',
