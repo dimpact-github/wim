@@ -4314,6 +4314,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );
