@@ -742,9 +742,9 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_444_second',
           'weight' => '-6',
         ),
-        'views-faq-faq_recent' => array(
+        'views-b41f743aad9009e7ef60abaed330ff96' => array(
           'module' => 'views',
-          'delta' => 'faq-faq_recent',
+          'delta' => 'b41f743aad9009e7ef60abaed330ff96',
           'region' => 'region_444_second',
           'weight' => '-5',
         ),
