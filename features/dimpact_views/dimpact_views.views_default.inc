@@ -816,7 +816,7 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle documenten\', \'documenten\'); ?></span>
 <?php
 if (node_access(\'create\', \'file\')) {
  print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -1042,7 +1042,7 @@ if (node_access(\'create\', \'file\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
-    t('<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+    t('<span class="more-link"><?php print l(\'Alle documenten\', \'documenten\'); ?></span>
 <?php
 if (node_access(\'create\', \'file\')) {
  print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -1933,7 +1933,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle fotoalbums\', \'fotoalbums\'); ?></span>
 <?php
 if (node_access(\'create\', \'foto_album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -2068,7 +2068,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>'),
     t('Blok'),
     t('Fotoalbums'),
-    t('<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+    t('<span class="more-link"><?php print l(\'Alle fotoalbums\', \'fotoalbums\'); ?></span>
 <?php
 if (node_access(\'create\', \'foto_album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -3076,11 +3076,21 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Pad */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_image']['element_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
@@ -4706,7 +4716,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   $view = new view();
   $view->name = 'veelgestelde_vragen';
-  $view->description = 'FAQ listings';
+  $view->description = 'FAQ listings - LET OP!! Er is nog een FAQ-view, die niet gebruiken, deze wel.';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Veelgestelde vragen';
@@ -4829,7 +4839,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Recent FAQs';
+  $handler->display->display_options['block_description'] = 'Veelgestelde vragen';
 
   /* Display: Block - Random FAQs */
   $handler = $view->new_display('block', 'Block - Random FAQs', 'faq_random');
@@ -5095,6 +5105,38 @@ if (node_access(\'create\', \'faq\')) {
     'faq' => 'faq',
   );
   $handler->display->display_options['path'] = 'faq-categories-inline-new-page';
+
+  /* Display: Block - Recent FAQs */
+  $handler = $view->new_display('block', 'Block - Recent FAQs', 'faq_recent_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Veelgestelde vragen';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['link_display'] = FALSE;
+  $handler->display->display_options['link_display'] = 'page_1';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle veelgestelde vragen\', \'veelgestelde-vragen\'); ?></span>
+<?php
+if (node_access(\'create\', \'faq\')) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['block_description'] = 'Recent FAQs';
   $translatables['veelgestelde_vragen'] = array(
     t('Master'),
     t('Veelgestelde vragen'),
@@ -5119,7 +5161,6 @@ if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
-    t('Recent FAQs'),
     t('Block - Random FAQs'),
     t('Random FAQs'),
     t('Page - Questions Inline'),
@@ -5135,6 +5176,14 @@ if (node_access(\'create\', \'faq\')) {
     t('Attachment - Questions Top'),
     t('Page - New Page'),
     t('Page - Categories Inline - New Page'),
+    t('Block - Recent FAQs'),
+    t('<span class="more-link"><?php print l(\'Alle veelgestelde vragen\', \'veelgestelde-vragen\'); ?></span>
+<?php
+if (node_access(\'create\', \'faq\')) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Recent FAQs'),
   );
   $export['veelgestelde_vragen'] = $view;
 
