@@ -21,7 +21,7 @@ function dimpact_files_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'domain_entity_bypass_access_conditions';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['domain_entity_bypass_access_conditions'] = $strongarm;
 
   return $export;
