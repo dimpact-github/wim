@@ -3095,7 +3095,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'title';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'file_view_mode' => 'teaser',
   );
@@ -3838,6 +3838,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['empty'] = 'Geen afbeelding gevonden';
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret_groot';
   /* Veld: Algemeen: Aangepaste tekst */
@@ -3880,6 +3881,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Mobiel'),
     t('Teamledenblok'),
     t('Teamlid foto'),
+    t('Geen afbeelding gevonden'),
     t('Foto aanpassen'),
     t('Alle'),
   );

@@ -109,6 +109,42 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_39_first',
           'weight' => '-10',
         ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_363_third',
+          'weight' => '-10',
+        ),
+        'cck_blocks-field_related_vac' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_vac',
+          'region' => 'region_363_third',
+          'weight' => '-9',
+        ),
+        'views-maps-block_1' => array(
+          'module' => 'views',
+          'delta' => 'maps-block_1',
+          'region' => 'region_363_third',
+          'weight' => '-8',
+        ),
+        'views-bestanden-block_2' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-7',
+        ),
+        'views-nieuws-block_2' => array(
+          'module' => 'views',
+          'delta' => 'nieuws-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-6',
+        ),
+        'views-agenda-block_2' => array(
+          'module' => 'views',
+          'delta' => 'agenda-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-5',
+        ),
         'views-personen_intranet-block_1' => array(
           'module' => 'views',
           'delta' => 'personen_intranet-block_1',
@@ -153,11 +189,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Algemeen';
   $context->conditions = array(
-    'domain' => array(
-      'values' => array(
-        1 => 1,
-      ),
-    ),
     'node' => array(
       'values' => array(
         'agenda' => 'agenda',
@@ -244,11 +275,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Intranet';
   $context->conditions = array(
-    'domain' => array(
-      'values' => array(
-        2 => 2,
-      ),
-    ),
     'node' => array(
       'values' => array(
         'agenda' => 'agenda',
@@ -270,12 +296,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu_block-2' => array(
-          'module' => 'menu_block',
-          'delta' => '2',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
           'delta' => 'nieuws-block_2',
@@ -677,7 +697,7 @@ function dimpact_contexts_context_default_contexts() {
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -710,43 +730,43 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'views',
           'delta' => 'maps-block_1',
           'region' => 'region_363_third',
-          'weight' => '-10',
+          'weight' => '-1',
         ),
         'views-bestanden-block_2' => array(
           'module' => 'views',
           'delta' => 'bestanden-block_2',
           'region' => 'region_363_third',
-          'weight' => '-9',
+          'weight' => '0',
         ),
         'views-berichten-block_1' => array(
           'module' => 'views',
           'delta' => 'berichten-block_1',
           'region' => 'region_444_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-berichten-block_2' => array(
           'module' => 'views',
           'delta' => 'berichten-block_2',
           'region' => 'region_444_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'cck_blocks-field_related_pdc' => array(
           'module' => 'cck_blocks',
           'delta' => 'field_related_pdc',
           'region' => 'region_444_second',
-          'weight' => '-7',
+          'weight' => '-9',
         ),
         'cck_blocks-field_related_vac' => array(
           'module' => 'cck_blocks',
           'delta' => 'field_related_vac',
           'region' => 'region_444_second',
-          'weight' => '-6',
+          'weight' => '-8',
         ),
         'views-b41f743aad9009e7ef60abaed330ff96' => array(
           'module' => 'views',
           'delta' => 'b41f743aad9009e7ef60abaed330ff96',
           'region' => 'region_444_second',
-          'weight' => '-5',
+          'weight' => '-7',
         ),
         'views-bestanden-block_1' => array(
           'module' => 'views',
