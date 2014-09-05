@@ -2579,7 +2579,7 @@ function dimpact_content_types_field_default_field_instances() {
     'fences_wrapper' => 'div',
     'field_name' => 'field_intro',
     'label' => 'Intro',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
