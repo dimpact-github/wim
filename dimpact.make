@@ -87,7 +87,7 @@ projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
 projects[dominion][download][type] = git
-projects[dominion][download][revision] = 390f005
+projects[dominion][download][revision] = 20b9792
 projects[dominion][download][branch] = 7.x-1.x
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
