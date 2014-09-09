@@ -1,4 +1,20 @@
 <?php 
+
+	function phalanx_node_table_layout($data) {
+		$rows = array();
+		$header = array('Node id', 'Title', 'Action', 'Edit', 'User');
+		foreach ($data as $row) {
+			$rows[] = array(
+				$row->nid,
+				l($row->form_id, 'node/'.$row->nid),
+				$row->action,
+				format_date($row->updated, 'short'),
+				l($row->name, 'user/'.$row->uid),
+			);
+		}
+		return theme('table', array('header' => $header, 'rows'=>$rows));
+	}
+
 	function phalanx_form_table_layout($data) {
 		$rows = array();
 		$header = array('Form id', 'Action', 'Submission', 'User', 'Total changes');
@@ -88,9 +104,14 @@
 
 	function phalanx_log($form_action) {
 		$admin_only = variable_get('phalanx_admin_forms', TRUE);
+		$log_node_deletes = variable_get('phalanx_delete_nodes', TRUE);
+
 		$is_admin_form = arg(0) == 'admin' ? TRUE : FALSE;
 
-		if($admin_only && !$is_admin_form) {
+		if((arg(0) == 'node' && arg(2) == 'delete') && $log_node_deletes) {
+			return TRUE;
+		}
+		if(arg(0) == 'admin' && !$admin_only) {
 			return FALSE;
 		}
 		return TRUE;
