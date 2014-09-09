@@ -175,7 +175,7 @@ No part of the contents of this publication may be reproduced, stored in a data 
     Plaats & Leusden								\\
     Laatst bijgewerkt & \ddmmyyyydate \today		\\
     Auteurs & \authors							\\
-    Versie & 1.0							\\
+    Versie & 1.1							\\
   \end{tabularx}
 \pagebreak
 
@@ -303,7 +303,7 @@ In dit scenario zal een pagina met een \emph{editorial} worden aangemaakt. Een e
 \item Klik op \emph{Opslaan}.
 \item Kies in de adminbalk voor \emph{Inhoud toevoegen} en vervolgens voor \emph{Pagina}.
 \item Maak een pagina aan en publiceer deze. Gebruik een titel die u kunt onthouden. Geef eventueel ook tags op, zoals de tags die u ook hebt gebruikt voor het nieuws-item.
-\item U hebt nu een pagina aangemaakt waar de editorial kan worden toegevoegd. Ga met de muisaanwijzer naar het tandwiel binnen het blok "Regio 4/12 (3/5/4) Node", rechts op de pagina. Klik op het tandwiel en kies \emph{Blok toevoegen}.
+\item U hebt nu een pagina aangemaakt waar de editorial kan worden toegevoegd. Open deze pagina en ga met de muisaanwijzer naar het tandwiel binnen het blok "Regio 4/12 (3/5/4) Node", rechts op de pagina. Klik op het tandwiel en kies \emph{Blok toevoegen}.
 
 \begin{center}
 	\includegraphics[scale=0.6]{img/add_block.png}
@@ -376,14 +376,15 @@ Op de voorpagina zijn diverse afbeeldingen te vinden --- allen voorzien van een 
 	\includegraphics[scale=0.4]{img/frontpage_nodequeues.png}
 \end{center}
 
-Welke afbeeldingen er in een blok worden getoond is gedefinieerd in een \emph{nodequeue}. Een \emph{nodequeue} is een geordende lijst met inhoud. Deze inhoud hoeft niet het type \emph{slide} te hebben; het is bijvoorbeeld ook mogelijk een \emph{nodequeue} aan te maken die naar pagina's verwijst, waarna deze als een lijst met links in een blok kan worden toegevoegd.
+Welke afbeeldingen er in een blok worden getoond is gedefinieerd in een \emph{nodequeue}. Een \emph{nodequeue} is een geordende lijst met inhoud. Deze inhoud hoeft niet het type \emph{slide} te hebben; het is bijvoorbeeld ook mogelijk een \emph{nodequeue} aan te maken die naar pagina's verwijst.
 
-Het systeem kent ook een \emph{list}, wat een lijst is die dynamisch wordt opgesteld aan de hand van bepaalde criteria; het is bijvoorbeeld mogelijk een \emph{list} aan te maken van alle inhoud van het type \emph{slide}, waar een bepaalde tag aan is toegevoegd.
+Het systeem kent ook een \emph{list}, wat een lijst is die dynamisch wordt opgesteld aan de hand van bepaalde criteria; het is bijvoorbeeld mogelijk een \emph{list} aan te maken van alle inhoud van het type \emph{slide}, waar een bepaalde tag aan is toegevoegd. Een lijst kan ook worden gekoppeld aan een \emph{nodequeue}, zodat een \emph{nodequeue} als pagina of als blok kan worden toegevoegd.
 
 \subsection{Scenario: carrousel aanpassen}
 Binnen dit scenario zult u \'{e}\'{e}n van de carrousels op de voorpagina aanpassen (dit zijn de afbeeldingen die om de paar seconden worden gewisseld). U zult hiervoor een \emph{slide} moeten aanmaken, en deze vervolgens toevoegen aan een \emph{nodequeue}.
 
 \begin{enumerate}
+\item Log in als beheer.
 \item Ga naar de pagina waar de \emph{slide} naar moet verwijzen. Kopi\"{e}er of onthoud het laatste gedeelte van het webadres (url), bijvoorbeeld "\,/herbestrating-van-dorpsstraat-begonnen".
 \item Kies in de adminbalk voor \emph{Inhoud toevoegen} en vervolgens voor \emph{Slide}.
 \item Geef een titel op. Dit is de tekst die onder de foto zal verschijnen.
@@ -401,14 +402,6 @@ Binnen dit scenario zult u \'{e}\'{e}n van de carrousels op de voorpagina aanpas
 \begin{center}
 	\includegraphics[scale=0.4]{img/carrousel.png}
 \end{center}
-
-Als beheerder kunt u nazoeken welke nodequeue aan een carrousel is gekoppeld. Klik hiervoor op het tandwieltje rechtsboven in de carrousel en vervolgens op \emph{Overzicht bewerken}. U vindt nu rechts onder \emph{Uitgebreid} en \emph{Relaties} de tekst "Nodequeue: Wachtrij".
-
-\begin{center}
-	\includegraphics[scale=0.4]{img/carrousel_admin.png}
-\end{center}
-
-Wanneer u op "Nodequeue: Wachtrij"\ klikt verschijnt een venster met o.a. een lijst van \emph{queues}. Hier staat aangevinkt welke nodequeues in de carrousel worden weergegeven.
 
 \subsection{Tags}
 Eerder in de training heeft u tags toegevoegd aan een nieuws-item en een pagina. Bij het toevoegen van deze tags heeft u moeten kiezen uit een lijst. Deze lijst staat opgeslagen als een \emph{taxonomie} (woordenlijst). U kunt woordenlijsten aanpassen door in de adminbalk te kiezen voor \emph{Structuur} en vervolgens voor \emph{Taxonomie}. Er verschijnt vervolgens een overzicht van de woordenlijsten in het systeem, waaronder de tags:
