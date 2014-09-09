@@ -3600,13 +3600,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'set domain access'.
   $permissions['set domain access'] = array(
     'name' => 'set domain access',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'eindredacteur' => 'eindredacteur',
-      'medewerker' => 'medewerker',
-      'redacteur' => 'redacteur',
-      'teamlid' => 'teamlid',
-    ),
+    'roles' => array(),
     'module' => 'domain',
   );
 
