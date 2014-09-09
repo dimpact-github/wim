@@ -13,6 +13,13 @@ function phalanx_admin($form, &$form_state) {
 		'#description' => t('By selecting this option you can enable the Phalanx Forms Logging'),
 		'#default_value' => variable_get('phalanx_forms_enable', TRUE),
 	);
+	$form['phalanx_forms']['phalanx_nodes'] = array(
+		'#type' => 'checkbox',
+		'#title' => 'Monitor node actions',
+		'#description' => t('By selecting this option, Phalanx will track node actions'),
+		'#default_value' => variable_get('phalanx_nodes', TRUE),
+	);
+
 	$form['phalanx_forms']['phalanx_exclude_forms'] = array(
   		'#type' => 'textarea',
   		'#title' => t('The forms to exclude'),

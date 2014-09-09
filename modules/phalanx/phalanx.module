@@ -25,6 +25,14 @@ function phalanx_menu() {
     'file' => 'phalanx.admin.inc',
     'type' => MENU_LOCAL_TASK,
   );
+  $items['admin/phalanx/nodes'] = array(
+    'title' => 'Phalanx nodes',
+    'page callback' => 'phalanx_node_overview',
+    'description' => 'Phalanx node info',
+    'access arguments' => array('access phalanx node information'),
+    'file' => 'phalanx.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
   $items['admin/phalanx/forms'] = array(
     'title' => 'Phalanx forms',
     'page callback' => 'phalanx_form_overview',
@@ -56,8 +64,17 @@ function phalanx_form_submit($form, &$form_state) {
     if (variable_get('phalanx_admin_stealth_mode', FALSE) && $user->uid == 1) {
       return;
     }
+    if (arg(0) == 'node' && variable_get('phalanx_nodes', TRUE)) {
 
-    if (phalanx_log($form['#action'])) {
+      $title = drupal_get_title();
+      $nid = arg(1);
+      if(!is_numeric($nid)) {
+        //node insert, we dont monitor this!
+        return;
+      }
+      phalanx_insert_node_record($user, $form, $nid, arg(2), $form['#node']->title);
+    }
+    else if (phalanx_log($form['#action'])) {
       phalanx_insert_record($user, $form, $form_state);
     }
   }
@@ -82,6 +99,11 @@ function phalanx_permission() {
     'access phalanx settings' => array(
       'description' => t('Access Phalanx settings'),
       'title' => t('Access Phalanx settings'),
+      'restrict access' => TRUE,
+    ), 
+    'access phalanx node information' => array(
+      'description' => t('Access Phalanx node information'),
+      'title' => t('Access Phalanx node information'),
       'restrict access' => TRUE,
     ),
   );

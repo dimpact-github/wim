@@ -10,6 +10,14 @@ function phalanx_form_overview() {
 	return phalanx_form_table_layout(phalanx_get_forms_overview());
 }
 
+function phalanx_node_overview() {
+
+	module_load_include('inc', 'phalanx', 'phalanx.database');
+	module_load_include('inc', 'phalanx', 'phalanx.helpers');
+
+	return phalanx_node_table_layout(phalanx_get_nodes_overview());
+}
+
 function phalanx_form_history($form_id) {
 	module_load_include('inc', 'phalanx', 'phalanx.database');
 	module_load_include('inc', 'phalanx', 'phalanx.helpers');
