@@ -50,10 +50,12 @@ body {
   }
   .block-search {
     background-color: $colourlight;
-  }
-  #search-form {
-    input[type="text"] {
-      //border: 5px solid $colourlight;;
+    input[type="submit"]:hover,
+    input[type="submit"]:focus
+     {
+      background: $colour;
+      color: white;
+      border-color: $colour;
     }
   }
   nav {
@@ -159,9 +161,13 @@ body {
           li {
             a {
               background-color: $background-color;
+              &:focus {
+                background-color: $colour;
+                color: $linkcolor;
+              }
             }
             &.active,
-            &:hover {
+            &:hover{
               a {
                 background-color: $colour;
                 color: $linkcolor;
