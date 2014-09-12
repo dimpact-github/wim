@@ -118,7 +118,6 @@ function custom_lists_block_view($delta = '') {
     );
   }
 
-
   // Only show the more link if there are more items available.
   $num_items = isset($block['content']['items']) ? count($block['content']['items']['#items']) : FALSE;
   $num_items = isset($block['content']['items']['nodes']) ? count(element_children($block['content']['items']['nodes'])) : $num_items;
@@ -273,6 +272,9 @@ function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
 
 /**
  * Helper function for retrieving the nodes of a list.
+ *
+ * @param $list
+ * @return array
  */
 function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
   // Default query.
@@ -398,6 +400,9 @@ function custom_lists_get($list_key = NULL) {
 
 /**
  * Helper function for adding a list.
+ *
+ * @param $list_key
+ * @param $list
  */
 function custom_lists_add($list_key, $list) {
   $old = custom_lists_get($list_key);
@@ -430,6 +435,8 @@ function custom_lists_add($list_key, $list) {
 
 /**
  * Helper function for deleting a list.
+ *
+ * @param $list_key
  */
 function custom_lists_delete($list_key) {
   $old = custom_lists_get($list_key);
