@@ -1,0 +1,46 @@
+ <?php
+ 
+ /**
+  * Implements hook_schema().
+  */
+function dimpact_auth_ldap_import_schema() {
+  $schema = array();
+  $schema['dimpact_auth_ldap_import'] = array(
+    'fields' => array(
+      'sn' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Unique authentication name.',
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Email address.',
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Name.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Title.',
+      ),
+      'telephonenumber' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Telephonenumber.',
+      ),
+      'mobile' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'Mobile.',
+      ),
+    ),
+    'unique keys' => array(
+      'sn' => array('sn'),
+    ),
+  );
+  return $schema;
+}

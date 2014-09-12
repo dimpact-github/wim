@@ -1,0 +1,5 @@
+name = Dimpact Auth
+description = "LDAP-like account control."
+core = 7.x
+package = Dimpact
+dependencies[] = password_policy

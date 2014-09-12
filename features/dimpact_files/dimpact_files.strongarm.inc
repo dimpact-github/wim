@@ -14,37 +14,14 @@ function dimpact_files_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'domain_entity_allowed_entity_types';
-  $strongarm->value = array(
-    'file' => array(
-      'image' => array(
-        'domain_entity_auto_hidden' => array(
-          'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
-        ),
-      ),
-      'video' => array(
-        'domain_entity_auto_hidden' => array(
-          'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
-        ),
-      ),
-      'audio' => array(
-        'domain_entity_auto_hidden' => array(
-          'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
-        ),
-      ),
-      'document' => array(
-        'domain_entity_auto_hidden' => array(
-          'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
-        ),
-      ),
-    ),
-  );
+  $strongarm->value = array();
   $export['domain_entity_allowed_entity_types'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'domain_entity_bypass_access_conditions';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['domain_entity_bypass_access_conditions'] = $strongarm;
 
   return $export;

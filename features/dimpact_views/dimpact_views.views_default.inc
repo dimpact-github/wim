@@ -188,6 +188,188 @@ if (node_access(\'create\', \'agenda\')) {
   $export['agenda'] = $view;
 
   $view = new view();
+  $view->name = 'agenda_team';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Agenda Team';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Agenda';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'meer';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'node';
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'agenda' => 'agenda',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filtercriterium: Domain Access: Available on current domain */
+  $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
+  $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
+  $handler->display->display_options['filters']['current_all']['value'] = '1';
+  $handler->display->display_options['filters']['current_all']['group'] = 1;
+  /* Filtercriterium: Inhoud: Datum - startdatum (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filtercriterium: Inhoud: Datum - einddatum (field_date:value2) */
+  $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
+  $handler->display->display_options['filters']['field_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value2']['group'] = 2;
+  $handler->display->display_options['filters']['field_date_value2']['default_date'] = 'now';
+
+  /* Display: Teaser block Team */
+  $handler = $view->new_display('block', 'Teaser block Team', 'block_1');
+  $handler->display->display_options['block_description'] = 'Team Agenda teaserblok';
+
+  /* Display: List block Team */
+  $handler = $view->new_display('block', 'List block Team', 'block_2');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Volledige Agenda\', \'team-agenda\'); ?></span>
+<?php
+if (node_access(\'create\', \'agenda\')) {
+ print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Datum */
+  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
+  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_date']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_date']['settings'] = array(
+    'format_type' => 'calendar_icon',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  $handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Team Agenda lijstblok';
+
+  /* Display: Team Agenda Pagina */
+  $handler = $view->new_display('page', 'Team Agenda Pagina', 'page_1');
+  $handler->display->display_options['path'] = 'team-agenda';
+  $translatables['agenda_team'] = array(
+    t('Master'),
+    t('Agenda'),
+    t('meer'),
+    t('Toepassen'),
+    t('Opnieuw instellen'),
+    t('Sorteren op'),
+    t('Oplopend'),
+    t('Aflopend'),
+    t('Items per pagina'),
+    t('- Alle -'),
+    t('Startpunt'),
+    t('« eerste'),
+    t('‹ vorige'),
+    t('volgende ›'),
+    t('laatste »'),
+    t('Teaser block Team'),
+    t('Team Agenda teaserblok'),
+    t('List block Team'),
+    t('<span class="more-link"><?php print l(\'Volledige Agenda\', \'team-agenda\'); ?></span>
+<?php
+if (node_access(\'create\', \'agenda\')) {
+ print l(t(\'Evenement toevoegen\'), \'node/add/agenda\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Team Agenda lijstblok'),
+    t('Team Agenda Pagina'),
+  );
+  $export['agenda_team'] = $view;
+
+  $view = new view();
   $view->name = 'announcements';
   $view->description = '';
   $view->tag = 'default';
@@ -601,6 +783,7 @@ if (node_access(\'create\', \'message\')) {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Documenten';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -633,7 +816,7 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle documenten\', \'documenten\'); ?></span>
 <?php
 if (node_access(\'create\', \'file\')) {
  print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -820,8 +1003,6 @@ if (node_access(\'create\', \'file\')) {
 
   /* Display: Pagina */
   $handler = $view->new_display('page', 'Pagina', 'page_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Documenten';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -847,6 +1028,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['path'] = 'documenten';
   $translatables['bestanden'] = array(
     t('Master'),
+    t('Documenten'),
     t('meer'),
     t('Toepassen'),
     t('Opnieuw instellen'),
@@ -860,7 +1042,7 @@ if (node_access(\'create\', \'file\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
-    t('<span class="more-link"><a href="/documenten">Alle documenten </a></span>
+    t('<span class="more-link"><?php print l(\'Alle documenten\', \'documenten\'); ?></span>
 <?php
 if (node_access(\'create\', \'file\')) {
  print l(t(\'Bestand toevoegen\'), \'node/add/file\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -880,7 +1062,6 @@ if (node_access(\'create\', \'file\')) {
 <div>[created]</div>'),
     t('Alle'),
     t('Pagina'),
-    t('Documenten'),
   );
   $export['bestanden'] = $view;
 
@@ -1752,7 +1933,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle fotoalbums\', \'fotoalbums\'); ?></span>
 <?php
 if (node_access(\'create\', \'foto_album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -1887,7 +2068,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>'),
     t('Blok'),
     t('Fotoalbums'),
-    t('<span class="more-link"><a href="/fotoalbums">Alle fotoalbums </a></span>
+    t('<span class="more-link"><?php print l(\'Alle fotoalbums\', \'fotoalbums\'); ?></span>
 <?php
 if (node_access(\'create\', \'foto_album\')) {
 print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
@@ -2895,16 +3076,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Pad */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_image']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['field_image']['element_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'title';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'file_view_mode' => 'teaser',
   );
@@ -3647,6 +3838,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['empty'] = 'Geen afbeelding gevonden';
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret_groot';
   /* Veld: Algemeen: Aangepaste tekst */
@@ -3689,6 +3881,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Mobiel'),
     t('Teamledenblok'),
     t('Teamlid foto'),
+    t('Geen afbeelding gevonden'),
     t('Foto aanpassen'),
     t('Alle'),
   );
@@ -4525,7 +4718,7 @@ if (node_access(\'create\', \'marketplace\')) {
 
   $view = new view();
   $view->name = 'veelgestelde_vragen';
-  $view->description = 'FAQ listings';
+  $view->description = 'FAQ listings - LET OP!! Er is nog een FAQ-view, die niet gebruiken, deze wel.';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Veelgestelde vragen';
@@ -4648,7 +4841,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Recent FAQs';
+  $handler->display->display_options['block_description'] = 'Veelgestelde vragen';
 
   /* Display: Block - Random FAQs */
   $handler = $view->new_display('block', 'Block - Random FAQs', 'faq_random');
@@ -4914,6 +5107,38 @@ if (node_access(\'create\', \'faq\')) {
     'faq' => 'faq',
   );
   $handler->display->display_options['path'] = 'faq-categories-inline-new-page';
+
+  /* Display: Block - Recent FAQs */
+  $handler = $view->new_display('block', 'Block - Recent FAQs', 'faq_recent_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Veelgestelde vragen';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['link_display'] = FALSE;
+  $handler->display->display_options['link_display'] = 'page_1';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Voet: Algemeen: Tekstveld */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = TRUE;
+  $handler->display->display_options['footer']['area']['content'] = '<span class="more-link"><?php print l(\'Alle veelgestelde vragen\', \'veelgestelde-vragen\'); ?></span>
+<?php
+if (node_access(\'create\', \'faq\')) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>';
+  $handler->display->display_options['footer']['area']['format'] = 'php_code';
+  $handler->display->display_options['block_description'] = 'Recent FAQs';
   $translatables['veelgestelde_vragen'] = array(
     t('Master'),
     t('Veelgestelde vragen'),
@@ -4938,7 +5163,6 @@ if (node_access(\'create\', \'faq\')) {
  print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 }
 ?>'),
-    t('Recent FAQs'),
     t('Block - Random FAQs'),
     t('Random FAQs'),
     t('Page - Questions Inline'),
@@ -4954,6 +5178,14 @@ if (node_access(\'create\', \'faq\')) {
     t('Attachment - Questions Top'),
     t('Page - New Page'),
     t('Page - Categories Inline - New Page'),
+    t('Block - Recent FAQs'),
+    t('<span class="more-link"><?php print l(\'Alle veelgestelde vragen\', \'veelgestelde-vragen\'); ?></span>
+<?php
+if (node_access(\'create\', \'faq\')) {
+ print l(t(\'FAQ toevoegen\'), \'node/add/faq\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
+}
+?>'),
+    t('Recent FAQs'),
   );
   $export['veelgestelde_vragen'] = $view;
 

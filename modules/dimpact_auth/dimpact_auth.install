@@ -1,0 +1,40 @@
+ <?php
+ 
+ /**
+  * Implements hook_schema().
+  */
+function dimpact_auth_schema() {
+  $schema = array();
+  // Directory base table.
+  $schema['dimpact_auth'] = array(
+    'fields' => array(
+      'authname' => array(
+         'type' => 'varchar',
+         'length' => 128,
+         'not null' => TRUE,
+         'default' => '',
+         'description' => 'Unique authentication name.',
+      ),
+      'created' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when user was created.',
+      ),
+      'hash' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Calculated hash of the source directory data.',
+      ),
+      'needs_updating' => array(
+        'description' => 'Boolean indicating whether the Drupal data needs updating',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+      ),
+    ),
+  );
+  return $schema;
+}
