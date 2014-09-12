@@ -195,6 +195,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'system',
   );
 
+  // Exported permission: 'access the domain content page'.
+  $permissions['access the domain content page'] = array(
+    'name' => 'access the domain content page',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'domain_content',
+  );
+
   // Exported permission: 'access user profiles'.
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
@@ -1051,6 +1060,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
@@ -1063,6 +1073,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
@@ -2908,6 +2919,7 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
       'redacteur' => 'redacteur',
       'teamlid' => 'teamlid',
     ),
@@ -3543,6 +3555,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'review content for all domains'.
+  $permissions['review content for all domains'] = array(
+    'name' => 'review content for all domains',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'domain_content',
+  );
+
   // Exported permission: 'schedule (un)publishing of nodes'.
   $permissions['schedule (un)publishing of nodes'] = array(
     'name' => 'schedule (un)publishing of nodes',
@@ -3579,7 +3600,9 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
   // Exported permission: 'set domain access'.
   $permissions['set domain access'] = array(
     'name' => 'set domain access',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'domain',
   );
 
@@ -4287,6 +4310,10 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'medewerker' => 'medewerker',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
     ),
     'module' => 'file_entity',
   );

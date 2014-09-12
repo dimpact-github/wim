@@ -13,6 +13,45 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'agenda_blokken';
+  $context->description = '';
+  $context->tag = 'team subsites';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'team' => 'team',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+        'team-agenda' => 'team-agenda',
+        'actueel/agenda/*' => 'actueel/agenda/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-agenda_team-block_2' => array(
+          'module' => 'views',
+          'delta' => 'agenda_team-block_2',
+          'region' => 'region_444_second',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('team subsites');
+  $export['agenda_blokken'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'announcements';
   $context->description = 'Bekendmakingen lijst- en kaartpagina';
   $context->tag = 'Internet';
@@ -70,6 +109,42 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_39_first',
           'weight' => '-10',
         ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_363_third',
+          'weight' => '-10',
+        ),
+        'cck_blocks-field_related_vac' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_vac',
+          'region' => 'region_363_third',
+          'weight' => '-9',
+        ),
+        'views-maps-block_1' => array(
+          'module' => 'views',
+          'delta' => 'maps-block_1',
+          'region' => 'region_363_third',
+          'weight' => '-8',
+        ),
+        'views-bestanden-block_2' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-7',
+        ),
+        'views-nieuws-block_2' => array(
+          'module' => 'views',
+          'delta' => 'nieuws-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-6',
+        ),
+        'views-agenda-block_2' => array(
+          'module' => 'views',
+          'delta' => 'agenda-block_2',
+          'region' => 'region_363_third',
+          'weight' => '-5',
+        ),
         'views-personen_intranet-block_1' => array(
           'module' => 'views',
           'delta' => 'personen_intranet-block_1',
@@ -114,11 +189,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Algemeen';
   $context->conditions = array(
-    'domain' => array(
-      'values' => array(
-        1 => 1,
-      ),
-    ),
     'node' => array(
       'values' => array(
         'agenda' => 'agenda',
@@ -205,11 +275,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Intranet';
   $context->conditions = array(
-    'domain' => array(
-      'values' => array(
-        2 => 2,
-      ),
-    ),
     'node' => array(
       'values' => array(
         'agenda' => 'agenda',
@@ -231,12 +296,6 @@ function dimpact_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu_block-2' => array(
-          'module' => 'menu_block',
-          'delta' => '2',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
         'views-nieuws-block_2' => array(
           'module' => 'views',
           'delta' => 'nieuws-block_2',
@@ -425,12 +484,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
-        'submenutree-2' => array(
-          'module' => 'submenutree',
-          'delta' => '2',
-          'region' => 'region_363_first',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
@@ -615,6 +668,45 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'sitewide_not_team';
+  $context->description = '';
+  $context->tag = 'Algemeen';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'default' => 'default',
+        'internet' => 'internet',
+        'intranet' => 'intranet',
+      ),
+    ),
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'submenutree-2' => array(
+          'module' => 'submenutree',
+          'delta' => '2',
+          'region' => 'region_363_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Algemeen');
+  $export['sitewide_not_team'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide_team';
   $context->description = '';
   $context->tag = 'team subsites';
@@ -622,11 +714,6 @@ function dimpact_contexts_context_default_contexts() {
     'blueprint' => array(
       'values' => array(
         'team' => 'team',
-      ),
-    ),
-    'path' => array(
-      'values' => array(
-        '~<front>' => '~<front>',
       ),
     ),
   );
@@ -638,6 +725,60 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => '3',
           'region' => 'region_363_first',
           'weight' => '-10',
+        ),
+        'views-maps-block_1' => array(
+          'module' => 'views',
+          'delta' => 'maps-block_1',
+          'region' => 'region_363_third',
+          'weight' => '-1',
+        ),
+        'views-bestanden-block_2' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_2',
+          'region' => 'region_363_third',
+          'weight' => '0',
+        ),
+        'views-berichten-block_1' => array(
+          'module' => 'views',
+          'delta' => 'berichten-block_1',
+          'region' => 'region_444_first',
+          'weight' => '-9',
+        ),
+        'views-berichten-block_2' => array(
+          'module' => 'views',
+          'delta' => 'berichten-block_2',
+          'region' => 'region_444_first',
+          'weight' => '-8',
+        ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_444_second',
+          'weight' => '-9',
+        ),
+        'cck_blocks-field_related_vac' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_vac',
+          'region' => 'region_444_second',
+          'weight' => '-8',
+        ),
+        'views-b41f743aad9009e7ef60abaed330ff96' => array(
+          'module' => 'views',
+          'delta' => 'b41f743aad9009e7ef60abaed330ff96',
+          'region' => 'region_444_second',
+          'weight' => '-7',
+        ),
+        'views-bestanden-block_1' => array(
+          'module' => 'views',
+          'delta' => 'bestanden-block_1',
+          'region' => 'region_444_third',
+          'weight' => '-10',
+        ),
+        'views-foto_album-block_1' => array(
+          'module' => 'views',
+          'delta' => 'foto_album-block_1',
+          'region' => 'region_444_third',
+          'weight' => '-9',
         ),
         'views-personen_intranet-block_1' => array(
           'module' => 'views',
