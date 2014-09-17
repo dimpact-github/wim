@@ -47,6 +47,26 @@
     @include container($total-columns, $break-small);
     @include susy-grid-background;
   }
+// content, "rechterkolom"
+  #content {
+    @include span-columns(4 omega, $break-small);
+  }
+// eerste sidebar "linkerkolom"
+  .region_363_first {
+    @include span-columns(2, $break-small);
+  }
+// tweede sidebar, volle breedte onder de content
+  .region_363_third {
+    @include span-columns($break-small, $break-small);
+  }
+
+// subject page does not have a sidebar, and content section is 100% wide
+  .node-type-subject {
+    #content {
+      @include span-columns($break-small, $break-small);
+    }
+  }
+
   .region_meta_first {
   }
   .region_meta_second {
@@ -60,19 +80,6 @@
         display: block;
       }
     }
-  }
-
-// content, "rechterkolom"
-  #content {
-    @include span-columns(4 omega, $break-small);
-  }
-// eerste sidebar "linkerkolom"
-  .region_363_first {
-    @include span-columns(2, $break-small);
-  }
-// tweede sidebar, volle breedte onder de content
-  .region_363_third {
-    @include span-columns($break-small, $break-small);
   }
 
   .view-voorpagina-banners {
@@ -134,16 +141,6 @@
       }
     }
   }
-
-  // why is this? subject can have a left sidebar
-//  body {
-//    &.not-logged-in.node-type-subject {
-//      h1#page-title,
-//      .subject .field-body {
-////        margin-left: -172px;
-//      }
-//    }
-//  }
 }
 
 /**
@@ -205,6 +202,14 @@
 // tweede sidebar "rechterkolom"
   .region_363_third {
     @include span-columns(3 omega, $break-medium);
+  }
+
+  // subject page does not have a sidebar, and content section is 100% wide
+  .node-type-subject {
+    #content {
+      @include span-columns($break-medium, $break-medium);
+      @include push(0);
+    }
   }
 
   // Toptaken
@@ -463,15 +468,6 @@
       }
     }
   }
-  // why is this? subject can have a left sidebar
-//  body {
-//    &.not-logged-in.node-type-subject {
-//      h1#page-title,
-//      .subject .field-body {
-////        margin-left: -176px;
-//      }
-//    }
-//  }
 }
 
 /**
@@ -533,6 +529,14 @@
 // tweede sidebar "rechterkolom"
   .region_363_third {
     @include span-columns(3 omega, $break-large);
+  }
+
+  // subject page does not have a sidebar, and content section is 100% wide
+  .node-type-subject {
+    #content {
+      @include span-columns($break-medium, $break-medium);
+      @include push(0);
+    }
   }
 
   .region_444_first,
@@ -618,14 +622,4 @@
   html:not(.js) nav .quicktabs_main .quicktabs-tabpage {
     position: relative;
   }
-
-// why is this? subject can have a left sidebar
-//  body {
-//    &.not-logged-in.node-type-subject {
-//      h1#page-title,
-//      .subject .field-body {
-////        margin-left: -274px;
-//      }
-//    }
-//  }
 }
