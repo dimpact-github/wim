@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.0-20140610
+version = 7.x-1.0-20140918
 project = dimpact_content_types
 dependencies[] = atos_esuite
 dependencies[] = ctools

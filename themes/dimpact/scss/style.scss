@@ -135,6 +135,12 @@ h3 {
     @include font-size(16);
   }
 }
+// vanwege webrichtlijnen moeten velden die voor een body-veld staan een h2 als
+// label hebben, deze moet echter opgemaakt zijn als een h3
+.view-mode-full .field-wrapper h2 {
+  @extend h3;
+}
+
 
 h4{
   font-size: 118%;

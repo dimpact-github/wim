@@ -201,7 +201,7 @@ function dimpact_content_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'fences_wrapper' => 'div',
+    'fences_wrapper' => 'div_view_mode_dependant_heading',
     'field_name' => 'field_date',
     'label' => 'Datum',
     'required' => 0,

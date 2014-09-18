@@ -265,6 +265,7 @@ function dimpact_content_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_date',
     'foreign keys' => array(),
+    'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
