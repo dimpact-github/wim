@@ -51,24 +51,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'webform',
   );
 
-  // Exported permission: 'access backup and migrate'.
-  $permissions['access backup and migrate'] = array(
-    'name' => 'access backup and migrate',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
-  );
-
-  // Exported permission: 'access backup files'.
-  $permissions['access backup files'] = array(
-    'name' => 'access backup files',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'access comments'.
   $permissions['access comments'] = array(
     'name' => 'access comments',
@@ -244,15 +226,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'system',
-  );
-
-  // Exported permission: 'administer backup and migrate'.
-  $permissions['administer backup and migrate'] = array(
-    'name' => 'administer backup and migrate',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'administer block classes'.
@@ -578,15 +551,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'menu_token',
-  );
-
-  // Exported permission: 'administer module filter'.
-  $permissions['administer module filter'] = array(
-    'name' => 'administer module filter',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'module_filter',
   );
 
   // Exported permission: 'administer modules'.
@@ -1810,15 +1774,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'delete backup files'.
-  $permissions['delete backup files'] = array(
-    'name' => 'delete backup files',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'delete blog content on assigned domains'.
@@ -3485,15 +3440,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'piwik',
   );
 
-  // Exported permission: 'perform backup'.
-  $permissions['perform backup'] = array(
-    'name' => 'perform backup',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'post comments'.
   $permissions['post comments'] = array(
     'name' => 'post comments',
@@ -3534,15 +3480,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'teamlid' => 'teamlid',
     ),
     'module' => 'domain',
-  );
-
-  // Exported permission: 'restore from backup'.
-  $permissions['restore from backup'] = array(
-    'name' => 'restore from backup',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'revert revisions'.
