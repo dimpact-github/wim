@@ -722,6 +722,11 @@ function dimpact_contexts_context_default_contexts() {
         'team' => 'team',
       ),
     ),
+    'path' => array(
+      'values' => array(
+        '~login-vereist' => '~login-vereist',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
