@@ -334,18 +334,9 @@ function dimpact_preprocess_node(&$vars) {
 function dimpact_preprocess_field(&$vars) {
   // Default field wrapper.
   $vars['tag'] = 'div';
-
-  // Field label wrappers.
-  switch ($vars['element']['#field_name']) {
-    case 'field_tags':
-      $vars['heading'] = 'span';
-      break;
-    default:
-      // If the view mode is "full" use <h2> for the field labels. Otherwise,
-      // assume a teaser or more compact view mode is being displayed, and use <h3>.
-      $vars['heading'] = ($vars['element']['#view_mode'] == 'full') ? 'h2' : 'h3';
-      break;
-  }
+	// $heading is used in field.tpl.php and
+	// field--fences-div_view_mode_dependant_heading.tpl.php
+  $vars['heading'] = ($vars['element']['#view_mode'] == 'full') ? 'h2' : 'h3';
 
   // Add a less verbose field name class: .field-NAME
   $vars['classes_array'][] = drupal_html_class($vars['element']['#field_name']);
