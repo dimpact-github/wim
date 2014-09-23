@@ -141,7 +141,7 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
   if ($dossier_status == variable_get('durp_due_state', 'vervallen')) {
     if ($current) {
       node_delete($current['nid']);
-      drupal_set_message(t('Removed due dossier !dossier_id with nid !nid.', array('!dossier_id' => $dossier_id, '!nid' => $current['nid'])));
+      drupal_set_message(t('Removed due dossier @dossier_id with nid @nid.', array('@dossier_id' => $dossier_id, '@nid' => $current['nid'])));
     }
     return FALSE;
   }
