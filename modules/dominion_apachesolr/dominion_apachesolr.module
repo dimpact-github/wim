@@ -60,7 +60,7 @@ function dominion_apachesolr_apachesolr_query_alter($query) {
   $field_domain_site = variable_get(DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE, DOMINION_APACHESOLR_VAR_FIELD_DOMAIN_SITE_DEFAULT);
 
   // Add subsites checked in dominion settings.
-  if ($subsite = dominion_get_info() && isset($subsite->search_domains)) {
+  if (($subsite = dominion_get_info()) && isset($subsite->search_domains)) {
     $search_domains = $subsite->search_domains;
   }
   else {
