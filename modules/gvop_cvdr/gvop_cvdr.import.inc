@@ -88,7 +88,6 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
 
   if ($pubUrl) {
     $data = drupal_http_request($pubUrl);
-    dsm($data->code);
     if ($data->code == 200) {
       $pubXML = $data->data;
       $pubDOM = new DOMDocument;
