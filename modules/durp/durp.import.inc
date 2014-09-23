@@ -301,7 +301,7 @@ function _durp_map_node($dossier_id, $dossierXML, $force = FALSE) {
     }
   }
   else {
-    drupal_set_message(t('Could not detect plan for !dossier_id', array('!dossier_id' => $dossier_id)));
+    drupal_set_message(t('Could not detect plan for @dossier_id', array('@dossier_id' => $dossier_id)));
   }
 
   return FALSE;
