@@ -81,8 +81,14 @@ function gvop_cvdr_map(DOMElement $record, $node, DOMXPath $xpath) {
   $xpath->registerNamespace('ns1', "http://standaarden.overheid.nl/sru");
   $pubUrl = $xpath->query('.//ns1:publicatieurl_xml', $record)->item(0)->nodeValue;
   $pubUrlHTML = $xpath->query('.//ns1:publicatieurl_xhtml', $record)->item(0)->nodeValue;
+
+  // Replace spaces by "%20". Some proxy and web servers will fail when using spaces.
+  $pubUrl = str_replace(' ', '%20', $pubUrl);
+  $pubUrlHTML = str_replace(' ', '%20', $pubUrlHTML);
+
   if ($pubUrl) {
     $data = drupal_http_request($pubUrl);
+    dsm($data->code);
     if ($data->code == 200) {
       $pubXML = $data->data;
       $pubDOM = new DOMDocument;
