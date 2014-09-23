@@ -150,7 +150,7 @@ function dominion_apachesolr_dominion_insert($domain_id, $form_values = array())
  * Implements hook_dominion_update()
  */
 function dominion_apachesolr_dominion_update($domain_id, $form_values = array()) {
-  dominion_apachesolr_dominion_delete($domain_id, $form_values);
+  dominion_apachesolr_dominion_delete(dominion_get_info($domain_id));
   dominion_apachesolr_dominion_insert($domain_id, $form_values);
 }
 
