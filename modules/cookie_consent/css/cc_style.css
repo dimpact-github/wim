@@ -1358,3 +1358,20 @@ DARK STYLE
 #cc-modal #cc-modal-wrapper li strong {
   width: auto;
 }
+
+
+#cc-modal.cc-light #cc-modal-wrapper .cc-more-info-link {
+  /* De kleur zou wellicht via de color-module ingesteld moeten kunnen worden
+  maar nu houden we de oorspronkelijke kleur zoals die in de cookie-consent
+  module is gedefinieerd aan, want die is goed bevonden qua contrast. */
+  color: #b7080e;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 12em;
+}
+/* toggleClass to show/hide elements */
+.cc-show,
+#cc-tag.cc-show {
+  display: block;
+}
