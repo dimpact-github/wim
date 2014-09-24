@@ -1155,7 +1155,7 @@ var cc =
       });
 
       if (typeof cc.settings.link !== 'undefined' && typeof cc.settings.link.title !== 'undefined' && typeof cc.settings.link.url !== 'undefined' && cc.settings.link.title !== '' && cc.settings.link.url !== '') {
-        jQuery('<a style="display:block;text-align:center;color:#b7080e !important;" href="' + cc.settings.link.url + '">' + cc.settings.link.title + ' ></a></li>').insertAfter('#cc-modal-wrapper .cc-content');
+        jQuery('<a class="cc-more-info-link" href="' + cc.settings.link.url + '">' + cc.settings.link.title + ' ></a></li>').insertAfter('#cc-modal-wrapper .cc-content');
       }
     } else {
       jQuery('#cc-modal-wrapper .cc-content').append('<p>' + cc.strings.notUsingCookies + '</p>');
