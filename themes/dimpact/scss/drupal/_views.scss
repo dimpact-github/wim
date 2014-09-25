@@ -24,7 +24,7 @@
       .field-image {
         float: left;
         margin-right: $gutter-width/2;
-        margin-top: -20px;
+        margin-top: 5px;
       }
     }
   }
@@ -82,12 +82,14 @@
 .view-agenda-display-block_2 {
   .views-row {
     overflow: hidden;
-    h3 {
-      box-sizing: border-box;
-      float: right;
-      padding-left: 48px;
-      width: 100%;
-    }
+
+    // De onderstaande code werkt niet bij homepage: Agenda lijstblok
+    // h3 {
+    //   box-sizing: border-box;
+    //   float: right;
+    //   padding-left: 48px;
+    //   width: 100%;
+    // }
     .views-field-changed,
     .field-date .date-display-single {
       @include transition-property(background);
@@ -99,7 +101,7 @@
       font-family: $heading;
       width: 40px;
       height: 46px;
-//      float: left;
+      float: left;
       font-weight: 400;
       margin-right: 0.5em;
       display: block;
@@ -129,9 +131,6 @@
 }
 .view-agenda-display-block_1 .views-row {
   min-height: 4em;
-  h2 {
-    padding-left: 110px;
-  }
   .field-date .date-display-single {
     left: 0;
     position: absolute;
@@ -144,18 +143,31 @@
 .view-agenda-display-block_1 {
   .agenda {
     position: relative;
+    min-height: 4em;
+    h2 {
+      padding-left: 48px;
+    }
     .field-intro {
       display: block;
       padding-left: 48px;
     }
   }
   .has-image {
+    min-height: 110px;
+    h2 {
+      padding-left: 110px;
+    }
     .field-date .date-display-single {
       top: 10px;
       left: 5px;
     }
     .field-intro {
-      padding-left: 0;
+      padding-left: 110px;
+    }
+    .field-image {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 }
