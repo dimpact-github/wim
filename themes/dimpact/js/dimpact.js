@@ -129,9 +129,12 @@
         scroll: {
           fx: "directscroll",
           duration: 500,
-          pauseOnHover: 'resume'
+          // pauseOnHover: 'resume'
         },
         auto: {
+          // button makes play/pause functionality possible. pauseonhover must be off, else
+          // it overides the button everytime you hover over other parts of the carousel.
+          button: ".btn_play",
           timeoutDuration: 10000,
           progress: ".progress"
         },
