@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Dominion feature.
+ */
+
+include_once 'dimpact_dominion.features.inc';

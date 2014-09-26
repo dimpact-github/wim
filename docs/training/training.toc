@@ -1,0 +1,15 @@
+\select@language {dutch}
+\contentsline {section}{\numberline {1}Inhoud toevoegen}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Typen inhoud}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Workflow}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Scenario: nieuws-item toevoegen}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Blokken}{7}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Scenario: pagina en editorial toevoegen}{7}{subsection.1.5}
+\contentsline {section}{\numberline {2}Navigatie}{10}{section.2}
+\contentsline {subsection}{\numberline {2.1}Menu's}{10}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Scenario: menu-item aanmaken}{10}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Lijsten en nodequeues}{11}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Scenario: carrousel aanpassen}{12}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Tags}{13}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Scenario: inhoud met bepaalde tag}{13}{subsection.2.6}
+\contentsline {section}{\numberline {3}Meer over Drupal en Dimpact}{15}{section.3}

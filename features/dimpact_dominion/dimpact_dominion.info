@@ -1,0 +1,13 @@
+name = Dimpact Dominion
+core = 7.x
+package = Features
+version = 7.x-1.0-20140919
+project = dimpact_dominion
+dependencies[] = ctools
+dependencies[] = dominion
+dependencies[] = dominion_access
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = dominion_access_exclude
+project path = sites/all/modules/features

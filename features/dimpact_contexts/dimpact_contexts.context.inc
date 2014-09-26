@@ -602,11 +602,9 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Intranet';
   $context->conditions = array(
-    'domain' => array(
+    'blueprint' => array(
       'values' => array(
-        2 => 2,
-        3 => 3,
-        4 => 4,
+        'intranet' => 'intranet',
       ),
     ),
     'path' => array(
@@ -720,6 +718,11 @@ function dimpact_contexts_context_default_contexts() {
     'blueprint' => array(
       'values' => array(
         'team' => 'team',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~login-vereist' => '~login-vereist',
       ),
     ),
   );
