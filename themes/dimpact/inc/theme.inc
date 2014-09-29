@@ -617,3 +617,18 @@ function dimpact_js_alter(&$javascript) {
 	$file = '/js/quicktabs.js';
 	$javascript[$old_path . $file] = drupal_js_defaults($new_path . $file);
 }
+
+/**
+ * Override required asterisk on forms
+ *
+ * @param $variables
+ */
+function dimpact_form_required_marker($variables) {
+  // This is also used in the installer, pre-database setup.
+  $t = get_t();
+  $attributes = array(
+    'class' => 'form-required',
+    'title' => $t('This field is required.'),
+  );
+  return '<span' . drupal_attributes($attributes) . '>verplicht</span>';
+}
