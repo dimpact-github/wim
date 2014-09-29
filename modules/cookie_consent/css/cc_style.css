@@ -1370,8 +1370,21 @@ DARK STYLE
   text-align: center;
   width: 12em;
 }
+#cc-modal.cc-light #cc-modal-wrapper .cc-more-info-link:link,
+#cc-modal.cc-light #cc-modal-wrapper .cc-more-info-link:visited {
+  color: #b7080e;
+}
 /* toggleClass to show/hide elements */
+/*#cc-notification {
+  display: none;
+}*/
 .cc-show,
+#cc-notification.cc-show,
+#cc-modal.cc-show,
+#cc-modal-overlay.cc-show,
 #cc-tag.cc-show {
   display: block;
+}
+.cc-hide {
+  display: none;
 }

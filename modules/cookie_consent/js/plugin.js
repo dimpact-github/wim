@@ -477,9 +477,7 @@ var cc =
   },
 
   showbanner: function () {
-    jQuery('#cc-tag').fadeOut(null, function () {
-      jQuery(this).remove();
-    });
+    jQuery('#cc-tag').addClass("cc-show");
     jQuery('#cc-notification').remove();
     if (cc.ismobile) {
       cc.setupformobile();
@@ -530,7 +528,7 @@ var cc =
     }
     jQuery('#cc-notification').addClass(cc.settings.style).addClass(cc.settings.bannerPosition);
     bannerh = jQuery('#cc-notification').height();
-    jQuery('#cc-notification').hide();
+    jQuery('#cc-notification').addClass("cc-hide");
     if (cc.ismobile) {
       jQuery('#cc-notification').addClass("cc-mobile");
     }
@@ -613,14 +611,10 @@ var cc =
       return false;
     });
 
-    if (!cc.ismobile) {
-      if (cc.settings.bannerPosition == "cc-push") {
-        jQuery('html').animate({marginTop: bannerh}, 400);
-      }
-      jQuery('#cc-notification').slideDown();
-    } else {
-      jQuery('#cc-notification').show();
+    if (cc.settings.bannerPosition == "cc-push") {
+      jQuery('html').animate({marginTop: bannerh}, 400);
     }
+    jQuery('#cc-notification').removeClass("cc-hide");
 
     jQuery('#cc-approve-button-thissite').click(cc.onlocalconsentgiven);
     if (cc.settings.clickAnyLinkToConsent) {
@@ -873,12 +867,10 @@ var cc =
     cc.reloadkey = true;
     cc.insertscript(urlx);
 
-    if (!cc.ismobile) {
-      jQuery('#cc-notification').slideUp();
-      if (cc.settings.bannerPosition == "cc-push") {
-        //detect body margin
-        jQuery('html').animate({marginTop: 0}, 400);
-      }
+    jQuery('#cc-notification').remove();
+    if (cc.settings.bannerPosition == "cc-push") {
+      //detect body margin
+      jQuery('html').animate({marginTop: 0}, 400);
     }
     cc.checkapproval();
 
@@ -928,12 +920,10 @@ var cc =
       cc.forcereload = true;
     }
 
-    if (!cc.ismobile) {
-      jQuery('#cc-notification').slideUp();
-      if (cc.settings.bannerPosition == "cc-push") {
-        //detect body margin
-        jQuery('html').animate({marginTop: 0}, 400);
-      }
+    jQuery('#cc-notification').remove();
+    if (cc.settings.bannerPosition == "cc-push") {
+      //detect body margin
+      jQuery('html').animate({marginTop: 0}, 400);
     }
     cc.checkapproval();
     cc.reloadifnecessary();
@@ -947,9 +937,11 @@ var cc =
       jQuery('body').prepend(data);
       jQuery('#cc-tag').addClass(cc.settings.style);
       if (!cc.settings.hideprivacysettingstab) {
-        jQuery('#cc-tag').fadeIn();
+        jQuery('#cc-tag').addClass("cc-show");
+        // jQuery('#cc-tag').fadeIn();
       } else {
-        jQuery('#cc-tag').hide();
+        jQuery('#cc-tag').removeClass("cc-show");
+        // jQuery('#cc-tag').hide();
       }
       jQuery('.cc-privacy-link').click(cc.showmodal);
       jQuery('#cc-tag-button').click(cc.showmodal);
@@ -1004,15 +996,15 @@ var cc =
       '</div>';
     jQuery('body').prepend(data);
     if (cc.settings.disableallsites) {
-      jQuery('#cc-modal-global').hide();
+      jQuery('#cc-modal-global').toggleClass("cc-hide");
     }
     jQuery('#cc-modal').addClass(cc.settings.style).click(cc.closemodals);
     if (cc.ismobile) {
       jQuery('#cc-modal').addClass("cc-mobile");
     }
     cc.reloadmodal();
-    jQuery('#cc-modal').fadeIn();
-    jQuery('#cc-modal-overlay').fadeIn();
+    jQuery('#cc-modal').toggleClass("cc-show");
+    jQuery('#cc-modal-overlay').toggleClass("cc-show");
     jQuery('#cc-modal-wrapper').click(function () {
       cc.noclosewin = true;
     });
@@ -1055,7 +1047,7 @@ var cc =
 
     cc.insertscript(urlx);
 
-    jQuery('#cc-notification').hide().remove();
+    jQuery('#cc-notification').remove();
     jQuery(this).blur();
     jQuery('#cc-settingsmodal').fadeOut(null, function () {
       jQuery('#cc-settingsmodal').remove();
@@ -1076,9 +1068,7 @@ var cc =
     cc.checkedremote = false;
     if (jQuery('#cc-modal').is(":visible") && !cc.frommodal) {
       cc.closingmodal = true;
-      jQuery('#cc-modal-overlay').fadeToggle(null, function () {
-        cc.closingmodal = false;
-      });
+      jQuery('#cc-modal-overlay').toggleClass("cc-show");
       jQuery.each(cc.cookies, function (key, value) {
         thisval = jQuery('#cc-preference-selector-' + key).val();
 
@@ -1105,15 +1095,9 @@ var cc =
       cc.checkapproval();
     } else if (!jQuery('#cc-settingsmodal').is(":visible") && !jQuery('#cc-modal').is(":visible")) {
       cc.closingmodal = true;
-      jQuery('#cc-modal-overlay').fadeToggle(null, function () {
-        cc.closingmodal = false;
-      });
+      jQuery('#cc-modal-overlay').toggleClass("cc-show");
     }
-    if (cc.ismobile) {
-      jQuery('#cc-modal').toggle();
-    } else {
-      jQuery('#cc-modal').fadeToggle();
-    }
+    jQuery('#cc-modal').toggleClass("cc-show");
     return false;
   },
 
