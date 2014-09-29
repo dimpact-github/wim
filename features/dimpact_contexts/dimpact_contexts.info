@@ -1,7 +1,7 @@
 name = Dimpact Contexts
 core = 7.x
 package = Features
-version = 7.x-1.0-20140919
+version = 7.x-1.0-20140929
 project = dimpact_contexts
 dependencies[] = block
 dependencies[] = cck_blocks
