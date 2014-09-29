@@ -17,22 +17,22 @@ function dimpact_files_strongarm() {
   $strongarm->value = array(
     'file' => array(
       'image' => array(
-        'domain_entity_auto_hidden' => array(
+        'domain_entity_user_multiple_choice' => array(
           'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
         ),
       ),
       'video' => array(
-        'domain_entity_auto_hidden' => array(
+        'domain_entity_user_multiple_choice' => array(
           'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
         ),
       ),
       'audio' => array(
-        'domain_entity_auto_hidden' => array(
+        'domain_entity_user_multiple_choice' => array(
           'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
         ),
       ),
       'document' => array(
-        'domain_entity_auto_hidden' => array(
+        'domain_entity_user_multiple_choice' => array(
           'DOMAIN_ACTIVE' => 'DOMAIN_ACTIVE',
         ),
       ),
