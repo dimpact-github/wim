@@ -24,7 +24,10 @@ function dimpact_contexts_context_default_contexts() {
     ),
     'path' => array(
       'values' => array(
-        '~login-required-for-subsite' => '~login-required-for-subsite',
+        '<front>' => '<front>',
+        'team-agenda' => 'team-agenda',
+        'actueel/agenda/*' => 'actueel/agenda/*',
+      ),
     ),
   );
   $context->reactions = array(
