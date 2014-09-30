@@ -1,0 +1,14 @@
+20140930
+
+#342 comment 8
+  http://acceptatie.dimpact.nl/admin/structure/file-types/manage/image/fields
+  http://acceptatie.dimpact.nl/admin/structure/file-types/manage/video/fields
+  http://acceptatie.dimpact.nl/admin/structure/file-types/manage/documents/fields
+  http://acceptatie.dimpact.nl/admin/structure/file-types/manage/audio/fields
+  Zet Widgettype op “User choose affiliate, with a default value (form widget on the entity creation form)”
+
+Waterland #78
+  Enable feature “dimpact_dominion”
+
+#175
+  “Regelingen” toevoegen aan Apache Solr
