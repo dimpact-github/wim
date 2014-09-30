@@ -237,10 +237,6 @@
       }
     }
   }
-  .quicktabs-tabpage {
-    padding-top: $gutter-width;
-    padding-bottom: $gutter-width;
-  }
   .view-voorpagina-banners {
     .views-row {
       @include span-columns(3, 6);
@@ -312,21 +308,71 @@
           }
         }
       }
-    }
-    .quicktabs_main {
+      .block-quicktabs {
+        display: block;
+        h2.block-title {
+          display: block;
+        }
+      }
+      .close-button {
+        display: block;
+        float: right;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+        width: auto;
+        &:focus,
+        &:hover,
+        &:active {
+          text-decoration: none;
+        }
+        &:after {
+          @include icon($remove-sign);
+          @include font-size(20);
+          color: $gray;
+          line-height: 1;
+          margin-top:  $line-height*-.25em;
+          padding-left: $line-height*.25em;
+        }
+      }
+      .quicktabs-tabs {
+        padding: 0 $gutter-width 0 170px;
+        li {
+          float: left;
+        }
+        a {
+          display: block;
+        }
+      }
       .quicktabs-tabpage {
-        @include column-count(3);
         @include border-bottom-radius(4px);
+        @include column-count(3);
+        background-color: #fff;
+        left: 0;
+        padding-top: $gutter-width;
+        padding-bottom: $gutter-width;
         position: absolute;
+        width: 100%;
+        z-index: 5;
+        .menu {
+          padding: 0;
+          margin: 0;
+          li {
+            border-bottom: 1px solid $background-color;
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+            width: 100%;
+          }
+          a {
+            color: $text-color;
+          }
+        }
+        .block-menu {
+          padding: 0 $gutter-width;
+        }
+        .contextual-links-wrapper {
+          @include column-count(1);
+        }
       }
-    }
-    .block-quicktabs {
-      h2.block-title {
-        display: block !important;
-      }
-    }
-    .quicktabs-tabs {
-      display: block !important;
     }
   }
   // Submenu-items worden niet opklapbaar op een touch-enabled device

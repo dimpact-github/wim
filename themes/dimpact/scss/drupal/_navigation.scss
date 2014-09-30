@@ -95,24 +95,19 @@ nav {
       }
     }
 
-    #quicktabs-container-alfabet {
-      &.open {
-        margin-top: $gutter-width;
-      }
-    }
-
     .block-quicktabs {
       position: relative;
       h2.block-title {
         @include font-size(13);
         font-weight: 400;
-        display: inline;
+        left: $gutter-width*1.5;
         position: absolute;
         top: 9px;
-        left: $gutter-width*1.5;
         z-index: 120;
-        display: none;
       }
+    }
+    .close-button {
+      display: none;
     }
     .quicktabs-wrapper {
       background-color: $background-color;
@@ -121,66 +116,41 @@ nav {
       ul {
         margin: 0;
       }
-      .quicktabs-tabs {
+    }
+    .quicktabs-tabs {
+      display: block;
+      padding: 0;
+      position: relative;
+      li {
+        display: block;
+        margin: 0;
+        padding: 0;
+        white-space: normal;
+      }
+      a {
+        @include font-size(13);
+        color: $text-color;
         display: none;
-        padding: 0 $gutter-width 0 170px;
-        li {
-          display: block;
-          float: left;
-          margin: 0;
-          padding: 0;
-        }
+        font-family: $heading;
+        font-weight: 400;
+        line-height: 1;
+        padding: $gutter-width/2 $gutter-width;
+      }
+    }
+    .quicktabs-tabpage {
+      &.open {
+        display: block;
+      }
+      .menu {
+        padding-left: 0;
         a {
-          @include font-size(13);
-          font-family: $heading;
-          font-weight: 400;
           display: block;
-          padding: 0.75em 1em;
-          line-height: 1;
-          color: $text-color;
         }
       }
-      .quicktabs_main {
-        &.open {
-          .quicktabs-hide {
-            display: block;
-          }
-        }
-        .quicktabs-tabpage {
-          background-color: #fff;
-          z-index: 5;
-          width: 100%;
-          ul {
-            padding: 0;
-            margin: 0;
-          }
-          li {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 6px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid $background-color;
-          }
-          a {
-            display: inline-block;
-            color: $text-color;
-          }
-          .block-menu {
-            padding: 0 $gutter-width;
-          }
-          .close-button {
-            &:after {
-              @include icon($remove-sign);
-              @include font-size(20);
-              line-height: 1;
-              color: $gray;
-            }
-            position: absolute;
-            top: $gutter-width/2;
-            right: $gutter-width/2;
-            z-index: 9999;
-            cursor: pointer;
-          }
+      .contextual-links-wrapper {
+        a:focus,
+        a:hover {
+          text-decoration: underline;
         }
       }
     }
@@ -316,11 +286,15 @@ nav.block-menu-menu-tabbladen {
       a {
         @include border-top-radius(5px);
         @include border-bottom-radius(0);
-        font-family: $heading;
-        background-color: get_env_color('dcolorlight', $azure-light);;
-        padding: 8px 6px;
+        background-color: get_env_color('dcolorlight', $azure-light);
         display: inline-block;
+        font-family: $heading;
+        padding: 8px 6px;
         text-decoration: none;
+        &:link {
+          color: darken($link-colour, 10%);
+        }
+        &:focus,
         &:hover {
           background-color: get_env_color('dcolor', $azure);
           color: get_env_color('dlinkcolor', $link-light);
