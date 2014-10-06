@@ -9,6 +9,8 @@
  * @see template_preprocess_field()
  * @see base_preprocess_field()
  *
+ * NOTE: as fences is used, this file seems unnecessary
+ *
  */
 $count = count($items);
 ?>

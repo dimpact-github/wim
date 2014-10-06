@@ -24,9 +24,7 @@ function dimpact_contexts_context_default_contexts() {
     ),
     'path' => array(
       'values' => array(
-        '<front>' => '<front>',
-        'team-agenda' => 'team-agenda',
-        'actueel/agenda/*' => 'actueel/agenda/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
       ),
     ),
   );
@@ -232,13 +230,13 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'cck_blocks',
           'delta' => 'field_related_pdc',
           'region' => 'region_363_third',
-          'weight' => '-90',
+          'weight' => '-89',
         ),
         'cck_blocks-field_related_vac' => array(
           'module' => 'cck_blocks',
           'delta' => 'field_related_vac',
           'region' => 'region_363_third',
-          'weight' => '-89',
+          'weight' => '-90',
         ),
         'views-maps-block_1' => array(
           'module' => 'views',
@@ -602,11 +600,9 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Intranet';
   $context->conditions = array(
-    'domain' => array(
+    'blueprint' => array(
       'values' => array(
-        2 => 2,
-        3 => 3,
-        4 => 4,
+        'intranet' => 'intranet',
       ),
     ),
     'path' => array(
@@ -720,6 +716,11 @@ function dimpact_contexts_context_default_contexts() {
     'blueprint' => array(
       'values' => array(
         'team' => 'team',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~login-vereist' => '~login-vereist',
       ),
     ),
   );

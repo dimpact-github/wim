@@ -124,8 +124,8 @@ function cookie_consent_admin_form() {
   foreach (module_invoke_all('cookie_consent_categories') as $category => $info) {
     $form['cookie_consent_' . $category] = array(
       '#type' => 'textarea',
-      '#title' => t('!category Scripts', array('!category' => $info['title'])),
-      '#description' => $info['description'],
+      '#title' => t('@category Scripts', array('@category' => $info['title'])),
+      '#description' => check_plain($info['description']),
       '#default_value' => variable_get('cookie_consent_' . $category, ''),
     );
   }

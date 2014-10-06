@@ -210,7 +210,7 @@ function domain_scss_scheme_form_submit($form, &$form_state) {
   $theme = $form_state['values']['theme'];
   $info = $form_state['values']['info'];
 
-  drupal_set_message('New stylesheet has been compiled for ' . $theme);
+  drupal_set_message('New stylesheet has been compiled for ' . check_plain($theme));
 
   // Resolve palette.
   $palette = $form_state['values']['palette'];

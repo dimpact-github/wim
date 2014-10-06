@@ -1,20 +1,21 @@
 diff --git a/dominion_access/dominion_access.module b/dominion_access/dominion_access.module
-index 5a03f58..7851cc1 100644
+index 1d1ee54..4b21fdc 100644
 --- a/dominion_access/dominion_access.module
 +++ b/dominion_access/dominion_access.module
-@@ -317,6 +317,18 @@ function dominion_access_init() {
+@@ -317,6 +317,19 @@ function dominion_access_init() {
      return;
    }
  
 +  $q = strtolower($_GET['q']);
-+  if (!(strpos($q, 'system/files/')===0)) { // the following bypass will not apply to private files (starting with /system/files/)
-+    foreach(array('png','gif','jpeg','jpg','ico','swf','css','js','html','htm') as $extension) {
++  // The following bypass will not apply to private files (starting with /system/files/).
++  if (!(strpos($q, 'system/files/') === 0)) {
++    foreach (array('png','gif','jpeg','jpg','ico','swf','css','js','html','htm') as $extension) {
 +      if (substr($q, -strlen($extension)-1) == '.' . $extension) {
 +        return;
-+	  }
-+	  if (strpos($q, '.' . $extension . '/')>0 || strpos($q, '.' . $extension . '?')>0) {
++      }
++      if (strpos($q, '.' . $extension . '/') > 0 || strpos($q, '.' . $extension . '?') > 0) {
 +        return;
-+	  }
++      }
 +    }
 +  }
 +

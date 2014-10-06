@@ -14,6 +14,9 @@ body {
   a {
     @include link-colors($colour, darken($colour, 10%), darken($colour, 20%));
   }
+  [role="contentinfo"] a {
+    @include link-colors(darken($colour, 10%), darken($colour, 20%), darken($colour, 30%));
+  }
   #main {
     input[type="submit"] {
       background-color: $buttoncolour;
@@ -47,10 +50,12 @@ body {
   }
   .block-search {
     background-color: $colourlight;
-  }
-  #search-form {
-    input[type="text"] {
-      //border: 5px solid $colourlight;;
+    input[type="submit"]:hover,
+    input[type="submit"]:focus
+     {
+      background: $colour;
+      color: white;
+      border-color: $colour;
     }
   }
   nav {
@@ -88,16 +93,20 @@ body {
       }
     }
   }
-  .quicktabs-wrapper {
-    .quicktabs-tabs {
-      li.active a {
-        background-color: #fff;
-        color: $link-dark;
-      }
-      a:hover {
+  .quicktabs-tabs {
+    li.active a {
+      background-color: #fff;
+      color: $link-dark;
+    }
+    > li {
+      > a:focus,
+      > a:hover {
         background-color: $colour;
         color: $linkcolor;
       }
+    }
+    a:focus {
+      outline: auto;
     }
   }
 
@@ -121,7 +130,8 @@ body {
       }
     }
     .btn_next,
-    .btn_prev {
+    .btn_prev,
+    .btn_play {
       color: #fff;
       &:hover {
         color: $colourlight;
@@ -152,9 +162,13 @@ body {
           li {
             a {
               background-color: $background-color;
+              &:focus {
+                background-color: $colour;
+                color: $linkcolor;
+              }
             }
             &.active,
-            &:hover {
+            &:hover{
               a {
                 background-color: $colour;
                 color: $linkcolor;
@@ -163,6 +177,29 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+nav.main-menu .quicktabs-tabpage .close-button {
+  &:link,
+  &:visited {
+    color: $colour;
+    &:after {
+      color: $colour;
+    }
+  }
+  &:focus,
+  &:hover {
+    color: darken($colour, 10%);
+    &:after {
+      color: darken($colour, 10%);
+    }
+  }
+  &:active {
+    color: darken($colour, 20%);
+    &:after {
+      color: darken($colour, 20%);
     }
   }
 }

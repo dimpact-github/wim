@@ -471,7 +471,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
+//  border: 0;
+color: #fff;
   padding: 0;
 }
 

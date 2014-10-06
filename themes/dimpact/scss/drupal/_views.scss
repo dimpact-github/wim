@@ -82,6 +82,13 @@
 .view-agenda-display-block_2 {
   .views-row {
     overflow: hidden;
+
+    h3 {
+      box-sizing: border-box;
+      float: right;
+      padding-left: 48px;
+      width: 100%;
+    }
     .views-field-changed,
     .field-date .date-display-single {
       @include transition-property(background);
@@ -93,7 +100,7 @@
       font-family: $heading;
       width: 40px;
       height: 46px;
-      float: left;
+      // float: left;
       font-weight: 400;
       margin-right: 0.5em;
       display: block;
@@ -121,21 +128,52 @@
     }
   }
 }
-.block-views-updates-block-1 {
-  .views-row {
-    margin-bottom: $gutter-width/2;
+.view-agenda-display-block_1 .views-row {
+  min-height: 4em;
+  .field-date .date-display-single {
+    left: 0;
+    position: absolute;
+    top: 0;
   }
 }
+
 .view-agenda-team,
 .block-views-agenda-team-block-2,
 .view-agenda-display-block_1 {
-  .has-image {
+  .agenda {
     position: relative;
+    min-height: 4em;
+    h2 {
+      padding-left: 48px;
+    }
+    .field-intro {
+      display: block;
+      padding-left: 48px;
+    }
+  }
+  .has-image {
+    min-height: 110px;
+    h2 {
+      padding-left: 110px;
+    }
     .field-date .date-display-single {
-      position: absolute;
       top: 10px;
       left: 5px;
     }
+    .field-intro {
+      padding-left: 110px;
+    }
+    .field-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.block-views-updates-block-1 {
+  .views-row {
+    margin-bottom: $gutter-width/2;
   }
 }
 
