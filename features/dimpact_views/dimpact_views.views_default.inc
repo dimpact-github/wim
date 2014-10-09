@@ -498,7 +498,7 @@ U kunt de filters links aanpassen om verder te zoeken.';
   );
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'announcement_type';
-  /* Filtercriterium: Location: Postcode */
+  /* Filtercriterium: Locatie: Postcode */
   $handler->display->display_options['filters']['postal_code']['id'] = 'postal_code';
   $handler->display->display_options['filters']['postal_code']['table'] = 'location';
   $handler->display->display_options['filters']['postal_code']['field'] = 'postal_code';
@@ -2446,12 +2446,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Location: Breedtegraad */
+  /* Filtercriterium: Locatie: Breedtegraad */
   $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['table'] = 'location';
   $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['operator'] = '!=';
-  /* Filtercriterium: Location: Lengtegraad */
+  /* Filtercriterium: Locatie: Lengtegraad */
   $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
   $handler->display->display_options['filters']['longitude']['table'] = 'location';
   $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
@@ -4221,7 +4221,10 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
@@ -4261,16 +4264,20 @@ if (node_access(\'create\', \'marketplace\')) {
   /* Display: Page nieuwsberichten */
   $handler = $view->new_display('page', 'Page nieuwsberichten', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'RSS Feeds nieuwsberichten';
+  $handler->display->display_options['title'] = 'RSS Feed nieuwsberichten';
   $handler->display->display_options['path'] = 'rss-nieuwsberichten';
 
   /* Display: Feed nieuwsberichten */
   $handler = $view->new_display('feed', 'Feed nieuwsberichten', 'feed');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'RSS Feeds nieuwsberichten';
+  $handler->display->display_options['title'] = 'RSS Feed nieuwsberichten';
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'teaser';
+  $handler->display->display_options['row_options']['links'] = TRUE;
   $handler->display->display_options['path'] = 'rss-nieuwsberichten.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -4281,7 +4288,7 @@ if (node_access(\'create\', \'marketplace\')) {
   /* Display: Page wijzigingen */
   $handler = $view->new_display('page', 'Page wijzigingen', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'RSS Feeds laatst gewijzigde pagina\'s';
+  $handler->display->display_options['title'] = 'RSS Feed laatst gewijzigde pagina’s';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
@@ -4302,10 +4309,14 @@ if (node_access(\'create\', \'marketplace\')) {
   /* Display: Feed wijzigingen */
   $handler = $view->new_display('feed', 'Feed wijzigingen', 'feed_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'RSS Feeds laatst gewijzigde pagina\'s';
+  $handler->display->display_options['title'] = 'RSS Feed laatst gewijzigde pagina’s';
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'teaser';
+  $handler->display->display_options['row_options']['links'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteercriterium: Inhoud: Wijzigingsdatum */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
@@ -4322,6 +4333,131 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   $handler->display->display_options['path'] = 'rss-wijzigingen.xml';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'page_1' => 'page_1',
+    'page' => 0,
+    'page_2' => 0,
+    'page_3' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+
+  /* Display: Page evenementen */
+  $handler = $view->new_display('page', 'Page evenementen', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'RSS Feed evenementen';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'agenda' => 'agenda',
+  );
+  $handler->display->display_options['path'] = 'rss-evenementen';
+
+  /* Display: Feed evenementen */
+  $handler = $view->new_display('feed', 'Feed evenementen', 'feed_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'RSS Feed evenementen';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'teaser';
+  $handler->display->display_options['row_options']['links'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'agenda' => 'agenda',
+  );
+  $handler->display->display_options['path'] = 'rss-evenementen.xml';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'page_2' => 'page_2',
+    'page' => 0,
+    'page_1' => 0,
+    'page_3' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+
+  /* Display: Page bekendmakingen */
+  $handler = $view->new_display('page', 'Page bekendmakingen', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'RSS Feed bekendmakingen';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'announcement' => 'announcement',
+  );
+  $handler->display->display_options['path'] = 'rss-bekendmakingen';
+
+  /* Display: Feed bekendmakingen */
+  $handler = $view->new_display('feed', 'Feed bekendmakingen', 'feed_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'RSS Feed bekendmakingen';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['row_options']['item_length'] = 'teaser';
+  $handler->display->display_options['row_options']['links'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filtercriterium: Inhoud: Gepubliceerd */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filtercriterium: Inhoud: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'announcement' => 'announcement',
+  );
+  $handler->display->display_options['path'] = 'rss-bekendmakingen.xml';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'page_3' => 'page_3',
+    'page' => 0,
+    'page_1' => 0,
+    'page_2' => 0,
+  );
   $handler->display->display_options['sitename_title'] = 0;
   $translatables['rss_feeds'] = array(
     t('Master'),
@@ -4340,11 +4476,17 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Page nieuwsberichten'),
-    t('RSS Feeds nieuwsberichten'),
+    t('RSS Feed nieuwsberichten'),
     t('Feed nieuwsberichten'),
     t('Page wijzigingen'),
-    t('RSS Feeds laatst gewijzigde pagina\'s'),
+    t('RSS Feed laatst gewijzigde pagina’s'),
     t('Feed wijzigingen'),
+    t('Page evenementen'),
+    t('RSS Feed evenementen'),
+    t('Feed evenementen'),
+    t('Page bekendmakingen'),
+    t('RSS Feed bekendmakingen'),
+    t('Feed bekendmakingen'),
   );
   $export['rss_feeds'] = $view;
 
