@@ -93,15 +93,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: 'access devel information'.
-  $permissions['access devel information'] = array(
-    'name' => 'access devel information',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'devel',
-  );
-
   // Exported permission: 'access inactive domains'.
   $permissions['access inactive domains'] = array(
     'name' => 'access inactive domains',
@@ -615,6 +606,17 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'eindredacteur' => 'eindredacteur',
     ),
     'module' => 'quicktabs',
+  );
+
+  // Exported permission: 'administer redirects'.
+  $permissions['administer redirects'] = array(
+    'name' => 'administer redirects',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+    ),
+    'module' => 'redirect',
   );
 
   // Exported permission: 'administer scheduler'.
@@ -3201,15 +3203,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'apachesolr_exclude_node',
   );
 
-  // Exported permission: 'execute php code'.
-  $permissions['execute php code'] = array(
-    'name' => 'execute php code',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'devel',
-  );
-
   // Exported permission: 'flag favorieten'.
   $permissions['flag favorieten'] = array(
     'name' => 'flag favorieten',
@@ -3720,15 +3713,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'shortcut',
-  );
-
-  // Exported permission: 'switch users'.
-  $permissions['switch users'] = array(
-    'name' => 'switch users',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'devel',
   );
 
   // Exported permission: 'test hansel'.
