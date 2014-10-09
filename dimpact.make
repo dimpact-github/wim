@@ -269,6 +269,9 @@ projects[purge][version] = "1.6"
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
 
+projects[redirect][subdir] = contrib
+projects[redirect][version] = "7.x-1.0-rc1"
+
 projects[remote_stream_wrapper][subdir] = contrib
 projects[remote_stream_wrapper][version] = "1.0-beta4"
 
