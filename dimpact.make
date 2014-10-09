@@ -270,7 +270,9 @@ projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
 
 projects[redirect][subdir] = contrib
-projects[redirect][version] = "7.x-1.0-rc1"
+projects[redirect][version] = "1.0-rc1"
+projects[redirect][patch][1796596-48][url] = http://drupal.org/files/redirect-detect_prevent_circular_redirects_patch_and_test-1796596-48.patch
+projects[redirect][patch][1796596-48][md5] = a04d97c14445471ffd1a6a357540e47e
 
 projects[remote_stream_wrapper][subdir] = contrib
 projects[remote_stream_wrapper][version] = "1.0-beta4"
