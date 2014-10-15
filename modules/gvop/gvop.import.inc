@@ -121,6 +121,51 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   if ($current && !empty($current['nid'])) {
     $node = node_load($current['nid']);
   }
+  elseif ($type_info['nodetype'] == 'regulation') {
+  // We did not find a regulation node for this version, but there may be regulation nodes for older or newer versions.
+  // If an older or newer entry exists for a regulation node, update/abort instead of creating.
+    $pattern = '@(\d+)_(\d+)@';
+    preg_match($pattern, $identifier, $matches);
+    $identifier_base = $matches[1];
+    $identifier_suffix = $matches[2];
+    $current_items = db_select('gvop', 'g')
+      ->fields('g', array('identifier', 'hash', 'nid'))
+      ->condition('identifier', db_like($identifier_base . '_') . '%', 'LIKE')
+      ->condition('identifier', $identifier, '<>')
+      ->execute();
+    }
+    $versions = array();
+    while ($row = $current_items->fetchAssoc()) {
+      preg_match($pattern, $row['identifier'], $matches);
+      $versions[$matches[2]] = $row;
+    }
+    if ($versions) {
+      $suffixes = array_keys($versions);
+      $max = max($suffixes);
+      if ($identifier_suffix < $max) {
+        // There is a newer version in the system: abort.
+        return;
+      }
+      elseif ($identifier_suffix > $max) {
+        $node = node_load($versions[$max]['nid']);
+        if ($node) {
+          // There is a node for an older version in the system.
+          // We are not going to delete the node but relate it to a new identifier and update its content later.
+          db_delete('gvop')
+            ->condition('identifier', $versions[$max]['identifier'])
+            ->execute();
+          db_merge('gvop')
+            ->key(array('identifier' => $identifier))
+            ->fields(array('hash' => '', 'nid' => $node->nid, 'xml' => '', 'changed' => 0))
+            ->execute();
+        }
+        else {
+          // Meanwhile something changed or something went wrong. Neither update nor insert anything.
+          return;
+        }
+      }
+    }
+  }
   else {
     $node = new stdClass();
     $node->uid = 1;
