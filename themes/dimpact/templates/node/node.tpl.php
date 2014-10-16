@@ -9,15 +9,17 @@ hide($content['field_tabcontent']);
 ?>
 <article<?php print $attributes; ?>>
 
-  <?php print render($title_prefix); ?>
-  <?php if ($page): /* ?>
-    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-  <?php */ else: ?>
-    <?php if ($type != 'foto_album' || $teaser): ?>
-      <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
+  <?php if ($title): ?>
+    <?php print render($title_prefix); ?>
+    <?php if ($page): /* ?>
+      <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+    <?php */ else: ?>
+      <?php if ($type != 'foto_album' || $teaser): ?>
+        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
+      <?php endif; ?>
     <?php endif; ?>
+    <?php print render($title_suffix); ?>
   <?php endif; ?>
-  <?php print render($title_suffix); ?>
 
   <?php if ($teaser): ?>
     <?php if ($content['field_image'][0]): ?>
