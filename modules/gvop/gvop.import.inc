@@ -124,7 +124,7 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
   elseif ($type_info['nodetype'] == 'regulation') {
   // We did not find a regulation node for this version, but there may be regulation nodes for older or newer versions.
   // If an older or newer entry exists for a regulation node, update/abort instead of creating.
-    $pattern = '@(\d+)_(\d+)@';
+    $pattern = '@^(\d+)_(\d+)$@';
     preg_match($pattern, $identifier, $matches);
     $identifier_base = $matches[1];
     $identifier_suffix = $matches[2];
@@ -136,8 +136,9 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
     }
     $versions = array();
     while ($row = $current_items->fetchAssoc()) {
-      preg_match($pattern, $row['identifier'], $matches);
-      $versions[$matches[2]] = $row;
+      if (preg_match($pattern, $row['identifier'], $matches)) {
+        $versions[$matches[2]] = $row;
+      }
     }
     if ($versions) {
       $suffixes = array_keys($versions);
