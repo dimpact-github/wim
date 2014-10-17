@@ -133,7 +133,6 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
       ->condition('identifier', db_like($identifier_base . '_') . '%', 'LIKE')
       ->condition('identifier', $identifier, '<>')
       ->execute();
-    }
     $versions = array();
     while ($row = $current_items->fetchAssoc()) {
       if (preg_match($pattern, $row['identifier'], $matches)) {
