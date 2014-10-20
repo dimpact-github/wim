@@ -4592,13 +4592,6 @@ if (node_access(\'create\', \'marketplace\')) {
     'extension' => 'extension',
     'filesize' => 'filesize',
   );
-  /* Veld: Inhoud: Wijzigingsdatum */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['label'] = '';
-  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed']['date_format'] = 'calendar_icon';
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -4608,6 +4601,13 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Veld: Inhoud: Wijzigingsdatum */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'calendar_icon';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
