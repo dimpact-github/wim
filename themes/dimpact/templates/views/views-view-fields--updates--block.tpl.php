@@ -23,14 +23,7 @@
  *
  * @ingroup views_templates
  */
-$changed = $fields['changed'];
-unset($fields['changed']);
 ?>
-
-<?php print $changed->wrapper_prefix; ?>
-<?php print $changed->label_html; ?>
-<?php print $changed->content; ?>
-<?php print $changed->wrapper_suffix; ?>
 
 <div class="update-info">
 <?php foreach ($fields as $id => $field): ?>
