@@ -89,6 +89,9 @@ projects[dominion][download][type] = git
 projects[dominion][download][revision] = 2e49836
 projects[dominion][download][branch] = 7.x-1.x
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
+projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
+projects[dominion][patch][b3eb6f4][url] = http://cgit.drupalcode.org/dominion/patch/?id=b3eb6f4005c776198bf474eb88a9ce3dc0ac2705
+projects[dominion][patch][b3eb6f4][md5] = 0e04e679924b83c55cb514c66299cc06
 
 projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
