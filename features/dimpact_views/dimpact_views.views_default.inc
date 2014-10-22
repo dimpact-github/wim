@@ -308,6 +308,15 @@ if (node_access(\'create\', \'agenda\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Datum */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -325,15 +334,6 @@ if (node_access(\'create\', \'agenda\')) {
     'multiple_to' => '',
   );
   $handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Titel */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Team Agenda lijstblok';
 
   /* Display: Team Agenda Pagina */
