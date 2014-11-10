@@ -48,9 +48,7 @@ function solrcrawler_save_page($pagedata, $document) {
  * @param string $pagekey
  */
 function solrcrawler_delete_page($pagekey) {
-  // @todo: Load in setting via apachesolr_load_all_environments().
-  $env_id = 'solr';
-
+  $env_id = variable_get('solrcrawler_solr_env', 'solr');
   $solr = apachesolr_get_solr($env_id);
   $solr->deleteById(apachesolr_document_id($pagekey, 'solrcrawler'));
 
@@ -83,6 +81,7 @@ function solrcrawler_cron() {
     $or->isNull('p.date');
     $pages = db_select('solrcrawler_page', 'p')
       ->fields('p', array('url'))
+      ->condition('p.site_id', $site->site_id)
       ->condition($or)
       ->orderBy('p.date', 'ASC')
       ->range(0, $site->max_run)
