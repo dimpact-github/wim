@@ -1,20 +1,20 @@
 diff --git a/felix.pages.inc b/felix.pages.inc
-index 60b9744..938713e 100644
+index 2369920..69eff1a 100644
 --- a/felix.pages.inc
 +++ b/felix.pages.inc
-@@ -239,7 +239,7 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
+@@ -243,7 +243,7 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
      '#required' => TRUE,
    );
  
 -  if (module_exists('linkit')) {
 +  if (module_exists('linkit')) { /*
-     // Use the better autocomplete widget from linkit.
-     drupal_add_library('linkit', 'linkit_bac');
-     drupal_add_js(drupal_get_path('module', 'felix') . '/felix.js');
-@@ -247,7 +247,7 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
-     unset($form['node']['#autocomplete_path']);
-     $form['node']['#prefix'] = '<div id="felix-search-node">';
-     $form['node']['#suffix'] = '</div>';
+     // Check which version of linkit is currently installed.
+     $added = FALSE;
+     foreach (array('bac', 'linkit_bac') as $library) {
+@@ -261,7 +261,7 @@ function felix_add_node_form($form, &$form_state, $region, $nodetype, $path, $vi
+       $form['node']['#prefix'] = '<div id="felix-search-node">';
+       $form['node']['#suffix'] = '</div>';
+     }
 -  }
 +  */ }
  

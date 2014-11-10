@@ -193,6 +193,14 @@
       htmlElem.css('font-size', newFontSize);
       return false;
     });
+
+    // Poll jQuery for WCAG2.0, without this script only percentages are written via
+    // the template file. See poll-bar.tpl.php.
+    $('.bar .foreground').each(function(){
+      var w = $(this).data('percentage');
+  		$(this).css("width", w+"%");
+  	});
+
   });
 
 })(window.jQuery);

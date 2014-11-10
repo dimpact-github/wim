@@ -131,10 +131,9 @@ projects[feeds][version] = "2.0-alpha8"
 
 projects[felix][subdir] = contrib
 projects[felix][download][type] = git
-projects[felix][download][revision] = b71d233
+projects[felix][download][revision] = 0f375f4
 projects[felix][download][branch] = 7.x-1.x
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
-projects[felix][patch][2300865-3] = patches/felix-domain_user_set-2300865-3.patch
 
 projects[fences][subdir] = contrib
 projects[fences][version] = "1.0"
