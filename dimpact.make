@@ -123,9 +123,7 @@ projects[feeds][subdir] = contrib
 projects[feeds][version] = "2.0-alpha8"
 
 projects[felix][subdir] = contrib
-projects[felix][download][type] = git
-projects[felix][download][revision] = 0f375f4
-projects[felix][download][branch] = 7.x-1.x
+projects[felix][version] = "1.0-beta4"
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
 
 projects[fences][subdir] = contrib
