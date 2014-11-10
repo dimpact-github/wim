@@ -315,11 +315,11 @@
         }
       }
       .close-button {
-        display: block;
-        float: right;
         padding-bottom: 0 !important;
-        padding-top: 0 !important;
-        width: auto;
+        padding-top: $line-height*.25em !important;
+        position: absolute;
+        right: 0;
+        top: 0;
         &:focus,
         &:hover,
         &:active {
@@ -327,7 +327,7 @@
         }
         &:after {
           @include icon($remove-sign);
-          @include font-size(20);
+          @include font-size(16);
           color: $gray;
           line-height: 1;
           margin-top:  $line-height*-.25em;
