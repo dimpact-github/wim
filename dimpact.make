@@ -83,9 +83,7 @@ projects[domain_xmlsitemap][subdir] = contrib
 projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
-projects[dominion][download][type] = git
-projects[dominion][download][revision] = b3eb6f4
-projects[dominion][download][branch] = 7.x-1.x
+projects[dominion][version] = "1.0-beta1"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib
