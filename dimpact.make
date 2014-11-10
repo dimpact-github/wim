@@ -167,7 +167,7 @@ projects[jquery_update][subdir] = contrib
 projects[jquery_update][version] = "2.3"
 
 projects[l10n_update][subdir] = contrib
-projects[l10n_update][version] = "1.0-rc1"
+projects[l10n_update][version] = "1.1"
 
 projects[login_destination][subdir] = contrib
 projects[login_destination][version] = "1.1"
