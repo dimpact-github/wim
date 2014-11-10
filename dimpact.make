@@ -53,9 +53,7 @@ projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
 
 projects[date][subdir] = contrib
-projects[date][version] = "2.7"
-projects[date][patch][1832544-2][url] = http://drupal.org/files/migrate_class_registration-1832544-2.patch
-projects[date][patch][1832544-2][md5] = 0ba3ea17a06554841a6ba83cf432ba9b
+projects[date][version] = "2.8"
 
 projects[devel][subdir] = contrib
 projects[devel][version] = "1.4"
