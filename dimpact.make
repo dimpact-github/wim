@@ -296,7 +296,7 @@ projects[subscriptions][subdir] = contrib
 projects[subscriptions][version] = "1.1"
 
 projects[token][subdir] = contrib
-projects[token][version] = "1.4"
+projects[token][version] = "1.5"
 
 projects[translation_helpers][subdir] = contrib
 projects[translation_helpers][version] = "1.0"
