@@ -186,6 +186,13 @@ table.sticky-header {
   }
 }
 
+/**
+ * Poll.module bar
+ */
+html.no-js .poll .bar {
+  display: none;
+}
+
 // Inline containers
 //------------------------------------------------------------------------------
 
