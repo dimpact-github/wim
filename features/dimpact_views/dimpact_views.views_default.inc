@@ -2201,7 +2201,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['field_location']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_location']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_location']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_location']['type'] = 'location_map';
+  $handler->display->display_options['fields']['field_location']['type'] = 'location_all';
   /* Contextueel filter: Inhoud: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
