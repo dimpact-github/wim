@@ -1,12 +1,10 @@
 api = 2
 core = 7.x
 projects[drupal][type] = core
-projects[drupal][version] = "7.28"
+projects[drupal][version] = "7.33"
 projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 projects[drupal][patch][htaccess_directories404] = patches/htaccess_directories404.patch
 projects[drupal][patch][etag] = patches/etag.patch
-projects[drupal][patch][sa-core-2014-005][url] = https://www.drupal.org/files/issues/SA-CORE-2014-005-D7.patch
-projects[drupal][patch][sa-core-2014-005][md5] = 194b950a55430807bef0cfb171aa87c3
 
 ; Modules
 projects[admin_menu][subdir] = contrib
