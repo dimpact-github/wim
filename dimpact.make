@@ -170,9 +170,7 @@ projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][download][type] = git
-projects[jquery_update][download][revision] = baff5d1
-projects[jquery_update][download][branch] = 7.x-2.x
+projects[jquery_update][version] = "2.3"
 
 projects[l10n_update][subdir] = contrib
 projects[l10n_update][version] = "1.0-rc1"
