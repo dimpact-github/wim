@@ -96,7 +96,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
     </nav>
   <?php endif; ?>
 
-  <a id="main-content" tabindex="-1" />
+  <a id="main-content" tabindex="-1"></a>
   <div class="main" id="main">
 
     <?php if ($messages): ?>
