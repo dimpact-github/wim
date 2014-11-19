@@ -166,7 +166,8 @@ function _gvop_map_node($type_info, DOMElement $record, DOMXPath $xpath, $force 
       }
     }
   }
-  else {
+
+  if (!$node) {
     $node = new stdClass();
     $node->uid = 1;
     $node->created = $modified;
