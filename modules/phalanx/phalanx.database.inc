@@ -39,6 +39,9 @@ function phalanx_insert_node_record($user, $form, $nid, $action, $title) {
 			'action' => $action
 		))
 		->execute();
+		if($nid > 0) {
+			return;
+		}
 		if (variable_get('phalanx_notify_user', FALSE)) {
   		drupal_set_message(t('Phalanx: Phalanx has recorded this node action.'));
   	}

@@ -71,7 +71,7 @@ function phalanx_guard_force_logout($uid) {
 function phalanx_guard_user_logout()
 {
 	if (variable_get('phalanx_guard_force_logout', TRUE)) {
-		user_cookie_save(array('phalanx_guard.logoff' => 1));
+	//	user_cookie_save(array('phalanx_guard.logoff' => 1));
 	}
 }
 
