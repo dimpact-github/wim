@@ -104,15 +104,10 @@
 
 	function phalanx_log($form_action) {
 		$admin_only = variable_get('phalanx_admin_forms', TRUE);
-		$log_node_deletes = variable_get('phalanx_delete_nodes', TRUE);
 
 		$is_admin_form = arg(0) == 'admin' ? TRUE : FALSE;
-
-		if((arg(0) == 'node' && arg(2) == 'delete') && $log_node_deletes) {
+		if(arg(0) == 'admin') {
 			return TRUE;
 		}
-		if(arg(0) == 'admin' && !$admin_only) {
-			return FALSE;
-		}
-		return TRUE;
+		return FALSE;
 	}
