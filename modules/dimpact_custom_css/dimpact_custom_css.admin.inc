@@ -116,17 +116,3 @@ function _dimpact_custom_css_handle_upload($source = NULL) {
     }
   }
 }
-
-function dimpact_custom_css_files() {
-  return array(
-    'custom_css_screen' => t('CSS Screen'),
-    'custom_css_print'  => t('CSS Print'),
-    'custom_css_lteie9' => t('CSS LTE IE9'),
-    'custom_css_ltie9'  => t('CSS LT IE9'),
-  );
-}
-
-function _dimpact_custom_css_domainid() {
-  global $_domain;
-  return $_domain['domain_id'];
-}

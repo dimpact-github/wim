@@ -8,3 +8,4 @@ docs/handleiding/*.pdf
 composer.phar
 modules/*/vendor
 private/
+profile/data.sql

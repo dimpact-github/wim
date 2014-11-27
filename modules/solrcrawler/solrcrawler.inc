@@ -144,6 +144,11 @@ function _solrcrawler_index_page($url, $site) {
     $ext_mapping = file_mimetype_mapping();
     $ext_mime = isset($ext_mapping['extensions'][$ext]) ? $ext_mapping['mimetypes'][$ext_mapping['extensions'][$ext]] : '';
 
+    if (strlen($result->data) > 26214400) {
+      // Skip this URL. Content is > 25MB. Indexation can lead to memory exhaustion.
+      return;
+    }
+
     if ($content_type_mime == 'text/html') {
       _solrcrawler_index_page_html($site, $result, $document, $pagedata, $url);
     }
@@ -151,6 +156,10 @@ function _solrcrawler_index_page($url, $site) {
       _solrcrawler_index_page_document($site, $result, $document, $pagedata, $url);
     }
 
+    if (empty($document['title'])) {
+      // No title was provided. Generate a title from the URL.
+      $document['title'] = urldecode(reset(array_reverse(explode('/', $url))));
+    }
 
     // Set latest crawl data.
     $pagedata['date'] = time();
@@ -172,6 +181,13 @@ function _solrcrawler_index_page($url, $site) {
 
 function _solrcrawler_index_page_html($site, $result, &$document, &$pagedata, $url) {
   $crawler = new Crawler($result->data);
+
+  $base_url = $url;
+  foreach ($crawler->filter('base') as $element) {
+    if ($href = $element->getAttribute('href')) {
+      $base_url = $href;
+    }
+  }
 
   if ($site->content_include) {
     $included = $crawler->filter($site->content_include)->each(function (Crawler $nodeCrawler, $i) {
@@ -195,7 +211,7 @@ function _solrcrawler_index_page_html($site, $result, &$document, &$pagedata, $u
     $document['body'] .= $nodeCrawler->html();
 
     // Crawl for new pages.
-    _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $url);
+    _solrcrawler_index_page_crawl($site, $pagedata, $nodeCrawler, $base_url);
   }
 }
 

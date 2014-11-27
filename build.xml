@@ -23,6 +23,8 @@
     <symlink target="../../../../features" link="code/sites/all/modules/features" />
     <symlink target="../../../../themes" link="code/sites/all/themes/subtheme" />
 
+    <symlink target="../../profile" link="code/profiles/dimpact" />
+
     <delete dir="code/sites/default" includeemptydirs="true" verbose="true" failonerror="true" />
     <symlink target="../../data" link="code/sites/default" />
     <copy todir="code/sites/all/libraries">

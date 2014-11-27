@@ -6,7 +6,6 @@
     <script src="/<?php print $path; ?>/js/modernizr.js"></script>
     <?php print $styles; ?>
     <?php
-      module_load_include('admin.inc', 'dimpact_custom_css', 'dimpact_custom_css');
       global $_domain;
       global $base_url;
 
@@ -53,7 +52,7 @@
     ?>
   </head>
   <body<?php print $body_attributes;?>>
-    <a href="#main" class="visuallyhidden focusable skip-link"><?php print t('Skip to main content'); ?></a>
+    <a href="#main-content" class="visuallyhidden focusable skip-link"><?php print t('Skip to main content'); ?></a>
     <div class="overlay-alpha-container"></div>
     <?php print $page_top; ?>
     <?php print $page; ?>

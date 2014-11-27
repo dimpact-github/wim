@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Views Announcements feature.
+ */
+
+include_once 'dimpact_views_announcements.features.inc';

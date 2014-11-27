@@ -1,0 +1,6 @@
+name = Dimpact
+description = Dimpact Drupal distribution
+core = 7.x
+
+dependencies[] = dimpactinstall
+dependencies[] = dblog

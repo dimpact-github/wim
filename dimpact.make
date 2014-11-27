@@ -1,12 +1,10 @@
 api = 2
 core = 7.x
 projects[drupal][type] = core
-projects[drupal][version] = "7.28"
+projects[drupal][version] = "7.33"
 projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
 projects[drupal][patch][htaccess_directories404] = patches/htaccess_directories404.patch
 projects[drupal][patch][etag] = patches/etag.patch
-projects[drupal][patch][sa-core-2014-005][url] = https://www.drupal.org/files/issues/SA-CORE-2014-005-D7.patch
-projects[drupal][patch][sa-core-2014-005][md5] = 194b950a55430807bef0cfb171aa87c3
 
 ; Modules
 projects[admin_menu][subdir] = contrib
@@ -53,12 +51,10 @@ projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
 
 projects[date][subdir] = contrib
-projects[date][version] = "2.7"
-projects[date][patch][1832544-2][url] = http://drupal.org/files/migrate_class_registration-1832544-2.patch
-projects[date][patch][1832544-2][md5] = 0ba3ea17a06554841a6ba83cf432ba9b
+projects[date][version] = "2.8"
 
 projects[devel][subdir] = contrib
-projects[devel][version] = "1.4"
+projects[devel][version] = "1.5"
 
 projects[diff][subdir] = contrib
 projects[diff][version] = "3.2"
@@ -85,13 +81,8 @@ projects[domain_xmlsitemap][subdir] = contrib
 projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
-projects[dominion][download][type] = git
-projects[dominion][download][revision] = 2e49836
-projects[dominion][download][branch] = 7.x-1.x
+projects[dominion][version] = "1.0-beta1"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
-projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
-projects[dominion][patch][b3eb6f4][url] = http://cgit.drupalcode.org/dominion/patch/?id=b3eb6f4005c776198bf474eb88a9ce3dc0ac2705
-projects[dominion][patch][b3eb6f4][md5] = 0e04e679924b83c55cb514c66299cc06
 
 projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
@@ -130,11 +121,8 @@ projects[feeds][subdir] = contrib
 projects[feeds][version] = "2.0-alpha8"
 
 projects[felix][subdir] = contrib
-projects[felix][download][type] = git
-projects[felix][download][revision] = b71d233
-projects[felix][download][branch] = 7.x-1.x
+projects[felix][version] = "1.0-beta4"
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
-projects[felix][patch][2300865-3] = patches/felix-domain_user_set-2300865-3.patch
 
 projects[fences][subdir] = contrib
 projects[fences][version] = "1.0"
@@ -162,9 +150,7 @@ projects[google_analytics][subdir] = contrib
 projects[google_analytics][version] = "1.4"
 
 projects[hansel][subdir] = contrib
-projects[hansel][download][type] = git
-projects[hansel][download][revision] = cb6c701
-projects[hansel][download][branch] = 7.x-1.x
+projects[hansel][version] = "1.4"
 
 projects[homebox][subdir] = contrib
 projects[homebox][version] = "2.0-beta7"
@@ -176,12 +162,10 @@ projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][download][type] = git
-projects[jquery_update][download][revision] = baff5d1
-projects[jquery_update][download][branch] = 7.x-2.x
+projects[jquery_update][version] = "2.3"
 
 projects[l10n_update][subdir] = contrib
-projects[l10n_update][version] = "1.0-rc1"
+projects[l10n_update][version] = "1.1"
 
 projects[login_destination][subdir] = contrib
 projects[login_destination][version] = "1.1"
@@ -274,6 +258,11 @@ projects[purge][version] = "1.6"
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
 
+projects[redirect][subdir] = contrib
+projects[redirect][version] = "1.0-rc1"
+projects[redirect][patch][1796596-48][url] = http://drupal.org/files/redirect-detect_prevent_circular_redirects_patch_and_test-1796596-48.patch
+projects[redirect][patch][1796596-48][md5] = a04d97c14445471ffd1a6a357540e47e
+
 projects[remote_stream_wrapper][subdir] = contrib
 projects[remote_stream_wrapper][version] = "1.0-beta4"
 
@@ -305,7 +294,7 @@ projects[subscriptions][subdir] = contrib
 projects[subscriptions][version] = "1.1"
 
 projects[token][subdir] = contrib
-projects[token][version] = "1.4"
+projects[token][version] = "1.5"
 
 projects[translation_helpers][subdir] = contrib
 projects[translation_helpers][version] = "1.0"
