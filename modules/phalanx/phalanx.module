@@ -72,10 +72,17 @@ function phalanx_form_submit($form, &$form_state) {
         //node insert, we dont monitor this!
         return;
       }
+      if(arg(2) == 'webform') {
+        //we dont want to monitor webform saves
+        return;
+      }
       phalanx_insert_node_record($user, $form, $nid, arg(2), $form['#node']->title);
     }
     else if (phalanx_log($form['#action'])) {
-      phalanx_insert_record($user, $form, $form_state);
+      $form_id = $form_state['build_info']['form_id'];
+      if (!in_array($form_id, array('user_login', 'user_login_block'))) {
+        phalanx_insert_record($user, $form, $form_state);
+      }
     }
   }
 }

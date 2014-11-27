@@ -81,3 +81,19 @@ function bespoke_update_7107() {
     'dimpact_views_announcements',
   ));
 }
+
+/**
+ * Update translations (ticket #225)
+ */
+function bespoke_update_7108() {
+  require_once DRUPAL_ROOT . '/includes/locale.inc';
+  $bespoke_root = drupal_get_path('module', 'bespoke');
+  // make a new $file object
+  $file = new stdClass();
+  $file->filename = 'update_7108_nl.po';
+  $file->uri = $bespoke_root . '/translation_updates/' . $file->filename;
+  $file->filemime = 'application/octet-stream';
+  // import the .po-file, use OVERWRITE, with KEEP only new translations are imported
+  $success = _locale_import_po($file, 'nl', LOCALE_IMPORT_OVERWRITE, 'default');
+  return $succes;
+}
