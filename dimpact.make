@@ -331,7 +331,9 @@ projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][version] = "1.3"
 
 projects[wysiwyg][subdir] = contrib
-projects[wysiwyg][version] = "2.2"
+projects[wysiwyg][download][type] = git
+projects[wysiwyg][download][branch] = "7.x-2.x"
+projects[wysiwyg][download][revision] = "898d022"
 
 projects[xmlsitemap][subdir] = contrib
 projects[xmlsitemap][version] = "2.0"
