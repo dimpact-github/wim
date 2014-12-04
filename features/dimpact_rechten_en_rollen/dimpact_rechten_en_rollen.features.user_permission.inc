@@ -100,6 +100,18 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: 'access overlay'.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',

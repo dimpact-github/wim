@@ -1,7 +1,7 @@
 name = Dimpact Rechten en Rollen
 core = 7.x
 package = Features
-version = 7.x-1.0-20141009
+version = 7.x-1.0-20141204
 project = dimpact_rechten_en_rollen
 dependencies[] = admin_menu
 dependencies[] = apachesolr_exclude_node
@@ -82,6 +82,7 @@ features[user_permission][] = access content
 features[user_permission][] = access content overview
 features[user_permission][] = access contextual links
 features[user_permission][] = access inactive domains
+features[user_permission][] = access media browser
 features[user_permission][] = access overlay
 features[user_permission][] = access own webform results
 features[user_permission][] = access own webform submissions
