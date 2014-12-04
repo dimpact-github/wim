@@ -354,7 +354,7 @@ libraries[starterskit][download][url] = "https://github.com/studiodumbar/starter
 
 ; CKEditor 3.6.2
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.3/ckeditor_3.6.3.tar.gz
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"
