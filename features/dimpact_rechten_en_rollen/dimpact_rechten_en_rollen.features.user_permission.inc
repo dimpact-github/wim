@@ -3240,15 +3240,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'features',
   );
 
-  // Exported permission: 'import media'.
-  $permissions['import media'] = array(
-    'name' => 'import media',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'media',
-  );
-
   // Exported permission: 'import rss_nos feeds'.
   $permissions['import rss_nos feeds'] = array(
     'name' => 'import rss_nos feeds',

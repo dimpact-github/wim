@@ -413,7 +413,6 @@ features[user_permission][] = exclude nodes from apache solr
 features[user_permission][] = flag favorieten
 features[user_permission][] = flush caches
 features[user_permission][] = generate features
-features[user_permission][] = import media
 features[user_permission][] = import rss_nos feeds
 features[user_permission][] = inspect all votes
 features[user_permission][] = manage default subsites
