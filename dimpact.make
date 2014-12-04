@@ -45,7 +45,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.4"
+projects[ctools][version] = "1.5"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
@@ -134,7 +134,9 @@ projects[field_group_multiple][subdir] = contrib
 projects[field_group_multiple][version] = "1.0-beta2"
 
 projects[file_entity][subdir] = contrib
-projects[file_entity][version] = "2.0-alpha2"
+projects[file_entity][download][type] = "git"
+projects[file_entity][download][branch] = "7.x-2.x"
+projects[file_entity][download][revision] = "39e9f08"
 
 projects[flag][subdir] = contrib
 projects[flag][version] = "3.3"
@@ -199,15 +201,19 @@ projects[masquerade][subdir] = contrib
 projects[masquerade][version] = "1.0-rc7"
 
 projects[media][subdir] = contrib
-projects[media][version] = "2.0-alpha2"
+projects[media][download][type] = "git"
+projects[media][download][branch] = "7.x-2.x"
+projects[media][download][revision] = "247b31f"
 
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][download][type] = git
-projects[media_youtube][download][revision] = 8afda26
+projects[media_youtube][download][revision] = "9728dfb"
 projects[media_youtube][download][branch] = 7.x-2.x
 
 projects[media_vimeo][subdir] = contrib
-projects[media_vimeo][version] = "1.0-beta5"
+projects[media_vimeo][download][type] = "git"
+projects[media_vimeo][download][revision] = "546dfa3"
+projects[media_vimeo][download][branch] = 7.x-2.x
 
 projects[memcache][subdir] = contrib
 projects[memcache][version] = "1.0"
