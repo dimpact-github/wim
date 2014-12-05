@@ -74,51 +74,59 @@
   }
 }
 
-.view-agenda-team,
+// agenda block heeft alleen een titel en datum veld
+// teasers hebben een titel en een datum veld met optioneel een afbeelding en
+// een intro
+// views met teasers
+.agenda.view-mode-teaser,
+// views met velden
 .block-views-agenda-team-block-2,
 .view-updates-display-block_1,
+// .block-views-updates-block-1 is niet nodig, want
+// .view-updates-display-block_1 wordt daarbinnen ook gebruikt, binnen homebox
+// wordt alleen .view-updates-display-block_1 gebruikt
+// voor cascading risico's staat ie hier nog
 .block-views-updates-block-1,
-.view-agenda-display-block_1,
 .view-agenda-display-block_2 {
+  .views-field-changed,
+  .field-date .date-display-single {
+    @include transition-property(background);
+    @include transition-duration(150ms);
+    @include border-radius(2px);
+    background-color: #fff;
+    border: 1px solid $background-color;
+    position: relative;
+    font-family: $heading;
+    width: 40px;
+    height: 46px;
+    // float: left;
+    font-weight: 400;
+    margin-right: 0.5em;
+    display: block;
+    z-index: 1;
+    .month, .day {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      line-height: 1;
+    }
+    .month {
+      @include font-size(12);
+      bottom: 4px;
+    }
+    .day {
+      @include font-size(20);
+      top: 3px;
+    }
+  }
   .views-row {
     overflow: hidden;
-
+    .update-info .field-intro,
     h3 {
       box-sizing: border-box;
       float: right;
       padding-left: 48px;
       width: 100%;
-    }
-    .views-field-changed,
-    .field-date .date-display-single {
-      @include transition-property(background);
-      @include transition-duration(150ms);
-      @include border-radius(2px);
-      background-color: #fff;
-      border: 1px solid $background-color;
-      position: relative;
-      font-family: $heading;
-      width: 40px;
-      height: 46px;
-      // float: left;
-      font-weight: 400;
-      margin-right: 0.5em;
-      display: block;
-      z-index: 1;
-      .month, .day {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        line-height: 1;
-      }
-      .month {
-        @include font-size(12);
-        bottom: 4px;
-      }
-      .day {
-        @include font-size(20);
-        top: 3px;
-      }
     }
     &:hover {
       .views-field-changed,
@@ -128,45 +136,47 @@
     }
   }
 }
-.view-agenda-display-block_1 .views-row {
-  min-height: 4em;
-  .field-date .date-display-single {
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
-}
-
-.view-agenda-team,
-.block-views-agenda-team-block-2,
-.view-agenda-display-block_1 {
-  .agenda {
+// Alleen agenda-items hebben het datum-blokje absoluut gepositioneerd
+// Bij updates zijn de titel en het intro naar rechts gefloat en is de volgorde
+// van de velden dus anders!
+// TODO: Geef alle velden in de views dezelfde volgorde en class, dan kan het
+// met minder css selectors en voor alle displays op dezelfde manier.
+.agenda {
+  .block-views-agenda-team-block-2 &,
+  .view-updates-display-block_1 &,
+  &.view-mode-teaser {
     position: relative;
     min-height: 4em;
     h2 {
       padding-left: 48px;
     }
+    .field-date .date-display-single {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
     .field-intro {
       display: block;
       padding-left: 48px;
     }
-  }
-  .has-image {
-    min-height: 110px;
-    h2 {
-      padding-left: 110px;
-    }
-    .field-date .date-display-single {
-      top: 10px;
-      left: 5px;
-    }
-    .field-intro {
-      padding-left: 110px;
-    }
-    .field-image {
-      position: absolute;
-      top: 0;
-      left: 0;
+    &.has-image {
+      min-height: 110px;
+      h2 {
+        padding-left: 110px;
+      }
+      .field-date .date-display-single {
+        top: 5px;
+        left: 5px;
+      }
+      .field-intro {
+        padding-left: 110px;
+      }
+      .field-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+      }
     }
   }
 }
