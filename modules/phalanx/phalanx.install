@@ -37,7 +37,7 @@ function phalanx_schema() {
 	    ),
 	    'form_data' => array(
 	      'description' => 'The new data of the form',
-	      'type' => 'text',
+	      'type' => 'blob',
 	      'size' => 'big',
 	      'not null' => FALSE,
 	    ),
@@ -45,4 +45,17 @@ function phalanx_schema() {
 	  'primary key' => array('id'),
 	);
 	return $schema;
+}
+
+/**
+ * Converts fields that store form state from text to blob.
+ */
+function phalanx_update_7101() {
+  $spec = array(
+    'description' => 'The new data of the form',
+    'type' => 'blob',
+    'size' => 'big',
+    'not null' => FALSE,
+  );
+  db_change_field('phalanx_forms', 'form_data', 'form_data', $spec);
 }
