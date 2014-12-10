@@ -1,10 +1,8 @@
 api = 2
 core = 7.x
-projects[drupal][type] = core
-projects[drupal][version] = "7.33"
-projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
-projects[drupal][patch][htaccess_directories404] = patches/htaccess_directories404.patch
-projects[drupal][patch][etag] = patches/etag.patch
+
+includes[core] = "dimpact-core.make"
+includes[develop] = "dimpact-develop.make"
 
 ; Modules
 projects[admin_menu][subdir] = contrib
@@ -52,9 +50,6 @@ projects[cs_adaptive_image][version] = "1.0"
 
 projects[date][subdir] = contrib
 projects[date][version] = "2.8"
-
-projects[devel][subdir] = contrib
-projects[devel][version] = "1.5"
 
 projects[diff][subdir] = contrib
 projects[diff][version] = "3.2"
