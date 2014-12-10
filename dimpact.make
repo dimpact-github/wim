@@ -95,6 +95,8 @@ projects[entity][version] = "1.3"
 
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = "1.1"
+projects[entityreference][patch][1836106][url] = https://www.drupal.org/files/issues/entityreference-1836106-20.patch
+projects[entityreference][patch][1836106][md5] = 544a81884a4590a11353ce659e1ebaa5
 
 projects[expire][subdir] = contrib
 projects[expire][version] = "2.0-rc2"
