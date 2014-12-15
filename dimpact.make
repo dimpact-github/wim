@@ -284,7 +284,7 @@ projects[site_map][subdir] = contrib
 projects[site_map][version] = "1.2"
 
 projects[scheduler][subdir] = contrib
-projects[scheduler][version] = "1.2"
+projects[scheduler][version] = "1.3"
 
 projects[service_links][subdir] = contrib
 projects[service_links][version] = "2.2"
