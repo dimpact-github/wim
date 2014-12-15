@@ -255,7 +255,7 @@ projects[pathologic][subdir] = contrib
 projects[pathologic][version] = "2.12"
 
 projects[piwik][subdir] = contrib
-projects[piwik][version] = "2.4"
+projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
