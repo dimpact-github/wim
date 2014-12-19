@@ -79,6 +79,8 @@ projects[dominion][subdir] = contrib
 projects[dominion][download][type] = "git"
 projects[dominion][download][branch] = "7.x-1.x"
 projects[dominion][download][revision] = 628f4cb
+projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][url] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
+projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][md5] = "cfdfa699864b040d58c5141162d570ca"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib
@@ -255,7 +257,7 @@ projects[pathologic][subdir] = contrib
 projects[pathologic][version] = "2.12"
 
 projects[piwik][subdir] = contrib
-projects[piwik][version] = "2.4"
+projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
@@ -284,7 +286,7 @@ projects[site_map][subdir] = contrib
 projects[site_map][version] = "1.2"
 
 projects[scheduler][subdir] = contrib
-projects[scheduler][version] = "1.2"
+projects[scheduler][version] = "1.3"
 
 projects[service_links][subdir] = contrib
 projects[service_links][version] = "2.2"

@@ -1,7 +1,7 @@
 name = Dimpact Rechten en Rollen
 core = 7.x
 package = Features
-version = 7.x-1.0-20141204
+version = 7.x-1.0-20141215
 project = dimpact_rechten_en_rollen
 dependencies[] = admin_menu
 dependencies[] = apachesolr_exclude_node
@@ -517,6 +517,7 @@ features[user_permission][] = view own private files
 features[user_permission][] = view own unpublished content
 features[user_permission][] = view private files
 features[user_permission][] = view revisions
+features[user_permission][] = view scheduled content
 features[user_permission][] = view the administration theme
 features[user_permission][] = view unpublished domain content
 features[user_permission][] = view user location details

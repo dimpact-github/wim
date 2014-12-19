@@ -4254,6 +4254,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'view scheduled content'.
+  $permissions['view scheduled content'] = array(
+    'name' => 'view scheduled content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'scheduler',
+  );
+
   // Exported permission: 'view the administration theme'.
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
