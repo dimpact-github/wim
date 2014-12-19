@@ -2849,6 +2849,15 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Pad */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
@@ -2878,17 +2887,10 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
-  /* Veld: Inhoud: Titel */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
@@ -2907,6 +2909,13 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['settings'] = array(
     'trim_length' => '150',
   );
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time>[created]</time> &mdash; [field_intro]</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Nieuws lijstblok + afbeelding';
   $translatables['nieuws'] = array(
     t('Master'),
