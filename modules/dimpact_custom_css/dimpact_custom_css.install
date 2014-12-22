@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dimpact_custom_css module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function dimpact_custom_css_install() {
+  // Create CUSTOM_CSS_PATH directory.
+  file_prepare_directory(CUSTOM_CSS_PATH, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function dimpact_custom_css_uninstall() {
+  // Make CUSTOM_CSS_PATH available.
+  drupal_load('module', 'dimpact_custom_css');
+
+  // Remove the CUSTOM_CSS_PATH directory and uploaded custom CSS.
+  file_unmanaged_delete_recursive(CUSTOM_CSS_PATH);
+}
