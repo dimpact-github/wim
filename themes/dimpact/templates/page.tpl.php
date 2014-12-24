@@ -56,7 +56,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
   <header role="banner" id="header">
 
     <div class="container">
-      <hgroup class="branding">
+      <div class="branding">
         <?php if ($site_name): ?>
           <h1 class="site-name">
             <?php if ($logo): ?>
@@ -70,7 +70,7 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
         <?php /* if ($site_slogan): ?>
           <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; */ ?>
-      </hgroup>
+      </div>
       <?php print $header; ?>
     </div>
 
