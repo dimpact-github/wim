@@ -2879,7 +2879,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'title';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'teaser',
+    'file_view_mode' => 'preview',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Datum van inzending */
