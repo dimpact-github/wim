@@ -1,7 +1,7 @@
 name = Dimpact Views
 core = 7.x
 package = Features
-version = 7.x-1.5-20141224
+version = 7.x-1.6-20141224
 project = dimpact_views
 dependencies[] = entity
 dependencies[] = faq
@@ -35,4 +35,4 @@ features[views_view][] = veelgestelde_vragen
 features[views_view][] = voorpagina_banners
 features[views_view][] = weblog
 features_exclude[dependencies][ctools] = ctools
-mtime = 1419408812
+mtime = 1419419396

@@ -2801,6 +2801,15 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
+  $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
@@ -2824,7 +2833,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time>[created]</time> &mdash; [field_intro]</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Nieuws lijstblok';
 
@@ -2891,6 +2900,16 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
+  $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
@@ -2914,7 +2933,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time>[created]</time> &mdash; [field_intro]</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Nieuws lijstblok + afbeelding';
   $translatables['nieuws'] = array(
@@ -2938,7 +2957,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('List block'),
     t('<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>'),
     t('[created] &mdash; [field_intro]'),
-    t('<div><time>[created]</time> &mdash; [field_intro]</div>'),
+    t('<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>'),
     t('Nieuws lijstblok'),
     t('List block image'),
     t('Nieuws lijstblok + afbeelding'),
