@@ -68,6 +68,8 @@ function dimpact_html_head_alter(&$head_elements) {
       'http-equiv' => 'cleartype',
       'content' => 'on',
     ),
+    '#prefix' => '<!--[if IE]>',
+    '#suffix' => '<![endif]-->',
   );
 
   // Apple Touch Icons. See: http://mathiasbynens.be/notes/touch-icons
