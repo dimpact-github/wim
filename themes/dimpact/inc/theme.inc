@@ -46,9 +46,9 @@ function dimpact_menu_link__menu_toptaken($variables) {
   }
 
   if (isset($element['#localized_options']['content']) && ($file = file_load($element['#localized_options']['content']['image']))) {
-    $image = '<span><img src="' . image_style_url('origineel', $file->uri). '" alt="' . $file->alt . '" title="' . $file->title . '"></span>';
+    $image = '<span><img src="' . image_style_url('origineel', $file->uri). '" alt="' . check_plain($file->alt) . '" title="' . check_plain($file->title) . '"></span>';
     $element['#localized_options']['html'] = TRUE;
-    $output = l($image . $element['#title'], $element['#href'], $element['#localized_options']);
+    $output = l($image . check_plain($element['#title']), $element['#href'], $element['#localized_options']);
   }
   else {
     $output = l($element['#title'], $element['#href'], $element['#localized_options']);
