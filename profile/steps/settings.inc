@@ -20,7 +20,7 @@ function install_step_settings() {
   if (empty($values['domain'])) {
     $errors[] = 'Vul een domeinnaam in.';
   }
-  elseif (!preg_match('/^[a-z0-9\\-]+$/', $values['domain'])) {
+  elseif (!preg_match('/^[.a-z0-9\\-]+$/', $values['domain'])) {
     $errors[] = 'Ongeldige domeinnaam. Alleen alfanumerieke tekens en afbreekstreepjes zijn toegestaan.';
   }
   if (empty($values['password'])) {
