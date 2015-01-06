@@ -12,4 +12,3 @@ define('DRUPAL_ROOT', getcwd());
 
 require_once DRUPAL_ROOT . '/profiles/dimpact/install.inc';
 install_dimpact();
-
