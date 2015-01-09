@@ -46,7 +46,13 @@ if (preg_match('|block-node-([0-9]+)|', $block_html_id, $matches)) {
   if ($node = node_load($matches[1])) {
     if ($node->type == 'editorial' && $field = field_get_items('node', $node, 'field_foto')) {
       $file_path = image_style_url('pictogram', $field[0]['uri']);
-      $icon = '<img src="' . $file_path . '" class="pictogram">';
+
+      $field_file_alt = $field[0]['field_file_image_alt_text']['und'][0]['safe_value'];
+      $file_alt = isset($field_file_alt) ? $field_file_alt : "Pictogram";
+      $field_file_title = $field[0]['field_file_image_title_text']['und'][0]['safe_value'];
+      $file_title_att = isset($field_file_title) ? ' title="' . $field_file_title . '"' : "";
+
+      $icon = '<img src="' . $file_path . '" class="pictogram" alt="' . $file_alt . '"' . $file_title_att . '>';
     }
   }
 }
