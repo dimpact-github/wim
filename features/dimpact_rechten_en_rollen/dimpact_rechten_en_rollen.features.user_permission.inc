@@ -100,6 +100,18 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'domain',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: 'access overlay'.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
@@ -3228,15 +3240,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'features',
   );
 
-  // Exported permission: 'import media'.
-  $permissions['import media'] = array(
-    'name' => 'import media',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'media',
-  );
-
   // Exported permission: 'import rss_nos feeds'.
   $permissions['import rss_nos feeds'] = array(
     'name' => 'import rss_nos feeds',
@@ -4249,6 +4252,15 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'teamlid' => 'teamlid',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view scheduled content'.
+  $permissions['view scheduled content'] = array(
+    'name' => 'view scheduled content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'scheduler',
   );
 
   // Exported permission: 'view the administration theme'.

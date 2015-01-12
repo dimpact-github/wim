@@ -1,10 +1,8 @@
 api = 2
 core = 7.x
-projects[drupal][type] = core
-projects[drupal][version] = "7.33"
-projects[drupal][patch][htaccess_iecompat] = patches/htaccess_iecompat.patch
-projects[drupal][patch][htaccess_directories404] = patches/htaccess_directories404.patch
-projects[drupal][patch][etag] = patches/etag.patch
+
+includes[core] = "dimpact-core.make"
+includes[develop] = "dimpact-develop.make"
 
 ; Modules
 projects[admin_menu][subdir] = contrib
@@ -45,16 +43,13 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.4"
+projects[ctools][version] = "1.5"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
 
 projects[date][subdir] = contrib
 projects[date][version] = "2.8"
-
-projects[devel][subdir] = contrib
-projects[devel][version] = "1.5"
 
 projects[diff][subdir] = contrib
 projects[diff][version] = "3.2"
@@ -138,7 +133,9 @@ projects[field_group_multiple][subdir] = contrib
 projects[field_group_multiple][version] = "1.0-beta2"
 
 projects[file_entity][subdir] = contrib
-projects[file_entity][version] = "2.0-alpha2"
+projects[file_entity][download][type] = "git"
+projects[file_entity][download][branch] = "7.x-2.x"
+projects[file_entity][download][revision] = "39e9f08"
 
 projects[flag][subdir] = contrib
 projects[flag][version] = "3.3"
@@ -155,6 +152,8 @@ projects[google_analytics][version] = "1.4"
 
 projects[hansel][subdir] = contrib
 projects[hansel][version] = "1.4"
+projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/hansel-broken-token-generation-2399645-1.patch"
+projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][subdir] = contrib
 projects[homebox][version] = "2.0-beta7"
@@ -203,15 +202,19 @@ projects[masquerade][subdir] = contrib
 projects[masquerade][version] = "1.0-rc7"
 
 projects[media][subdir] = contrib
-projects[media][version] = "2.0-alpha2"
+projects[media][download][type] = "git"
+projects[media][download][branch] = "7.x-2.x"
+projects[media][download][revision] = "247b31f"
 
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][download][type] = git
-projects[media_youtube][download][revision] = 8afda26
+projects[media_youtube][download][revision] = "9728dfb"
 projects[media_youtube][download][branch] = 7.x-2.x
 
 projects[media_vimeo][subdir] = contrib
-projects[media_vimeo][version] = "1.0-beta5"
+projects[media_vimeo][download][type] = "git"
+projects[media_vimeo][download][revision] = "546dfa3"
+projects[media_vimeo][download][branch] = 7.x-2.x
 
 projects[memcache][subdir] = contrib
 projects[memcache][version] = "1.0"
@@ -254,7 +257,7 @@ projects[pathologic][subdir] = contrib
 projects[pathologic][version] = "2.12"
 
 projects[piwik][subdir] = contrib
-projects[piwik][version] = "2.4"
+projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
@@ -283,7 +286,7 @@ projects[site_map][subdir] = contrib
 projects[site_map][version] = "1.2"
 
 projects[scheduler][subdir] = contrib
-projects[scheduler][version] = "1.2"
+projects[scheduler][version] = "1.3"
 
 projects[service_links][subdir] = contrib
 projects[service_links][version] = "2.2"
@@ -335,7 +338,9 @@ projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][version] = "1.3"
 
 projects[wysiwyg][subdir] = contrib
-projects[wysiwyg][version] = "2.2"
+projects[wysiwyg][download][type] = git
+projects[wysiwyg][download][branch] = "7.x-2.x"
+projects[wysiwyg][download][revision] = "898d022"
 
 projects[xmlsitemap][subdir] = contrib
 projects[xmlsitemap][version] = "2.0"
@@ -350,7 +355,7 @@ libraries[starterskit][download][url] = "https://github.com/studiodumbar/starter
 
 ; CKEditor 3.6.2
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.3/ckeditor_3.6.3.tar.gz
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"

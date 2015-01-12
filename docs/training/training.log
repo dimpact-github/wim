@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.3)  23 SEP 2014 14:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.3)  3 DEC 2014 16:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1609,6 +1609,12 @@ File: img/dop/koptekstlogo.png Graphic file (type png)
 Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 253.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [5 <./img/file_chooser.png (PNG copy)>]
+Overfull \hbox (18.80347pt too wide) in paragraph at lines 257--258
+\T1/fosj/m/n/12 niet op de web-site ge-pu-bli-ceerd (let er op dat deze wel zic
+ht-baar is voor (eind)redacteuren
+ []
+
+
 Overfull \hbox (14.0652pt too wide) in paragraph at lines 261--262
 []\T1/fosj/m/n/12 U ziet nu een lijst met het zo-juist aan-ge-maakte nieuws-ite
 m. Zie on-der-staand screenshot
@@ -1658,88 +1664,93 @@ k.png, id=156, 262.9825pt x 252.945pt>
 File: img/add_block.png Graphic file (type png)
 
 <use img/add_block.png>
-Package pdftex.def Info: img/add_block.png used on input line 309.
+Package pdftex.def Info: img/add_block.png used on input line 308.
 (pdftex.def)             Requested size: 157.7907pt x 151.76816pt.
 
 <img/felix_properties.png, id=157, 362.35374pt x 110.4125pt>
 File: img/felix_properties.png Graphic file (type png)
 
 <use img/felix_properties.png>
-Package pdftex.def Info: img/felix_properties.png used on input line 317.
+Package pdftex.def Info: img/felix_properties.png used on input line 316.
 (pdftex.def)             Requested size: 217.41393pt x 66.248pt.
 
 <img/editorial.png, id=158, 844.15375pt x 105.39375pt>
 File: img/editorial.png Graphic file (type png)
  <use img/editorial.png>
-Package pdftex.def Info: img/editorial.png used on input line 324.
+Package pdftex.def Info: img/editorial.png used on input line 323.
 (pdftex.def)             Requested size: 422.07584pt x 52.69673pt.
 File: img/dop/koptekstlogo.png Graphic file (type png)
 
 <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 325.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 324.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [8 <./img/add_block.png (PNG copy)> <./img/felix_properties.png (PNG copy)>]
 File: img/dop/koptekstlogo.png Graphic file (type png)
  <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 330.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 329.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
- [9 <./img/editorial.png (PNG copy)>] <img/menus.png, id=184, 1158.3275pt x 608
+ [9 <./img/editorial.png (PNG copy)>] <img/menus.png, id=183, 1158.3275pt x 608
 .2725pt>
 File: img/menus.png Graphic file (type png)
 
 <use img/menus.png>
-Package pdftex.def Info: img/menus.png used on input line 336.
+Package pdftex.def Info: img/menus.png used on input line 335.
 (pdftex.def)             Requested size: 463.3228pt x 243.30469pt.
 
-Overfull \hbox (10.3549pt too wide) in paragraph at lines 336--337
+Overfull \hbox (10.3549pt too wide) in paragraph at lines 335--336
  [] 
  []
 
-<img/menu_show_links.png, id=185, 694.595pt x 137.51375pt>
+<img/menu_show_links.png, id=184, 694.595pt x 137.51375pt>
 File: img/menu_show_links.png Graphic file (type png)
 
 <use img/menu_show_links.png>
-Package pdftex.def Info: img/menu_show_links.png used on input line 342.
+Package pdftex.def Info: img/menu_show_links.png used on input line 341.
 (pdftex.def)             Requested size: 416.76022pt x 82.50888pt.
 File: img/dop/koptekstlogo.png Graphic file (type png)
  <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 352.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 351.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [10 <./img/menus.png (PNG copy)> <./img/menu_show_links.png (PNG copy)>]
-<img/added_menu_item.png, id=192, 463.7325pt x 122.4575pt>
+<img/added_menu_item.png, id=191, 463.7325pt x 122.4575pt>
 File: img/added_menu_item.png Graphic file (type png)
 
 <use img/added_menu_item.png>
-Package pdftex.def Info: img/added_menu_item.png used on input line 362.
+Package pdftex.def Info: img/added_menu_item.png used on input line 361.
 (pdftex.def)             Requested size: 278.24164pt x 73.47505pt.
 
-<img/frontpage_nodequeues.png, id=193, 1121.18875pt x 619.31375pt>
+<img/frontpage_nodequeues.png, id=192, 1121.18875pt x 619.31375pt>
 File: img/frontpage_nodequeues.png Graphic file (type png)
 
 <use img/frontpage_nodequeues.png>
-Package pdftex.def Info: img/frontpage_nodequeues.png used on input line 376.
+Package pdftex.def Info: img/frontpage_nodequeues.png used on input line 375.
 (pdftex.def)             Requested size: 448.46756pt x 247.72112pt.
 File: img/dop/koptekstlogo.png Graphic file (type png)
  <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 377.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 376.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [11 <./img/added_menu_item.png (PNG copy)>]
+Overfull \hbox (19.02376pt too wide) in paragraph at lines 387--388
+\T1/fosj/m/n/12 ge-deelte van het we-bad-res (url), bij-voor-beeld "herbestrati
+ng-van-dorpsstraat-begonnen". 
+ []
+
 File: img/dop/koptekstlogo.png Graphic file (type png)
- <use img/dop/koptekstlogo.png>
+<use img/dop/koptekstlogo.png>
 Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 393.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
- [12 <./img/frontpage_nodequeues.png (PNG copy)>]
-<img/carrousel.png, id=223, 361.35pt x 304.13625pt>
+ [12 <./img/frontpage_nodequeues.png (PNG copy)>] <img/carrousel.png, id=222, 3
+61.35pt x 304.13625pt>
 File: img/carrousel.png Graphic file (type png)
  <use img/carrousel.png>
-Package pdftex.def Info: img/carrousel.png used on input line 403.
+Package pdftex.def Info: img/carrousel.png used on input line 402.
 (pdftex.def)             Requested size: 144.53743pt x 121.65233pt.
 
-<img/taxonomy_tags.png, id=224, 1128.215pt x 63.23625pt>
+<img/taxonomy_tags.png, id=223, 1128.215pt x 63.23625pt>
 File: img/taxonomy_tags.png Graphic file (type png)
 
 <use img/taxonomy_tags.png>
-Package pdftex.def Info: img/taxonomy_tags.png used on input line 410.
+Package pdftex.def Info: img/taxonomy_tags.png used on input line 409.
 (pdftex.def)             Requested size: 451.278pt x 25.29404pt.
 File: img/dop/koptekstlogo.png Graphic file (type png)
  <use img/dop/koptekstlogo.png>
@@ -1749,42 +1760,42 @@ Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 418.
 <img/list_term.png, id=238, 983.675pt x 109.40875pt>
 File: img/list_term.png Graphic file (type png)
  <use img/list_term.png>
-Package pdftex.def Info: img/list_term.png used on input line 423.
+Package pdftex.def Info: img/list_term.png used on input line 422.
 (pdftex.def)             Requested size: 393.46303pt x 43.76271pt.
 
 <img/custom_list.png, id=239, 425.59pt x 186.6975pt>
 File: img/custom_list.png Graphic file (type png)
  <use img/custom_list.png>
-Package pdftex.def Info: img/custom_list.png used on input line 435.
+Package pdftex.def Info: img/custom_list.png used on input line 434.
 (pdftex.def)             Requested size: 170.23297pt x 74.67767pt.
 File: img/dop/koptekstlogo.png Graphic file (type png)
 
 <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 444.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 443.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [14 <./img/list_term.png (PNG copy)> <./img/custom_list.png (PNG copy)>] 
 AED: lastpage setting LastPage
 File: img/dop/koptekstlogo.png Graphic file (type png)
 <use img/dop/koptekstlogo.png>
-Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 452.
+Package pdftex.def Info: img/dop/koptekstlogo.png used on input line 451.
 (pdftex.def)             Requested size: 77.68115pt x 49.06177pt.
  [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 452.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 452.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 451.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 451.
  (./training.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 452.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 452.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 451.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 451.
 Package rerunfilecheck Info: File `training.out' has not changed.
 (rerunfilecheck)             Checksum: 659C434E1FCE4EEFD7645D2DC17F9873;919.
  ) 
 Here is how much of TeX's memory you used:
- 31384 strings out of 493117
- 595267 string characters out of 6135434
+ 31383 strings out of 493117
+ 595260 string characters out of 6135434
  688513 words of memory out of 5000000
  34103 multiletter control sequences out of 15000+600000
  67925 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,67p,10414b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,67p,10414b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/opensans/opensans-03.enc}
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/opensans/opensans-01.enc}{/
 usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/opensans/opensans-04.enc}</us
@@ -1792,10 +1803,10 @@ r/local/texlive/2014/texmf-dist/fonts/type1/public/opensans/OpenSans-Bold.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/opensans/OpenSans-Italic.
 pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/opensans/OpenSans-Re
 gular.pfb>
-Output written on training.pdf (15 pages, 2164671 bytes).
+Output written on training.pdf (15 pages, 2164540 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 105 named destinations out of 1000 (max. 500000)
  230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -144,6 +144,14 @@ function dominion_apachesolr_dominion_insert($domain_id, $form_values = array())
       $query->execute();
     }
   }
+
+  if (module_exists('apachesolr_user')) {
+    if (!empty($form_values['dominion_apachesolr_include_users'])) {
+      $domains = variable_get('dominion_apachesolr_user_domains', array());
+      $domains[] = $domain_id;
+      variable_set('dominion_apachesolr_user_domains', $domains);
+    }
+  }
 }
 
 /**
@@ -161,6 +169,11 @@ function dominion_apachesolr_dominion_delete($subsite) {
   db_delete('dominion_search_domain')
     ->condition('domain_id', $subsite->domain_id, '=')
     ->execute();
+  if (module_exists('apachesolr_user')) {
+    $domains = variable_get('dominion_apachesolr_user_domains', array());
+    $domains = array_diff($domains, array($subsite->domain_id));
+    variable_set('dominion_apachesolr_user_domains', $domains);
+  }
 }
 
 /**
@@ -219,6 +232,15 @@ function dominion_apachesolr_form_dominion_form_alter(&$form, &$form_state) {
     '#options' => $options,
     '#description' => t('Include these additional domains in the search results. The current domain is always included and thus not listed in this setting.'),
   );
+
+  if (module_exists('apachesolr_user')) {
+    $domain_id = isset($form['#domain_id']) ? $form['#domain_id'] : -1;
+    $form['dominion_apachesolr']['dominion_apachesolr_include_users'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Include users in the search result'),
+      '#default_value' => in_array($domain_id, variable_get('dominion_apachesolr_user_domains', array())),
+    );
+  }
 }
 
 /**

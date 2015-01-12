@@ -1,0 +1,274 @@
+% latex packages to load.
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+%\geometry{landscape}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{varwidth}
+\usepackage{wallpaper}
+\usepackage{lastpage}
+\usepackage{titling}
+%\usepackage{multind}
+\usepackage[dutch]{babel}
+\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+
+\usepackage[default,osfigures,scale=0.90]{opensans} %% Alternatively
+%% use the option 'defaultsans' instead of 'default' to replace the
+%% sans serif font only.
+\usepackage[T1]{fontenc}
+
+%tikz images, unquote to use block, color block, autograph block, cloud, line and line node
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\tikzstyle{block} = [rectangle, draw, text width = 6em, text centered, rounded corners, minimum height = 4em]
+\tikzstyle{colorblock} = [rectangle, draw, fill = blue!20, text width = 6em, text centered, rounded corners, minimum height = 4em]
+%\tikzstyle{inputblock} = [rectangle, draw, text width = 24em, minimum height = 2.5em]
+%\tikzstyle{autographblock} = [rectangle, draw, fill = black!1, text height = 0, text depth = 2cm, text width = 24em, minimum height = 8em]
+\tikzstyle{cloud} = [ellipse, draw, minimum height = 4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line node} = [draw, fill = white]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text badly centered]
+
+\usepackage[official]{eurosym}
+
+\newcommand{\usemodule}[1]{\index{modules}{#1}\texttt{#1}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{tableheader}{rgb}{0.7,0.7,0.7}
+
+\setlist[description]{style=nextline}
+\renewcommand{\familydefault}{\sfdefault}
+
+% link setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% usefull commands:
+\newcommand{\seeref}[1]{\ref{#1} p.\pageref{#1}}
+%\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+% style for code blocks
+\lstset{
+    linewidth=1\textwidth,
+    breaklines=true,
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+    numbersep=5pt, 
+    basicstyle=\footnotesize,
+}
+
+% Header and Footer settings
+\URCornerWallPaper{0.13}{img/dop/koptekstlogo.png}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\fancyfoot[L]{Release notes}
+\fancyfoot[C]{  }
+\fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage} \linebreak \linebreak \_\_\_\_\_\_\_ }
+
+% Settings for table of contents.	
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+
+\makeatletter
+% some extra spacing for the table of contents
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{3em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{2}{2.7em}{4em}}
+
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Define variables
+\newcommand{\customer}{Dimpact release 1.6}
+\newcommand{\projectname}{Release notes}
+\newcommand{\customerdomain}{Het klantdomein}
+\newcommand{\authors}{E Lawende}
+
+
+% Voorblad of the document
+\ThisLRCornerWallPaper{0.8}{img/dop/voorbladlogo.png}
+
+\title{\textbf{\customer} \\ \projectname}
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\par\end{flushleft}}
+
+
+\author{}  % skippen we voor maketitle
+\date{}
+
+% The actual Document:
+\begin{document}
+\maketitle
+\vspace{-2.6cm}
+\begin{flushright}
+\begin{tabularx}{4.8cm}{ X }
+Dutch Open Projects			\\
+Doornseweg 12					\\	
+3832 RL Leusden					\\
+T: +31[0]33 - 4 50 50 50		\\
+F: +31[0]33 - 4 50 50 57		
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\footnotesize
+\copyright All rights reserved.\\*
+\footnotesize
+No part of the contents of this publication may be reproduced, stored in a data processing system or transmitted in any form or by any means without the written permission of Dutch Open Projects B.V.
+\end{tabularx}
+\end{flushright}
+  
+ \null
+ \vfill    
+  \begin{tabularx}{\linewidth}{ p{4cm} X }
+    Plaats & Leusden								\\
+    Laatst bijgewerkt & \ddmmyyyydate \today		\\
+    Auteurs & \authors							\\
+    Versie & definitief							\\
+  \end{tabularx}
+\pagebreak
+
+
+% table of contents
+
+\clearpage
+
+%\renewcommand*\contentsname{Inhoudsopgave}
+%\tableofcontents
+%\pagebreak
+
+\section{Wijzigingen}
+\subsection{Functionele wijzigingen}
+Onderstaande tabel geeft aan op welke punten het moedersjabloon functioneel is gewijzigd. Gebruikers van het systeem moeten er rekening mee houden dat het product op deze punten anders werkt dan voorheen.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	254 & Veld in afbeelding toevoegen aan product \\ \hline
+	255 & Updaten slimme lijsten module voor agenda items
+		op basis van aanpassing voor zwolle \\ \hline
+	61 & Aanpassing xml feed \\ \hline
+	244 & Bijwerken Custom lists module op basis van
+		aanpassingen Zwolle \\ \hline
+	207 & Rework Custom lists module (lijsten) \\ \hline
+	353 & Icoon bij Toptaak kan niet worden opgeslagen \\ \hline
+\end{tabular}
+
+\subsection{Opgeloste problemen}
+Onderstaande tabel geeft aan welke problemen (\emph{bugs}) er binnen de geleverde versie zijn opgelost.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	321 & Content wordt naar alle domeinen gepubliceerd \\ \hline
+	183 & "Maak beschikbaar voor alle subsites"\, issues
+		voor intranetten \\ \hline
+	294 & changing theme colors in admin \\ \hline
+	282 & Toptaken niet aanklikbaar op iPhone en iPad \\ \hline
+	279 & Intranet. Afbeeldingen worden niet meer
+		getoond na upload. Upload gaat wel goed \\ \hline
+	247 & Inhoudstype ``Standaard pagina'' opnemen
+		in ``Menu Link'' LinkIt profile \\ \hline
+	206 & Kleuren aanpassen heeft als gevolg geen
+		stylesheet meer.... \\ \hline
+	342 & wijzigingen Waterland vrijdag 29/08/2014 naar Dimpact \\ \hline
+	335 & CMS Drupal website. Rechterkolom blokken
+		zijn verdwenen div. pagina's \\ \hline
+	330 & Stylesheet wordt niet toegepast \\ \hline
+	287 & Layout instellingen niet correct \\ \hline
+	285 & verwijzing linkerkolom gaat fout \\ \hline
+	275 & Highlight van navigatie niet goed \\ \hline
+	264 & Slimme lijsten performance issue \\ \hline
+	256 & Werking toptakenmenu niet helemaal Ok \\ \hline
+	248 & Youtube filmpjes in body (wysiwyg) worden niet getoond \\ \hline
+	175 & Waar Solr op moet zoeken bij zoekopdrachten \\ \hline
+	143 & Rechten nalopen admin rol \\ \hline
+	354 & Koppeling GVOP/CVDR tekst wordt niet getoond \\ \hline
+\end{tabular}
+
+\subsection{Overige wijzigingen}
+
+Onderstaande wijzigingen zijn doorgevoerd ten behoeve van webrichtlijnen. Een aantal van deze wijzigingen heeft een beperkte functionele impact.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	213 & Succescriterium 1.3.2: Betekenisvolle volgorde (Niveau A) \\ \hline
+	223 & Succescriterium 2.4.7: Focus zichtbaar (Niveau AA) \\ \hline
+	218 & Succescriterium 2.2.1: Timing aanpasbaar (Niveau A) \\ \hline 
+	219 & Succescriterium 2.2.2: Pauzeren, stoppen, verbergen
+		(Niveau A) \\ \hline 
+	227 & U.1.3: Kopregelhi"erarchie (Niveau A) \\ \hline
+	229 & U.5.1: Ondersteuning bij formulieren (Niveau A) \\ \hline
+	228 & U.2.1: Scheiding van content en presentatie (Niveau A) \\ \hline
+	222 & Succescriterium 2.4.4: Linkdoel (in context) (Niveau A) \\ \hline
+	215 & Succescriterium 1.4.3: Contrast (minimum) (Niveau AA) \\ \hline
+	221 & Succescriterium 2.4.3: Focus volgorde (Niveau A) \\ \hline
+	226 & Succescriterium 4.1.2: Naam, rol, waarde (Niveau A) \\ \hline
+	211 & Succescriterium 1.1.1: Niet-tekstuele content (niveau A) \\ \hline
+	220 & Succescriterium 2.4.1: Blokken omzeilen (Niveau A) \\ \hline
+	212 & Succescriterium 1.3.1: Info en relaties (Niveau A) \\ \hline
+	214 & Succescriterium 1.4.1: Gebruik van kleur (Niveau A) \\ \hline
+\end{tabular}
+
+Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de Dimpact-websites, en hebben geen invloed op eindgebruikers.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	296 & Phalanx Module opnemen in 1.06 \\ \hline
+	152 & Dominion piwik instelling config per subsite \\ \hline
+	257 & Toevoegen standaard gebruiker voor servicedesk \\ \hline
+\end{tabular}
+
+\section{Testresultaten}
+De geleverde versie bevat geen \emph{known issues}.
+
+\end{document}
