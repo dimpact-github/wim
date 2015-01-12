@@ -23,7 +23,7 @@ function install_step_server_version() {
 function install_step_server_memory() {
   $limit = ini_get('memory_limit');
   if (preg_match('/^([0-9]+)M$/si', $limit, $match)) {
-    return intval($match[1]) > 128;
+    return intval($match[1]) >= 128;
   }
   else {
     // Unsure, but continue;

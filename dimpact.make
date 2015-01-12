@@ -154,6 +154,8 @@ projects[google_analytics][version] = "1.4"
 
 projects[hansel][subdir] = contrib
 projects[hansel][version] = "1.4"
+projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/hansel-broken-token-generation-2399645-1.patch"
+projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][subdir] = contrib
 projects[homebox][version] = "2.0-beta7"

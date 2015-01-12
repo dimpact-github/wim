@@ -192,6 +192,29 @@ function dimpact_felix_felix_default_block_sets() {
         'nodetype' => 'webform',
       ),
     ),
+    'viewmodes' => array(
+      0 => array(
+        'viewmode' => 'full',
+      ),
+      1 => array(
+        'viewmode' => 'slide_312',
+      ),
+      2 => array(
+        'viewmode' => 'slide_412',
+      ),
+      3 => array(
+        'viewmode' => 'slide_812',
+      ),
+      4 => array(
+        'viewmode' => 'slide_912',
+      ),
+      5 => array(
+        'viewmode' => 'teaser',
+      ),
+      6 => array(
+        'viewmode' => 'volle_breedte',
+      ),
+    ),
   );
   $sets['footer-blokken'] = array(
     'name' => 'footer-blokken',
@@ -205,6 +228,29 @@ function dimpact_felix_felix_default_block_sets() {
     'nodetypes' => array(
       0 => array(
         'nodetype' => 'editorial',
+      ),
+    ),
+    'viewmodes' => array(
+      0 => array(
+        'viewmode' => 'full',
+      ),
+      1 => array(
+        'viewmode' => 'slide_312',
+      ),
+      2 => array(
+        'viewmode' => 'slide_412',
+      ),
+      3 => array(
+        'viewmode' => 'slide_812',
+      ),
+      4 => array(
+        'viewmode' => 'slide_912',
+      ),
+      5 => array(
+        'viewmode' => 'teaser',
+      ),
+      6 => array(
+        'viewmode' => 'volle_breedte',
       ),
     ),
   );
