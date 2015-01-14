@@ -140,7 +140,7 @@ projects[file_entity][download][branch] = "7.x-2.x"
 projects[file_entity][download][revision] = "39e9f08"
 
 projects[flag][subdir] = contrib
-projects[flag][version] = "3.3"
+projects[flag][version] = "3.5"
 
 projects[galleryformatter][subdir] = contrib
 projects[galleryformatter][version] = "1.3"
