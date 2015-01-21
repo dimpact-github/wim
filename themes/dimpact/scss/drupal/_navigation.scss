@@ -217,11 +217,11 @@ body.front {
 .breadcrumbs {
   @include font-size(11);
   margin: $gutter-width/2 $gutter-width 0 $gutter-width*1.5;
-  color: lighten($gray, 30%);
+  color: darken($gray, 7%);
   float: left;
   .active,
   a {
-    color: $gray !important;
+    color: darken($gray, 7%) !important;
   }
 }
 .main {
