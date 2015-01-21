@@ -194,13 +194,17 @@ $readspeaker_id         = variable_get('bespoke_readspeaker_id', 0);
           <?php // print $feed_icons; ?>
         </div>
 
-        <div class="region_363_first">
-          <?php print $region_363_first; ?>
-        </div>
+        <?php if ($region_363_first): ?>
+          <div class="region_363_first">
+            <?php print $region_363_first; ?>
+          </div>
+        <?php endif; ?>
 
-        <div class="region_363_third">
-          <?php print $region_363_third; ?>
-        </div>
+        <?php if ($region_363_third): ?>
+          <div class="region_363_third">
+            <?php print $region_363_third; ?>
+          </div>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
 
