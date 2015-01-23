@@ -20,6 +20,7 @@ function install_render_template($file, $params = array()) {
 
 function install_steps() {
   return array(
+    'prereq' => 'Prerequisites installeren',
     'settingsfile' => 'Settings.php controleren',
     'server' => 'Server controleren',
     'settings' => 'Opties instellen',
