@@ -24,9 +24,9 @@ function install_step_config_set_variable($name, $value) {
 }
 
 function install_step_config_set_domain($domain, $name) {
-  mysql_query('UPDATE variable SET value = "s:40:\"http://piwik.'. addslashes($domain) .'\";" WHERE name = "piwik_url_http";');
+  $domain_length = strlen($domain) + 13;
+  mysql_query('UPDATE variable SET value = "s:' . $domain_length . ':\"http://piwik.'. addslashes($domain) .'\";" WHERE name = "piwik_url_http";');
   mysql_query('INSERT INTO apachesolr_environment (env_id, name, url) VALUES ("solr", "solr", "http://localhost:8080/solr/dimpact")');
-  
   mysql_query('UPDATE domain SET subdomain = REPLACE(subdomain, \'.distributie.dimpact.dop.nu\', \'.' . addslashes($domain) . '\');');
   mysql_query('UPDATE domain SET subdomain = REPLACE(subdomain, \'distributie.dimpact.dop.nu\', \'' . addslashes($domain) . '\');');
   mysql_query('UPDATE domain SET sitename = REPLACE(sitename, \'Dimpact\', \'' . addslashes($name) . '\');');
