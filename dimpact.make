@@ -205,6 +205,8 @@ projects[media][subdir] = contrib
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
 projects[media][download][revision] = "247b31f"
+projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
+projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][download][type] = git
