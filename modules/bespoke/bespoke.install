@@ -97,3 +97,19 @@ function bespoke_update_7108() {
   $success = _locale_import_po($file, 'nl', LOCALE_IMPORT_OVERWRITE, 'default');
   return $succes;
 }
+
+/**
+ * Uninstall overlay module.
+ */
+function bespoke_update_7109() {
+  $modules_data = system_rebuild_module_data();
+  if (empty($modules_data['overlay']->required_by)) {
+    module_disable(
+      array(
+        'overlay',
+      ),
+      FALSE,
+    );
+    drupal_uninstall_modules(array('overlay'), FALSE);
+  }
+}
