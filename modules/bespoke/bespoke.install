@@ -108,7 +108,7 @@ function bespoke_update_7109() {
       array(
         'overlay',
       ),
-      FALSE,
+      FALSE
     );
     drupal_uninstall_modules(array('overlay'), FALSE);
   }
