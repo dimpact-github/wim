@@ -189,7 +189,7 @@ projects[link][version] = "1.2"
 projects[link][patch][performance] = patches/link-performance-hack.patch
 
 projects[linkit][subdir] = contrib
-projects[linkit][version] = "3.1"
+projects[linkit][version] = "3.3"
 
 projects[location][subdir] = contrib
 projects[location][version] = "3.2"
