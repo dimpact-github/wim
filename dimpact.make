@@ -158,7 +158,7 @@ projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/h
 projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][subdir] = contrib
-projects[homebox][version] = "2.0-beta7"
+projects[homebox][version] = "2.0-rc1"
 
 projects[i18n][subdir] = contrib
 projects[i18n][version] = "1.10"
