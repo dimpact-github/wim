@@ -37,7 +37,7 @@ projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
 
 projects[context][subdir] = contrib
-projects[context][version] = "3.2"
+projects[context][version] = "3.6"
 
 projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
