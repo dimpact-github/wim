@@ -101,7 +101,7 @@ projects[entityreference][patch][1836106][url] = https://www.drupal.org/files/is
 projects[entityreference][patch][1836106][md5] = 544a81884a4590a11353ce659e1ebaa5
 
 projects[expire][subdir] = contrib
-projects[expire][version] = "2.0-rc2"
+projects[expire][version] = "2.0-rc4"
 
 projects[extlink][subdir] = contrib
 projects[extlink][version] = "1.13"
