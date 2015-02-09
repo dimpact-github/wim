@@ -265,6 +265,9 @@ projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
+projects[purge][patch][1892028-26][url] = "https://www.drupal.org/files/issues/1892028-26-fix-curl-multi-select-bug.patch"
+projects[purge][patch][1892028-26][md5] = "1f65e6937213ed985536b02919508007"
+
 
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
