@@ -101,7 +101,7 @@ projects[entityreference][patch][1836106][url] = https://www.drupal.org/files/is
 projects[entityreference][patch][1836106][md5] = 544a81884a4590a11353ce659e1ebaa5
 
 projects[expire][subdir] = contrib
-projects[expire][version] = "2.0-rc2"
+projects[expire][version] = "2.0-rc4"
 
 projects[extlink][subdir] = contrib
 projects[extlink][version] = "1.13"
@@ -207,6 +207,8 @@ projects[media][subdir] = contrib
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
 projects[media][download][revision] = "247b31f"
+projects[media][patch][2367725][url] = "http://cgit.drupalcode.org/media/patch/?id=1e975ad09aa502d3a02af88805190f28013cfedf"
+projects[media][patch][2367725][md5] = "adbdeec409d3c3807c7eec087b9a5d1a"
 projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
 projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
@@ -265,6 +267,9 @@ projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
+projects[purge][patch][1892028-26][url] = "https://www.drupal.org/files/issues/1892028-26-fix-curl-multi-select-bug.patch"
+projects[purge][patch][1892028-26][md5] = "1f65e6937213ed985536b02919508007"
+
 
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
