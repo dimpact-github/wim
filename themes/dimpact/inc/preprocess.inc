@@ -65,7 +65,7 @@ function dimpact_preprocess_html(&$vars) {
   global $_domain;
 
   if (domain_conf_variable_get($_domain['domain_id'], 'font_killswitch') == 0) {
-    drupal_add_css('http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,700');
+    drupal_add_css('http://fonts.googleapis.com/css?family=Droid+Sans:400,700%7CRoboto+Slab:400,700');
   }
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/libraries/jquery.carouFredSel-6.2.1-packed.js');

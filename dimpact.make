@@ -37,7 +37,7 @@ projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
 
 projects[context][subdir] = contrib
-projects[context][version] = "3.2"
+projects[context][version] = "3.6"
 
 projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
@@ -97,9 +97,11 @@ projects[entity][version] = "1.3"
 
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = "1.1"
+projects[entityreference][patch][1836106][url] = https://www.drupal.org/files/issues/entityreference-1836106-20.patch
+projects[entityreference][patch][1836106][md5] = 544a81884a4590a11353ce659e1ebaa5
 
 projects[expire][subdir] = contrib
-projects[expire][version] = "2.0-rc2"
+projects[expire][version] = "2.0-rc4"
 
 projects[extlink][subdir] = contrib
 projects[extlink][version] = "1.13"
@@ -138,7 +140,7 @@ projects[file_entity][download][branch] = "7.x-2.x"
 projects[file_entity][download][revision] = "39e9f08"
 
 projects[flag][subdir] = contrib
-projects[flag][version] = "3.3"
+projects[flag][version] = "3.5"
 
 projects[galleryformatter][subdir] = contrib
 projects[galleryformatter][version] = "1.3"
@@ -156,7 +158,7 @@ projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/h
 projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][subdir] = contrib
-projects[homebox][version] = "2.0-beta7"
+projects[homebox][version] = "2.0-rc1"
 
 projects[i18n][subdir] = contrib
 projects[i18n][version] = "1.10"
@@ -187,7 +189,7 @@ projects[link][version] = "1.2"
 projects[link][patch][performance] = patches/link-performance-hack.patch
 
 projects[linkit][subdir] = contrib
-projects[linkit][version] = "3.1"
+projects[linkit][version] = "3.3"
 
 projects[location][subdir] = contrib
 projects[location][version] = "3.2"
@@ -205,6 +207,8 @@ projects[media][subdir] = contrib
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
 projects[media][download][revision] = "247b31f"
+projects[media][patch][2367725][url] = "http://cgit.drupalcode.org/media/patch/?id=1e975ad09aa502d3a02af88805190f28013cfedf"
+projects[media][patch][2367725][md5] = "adbdeec409d3c3807c7eec087b9a5d1a"
 projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
 projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
@@ -263,6 +267,9 @@ projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.6"
+projects[purge][patch][1892028-26][url] = "https://www.drupal.org/files/issues/1892028-26-fix-curl-multi-select-bug.patch"
+projects[purge][patch][1892028-26][md5] = "1f65e6937213ed985536b02919508007"
+
 
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"

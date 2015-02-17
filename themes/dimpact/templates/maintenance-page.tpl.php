@@ -6,7 +6,7 @@
   <link rel="dns-prefetch" href="//themes.googleusercontent.com">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <?php print $styles; ?>
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,700" media="screen" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700%7CRoboto+Slab:400,700" media="screen" />
   <?php print $scripts; ?>
   <!--[if lt IE 9]>
   <link rel="stylesheet" href="/<?php print $path; ?>/css/lte-ie9.css" media="all">
@@ -20,7 +20,7 @@
     <header role="banner" id="header">
 
       <div class="container">
-        <hgroup class="branding">
+        <div class="branding">
           <?php if ($site_name): ?>
             <h1 class="site-name">
               <?php if ($logo): ?>
@@ -32,7 +32,7 @@
           <?php if ($site_slogan): ?>
             <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
           <?php endif; ?>
-        </hgroup>
+        </div>
         <?php print $header; ?>
       </div>
     </header>

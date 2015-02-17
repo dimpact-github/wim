@@ -30,7 +30,7 @@ function dimpact_html_head_alter(&$head_elements) {
     '#tag' => 'meta',
     '#attributes' => array(
       'http-equiv' => 'X-UA-Compatible',
-      'content' => 'IE=edge,chrome=1'
+      'content' => 'IE=edge',
     ),
   );
 
@@ -68,6 +68,8 @@ function dimpact_html_head_alter(&$head_elements) {
       'http-equiv' => 'cleartype',
       'content' => 'on',
     ),
+    '#prefix' => '<!--[if IE]>',
+    '#suffix' => '<![endif]-->',
   );
 
   // Apple Touch Icons. See: http://mathiasbynens.be/notes/touch-icons

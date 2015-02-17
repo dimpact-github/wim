@@ -1055,6 +1055,28 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -1069,6 +1091,13 @@ if (node_access(\'create\', \'file\')) {
     'file_view_mode' => 'slide_93',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
+  $handler->display->display_options['block_description'] = 'Keuze Carrousel breed (9/12)';
+
+  /* Display: Carousel 4/12 block */
+  $handler = $view->new_display('block', 'Carousel 4/12 block', 'block_1');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'carousel carousel-93';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -1091,13 +1120,6 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Keuze Carrousel breed (9/12)';
-
-  /* Display: Carousel 4/12 block */
-  $handler = $view->new_display('block', 'Carousel 4/12 block', 'block_1');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'carousel carousel-93';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -1112,6 +1134,13 @@ if (node_access(\'create\', \'file\')) {
     'file_view_mode' => 'slide_412',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
+  $handler->display->display_options['block_description'] = 'Keuze Carrousel smal (4/12)';
+
+  /* Display: Carousel 12/12 block */
+  $handler = $view->new_display('block', 'Carousel 12/12 block', 'block_2');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'carousel carousel-93';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -1134,13 +1163,6 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  $handler->display->display_options['block_description'] = 'Keuze Carrousel smal (4/12)';
-
-  /* Display: Carousel 12/12 block */
-  $handler = $view->new_display('block', 'Carousel 12/12 block', 'block_2');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'carousel carousel-93';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -1155,28 +1177,6 @@ if (node_access(\'create\', \'file\')) {
     'file_view_mode' => 'volle_breedte',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Link */
-  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
-  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['label'] = '';
-  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_link']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link]';
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['block_description'] = 'Keuze Carrousel hele breedte (12/12)';
   $translatables['carrousel_keuze'] = array(
     t('Defaults'),
@@ -2801,6 +2801,16 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
+  $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
@@ -2824,7 +2834,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time>[created]</time> &mdash; [field_intro]</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Nieuws lijstblok';
 
@@ -2849,6 +2859,15 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Pad */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
@@ -2870,7 +2889,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'title';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'teaser',
+    'file_view_mode' => 'preview',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Datum van inzending */
@@ -2878,17 +2897,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
-  /* Veld: Inhoud: Titel */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Veld: Inhoud: Datum van inzending */
+  $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
+  $handler->display->display_options['fields']['created_1']['table'] = 'node';
+  $handler->display->display_options['fields']['created_1']['field'] = 'created';
+  $handler->display->display_options['fields']['created_1']['label'] = '';
+  $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
+  $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
   /* Veld: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
@@ -2907,6 +2929,13 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['settings'] = array(
     'trim_length' => '150',
   );
+  /* Veld: Algemeen: Aangepaste tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Nieuws lijstblok + afbeelding';
   $translatables['nieuws'] = array(
     t('Master'),
@@ -2929,7 +2958,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('List block'),
     t('<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>'),
     t('[created] &mdash; [field_intro]'),
-    t('<div><time>[created]</time> &mdash; [field_intro]</div>'),
+    t('<div><time datetime="[created_1]">[created]</time> &mdash; [field_intro]</div>'),
     t('Nieuws lijstblok'),
     t('List block image'),
     t('Nieuws lijstblok + afbeelding'),
@@ -3008,20 +3037,6 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Image */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'slide_93',
-  );
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -3044,6 +3059,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Veld: Inhoud: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'slide_93',
+  );
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   $handler->display->display_options['block_description'] = 'Carrousel breed (9/12)';
 
   /* Display: Carousel 4/12 block */
@@ -3063,20 +3092,6 @@ if (node_access(\'create\', \'marketplace\')) {
     'voorpagina_banners' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Image */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'slide_412',
-  );
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -3099,6 +3114,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Veld: Inhoud: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'slide_412',
+  );
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   $handler->display->display_options['block_description'] = 'Carrousel smal (4/12)';
 
   /* Display: Carousel 12/12 block */
@@ -3118,20 +3147,6 @@ if (node_access(\'create\', \'marketplace\')) {
     'voorpagina_banners' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Image */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'volle_breedte',
-  );
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -3154,6 +3169,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Veld: Inhoud: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'volle_breedte',
+  );
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   $handler->display->display_options['block_description'] = 'Carrousel hele breedte (12/12)';
   $translatables['nodequeue_carousel_9_3'] = array(
     t('Defaults'),
@@ -3301,6 +3330,15 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Veld: Inhoud: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -3315,15 +3353,6 @@ if (node_access(\'create\', \'marketplace\')) {
     'file_view_mode' => 'portret',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Titel */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Veld: Inhoud: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -5147,20 +5176,6 @@ if (node_access(\'create\', \'faq\')) {
     'voorpagina_banners' => 'voorpagina_banners',
     'carousel_9_3' => 0,
   );
-  /* Veld: Inhoud: Image */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'file_view_mode' => 'banner',
-  );
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Veld: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -5183,6 +5198,20 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Veld: Inhoud: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'file_view_mode' => 'banner',
+  );
+  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
   /* Sorteercriterium: Nodequeue: Positie */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';

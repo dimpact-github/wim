@@ -193,11 +193,17 @@
   #content {
     @include span-columns(4, $break-medium);
     @include push(2);
+    .node__extra-wide & {
+      @include span-columns(7, $break-medium);
+    }
   }
 // eerste sidebar "linkerkolom"
   .region_363_first {
     @include span-columns(2, $break-medium);
     @include pull(6);
+    .node__extra-wide & {
+      @include pull($break-medium);
+    }
   }
 // tweede sidebar "rechterkolom"
   .region_363_third {
@@ -520,11 +526,17 @@
   #content {
     @include span-columns(6, $break-large);
     @include push(3);
+    .node__extra-wide & {
+      @include span-columns(9, $break-large);
+    }
   }
 // eerste sidebar "linkerkolom"
   .region_363_first {
     @include span-columns(3, $break-large);
     @include pull(9);
+    .node__extra-wide & {
+      @include pull($break-large);
+    }
   }
 // tweede sidebar "rechterkolom"
   .region_363_third {

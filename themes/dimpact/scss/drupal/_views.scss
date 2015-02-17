@@ -273,16 +273,25 @@
     overflow: hidden;
     border-bottom: 1px solid lighten($background-color, 5%);
     .views-row {
+      min-height: 130px;
+      position: relative;
       h2 {
         @include font-size(16);
         margin: 0 0 $gutter-width/4 0;
+        padding-left: 120px + $gutter-width/2;
       }
       img {
         @include border-radius(50%);
+        left: 0;
+        position: absolute;
+        top: 0;
       }
       .field-image {
         float: left;
         margin-right: $gutter-width/2;
+      }
+      .field-body {
+        margin-left: 120px + $gutter-width/2;
       }
     }
   }
