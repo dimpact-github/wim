@@ -7,6 +7,7 @@ includes[develop] = "dimpact-develop.make"
 ; Modules
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = "3.0-rc4"
+projects[admin_menu][patch][2360249-74] = "https://www.drupal.org/files/issues/admin_menu-correctly_display-2360249-74.patch"
 
 projects[admin_views][subdir] = contrib
 projects[admin_views][version] = "1.2"
