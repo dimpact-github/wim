@@ -36,10 +36,10 @@ img {
   display: block;
   margin-bottom: $gutter-width/2;
   &[style*="float: left;"] {
-    margin-right: 10px;
+    margin-right: $gutter-width/2;
   }
   &[style*="float: right;"] {
-    margin-left: 10px;
+    margin-left: $gutter-width/2;
   }
 }
 
