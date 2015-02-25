@@ -77,9 +77,15 @@
     .field-body {
       @extend .clearfix;
       img {
-        float: left;
-        margin-right: $gutter-width/2;
+//        float: left;
+//        margin-right: $gutter-width/2;
         margin-bottom: $gutter-width/2;
+        &[style*="float: left;"] {
+          margin-right: 10px;
+        }
+        &[style*="float: right;"] {
+          margin-left: 10px;
+        }
       }
     }
     .ris-attachments {

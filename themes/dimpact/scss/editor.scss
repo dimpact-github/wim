@@ -33,9 +33,14 @@ body {
   line-height: $line-height;
 }
 img {
-  float: left;
-  margin-right: $gutter-width/2;
+  display: block;
   margin-bottom: $gutter-width/2;
+  &[style*="float: left;"] {
+    margin-right: 10px;
+  }
+  &[style*="float: right;"] {
+    margin-left: 10px;
+  }
 }
 
 #{headings()} {
