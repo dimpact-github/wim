@@ -88,13 +88,20 @@ function _atos_esuite_delete_nodes($starttime) {
   // A temporarily broken feed may have led to flagging for deletion, so
   // unpublish (and queue for intelligent deletion).
   // @todo Queue nodes to be deleted if not changed for a period of time.
+  $identifiers = array();
   foreach ($deleted as $record) {
+    $identifiers[] = $record->identifier;
     $node = node_load($record->nid, NULL, TRUE);
     // For efficiency manually save the original node before applying any changes.
     $node->original = clone $node;
     $node->status = 0;
     node_save($node);
   }
+  // If a broken feed gets restored, nodes should be automatically published again.
+  db_update('atos_esuite')
+    ->fields(array('hash' => ''))
+    ->condition('identifier', $identifiers, 'IN')
+    ->execute();
 }
 
 /**
