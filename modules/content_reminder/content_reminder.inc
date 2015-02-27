@@ -134,6 +134,10 @@ function _get_old_nodes() {
             ->orderBy('n.type','ASC');
       $mailnodes = $query->execute()->fetchAll();
 
+    $workbench_exists = module_exists('workbench_moderation');
+    if ($workbench_exists) {
+      $workbench_to_state = workbench_moderation_state_none();
+    }
     foreach ($types as $type) {
       if (variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1) {
         $query = db_select('node_revision', 'nr');
@@ -148,9 +152,32 @@ function _get_old_nodes() {
             }
           }
           $node = node_load($result->nid);
-          $node->status = 0;
+          // Unpublish the current live revision.
+          // @see workbench_moderation_node_history_view()
+          // @see workbench_moderation_node_unpublish_form()
+          if ($workbench_exists && !empty($node->workbench_moderation['published']) && $node->vid == $node->workbench_moderation['published']->vid) {
+            // Remove the moderation record's "published" flag.
+            $query = db_update('workbench_moderation_node_history')
+              ->condition('hid', $node->workbench_moderation['published']->hid)
+              ->fields(array('published' => 0))
+              ->execute();
+
+            // Moderate the revision.
+            workbench_moderation_moderate($node, $workbench_to_state);
+
+            // Make sure the 'current' revision is the 'live' revision -- ie, the revision
+            // in {node}.
+            $live_revision = workbench_moderation_node_current_load($node);
+            $live_revision->status = 0;
+            $live_revision->revision = 0;
+            $live_revision->workbench_moderation['updating_live_revision'] = TRUE;
+            node_save($live_revision);
+          }
+          else {
+            $node->status = 0;
+            node_save($node);
+          }
           $a[$result->nid]->status = 0;
-          node_save($node);
         }
       }
     }
