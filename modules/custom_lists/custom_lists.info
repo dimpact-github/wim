@@ -6,3 +6,5 @@ core = 7.x
 dependencies[] = domain
 dependencies[] = weight
 dependencies[] = nodequeue
+
+files[] = custom_lists.expire.inc

@@ -126,3 +126,10 @@ function custom_lists_update_7103() {
     drupal_write_record('custom_lists', $item);
   }
 }
+
+/**
+ * Rebuild code registry so the ExpireCustomLists class is found.
+ */
+function custom_lists_update_7104() {
+  registry_rebuild();
+}
