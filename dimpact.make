@@ -93,7 +93,7 @@ projects[empty_page][subdir] = contrib
 projects[empty_page][version] = "1.0"
 
 projects[entity][subdir] = contrib
-projects[entity][version] = "1.3"
+projects[entity][version] = "1.6"
 
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = "1.1"
