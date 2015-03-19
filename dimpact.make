@@ -331,7 +331,7 @@ projects[views_rss][subdir] = contrib
 projects[views_rss][version] = "2.0-rc3"
 
 projects[webform][subdir] = contrib
-projects[webform][version] = "3.22"
+projects[webform][version] = "3.23"
 
 projects[weight][subdir] = contrib
 projects[weight][version] = "2.3"
