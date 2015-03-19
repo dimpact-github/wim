@@ -43,7 +43,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.6"
+projects[ctools][version] = "1.7"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
