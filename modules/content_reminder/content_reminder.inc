@@ -198,15 +198,23 @@ function _send_mails($mailnodes, $mailtype) {
       '#theme' => 'content_reminder',
       '#nodes' => $nodes,
       '#mailtype' => $mailtype,
-      '#content_reminder_text' => variable_get('content_reminder_' . $mailtype . '_text', 'mijn tekstje'),
+      '#content_reminder_text' => variable_get('content_reminder_' . $mailtype . '_text', 'Inhoud die verlopen is of binnenkort verloopt.'),
     );
+
+    if ($mailtype == 'expire') {
+      $subject = variable_get('content_reminder_expire_subject', '@count item(s) zijn verlopen en offline geplaatst');
+    }
+    else {
+      $subject = variable_get('content_reminder_expire_subject', 'Je moet @count item(s) bekijken');
+    }
+    $subject = str_replace('@count', count($mailnodes), $subject);
 
     $mail_token = microtime();
     $from = variable_get('system_mail', '<reminder@zwolle.nl>');
     $message = array(
       'id' => 'custom' . '_' . $mail_token,
       'to' => $mail,
-      'subject' => 'update',
+      'subject' => $subject,
       'body' => drupal_render($build),
       'headers' => array(
         'From' => $from,

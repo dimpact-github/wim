@@ -12,15 +12,27 @@ function content_reminder_admin_form($form, &$form_state) {
     '#type' => 'item',
     '#title' => t('A form to configure content reminders for each content types.'),
   );
+  $form['content_reminder_reminder_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject for content reminder mails'),
+    '#default_value' => variable_get('content_reminder_reminder_subject', 'Je moet @count item(s) bekijken'),
+    '#description' => t('The token %token will be replaced by the number of nodes.', array('%token' => '@count')),
+  );
   $form['content_reminder_reminder_text'] = array(
     '#type' => 'textarea',
     '#title' => t('Text for content reminder mails'),
-    '#default_value' => variable_get('content_reminder_reminder_text', 0),
+    '#default_value' => variable_get('content_reminder_reminder_text', 'Inhoud die verlopen is of binnenkort verloopt.'),
+  );
+  $form['content_reminder_expire_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject for expired content mails'),
+    '#default_value' => variable_get('content_reminder_expire_subject', '@count item(s) zijn verlopen en offline geplaatst'),
+    '#description' => t('The token %token will be replaced by the number of nodes.', array('%token' => '@count')),
   );
   $form['content_reminder_expire_text'] = array(
     '#type' => 'textarea',
     '#title' => t('Text for expired content mails'),
-    '#default_value' => variable_get('content_reminder_expire_text', 0),
+    '#default_value' => variable_get('content_reminder_expire_text', 'Inhoud die verlopen is of binnenkort verloopt.'),
   );
   $form['description'] = array(
     '#type' => 'item',
