@@ -431,6 +431,9 @@ function custom_lists_add($list_key, $list) {
   if ($rebuild_menu) {
     variable_set('menu_rebuild_needed', TRUE);
   }
+  if ($old && module_exists('expire')) {
+    expire_execute_expiration('custom_lists', $item, 'update', TRUE);
+  }
 }
 
 /**
@@ -443,6 +446,14 @@ function custom_lists_delete($list_key) {
   db_delete('custom_lists')->condition('lid', $list_key)->execute();
   if ($old['provide-page']) {
     variable_set('menu_rebuild_needed', TRUE);
+  }
+  if (module_exists('expire')) {
+    $item = new stdClass();
+    $item->lid = $list_key;
+    $item->title = $old['title'];
+    unset($old['title']);
+    $item->data = $old;
+    expire_execute_expiration('custom_lists', $item, 'delete', TRUE);
   }
 }
 

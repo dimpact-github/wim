@@ -30,6 +30,11 @@ line_comments = (environment == :development) ? :true : :false
 
 preferred_syntax = :scss
 
+# Disable .sass-cache
+sass_options = {
+  :cache => false,
+}
+
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
 

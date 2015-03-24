@@ -77,9 +77,16 @@
     .field-body {
       @extend .clearfix;
       img {
-        float: left;
-        margin-right: $gutter-width/2;
         margin-bottom: $gutter-width/2;
+// in twee stappen omdat ckeditor een spatie toevoegt in de style-attribuut (e.g. "float: left"), maar drupal aggregatie spaties uit css verwijdert
+        &[style*="float:"] {
+          &[style*="left;"] {
+            margin-right: $gutter-width/2;
+          }
+          &[style*="right;"] {
+            margin-left: $gutter-width/2;
+          }
+        }
       }
     }
     .ris-attachments {

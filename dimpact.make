@@ -6,8 +6,7 @@ includes[develop] = "dimpact-develop.make"
 
 ; Modules
 projects[admin_menu][subdir] = contrib
-projects[admin_menu][version] = "3.0-rc4"
-projects[admin_menu][patch][2360249-74] = "https://www.drupal.org/files/issues/admin_menu-correctly_display-2360249-74.patch"
+projects[admin_menu][version] = "3.0-rc5"
 
 projects[admin_views][subdir] = contrib
 projects[admin_views][version] = "1.2"
@@ -44,7 +43,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.5"
+projects[ctools][version] = "1.7"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
@@ -94,7 +93,7 @@ projects[empty_page][subdir] = contrib
 projects[empty_page][version] = "1.0"
 
 projects[entity][subdir] = contrib
-projects[entity][version] = "1.3"
+projects[entity][version] = "1.6"
 
 projects[entityreference][subdir] = contrib
 projects[entityreference][version] = "1.1"
@@ -252,7 +251,7 @@ projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
 projects[password_policy][subdir] = contrib
-projects[password_policy][version] = "1.8"
+projects[password_policy][version] = "1.10"
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"
@@ -323,7 +322,7 @@ projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"
 
 projects[views][subdir] = contrib
-projects[views][version] = "3.8"
+projects[views][version] = "3.10"
 
 projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = "3.2"
@@ -332,8 +331,7 @@ projects[views_rss][subdir] = contrib
 projects[views_rss][version] = "2.0-rc3"
 
 projects[webform][subdir] = contrib
-projects[webform][download][type] = git
-projects[webform][download][tag] = 7.x-3.20
+projects[webform][version] = "3.23"
 
 projects[weight][subdir] = contrib
 projects[weight][version] = "2.3"
