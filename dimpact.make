@@ -43,7 +43,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.6"
+projects[ctools][version] = "1.7"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
@@ -251,7 +251,7 @@ projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
 projects[password_policy][subdir] = contrib
-projects[password_policy][version] = "1.8"
+projects[password_policy][version] = "1.10"
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"
@@ -331,7 +331,7 @@ projects[views_rss][subdir] = contrib
 projects[views_rss][version] = "2.0-rc3"
 
 projects[webform][subdir] = contrib
-projects[webform][version] = "3.22"
+projects[webform][version] = "3.23"
 
 projects[weight][subdir] = contrib
 projects[weight][version] = "2.3"
