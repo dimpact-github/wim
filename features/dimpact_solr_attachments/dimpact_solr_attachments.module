@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Solr Attachments feature.
+ */
+
+include_once 'dimpact_solr_attachments.features.inc';

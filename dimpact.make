@@ -15,7 +15,9 @@ projects[apachesolr][subdir] = contrib
 projects[apachesolr][version] = "1.6"
 
 projects[apachesolr_attachments][subdir] = contrib
-projects[apachesolr_attachments][version] = "1.3"
+projects[apachesolr_attachments][version] = "1.4"
+projects[apachesolr_attachments][patch][1251308-23][url] = "https://www.drupal.org/files/issues/file-size-limit-correct-default-1251308-23.patch"
+projects[apachesolr_attachments][patch][1251308-23][md5] = "162de26e6b86c9e349253dc955e10036"
 projects[apachesolr_attachments][patch][bodytext] = patches/apachesolr-attachments-body.patch
 
 projects[apachesolr_exclude_node][subdir] = contrib
