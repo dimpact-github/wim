@@ -207,7 +207,7 @@ function _send_mails($mailnodes, $mailtype) {
     else {
       $subject = variable_get('content_reminder_expire_subject', 'Je moet @count item(s) bekijken');
     }
-    $subject = str_replace('@count', count($mailnodes), $subject);
+    $subject = str_replace('@count', count($nodes), $subject);
 
     $mail_token = microtime();
     $from = variable_get('system_mail', '<reminder@zwolle.nl>');
