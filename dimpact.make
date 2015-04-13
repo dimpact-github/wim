@@ -162,11 +162,12 @@ projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 projects[homebox][subdir] = contrib
 projects[homebox][version] = "2.0-rc1"
 
+projects[hotjar][type] = module
 projects[hotjar][subdir] = contrib
 projects[hotjar][download][type] = git
 projects[hotjar][download][branch] = 7.x-1.x
 projects[hotjar][download][revision] = "54556d7"
-projects[hotjar][download][url] = "git://git.drupal.org/sandbox/tikaszvince/2461325.git"
+projects[hotjar][download][url] = "http://git.drupal.org/sandbox/tikaszvince/2461325.git"
 
 projects[i18n][subdir] = contrib
 projects[i18n][version] = "1.10"
