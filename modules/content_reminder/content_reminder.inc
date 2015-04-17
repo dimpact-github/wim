@@ -205,7 +205,7 @@ function _send_mails($mailnodes, $mailtype) {
       $subject = variable_get('content_reminder_expire_subject', '@count item(s) zijn verlopen en offline geplaatst');
     }
     else {
-      $subject = variable_get('content_reminder_expire_subject', 'Je moet @count item(s) bekijken');
+      $subject = variable_get('content_reminder_reminder_subject', 'Je moet @count item(s) bekijken');
     }
     $subject = str_replace('@count', count($nodes), $subject);
 

@@ -5,9 +5,9 @@
  */
 function content_reminder_menu() {
 
-  $items['admin/config/reminder'] = array(
-    'title' => 'Configuration Content Reminder',
-    'description' => '',
+  $items['admin/config/content/reminder'] = array(
+    'title' => 'Content Reminder',
+    'description' => 'Send reminders for expired content',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('content_reminder_admin_form'),
     'file' => 'content_reminder.admin.inc',
