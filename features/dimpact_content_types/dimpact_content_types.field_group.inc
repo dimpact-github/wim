@@ -62,12 +62,11 @@ function dimpact_content_types_field_group_info() {
       0 => 'field_location',
       1 => 'field_more_information',
       2 => 'field_related_laws',
-      3 => 'field_forms',
-      4 => 'field_request_online',
-      5 => 'field_more_information_file',
-      6 => 'field_date',
-      7 => 'field_sc_audience',
-      8 => 'field_related_pdc_vac',
+      3 => 'field_request_online',
+      4 => 'field_date',
+      5 => 'field_sc_audience',
+      6 => 'field_related_pdc_vac',
+      7 => 'field_forms',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -96,6 +95,7 @@ function dimpact_content_types_field_group_info() {
     'children' => array(
       0 => 'field_more_information',
       1 => 'field_related_pdc_vac',
+      2 => 'field_location',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
