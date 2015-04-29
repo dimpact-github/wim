@@ -131,6 +131,10 @@ function sduconnect_save_node($collection, $id, $node) {
       'cid' => $collection->cid,
       'external_id' => $id,
     ))->execute();
+    db_update('sduconnect_collection')
+      ->expression('items', 'items + 1')
+      ->condition('cid', $collection->cid)
+      ->execute();
   }
 }
 

@@ -106,6 +106,8 @@ function sduconnect_menu() {
 function sduconnect_cron() {
   module_load_include('inc', 'sduconnect', 'sduconnect.utils');
   sduconnect_flush_log_entries();
+
+  // @todo
 }
 
 /**
@@ -134,7 +136,7 @@ function sduconnect_process_queue_item($item) {
 /**
  * Implements hook_node_delete().
  */
-function sduconnect_node_delete() {
+function sduconnect_node_delete($node) {
   $cid = db_select('sduconnect_item', 'i')
     ->fields('i', array('cid'))
     ->condition('i.nid', $node->nid)
