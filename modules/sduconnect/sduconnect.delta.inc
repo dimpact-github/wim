@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Implementation of SDU Delta API.
+ */
+
+/**
+ * Queue updated items for given collection.
+ *
+ * @param object $collection
+ * @return object
+ */
+function sduconnect_delta_import($collection) {
+  $output = FALSE;
+  try {
+    $ids = sduconnect_delta_download($collection->type, $collection->external_id, $collection->updated_till);
+    $queue = DrupalQueue::get('sduconnect');
+    foreach (array('added', 'changed', 'removed') as $type) {
+      foreach ($ids->{$type} as $id) {
+        $item = new stdClass();
+        $item->cid = $collection->cid;
+        $item->id = $id;
+        $item->type = $type;
+        $queue->createItem($item);
+      }
+    }
+
+    $collection->updated_till = $ids->servertime;
+    sduconnect_collection_save($collection);
+
+    $output = new stdClass();
+    $output->added = count($ids->added);
+    $output->changed = count($ids->changed);
+    $output->removed = count($ids->removed);
+  }
+  catch (Exception $e) {
+    db_insert('sduconnect_log')->fields(array(
+      'date' => REQUEST_TIME,
+      'type' => 1,
+      'cid' => $collection->cid,
+      'title' => t('Got code %code from %url', array(
+        '%code' => $e->getCode(),
+        '%url' => $e->getMessage(),
+      )),
+    ))->execute();
+  }
+  return $output;
+}
+
+/**
+ * Retreive added, changed and removed items from API.
+ *
+ * @param string $collection_type
+ * @param int $collection_id
+ * @param int $from_date
+ * @return stdClass
+ */
+function sduconnect_delta_download($collection_type, $collection_id, $from_date) {
+  $account_id = variable_get('sduconnect_account', '');
+  $date = date('Ymd\\THis', $from_date);
+  $url = "https://rest.sduconnect.nl/delta/$collection_type/1.2/account/$account_id/collectie/$collection_id/startdatetime/$date.xml";
+  $data = drupal_http_request($url);
+  if ($data->code != 200) {
+    throw new Exception($url, intval($data->code));
+  }
+  $xml = new SimpleXMLElement($data->data);
+  if (!empty($xml->error)) {
+    throw new Exception($url, intval($xml->error->code));
+  }
+  $output = new stdClass();
+  $output->servertime = strtotime($xml->servertime);
+  foreach (array('added', 'changed', 'removed') as $type) {
+    $output->{$type} = array();
+    foreach ($xml->{$type . 'ids'}->itemid as $id) {
+      $output->{$type}[] = (string) $id;
+    }
+  }
+  return $output;
+}

@@ -1,0 +1,4 @@
+name = SduConnect
+description = PDC/VAC import from SduConnect
+core = 7.x
+dependencies[] = ctools
