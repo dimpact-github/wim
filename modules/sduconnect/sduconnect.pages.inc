@@ -146,3 +146,27 @@ function sduconnect_log_page() {
 
   return $page;
 }
+
+/**
+ * Page callback for node/%/sduconnect-xml.
+ */
+function sduconnect_page_xml($node) {
+  $item = db_select('sduconnect_item', 'i')
+    ->fields('i', array('cid', 'external_id'))
+    ->condition('i.nid', $node->nid)
+    ->execute()
+    ->fetchObject();
+  if (!$item) {
+    return MENU_NOT_FOUND;
+  }
+  $collection = sduconnect_collection_load($item->cid);
+  $account_id = variable_get('sduconnect_account', '');
+  $version = $collection->type == 'pdc' ? '1.2' : '1.1';
+  $url = "https://rest.sduconnect.nl/single/{$collection->type}/$version/account/$account_id/collectie/{$collection->external_id}/item/{$item->external_id}.xml";
+  $data = drupal_http_request($url);
+  if ($data->code != 200) {
+    return MENU_NOT_FOUND;
+  }
+  drupal_add_http_header('Content-Type', 'text/xml');
+  print $data->data;
+}

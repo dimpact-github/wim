@@ -97,6 +97,15 @@ function sduconnect_menu() {
     'type' => MENU_LOCAL_TASK,
   );
 
+  $menu['node/%node/sduconnect-xml'] = array(
+    'title' => 'SduConnect XML',
+    'page callback' => 'sduconnect_page_xml',
+    'page arguments' => array(1),
+    'access arguments' => array('view sduconnect info'),
+    'file' => 'sduconnect.pages.inc',
+    'type' => MENU_CALLBACK,
+  );
+
   return $menu;
 }
 
