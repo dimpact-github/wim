@@ -290,21 +290,17 @@ De volgende vrije tekstvelden worden ge\"{i}mporteerd als onderdeel van de \emph
 \end{itemize}
 De velden worden in bovengenoemde volgende achter elkaar gezet zonder toevoeging van headers of tabs.
 \item Toelichting
+\item Locatie \\ Bevat het antwoordadres zoals aangegeven in SduConnect.
+\item Tags \\ Bevat de doelgroepen en trefwoorden.
 \end{itemize}
 
 Nieuwe velden:
 \begin{itemize}
-\item Adres \\
-Type: \texttt{location} \\
-Getoond als: adres (tekstueel)
 \item Meer informatie \\
 Type: \texttt{link} \\
 Getoond als: lijst met links
 \item Relaties naar pdc / vacs \\
 Type: \texttt{entity\_reference} \\
-Getoond als: lijst met links
-\item Doelgroep (ondernemer / particulier) \\
-Type: \texttt{term\_reference} \\
 Getoond als: lijst met links
 \end{itemize}
 
@@ -330,40 +326,32 @@ De volgende vrije tekstvelden worden ge\"{i}mporteerd als onderdeel van de \emph
 \end{itemize}
 De velden worden in bovengenoemde volgende achter elkaar gezet. Alle velden met uitzondering van "Omschrijving" en "Let op" komen in een aparte tab.
 \item Tags \\
-De tags worden gebruikt om de thema's in te importeren.
+De tags worden gebruikt om de thema's en doelgroepen in te importeren.
+\item Datum \\
+Start- en einddatum indien aangegeven in SduConnect (dit zijn andere velden dan de publicatiedata).
+\item Locatie \\
+Bevat het indieningsadres, indien opgegeven in SduConnect.
 \end{itemize}
 
 Nieuwe velden:
 \begin{itemize}
-\item Adres \\
-Type: \texttt{location} \\
-Getoond als: adres (tekstueel)
 \item Verwijzingen wetten / regelgeving \\
 type: \texttt{link} \\
-Getoond als: lijst met links
-\item Formulieren \\
-type: \texttt{file} \\
 Getoond als: lijst met links
 \item Online aanvragen \\
 type: \texttt{link} \\
 Getoond als: link
+\item Formulieren \\
+type: \texttt{link} \\
+Getoond als: lijst met links
 \item Meer informatie (link) \\
 type: \texttt{link} \\
 Getoond als: link
-\item Meer informatie (file) \\
-type: \texttt{file} \\
-Getoond als: link
-\item Begindatum \\
-type: \texttt{date} \\
-Getoond als: datum (zonder tijd)
-\item Einddatum\\
-type: \texttt{date} \\
-Getoond als: datum (zonder tijd)
-\item Relaties naar PDC / VAC's \\
+\item Relaties naar PDC / VAC's ("Gerelateerd")\\
 type: \texttt{link} \\
 Getoond als: lijst met links
 \item Samenwerkende catalogi doelgroep \\
-type: \texttt{text} (dropdown) \\
+type: \texttt{text} (checkboxes) \\
 Getoond als: \emph{niet}
 \end{itemize}
 
