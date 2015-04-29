@@ -15,7 +15,9 @@ projects[apachesolr][subdir] = contrib
 projects[apachesolr][version] = "1.6"
 
 projects[apachesolr_attachments][subdir] = contrib
-projects[apachesolr_attachments][version] = "1.3"
+projects[apachesolr_attachments][version] = "1.4"
+projects[apachesolr_attachments][patch][1251308-23][url] = "https://www.drupal.org/files/issues/file-size-limit-correct-default-1251308-23.patch"
+projects[apachesolr_attachments][patch][1251308-23][md5] = "162de26e6b86c9e349253dc955e10036"
 projects[apachesolr_attachments][patch][bodytext] = patches/apachesolr-attachments-body.patch
 
 projects[apachesolr_exclude_node][subdir] = contrib
@@ -140,7 +142,7 @@ projects[file_entity][download][branch] = "7.x-2.x"
 projects[file_entity][download][revision] = "39e9f08"
 
 projects[flag][subdir] = contrib
-projects[flag][version] = "3.5"
+projects[flag][version] = "3.6"
 
 projects[galleryformatter][subdir] = contrib
 projects[galleryformatter][version] = "1.3"
@@ -159,6 +161,13 @@ projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][subdir] = contrib
 projects[homebox][version] = "2.0-rc1"
+
+projects[hotjar][type] = module
+projects[hotjar][subdir] = contrib
+projects[hotjar][download][type] = git
+projects[hotjar][download][branch] = 7.x-1.x
+projects[hotjar][download][revision] = "54556d7"
+projects[hotjar][download][url] = "http://git.drupal.org/sandbox/tikaszvince/2461325.git"
 
 projects[i18n][subdir] = contrib
 projects[i18n][version] = "1.10"
@@ -251,7 +260,7 @@ projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
 projects[password_policy][subdir] = contrib
-projects[password_policy][version] = "1.10"
+projects[password_policy][version] = "1.11"
 
 projects[pathauto][subdir] = contrib
 projects[pathauto][version] = "1.2"

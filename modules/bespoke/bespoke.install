@@ -116,3 +116,12 @@ function bespoke_update_7109() {
     drupal_uninstall_modules(array('overlay'), FALSE);
   }
 }
+
+/**
+ * Enable dimpact_solr_attachments feature.
+ */
+function bespoke_update_7111() {
+  module_enable(array(
+    'dimpact_solr_attachments',
+  ));
+}
