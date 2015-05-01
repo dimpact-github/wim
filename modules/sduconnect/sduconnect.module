@@ -113,10 +113,23 @@ function sduconnect_menu() {
  * Implements hook_cron().
  */
 function sduconnect_cron() {
+  module_load_include('inc', 'sduconnect', 'sduconnect.delta');
   module_load_include('inc', 'sduconnect', 'sduconnect.utils');
+
+  // Flush old log entries.
   sduconnect_flush_log_entries();
 
-  // @todo
+  // Update collections.
+  $collections = db_select('sduconnect_collection', 'c')
+    ->fields('c', array('cid', 'updated_till', 'frequency'))
+    ->execute()
+    ->fetchAll();
+  foreach ($collections as $collection) {
+    if ($collection->updated_till < REQUEST_TIME - $collection->frequency) {
+      $collection = sduconnect_collection_load($collection->cid);
+      sduconnect_delta_import($collection);
+    }
+  }
 }
 
 /**

@@ -14,7 +14,19 @@
 function sduconnect_delta_import($collection) {
   $output = FALSE;
   try {
-    $ids = sduconnect_delta_download($collection->type, $collection->external_id, $collection->updated_till);
+    $from_time = $collection->updated_till;
+
+    // If the last import was on saturday, and it is sunday now, then import all
+    // content from the last 7 days.
+    // This procedure is a "double check" to make sure that no content was
+    // missed during the regular updates.
+    $last_was_saturday = format_date($from_time, 'custom', 'w') == 6;
+    $on_sunday = format_date(REQUEST_TIME, 'custom', 'w') == 0;
+    if ($last_was_saturday && $on_sunday) {
+      $from_time = REQUEST_TIME - (86400 * 7);
+    }
+
+    $ids = sduconnect_delta_download($collection->type, $collection->external_id, $from_time);
     $queue = DrupalQueue::get('sduconnect');
     foreach (array('added', 'changed', 'removed') as $type) {
       foreach ($ids->{$type} as $id) {
