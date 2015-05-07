@@ -18,7 +18,10 @@ function sduconnect_single_import($collection, $id, $type) {
   $not_found = FALSE;
   try {
     $node = sduconnect_load_node($collection, $id);
-    if ($type == 'remove') {
+    if (empty($node->nid)) {
+      $not_found = TRUE;
+    }
+    if ($type == 'removed') {
       if (empty($node->nid)) {
         throw new Exception(t('Item %id is listed as removed, but was not found in Drupal.', array(
           '%id' => $id
@@ -27,9 +30,6 @@ function sduconnect_single_import($collection, $id, $type) {
       node_delete($node->nid);
     }
     else {
-      if (empty($node->nid)) {
-        $not_found = TRUE;
-      }
       $content = sduconnect_single_download($collection->type, $collection->external_id, $id);
       $content_function = "sduconnect_set_{$collection->type}_content";
       $content_function($content, $node, (bool) $collection->import_private);
@@ -43,10 +43,15 @@ function sduconnect_single_import($collection, $id, $type) {
     if ($e->getCode() == 404) {
       $not_found = TRUE;
     }
-    $log = t('Got code %code from %url', array(
-      '%code' => $e->getCode(),
-      '%url' => $e->getMessage(),
-    ));
+    if ($e->getCode()) {
+      $log = t('Got code %code from %url', array(
+        '%code' => $e->getCode(),
+        '%url' => $e->getMessage(),
+      ));
+    }
+    else {
+      $log = $e->getMessage();
+    }
   }
   $type_codes = array(
     'added' => 2,
@@ -57,7 +62,7 @@ function sduconnect_single_import($collection, $id, $type) {
     'date' => REQUEST_TIME,
     'type' => $type_codes[$type] + ((int) $not_found),
     'cid' => $collection->cid,
-    'title' => $log,
+    'title' => substr($log, 0, 255),
     'nid' => $nid,
   ))->execute();
 }

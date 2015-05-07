@@ -106,14 +106,17 @@ function sduconnect_log_page() {
   foreach ($logs as $log) {
     $actions = array();
     if ($log->nid) {
-      $actions[] = array(
-        'title' => t('View node'),
-        'href' => 'node/' . $log->nid,
-      );
-      $actions[] = array(
-        'title' => t('View XML'),
-        'href' => 'node/' . $log->nid . '/sduconnect-xml',
-      );
+      // Add links, but not for deleted types (6 and 7).
+      if ($log->type < 6) {
+        $actions[] = array(
+          'title' => t('View node'),
+          'href' => 'node/' . $log->nid,
+        );
+        $actions[] = array(
+          'title' => t('View XML'),
+          'href' => 'node/' . $log->nid . '/sduconnect-xml',
+        );
+      }
     }
     $row = array(
       format_date($log->date, 'short'),
