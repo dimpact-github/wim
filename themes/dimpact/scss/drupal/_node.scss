@@ -60,6 +60,7 @@
       padding: $gutter-width/2;
       background-color: lighten($background-color, 7%);
       border-top: 1px solid $background-color;
+      color: $text-color;
     }
     .field-tags {
 	    display: inline;

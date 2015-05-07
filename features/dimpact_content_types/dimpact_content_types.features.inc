@@ -217,7 +217,6 @@ function dimpact_content_types_node_info() {
   return $items;
 }
 
-
 /**
  * Implements hook_weight_features_default_settings().
  */
@@ -231,6 +230,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['announcement'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -238,6 +238,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['blog'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -245,6 +246,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['editorial'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -252,6 +254,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['file'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -259,6 +262,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['foto_album'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -266,6 +270,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['marketplace'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -273,6 +278,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['message'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -280,6 +286,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['news'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -287,6 +294,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['page'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -294,6 +302,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['person'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -301,6 +310,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['product'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -308,6 +318,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['regulation'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -315,6 +326,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['ris_agendaitem'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -322,6 +334,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['ris_meeting'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -329,6 +342,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['rss'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -336,6 +350,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['rss_source'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -343,6 +358,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['slide'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -350,6 +366,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['spatial_plan'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -357,6 +374,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['standaard_pagina'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -364,6 +382,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['subject'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -371,6 +390,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['vac'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -378,6 +398,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['webform'] = array(
     'enabled' => 1,
     'range' => 50,
@@ -385,6 +406,7 @@ function dimpact_content_types_weight_features_default_settings() {
     'default' => 0,
     'sync_translations' => 0,
   );
+
   $settings['wiki'] = array(
     'enabled' => 1,
     'range' => 50,

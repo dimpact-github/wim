@@ -318,6 +318,9 @@ projects[submenutree][version] = "2.3"
 projects[subscriptions][subdir] = contrib
 projects[subscriptions][version] = "1.1"
 
+projects[textformatter][subdir] = contrib
+projects[textformatter][version] = "1.3"
+
 projects[token][subdir] = contrib
 projects[token][version] = "1.5"
 
