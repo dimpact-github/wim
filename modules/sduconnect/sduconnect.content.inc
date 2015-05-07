@@ -56,11 +56,6 @@ function sduconnect_set_pdc_content($xpath, $node) {
   $c = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:themes/m:theme/m:subthemes/m:subtheme/m:name'));
   $d = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:vind_themes/m:vind_theme/m:name'));
   $e = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/overheidproduct:scproduct/overheidproduct:meta/overheidproduct:owmsmantel/dcterms:subject'));
-  drush_print(implode(',', $a));
-  drush_print(implode(',', $b));
-  drush_print(implode(',', $c));
-  drush_print(implode(',', $d));
-  drush_print(implode(',', $e));
   $tags = array_unique(array_merge($a, $b, $c, $d, $e));
   $items = sduconnect_tags($tags);
   $node->field_tags = array(LANGUAGE_NONE => $items);
