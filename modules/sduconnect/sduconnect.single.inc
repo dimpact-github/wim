@@ -151,6 +151,6 @@ function sduconnect_save_node($collection, $id, $node) {
  */
 function sduconnect_set_domains($collection, $node) {
   if (module_exists('domain')) {
-    // @todo
+    $node->domains = drupal_map_assoc($collection->domains);
   }
 }
