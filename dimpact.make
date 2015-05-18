@@ -355,7 +355,9 @@ projects[workbench][subdir] = contrib
 projects[workbench][version] = "1.2"
 
 projects[workbench_moderation][subdir] = contrib
-projects[workbench_moderation][version] = "1.4"
+projects[workbench_moderation][download][type] = git
+projects[workbench_moderation][download][branch] = "7.x-1.x"
+projects[workbench_moderation][download][revision] = "296ce87"
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][download][type] = git
