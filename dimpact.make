@@ -365,7 +365,7 @@ projects[xmlsitemap][subdir] = contrib
 projects[xmlsitemap][version] = "2.0"
 
 ; Themes
-projects[] = rijkshuisstijl
+projects[rijkshuisstijl][version] = "1.2"
 
 ; Rijkshuisstijl starterskit
 libraries[starterskit][type] = "libraries"
