@@ -48,7 +48,7 @@ function sduconnect_menu() {
     'title' => 'Add collection',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('sduconnect_collection_form'),
-    'access arguments' => array('manage sduconnect module'),
+    'access arguments' => array('administer sduconnect module'),
     'file' => 'sduconnect.forms.inc',
     'type' => MENU_LOCAL_ACTION,
   );
@@ -57,7 +57,7 @@ function sduconnect_menu() {
     'title' => 'Edit collection',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('sduconnect_collection_form', 5),
-    'access arguments' => array('manage sduconnect module'),
+    'access arguments' => array('administer sduconnect module'),
     'file' => 'sduconnect.forms.inc',
     'type' => MENU_CALLBACK,
   );
@@ -66,7 +66,7 @@ function sduconnect_menu() {
     'title' => 'Delete collection',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('sduconnect_collection_delete_form', 5),
-    'access arguments' => array('manage sduconnect module'),
+    'access arguments' => array('administer sduconnect module'),
     'file' => 'sduconnect.forms.inc',
     'type' => MENU_CALLBACK,
   );
@@ -92,7 +92,7 @@ function sduconnect_menu() {
     'title' => 'Settings',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('sduconnect_settings_form'),
-    'access arguments' => array('manage sduconnect module'),
+    'access arguments' => array('administer sduconnect module'),
     'file' => 'sduconnect.forms.inc',
     'type' => MENU_LOCAL_TASK,
   );
