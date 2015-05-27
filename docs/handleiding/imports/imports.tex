@@ -2,9 +2,10 @@
 
 Dimpact bevat import modules om een deel van de inhoud te importeren uit gemeentelijke en landelijke voorzieningen. Het gaat hier om automatische processen die in de \emph{cron} worden gestart. De \emph{cron} is een proces dat periodiek op de achtergrond draait. Aangezien het om automatische imports gaat zijn de beheeropties minimaal. Wel is het mogelijk om imports handmatig te starten.
 
+
 \subsection{GVOP}
 
-De GVOP koppeling importeert regelingen (CVDR) en bekendmakingen. Hiervan wordt de dienst gebruikt op \texttt{zoek.officielebekendmakingen.nl}.
+De GVOP koppeling importeert regelingen (CVDR) en bekendmakingen. Hiervoor wordt de dienst gebruikt op \texttt{zoek.officielebekendmakingen.nl}.
 
 Bekendmakingen komen in het nodetype \emph{Bekendmaking} en regelingen (CVDR) in het nodetype \emph{Regeling}.
 
@@ -54,3 +55,36 @@ Ge\"{i}mporteerde items zijn in Drupal terug te vinden als \emph{Bestemmingsplan
 
 Een handmatige import kan gestart worden op de volgende pagina: \\
 \drupalpath{admin/config/content/durp}
+
+
+\subsection{SDU Connect}
+
+De SDU koppeling kan PDC en VAC collecties importeren van SduConnect. Dit gebeurt periodiek in een achtergrondproces (standaard eens per 3 uur) en importeert alleen de updates uit SDU. Alleen bij de eerste import wordt een volledige import gedaan.
+
+Producten uit de PDC komen in het nodetype \emph{Product} en VAC's nodetype \emph{VAC}.
+
+De configuratie is bereikbaar op de volgende pagina: \\
+\drupalpath{admin/config/content/sduconnect}
+
+Voor het gebruik van deze module moet onder de "Instellingen" tab het accountnummer worden ingesteld. Deze kan worden opgevraagd bij SDU. Daarna kan een nieuwe collectie worden aangemaakt met de link "Collectie toevoegen". Hier moeten de volgende velden worden ingesteld:
+\begin{itemize}
+\item Type \\ Kies het type van de collectie. Dit type moet overeenkomen met het type in SDU.
+\item SDU Collection id \\ Identificatiecode van de collectie. Deze kan worden opgevraagd bij SDU.
+\item Naam \\ Naam van de collectie. Wordt alleen gebruikt voor beheerdoeleinden.
+\item Publicatiedomeinen \\ Domeinen waarop ge\"{i}mporteerde inhoud wordt gepubliceerd.
+\item Frequentie \\ Geeft aan hoevaak gecontroleerd wordt op updates.
+\item Niet publieke velden importeren \\ Door dit aan te vinken wordt het \emph{onderwaterantwoord} toegevoegd aan de bodytekst. Dit dient alleen gebruikt te worden wanneer alleen intranet is aangevinkt bij publicatiedomeinen.
+\end{itemize}
+Na het aanmaken van een collectie verschijnt de import in het overzicht. Aan de rechterkant is een dropdown button te vinden met de tekst "Bewerken". Door op het pijltje ernaast te klikken verschijnen ook de opties "Start import" en "Verwijderen". Op beide acties volgt een bevestigingspagina.
+
+Een import start vanzelf conform de ingestelde frequentie of kan met de genoemde optie handmatig worden opgestart. Op de overzichtspagina is een teller te vinden met het aantal items dat op dat moment in de wachtrij staat om ge\"{i}mporteerd te worden. Deze wachtrij wordt in de achtergrond verwerkt en zal langzaam afnemen. Een volledige import kan echter meerdere uren in beslag nemen.
+
+Na het verwijderen van een collectie blijft de ge\"{i}mporteerde inhoud in het systeem aanwezig, maar wordt deze niet langer bijgewerkt. Als het wenselijk is dat de inhoud ook wordt verwijderd dan kan dit worden gedaan in "Mijn Workbench".
+
+Onder het tabblad \"{ }Log\"{ } is te zien welke items zijn ge\"{i}mporteerd. Ook eventuele fouten zijn hier terug te vinden.
+
+\subsection{Samenwerkende Catalogi}
+
+Deze module genereerd een XML-feed die ingelezen kan worden voor de Samenwerkende Catalogi. De feed is te allen tijde beschikbaar op \url{gemeente.nl/sc-feed}.
+
+Voor het gebruik van deze module moet een publicerende gemeente worden ingesteld. Deze kan worden gekozen uit een vooraf gedefini\"{e}erde waardenlijst. De instellingen zijn beschikbaar op \drupalpath{admin/config/services/scfeed}. Hier is ook een link beschikbaar waarmee de feed opnieuw opgebouwd kan worden. Deze functie is in principe alleen nodig wanneer de module later wordt ingezet en de feed nog leeg is.
