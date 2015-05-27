@@ -1849,7 +1849,7 @@ function dimpact_content_types_strongarm() {
         ),
         'flag_favorieten' => array(
           'default' => array(
-            'weight' => '17',
+            'weight' => '16',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -4057,15 +4057,6 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'scheduler_unpublish_revision_wiki';
   $strongarm->value = 0;
   $export['scheduler_unpublish_revision_wiki'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'webform_node_types';
-  $strongarm->value = array(
-    0 => 'webform',
-  );
-  $export['webform_node_types'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

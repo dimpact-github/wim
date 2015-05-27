@@ -25,6 +25,7 @@ function sduconnect_set_pdc_content($xpath, $node) {
   $body = '';
   $field = $xpath->query('//m:page/m:product/m:description');
   if ($field->length) {
+    $body .= '<h2>**Beschrijving</h2>';
     $body .= $field->item(0)->nodeValue;
   }
   $fields = array(
