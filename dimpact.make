@@ -222,9 +222,7 @@ projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/f
 projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
 projects[media_youtube][subdir] = contrib
-projects[media_youtube][download][type] = git
-projects[media_youtube][download][revision] = "9728dfb"
-projects[media_youtube][download][branch] = 7.x-2.x
+projects[media_youtube][version] = "2.0-rc5"
 
 projects[media_vimeo][subdir] = contrib
 projects[media_vimeo][download][type] = "git"
@@ -275,10 +273,7 @@ projects[piwik][subdir] = contrib
 projects[piwik][version] = "2.7"
 
 projects[purge][subdir] = contrib
-projects[purge][version] = "1.6"
-projects[purge][patch][1892028-26][url] = "https://www.drupal.org/files/issues/1892028-26-fix-curl-multi-select-bug.patch"
-projects[purge][patch][1892028-26][md5] = "1f65e6937213ed985536b02919508007"
-
+projects[purge][version] = "1.7"
 
 projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
@@ -318,6 +313,9 @@ projects[submenutree][version] = "2.3"
 projects[subscriptions][subdir] = contrib
 projects[subscriptions][version] = "1.1"
 
+projects[textformatter][subdir] = contrib
+projects[textformatter][version] = "1.3"
+
 projects[token][subdir] = contrib
 projects[token][version] = "1.5"
 
@@ -331,7 +329,7 @@ projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"
 
 projects[views][subdir] = contrib
-projects[views][version] = "3.10"
+projects[views][version] = "3.11"
 
 projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = "3.2"
@@ -352,7 +350,9 @@ projects[workbench][subdir] = contrib
 projects[workbench][version] = "1.2"
 
 projects[workbench_moderation][subdir] = contrib
-projects[workbench_moderation][version] = "1.3"
+projects[workbench_moderation][download][type] = git
+projects[workbench_moderation][download][branch] = "7.x-1.x"
+projects[workbench_moderation][download][revision] = "296ce87"
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][download][type] = git

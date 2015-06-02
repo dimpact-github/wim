@@ -30,6 +30,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 4,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -150,6 +156,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -247,6 +259,12 @@ function dimpact_content_types_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'media',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -353,6 +371,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -443,6 +467,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 5,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -522,6 +552,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 6,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -604,6 +640,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -724,6 +766,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -808,6 +856,12 @@ function dimpact_content_types_field_default_field_instances() {
         ),
         'type' => 'date_default',
         'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -900,6 +954,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -979,6 +1039,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 5,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -1062,6 +1128,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -1179,6 +1251,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'media',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1280,6 +1358,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1368,6 +1452,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 5,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1449,6 +1539,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -1567,6 +1663,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1677,6 +1779,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -1797,6 +1905,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1875,6 +1989,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'file_default',
         'weight' => 1,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -1980,6 +2100,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2061,6 +2187,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 3,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -2146,6 +2278,12 @@ function dimpact_content_types_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -2256,6 +2394,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 5,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2339,6 +2483,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2371,6 +2521,7 @@ function dimpact_content_types_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
       ),
@@ -2452,6 +2603,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 4,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2532,6 +2689,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2565,6 +2728,7 @@ function dimpact_content_types_field_default_field_instances() {
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
+        'settings' => array(),
         'type' => 'text_default',
         'weight' => 0,
       ),
@@ -2644,6 +2808,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -2764,6 +2934,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2846,6 +3022,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -2963,6 +3145,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'media',
         'weight' => 0,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3067,6 +3255,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -3160,6 +3354,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 4,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3239,6 +3439,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -3321,6 +3527,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -3441,6 +3653,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3520,6 +3738,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -3603,6 +3827,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 1,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -3728,6 +3958,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3814,6 +4050,12 @@ function dimpact_content_types_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'media',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'search_result' => array(
@@ -3929,6 +4171,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4016,7 +4264,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4082,7 +4336,7 @@ function dimpact_content_types_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -4102,7 +4356,13 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 21,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4206,9 +4466,9 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
-      'short_teaser' => array(
+      'felix' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4297,7 +4557,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 5,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4364,6 +4630,108 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_date'
+  $field_instances['node-product-field_date'] = array(
+    'bundle' => 'product',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_date',
+    'label' => 'Datum',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 22,
+    ),
+  );
+
   // Exported field_instance: 'node-product-field_extra_afbeelding'
   $field_instances['node-product-field_extra_afbeelding'] = array(
     'bundle' => 'product',
@@ -4384,7 +4752,13 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 22,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4474,9 +4848,117 @@ function dimpact_content_types_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 10,
-     ),
-   );
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-product-field_forms'
+  $field_instances['node-product-field_forms'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 10,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_forms',
+    'label' => 'Formulieren',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 20,
+    ),
+  );
 
   // Exported field_instance: 'node-product-field_location'
   $field_instances['node-product-field_location'] = array(
@@ -4496,7 +4978,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'location_cck',
         'settings' => array(),
         'type' => 'location_default',
-        'weight' => 1,
+        'weight' => 2,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4554,7 +5042,115 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'location_cck',
       'settings' => array(),
       'type' => 'location',
-      'weight' => 4,
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance: 'node-product-field_more_information'
+  $field_instances['node-product-field_more_information'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 11,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_more_information',
+    'label' => 'Meer informatie',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 21,
     ),
   );
 
@@ -4576,7 +5172,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4664,7 +5266,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 7,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4731,6 +5339,114 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_related_laws'
+  $field_instances['node-product-field_related_laws'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 12,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_related_laws',
+    'label' => 'Gerelateerde wetten / regelgeving',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 18,
+    ),
+  );
+
   // Exported field_instance: 'node-product-field_related_pdc'
   $field_instances['node-product-field_related_pdc'] = array(
     'bundle' => 'product',
@@ -4751,7 +5467,13 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 20,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -4813,7 +5535,99 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'node-product-field_related_pdc_vac'
+  $field_instances['node-product-field_related_pdc_vac'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 15,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_related_pdc_vac',
+    'label' => 'Gerelateerd',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 16,
     ),
   );
 
@@ -4831,14 +5645,15 @@ function dimpact_content_types_field_default_field_instances() {
           'entity_bundle' => 'vac',
         ),
         'type' => 'atos_title',
+        'weight' => 22,
       ),
       'default' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 18,
       ),
-      'short_teaser' => array(
+      'felix' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4904,7 +5719,7 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -4926,6 +5741,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -4993,6 +5814,199 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_request_online'
+  $field_instances['node-product-field_request_online'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 13,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_request_online',
+    'label' => 'Online aanvragen',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance: 'node-product-field_sc_audience'
+  $field_instances['node-product-field_sc_audience'] = array(
+    'bundle' => 'product',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_sc_audience',
+    'label' => 'Doelgroep Samenwerkende Catalogi',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 23,
+    ),
+  );
+
   // Exported field_instance: 'node-product-field_tags'
   $field_instances['node-product-field_tags'] = array(
     'bundle' => 'product',
@@ -5010,7 +6024,13 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 19,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5071,7 +6091,7 @@ function dimpact_content_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 10,
+      'weight' => 2,
     ),
   );
 
@@ -5093,7 +6113,13 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 8,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5179,6 +6205,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 9,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5296,6 +6328,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5384,6 +6422,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 7,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5474,6 +6518,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5563,6 +6613,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 12,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5676,6 +6732,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 2,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -5791,6 +6853,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 10,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5903,6 +6971,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -6017,6 +7091,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6129,6 +7209,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6218,6 +7304,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 5,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -6333,88 +7425,11 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 11,
       ),
-      'short_teaser' => array(
+      'felix' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
-      ),
-      'slide_312' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'slide_412' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'slide_812' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'slide_912' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'volle_breedte' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'fences_wrapper' => 'div',
-    'field_name' => 'field_tags',
-    'label' => 'Tags',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
-      'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'taxonomy_autocomplete',
-      'weight' => 12,
-    ),
-  );
-
-  // Exported field_instance: 'node-regulation-field_tags'
-  $field_instances['node-regulation-field_tags'] = array(
-    'bundle' => 'regulation',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'cck_blocks' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 11,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -6501,6 +7516,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6583,6 +7604,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'file_default',
         'weight' => 1,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -6690,6 +7717,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -6808,6 +7841,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -6933,6 +7972,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7026,6 +8071,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'entityreference_label',
         'weight' => 5,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7109,6 +8160,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 4,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7188,6 +8245,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 3,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -7307,6 +8370,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7391,6 +8460,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 1,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -7510,6 +8585,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7595,6 +8676,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7677,6 +8764,12 @@ function dimpact_content_types_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'media',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -7795,6 +8888,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 2,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7902,6 +9001,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 11,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7981,6 +9086,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 6,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -8084,6 +9195,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 9,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8185,6 +9302,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 8,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -8288,6 +9411,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 7,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8390,6 +9519,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 10,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8490,6 +9625,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -8606,6 +9747,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'link_default',
         'weight' => 5,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8707,6 +9854,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -8810,6 +9963,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 3,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8890,6 +10049,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8968,6 +10133,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -9054,6 +10225,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -9174,6 +10351,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9262,6 +10445,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9327,6 +10516,292 @@ function dimpact_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-vac-field_location'
+  $field_instances['node-vac-field_location'] = array(
+    'bundle' => 'vac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'location_cck',
+        'settings' => array(),
+        'type' => 'location_default',
+        'weight' => 3,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_location',
+    'label' => 'Locatie',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'location_cck',
+      'settings' => array(),
+      'type' => 'location',
+      'weight' => 35,
+    ),
+  );
+
+  // Exported field_instance: 'node-vac-field_more_information'
+  $field_instances['node-vac-field_more_information'] = array(
+    'bundle' => 'vac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 4,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_more_information',
+    'label' => 'Meer informatie',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 36,
+    ),
+  );
+
+  // Exported field_instance: 'node-vac-field_related_pdc_vac'
+  $field_instances['node-vac-field_related_pdc_vac'] = array(
+    'bundle' => 'vac',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'cck_blocks' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'short_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_312' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_412' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_812' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slide_912' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'volle_breedte' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'fences_wrapper' => 'div',
+    'field_name' => 'field_related_pdc_vac',
+    'label' => 'Gerelateerd',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 37,
+    ),
+  );
+
   // Exported field_instance: 'node-vac-field_tags'
   $field_instances['node-vac-field_tags'] = array(
     'bundle' => 'vac',
@@ -9344,7 +10819,13 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 7,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -9427,6 +10908,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -9547,6 +11034,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'location_default',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9626,6 +11119,12 @@ function dimpact_content_types_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 2,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'short_teaser' => array(
         'label' => 'above',
@@ -9708,6 +11207,12 @@ function dimpact_content_types_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'short_teaser' => array(
@@ -9828,6 +11333,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 1,
       ),
+      'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9912,9 +11423,13 @@ function dimpact_content_types_field_default_field_instances() {
   t('Characteristic');
   t('Contact');
   t('Datum');
+  t('Doelgroep Samenwerkende Catalogi');
+  t('Formulieren');
   t('Foto');
   t('Geratificeerd door');
+  t('Gerelateerd');
   t('Gerelateerde producten');
+  t('Gerelateerde wetten / regelgeving');
   t('Illustratie');
   t('Image');
   t('Intro');
@@ -9923,7 +11438,9 @@ function dimpact_content_types_field_default_field_instances() {
   t('Kosten');
   t('Link');
   t('Locatie');
+  t('Meer informatie');
   t('Onderwerp');
+  t('Online aanvragen');
   t('Parent');
   t('Plan ID');
   t('Redactionele Toevoeging');
