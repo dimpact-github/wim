@@ -331,7 +331,7 @@ projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"
 
 projects[views][subdir] = contrib
-projects[views][version] = "3.10"
+projects[views][version] = "3.11"
 
 projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = "3.2"
