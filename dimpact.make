@@ -222,9 +222,7 @@ projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/f
 projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
 projects[media_youtube][subdir] = contrib
-projects[media_youtube][download][type] = git
-projects[media_youtube][download][revision] = "9728dfb"
-projects[media_youtube][download][branch] = 7.x-2.x
+projects[media_youtube][version] = "2.0-rc5"
 
 projects[media_vimeo][subdir] = contrib
 projects[media_vimeo][download][type] = "git"
@@ -331,7 +329,7 @@ projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"
 
 projects[views][subdir] = contrib
-projects[views][version] = "3.10"
+projects[views][version] = "3.11"
 
 projects[views_bulk_operations][subdir] = contrib
 projects[views_bulk_operations][version] = "3.2"
