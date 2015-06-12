@@ -70,9 +70,14 @@ function sduconnect_delta_import($collection) {
  */
 function sduconnect_delta_download($collection_type, $collection_id, $from_date) {
   $account_id = variable_get('sduconnect_account', '');
-  $date = date('Ymd\\THis', $from_date);
   $version = '1.1';
-  $url = "https://rest.sduconnect.nl/delta/$collection_type/$version/account/$account_id/collectie/$collection_id/startdatetime/$date.xml";
+  if ($from_date < REQUEST_TIME - (86400 * 30)) {
+    $url = "https://rest.sduconnect.nl/delta/$collection_type/$version/account/$account_id/collectie/$collection_id.xml";
+  }
+  else {
+    $date = date('Ymd\\THis', $from_date);
+    $url = "https://rest.sduconnect.nl/delta/$collection_type/$version/account/$account_id/collectie/$collection_id/startdatetime/$date.xml";
+  }
   $data = drupal_http_request($url);
   if ($data->code != 200) {
     throw new Exception($url, intval($data->code));
