@@ -139,7 +139,7 @@ function sduconnect_cron_queue_info() {
   return array(
     'sduconnect' => array(
       'worker callback' => 'sduconnect_process_queue_item',
-      'time' => 15,
+      'time' => 45,
     ),
   );
 }

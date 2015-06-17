@@ -244,13 +244,15 @@ function sduconnect_set_vac_content($xpath, &$node, $private = FALSE) {
   // Related items.
   $ids = sduconnect_nodelist_to_array($xpath->query('//vac:vacs/vac:vac/vac:body/vac:verwijzingProduct/@resourceIdentifier'));
   $items = array();
-  $nodes = db_select('sduconnect_item', 'i')
-    ->fields('i', array('nid'))
-    ->condition('external_id', $ids)
-    ->execute()
-    ->fetchAll();
-  foreach ($nodes as $item) {
-    $items[] = array('target_id' => $item->nid);
+  if ($ids) {
+    $nodes = db_select('sduconnect_item', 'i')
+      ->fields('i', array('nid'))
+      ->condition('external_id', $ids)
+      ->execute()
+      ->fetchAll();
+    foreach ($nodes as $item) {
+      $items[] = array('target_id' => $item->nid);
+    }
   }
   $node->field_related_pdc_vac = array(LANGUAGE_NONE => $items);
 
