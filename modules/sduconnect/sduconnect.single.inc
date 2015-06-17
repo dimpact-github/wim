@@ -44,8 +44,10 @@ function sduconnect_single_import($collection, $id, $type) {
       $not_found = TRUE;
     }
     if ($e->getCode()) {
-      $log = t('Got code %code from %url', array(
+      $log = t('Got code %code when importing %type %id from %url', array(
         '%code' => $e->getCode(),
+        '%type' => $type,
+        '%id' => $id,
         '%url' => $e->getMessage(),
       ));
     }
@@ -77,8 +79,7 @@ function sduconnect_single_import($collection, $id, $type) {
  */
 function sduconnect_single_download($collection_type, $collection_id, $id) {
   $account_id = variable_get('sduconnect_account', '');
-  $version = $collection_type == 'pdc' ? '1.2' : '1.1';
-  $url = "https://rest.sduconnect.nl/single/$collection_type/$version/account/$account_id/collectie/$collection_id/item/$id.xml";
+  $url = "https://rest.sduconnect.nl/single/$collection_type/2.0/account/$account_id/collectie/$collection_id/item/$id.xml";
   $data = drupal_http_request($url);
   if ($data->code != 200) {
     throw new Exception($url, intval($data->code));
