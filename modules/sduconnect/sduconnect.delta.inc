@@ -16,14 +16,13 @@ function sduconnect_delta_import($collection) {
   try {
     $from_time = $collection->updated_till;
 
-    // If the last import was on saturday, and it is sunday now, then import all
-    // content from the last 7 days.
-    // This procedure is a "double check" to make sure that no content was
-    // missed during the regular updates.
+    // If the last import was on saturday, and it is sunday now, then we should
+    // compare the whole list of id's, to ensure we haven't missed anything
+    // during the regular updates.
     $last_was_saturday = format_date($from_time, 'custom', 'w') == 6;
     $on_sunday = format_date(REQUEST_TIME, 'custom', 'w') == 0;
     if ($last_was_saturday && $on_sunday) {
-      $from_time = REQUEST_TIME - (86400 * 7);
+      // @todo
     }
 
     $ids = sduconnect_delta_download($collection->type, $collection->external_id, $from_time);
@@ -78,7 +77,11 @@ function sduconnect_delta_download($collection_type, $collection_id, $from_date)
     $date = date('Ymd\\THis', $from_date);
     $url = "https://rest.sduconnect.nl/delta/$collection_type/$version/account/$account_id/collectie/$collection_id/startdatetime/$date.xml";
   }
-  $data = drupal_http_request($url);
+  // The callback to get changed items can be slow. Use a timeout of 5 minutes.
+  $options = array(
+    'timeout' => 300
+  );
+  $data = drupal_http_request($url, $options);
   if ($data->code != 200) {
     throw new Exception($url, intval($data->code));
   }

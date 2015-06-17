@@ -88,7 +88,7 @@ function scfeed_feed_wrap_items($items) {
   $ns_dcterms = 'http://purl.org/dc/terms/';
   $ns_xsi = 'http://www.w3.org/2001/XMLSchema-instance';
 
-  $dom = new DOMDocument();
+  $dom = new DOMDocument('1.0', 'utf-8');
   $dom->formatOutput = TRUE;
   $products = $dom->createElement('scproducten');
   $products->setAttribute('xmlns', $ns_sc);
