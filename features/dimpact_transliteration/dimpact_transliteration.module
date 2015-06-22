@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Dimpact Transliteration feature.
+ */
+
+include_once 'dimpact_transliteration.features.inc';
