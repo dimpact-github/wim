@@ -1,0 +1,15 @@
+name = Dimpact Transliteration
+description = Bevat configuratie voor transliteratie van geuploade bestanden zoals bijvoorbeeld pdf.
+core = 7.x
+package = Features
+version = 7.x-1.0-20150622
+project = dimpact_transliteration
+dependencies[] = ctools
+dependencies[] = strongarm
+dependencies[] = transliteration
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = transliteration_file_lowercase
+features[variable][] = transliteration_file_punctuation
+features[variable][] = transliteration_file_separator
+project path = sites/all/modules/features
