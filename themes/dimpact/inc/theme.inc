@@ -33,30 +33,6 @@ function dimpact_mark($vars) {
 }
 
 /**
- * Implements hook_menu_link().
- * @param $variables
- * @return string
- */
-function dimpact_menu_link__menu_toptaken($variables) {
-  $element = $variables['element'];
-  $sub_menu = '';
-
-  if ($element['#below']) {
-    $sub_menu = drupal_render($element['#below']);
-  }
-
-  if (isset($element['#localized_options']['content']) && ($file = file_load($element['#localized_options']['content']['image']))) {
-    $image = '<span><img src="' . image_style_url('origineel', $file->uri). '" alt="' . check_plain($file->alt) . '" title="' . check_plain($file->title) . '"></span>';
-    $element['#localized_options']['html'] = TRUE;
-    $output = l($image . check_plain($element['#title']), $element['#href'], $element['#localized_options']);
-  }
-  else {
-    $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  }
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
-
-/**
  * Overrides theme_menu_local_tasks().
  */
 function dimpact_menu_local_tasks(&$vars) {
@@ -561,10 +537,24 @@ function dimpact_menu_link(array $variables) {
   if ($element['#below']) {
     $sub_menu = drupal_render($element['#below']);
   }
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
 
+  // Toptaken menus are treated differently.
+  if (strpos($element['#theme'], 'toptaken') !== FALSE) {
+    if (isset($element['#localized_options']['content']) && ($file = file_load($element['#localized_options']['content']['image']))) {
+      $image = '<span><img src="' . image_style_url('origineel', $file->uri). '" alt="' . check_plain($file->alt) . '" title="' . check_plain($file->title) . '"></span>';
+      $element['#localized_options']['html'] = TRUE;
+      $output = l($image . check_plain($element['#title']), $element['#href'], $element['#localized_options']);
+    }
+    else {
+      $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+    }
+    return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  }
+  else {
+    $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+    return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  }
+}
 
 /**
  * Theme function to output content for classic Quicktabs style tabs.
