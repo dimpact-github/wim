@@ -31,8 +31,13 @@ function sduconnect_single_import($collection, $id, $type) {
     }
     else {
       $content = sduconnect_single_download($collection->type, $collection->external_id, $id);
+      $references_function = "sduconnect_get_{$collection->type}_references";
+      $references = $references_function($content);
+      sduconnect_queue_referenced_items($references);
+      sduconnect_save_references($collection->type, $id, $references);
       $content_function = "sduconnect_set_{$collection->type}_content";
-      $content_function($content, $node, (bool) $collection->import_private);
+      $references = sduconnect_get_references($collection->type, $id);
+      $content_function($content, $node, (bool) $collection->import_private, $references);
       sduconnect_set_domains($collection, $node);
       sduconnect_save_node($collection, $id, $node);
     }
@@ -60,13 +65,80 @@ function sduconnect_single_import($collection, $id, $type) {
     'changed' => 4,
     'removed' => 6,
   );
-  db_insert('sduconnect_log')->fields(array(
-    'date' => REQUEST_TIME,
-    'type' => $type_codes[$type] + ((int) $not_found),
-    'cid' => $collection->cid,
-    'title' => substr($log, 0, 255),
-    'nid' => $nid,
-  ))->execute();
+  if ($collection->cid) {
+    db_insert('sduconnect_log')->fields(array(
+      'date' => REQUEST_TIME,
+      'type' => $type_codes[$type] + ((int) $not_found),
+      'cid' => $collection->cid,
+      'title' => substr($log, 0, 255),
+      'nid' => $nid,
+    ))->execute();
+  }
+}
+
+/**
+ * Save references to database.
+ *
+ * @param string $type
+ * @param string $external_id
+ * @param array $references
+ */
+function sduconnect_save_references($type, $external_id, $references) {
+  db_delete('sduconnect_related')
+    ->condition('type_a', $type)
+    ->condition('external_id_a', $external_id)
+    ->execute();
+  foreach ($references as $reference) {
+    db_insert('sduconnect_related')->fields(array(
+      'type_a' => $type,
+      'external_id_a' => $external_id,
+      'type_b' => $reference->type,
+      'external_id_b' => $reference->id,
+    ))->execute();
+  }
+}
+
+/**
+ * Get references for item.
+ *
+ * @param string $type
+ * @param string $external_id
+ */
+function sduconnect_get_references($type, $external_id) {
+  $sql = 'SELECT c.cid, i.external_id, c.type, i.nid, n.title
+  FROM sduconnect_related r
+  JOIN sduconnect_item i ON r.external_id_b = i.external_id
+  JOIN sduconnect_collection c ON r.type_b = c.type AND i.cid = c.cid
+  JOIN node n ON i.nid = n.nid
+  WHERE r.type_a = :type AND r.external_id_a = :external_id
+  UNION
+  SELECT c.cid, i.external_id, c.type, i.nid, n.title
+  FROM sduconnect_related r
+  JOIN sduconnect_item i ON r.external_id_a = i.external_id
+  JOIN sduconnect_collection c ON r.type_a = c.type AND i.cid = c.cid
+  JOIN node n ON i.nid = n.nid
+  WHERE r.type_b = :type AND r.external_id_b = :external_id';
+  return db_query($sql, array(
+    ':type' => $type,
+    ':external_id' => $external_id,
+  ))->fetchAll();
+}
+
+/**
+ * Add referenced items to queue.
+ *
+ * VAC's have references to products, which should be displayed on the product
+ * page. Therefore, when a reference is found on a VAC, the product must be
+ * updated to add the reference.
+ *
+ * @param array $references
+ */
+function sduconnect_queue_referenced_items($references) {
+  $queue = DrupalQueue::get('sduconnect');
+  foreach ($references as $item) {
+    $item = new stdClass();
+    $queue->createItem($item);
+  }
 }
 
 /**
