@@ -168,6 +168,7 @@ function sduconnect_schema() {
  * Create sduconnect_related table.
  */
 function sduconnect_update_7100() {
-  $table = drupal_get_schema('sduconnect_related');
+  $schema = sduconnect_schema();
+  $table = $schema['sduconnect_related'];
   db_create_table('sduconnect_related', $table);
 }
