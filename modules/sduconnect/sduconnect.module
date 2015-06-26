@@ -152,7 +152,10 @@ function sduconnect_cron_queue_info() {
 function sduconnect_process_queue_item($item) {
   module_load_include('inc', 'sduconnect', 'sduconnect.single');
   $collection = sduconnect_collection_load($item->cid);
-  sduconnect_single_import($collection, $item->id, $item->type);
+  if (!isset($item->queue_references)) {
+    $item->queue_references = TRUE;
+  }
+  sduconnect_single_import($collection, $item->id, $item->type, $item->queue_references);
 }
 
 /**

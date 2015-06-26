@@ -12,7 +12,7 @@
  * @param string $id
  * @param string $type
  */
-function sduconnect_single_import($collection, $id, $type) {
+function sduconnect_single_import($collection, $id, $type, $queue_references = TRUE) {
   module_load_include('inc', 'sduconnect', 'sduconnect.content');
   $nid = 0;
   $not_found = FALSE;
@@ -33,7 +33,9 @@ function sduconnect_single_import($collection, $id, $type) {
       $content = sduconnect_single_download($collection->type, $collection->external_id, $id);
       $references_function = "sduconnect_get_{$collection->type}_references";
       $references = $references_function($content);
-      sduconnect_queue_referenced_items($references);
+      if ($queue_references) {
+        sduconnect_queue_referenced_items($references);
+      }
       sduconnect_save_references($collection->type, $id, $references);
       $content_function = "sduconnect_set_{$collection->type}_content";
       $references = sduconnect_get_references($collection->type, $id);
@@ -136,7 +138,7 @@ function sduconnect_get_references($type, $external_id) {
 function sduconnect_queue_referenced_items($references) {
   $queue = DrupalQueue::get('sduconnect');
   foreach ($references as $item) {
-    $item = new stdClass();
+    $item->queue_references = FALSE;
     $queue->createItem($item);
   }
 }

@@ -28,7 +28,10 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
   // Let op.
   $field = $xpath->query('//m:page/m:product/m:notice');
   if ($field->length) {
-    $tabs['Beschrijving'] .= '<strong>Let op:</strong> ' . $field->item(0)->nodeValue;
+    $value = $field->item(0)->nodeValue;
+    if (preg_match('/[a-z]/si', strip_tags($value))) {
+      $tabs['Beschrijving'] .= '<strong>Let op:</strong> ' . $field->item(0)->nodeValue;
+    }
   }
   $field = $xpath->query('//m:page/m:product/m:description');
   if ($field->length) {
