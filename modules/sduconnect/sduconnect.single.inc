@@ -33,15 +33,20 @@ function sduconnect_single_import($collection, $id, $type, $queue_references = T
       $content = sduconnect_single_download($collection->type, $collection->external_id, $id);
       $references_function = "sduconnect_get_{$collection->type}_references";
       $references = $references_function($content);
-      if ($queue_references) {
-        sduconnect_queue_referenced_items($references);
-      }
       sduconnect_save_references($collection->type, $id, $references);
+      // Wait 25ms for database lag.
+      usleep(25000);
       $content_function = "sduconnect_set_{$collection->type}_content";
       $references = sduconnect_get_references($collection->type, $id);
       $content_function($content, $node, (bool) $collection->import_private, $references);
       sduconnect_set_domains($collection, $node);
       sduconnect_save_node($collection, $id, $node);
+
+      // Queue references.
+      if ($queue_references) {
+        $references = sduconnect_get_referenced_by($collection->type, $id);
+        sduconnect_queue_referenced_items($references);
+      }
     }
     $nid = $node->nid;
     $log = t('Processed item %id: %title', array('%id' => $id, '%title' => $node->title));
@@ -67,6 +72,9 @@ function sduconnect_single_import($collection, $id, $type, $queue_references = T
     'changed' => 4,
     'removed' => 6,
   );
+  if (!isset($type_codes[$type])) {
+    $type = 'changed';
+  }
   if ($collection->cid) {
     db_insert('sduconnect_log')->fields(array(
       'date' => REQUEST_TIME,
@@ -112,9 +120,21 @@ function sduconnect_get_references($type, $external_id) {
   JOIN sduconnect_item i ON r.external_id_b = i.external_id
   JOIN sduconnect_collection c ON r.type_b = c.type AND i.cid = c.cid
   JOIN node n ON i.nid = n.nid
-  WHERE r.type_a = :type AND r.external_id_a = :external_id
-  UNION
-  SELECT c.cid, i.external_id, c.type, i.nid, n.title
+  WHERE r.type_a = :type AND r.external_id_a = :external_id';
+  return db_query($sql, array(
+    ':type' => $type,
+    ':external_id' => $external_id,
+  ))->fetchAll();
+}
+
+/**
+ * Get items refererencing this item.
+ *
+ * @param string $type
+ * @param string $external_id
+ */
+function sduconnect_get_referenced_by($type, $external_id) {
+  $sql = 'SELECT c.cid, i.external_id, c.type, i.nid, n.title
   FROM sduconnect_related r
   JOIN sduconnect_item i ON r.external_id_a = i.external_id
   JOIN sduconnect_collection c ON r.type_a = c.type AND i.cid = c.cid
@@ -138,8 +158,12 @@ function sduconnect_get_references($type, $external_id) {
 function sduconnect_queue_referenced_items($references) {
   $queue = DrupalQueue::get('sduconnect');
   foreach ($references as $item) {
-    $item->queue_references = FALSE;
-    $queue->createItem($item);
+    $job = new stdClass();
+    $job->cid = $item->cid;
+    $job->id = $item->external_id;
+    $job->type = 'changed';
+    $job->queue_references = FALSE;
+    $queue->createItem($job);
   }
 }
 
