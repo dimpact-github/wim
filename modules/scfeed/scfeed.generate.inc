@@ -85,6 +85,8 @@ function scfeed_generate_item($node) {
     $teaser = text_summary(scfeed_generate_body($node), 'full_html', 200);
     $teaser = preg_replace('/\\<(p|li|table|h)/si', ' <\\1', $teaser);
     $teaser = trim(strip_tags($teaser));
+    // Remove "Beschrijving ", which comes from the first inline tab.
+    $teaser = preg_replace('/^Beschrijving /s', '', $teaser);
     $element = $dom->createElementNS($ns_dcterms, 'dcterms:abstract');
     $element->appendChild($dom->createCDATASection($teaser));
     $owmsmantel->appendChild($element);
