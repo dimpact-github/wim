@@ -2219,12 +2219,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Locatie: Breedtegraad */
+  /* Filtercriterium: Location: Breedtegraad */
   $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['table'] = 'location';
   $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['operator'] = '!=';
-  /* Filtercriterium: Locatie: Lengtegraad */
+  /* Filtercriterium: Location: Lengtegraad */
   $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
   $handler->display->display_options['filters']['longitude']['table'] = 'location';
   $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
@@ -3599,10 +3599,42 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_mobiel']['table'] = 'field_data_field_mobiel';
   $handler->display->display_options['fields']['field_mobiel']['field'] = 'field_mobiel';
   $handler->display->display_options['fields']['field_mobiel']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_mobiel']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_mobiel']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_mobiel']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_mobiel']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: E-mail */
+  $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
+  $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
+  $handler->display->display_options['fields']['field_email']['label'] = 'E-mailadres';
+  $handler->display->display_options['fields']['field_email']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_email']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_email']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_email']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Afdeling */
+  $handler->display->display_options['fields']['field_afdeling']['id'] = 'field_afdeling';
+  $handler->display->display_options['fields']['field_afdeling']['table'] = 'field_data_field_afdeling';
+  $handler->display->display_options['fields']['field_afdeling']['field'] = 'field_afdeling';
+  $handler->display->display_options['fields']['field_afdeling']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_afdeling']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_afdeling']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_afdeling']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Werkplek */
+  $handler->display->display_options['fields']['field_werkplek']['id'] = 'field_werkplek';
+  $handler->display->display_options['fields']['field_werkplek']['table'] = 'field_data_field_werkplek';
+  $handler->display->display_options['fields']['field_werkplek']['field'] = 'field_werkplek';
+  $handler->display->display_options['fields']['field_werkplek']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_werkplek']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_werkplek']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_werkplek']['field_api_classes'] = TRUE;
+  /* Veld: Gebruiker: Werktijden */
+  $handler->display->display_options['fields']['field_werktijden']['id'] = 'field_werktijden';
+  $handler->display->display_options['fields']['field_werktijden']['table'] = 'field_data_field_werktijden';
+  $handler->display->display_options['fields']['field_werktijden']['field'] = 'field_werktijden';
+  $handler->display->display_options['fields']['field_werktijden']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_werktijden']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_werktijden']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_werktijden']['field_api_classes'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filtercriterium: Gebruiker: Actief */
@@ -3681,6 +3713,10 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Teamleden'),
     t('Medewerkers'),
     t('Mobiel'),
+    t('E-mailadres'),
+    t('Afdeling'),
+    t('Werkplek'),
+    t('Werktijden'),
     t('Teamledenblok'),
     t('Teamlid foto'),
     t('Geen afbeelding gevonden'),
