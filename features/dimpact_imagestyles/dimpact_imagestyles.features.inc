@@ -355,8 +355,8 @@ function dimpact_imagestyles_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 358,
-          'height' => 201,
+          'width' => 390,
+          'height' => 219,
         ),
         'weight' => 1,
       ),
