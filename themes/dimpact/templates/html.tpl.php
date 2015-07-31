@@ -27,7 +27,7 @@
     <?php print $scripts; ?>
 
     <?php if (variable_get('bespoke_readspeaker_status') == 1): ?>
-    <script type="text/javascript" src="http://f1.eu.readspeaker.com/script/26/ReadSpeaker.js?pids=embhl"></script>
+    <script type="text/javascript" src="/sites/all/themes/subtheme/dimpact/readspeaker/ReadSpeaker.js?pids=embhl"></script>
     <?php endif; ?>
 
     <!--[if lte IE 9]>
