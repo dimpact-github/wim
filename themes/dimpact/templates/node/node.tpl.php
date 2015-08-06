@@ -67,7 +67,7 @@ else {
     <?php print render($tabs); ?>
   </div>
   <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
-    <div class="blog-comment-count">
+    <div class="comment-count">
       <?php print $comment_count_str; ?>
     </div>
   <?php endif; ?>
