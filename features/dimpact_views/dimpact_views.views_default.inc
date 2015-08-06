@@ -948,6 +948,17 @@ if (node_access(\'create\', \'file\')) {
     'blog' => 'blog',
   );
   $handler->display->display_options['path'] = 'blogs/%';
+
+  /* Display: Teaser block */
+  $handler = $view->new_display('block', 'Teaser block', 'block_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Blogs teaserblok';
   $translatables['blogs'] = array(
     t('Master'),
     t('Blogs'),
@@ -968,6 +979,8 @@ if (node_access(\'create\', \'file\')) {
     t('Blogs per gebruiker'),
     t('auteur'),
     t('Alle'),
+    t('Teaser block'),
+    t('Blogs teaserblok'),
   );
   $export['blogs'] = $view;
 

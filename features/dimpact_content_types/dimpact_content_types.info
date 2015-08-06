@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.0-20150527
+version = 7.x-1.0-20150806
 project = dimpact_content_types
 dependencies[] = date_popup
 dependencies[] = dimpact_contexts
@@ -668,4 +668,4 @@ features_exclude[dependencies][media] = media
 features_exclude[dependencies][options] = options
 features_exclude[dependencies][strongarm] = strongarm
 features_exclude[dependencies][taxonomy] = taxonomy
-mtime = 1431015127
+mtime = 1435151063

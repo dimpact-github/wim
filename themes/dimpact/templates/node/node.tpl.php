@@ -6,6 +6,15 @@ hide($content['links']);
 hide($content['field_image']);
 hide($content['field_tabtitel']);
 hide($content['field_tabcontent']);
+
+if ($comment_count == 0) {
+  $comment_count_str = t('nog geen reacties');
+}
+else {
+  $comment_count_str = l(format_plural($comment_count, '1 reactie', '@count reacties'),
+                         'node/' . $node->nid,
+                         array('fragment' => 'comments'));
+}
 ?>
 <article<?php print $attributes; ?>>
 
@@ -19,6 +28,17 @@ hide($content['field_tabcontent']);
       <?php endif; ?>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
+  <?php endif; ?>
+
+  <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
+    <div class="blog-submitted">
+      <time datetime="<?php print $timestamp; ?>">
+        <span><?php print format_date($node->created, 'custom', 'd F Y'); ?></span>
+      </time> |
+      <span class="submitted">
+        <?php print theme('username', array('account' => user_load($node->uid))); ?>
+      </span>
+    </div>
   <?php endif; ?>
 
   <?php if ($teaser): ?>
@@ -46,6 +66,11 @@ hide($content['field_tabcontent']);
     <?php print render($content); ?>
     <?php print render($tabs); ?>
   </div>
+  <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
+    <div class="blog-comment-count">
+      <?php print $comment_count_str; ?>
+    </div>
+  <?php endif; ?>
   <?php // print render($content['links']); ?>
   <?php print render($content['comments']); ?>
 </article>

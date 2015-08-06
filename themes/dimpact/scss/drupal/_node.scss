@@ -21,6 +21,17 @@
         content: " \2014";
       }
     }
+
+    .blog-comment-count {
+      color: $gray;
+      clear: both;
+
+      &:before {
+        color: $background-color;
+        @include icon($comment);
+      }
+    }
+
     h2 {
       @include font-size(16);
       margin-top: 0;
