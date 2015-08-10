@@ -3583,11 +3583,10 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sorteercriterium: Gebruiker: Volledige naam (field_volledige_naam) */
+  $handler->display->display_options['sorts']['field_volledige_naam_value']['id'] = 'field_volledige_naam_value';
+  $handler->display->display_options['sorts']['field_volledige_naam_value']['table'] = 'field_data_field_volledige_naam';
+  $handler->display->display_options['sorts']['field_volledige_naam_value']['field'] = 'field_volledige_naam_value';
   /* Filtercriterium: Gebruiker: Actief */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -3764,6 +3763,12 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]/edit#edit-picture';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextueel filter: Gebruiker: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
