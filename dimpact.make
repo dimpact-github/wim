@@ -218,9 +218,7 @@ projects[media_youtube][subdir] = contrib
 projects[media_youtube][version] = "2.0-rc5"
 
 projects[media_vimeo][subdir] = contrib
-projects[media_vimeo][download][type] = "git"
-projects[media_vimeo][download][revision] = "546dfa3"
-projects[media_vimeo][download][branch] = 7.x-2.x
+projects[media_vimeo][version] = "2.1"
 
 projects[memcache][subdir] = contrib
 projects[memcache][version] = "1.0"
