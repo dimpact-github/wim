@@ -212,11 +212,7 @@ projects[masquerade][version] = "1.0-rc7"
 projects[media][subdir] = contrib
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
-projects[media][download][revision] = "247b31f"
-projects[media][patch][2367725][url] = "http://cgit.drupalcode.org/media/patch/?id=1e975ad09aa502d3a02af88805190f28013cfedf"
-projects[media][patch][2367725][md5] = "adbdeec409d3c3807c7eec087b9a5d1a"
-projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
-projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
+projects[media][download][revision] = "cfb0242"
 
 projects[media_youtube][subdir] = contrib
 projects[media_youtube][version] = "2.0-rc5"
