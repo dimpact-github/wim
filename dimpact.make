@@ -137,9 +137,7 @@ projects[field_group_multiple][subdir] = contrib
 projects[field_group_multiple][version] = "1.0-beta2"
 
 projects[file_entity][subdir] = contrib
-projects[file_entity][download][type] = "git"
-projects[file_entity][download][branch] = "7.x-2.x"
-projects[file_entity][download][revision] = "39e9f08"
+projects[file_entity][version] = "2.0-beta2"
 
 projects[flag][subdir] = contrib
 projects[flag][version] = "3.6"
