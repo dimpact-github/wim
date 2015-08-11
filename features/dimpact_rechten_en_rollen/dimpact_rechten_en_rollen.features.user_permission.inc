@@ -4038,6 +4038,18 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'flag',
   );
 
+  // Exported permission: 'use media wysiwyg'.
+  $permissions['use media wysiwyg'] = array(
+    'name' => 'use media wysiwyg',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'media_wysiwyg',
+  );
+
   // Exported permission: 'use text format filtered_html'.
   $permissions['use text format filtered_html'] = array(
     'name' => 'use text format filtered_html',
