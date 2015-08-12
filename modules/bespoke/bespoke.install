@@ -142,3 +142,14 @@ function bespoke_update_7111() {
 function bespoke_update_7112() {
   variable_set('media_wysiwyg_default_render', 'file_entity');
 }
+
+/**
+ * Enable media_bulk_upload.
+ */
+function bespoke_update_7113() {
+  module_enable(array(
+    'multiform',
+    'plupload',
+    'media_bulk_upload',
+  ), FALSE);
+}
