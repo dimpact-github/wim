@@ -244,6 +244,9 @@ projects[metatag][version] = "1.0-beta9"
 projects[mimemail][subdir] = contrib
 projects[mimemail][version] = "1.0-beta3"
 
+projects[multiform][subdir] = contrib
+projects[multiform][version] = "1.1"
+
 projects[nodequeue][subdir] = contrib
 projects[nodequeue][download][type] = git
 projects[nodequeue][download][revision] = 70c0602
@@ -265,6 +268,11 @@ projects[pathologic][version] = "2.12"
 
 projects[piwik][subdir] = contrib
 projects[piwik][version] = "2.7"
+
+projects[plupload][subdir] = contrib
+projects[plupload][download][type] = "git"
+projects[plupload][download][branch] = "7.x-1.x"
+projects[plupload][download][revision] = "bba974c"
 
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.7"
@@ -381,3 +389,10 @@ libraries[mailchimp][destination] = "libraries"
 ;libraries[modernizr][download][url] = "http://www.modernizr.com/downloads/modernizr-2.6.2.js"
 ;libraries[modernizr][directory_name] = "modernizr"
 ;libraries[modernizr][destination] = "libraries"
+
+; Plupload
+libraries[plupload][directory_name] = plupload
+libraries[plupload][download][type] = file
+libraries[plupload][download][url] = https://github.com/moxiecode/plupload/archive/v1.5.8.zip
+libraries[plupload][patch][1903850] = https://www.drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-21.patch
+libraries[plupload][type] = library
