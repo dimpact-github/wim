@@ -924,13 +924,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'feeds',
   );
 
-  // Exported permission: 'context ajax block access'.
-  $permissions['context ajax block access'] = array(
-    'name' => 'context ajax block access',
-    'roles' => array(),
-    'module' => 'context_ui',
-  );
-
   // Exported permission: 'create agenda content'.
   $permissions['create agenda content'] = array(
     'name' => 'create agenda content',

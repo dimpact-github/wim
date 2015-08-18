@@ -153,3 +153,16 @@ function bespoke_update_7113() {
     'media_bulk_upload',
   ), FALSE);
 }
+
+/**
+ * Disable UI modules context_ui, feeds_ui, field_ui, hansel_ui, views_ui.
+ */
+function bespoke_update_7114() {
+  module_disable(array(
+    'context_ui',
+    'feeds_ui',
+    'field_ui',
+    'hansel_ui',
+    'views_ui',
+  ), FALSE);
+}
