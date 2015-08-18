@@ -97,7 +97,6 @@ features[user_permission][] = administer block classes
 features[user_permission][] = administer blocks
 features[user_permission][] = administer comments
 features[user_permission][] = administer content types
-features[user_permission][] = administer contexts
 features[user_permission][] = administer cookie_consent
 features[user_permission][] = administer custom lists
 features[user_permission][] = administer domains

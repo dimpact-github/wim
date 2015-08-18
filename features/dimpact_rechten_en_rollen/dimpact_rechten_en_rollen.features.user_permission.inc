@@ -259,15 +259,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'administer contexts'.
-  $permissions['administer contexts'] = array(
-    'name' => 'administer contexts',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'context_ui',
-  );
-
   // Exported permission: 'administer cookie_consent'.
   $permissions['administer cookie_consent'] = array(
     'name' => 'administer cookie_consent',
