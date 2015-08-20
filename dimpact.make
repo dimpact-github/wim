@@ -82,7 +82,7 @@ projects[dominion][download][type] = "git"
 projects[dominion][download][branch] = "7.x-1.x"
 projects[dominion][download][revision] = 628f4cb
 projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][url] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
-projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][md5] = "cfdfa699864b040d58c5141162d570ca"
+projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][md5] = "ed3829454728787f03c58a2d6caf3ac9"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib
@@ -213,7 +213,7 @@ projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
 projects[media][download][revision] = "247b31f"
 projects[media][patch][2367725][url] = "http://cgit.drupalcode.org/media/patch/?id=1e975ad09aa502d3a02af88805190f28013cfedf"
-projects[media][patch][2367725][md5] = "adbdeec409d3c3807c7eec087b9a5d1a"
+projects[media][patch][2367725][md5] = "c4f45d9948b347d053f2f25dfefbe2e9"
 projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
 projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
 
