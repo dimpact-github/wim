@@ -372,9 +372,16 @@ libraries[starterskit][type] = "libraries"
 libraries[starterskit][download][type] = "file"
 libraries[starterskit][download][url] = "https://github.com/studiodumbar/starterskit-pb/zipball/1.2.3"
 
-; CKEditor 3.6.2
+; CKEditor 4.4.6
 libraries[ckeditor][download][type] = get
 libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
+
+; a11ychecker_custom
+libraries[a11ychecker][download][type] = "get"
+libraries[a11ychecker][download][url] = "http://a11ychecker.download.cksource.com/custom/a11ychecker_custom.zip"
+libraries[a11ychecker][destination] = "libraries"
+libraries[a11ychecker][subdir] = "ckeditor_plugins"
+libraries[a11ychecker][directory_name] = "a11ychecker_custom"
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"

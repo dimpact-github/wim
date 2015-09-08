@@ -1,0 +1,5 @@
+name = Dimpact Accessibility Checker for Wysiwyg API
+description = Dimpact Accessibility Checker for Wysiwyg API.
+core = 7.x
+dependencies[] = libraries
+dependencies[] = wysiwyg
