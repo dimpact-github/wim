@@ -1,0 +1,4 @@
+name = Dimpact KCM Survey
+description = Adds Klantcontact Monitor external javascript to all pages except front.
+core = 7.x
+package = Dutch Open Projects
