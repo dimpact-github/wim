@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_page_build().
+ */
+function dimpact_kcmsurvey_page_build(&$page) {
+  $dimpact_kcmsurvey_script_url = variable_get('dimpact_kcmsurvey_script_url');
+  if ($dimpact_kcmsurvey_script_url) {
+    if (module_exists('domain')) {
+      $domain = domain_get_domain();
+      // @todo Document why we seek a "main domain" instead of the default domain.
+      $main_domain = $domain['domain_id'] == 1 ?: FALSE;
+    } else {
+      $main_domain = TRUE;
+    }
+    if ($main_domain && !drupal_is_front_page()) {
+      // Make sure we add to the #attached default value instead of killing the default.
+      if (isset($page['#type']) && empty($elements['#defaults_loaded']) && empty($page['#attached'])) {
+        $page['#attached'] = element_info_property($page['#type'], '#attached', array());
+      }
+      // Add the script.
+      if (!isset($page['#attached']['js'])) {
+        $page['#attached']['js'] = array();
+      }
+      $page['#attached']['js'][$dimpact_kcmsurvey_script_url] = array('type' => 'external');
+    }
+  }
+}
