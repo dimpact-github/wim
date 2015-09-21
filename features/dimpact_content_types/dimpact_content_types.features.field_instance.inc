@@ -1169,7 +1169,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'volle_breedte' => array(
         'label' => 'above',
@@ -1288,10 +1288,13 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'label' => 'hidden',
+        'module' => 'mediafield',
+        'settings' => array(
+          'file_view_mode' => 'teaser',
+        ),
+        'type' => 'media',
+        'weight' => 0,
       ),
       'volle_breedte' => array(
         'label' => 'above',
@@ -1398,8 +1401,8 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_plain',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 1,
       ),
       'volle_breedte' => array(
         'label' => 'above',
@@ -1492,7 +1495,7 @@ function dimpact_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'volle_breedte' => array(
         'label' => 'above',

@@ -1254,7 +1254,7 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
@@ -1264,8 +1264,14 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '2',
+            'weight' => '4',
             'visible' => FALSE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'teaser' => array(
+            'weight' => '3',
+            'visible' => TRUE,
           ),
         ),
       ),

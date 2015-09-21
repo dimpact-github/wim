@@ -18,6 +18,16 @@ function bespoke_requirements($phase) {
 }
 
 /**
+ * Implements hook_update_dependencies.
+ */
+function bespoke_update_dependencies() {
+  $dependencies['bespoke'][7112] = array(
+    'media_wysiwyg' => 7202,
+  );
+  return $dependencies;
+}
+
+/**
  * Enable scheduler_revision and scheduler_workbench mdoules.
  */
 function bespoke_update_7100() {
@@ -124,4 +134,35 @@ function bespoke_update_7111() {
   module_enable(array(
     'dimpact_solr_attachments',
   ));
+}
+
+/**
+ * Undo media_wysiwyg_7202() which assumes updating from legacy situation.
+ */
+function bespoke_update_7112() {
+  variable_set('media_wysiwyg_default_render', 'file_entity');
+}
+
+/**
+ * Enable media_bulk_upload.
+ */
+function bespoke_update_7113() {
+  module_enable(array(
+    'multiform',
+    'plupload',
+    'media_bulk_upload',
+  ), FALSE);
+}
+
+/**
+ * Disable UI modules context_ui, feeds_ui, field_ui, hansel_ui, views_ui.
+ */
+function bespoke_update_7114() {
+  module_disable(array(
+    'context_ui',
+    'feeds_ui',
+    'field_ui',
+    'hansel_ui',
+    'views_ui',
+  ), FALSE);
 }

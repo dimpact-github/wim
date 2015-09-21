@@ -1,6 +1,6 @@
 <?php
 
-define('DIMPACT_VERSION', '1.12');
+define('DIMPACT_VERSION', 'dev');
 
 /**
  * Implements hook_init().
@@ -540,5 +540,24 @@ function bespoke_apachesolr_exclude($entity_id, $entity_type, $row, $env_id) {
         return TRUE;
       }
     }
+  }
+}
+
+/**
+ * Implements hook_file_mimetype_mapping_alter().
+ */
+function bespoke_file_mimetype_mapping_alter(&$mapping) {
+  // Add support for msg.
+  $new_mappings['msg'] = 'application/vnd.ms-outlook';
+
+  foreach ($new_mappings as $extension => $mime_type) {
+    if (!in_array($mime_type, $mapping['mimetypes'])) {
+      // If the mime type does not already exist, add it.
+      $mapping['mimetypes'][] = $mime_type;
+    }
+
+    // Get the index of the mime type and assign the extension to that key.
+    $index = array_search($mime_type, $mapping['mimetypes']);
+    $mapping['extensions'][$extension] = $index;
   }
 }

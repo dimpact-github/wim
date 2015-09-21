@@ -132,5 +132,43 @@ function sduconnect_schema() {
     'primary key' => array('lid'),
   );
 
+  $schema['sduconnect_related'] = array(
+    'fields' => array(
+      'type_a' => array(
+        'type' => 'varchar',
+        'length' => 3,
+        'not null' => TRUE,
+      ),
+      'external_id_a' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ),
+      'type_b' => array(
+        'type' => 'varchar',
+        'length' => 3,
+        'not null' => TRUE,
+      ),
+      'external_id_b' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('type_a', 'external_id_a', 'type_b', 'external_id_b'),
+    'indexes' => array(
+      'b' => array('type_b', 'external_id_b')
+    ),
+  );
+
   return $schema;
+}
+
+/**
+ * Create sduconnect_related table.
+ */
+function sduconnect_update_7100() {
+  $schema = sduconnect_schema();
+  $table = $schema['sduconnect_related'];
+  db_create_table('sduconnect_related', $table);
 }

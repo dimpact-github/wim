@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_page_build().
+ */
+function dimpact_kcmsurvey_page_build(&$page) {
+  $dimpact_kcmsurvey_script_url = variable_get('dimpact_kcmsurvey_script_url');
+  if ($dimpact_kcmsurvey_script_url) {
+    if (module_exists('domain')) {
+      $domain = domain_get_domain();
+      // @todo Document why we seek a "main domain" instead of the default domain.
+      $main_domain = $domain['domain_id'] == 1 ?: FALSE;
+    } else {
+      $main_domain = TRUE;
+    }
+    if ($main_domain && !drupal_is_front_page()) {
+      // It's too late for attaching js to the (page) element here, because the html theme_wrapper runs before attachments processing.
+      drupal_add_js($dimpact_kcmsurvey_script_url, 'external');
+    }
+  }
+}

@@ -93,6 +93,18 @@ $action_links = render($action_links);
       </div>
     <?php endif; ?>
 
+    <?php // Region 9/3 ?>
+    <?php if ($region_93_first || $region_93_second): ?>
+      <div class="container">
+        <div class="region_93_first">
+          <?php print $region_93_first; ?>
+        </div>
+        <div class="region_93_second">
+          <?php print $region_93_second; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+
 <!--    <div class="container">-->
       <?php print $content; ?>
 <!--    </div>-->

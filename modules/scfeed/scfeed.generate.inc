@@ -40,7 +40,8 @@ function scfeed_generate_item($node) {
   $element = $dom->createElementNS($ns_dcterms, 'dcterms:identifier', url('node/' . $node->nid, array('absolute' => TRUE)));
   $owmskern->appendChild($element);
 
-  $element = $dom->createElementNS($ns_dcterms, 'dcterms:title', $node->title);
+  $element = $dom->createElementNS($ns_dcterms, 'dcterms:title');
+  $element->appendChild($dom->createCDATASection($node->title));
   $owmskern->appendChild($element);
 
   $element = $dom->createElementNS($ns_dcterms, 'dcterms:language', 'nl');
@@ -65,7 +66,8 @@ function scfeed_generate_item($node) {
   $element->setAttribute('resourceIdentifier', $authority_value);
   $owmskern->appendChild($element);
 
-  $element = $dom->createElement('productHTML', scfeed_generate_body($node));
+  $element = $dom->createElement('productHTML');
+  $element->appendChild($dom->createCDATASection(scfeed_generate_body($node)));
   $body->appendChild($element);
 
   if (!empty($node->field_sc_audience)) {
@@ -83,7 +85,10 @@ function scfeed_generate_item($node) {
     $teaser = text_summary(scfeed_generate_body($node), 'full_html', 200);
     $teaser = preg_replace('/\\<(p|li|table|h)/si', ' <\\1', $teaser);
     $teaser = trim(strip_tags($teaser));
-    $element = $dom->createElementNS($ns_dcterms, 'dcterms:abstract', $teaser);
+    // Remove "Beschrijving ", which comes from the first inline tab.
+    $teaser = preg_replace('/^Beschrijving /s', '', $teaser);
+    $element = $dom->createElementNS($ns_dcterms, 'dcterms:abstract');
+    $element->appendChild($dom->createCDATASection($teaser));
     $owmsmantel->appendChild($element);
   }
 

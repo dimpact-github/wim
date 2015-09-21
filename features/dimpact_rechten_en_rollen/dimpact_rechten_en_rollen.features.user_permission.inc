@@ -259,15 +259,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'administer contexts'.
-  $permissions['administer contexts'] = array(
-    'name' => 'administer contexts',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'context_ui',
-  );
-
   // Exported permission: 'administer cookie_consent'.
   $permissions['administer cookie_consent'] = array(
     'name' => 'administer cookie_consent',
@@ -922,13 +913,6 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
     'name' => 'clear rss_nos feeds',
     'roles' => array(),
     'module' => 'feeds',
-  );
-
-  // Exported permission: 'context ajax block access'.
-  $permissions['context ajax block access'] = array(
-    'name' => 'context ajax block access',
-    'roles' => array(),
-    'module' => 'context_ui',
   );
 
   // Exported permission: 'create agenda content'.
@@ -4036,6 +4020,18 @@ function dimpact_rechten_en_rollen_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'flag',
+  );
+
+  // Exported permission: 'use media wysiwyg'.
+  $permissions['use media wysiwyg'] = array(
+    'name' => 'use media wysiwyg',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'eindredacteur' => 'eindredacteur',
+      'redacteur' => 'redacteur',
+      'teamlid' => 'teamlid',
+    ),
+    'module' => 'media_wysiwyg',
   );
 
   // Exported permission: 'use text format filtered_html'.

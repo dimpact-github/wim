@@ -279,6 +279,7 @@ function custom_lists_render_nodes($view_mode, $items, $list, $page = false) {
 function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
   // Default query.
   $query = db_select('node', 'n')->extend('PagerDefault');
+  $query->addTag('node_access');
   $query
     ->fields('n', $full_load ? array('nid') : array('nid', 'title'))
     ->condition('n.status', 1)

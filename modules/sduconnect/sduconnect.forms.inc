@@ -83,8 +83,8 @@ function sduconnect_collection_form($form, &$form_state, $collection = NULL) {
   $form['frequency'] = array(
     '#type' => 'radios',
     '#title' => t('Frequency'),
-    '#options' => drupal_map_assoc(array(3600 * 3, 3600 * 6, 3600 * 12, 3600 * 24), 'format_interval'),
-    '#default_value' => $collection ? $collection->frequency : 3600 * 3,
+    '#options' => drupal_map_assoc(array(3600, 3600 * 3, 3600 * 6, 3600 * 12, 3600 * 24), 'format_interval'),
+    '#default_value' => $collection ? $collection->frequency : 3600,
     '#description' => t('Time to wait between imports.'),
   );
 
