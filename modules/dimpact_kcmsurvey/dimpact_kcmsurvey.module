@@ -14,15 +14,8 @@ function dimpact_kcmsurvey_page_build(&$page) {
       $main_domain = TRUE;
     }
     if ($main_domain && !drupal_is_front_page()) {
-      // Make sure we add to the #attached default value instead of killing the default.
-      if (isset($page['#type']) && empty($elements['#defaults_loaded']) && empty($page['#attached'])) {
-        $page['#attached'] = element_info_property($page['#type'], '#attached', array());
-      }
-      // Add the script.
-      if (!isset($page['#attached']['js'])) {
-        $page['#attached']['js'] = array();
-      }
-      $page['#attached']['js'][$dimpact_kcmsurvey_script_url] = array('type' => 'external');
+      // It's too late for attaching js to the (page) element here, because the html theme_wrapper runs before attachments processing.
+      drupal_add_js($dimpact_kcmsurvey_script_url, 'external');
     }
   }
 }
