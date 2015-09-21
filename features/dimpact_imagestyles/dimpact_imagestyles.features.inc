@@ -340,5 +340,28 @@ function dimpact_imagestyles_image_default_styles() {
     ),
   );
 
+  // Exported image style: tile_image.
+  $styles['tile_image'] = array(
+    'name' => 'tile_image',
+    'label' => 'Tegel afbeelding',
+    'effects' => array(
+      2 => array(
+        'label' => 'Schalen en bijsnijden',
+        'help' => 'Bij het schalen blijft de breedte-hoogte verhouding van de oorspronkelijke afbeelding behouden. Bij het bijsnijden wordt de langste zijde ingekort. Hiermee kunt u bijvoorbeeld vierkante miniaturen maken.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 390,
+          'height' => 219,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }

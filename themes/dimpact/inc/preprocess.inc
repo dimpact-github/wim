@@ -313,6 +313,14 @@ function dimpact_preprocess_node(&$vars) {
       $vars['node_url'] = $plannen_url . $plan_id;
     }
   }
+
+  if ($node->type == 'tile' && $vars['view_mode'] == 'teaser') {
+    // Override node_url var so that title will link to same url as given
+    // by user on field_link.
+    if (isset($node->field_link)) {
+      $vars['node_url'] = $node->field_link['und'][0]['url'];
+    }
+  }
 }
 
 /**
