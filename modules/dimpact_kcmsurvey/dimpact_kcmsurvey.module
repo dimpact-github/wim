@@ -4,6 +4,22 @@
  * Implements hook_page_build().
  */
 function dimpact_kcmsurvey_page_build(&$page) {
+  // Adding attachments to an element of type page does not work, because then
+  // the html theme_wrapper runs before attachments processing.
+  // The page template does render regions, so page attachments can be added there.
+  if (!isset($page['page_bottom'])) {
+    $page['page_bottom'] = array();
+  }
+  _dimpact_kcmsurvey_page_bottom($page['page_bottom']);
+}
+
+function _dimpact_kcmsurvey_page_bottom(array &$page_bottom) {
+  $page_attachments = array();
+  _dimpact_kcmsurvey_page_attachments($page_attachments);
+  $page_bottom['dimpact_kcmsurvey_page_attachments'] = $page_attachments;
+}
+
+function _dimpact_kcmsurvey_page_attachments(array &$page) {
   $dimpact_kcmsurvey_script_url = variable_get('dimpact_kcmsurvey_script_url');
   if ($dimpact_kcmsurvey_script_url) {
     if (module_exists('domain')) {
@@ -14,8 +30,7 @@ function dimpact_kcmsurvey_page_build(&$page) {
       $main_domain = TRUE;
     }
     if ($main_domain && !drupal_is_front_page()) {
-      // It's too late for attaching js to the (page) element here, because the html theme_wrapper runs before attachments processing.
-      drupal_add_js($dimpact_kcmsurvey_script_url, 'external');
+      $page['#attached']['js'][$dimpact_kcmsurvey_script_url] = array('type' => 'external');
     }
   }
 }
