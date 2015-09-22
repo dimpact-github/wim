@@ -1,8 +1,9 @@
 name = Dimpact Text formats
 core = 7.x
 package = Features
-version = 7.x-1.0-20141204
+version = 7.x-1.0-20150922
 project = dimpact_text_formats
+dependencies[] = dimpact_a11ychecker_wysiwyg
 dependencies[] = dimpact_wiki_links
 dependencies[] = extlink
 dependencies[] = features

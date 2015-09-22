@@ -60,6 +60,12 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
         'ckeditor_deletionbutton' => array(
           'ckeditor_deletionbutton' => 1,
         ),
+        'a11ychecker' => array(
+          'A11ychecker' => 1,
+        ),
+        'balloonpanel' => array(
+          'Balloonpanel' => 1,
+        ),
         'linkit' => array(
           'linkit' => 1,
         ),
@@ -134,6 +140,12 @@ function dimpact_text_formats_wysiwyg_default_profiles() {
         ),
         'ckeditor_deletionbutton' => array(
           'ckeditor_deletionbutton' => 1,
+        ),
+        'a11ychecker' => array(
+          'A11ychecker' => 1,
+        ),
+        'balloonpanel' => array(
+          'Balloonpanel' => 1,
         ),
         'linkit' => array(
           'linkit' => 1,
