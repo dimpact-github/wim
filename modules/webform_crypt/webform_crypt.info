@@ -1,0 +1,7 @@
+name = Webform crypt
+description = Encrypt data in webform submissions
+core = 7.x
+package = Webform
+dependencies[] = webform
+dependencies[] = encrypt
+

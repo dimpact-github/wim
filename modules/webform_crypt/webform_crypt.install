@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function webform_crypt_install() {
+  drupal_install_schema('webform_crypt');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function webform_crypt_uninstall() {
+  variable_del('webform_crypt_enable');
+  drupal_uninstall_schema('webform_crypt');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function webform_crypt_schema() {
+  $schema = array();
+
+  $schema['files_crypt'] = array(
+    'fields' => array(
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'filename' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('fid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Create files_crypt table.
+ */
+function webform_crypt_update_6101() {
+  $ret = array();
+  $table = drupal_get_schema_unprocessed('webform_crypt', 'files_crypt');
+  db_create_table($ret, 'files_crypt', $table);
+  return $ret;
+}
