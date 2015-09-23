@@ -92,6 +92,9 @@ projects[email][version] = "1.2"
 projects[empty_page][subdir] = contrib
 projects[empty_page][version] = "1.0"
 
+projects[encrypt][subdir] = contrib
+projects[encrypt][version] = "2.0"
+
 projects[entity][subdir] = contrib
 projects[entity][version] = "1.6"
 
