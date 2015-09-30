@@ -1,7 +1,7 @@
 name = Dimpact Contexts
 core = 7.x
 package = Features
-version = 7.x-1.0-20140929
+version = 7.x-1.0-20150930
 project = dimpact_contexts
 dependencies[] = block
 dependencies[] = cck_blocks
@@ -104,3 +104,4 @@ features_exclude[variable][node_preview_forum] = node_preview_forum
 features_exclude[variable][node_preview_poll] = node_preview_poll
 features_exclude[variable][node_submitted_forum] = node_submitted_forum
 features_exclude[variable][node_submitted_poll] = node_submitted_poll
+mtime = 1427881787

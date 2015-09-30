@@ -488,6 +488,18 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
+        'dominion_menu-2' => array(
+          'module' => 'dominion_menu',
+          'delta' => '2',
+          'region' => 'region_meta_first',
+          'weight' => '-10',
+        ),
+        'menu-menu-meta-menu-rechts' => array(
+          'module' => 'menu',
+          'delta' => 'menu-meta-menu-rechts',
+          'region' => 'region_meta_second',
+          'weight' => '-10',
+        ),
       ),
     ),
   );
@@ -565,18 +577,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-9',
         ),
-        'menu-menu-meta-menu-links' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-links',
-          'region' => 'region_meta_first',
-          'weight' => '-10',
-        ),
-        'menu-menu-meta-menu-rechts' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-rechts',
-          'region' => 'region_meta_second',
-          'weight' => '-10',
-        ),
         'masquerade-masquerade' => array(
           'module' => 'masquerade',
           'delta' => 'masquerade',
@@ -632,18 +632,6 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => 'kies_uw_onderwerp_intranet',
           'region' => 'navigation',
           'weight' => '-7',
-        ),
-        'menu-menu-meta-menu-links-intranet' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-links-intranet',
-          'region' => 'region_meta_first',
-          'weight' => '-10',
-        ),
-        'menu-menu-meta-menu-rechts' => array(
-          'module' => 'menu',
-          'delta' => 'menu-meta-menu-rechts',
-          'region' => 'region_meta_second',
-          'weight' => '-10',
         ),
         'submenutree-2' => array(
           'module' => 'submenutree',
