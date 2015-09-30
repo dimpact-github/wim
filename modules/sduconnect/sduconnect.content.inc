@@ -199,18 +199,33 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
   // Location.
   $locations = array();
   $name = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:naam'));
+  // Postal address fields.
   $street = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:p_straat'));
   $number = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:p_nummer'));
   $postal_code = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:p_postcode'));
   $po_box = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:p_po_box'));
   $city = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:p_woonplaats'));
+  // Visiting address fields.
+  $street_b = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:b_straat'));
+  $number_b = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:b_nummer'));
+  $postal_code_b = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:b_pcode'));
+  $city_b = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:uitvoerende_instanties/m:instantie/m:b_stad'));
   for ($i = 0; $i < count($name); ++$i) {
     $location = array();
     if ($name[$i]) {
       $location[] = $name[$i];
     }
-    $location[] = $street[$i] ? trim($street[$i] . ' ' . $number[$i]) : ($po_box[$i] ? 'Postbus ' . $po_box[$i] : '');
-    $location[] = $postal_code[$i] . ' ' . $city[$i];
+    $visiting = empty($city[$i]);
+    if ($visiting) {
+      $location[] = $street_b[$i] ? trim($street_b[$i] . ' ' . $number_b[$i]) : '';
+      $location[] = $postal_code_b[$i] . ' ' . $city_b[$i];
+    }
+    else {
+      // PO Box often only contains a number in SDU. Avoid a duplicate "Postbus " string in other cases.
+      $po_box[$i] = preg_replace('/^postbus */i', '', $po_box[$i]);
+      $location[] = $street[$i] ? trim($street[$i] . ' ' . $number[$i]) : ($po_box[$i] ? 'Postbus ' . $po_box[$i] : '');
+      $location[] = $postal_code[$i] . ' ' . $city[$i];
+    }
     $locations[] = '<p>' . implode('<br/>', array_map('check_plain', $location)) . '</p>';
   }
   if ($locations) {
