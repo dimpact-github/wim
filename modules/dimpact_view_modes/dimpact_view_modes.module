@@ -10,4 +10,8 @@ function dimpact_view_modes_entity_info_alter(&$entity_info) {
     'label' => t('Short Teaser'),
     'custom settings' => TRUE
   );
+  $entity_info['node']['view modes']['minimal_teaser'] = array(
+    'label' => t('Minimal Teaser'),
+    'custom settings' => TRUE
+  );
 }

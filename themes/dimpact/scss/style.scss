@@ -1,9 +1,7 @@
 @import "base-theme";
-
 @import "general/forms";
-
 @import "font/font-awesome";
-
+@import "drupal/blocks";
 @import "drupal/messages";
 @import "drupal/tabs";
 @import "drupal/pagers";
@@ -12,13 +10,11 @@
 @import "drupal/quicktabs";
 @import "drupal/node";
 @import "drupal/views";
-
 @import "general/felix";
 @import "general/carousel";
 @import "general/toptaken";
 @import "general/homebox";
 @import "general/servicelinks";
-
 @import "global";
 
 html {
@@ -65,11 +61,13 @@ a {
     color: $text-color !important;
   }
 }
+
 .maintenance-page {
   a {
     color: $text-color;
   }
 }
+
 table {
   border: 1px solid $border;
   width: 100%;
@@ -142,16 +140,18 @@ h3 {
 }
 
 
-h4{
+h4 {
   font-size: 118%;
 }
 
 h5, h6 {
   font-size: 100%;
 }
+
 h6 {
   font-style: italic;
 }
+
 dt {
   @extend h4;
   margin-top: 1em;
@@ -286,6 +286,7 @@ span.ext {
     }
   }
 }
+
 .region_full_top {
   .block {
     &.block-node {
@@ -296,6 +297,7 @@ span.ext {
     }
   }
 }
+
 .region_full_bottom {
   .row-margin {
     .view {
@@ -312,6 +314,7 @@ span.ext {
     }
   }
 }
+
 .content-add-button {
   display: block;
   float: right;
@@ -380,6 +383,7 @@ div.workbench-info-block {
     line-height: 1;
   }
 }
+
 .indented {
   margin-left: 1em;
 }
@@ -391,6 +395,7 @@ div.workbench-info-block {
     text-decoration: none;
   }
 }
+
 .text-larger {
   &:after {
     @include icon($plus-sign);
@@ -476,6 +481,7 @@ div.workbench-info-block {
 #forum {
   margin-bottom: $gutter-width;
 }
+
 #forum td.created, #forum td.posts, #forum td.topics, #forum td.last-reply, #forum td.replies, #forum td.pager {
   white-space: normal;
 }
