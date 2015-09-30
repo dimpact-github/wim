@@ -21,21 +21,79 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
   $node->type = 'product';
   $node->title = (string) $xpath->query('//m:page/m:product/m:name')->item(0)->nodeValue;
 
-  $tabs = array();
+  $default_content_labels = array(
+    'Let op' => '<strong>Let op:</strong> ',
+    'Omschrijving' => '',
+    'Gerelateerde producten' => '<h3>Gerelateerde producten</h3>',
+    'Vraag en antwoord' => '<h3>Vraag en antwoord</h3>',
+    'Meer informatie' => '<h3>Meer informatie</h3>',
+    'Gerelateerde wetten / regelgeving' => '<h3>Gerelateerde wetten / regelgeving</h3>',
+    'Voorwaarden' => '',
+    'Aanpak' => '',
+    'Formulieren' => '<h3>Formulieren</h3>',
+    'Online aanvragen' => '<h3>Online aanvragen</h3>',
+    'Termijn' => '',
+    'Bezwaar en beroep' => '',
+    'Kosten' => '',
+    'Contact' => '',
+    'Locatie' => '<h3>Locatie</h3>',
+    'Indien periode' => '',
+    'Beschikbaar budget' => '',
+    'Maximale bijdrage' => '',
+  );
+  $content_labels = variable_get('sduconnect_content_labels', $default_content_labels);
 
-  // Beschrijving.
-  $tabs['Beschrijving'] = '';
+
+  $default_content_structure = array(
+    'before_tabs' => array(),
+    '<h2>**Beschrijving</h2>' => array(
+      'Let op',
+      'Omschrijving',
+      'Gerelateerde producten',
+      'Vraag en antwoord',
+      'Meer informatie',
+      'Gerelateerde wetten / regelgeving',
+    ),
+    '<h2>**Voorwaarden</h2>' => array(
+      'Voorwaarden',
+    ),
+    '<h2>**Aanpak</h2>' => array(
+      'Aanpak',
+      'Formulieren',
+      'Online aanvragen',
+    ),
+    '<h2>**Termijn</h2>' => array(
+      'Termijn',
+    ),
+    '<h2>**Bezwaar en beroep</h2>' => array(
+      'Bezwaar en beroep',
+    ),
+    '<h2>**Kosten</h2>' => array(
+      'Kosten',
+    ),
+    '<h2>**Contact</h2>' => array(
+      'Contact',
+      'Locatie',
+      'Indien periode',
+      'Beschikbaar budget',
+      'Maximale bijdrage',
+    ),
+    'after_tabs' => array(),
+  );
+  $content_structure = variable_get('sduconnect_content_structure', $default_content_structure);
+
+  $body_parts = array();
   // Let op.
   $field = $xpath->query('//m:page/m:product/m:notice');
   if ($field->length) {
     $value = $field->item(0)->nodeValue;
     if (preg_match('/[a-z]/si', strip_tags($value))) {
-      $tabs['Beschrijving'] .= '<strong>Let op:</strong> ' . $field->item(0)->nodeValue;
+      $body_parts['Let op'] = '<div class="let-op">' . $content_labels['Let op'] . $field->item(0)->nodeValue . '</div>';
     }
   }
   $field = $xpath->query('//m:page/m:product/m:description');
   if ($field->length) {
-    $tabs['Beschrijving'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Omschrijving'] = $content_labels['Omschrijving'] . $field->item(0)->nodeValue;
   }
   $related_pdc = array();
   $related_vac = array();
@@ -46,10 +104,10 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     );
   }
   if ($related_pdc) {
-    $tabs['Beschrijving'] .= '<h3>Gerelateerde producten</h3>' . theme('links', array('links' => $related_pdc));
+    $body_parts['Gerelateerde producten'] = $content_labels['Gerelateerde producten'] . theme('links', array('links' => $related_pdc));
   }
   if ($related_vac) {
-    $tabs['Beschrijving'] .= '<h3>Vraag en antwoord</h3>' . theme('links', array('links' => $related_vac));
+    $body_parts['Vraag en antwoord'] = $content_labels['Vraag en antwoord'] . theme('links', array('links' => $related_vac));
   }
   // Meer informatie.
   $names = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:product_links/m:product_link/m:product_link_name'));
@@ -62,7 +120,7 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     );
   }
   if ($items) {
-    $tabs['Beschrijving'] .= '<h3>Meer informatie</h3>' . theme('links', array('links' => $items));
+    $body_parts['Meer informatie'] = $content_labels['Meer informatie'] . theme('links', array('links' => $items));
   }
   // Related laws.
   $names = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:law_rules/m:law_rule/m:law_rule_name'));
@@ -75,21 +133,19 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     );
   }
   if ($items) {
-    $tabs['Beschrijving'] .= '<h3>Gerelateerde wetten / regelgeving</h3>' . theme('links', array('links' => $items));
+    $body_parts['Gerelateerde wetten / regelgeving'] = $content_labels['Gerelateerde wetten / regelgeving'] . theme('links', array('links' => $items));
   }
 
   // Voorwaarden.
-  $tabs['Voorwaarden'] = '';
   $field = $xpath->query('//m:page/m:product/m:conditions');
   if ($field->length) {
-    $tabs['Voorwaarden'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Voorwaarden'] = $content_labels['Voorwaarden'] . $field->item(0)->nodeValue;
   }
 
   // Aanpak.
-  $tabs['Aanpak'] = '';
   $field = $xpath->query('//m:page/m:product/m:procedure');
   if ($field->length) {
-    $tabs['Aanpak'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Aanpak'] = $content_labels['Aanpak'] . $field->item(0)->nodeValue;
   }
   // Forms.
   $names = sduconnect_nodelist_to_array($xpath->query('//m:page/m:product/m:formulieren_extern/m:formulier/m:label'));
@@ -102,7 +158,7 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     );
   }
   if ($items) {
-    $tabs['Aanpak'] .= '<h3>Formulieren</h3>' . theme('links', array('links' => $items));
+    $body_parts['Formulieren'] = $content_labels['Formulieren'] . theme('links', array('links' => $items, 'attributes' => array('class' => array('formulieren'))));
   }
   // Request online.
   $url = sduconnect_nodelist_to_string($xpath->query('//m:page/m:product/overheidproduct:scproduct/overheidproduct:meta/overheidproduct:scmeta/overheidproduct:aanvraagURL/@resourceIdentifier'));
@@ -114,35 +170,31 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     );
   }
   if ($items) {
-    $tabs['Aanpak'] .= '<h3>Online aanvragen</h3>' . theme('links', array('links' => $items));
+    $body_parts['Online aanvragen'] = $content_labels['Online aanvragen'] . theme('links', array('links' => $items));
   }
 
   // Termijn.
-  $tabs['Termijn'] = '';
   $field = $xpath->query('//m:page/m:product/m:period');
   if ($field->length) {
-    $tabs['Termijn'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Termijn'] = $content_labels['Termijn'] . $field->item(0)->nodeValue;
   }
 
   // Bezwaar en beroep.
-  $tabs['Bezwaar en beroep'] = '';
   $field = $xpath->query('//m:page/m:product/m:appeal');
   if ($field->length) {
-    $tabs['Bezwaar en beroep'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Bezwaar en beroep'] = $content_labels['Bezwaar en beroep'] . $field->item(0)->nodeValue;
   }
 
   // Kosten
-  $tabs['Kosten'] = '';
   $field = $xpath->query('//m:page/m:product/m:costs');
   if ($field->length) {
-    $tabs['Kosten'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Kosten'] = $content_labels['Kosten'] . $field->item(0)->nodeValue;
   }
 
   // Contact
-  $tabs['Contact'] = '';
   $field = $xpath->query('//m:page/m:product/m:contact');
   if ($field->length) {
-    $tabs['Contact'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Contact'] = $content_labels['Contact'] . $field->item(0)->nodeValue;
   }
   // Location.
   $locations = array();
@@ -162,28 +214,25 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
     $locations[] = '<p>' . implode('<br/>', array_map('check_plain', $location)) . '</p>';
   }
   if ($locations) {
-    $tabs['Contact'] .= '<h3>Locatie</h3>' . implode($locations);
+    $body_parts['Locatie'] = $content_labels['Locatie'] . implode($locations);
   }
 
   // Indien periode
-  $tabs['Indien periode'] = '';
   $field = $xpath->query('//m:page/m:product/m:subsidies');
   if ($field->length) {
-    $tabs['Indien periode'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Indien periode'] = $content_labels['Indien periode'] . $field->item(0)->nodeValue;
   }
 
   // Beschikbaar budget
-  $tabs['Beschikbaar budget'] = '';
   $field = $xpath->query('//m:page/m:product/m:subsidies_budget');
   if ($field->length) {
-    $tabs['Beschikbaar budget'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Beschikbaar budget'] = $content_labels['Beschikbaar budget'] . $field->item(0)->nodeValue;
   }
 
   // Maximale bijdrage
-  $tabs['Maximale bijdrage'] = '';
   $field = $xpath->query('//m:page/m:product/m:subsidies_maximale_bijdrage');
   if ($field->length) {
-    $tabs['Maximale bijdrage'] .= $field->item(0)->nodeValue;
+    if (drupal_strlen((string) $field->item(0)->nodeValue)) $body_parts['Maximale bijdrage'] = $content_labels['Maximale bijdrage'] . $field->item(0)->nodeValue;
   }
 
   // Tags.
@@ -230,13 +279,26 @@ function sduconnect_set_pdc_content($xpath, &$node, $private = FALSE, $reference
   }
   $node->field_date = array(LANGUAGE_NONE => $items);
 
+  // Group body_parts into tabs.
+  $tabs = array();
+  foreach ($content_structure as $tab_title => $parts) {
+    $tabs[$tab_title] = '';
+    foreach($parts as $part_name) {
+      if (isset($body_parts[$part_name])) {
+        $tabs[$tab_title] .= $body_parts[$part_name];
+      }
+    }
+  }
   // Merge tab content in body.
+  $before_tabs = $tabs['before_tabs']; unset($tabs['before_tabs']);
+  $after_tabs = $tabs['after_tabs']; unset($tabs['after_tabs']);
   $body = '';
   foreach ($tabs as $title => $content) {
     if (preg_match('/[a-z0-9]/si', strip_tags($content))) {
-      $body .= '<h2>**' . check_plain($title) . '</h2>' . $content;
+      $body .= $title . $content;
     }
   }
+  $body = $before_tabs . $body . $after_tabs;
   $node->body = array(LANGUAGE_NONE => array(array(
     'value' => $body,
     'format' => 'filtered_html',
