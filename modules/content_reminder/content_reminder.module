@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function content_reminder_menu() {
+
+  $items['admin/config/content/reminder'] = array(
+    'title' => 'Content Reminder',
+    'description' => 'Send reminders for expired content',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('content_reminder_admin_form'),
+    'file' => 'content_reminder.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron
+ */
+function content_reminder_cron() {
+  module_load_include('inc', 'content_reminder', 'content_reminder');
+  $nodes = _get_required_nodes();
+
+  if (isset($nodes)) {
+  _prepare_nodes($nodes, 'reminder');
+  }
+  $old_nodes = _get_old_nodes();
+  if (isset($old_nodes)) {
+  _prepare_nodes($old_nodes, 'expire');
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function content_reminder_theme($existing, $type, $theme, $path) {
+  return array(
+    'content_reminder' => array(
+      'variables' => array(
+        'nodes' => NULL,
+        'mailtype' => NULL,
+        'content_reminder_text' => NULL,
+      ),
+      'template' => 'content_reminder',
+    ),
+  );
+}

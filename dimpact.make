@@ -9,7 +9,7 @@ projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = "3.0-rc5"
 
 projects[admin_views][subdir] = contrib
-projects[admin_views][version] = "1.2"
+projects[admin_views][version] = "1.5"
 
 projects[apachesolr][subdir] = contrib
 projects[apachesolr][version] = "1.6"
@@ -37,6 +37,8 @@ projects[block_class][version] = "2.1"
 
 projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
+projects[cck_blocks][patch][1309870-1][url] = http://drupal.org/files/cck-blocks-workbench-integration-1309870-1.patch
+projects[cck_blocks][patch][1309870-1][md5] = 8ec9ab0c40781008a8b5025fe48abccd
 
 projects[context][subdir] = contrib
 projects[context][version] = "3.6"
@@ -45,7 +47,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.7"
+projects[ctools][version] = "1.9"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
@@ -78,9 +80,7 @@ projects[domain_xmlsitemap][subdir] = contrib
 projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
-projects[dominion][download][type] = "git"
-projects[dominion][download][branch] = "7.x-1.x"
-projects[dominion][download][revision] = 628f4cb
+projects[dominion][version] = "1.0-beta3"
 projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][url] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
 projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][md5] = "ed3829454728787f03c58a2d6caf3ac9"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
@@ -93,6 +93,9 @@ projects[email][version] = "1.2"
 
 projects[empty_page][subdir] = contrib
 projects[empty_page][version] = "1.0"
+
+projects[encrypt][subdir] = contrib
+projects[encrypt][version] = "2.0"
 
 projects[entity][subdir] = contrib
 projects[entity][version] = "1.6"
@@ -121,7 +124,7 @@ projects[features_extra][subdir] = contrib
 projects[features_extra][version] = "1.0-beta1"
 
 projects[feeds][subdir] = contrib
-projects[feeds][version] = "2.0-alpha8"
+projects[feeds][version] = "2.0-alpha9"
 
 projects[felix][subdir] = contrib
 projects[felix][version] = "1.0-beta4"
@@ -137,9 +140,7 @@ projects[field_group_multiple][subdir] = contrib
 projects[field_group_multiple][version] = "1.0-beta2"
 
 projects[file_entity][subdir] = contrib
-projects[file_entity][download][type] = "git"
-projects[file_entity][download][branch] = "7.x-2.x"
-projects[file_entity][download][revision] = "39e9f08"
+projects[file_entity][version] = "2.0-beta2"
 
 projects[flag][subdir] = contrib
 projects[flag][version] = "3.6"
@@ -166,13 +167,13 @@ projects[hotjar][subdir] = contrib
 projects[hotjar][version] = "1.0"
 
 projects[i18n][subdir] = contrib
-projects[i18n][version] = "1.10"
+projects[i18n][version] = "1.13"
 
 projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][version] = "2.3"
+projects[jquery_update][version] = "2.6"
 
 projects[l10n_update][subdir] = contrib
 projects[l10n_update][version] = "1.1"
@@ -205,25 +206,22 @@ projects[mail_edit][version] = "1.0"
 projects[mailchimp][subdir] = contrib
 projects[mailchimp][version] = "2.12"
 
+projects[mailsystem][subdir] = contrib 
+projects[mailsystem][version] =  "2.34"
+
 projects[masquerade][subdir] = contrib
 projects[masquerade][version] = "1.0-rc7"
 
 projects[media][subdir] = contrib
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
-projects[media][download][revision] = "247b31f"
-projects[media][patch][2367725][url] = "http://cgit.drupalcode.org/media/patch/?id=1e975ad09aa502d3a02af88805190f28013cfedf"
-projects[media][patch][2367725][md5] = "c4f45d9948b347d053f2f25dfefbe2e9"
-projects[media][patch][2401811-11][url] = "https://www.drupal.org/files/issues/file_entity-remove-contextual-links-2401811-11.patch"
-projects[media][patch][2401811-11][md5] = "cd8fca6386cac7f3d87c6dece5ae7a6b"
+projects[media][download][revision] = "cfb0242"
 
 projects[media_youtube][subdir] = contrib
-projects[media_youtube][version] = "2.0-rc5"
+projects[media_youtube][version] = "3.0"
 
 projects[media_vimeo][subdir] = contrib
-projects[media_vimeo][download][type] = "git"
-projects[media_vimeo][download][revision] = "546dfa3"
-projects[media_vimeo][download][branch] = 7.x-2.x
+projects[media_vimeo][version] = "2.1"
 
 projects[memcache][subdir] = contrib
 projects[memcache][version] = "1.0"
@@ -245,6 +243,12 @@ projects[menuimage][version] = "1.1"
 
 projects[metatag][subdir] = contrib
 projects[metatag][version] = "1.0-beta9"
+
+projects[mimemail][subdir] = contrib
+projects[mimemail][version] = "1.0-beta3"
+
+projects[multiform][subdir] = contrib
+projects[multiform][version] = "1.1"
 
 projects[nodequeue][subdir] = contrib
 projects[nodequeue][download][type] = git
@@ -268,6 +272,11 @@ projects[pathologic][version] = "2.12"
 projects[piwik][subdir] = contrib
 projects[piwik][version] = "2.7"
 
+projects[plupload][subdir] = contrib
+projects[plupload][download][type] = "git"
+projects[plupload][download][branch] = "7.x-1.x"
+projects[plupload][download][revision] = "bba974c"
+
 projects[purge][subdir] = contrib
 projects[purge][version] = "1.7"
 
@@ -275,9 +284,7 @@ projects[quicktabs][subdir] = contrib
 projects[quicktabs][version] = "3.6"
 
 projects[redirect][subdir] = contrib
-projects[redirect][version] = "1.0-rc1"
-projects[redirect][patch][1796596-48][url] = http://drupal.org/files/redirect-detect_prevent_circular_redirects_patch_and_test-1796596-48.patch
-projects[redirect][patch][1796596-48][md5] = a04d97c14445471ffd1a6a357540e47e
+projects[redirect][version] = "1.0-rc3"
 
 projects[remote_stream_wrapper][subdir] = contrib
 projects[remote_stream_wrapper][version] = "1.0-beta4"
@@ -320,6 +327,8 @@ projects[translation_helpers][version] = "1.0"
 
 projects[transliteration][subdir] = contrib
 projects[transliteration][version] = "3.1"
+projects[transliteration][patch][862248-13][url] = https://www.drupal.org/files/transliteration-862248-13_punctuation_0.patch
+projects[transliteration][patch][862248-13][md5] = be5b45301dc1b78ae7bcf4062b6d3ad4
 
 projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"
@@ -328,7 +337,7 @@ projects[views][subdir] = contrib
 projects[views][version] = "3.11"
 
 projects[views_bulk_operations][subdir] = contrib
-projects[views_bulk_operations][version] = "3.2"
+projects[views_bulk_operations][version] = "3.3"
 
 projects[views_rss][subdir] = contrib
 projects[views_rss][version] = "2.0-rc3"
@@ -349,6 +358,8 @@ projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][download][type] = git
 projects[workbench_moderation][download][branch] = "7.x-1.x"
 projects[workbench_moderation][download][revision] = "296ce87"
+projects[workbench_moderation][patch][2021903_1][url] = http://drupal.org/files/workbench_moderation-draft_current_revision-2021903_1.patch
+projects[workbench_moderation][patch][2021903_1][md5] = 29455a89821cab1c4085115f9743f600
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][download][type] = git
@@ -366,9 +377,16 @@ libraries[starterskit][type] = "libraries"
 libraries[starterskit][download][type] = "file"
 libraries[starterskit][download][url] = "https://github.com/studiodumbar/starterskit-pb/zipball/1.2.3"
 
-; CKEditor 3.6.2
+; CKEditor 4.4.6
 libraries[ckeditor][download][type] = get
 libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
+
+; a11ychecker_custom
+libraries[a11ychecker][download][type] = "get"
+libraries[a11ychecker][download][url] = "http://a11ychecker.download.cksource.com/custom/a11ychecker_custom.zip"
+libraries[a11ychecker][destination] = "libraries"
+libraries[a11ychecker][subdir] = "ckeditor_plugins"
+libraries[a11ychecker][directory_name] = "a11ychecker_custom"
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"
@@ -381,3 +399,10 @@ libraries[mailchimp][destination] = "libraries"
 ;libraries[modernizr][download][url] = "http://www.modernizr.com/downloads/modernizr-2.6.2.js"
 ;libraries[modernizr][directory_name] = "modernizr"
 ;libraries[modernizr][destination] = "libraries"
+
+; Plupload
+libraries[plupload][directory_name] = plupload
+libraries[plupload][download][type] = file
+libraries[plupload][download][url] = https://github.com/moxiecode/plupload/archive/v1.5.8.zip
+libraries[plupload][patch][1903850] = https://www.drupal.org/files/issues/plupload-1_5_8-rm_examples-1903850-21.patch
+libraries[plupload][type] = library

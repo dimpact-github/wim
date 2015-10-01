@@ -1,0 +1,31 @@
+<?php
+
+// @todo Add Libraries API library declaration.
+
+/**
+ * Implements hook_wysiwyg_plugin().
+ */
+function dimpact_a11ychecker_wysiwyg_wysiwyg_plugin($editor, $version) {
+  if ($editor == 'ckeditor') {
+    $plugins['a11ychecker'] = array(
+      // @todo Replace hardcoded path with Libraries API discovery.
+      'path' => 'sites/all/libraries/ckeditor_plugins/a11ychecker_custom/a11ychecker',
+      'buttons' => array(
+        'A11ychecker' => t('Accessibility Checker'),
+      ),
+      'load' => TRUE,
+      'internal' => FALSE,
+    );
+
+    $plugins['balloonpanel'] = array(
+      // @todo Replace hardcoded path with Libraries API discovery.
+      'path' => 'sites/all/libraries/ckeditor_plugins/a11ychecker_custom/balloonpanel',
+      'extensions' => array(
+        'Balloonpanel' => t('Accessibility Checker GUI: Balloon panel'),
+      ),
+      'load' => TRUE,
+      'internal' => FALSE,
+    );
+    return $plugins;
+  }
+}

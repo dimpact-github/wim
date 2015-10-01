@@ -1,0 +1,13 @@
+@include at-breakpoint($break-medium) {
+  .partijoverzicht > ul {
+    @include container($break-large);
+    @include susy-grid-background;
+    > li {
+      @include span-columns(4,$break-large);
+      @include nth-omega(3n);
+      &:nth-child(3n + 1) {
+        clear: both;
+      }
+    }
+  }
+}

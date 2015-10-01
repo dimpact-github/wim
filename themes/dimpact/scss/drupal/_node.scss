@@ -147,3 +147,13 @@ span.mailto {
 	width: 10px;
 	height: 10px;
 }
+
+.comment-count {
+  color: $gray;
+  clear: both;
+
+  &:before {
+    color: $background-color;
+    @include icon($comment);
+  }
+}

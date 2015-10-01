@@ -23,8 +23,7 @@
       margin: 0;
       .field-image {
         float: left;
-        margin-right: $gutter-width/2;
-        margin-top: 5px;
+        margin: 5px ($gutter-width/2) 5px 0;
       }
     }
   }

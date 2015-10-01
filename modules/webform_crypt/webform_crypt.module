@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * Implements hook_webform_submission_load().
+ */
+function webform_crypt_webform_submission_load(&$submissions) {
+  module_load_include('inc', 'webform_crypt', 'webform_crypt.utils');
+
+  foreach ($submissions as $sid => $submission) {
+    foreach ($submission->data as $cid => $data) {
+      foreach ($data['value'] as $key => $value) {
+        if (is_string($value)) {
+          $submissions[$sid]->data[$cid]['value'][$key] = webform_crypt_decrypt($value);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_webform_submission_presave().
+ */
+function webform_crypt_webform_submission_presave($node, &$submission) {
+  module_load_include('inc', 'webform_crypt', 'webform_crypt.utils');
+
+  foreach ($submission->data as $cid => $data) {
+    foreach ($data['value'] as $key => $value) {
+      if (is_string($value) && variable_get('webform_crypt_enable', TRUE)) {
+        $submission->data[$cid]['value'][$key] = webform_crypt_encrypt($value);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_webform_component_info().
+ */
+function webform_crypt_webform_component_info() {
+  $components = array();
+
+  $core = webform_webform_component_info();
+  $components['securefile'] = $core['file'];
+
+  $components['securefile']['label'] = t('File (encrypted)');
+  $components['securefile']['file'] = 'components/securefile.inc';
+  $components['securefile']['module'] = 'webform_crypt';
+
+  return $components;
+}
+
+/**
+ * Load and decrypt file.
+ *
+ * @param int $fid
+ * @param bool $include_contents
+ */
+function webform_crypt_load_file($fid, $include_contents = TRUE) {
+  if (!$fid) {
+    return FALSE;
+  }
+  $file = file_load($fid);
+
+  $encrypted = db_select('files_crypt', 'fs')
+    ->fields('fs')
+    ->condition('fs.fid', $fid)
+    ->execute()
+    ->fetchObject();
+  if ($encrypted) {
+    $file->encrypted = TRUE;
+    if ($include_contents) {
+      $file->filecontent = decrypt(file_get_contents($file->uri));
+      $file->uri = NULL;
+    }
+  }
+  else {
+    $file->encrypted = FALSE;
+  }
+
+  return $file;
+}
+
+function webform_crypt_form_alter(&$form, &$form_state, $form_id) {
+  $encrypt = array();
+  if (isset($form['submitted'])) {
+    foreach ($form['submitted'] as $name => $field) {
+      if (is_array($field) && !empty($field['#encrypt_after_upload'])) {
+        $encrypt[] = $name;
+      }
+    }
+  }
+  if ($encrypt) {
+    $form['#encrypt_files'] = $encrypt;
+    $form['#validate'][] = 'webform_crypt_encrypt_files';
+  }
+}
+
+function webform_crypt_encrypt_files($form, &$form_state) {
+  $values = $form_state['values']['submitted'];
+  foreach ($form['#encrypt_files'] as $name) {
+    $fid = $values[$name];
+    $encrypted = db_select('files_crypt', 'fs')
+      ->fields('fs')
+      ->condition('fs.fid', $fid)
+      ->execute()
+      ->fetchObject();
+    if (!$encrypted && ($file = file_load($fid))) {
+      db_insert('files_crypt')->fields(array(
+        'fid' => $fid,
+        'filename' => $file->filename,
+      ))->execute();
+      $filename = preg_replace('/\/[^\\/]+(\\.[a-z]+)$/si', '/' . md5(time() . rand(1, 100000000)) . '\\1', $file->uri);
+      $contents = file_get_contents($file->uri);
+      $contents = encrypt($contents);
+      file_put_contents($filename, $contents);
+      db_update('file_managed')->fields(array(
+        'uri' => $filename
+      ))->condition('fid', $fid)->execute();
+      @unlink($file->uri);
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function webform_crypt_cron() {
+  module_load_include('inc', 'webform_crypt', 'webform_crypt.flush');
+  webform_crypt_flush_submissions();
+}
