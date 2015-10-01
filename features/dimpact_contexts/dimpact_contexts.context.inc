@@ -224,6 +224,12 @@ function dimpact_contexts_context_default_contexts() {
           'module' => 'cck_blocks',
           'delta' => 'field_extra_afbeelding',
           'region' => 'region_363_third',
+          'weight' => '-92',
+        ),
+        'cck_blocks-field_extra_text' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_extra_text',
+          'region' => 'region_363_third',
           'weight' => '-91',
         ),
         'cck_blocks-field_related_pdc' => array(

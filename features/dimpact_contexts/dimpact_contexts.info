@@ -24,6 +24,7 @@ dependencies[] = strongarm
 dependencies[] = submenutree
 dependencies[] = subscriptions_ui
 dependencies[] = taxonomy
+dependencies[] = text
 dependencies[] = views
 features[context][] = agenda_blokken
 features[context][] = announcements

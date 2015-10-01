@@ -20,6 +20,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_extra_text_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_extra_text_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'cck_blocks_field_related_pdc_block_availability';
   $strongarm->value = 2;
   $export['cck_blocks_field_related_pdc_block_availability'] = $strongarm;
@@ -1658,6 +1665,9 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'field_bundle_settings_node__page';
   $strongarm->value = array(
     'view_modes' => array(
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
       'teaser' => array(
         'custom_settings' => TRUE,
       ),

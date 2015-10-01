@@ -37,6 +37,8 @@ projects[block_class][version] = "2.1"
 
 projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
+projects[cck_blocks][patch][1309870-1][url] = http://drupal.org/files/cck-blocks-workbench-integration-1309870-1.patch
+projects[cck_blocks][patch][1309870-1][md5] = 8ec9ab0c40781008a8b5025fe48abccd
 
 projects[context][subdir] = contrib
 projects[context][version] = "3.6"
@@ -356,6 +358,8 @@ projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][download][type] = git
 projects[workbench_moderation][download][branch] = "7.x-1.x"
 projects[workbench_moderation][download][revision] = "296ce87"
+projects[workbench_moderation][patch][2021903_1][url] = http://drupal.org/files/workbench_moderation-draft_current_revision-2021903_1.patch
+projects[workbench_moderation][patch][2021903_1][md5] = 29455a89821cab1c4085115f9743f600
 
 projects[wysiwyg][subdir] = contrib
 projects[wysiwyg][download][type] = git
