@@ -9,7 +9,7 @@ projects[admin_menu][subdir] = contrib
 projects[admin_menu][version] = "3.0-rc5"
 
 projects[admin_views][subdir] = contrib
-projects[admin_views][version] = "1.2"
+projects[admin_views][version] = "1.5"
 
 projects[apachesolr][subdir] = contrib
 projects[apachesolr][version] = "1.6"
@@ -47,7 +47,7 @@ projects[context_entity_field][subdir] = contrib
 projects[context_entity_field][version] = "1.1"
 
 projects[ctools][subdir] = contrib
-projects[ctools][version] = "1.7"
+projects[ctools][version] = "1.9"
 
 projects[cs_adaptive_image][subdir] = contrib
 projects[cs_adaptive_image][version] = "1.0"
@@ -124,7 +124,7 @@ projects[features_extra][subdir] = contrib
 projects[features_extra][version] = "1.0-beta1"
 
 projects[feeds][subdir] = contrib
-projects[feeds][version] = "2.0-alpha8"
+projects[feeds][version] = "2.0-alpha9"
 
 projects[felix][subdir] = contrib
 projects[felix][version] = "1.0-beta4"
@@ -167,13 +167,13 @@ projects[hotjar][subdir] = contrib
 projects[hotjar][version] = "1.0"
 
 projects[i18n][subdir] = contrib
-projects[i18n][version] = "1.10"
+projects[i18n][version] = "1.13"
 
 projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][version] = "2.3"
+projects[jquery_update][version] = "2.6"
 
 projects[l10n_update][subdir] = contrib
 projects[l10n_update][version] = "1.1"
@@ -337,7 +337,7 @@ projects[views][subdir] = contrib
 projects[views][version] = "3.11"
 
 projects[views_bulk_operations][subdir] = contrib
-projects[views_bulk_operations][version] = "3.2"
+projects[views_bulk_operations][version] = "3.3"
 
 projects[views_rss][subdir] = contrib
 projects[views_rss][version] = "2.0-rc3"
