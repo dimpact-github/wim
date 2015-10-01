@@ -36,6 +36,12 @@ function dimpact_contexts_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -125,6 +131,12 @@ function dimpact_contexts_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -206,6 +218,12 @@ function dimpact_contexts_field_default_field_instances() {
         'weight' => 3,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

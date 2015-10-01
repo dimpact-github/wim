@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.0-20150806
+version = 7.x-1.0-20150930
 project = dimpact_content_types
 dependencies[] = cck_blocks
 dependencies[] = date_popup

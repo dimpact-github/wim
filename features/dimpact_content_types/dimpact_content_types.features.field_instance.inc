@@ -36,6 +36,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -162,6 +168,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -262,6 +274,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -377,6 +395,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -473,6 +497,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -554,6 +584,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 6,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -643,6 +679,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -772,6 +814,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -858,6 +906,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -960,6 +1014,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1041,6 +1101,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 5,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1130,6 +1196,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1257,6 +1329,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1367,6 +1445,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1461,6 +1545,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1545,6 +1635,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1672,6 +1768,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1785,6 +1887,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -1914,6 +2022,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1994,6 +2108,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2109,6 +2229,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2192,6 +2318,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 3,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2283,6 +2415,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2403,6 +2541,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2487,6 +2631,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2612,6 +2762,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -2693,6 +2849,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2814,6 +2976,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -2943,6 +3111,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3027,6 +3201,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 2,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3154,6 +3334,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3264,6 +3450,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -3363,6 +3555,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3444,6 +3642,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 3,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3533,6 +3737,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3792,6 +4002,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3873,6 +4089,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 2,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -3962,6 +4184,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4097,6 +4325,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4186,6 +4420,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4310,6 +4550,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4405,6 +4651,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4492,6 +4744,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 21,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4607,6 +4865,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4693,6 +4957,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 5,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -4794,6 +5064,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4888,6 +5164,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 22,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5011,6 +5293,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5119,6 +5407,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5200,6 +5494,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 11,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5313,6 +5613,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5407,6 +5713,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5493,6 +5805,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 12,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5608,6 +5926,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5695,6 +6019,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 15,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5792,6 +6122,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5877,6 +6213,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -5968,6 +6310,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 13,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6080,6 +6428,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6160,6 +6514,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 19,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6254,6 +6614,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6340,6 +6706,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 9,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6467,6 +6839,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6557,6 +6935,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 7,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6657,6 +7041,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -6748,6 +7138,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 12,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6867,6 +7263,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 2,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -6992,6 +7394,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7106,6 +7514,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -7230,6 +7644,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7348,6 +7768,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7439,6 +7865,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 5,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -7564,6 +7996,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7655,6 +8093,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -7739,6 +8183,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -7853,6 +8303,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -7977,6 +8433,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -8111,6 +8573,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8210,6 +8678,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8299,6 +8773,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8380,6 +8860,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 3,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -8509,6 +8995,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8595,6 +9087,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -8724,6 +9222,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8815,6 +9319,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -8900,6 +9410,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -9027,6 +9543,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9140,6 +9662,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9221,6 +9749,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 6,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -9334,6 +9868,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9437,6 +9977,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 8,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -9550,6 +10096,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9658,6 +10210,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9761,6 +10319,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -9886,6 +10450,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -9989,6 +10559,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -10102,6 +10678,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -10188,6 +10770,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -10269,6 +10857,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -10361,6 +10955,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -10490,6 +11090,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -10579,6 +11185,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -10675,6 +11287,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -10756,6 +11374,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 4,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -10871,6 +11495,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -10960,6 +11590,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -11044,6 +11680,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -11173,6 +11815,12 @@ function dimpact_content_types_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'minimal_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'short_teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -11254,6 +11902,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 2,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -11343,6 +11997,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 0,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -11467,6 +12127,12 @@ function dimpact_content_types_field_default_field_instances() {
         'weight' => 1,
       ),
       'felix' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'minimal_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
