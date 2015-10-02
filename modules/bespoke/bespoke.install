@@ -166,3 +166,13 @@ function bespoke_update_7114() {
     'views_ui',
   ), FALSE);
 }
+
+function bespoke_update_7115() {
+  // Prevent jquery_update-7.x-2.3 to 2.6 from switching from 1.5 to 1.10.
+  if (!variable_get('jquery_update_jquery_version')) {
+    variable_set('jquery_update_jquery_version', '1.5');
+  }
+  if (!variable_get('jquery_update_jquery_admin_version')) {
+    variable_set('jquery_update_jquery_admin_version', '1.5');
+  }
+}
