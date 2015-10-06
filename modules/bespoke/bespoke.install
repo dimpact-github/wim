@@ -176,3 +176,13 @@ function bespoke_update_7115() {
     variable_set('jquery_update_jquery_admin_version', '1.5');
   }
 }
+
+/**
+ * Enable dimpact_transliteration feature.
+ */
+function bespoke_update_7116() {
+  // Enable dimpact_transliteration feature.
+  module_enable(array(
+    'dimpact_transliteration',
+  ));
+}
