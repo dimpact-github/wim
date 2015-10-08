@@ -81,8 +81,7 @@ projects[domain_xmlsitemap][version] = "1.0-beta2"
 
 projects[dominion][subdir] = contrib
 projects[dominion][version] = "1.0-beta3"
-projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][url] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
-projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8][md5] = "ed3829454728787f03c58a2d6caf3ac9"
+projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
 
 projects[elysia_cron][subdir] = contrib
