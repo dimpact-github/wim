@@ -1,0 +1,10 @@
+# Pull gems from RubyGems
+source 'https://rubygems.org'
+
+# ~> Refers to all versions of the given gem on the current full version number. For a specific version of a gem, remove the ~>
+gem 'compass', '0.12.7'
+gem 'compass-rgbapng', '0.2.1'
+gem 'susy', '1.0.9'
+gem 'terminal-notifier', '1.6.3'
+
+# Now that you're using Bundler, you need to run `bundle exec compass watch` instead of simply `compass watch`.

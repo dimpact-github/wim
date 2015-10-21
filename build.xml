@@ -63,7 +63,12 @@
     <delete file="code/sites/all/modules/README.txt" />
   </target>
 
-  <target name="theme">
+  <target name="bundleinstall">
+    <echo msg="Running 'bundle install'..." />
+    <exec command="(cd themes/dimpact; bundle install)" />
+  </target>
+
+  <target name="theme" depends="bundleinstall">
     <echo msg="Cleaning SCSS..." />
      <exec command="compass clean themes/dimpact" />
     <echo msg="Compiling SCSS..." />
