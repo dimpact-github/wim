@@ -7,6 +7,12 @@ function dimpact_kcmsurvey_page_build(&$page) {
   // Adding attachments to an element of type page does not work, because then
   // the html theme_wrapper runs before attachments processing.
   // The page template does render regions, so page attachments can be added there.
+
+  // Don't render survey link on admin pages.
+  if ( path_is_admin(current_path()) ) {
+    return;
+  }
+
   if (!isset($page['page_bottom'])) {
     $page['page_bottom'] = array();
   }
