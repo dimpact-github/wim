@@ -21,20 +21,20 @@
 // make sure the first instance of .region_363_third is not displayed by default
 // on wider screens this is displayed and the second one (outside the content area) is displayed
 // this way we can "move" this region to different positions in the document flow, depending on screen size
-//.region_363_third {
-//  display: block;
-//  #content & {
-//    display: none;
-//  }
-//}
-//@include at-breakpoint($break-medium) {
-//  .region_363_third {
-//    display: none;
-//    #content & {
-//      display: block;
-//    }
-//  }
-//}
+.region_363_third {
+  display: none;
+  #content & {
+    display: block;
+  }
+}
+@include at-breakpoint($break-medium) {
+  .region_363_third {
+    display: block;
+    #content & {
+      display: none;
+    }
+  }
+}
 
 /**
  * Breakpoint small
