@@ -1738,10 +1738,13 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '10',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '9',
+        ),
+        'redirect' => array(
+          'weight' => '11',
         ),
       ),
       'display' => array(
