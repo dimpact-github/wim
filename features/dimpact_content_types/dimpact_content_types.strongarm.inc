@@ -1496,6 +1496,39 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'minimal_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'felix' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1503,10 +1536,13 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
+        ),
+        'redirect' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(
@@ -1515,16 +1551,28 @@ function dimpact_content_types_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
         ),
         'flag_favorieten' => array(
           'teaser' => array(
-            'weight' => '10',
+            'weight' => '6',
             'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '4',
+            'visible' => TRUE,
           ),
         ),
         'subscriptions_ui' => array(
           'teaser' => array(
-            'weight' => '100',
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '5',
             'visible' => TRUE,
           ),
         ),

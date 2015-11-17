@@ -602,6 +602,7 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'file_managed',
       ),
     ),
+    'global_block_settings' => 1,
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
