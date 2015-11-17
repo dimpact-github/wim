@@ -11,12 +11,24 @@ function dimpact_siteimprove_menu() {
     'description' => 'Siteimprove settings.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('siteimprove_admin_settings_form'),
-    'access arguments' => array('administer siteimprove configuration'),
+    'access arguments' => array('administer siteimprove'),
     'file' => 'dimpact_siteimprove.admin.inc',
     'type' => MENU_NORMAL_ITEM,
   );
 
   return $items;
+}
+
+/**
+ * Implements hook_permisison().
+ */
+function dimpact_siteimprove_permission() {
+  return array(
+    'administer siteimprove' => array(
+      'title' => t('Administer Siteimprove'),
+      'description' => t('Used to configure the Siteimprove-url.'),
+    ),
+  );
 }
 
 /**
