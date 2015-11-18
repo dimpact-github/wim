@@ -1731,6 +1731,30 @@ function dimpact_content_types_strongarm() {
       'search_index' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'minimal_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'felix' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1754,17 +1778,21 @@ function dimpact_content_types_strongarm() {
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '1',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'search_result' => array(
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'cck_blocks' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'subscriptions_ui' => array(
           'default' => array(
-            'weight' => '100',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'search_result' => array(
@@ -1772,6 +1800,10 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'cck_blocks' => array(
             'weight' => '4',
             'visible' => TRUE,
           ),
