@@ -1802,7 +1802,7 @@ function dimpact_content_types_strongarm() {
       'display' => array(
         'domain' => array(
           'teaser' => array(
-            'weight' => '6',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'default' => array(
@@ -1828,8 +1828,8 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '4',
-            'visible' => TRUE,
+            'weight' => '5',
+            'visible' => FALSE,
           ),
           'cck_blocks' => array(
             'weight' => '4',
