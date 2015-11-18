@@ -330,6 +330,60 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'nodepage_persoon';
+  $context->description = 'Contains specific blocks to only show while showing a person content type';
+  $context->tag = 'Algemeen';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'person' => 'person',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'cck_blocks-field_image' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_image',
+          'region' => 'region_363_third',
+          'weight' => '-10',
+        ),
+        'cck_blocks-field_e_mail' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_e_mail',
+          'region' => 'region_363_third',
+          'weight' => '-9',
+        ),
+        'cck_blocks-field_phone' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_phone',
+          'region' => 'region_363_third',
+          'weight' => '-8',
+        ),
+        'cck_blocks-field_adres' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_adres',
+          'region' => 'region_363_third',
+          'weight' => '-7',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Algemeen');
+  t('Contains specific blocks to only show while showing a person content type');
+  $export['nodepage_persoon'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'onderwerp';
   $context->description = '';
   $context->tag = 'Felix';
