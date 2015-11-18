@@ -677,6 +677,7 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'file_managed',
       ),
     ),
+    'global_block_settings' => 2,
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -932,7 +933,7 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'filter_format',
       ),
     ),
-    'global_block_settings' => 1,
+    'global_block_settings' => 2,
     'indexes' => array(
       'format' => array(
         0 => 'format',

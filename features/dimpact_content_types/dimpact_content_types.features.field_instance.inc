@@ -4736,6 +4736,9 @@ function dimpact_content_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
           'private' => 'private',
           'public' => 'public',
           'youtube' => 0,
@@ -4750,10 +4753,9 @@ function dimpact_content_types_field_default_field_instances() {
           'media_default--media_browser_1' => 'media_default--media_browser_1',
           'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
           'media_internet' => 0,
+          'remote_file' => 0,
           'upload' => 'upload',
-          'youtube' => 0,
         ),
-        'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
       'weight' => 1,
