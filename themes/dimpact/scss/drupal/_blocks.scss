@@ -14,6 +14,8 @@
 
 // Partijoverzicht styling
 .partijoverzicht .person {
+  position: relative;
+
   .field-image {
     position: absolute;
     left: 0;
@@ -37,7 +39,7 @@
   }
 }
 
-.content .field-role {
+.view-mode-full.person .content .field-role {
   font-size: 1.125rem;
   margin-bottom: 0em;
   margin-top: 0.4em;
