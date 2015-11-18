@@ -284,6 +284,11 @@ function dimpact_contexts_context_default_contexts() {
   $context->description = '';
   $context->tag = 'Intranet';
   $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'intranet' => 'intranet',
+      ),
+    ),
     'node' => array(
       'values' => array(
         'agenda' => 'agenda',
