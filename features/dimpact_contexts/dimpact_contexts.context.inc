@@ -197,7 +197,6 @@ function dimpact_contexts_context_default_contexts() {
         'marketplace' => 'marketplace',
         'news' => 'news',
         'page' => 'page',
-        'person' => 'person',
         'product' => 'product',
       ),
       'options' => array(
@@ -232,17 +231,17 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_363_third',
           'weight' => '-91',
         ),
-        'cck_blocks-field_related_pdc' => array(
-          'module' => 'cck_blocks',
-          'delta' => 'field_related_pdc',
-          'region' => 'region_363_third',
-          'weight' => '-89',
-        ),
         'cck_blocks-field_related_vac' => array(
           'module' => 'cck_blocks',
           'delta' => 'field_related_vac',
           'region' => 'region_363_third',
           'weight' => '-90',
+        ),
+        'cck_blocks-field_related_pdc' => array(
+          'module' => 'cck_blocks',
+          'delta' => 'field_related_pdc',
+          'region' => 'region_363_third',
+          'weight' => '-89',
         ),
         'views-maps-block_1' => array(
           'module' => 'views',
