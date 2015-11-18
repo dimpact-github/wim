@@ -11,3 +11,19 @@
     }
   }
 }
+
+// Partijoverzicht styling
+.partijoverzicht .person {
+  .field-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  h2,
+  .field-role,
+  .field-e-mail,
+  .field-phone {
+    margin-left: 108px;
+  }
+}
