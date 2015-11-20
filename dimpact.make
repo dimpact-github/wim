@@ -356,7 +356,7 @@ projects[workbench][version] = "1.2"
 projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][download][type] = git
 projects[workbench_moderation][download][branch] = "7.x-1.x"
-projects[workbench_moderation][download][revision] = "296ce87"
+projects[workbench_moderation][download][revision] = "c1573b6"
 projects[workbench_moderation][patch][2021903_1][url] = http://drupal.org/files/workbench_moderation-draft_current_revision-2021903_1.patch
 projects[workbench_moderation][patch][2021903_1][md5] = 29455a89821cab1c4085115f9743f600
 
