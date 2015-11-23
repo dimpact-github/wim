@@ -24,6 +24,20 @@ user/reset/*';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'dominion_custom_functions';
+  $strongarm->value = 'piwik|Piwik
+googleanalytics|Google Analytics
+news|Nieuws
+agenda|Agenda
+webform|Contactformulier
+marktplaats|Marktplaats
+alphabet_menu_internet|Alfabet Menu Internet
+alphabet_menu_intranet|Alfabet Menu Intranet';
+  $export['dominion_custom_functions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'dominion_restrict_type_agenda';
   $strongarm->value = 'own-agenda';
   $export['dominion_restrict_type_agenda'] = $strongarm;
