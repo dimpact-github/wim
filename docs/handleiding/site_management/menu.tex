@@ -1,9 +1,9 @@
 \subsection{Menu}\label{menu}
-Via een aparte sectie in de beheeromgeving kunnen de beschikbare menu's worden aangepast. Het menu systeem staat in Drupal los van de inhoud (nodes). 
+Via een aparte sectie in de beheeromgeving kunnen de beschikbare menu's worden aangepast. Het menu systeem staat in Drupal los van de inhoud (nodes).
 
 In Drupal worden menu's en menu-items niet automatisch aangemaakt. Voor elk content-item moet je desgewenst een menu-item aanmaken. Een menu-item aanmaken kan dus pas nadat je het content-item hebt aangemaakt.
 
-Ga naar \drupalpath{admin/structure/menu} om het overzicht van alle beschikbare menu's te bekijken. 
+Ga naar \drupalpath{admin/structure/menu} om het overzicht van alle beschikbare menu's te bekijken.
 
 \bigskip
 
@@ -25,15 +25,15 @@ Klik op \emph{bewerken} bij het betreffende menu-item om het menu-item te gaan b
 
 \subsubsection{Menu-items toevoegen}\label{menuitemstoevoegen}
 
-Om een goed overzicht te krijgen van het menu dat je wil bewerken, klik je eerst op \emph{Links weergeven} bij het betreffende menu waaraan je een menu-item wil toevoegen. Klik vervolgens op \emph{Link toevoegen}. 
+Om een goed overzicht te krijgen van het menu dat je wil bewerken, klik je eerst op \emph{Links weergeven} bij het betreffende menu waaraan je een menu-item wil toevoegen. Klik vervolgens op \emph{Link toevoegen}.
 
 Vul een titel in (dit wordt de klikbare tekst) en het pad waarnaar de link toe moet gaan. Als je een menu-item wil koppelen aan een node vul je bij het veld \emph{pad}, 'node/nodeID' in. Als je het menu-item wil koppelen aan een node met het ID \emph{123}, vul je 'node/123' in. Via de knop "Zoeken" kan worden gezocht in nodes. Er verschijnt een overlay waarin een zoekterm ingevoerd kan worden. Dit is een automatisch aanvullend veld waarin bestaande nodes verschijnen (wanneer minimaal 3 letters zijn ingevuld).
 
-Het is ook mogelijk een alias i.p.v. een node met een ID in te vullen. Node met het ID \emph{123} heeft bijvoorbeeld de alias \emph{pagina123}, vul dan bij het veld \emph{pad}, de alias \emph{pagina123} in. 
+Het is ook mogelijk een alias i.p.v. een node met een ID in te vullen. Node met het ID \emph{123} heeft bijvoorbeeld de alias \emph{pagina123}, vul dan bij het veld \emph{pad}, de alias \emph{pagina123} in.
 
 Klik vervolgens onderaan de pagina op de knop \emph{Opslaan}.
 
-Herhaal deze stappen om meerdere menu-items toe te voegen.  
+Herhaal deze stappen om meerdere menu-items toe te voegen.
 
 \subsubsection{Menu-items verwijderen}\label{menuitemsverwijderen}
 
@@ -62,11 +62,16 @@ Overzicht alfabet menu A
 \includegraphics[width=\textwidth]{img/menu3.png}
 \end{center}
 
-Voor de alfabet menu-balk gelden de volgende twee opmerkingen:
+Voor de alfabet menu-balk gelden de volgende opmerkingen:
 \begin{itemize}
-\item Op het intranet wordt de inhoud van de alfabet-menu’s niet getoond. De alfabet menu’s zijn alleen voor het internet en niet voor het intranet ingericht.
-\item Een link naar het intranet wordt wel op het internet getoond. Als er een link aan het alfabet menu wordt toegevoegd dan zal, ook als dat een link is naar een item op het intranet, die zichtbaar zijn als je als beheerder bent ingelogd. Voor anonieme bezoekers, en accounts met minder rechten, zullen alleen de items op het internet zichtbaar zijn in het alfabet menu. Er zijn twee screenshots toegevoegd, één als anonieme bezoeker, en één ingelogd als admin. De items “Zomaar een testje” en “Zomaar op intranet” zijn items op het intranet.
+\item Op het intranet wordt de inhoud van de alfabet-menu's niet getoond. De alfabet menu's zijn initieel alleen voor het internet en niet voor het intranet ingericht.
+\item Een link naar het intranet wordt wel op het internet getoond. Als er een link aan het alfabet menu wordt toegevoegd dan zal, ook als dat een link is naar een item op het intranet, die zichtbaar zijn als je als beheerder bent ingelogd. Voor anonieme bezoekers, en accounts met minder rechten, zullen alleen de items op het internet zichtbaar zijn in het alfabet menu. Er zijn twee screenshots toegevoegd, \'{e}\'{e}n als anonieme bezoeker, en \'{e}\'{e}n ingelogd als admin. De items `Zomaar een testje' en `Zomaar op intranet' zijn items op het intranet.
+\item Het alfabet menu kan bij de dominion instellingen worden aangezet voor het internet of het intranet. Vink bij de Dominion settings \seeone{dominion} Alfabet Menu Internet of Alfabet Menu Intranet aan voor het betreffende domein.
+\begin{center}
+\includegraphics[width=0.33\textwidth]{img/alfabet-menu-custom-functions.png}
+\end{center}
 \end{itemize}
+
 
 \bigskip
 
@@ -76,7 +81,7 @@ Voor de alfabet menu-balk gelden de volgende twee opmerkingen:
 	\includegraphics[width=\textwidth]{img/menu_main.png}
 \end{center}
 
-Menu locatie op \drupalpath{}: midden bovenaan de pagina. De werkwijze van het bewerken, toevoegen en verwijderen voor de alfabetische menu\emph{s is gelijk aan de werkwijze voor alle andere menu}s op \drupalpath{}. 
+Menu locatie op \drupalpath{}: midden bovenaan de pagina. De werkwijze van het bewerken, toevoegen en verwijderen voor de alfabetische menu\emph{s is gelijk aan de werkwijze voor alle andere menu}s op \drupalpath{}.
 
 De verhouding tussen de verschillende niveau's en hun weergave op de website is te zien in de onderstaande afbeeldingen. Het 1ste niveau is te zien in de blauwe balk bovenaan op de website, het hoofdmenu (Figure 1). Het 2e niveau is te zien als dropdown/submenu onder het item in de blauwe balk en als hoofditem in het Submenublok. Het 3e niveau is te zien als submenu onder het 2e niveau in het Submenublok (Figure 2). Dieper dan drie niveau's wordt niet weergegeven in zowel het hoofdmenu als in het submenublok.
 
