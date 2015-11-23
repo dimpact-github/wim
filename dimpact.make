@@ -83,8 +83,8 @@ projects[dominion][subdir] = contrib
 projects[dominion][version] = "1.0-beta3"
 projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
-projects[dominion][patch][2619974][url] = "https://www.drupal.org/files/issues/custom_functions_as_context_conditions-2619974-4.patch"
-projects[dominion][patch][2619974][md5] = "7f14005744a6840336a11379cd6eacfd"
+projects[dominion][patch][2619974][url] = "https://www.drupal.org/files/issues/custom_functions_as_context_conditions-2619974-5.patch"
+projects[dominion][patch][2619974][md5] = "91a2a32049f8ea42b48cc33d5976d906"
 
 projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
