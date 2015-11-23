@@ -31,7 +31,8 @@ news|Nieuws
 agenda|Agenda
 webform|Contactformulier
 marktplaats|Marktplaats
-alphabet_menu|Alfabet Menu';
+alphabet_menu_internet|Alfabet Menu Internet
+alphabet_menu_intranet|Alfabet Menu Intranet';
   $export['dominion_custom_functions'] = $strongarm;
 
   $strongarm = new stdClass();
