@@ -13,6 +13,13 @@ function dimpact_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_adres_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_adres_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'cck_blocks_field_extra_afbeelding_block_availability';
   $strongarm->value = 2;
   $export['cck_blocks_field_extra_afbeelding_block_availability'] = $strongarm;
@@ -23,6 +30,27 @@ function dimpact_content_types_strongarm() {
   $strongarm->name = 'cck_blocks_field_extra_text_block_availability';
   $strongarm->value = 2;
   $export['cck_blocks_field_extra_text_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_e_mail_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_e_mail_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_image_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_image_block_availability'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cck_blocks_field_phone_block_availability';
+  $strongarm->value = 2;
+  $export['cck_blocks_field_phone_block_availability'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1731,6 +1759,30 @@ function dimpact_content_types_strongarm() {
       'search_index' => array(
         'custom_settings' => FALSE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'minimal_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'felix' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1738,30 +1790,37 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '10',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '9',
+        ),
+        'redirect' => array(
+          'weight' => '11',
         ),
       ),
       'display' => array(
         'domain' => array(
           'teaser' => array(
-            'weight' => '6',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '1',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'search_result' => array(
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'cck_blocks' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'subscriptions_ui' => array(
           'default' => array(
-            'weight' => '100',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'search_result' => array(
@@ -1769,6 +1828,10 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'cck_blocks' => array(
             'weight' => '4',
             'visible' => TRUE,
           ),
