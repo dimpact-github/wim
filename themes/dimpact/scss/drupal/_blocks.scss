@@ -11,3 +11,38 @@
     }
   }
 }
+
+// Partijoverzicht styling
+.partijoverzicht .person {
+  position: relative;
+  min-height: 85px;
+
+  .field-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  h2,
+  .field-role,
+  .field-e-mail,
+  .field-phone {
+    margin-left: 108px;
+  }
+}
+
+#main .block.block-cck-blocks {
+  margin: 0 10px 20px 10px;
+
+  h2.block-title {
+    margin: 0;
+    padding: 10px 0px;
+  }
+}
+
+.view-mode-full.person .content .field-role {
+  font-size: 1.125rem;
+  margin-bottom: 0em;
+  margin-top: 0.4em;
+  font-weight: bold;
+}

@@ -39,6 +39,34 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
+  // Exported field_base: 'field_adres'
+  $field_bases['field_adres'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_adres',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'global_block_settings' => 2,
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_announcement_type'
   $field_bases['field_announcement_type'] = array(
     'active' => 1,
@@ -378,6 +406,23 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
+  // Exported field_base: 'field_e_mail'
+  $field_bases['field_e_mail'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_e_mail',
+    'foreign keys' => array(),
+    'global_block_settings' => 2,
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'email',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'email',
+  );
+
   // Exported field_base: 'field_explanation'
   $field_bases['field_explanation'] = array(
     'active' => 1,
@@ -633,6 +678,7 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'file_managed',
       ),
     ),
+    'global_block_settings' => 2,
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -871,6 +917,36 @@ function dimpact_content_types_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_phone'
+  $field_bases['field_phone'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_phone',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'global_block_settings' => 2,
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_ratified_by'
@@ -1411,6 +1487,36 @@ function dimpact_content_types_field_default_field_bases() {
         'table' => 'filter_format',
       ),
     ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_role'
+  $field_bases['field_role'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_role',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'global_block_settings' => 1,
     'indexes' => array(
       'format' => array(
         0 => 'format',
