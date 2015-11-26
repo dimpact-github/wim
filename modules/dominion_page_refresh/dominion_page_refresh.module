@@ -1,0 +1,67 @@
+<?php
+
+/*
+ * Hook into dominion custom functions and set extra settings
+ */
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dominion_page_refresh_form_dominion_form_alter(&$form, &$form_state) {
+  $form['page_refresh'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Page Refresh Settings'),
+      '#description' => t('This feature adds an auto-refresh rate. Example usage would be when an intranet website would be displayed on a tv/dashboard and would need auto-refresh.'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+  );
+
+    if (!empty($form['#domain_id'])) {
+        $subsite = dominion_get_info($form['#domain_id']);
+        $default_value = $subsite->page_refresh_minutes;
+    }
+    else {
+        $default_value = 0;
+    }
+
+    $form['page_refresh']['page_refresh_minutes'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Refresh rate in minutes'),
+      '#description' => t('Set the refresh rate as minutes, for example: 5. Disable this functionality by entering 0'),
+      '#default_value' => $default_value,
+      '#size' => 60,
+      '#maxlength' => 128,
+      '#required' => TRUE,
+  );
+}
+
+function dominion_page_refresh_dominion_load(&$subsite) {
+    $subsite->page_refresh_minutes = domain_conf_variable_get($subsite->domain_id, 'page_refresh_minutes');
+}
+
+function dominion_page_refresh_dominion_insert($domain_id, $form_values = array()) {
+    domain_conf_variable_set($domain_id, 'page_refresh_minutes', $form_values['page_refresh_minutes']);
+}
+
+function dominion_page_refresh_dominion_update($domain_id, $form_values = array()) {
+    domain_conf_variable_set($domain_id, 'page_refresh_minutes', $form_values['page_refresh_minutes']);
+}
+
+function dominion_page_refresh_dominion_delete($subsite) {
+    domain_conf_variable_delete($subsite->domain_id, 'page_refresh_minutes');
+}
+
+// If value is 0, dont add refresh.
+function dominion_page_refresh_init() {
+    if (($subsite = dominion_get_info()) && !empty($subsite->page_refresh_minutes) && $subsite->page_refresh_minutes > 0) {
+        $interval = intval($subsite->page_refresh_minutes) * 60;
+        $meta = <<<EOL
+        <meta http-equiv="refresh" content="$interval" />
+EOL;
+        dpm($meta);
+        $element = array(
+            '#type' => 'markup',
+            '#markup' => $meta,
+        );
+        drupal_add_html_head($element, 'page_refresh_minutess');
+    }
+}
