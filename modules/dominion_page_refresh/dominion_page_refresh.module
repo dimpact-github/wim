@@ -57,11 +57,12 @@ function dominion_page_refresh_init() {
         $meta = <<<EOL
         <meta http-equiv="refresh" content="$interval" />
 EOL;
-        dpm($meta);
         $element = array(
             '#type' => 'markup',
             '#markup' => $meta,
         );
-        drupal_add_html_head($element, 'page_refresh_minutess');
+        if (user_access('administer modules') && path_is_admin(current_path())) {
+            drupal_add_html_head($element, 'page_refresh_minutess');
+        }
     }
 }
