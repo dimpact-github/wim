@@ -61,7 +61,7 @@ EOL;
             '#type' => 'markup',
             '#markup' => $meta,
         );
-        if (user_access('administer modules') && path_is_admin(current_path())) {
+        if (!path_is_admin(current_path())) {
             drupal_add_html_head($element, 'page_refresh_minutess');
         }
     }
