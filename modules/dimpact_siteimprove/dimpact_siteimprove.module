@@ -56,7 +56,7 @@ function _dimpact_siteimprove_page_bottom(array &$page_bottom) {
     $access = TRUE;
   }
 
-  $data = "<script>
+  $data = "<script type=\"text/javascript\">
               //<![CDATA[
                (function() {
                  var sz = document.createElement('script');
