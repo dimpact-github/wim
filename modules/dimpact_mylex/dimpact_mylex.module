@@ -48,7 +48,7 @@ function dimpact_mylex_block_view($delta = '') {
 /**
  * Builds a Dimpact MY-LEX search form.
  */
-function dimpact_mylex_search_form($form, &$form_state, $form_id) {
+function dimpact_mylex_search_form($form, &$form_state) {
   $form = array();
   $form['dimpact_mylex_search_form_search'] = array(
     '#type' => 'textfield',
