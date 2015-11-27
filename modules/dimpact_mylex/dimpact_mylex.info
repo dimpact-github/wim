@@ -1,5 +1,5 @@
-name = Dimpact My-Lex zoekform blok
-description = Blok met een eenvoudig zoekformulier naar My-Lex Overheid van C-Content.
+name = Dimpact MY-LEX Overheid zoekform blok
+description = Blok met een eenvoudig zoekformulier naar MY-LEX Overheid van C-Content.
 core = 7.x
 package = Dutch Open Projects
 version = 7.x-1.0-alpha1
