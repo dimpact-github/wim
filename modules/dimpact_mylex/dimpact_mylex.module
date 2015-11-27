@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Dimpact My-Lex zoekform blok module file
+ *
+ * This module adds a block with a search form to My-Lex Overheid by C-Content.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function dimpact_mylex_help($path, $arg) {
+  if ($path == 'admin/help#dimpact_mylex') {
+    return t('The Dimpact My-Lex zoekform blok module adds a block with a search form to My-Lex Overheid by C-Content.');
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function dimpact_mylex_block_info() {
+  $blocks = array();
+  $blocks['dimpact_mylex_search'] = array(
+    'info' => t('My-Lex searchbox'),
+  );
+  return $blocks;
+}
