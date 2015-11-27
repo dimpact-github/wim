@@ -50,7 +50,7 @@ function solr_synonyms_menu() {
   $items['admin/config/search/apachesolr/synonyms/delete/%'] = array(
     'page callback' => 'drupal_get_form',
     'page arguments' => array('solr_synonyms_admin_list_delete_form', 6),
-    'access arguments' => array('administer solr_synonyms settings'),
+    'access arguments' => array('administer solr synonyms'),
     'type' => MENU_CALLBACK,
     'file' => 'solr_synonyms.admin.inc',
   );
