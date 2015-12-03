@@ -48,6 +48,14 @@
       }
     }
   }
+  
+  // Make all buttons the same size
+  [class*=btn_] {
+    height: 50px;
+    width: 50px;
+    border: none;
+    background: none;
+  }
   .btn_next,
   .btn_prev,
   .btn_play {
@@ -66,7 +74,7 @@
     left: $gutter-width/2;
   }
   .btn_play {
-    left: 48%;
+    left: 46%;
   }
   .btn_play:before {
     content: "\f04c";
@@ -80,10 +88,11 @@
     padding-right: 0.5em;
     position: absolute;
     top: 10px;
-    left: 0;
+    left: 10%;
   }
   .btn_play.paused:before {
     content: "\f04b";
+    left: 10%;
   }
 }
 // If Javascript is disabled, the a links inside views-view--nodequeue-carousel-9-3.tpl.php will be hidden

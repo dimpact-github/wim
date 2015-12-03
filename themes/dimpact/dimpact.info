@@ -6,6 +6,9 @@ description = Dimpact moedersjabloon
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 
+; Javascripts
+scripts[] = js/carousel.js
+
 regions[header] = Header
 regions[navigation] = Navigation
 regions[highlighted] = Highlighted

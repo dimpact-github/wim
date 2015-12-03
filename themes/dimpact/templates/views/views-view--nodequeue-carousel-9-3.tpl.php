@@ -38,11 +38,6 @@
 <?php endif; ?>
 <?php print $attachment_before; ?>
   <?php print $rows; ?>
-<div class="progress"></div>
-<a href="#" class="btn_prev" title="<?php print t('Previous'); ?>"><span class="icon-chevron-sign-left"><span class="element-invisible"><?php print t('Previous'); ?></span></span></a>
-<a href="#" class="btn_next" title="<?php print t('Next'); ?>"><span class="icon-chevron-sign-right"><span class="element-invisible"><?php print t('Next'); ?></span></span></a>
-<a href="#" class="btn_play" title="<?php print t('Play / Pause carousel'); ?>"><span class="element-invisible"><?php print t('Play/Pause'); ?></span></a>
-
 <?php print $empty; ?>
 <?php print $pager; ?>
 <?php print $attachment_after; ?>
