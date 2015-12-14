@@ -25,12 +25,14 @@ function content_reminder_cron() {
   module_load_include('inc', 'content_reminder', 'content_reminder');
   $nodes = _get_required_nodes();
 
-  if (isset($nodes)) {
-  _prepare_nodes($nodes, 'reminder');
+  if (isset($nodes) && !empty($nodes)) {
+    _prepare_nodes($nodes, 'reminder');
   }
+
   $old_nodes = _get_old_nodes();
-  if (isset($old_nodes)) {
-  _prepare_nodes($old_nodes, 'expire');
+  
+  if (isset($old_nodes) && !empty($old_nodes)) {
+    _prepare_nodes($old_nodes, 'expire');
   }
 }
 
