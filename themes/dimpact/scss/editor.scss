@@ -32,7 +32,7 @@ body {
   font-weight: 400;
   line-height: $line-height;
 }
-img {
+img:not(.file-icon) {
   display: block;
   margin-bottom: $gutter-width/2;
   &[style*="float: left;"] {
