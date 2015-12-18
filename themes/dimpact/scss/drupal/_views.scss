@@ -265,6 +265,10 @@
     .field {
       display: inline;
     }
+
+    div + div {
+      margin-left: 11em;
+    }
   }
 }
 .block-views-personen-block-2 {
