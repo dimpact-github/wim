@@ -443,7 +443,8 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'door';
-  $handler->display->display_options['fields']['name']['element_label_type'] = 'strong';
+  $handler->display->display_options['fields']['name']['element_type'] = 'span';
+  $handler->display->display_options['fields']['name']['element_class'] = 'submitted';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   /* Veld: Inhoud: Aantal reacties */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
@@ -454,6 +455,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_class'] = 'comment-count';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['empty'] = 'nog geen reacties';
+  $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['format_plural'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['format_plural_singular'] = '1 reactie';
