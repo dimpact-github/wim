@@ -33,7 +33,7 @@ projects[better_formats][subdir] = contrib
 projects[better_formats][version] = "1.0-beta1"
 
 projects[block_class][subdir] = contrib
-projects[block_class][version] = "2.1"
+projects[block_class][version] = "2.3"
 
 projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
