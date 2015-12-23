@@ -12,7 +12,7 @@ projects[admin_views][subdir] = contrib
 projects[admin_views][version] = "1.5"
 
 projects[apachesolr][subdir] = contrib
-projects[apachesolr][version] = "1.6"
+projects[apachesolr][version] = "1.8"
 
 projects[apachesolr_attachments][subdir] = contrib
 projects[apachesolr_attachments][version] = "1.4"
