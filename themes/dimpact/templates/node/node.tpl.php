@@ -34,7 +34,7 @@ else {
     <div class="blog-submitted">
       <time datetime="<?php print $timestamp; ?>">
         <span><?php print format_date($node->created, 'custom', 'd F Y'); ?></span>
-      </time> |
+      </time> | <?php print t('door'); ?>:
       <span class="submitted">
         <?php print theme('username', array('account' => user_load($node->uid))); ?>
       </span>
@@ -71,6 +71,6 @@ else {
       <?php print $comment_count_str; ?>
     </div>
   <?php endif; ?>
-  <?php // print render($content['links']); ?>
+  <?php print render($content['links']); ?>
   <?php print render($content['comments']); ?>
 </article>

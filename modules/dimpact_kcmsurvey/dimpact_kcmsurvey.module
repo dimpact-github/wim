@@ -7,16 +7,23 @@ function dimpact_kcmsurvey_page_build(&$page) {
   // Adding attachments to an element of type page does not work, because then
   // the html theme_wrapper runs before attachments processing.
   // The page template does render regions, so page attachments can be added there.
+
+  // Don't render survey link on admin pages.
+  if ( path_is_admin(current_path()) ) {
+    return;
+  }
+
   if (!isset($page['page_bottom'])) {
     $page['page_bottom'] = array();
   }
-  _dimpact_kcmsurvey_page_bottom($page['page_bottom']);
+  $page['page_bottom']['dimpact_kcmsurvey_page_attachments'] = array(
+    '#pre_render' => array('dimpact_kcm_survey_pre_render'),
+  );
 }
 
-function _dimpact_kcmsurvey_page_bottom(array &$page_bottom) {
-  $page_attachments = array();
-  _dimpact_kcmsurvey_page_attachments($page_attachments);
-  $page_bottom['dimpact_kcmsurvey_page_attachments'] = $page_attachments;
+function dimpact_kcm_survey_pre_render($element) {
+  _dimpact_kcmsurvey_page_attachments($element);
+  return $element;
 }
 
 function _dimpact_kcmsurvey_page_attachments(array &$page) {
@@ -29,7 +36,18 @@ function _dimpact_kcmsurvey_page_attachments(array &$page) {
     } else {
       $main_domain = TRUE;
     }
-    if ($main_domain && !drupal_is_front_page()) {
+    // Match path if necessary.
+    $visibility = 0;
+    $pages = variable_get('dimpact_kcmsurvey_pages', '<front>');
+    $pages = drupal_strtolower($pages);
+    $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+    // Compare the lowercase internal and lowercase path alias (if any).
+    $page_match = drupal_match_path($path, $pages);
+    if ($path != $_GET['q']) {
+      $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+    }
+    $page_match = !($visibility xor $page_match);
+    if ($main_domain && $page_match) {
       $page['#attached']['js'][$dimpact_kcmsurvey_script_url] = array('type' => 'external');
     }
   }

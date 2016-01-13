@@ -1,0 +1,9 @@
+name = Dimpact MY-LEX Overheid zoekform blok
+description = Blok met een eenvoudig zoekformulier naar MY-LEX Overheid van C-Content.
+core = 7.x
+package = Dutch Open Projects
+version = 7.x-1.0-alpha1
+
+files[] = dimpact_mylex.install
+files[] = dimpact_mylex.module
+files[] = dimpact-mylex-search-block-form.tpl.php

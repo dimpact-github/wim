@@ -12,7 +12,7 @@ projects[admin_views][subdir] = contrib
 projects[admin_views][version] = "1.5"
 
 projects[apachesolr][subdir] = contrib
-projects[apachesolr][version] = "1.6"
+projects[apachesolr][version] = "1.8"
 
 projects[apachesolr_attachments][subdir] = contrib
 projects[apachesolr_attachments][version] = "1.4"
@@ -33,7 +33,7 @@ projects[better_formats][subdir] = contrib
 projects[better_formats][version] = "1.0-beta1"
 
 projects[block_class][subdir] = contrib
-projects[block_class][version] = "2.1"
+projects[block_class][version] = "2.3"
 
 projects[cck_blocks][subdir] = contrib
 projects[cck_blocks][version] = "1.1"
@@ -83,6 +83,8 @@ projects[dominion][subdir] = contrib
 projects[dominion][version] = "1.0-beta3"
 projects[dominion][patch][regression-of-51d4d24-in-0f1e9b8] = "http://cgit.drupalcode.org/dominion/patch/?id=51d4d241c2b1ed0692e3129506e4e888012d4ac7"
 projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_images.patch
+projects[dominion][patch][2619974][url] = "https://www.drupal.org/files/issues/custom_functions_as_context_conditions-2619974-5.patch"
+projects[dominion][patch][2619974][md5] = "91a2a32049f8ea42b48cc33d5976d906"
 
 projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
@@ -172,7 +174,7 @@ projects[job_scheduler][subdir] = contrib
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][version] = "2.6"
+projects[jquery_update][version] = "2.7"
 
 projects[l10n_update][subdir] = contrib
 projects[l10n_update][version] = "1.1"
@@ -356,7 +358,7 @@ projects[workbench][version] = "1.2"
 projects[workbench_moderation][subdir] = contrib
 projects[workbench_moderation][download][type] = git
 projects[workbench_moderation][download][branch] = "7.x-1.x"
-projects[workbench_moderation][download][revision] = "296ce87"
+projects[workbench_moderation][download][revision] = "c1573b6"
 projects[workbench_moderation][patch][2021903_1][url] = http://drupal.org/files/workbench_moderation-draft_current_revision-2021903_1.patch
 projects[workbench_moderation][patch][2021903_1][md5] = 29455a89821cab1c4085115f9743f600
 

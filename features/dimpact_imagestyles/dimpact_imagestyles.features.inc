@@ -79,6 +79,30 @@ function dimpact_imagestyles_image_default_styles() {
     ),
   );
 
+  // Exported image style: marktplaats.
+  $styles['marktplaats'] = array(
+    'name' => 'marktplaats',
+    'label' => 'Marktplaats',
+    'effects' => array(
+      2 => array(
+        'label' => 'Schalen',
+        'help' => 'Door te schalen worden de originele verhoudingen behouden. Als één van de dimensies wordt ingevuld zal de andere worden berekend.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 550,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: node_thumbnail.
   $styles['node_thumbnail'] = array(
     'name' => 'node_thumbnail',

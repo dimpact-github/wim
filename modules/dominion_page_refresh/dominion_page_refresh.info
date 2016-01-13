@@ -1,0 +1,7 @@
+name = Dominion Page Refresh
+description = Provides a setting per domain via dominion config to set a page refresh time.
+package = Dominion
+core = 7.x
+configure = admin/structure/dominion/list
+dependencies[] = dominion
+dependencies[] = domain_conf

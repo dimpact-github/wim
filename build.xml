@@ -31,6 +31,8 @@
       <fileset dir="libraries" />
     </copy>
 
+    <symlink target="../../sites/all/themes/subtheme/dimpact/templates/file_entity.tpl.php" link="code/themes/seven/file_entity.tpl.php" />
+
     <if>
       <not>
         <available file="private" type="dir" />

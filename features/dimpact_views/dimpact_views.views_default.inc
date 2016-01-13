@@ -48,6 +48,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -225,6 +226,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -441,7 +443,8 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'door';
-  $handler->display->display_options['fields']['name']['element_label_type'] = 'strong';
+  $handler->display->display_options['fields']['name']['element_type'] = 'span';
+  $handler->display->display_options['fields']['name']['element_class'] = 'submitted';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   /* Veld: Inhoud: Aantal reacties */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
@@ -452,6 +455,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['comment_count']['element_wrapper_class'] = 'comment-count';
   $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['empty'] = 'nog geen reacties';
+  $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['format_plural'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['format_plural_singular'] = '1 reactie';
@@ -2807,6 +2811,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -4157,6 +4162,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -4817,6 +4823,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Veld: Inhoud: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

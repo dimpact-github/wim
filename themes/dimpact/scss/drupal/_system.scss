@@ -219,3 +219,8 @@ html.no-js .poll .bar {
 .field-multiple-table {
   margin-bottom: $gutter-width;
 }
+
+.webform-component-date .webform-container-inline .form-type-select {
+  float:left;
+  margin:0 1em 0 0
+}

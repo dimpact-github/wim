@@ -179,3 +179,31 @@ function dimpact_page_alter(&$page) {
   }
 
 }
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function dimpact_node_view_alter(&$build) {
+  // If teaser and there are links to be rendered, have node.tpl.php render node teaser link and no other link.
+  if ($build['#view_mode'] == 'teaser' && isset($build['#theme']) && $build['#theme'] == 'node') {
+    // Hide all groups except node.
+    if (isset($build['links'])) {
+      array_walk(
+        $build['links'],
+        function(&$element, $key, $children_keys) {
+          if (in_array($key, $children_keys, TRUE) && $key != 'node') {
+            $element['#access'] = FALSE;
+          }
+        },
+        element_children($build['links'])
+      );
+    }
+    // Preserve node teaser read more, kill all other node links.
+    if (isset($build['links']['node']['#links']['node-readmore'])) {
+      $build['links']['node']['#links'] = array('node-readmore' => $build['links']['node']['#links']['node-readmore']);
+    }
+    else {
+      $build['links']['node']['#access'] = FALSE;
+    }
+  }
+}

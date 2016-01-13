@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Dimpact MY-LEX Overheid zoekform blok module file
+ *
+ * This module adds a block with a search form to MY-LEX Overheid by C-Content.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function dimpact_mylex_help($path, $arg) {
+  if ($path == 'admin/help#dimpact_mylex') {
+    return t('The Dimpact MY-LEX Overheid zoekform blok module adds a block with a search form to MY-LEX Overheid by C-Content.');
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function dimpact_mylex_block_info() {
+  $blocks = array();
+  $blocks['dimpact_mylex_search'] = array(
+    'info' => t('MY-LEX Overheid searchbox'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view(().
+ */
+function dimpact_mylex_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'dimpact_mylex_search':
+      $block = array(
+        'subject' => t('MY-LEX Overheid search'),
+        'content' => drupal_get_form('dimpact_mylex_search_form'),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Builds a Dimpact MY-LEX search form.
+ */
+function dimpact_mylex_search_form($form, &$form_state) {
+  $form = array();
+  $form['dimpact_mylex_search_form_search'] = array(
+    '#type' => 'textfield',
+    '#title' => t('MY-LEX Overheid search field'),
+    '#title_display' => 'invisible',
+    '#maxlength' => 255,
+    '#default_value' => '',
+  );
+  $form['dimpact_mylex_search_form_submit'] = array(
+    '#type' => 'submit',
+    '#submit' => array('dimpact_mylex_search_form_submit'),
+    '#value' => t('Search'),
+  );
+  $form['#attributes'] = array('target' => array('_blank'));
+  return $form;
+}
+
+/**
+ * Process a Dimpact MY-LEX search form submission.
+ */
+function dimpact_mylex_search_form_submit($form, &$form_state) {
+  $form_state['redirect'] = array(
+    'http://zoeken-en-vinden/portal/search.aspx',
+    array(
+      'query' => array(
+        'q' => $form_state['values']['dimpact_mylex_search_form_search'],
+      ),
+    ),
+  );
+}

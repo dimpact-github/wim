@@ -50,6 +50,94 @@ function dimpact_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'alfabet_menu_internet';
+  $context->description = 'Weergeven van het internet Alfabet Menu, op basis van Dominion Custom Function';
+  $context->tag = 'Internet';
+  $context->conditions = array(
+    'custom_functions' => array(
+      'values' => array(
+        'alphabet_menu_internet' => 'alphabet_menu_internet',
+      ),
+    ),
+    'domain' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'quicktabs-alfabet' => array(
+          'module' => 'quicktabs',
+          'delta' => 'alfabet',
+          'region' => 'navigation',
+          'weight' => '10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Internet');
+  t('Weergeven van het internet Alfabet Menu, op basis van Dominion Custom Function');
+  $export['alfabet_menu_internet'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'alfabet_menu_intranet';
+  $context->description = 'Weergeven van het intranet Alfabet Menu, op basis van Dominion Custom Function';
+  $context->tag = 'Intranet';
+  $context->conditions = array(
+    'blueprint' => array(
+      'values' => array(
+        'intranet' => 'intranet',
+      ),
+    ),
+    'custom_functions' => array(
+      'values' => array(
+        'alphabet_menu_intranet' => 'alphabet_menu_intranet',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~admin/*' => '~admin/*',
+        '~login-required-for-subsite' => '~login-required-for-subsite',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'quicktabs-kies_uw_onderwerp_intranet' => array(
+          'module' => 'quicktabs',
+          'delta' => 'kies_uw_onderwerp_intranet',
+          'region' => 'navigation',
+          'weight' => '10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Intranet');
+  t('Weergeven van het intranet Alfabet Menu, op basis van Dominion Custom Function');
+  $export['alfabet_menu_intranet'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'announcements';
   $context->description = 'Bekendmakingen lijst- en kaartpagina';
   $context->tag = 'Internet';
@@ -635,12 +723,6 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'header',
           'weight' => '-9',
         ),
-        'quicktabs-alfabet' => array(
-          'module' => 'quicktabs',
-          'delta' => 'alfabet',
-          'region' => 'navigation',
-          'weight' => '-9',
-        ),
         'masquerade-masquerade' => array(
           'module' => 'masquerade',
           'delta' => 'masquerade',
@@ -690,12 +772,6 @@ function dimpact_contexts_context_default_contexts() {
           'delta' => '1',
           'region' => 'navigation',
           'weight' => '-9',
-        ),
-        'quicktabs-kies_uw_onderwerp_intranet' => array(
-          'module' => 'quicktabs',
-          'delta' => 'kies_uw_onderwerp_intranet',
-          'region' => 'navigation',
-          'weight' => '-7',
         ),
         'submenutree-2' => array(
           'module' => 'submenutree',

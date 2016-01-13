@@ -186,3 +186,13 @@ function bespoke_update_7116() {
     'dimpact_transliteration',
   ));
 }
+
+/**
+ * Enable dimpact_mylex module.
+ */
+function bespoke_update_7117() {
+  // Enable dimpact_mylex module.
+  module_enable(array(
+    'dimpact_mylex',
+  ));
+}

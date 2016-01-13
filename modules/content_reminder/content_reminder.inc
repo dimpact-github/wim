@@ -4,13 +4,8 @@
  */
 
 function _get_required_nodes() {
-  //Query
-  $duedate = time() - (variable_get('content_reminder_days', 20) * 86400);
-
   $orcond = db_or();
-
   $types = _get_reminder_types();
-
   $orcondswitch = false;
 
   foreach($types as $type) {
@@ -18,7 +13,8 @@ function _get_required_nodes() {
         $dband = db_and();
         $duedate = time() - (variable_get('content_reminder_types_' . $type->type . '_days', 20) * 86400);
         $dband->condition('n.type', $type->type, '=');
-        $dband->condition('nr.timestamp', $duedate,'<');
+        $dband->condition('n.status', 1, '=');
+        $dband->condition('nr.timestamp', $duedate, '<');
         $orcond->condition($dband);
         $orcondswitch = true;
     }
@@ -110,10 +106,11 @@ function _get_old_nodes() {
   $orcondswitch = false;
 
   foreach ($types as $type) {
-    if ((variable_get('content_reminder_types_' . $type->type, 0) == 1) || variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1) {
+    if ( variable_get('content_reminder_types_' . $type->type . '_depub_box', 0) == 1 ) {
         $dband = db_and();
         $duedate = time() - (variable_get('content_reminder_types_' . $type->type . '_depub', 20) * 86400);
         $dband->condition('n.type', $type->type, '=');
+        $dband->condition('n.status', 1, '=');
         $dband->condition('nr.timestamp', $duedate,'<');
         $orcond->condition($dband);
         $orcondswitch = true;
@@ -121,7 +118,7 @@ function _get_old_nodes() {
   }
 
   if ($orcondswitch == true) {
-     $query = db_select('node','n');
+      $query = db_select('node','n');
       $query->leftjoin('field_data_field_reminder_email', 're', 're.entity_id = n.nid');
       $query->leftjoin('node_revision','nr', 'nr.vid = n.vid');
       $query->leftjoin('users','u', 'u.uid = nr.uid');
@@ -210,7 +207,7 @@ function _send_mails($mailnodes, $mailtype) {
     $subject = str_replace('@count', count($nodes), $subject);
 
     $mail_token = microtime();
-    $from = variable_get('system_mail', '<reminder@zwolle.nl>');
+    $from = variable_get('system_mail');
     $message = array(
       'id' => 'custom' . '_' . $mail_token,
       'to' => $mail,

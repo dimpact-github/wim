@@ -1,0 +1,6 @@
+name = Dimpact Siteimprove
+description = Add Siteimprove script to your website (siteimprove.nl)
+package = Dutch Open Projects
+version = 1.0
+core = 7.x
+files[] = dimpact_siteimprove.module

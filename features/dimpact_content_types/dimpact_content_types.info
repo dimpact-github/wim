@@ -117,6 +117,7 @@ features[field_instance][] = node-foto_album-field_foto
 features[field_instance][] = node-foto_album-field_tags
 features[field_instance][] = node-marketplace-body
 features[field_instance][] = node-marketplace-field_category_marketplace
+features[field_instance][] = node-marketplace-field_foto
 features[field_instance][] = node-marketplace-field_intro
 features[field_instance][] = node-message-body
 features[field_instance][] = node-message-field_tags
