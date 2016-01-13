@@ -1,0 +1,241 @@
+% latex packages to load.
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+%\geometry{landscape}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{varwidth}
+\usepackage{wallpaper}
+\usepackage{lastpage}
+\usepackage{titling}
+%\usepackage{multind}
+\usepackage[dutch]{babel}
+\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+
+\usepackage[default,osfigures,scale=0.90]{opensans} %% Alternatively
+%% use the option 'defaultsans' instead of 'default' to replace the
+%% sans serif font only.
+\usepackage[T1]{fontenc}
+
+%tikz images, unquote to use block, color block, autograph block, cloud, line and line node
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\tikzstyle{block} = [rectangle, draw, text width = 6em, text centered, rounded corners, minimum height = 4em]
+\tikzstyle{colorblock} = [rectangle, draw, fill = blue!20, text width = 6em, text centered, rounded corners, minimum height = 4em]
+%\tikzstyle{inputblock} = [rectangle, draw, text width = 24em, minimum height = 2.5em]
+%\tikzstyle{autographblock} = [rectangle, draw, fill = black!1, text height = 0, text depth = 2cm, text width = 24em, minimum height = 8em]
+\tikzstyle{cloud} = [ellipse, draw, minimum height = 4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line node} = [draw, fill = white]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text badly centered]
+
+\usepackage[official]{eurosym}
+
+\newcommand{\usemodule}[1]{\index{modules}{#1}\texttt{#1}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{tableheader}{rgb}{0.7,0.7,0.7}
+
+\setlist[description]{style=nextline}
+\renewcommand{\familydefault}{\sfdefault}
+
+% link setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% usefull commands:
+\newcommand{\seeref}[1]{\ref{#1} p.\pageref{#1}}
+%\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+% style for code blocks
+\lstset{
+    linewidth=1\textwidth,
+    breaklines=true,
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+    numbersep=5pt, 
+    basicstyle=\footnotesize,
+}
+
+% Header and Footer settings
+\URCornerWallPaper{0.13}{img/dop/koptekstlogo.png}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\fancyfoot[L]{Release notes}
+\fancyfoot[C]{  }
+\fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage} \linebreak \linebreak \_\_\_\_\_\_\_ }
+
+% Settings for table of contents.	
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+
+\makeatletter
+% some extra spacing for the table of contents
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{3em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{2}{2.7em}{4em}}
+
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Define variables
+\newcommand{\customer}{Dimpact release 1.14}
+\newcommand{\projectname}{Release notes}
+\newcommand{\customerdomain}{Het klantdomein}
+\newcommand{\authors}{E Alvares}
+
+
+% Voorblad of the document
+\ThisLRCornerWallPaper{0.8}{img/dop/voorbladlogo.png}
+
+\title{\textbf{\customer} \\ \projectname}
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\par\end{flushleft}}
+
+
+\author{}  % skippen we voor maketitle
+\date{}
+
+% The actual Document:
+\begin{document}
+\maketitle
+\vspace{-2.6cm}
+\begin{flushright}
+\begin{tabularx}{4.8cm}{ X }
+Dutch Open Projects			\\
+Doornseweg 12					\\	
+3832 RL Leusden					\\
+T: +31[0]33 - 4 50 50 50		\\
+F: +31[0]33 - 4 50 50 57		
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\footnotesize
+\copyright All rights reserved.\\*
+\footnotesize
+No part of the contents of this publication may be reproduced, stored in a data processing system or transmitted in any form or by any means without the written permission of Dutch Open Projects B.V.
+\end{tabularx}
+\end{flushright}
+  
+ \null
+ \vfill    
+  \begin{tabularx}{\linewidth}{ p{4cm} X }
+    Plaats & Leusden								\\
+    Laatst bijgewerkt & \ddmmyyyydate \today		\\
+    Auteurs & \authors							\\
+    Versie & concept								\\
+  \end{tabularx}
+\pagebreak
+
+
+% table of contents
+
+\clearpage
+
+%\renewcommand*\contentsname{Inhoudsopgave}
+%\tableofcontents
+%\pagebreak
+
+\section{Wijzigingen}
+\subsection{Functionele wijzigingen}
+Onderstaande tabel geeft aan op welke punten het moedersjabloon functioneel is gewijzigd. Gebruikers van het systeem moeten er rekening mee houden dat het product op deze punten anders werkt dan voorheen.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	418 & Datumveld webformulier op \'e\'en regel \\ \hline
+	644 & Homepage automatisch verversen \\ \hline
+	650 & Siteimprove - Script toevoegen aan template \\ \hline
+	660 & [Waterland] Lijstoverzicht blogs aanpassingen \\ \hline
+	661 & [Waterland] Berichten: afzender zichtbaar maken \\ \hline
+	685 & Aanpasbare volgorde van velden in SDU connect module \\ \hline
+	686 & Bezoekadres wordt niet ge\"importeerd in SDU \\ \hline
+	697 & [Zwolle] Toevoeging 'lees verder' onderaan een teaser in een lijstweergave \\ \hline
+	702 & [Waterland] Zoekbalk MY-LEX Overheid in homepage blok \\ \hline
+	717 & [Waterland] Extra profiel informatie verschijnt 'rommelig' in smoelenboek \\ \hline
+\end{tabular}
+
+\subsection{Opgeloste problemen}
+Onderstaande tabel geeft aan welke problemen (\emph{bugs}) er binnen de geleverde versie zijn opgelost.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	598 & [Zwolle] Periodieke content attendering \\ \hline
+	652 & Invoegen media zoals PDF 'breekt' layout \\ \hline
+	698 & [Gemert] Moderen / Revisies duurt lang bij veel revisies \\ \hline
+	711 & [Emmen] Verwijderen van synoniemen geeft 403 \\ \hline
+	716 & Dominion theme setting "Verberg titel van de website" werkt niet voor /dashboard \\ \hline
+\end{tabular}
+
+\subsection{Overige wijzigingen}
+
+Onderstaande wijzigingen zijn doorgevoerd ten behoeve van webrichtlijnen. Een aantal van deze wijzigingen heeft een beperkte functionele impact.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	721 & Aanpassingen voor webrichtlijnen \\ \hline
+\end{tabular}
+
+Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de Dimpact-websites, en hebben geen invloed op eindgebruikers.
+
+\begin{tabular}{| r | p{15cm} |}
+	\hline \# & Omschrijving \\ \hline \hline
+	646 & Zwolle - WIM - \#332 Merge-problemen SDU Connect \\ \hline
+	684 & Release 1.14 / Security updates \\ \hline
+\end{tabular}
+
+\section{Testresultaten}
+De geleverde versie bevat geen \emph{known issues}.
+
+\end{document}
