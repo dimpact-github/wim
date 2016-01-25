@@ -46,128 +46,128 @@ function dimpact_felix_felix_default_block_sets() {
         'delta' => 2,
       ),
       8 => array(
-        'module' => 'views',
-        'delta' => '-exp-announcements-page',
+        'module' => 'twitter_filter_words',
+        'delta' => '*',
       ),
       9 => array(
         'module' => 'views',
-        'delta' => 'agenda-block_1',
+        'delta' => '-exp-announcements-page',
       ),
       10 => array(
         'module' => 'views',
-        'delta' => 'agenda-block_2',
+        'delta' => 'agenda-block_1',
       ),
       11 => array(
         'module' => 'views',
-        'delta' => 'berichten-block_1',
+        'delta' => 'agenda-block_2',
       ),
       12 => array(
         'module' => 'views',
-        'delta' => 'bestanden-block_1',
+        'delta' => 'berichten-block_1',
       ),
       13 => array(
         'module' => 'views',
-        'delta' => 'blogs-block_1',
+        'delta' => 'bestanden-block_1',
       ),
       14 => array(
         'module' => 'views',
-        'delta' => 'carrousel_keuze-block',
+        'delta' => 'blogs-block_1',
       ),
       15 => array(
         'module' => 'views',
-        'delta' => 'carrousel_keuze-block_1',
+        'delta' => 'carrousel_keuze-block',
       ),
       16 => array(
         'module' => 'views',
-        'delta' => 'carrousel_keuze-block_2',
+        'delta' => 'carrousel_keuze-block_1',
       ),
       17 => array(
         'module' => 'views',
-        'delta' => 'favorieten-block_1',
+        'delta' => 'carrousel_keuze-block_2',
       ),
       18 => array(
         'module' => 'views',
-        'delta' => 'foto_album-block_1',
+        'delta' => 'favorieten-block_1',
       ),
       19 => array(
         'module' => 'views',
-        'delta' => 'foto_album-block_2',
+        'delta' => 'foto_album-block_1',
       ),
       20 => array(
         'module' => 'views',
-        'delta' => 'ibabs-block_1',
+        'delta' => 'foto_album-block_2',
       ),
       21 => array(
         'module' => 'views',
-        'delta' => 'ibabs-block_2',
+        'delta' => 'ibabs-block_1',
       ),
       22 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_1',
+        'delta' => 'ibabs-block_2',
       ),
       23 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_2',
+        'delta' => 'marktplaats-block_1',
       ),
       24 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_3',
+        'delta' => 'marktplaats-block_2',
       ),
       25 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_4',
+        'delta' => 'marktplaats-block_3',
       ),
       26 => array(
         'module' => 'views',
-        'delta' => 'marktplaats-block_5',
+        'delta' => 'marktplaats-block_4',
       ),
       27 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_1',
+        'delta' => 'marktplaats-block_5',
       ),
       28 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_2',
+        'delta' => 'nieuws-block_1',
       ),
       29 => array(
         'module' => 'views',
-        'delta' => 'nieuws-block_3',
+        'delta' => 'nieuws-block_2',
       ),
       30 => array(
         'module' => 'views',
-        'delta' => 'nodequeue_carousel_9_3-block',
+        'delta' => 'nieuws-block_3',
       ),
       31 => array(
         'module' => 'views',
-        'delta' => 'nodequeue_carousel_9_3-block_1',
+        'delta' => 'nodequeue_carousel_9_3-block',
       ),
       32 => array(
         'module' => 'views',
-        'delta' => 'nodequeue_carousel_9_3-block_2',
+        'delta' => 'nodequeue_carousel_9_3-block_1',
       ),
       33 => array(
         'module' => 'views',
-        'delta' => 'personen-block_1',
+        'delta' => 'nodequeue_carousel_9_3-block_2',
       ),
       34 => array(
         'module' => 'views',
-        'delta' => 'personen-block_2',
+        'delta' => 'personen-block_1',
       ),
       35 => array(
         'module' => 'views',
-        'delta' => 'personen_intranet-block_1',
+        'delta' => 'personen-block_2',
       ),
       36 => array(
         'module' => 'views',
-        'delta' => 'producten-block_1',
+        'delta' => 'personen_intranet-block_1',
       ),
       37 => array(
         'module' => 'views',
-        'delta' => 'producten-block_2',
+        'delta' => 'producten-block_1',
       ),
       38 => array(
         'module' => 'views',
-        'delta' => 'tile_overview-block_tiles',
+        'delta' => 'producten-block_2',
       ),
       39 => array(
         'module' => 'views',
