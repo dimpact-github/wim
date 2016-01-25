@@ -1,7 +1,7 @@
 name = Dimpact Content Types
 core = 7.x
 package = Features
-version = 7.x-1.13-20151118
+version = 7.x-1.14-20160125
 project = dimpact_content_types
 dependencies[] = date_popup
 dependencies[] = dimpact_contexts
@@ -694,4 +694,4 @@ features_exclude[field_instance][node-rss-field_datumrss] = node-rss-field_datum
 features_exclude[field_instance][node-rss_source-field_afbeelding] = node-rss_source-field_afbeelding
 features_exclude[field_instance][node-rss_source-field_datum] = node-rss_source-field_datum
 features_exclude[variable][field_bundle_settings_node__rss_source] = field_bundle_settings_node__rss_source
-mtime = 1447843778
+mtime = 1453468032
