@@ -135,7 +135,7 @@ projects[fences][subdir] = contrib
 projects[fences][version] = "1.0"
 
 projects[field_group][subdir] = contrib
-projects[field_group][version] = "1.3"
+projects[field_group][version] = "1.5"
 
 projects[field_group_multiple][subdir] = contrib
 projects[field_group_multiple][version] = "1.0-beta2"
