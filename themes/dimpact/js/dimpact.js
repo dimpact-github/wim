@@ -121,6 +121,38 @@
       }
     });
 
+    // Carousels
+    if ($(".carousel .views-rows").length) {
+      $(".carousel .views-rows").carouFredSel({
+        items: 1,
+        responsive: true,
+        scroll: {
+          fx: "directscroll",
+          duration: 500,
+          // pauseOnHover: 'resume'
+        },
+        auto: {
+          // button makes play/pause functionality possible. pauseonhover must be off, else
+          // it overides the button everytime you hover over other parts of the carousel.
+          button: ".btn_play",
+          timeoutDuration: 10000,
+          progress: ".progress"
+        },
+        next: {
+          button: function() {
+            return $(this).parents('.carousel').find('.btn_next');
+          },
+          key: "right"
+        },
+        prev: {
+          button: function() {
+            return $(this).parents('.carousel').find('.btn_prev');
+          },
+          key: "left"
+        }
+      });
+    }
+
     // Toptaken block
     $('.block-menu-menu-toptaken > ul > li.first').addClass('toptaken-active');
     $('.block-menu-menu-toptaken > ul > li > a').click(function(e) {
