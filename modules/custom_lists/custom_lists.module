@@ -89,7 +89,7 @@ function custom_lists_block_info() {
 function custom_lists_block_view($delta = '') {
   $list = custom_lists_get($delta);
   $block = array();
-  $block['subject'] = $list['display_title'];
+  $block['subject'] = _custom_lists_build_title($list);
   $block['content'] = array();
 
   if ($list['type'] == 'content') {
@@ -146,11 +146,11 @@ function custom_lists_felix_block_view(&$block) {
     if (isset($block->data['subject']) && $block->data['subject'] != '<none>') {
       $list = custom_lists_get($block->delta);
       if (empty($block->data['subject'])) {
-        $block->data['subject'] = $list['display_title'];
+        $block->data['subject'] = _custom_lists_build_title($list);
       }
       $more_link_uri = custom_lists_get_more_uri($list);
       if ($more_link_uri) {
-        $block->subject = l($block->data['subject'], $more_link_uri);
+        $block->subject = l($block->data['subject'], $more_link_uri, array('html' => TRUE));
       }
     }
   }
@@ -370,7 +370,8 @@ function _custom_lists_get_menu_tree($list) {
   return menu_build_tree($menu_item['menu_name'],
     array(
       'conditions' => array(
-        'plid' => $menu_item['mlid']
+        'plid' => $menu_item['mlid'],
+        'hidden' => 0,
       ),
       'min_depth' => $menu_item['depth']+1,
       'max_depth' => $menu_item['depth']+1,
@@ -391,6 +392,8 @@ function custom_lists_get($list_key = NULL) {
   foreach ($query->execute()->fetchAll() as $list) {
     $list->data = unserialize($list->data);
     $list->data['title'] = $list->title;
+    $list->data['created'] = $list->created;
+    $list->data['changed'] = $list->changed;
     $lists[$list->lid] = $list->data;
   }
   if ($list_key) {
@@ -408,6 +411,9 @@ function custom_lists_get($list_key = NULL) {
 function custom_lists_add($list_key, $list) {
   $old = custom_lists_get($list_key);
 
+  // Create new item that holds the properties.
+  $item = new stdClass();
+
   // Determine if we need to rebuild the menu.
   $rebuild_menu = FALSE;
   if ($old) {
@@ -417,17 +423,29 @@ function custom_lists_add($list_key, $list) {
     if ($list['provide-page'] && $old['display_title'] != $list['display_title']) {
       $rebuild_menu = TRUE;
     }
+
+    // Set the modified date to now.
+    $item->changed = time();
+
+    if ($item->created == 0) {
+      // Set created also to today.
+      $item->created = time();
+    }
   }
   elseif ($list['provide-page']) {
     $rebuild_menu = TRUE;
   }
 
-  $item = new stdClass();
+  if (!$old) {
+    // Set the created date to now.
+    $item->created = time();
+  }
+
   $item->lid = $list_key;
   $item->title = $list['title'];
   unset($list['title']);
   $item->data = $list;
-  drupal_write_record('custom_lists', $item, $old ? array('lid') : FALSE);
+  drupal_write_record('custom_lists', $item, $old ? array('lid') : array());
 
   if ($rebuild_menu) {
     variable_set('menu_rebuild_needed', TRUE);
@@ -526,4 +544,41 @@ function custom_lists_get_more_uri($list) {
       break;
   }
   return FALSE;
+}
+
+/**
+ * Build the block title.
+ * When a icon is uploaded, the icon will be added to the title.
+ * @param type $list
+ */
+function _custom_lists_build_title($list) {
+  if (isset($list['block-icon-fid']) && $list['block-icon-fid'] != 0) {
+    // Icon uploaded, use it in the title.
+    $icon = file_load($list['block-icon-fid']);
+    $icon_vars = array(
+      'path' => file_create_url($icon->uri),
+      'alt' => $icon->field_file_image_alt_text,
+      'title' => $icon->field_file_image_title_text,
+      'attributes' => array('class' => array('pictogram')),
+    );
+
+    return theme('image', $icon_vars) . $list['display_title'];
+  }
+
+  // No icon uploaded, use the regular title.
+  return $list['display_title'];
+}
+
+/**
+ * Implements hook_preprocess_html.
+ * Used for adding a css class to the page if defined on the list.
+ * @param type $vars
+ */
+function custom_lists_preprocess_html(&$vars) {
+  // Check if there is a list on this page.
+  $list = custom_lists_get_current();
+
+  if ($list && isset($list['css_class']) && !empty($list['css_class'])) {
+    $vars['classes_array'][] = $list['css_class'];
+  }
 }

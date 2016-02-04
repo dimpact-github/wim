@@ -24,6 +24,18 @@ function custom_lists_schema() {
         'serialize' => TRUE,
         'serialized default' => 'a:0:{}',
       ),
+      'created' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'size' => 'normal',
+        'default' => 0,
+      ),
+      'changed' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'size' => 'normal',
+        'default' => 0,
+      ),
     ),
     'primary key' => array('lid'),
   );
@@ -132,4 +144,25 @@ function custom_lists_update_7103() {
  */
 function custom_lists_update_7104() {
   registry_rebuild();
+}
+
+/**
+ * Add changed and created fields to the database.
+ */
+function custom_lists_update_7105() {
+  $created = array(
+    'type' => 'int',
+    'not null' => TRUE,
+    'size' => 'normal',
+    'default' => 0,
+  );
+  db_add_field('custom_lists', 'created', $created);
+
+  $changed = array(
+    'type' => 'int',
+    'not null' => TRUE,
+    'size' => 'normal',
+    'default' => 0,
+  );
+  db_add_field('custom_lists', 'changed', $changed);
 }

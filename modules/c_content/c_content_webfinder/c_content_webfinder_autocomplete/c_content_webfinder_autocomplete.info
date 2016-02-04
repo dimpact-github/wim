@@ -1,0 +1,5 @@
+name = C-content webfinder autocomplete
+description = Integrate autocomplete for c-content search
+package = Enschede
+core = 7.x
+dependencies[] = c_content_webfinder

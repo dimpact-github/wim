@@ -1,0 +1,53 @@
+<?php
+
+function c_content_webfinder_schema() {
+  $schema['c_content_webfinder_facets'] = array(
+    'description' => 'The table that holds available facets.',
+    'fields' => array(
+      'uuid' => array(
+        'description' => 'Unique identifier of the facet',
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'text' => array(
+        'description' => 'The human readable text value of the facet.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'source_name' => array(
+        'description' => 'The id of the source facet.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    //'primary key' => array('uuid'),
+  );
+
+  return $schema;
+}
+
+function c_content_webfinder_install() {
+  c_content_webfinder_update_7001();
+}
+
+/**
+ * Save source name for the current facet.
+ */
+function c_content_webfinder_update_7001() {
+  $source_human_name = array(
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+    'default' => '',
+  );
+
+  db_add_field('c_content_webfinder_facets', 'source_human_name', $source_human_name);
+}
+
+function c_content_webfinder_uninstall() {
+  drupal_uninstall_schema('c_content_webfinder');
+}

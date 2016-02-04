@@ -1,0 +1,145 @@
+<?php
+
+/**
+ * Implements hook_menu.
+ * Register the autocomplete url callback.
+ * @return string
+ */
+function c_content_webfinder_autocomplete_menu() {
+  $item = array();
+
+  $item['c-content/webfinder/autocomplete'] = array(
+    'title' => t('Autocomplete for C-content webfinder'),
+    'page callback' => '_c_content_webfinder_autocomplete',
+    'access arguments' => array('search content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $item;
+}
+
+/**
+ * Implements hook_form_alter.
+ * Add autocomplete to search forms.
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ */
+function c_content_webfinder_autocomplete_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === '_c_content_webfinder_search_form' || $form_id === 'search_block_form') {
+    if (isset($form['basic']['keys'])) {
+      // Add the autocomplete to this field in the form.
+      $form['basic']['keys']['#autocomplete_path'] = 'c-content/webfinder/autocomplete';
+      $form['basic']['keys']['#attributes']['class'] = array('auto_submit');
+    }
+    elseif (isset($form['search_block_form'])) {
+      // Add the autocomplete to this field in the form.
+      $form['search_block_form']['#autocomplete_path'] = 'c-content/webfinder/autocomplete';
+      $form['search_block_form']['#attributes']['class'] = array('auto_submit');
+    }
+  }
+  elseif ($form_id === 'c_content_webfinder_admin') {
+    // C-content webfinder admin form, add autocomplete settings to the form.
+    $defaults = _c_content_webfinder_autocomplete_get_config();
+    $form['c_content_webfinder_autocomplete'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Webfinder autocomplete'),
+      '#tree' => TRUE,
+    );
+
+    $form['c_content_webfinder_autocomplete']['autocomplete_server_url'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Autocomplete server url'),
+      '#description' => t('Set the url to the autocomplete webfinder server that provides the rss containing the results.'),
+      '#default_value' => $defaults['autocomplete_server_url'],
+      '#required' => TRUE,
+      '#size' => 100,
+    );
+
+    $form['c_content_webfinder_autocomplete']['max_suggestions'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Maximum amount of suggestions'),
+      '#description' => t('Set the maximum amount of displayed suggestions.'),
+      '#default_value' => $defaults['max_suggestions'],
+      '#required' => TRUE,
+    );
+  }
+}
+
+/**
+ * Autocomplete menu callback.
+ * @param type $string
+ */
+function _c_content_webfinder_autocomplete($string) {
+  $matches = _c_content_webfinder_autocomplete_do_query($string);
+  drupal_json_output($matches);
+}
+
+/**
+ * Execute the query to retrieve the autocomplete suggestions for a given string.
+ * @param type $string
+ * @return type
+ */
+function _c_content_webfinder_autocomplete_do_query($string) {
+  $suggestions = array();
+
+  // Load the configuration parameters.
+  $config = _c_content_webfinder_autocomplete_get_config();
+  // Build the query parameters to use for the autocomplete request.
+  $query_parameters = array(
+    'count' => $config['max_suggestions'],
+    'prefix' => check_plain($string),
+  );
+
+  // Create the url for the request.
+  $server_url = $config['autocomplete_server_url'];
+  if (empty($server_url)) {
+    // No server url defined, we cannot proceed.
+    watchdog('c_content_webfinder_autocomplete', 'No autocomplete server url is configured, cannot use autocomplete.');
+    return $suggestions;
+  }
+
+  $request_url = url($server_url, array('query' => $query_parameters));
+
+  // Load the file based on the created url.
+  $results = simplexml_load_file($request_url);
+
+  if ($results) {
+    // Loop through every result.
+    foreach ($results->channel->item as $item) {
+      // Replace spaces with '+' signs.
+      $suggestion_key = str_replace(' ', '+', (string) $item->title);
+
+      // Use the regular title as display to the user.
+      $suggestion_title = (string) $item->title;
+
+      // Add suggestion to the array.
+      $suggestions[$suggestion_key] = $suggestion_title;
+    }
+  }
+
+  // Return the processed suggestions.
+  return $suggestions;
+}
+
+/**
+ * Retrieve the configuration for the autocomplete.
+ * Variable is cached through the same page request.
+ * @return type
+ */
+function _c_content_webfinder_autocomplete_get_config() {
+  $config = &drupal_static(__FUNCTION__);
+
+  if (!isset($config)) {
+    // Set sensible defaults.
+    $defaults = array(
+      'autocomplete_server_url' => '',
+      'max_suggestions' => 5,
+    );
+
+    $config = variable_get('c_content_webfinder_autocomplete', $defaults);
+    $config['autocomplete_server_url'] = check_plain($config['autocomplete_server_url']);
+  }
+
+  return $config;
+}
