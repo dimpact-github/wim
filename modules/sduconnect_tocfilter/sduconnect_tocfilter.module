@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * Implements hook_field_attach_view_alter().
+ */
+function sduconnect_tocfilter_field_attach_view_alter(&$output, $context) {
+  if ($context['entity_type'] == 'node' && in_array($context['entity']->type, array('product', 'page')) && $context['view_mode'] == 'full') {
+    if (isset($output['body']) && in_array($output['body']['#formatter'], array(
+        'text_default',
+        'text_plain',
+        'text_trimmed',
+        'text_summary_or_trimmed'
+      ))
+    ) {
+      $body = &$output['body'][0]['#markup'];
+    }
+    if (isset($body)) {
+      $toc_type = 'ul';
+      // Set format based on type.
+      switch ($toc_type) {
+        case 'jump-menu':
+        case 'menu':
+          $format = 'jump_menu';
+          break;
+        case 'faq':
+          $format = 'faq';
+          break;
+        case 'number':
+        case 'ol':
+          $format = 'number';
+          break;
+        case 'ul':
+        case 'bullet':
+        default:
+          $format = 'bullet';
+          break;
+      }
+      // Set TOC default title for sduconnect.
+      $original_default_title = variable_get('toc_filter_' . $format . '_default_title');
+      $GLOBALS['conf']['toc_filter_' . $format . '_default_title'] = '';
+      dsm($original_default_title);
+      // Set TOC header tag for sduconnect.
+      $original_toc_filter_header_tag = variable_get('toc_filter_header_tag');
+      dsm($original_toc_filter_header_tag);
+      $GLOBALS['conf']['toc_filter_header_tag'] = $header_tag = variable_get('sduconnect_tocfilter_toc_header_tag', 'h2');
+      // Find first header tag to insert TOC.
+      $pattern = '/(<' . $header_tag . '[^>]*>)(.*?)(<\/' . $header_tag . '>)/s';
+      $count = preg_match_all($pattern, $body, $header_matches);
+      if ($count > 1) {
+        $header_match = $header_matches[0][0];
+        $replacement = '[TOC:' . $toc_type . ']' . $header_match;
+        $body = preg_replace($pattern, $replacement, $body, 1);
+        $filter_info = filter_get_filters();
+        foreach (array('prepare callback', 'process callback') as $callback_name) {
+          if (isset($filter_info['toc_filter'][$callback_name]) && function_exists($filter_info['toc_filter'][$callback_name])) {
+            $function = $filter_info['toc_filter'][$callback_name];
+            // @todo Pass all arguments.
+            $body = $function($body);
+          }
+        }
+        if (isset($original_default_title)) {
+          $GLOBALS['conf']['toc_filter_' . $toc_type . '_default_title'] = $original_default_title;
+        }
+        if (isset($original_toc_filter_header_tag)) {
+          $GLOBALS['conf']['toc_filter_header_tag'] = $original_toc_filter_header_tag;
+        }
+      }
+    }
+  }
+}
