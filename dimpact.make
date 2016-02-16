@@ -154,7 +154,7 @@ projects[gmap][version] = "2.9"
 projects[gmap][patch][duplicatefile] = patches/gmap-fixingduplicatefile.patch
 
 projects[google_analytics][subdir] = contrib
-projects[google_analytics][version] = "1.4"
+projects[google_analytics][version] = "2.1"
 
 projects[hansel][subdir] = contrib
 projects[hansel][version] = "1.4"
