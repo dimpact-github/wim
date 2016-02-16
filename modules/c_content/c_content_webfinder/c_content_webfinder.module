@@ -111,7 +111,7 @@ function _c_content_webfinder_do_search_query($searchterm = '') {
   if (!isset($result)) {
     libxml_use_internal_errors(TRUE);
 
-    $config = _c_content_webfinder_get_config();;
+    $config = _c_content_webfinder_get_config();
     $server_url = check_plain($config['server_url']);
 
     $page = pager_find_page();
@@ -234,7 +234,7 @@ function c_content_webfinder_form_alter(&$form, &$form_state, $form_id) {
  * @param type $variables
  */
 function c_content_webfinder_preprocess_html(&$variables) {
-  $config = _c_content_webfinder_get_config();;
+  $config = _c_content_webfinder_get_config();
   if (strpos(current_path(), $config['search_page_url']) !== FALSE) {
     // User is on the search page, add zoeken (NL) class to the body.
     $variables['classes_array'][] = 'zoeken';
