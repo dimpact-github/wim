@@ -156,6 +156,8 @@ projects[gmap][patch][duplicatefile] = patches/gmap-fixingduplicatefile.patch
 projects[google_analytics][subdir] = contrib
 projects[google_analytics][version] = "2.1"
 
+projects[google_tag][version] = "1.0"
+
 projects[hansel][subdir] = contrib
 projects[hansel][version] = "1.4"
 projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/hansel-broken-token-generation-2399645-1.patch"
