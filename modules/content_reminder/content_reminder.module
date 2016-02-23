@@ -4,18 +4,29 @@
  * Implements hook_menu().
  */
 function content_reminder_menu() {
-
   $items['admin/config/content/reminder'] = array(
     'title' => 'Content Reminder',
     'description' => 'Send reminders for expired content',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('content_reminder_admin_form'),
-    'file' => 'content_reminder.admin.inc',
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('administer content reminder'),
     'type' => MENU_NORMAL_ITEM,
+    'file' => 'content_reminder.admin.inc',
   );
 
   return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function content_reminder_permission() {
+  return array(
+    'administer content reminder' => array(
+      'title' => t('Administer Content Reminder'),
+      'description' => t('Configure content reminders.'),
+    ),
+  );
 }
 
 /**

@@ -1,0 +1,4 @@
+name = SduConnect TOC filter
+description = SduConnect TOC filter.
+core = 7.x
+dependencies[] = toc_filter
