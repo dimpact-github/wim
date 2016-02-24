@@ -1,0 +1,4 @@
+name = Dimpact docReader
+description = Deze module maakt het mogelijk om docReader toe te voegen aan een website.
+core = 7.x
+configure = admin/config/dimpact_docreader
