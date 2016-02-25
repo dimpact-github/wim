@@ -3426,14 +3426,14 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_agenda';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_agenda'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_announcement';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_announcement'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3447,14 +3447,14 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_editorial';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_editorial'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_faq';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_faq'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3468,7 +3468,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_foto_album';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_foto_album'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3510,7 +3510,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_product';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_product'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3552,7 +3552,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_slide';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_slide'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -3587,7 +3587,7 @@ function dimpact_content_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_webform';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_webform'] = $strongarm;
 
   $strongarm = new stdClass();
