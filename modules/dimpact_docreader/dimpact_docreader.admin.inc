@@ -6,7 +6,17 @@
 
 // List of languages currently supported by docReader (http://www.readspeaker.com/nl/readspeaker-docreader/)
 function docreader_supported_languages() {
-  $languages = array('nl_nl' => 'Nederlands');
+  $languages = array( 'nl_nl' => 'Nederlands',
+                      'en_uk' => 'Brits Engels',
+                      'de_de' => 'Duits',
+                      'fr_fr' => 'Frans',
+                      'es_es' => 'Spaans',
+                      'sv_se' => 'Zweeds',
+                      'no_nb' => 'Noors (Bokmål)',
+                      'fi_fi' => 'Fins',
+                      'ru_ru' => 'Russisch',
+                      'ar_ar' => 'Arabisch' );
+  
   return $languages;
 }
 
