@@ -30,6 +30,10 @@ else {
     <?php print render($title_suffix); ?>
   <?php endif; ?>
 
+  <?php if ($submitted): ?>
+    <?php print $submitted; ?>
+  <?php endif; ?>
+
   <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
     <div class="blog-submitted">
       <time datetime="<?php print $timestamp; ?>">
