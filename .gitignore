@@ -4,8 +4,12 @@
 data/
 code/
 deploy/
-docs/handleiding/*.pdf
 composer.phar
 modules/*/vendor
 private/
 profile/data.sql
+
+# latex, ignore everything in docs, except .tex and .png files
+/docs/**/*.*
+!/docs/**/*.tex
+!/docs/**/*.png
