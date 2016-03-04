@@ -82,8 +82,8 @@
     breaklines=true,
     numbers=left,                   % where to put the line-numbers
     numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
-    numbersep=5pt, 
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+    numbersep=5pt,
     basicstyle=\footnotesize,
 }
 
@@ -98,7 +98,7 @@
 \fancyfoot[C]{  }
 \fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage} \linebreak \linebreak \_\_\_\_\_\_\_ }
 
-% Settings for table of contents.	
+% Settings for table of contents.
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{3}
 
@@ -116,10 +116,10 @@
 \makeatother
 
 % Define variables
-\newcommand{\customer}{Dimpact release 1.14.1}
+\newcommand{\customer}{Dimpact release 1.14.3}
 \newcommand{\projectname}{Release notes}
 \newcommand{\customerdomain}{Het klantdomein}
-\newcommand{\authors}{E Alvares}
+\newcommand{\authors}{Rolf Meijer}
 
 
 % Voorblad of the document
@@ -140,10 +140,10 @@
 \begin{flushright}
 \begin{tabularx}{4.8cm}{ X }
 Dutch Open Projects			\\
-Doornseweg 12					\\	
+Doornseweg 12					\\
 3832 RL Leusden					\\
 T: +31[0]33 - 4 50 50 50		\\
-F: +31[0]33 - 4 50 50 57		
+F: +31[0]33 - 4 50 50 57
 \\*
 \\*
 \\*
@@ -168,9 +168,9 @@ F: +31[0]33 - 4 50 50 57
 No part of the contents of this publication may be reproduced, stored in a data processing system or transmitted in any form or by any means without the written permission of Dutch Open Projects B.V.
 \end{tabularx}
 \end{flushright}
-  
+
  \null
- \vfill    
+ \vfill
   \begin{tabularx}{\linewidth}{ p{4cm} X }
     Plaats & Leusden								\\
     Laatst bijgewerkt & \ddmmyyyydate \today		\\
@@ -193,17 +193,16 @@ No part of the contents of this publication may be reproduced, stored in a data 
 Onderstaande tabel geeft aan op welke punten het moedersjabloon functioneel is gewijzigd. Gebruikers van het systeem moeten er rekening mee houden dat het product op deze punten anders werkt dan voorheen.
 
 \begin{tabular}{| r | p{15cm} |}
-	\hline \# & Omschrijving \\ \hline \hline
-	700 & Alfabet Menu aan en uit kunnen zetten bij voorkeur in thema per intranet/internet (Per abuis in eerste instantie niet vermeld bij 1.14) \\ \hline
+	\hline \# & Omschrijving \\ \hline
+	N.V.T. & N.V.T. \\ \hline
 \end{tabular}
 
 \subsection{Opgeloste problemen}
 Onderstaande tabel geeft aan welke problemen (\emph{bugs}) er binnen de geleverde versie zijn opgelost.
 
 \begin{tabular}{| r | p{15cm} |}
-	\hline \# & Omschrijving \\ \hline \hline
-
-	727 & Carrousel niet zichtbaar bij eerste opstart \\ \hline
+	\hline \# & Omschrijving \\ \hline
+	N.V.T. & N.V.T. \\ \hline
 \end{tabular}
 
 \subsection{Overige wijzigingen}
@@ -211,18 +210,60 @@ Onderstaande tabel geeft aan welke problemen (\emph{bugs}) er binnen de geleverd
 Onderstaande wijzigingen zijn doorgevoerd ten behoeve van webrichtlijnen. Een aantal van deze wijzigingen heeft een beperkte functionele impact.
 
 \begin{tabular}{| r | p{15cm} |}
-	\hline \# & Omschrijving \\ \hline \hline
+	\hline \# & Omschrijving \\ \hline
 	N.V.T. & N.V.T. \\ \hline
 \end{tabular}
 
 Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de Dimpact-websites, en hebben geen invloed op eindgebruikers.
 
 \begin{tabular}{| r | p{15cm} |}
-	\hline \# & Omschrijving \\ \hline \hline
-	725 & Release 1.14.1 / Security updates \\ \hline
+	\hline \# & Omschrijving \\ \hline
+	N.V.T. & N.V.T. \\ \hline
 \end{tabular}
 
 \section{Testresultaten}
-De geleverde versie bevat geen \emph{known issues} anders dan de situatie rondom 727/721.
+De geleverde versie bevat de volgende \emph{known issues}.
+
+\subsection{Ticket 669} % (fold)
+\label{sub:ticket_669}
+Er kan een probleem optreden bij het gebruik van Youtube videos op het moment dat bepaalde features overschreven zijn en niet terug worden gezet bij een release. Een youtube-video kan dan wel toegevoegd worden in de WYSIWYG maar toont een zwart blok in plaats van de video. Dit kan opgelost worden door de volgende instellingen aan te passen:
+
+http://gemeente.nl/admin/structure/file-types/manage/video/file-display
+
+\begin{itemize}
+  \item Video AAN
+  \item YouTube Preview Image AAN
+  \item YouTube Video AAN
+\end{itemize}
+
+\subsubsection{Display precedence order} % (fold)
+\label{ssub:display_precedence_order}
+
+
+\begin{itemize}
+
+  \item YouTube Video
+
+  \item YouTube Preview Image
+
+  \item Video
+
+\end{itemize}
+% subsubsection display_precedence_order (end)
+
+\subsubsection{YouTube video instellingen} % (fold)
+\label{ssub:youtube_video_instellingen}
+
+\begin{itemize}
+
+  \item Specify an http protocol AAN
+
+  \item Iframe protocol HTTPS
+
+\end{itemize}
+% subsubsection youtube_video_instellingen (end)
+
+% subsection ticket_669 (end)
+
 
 \end{document}
