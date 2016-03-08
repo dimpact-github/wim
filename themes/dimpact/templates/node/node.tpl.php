@@ -31,7 +31,9 @@ else {
   <?php endif; ?>
 
   <?php if ($submitted): ?>
-    <?php print $submitted; ?>
+    <div class="submitted">
+      <?php print $submitted; ?>
+    </div>
   <?php endif; ?>
 
   <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
@@ -55,12 +57,7 @@ else {
   <?php else: ?>
     <?php print render($content['field_image']); ?>
   <?php endif; ?>
-
-  <?php if ($node->type == 'marketplace'): ?>
-    <div class="submitted">
-      Door: <?php print theme('username', array('account' => user_load($node->uid))); ?>
-    </div>
-  <?php endif; ?>
+  
   <div class="content"<?php print $content_attributes; ?>>
     <?php if ($node->type == 'news'): ?>
       <time datetime="<?php print $timestamp; ?>">
