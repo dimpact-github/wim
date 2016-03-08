@@ -1,0 +1,5 @@
+name = Dimpact Rss Feed
+description = Generates a RSS feed based on tags and/or content types.
+package = Dimpact
+core = 7.x
+dependencies[] = entity
