@@ -1,0 +1,433 @@
+<?php
+
+/**
+ * Implements hook_menu.
+ * Register urls for the module.
+ * @return string
+ */
+function c_content_webfinder_menu() {
+  $items = array();
+
+  // Register admin form.
+  $items['admin/config/search/c-content/webfinder'] = array(
+    'title' => t('C-content webfinder'),
+    'description' => t('Configuration for C-content webfinder integration.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('c_content_webfinder_admin'),
+    'access arguments' => array('administer search'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'c_content_webfinder.admin.inc',
+    'access callback' => TRUE,
+  );
+
+  // Register the search page.
+  $page_url = _c_content_webfinder_get_config()['search_page_url'];
+  $items[$page_url] = array(
+    'title' => t('Webfinder search results'),
+    'description' => t('Webfinder search results page'),
+    'page callback' => 'c_content_webfinder_search_page',
+    'type' => MENU_NORMAL_ITEM,
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Create the search result page.
+ * @param type $searchterm
+ * @return type
+ */
+function c_content_webfinder_search_page($searchterm = '') {
+  // Sanitize the input and decode HTML characters.
+  $searchterm = urldecode(check_plain($searchterm));
+
+  // Execute the search query.
+  $results = _c_content_webfinder_do_search_query($searchterm);
+
+  if ($results) {
+    // Process the results.
+    $search_results = _c_content_webfinder_process_results($results);
+
+    $correction_suggestion = _c_content_webfinder_correction_suggestion($results);
+
+    // Build and render the search form.
+    $page_url = _c_content_webfinder_get_config()['search_page_url'];
+    $form_array = drupal_get_form('_c_content_webfinder_search_form', $page_url, $searchterm);
+    $form = drupal_render($form_array);
+
+    // Return the themed output.
+    return $form . $correction_suggestion . $search_results;
+  }
+
+  return '<p>Search error.</p>';
+}
+
+function c_content_webfinder_block_info() {
+  $blocks = array();
+
+  $page_url = _c_content_webfinder_get_config()['search_page_url'];
+  $blocks['c_content_webfinder_facets'] = array(
+    'info' => t('C-content webfinder facets'),
+    'cache' => DRUPAL_NO_CACHE,
+    'status' => 1,
+    'region' => 'region_39_first',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => $page_url . '*',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view.
+ * Builds the block contents.
+ * @param type $delta
+ * @return string
+ */
+function c_content_webfinder_block_view($delta) {
+  $block = array();
+  switch ($delta) {
+    case 'c_content_webfinder_facets':
+      // Create and fill the facets block with all facets.
+      module_load_include('inc', 'c_content_webfinder', 'c_content_webfinder.facets');
+      $block['subject'] = t('C-content webfinder facets');
+      $block['content'] = _c_content_webfinder_build_facets();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Execute the search query with the given searchterm.
+ * @param type $searchterm
+ */
+function _c_content_webfinder_do_search_query($searchterm = '') {
+  // Use drupal_static to cache the results so that we can use the same set multiple times.
+  // The static caching is used for example by the facets block.
+  $result = &drupal_static(__FUNCTION__);
+
+  if (!isset($result)) {
+    libxml_use_internal_errors(TRUE);
+
+    $config = _c_content_webfinder_get_config();
+    $server_url = check_plain($config['server_url']);
+
+    $page = pager_find_page();
+    $offset = $config['items_per_page'] * $page;
+
+    $query_parameters = array();
+
+    // Check if there is a facet active.
+    $refine = '';
+    if (isset($_GET['refine'])) {
+      $refine = filter_xss($_GET['refine']);
+      $query_parameters['refine'] = $refine;
+    }
+
+    // Generate url by appending query parameter(s).
+    $query_parameters += array(
+      'format' => !empty($config['search_format_parameters']) ? $config['search_format_parameters'] : 'rss opensearch mylex',
+      'itemsPerPage' => $config['items_per_page'],
+      'startItem' => $offset,
+    );
+    if (!empty($config['pre_filter_source'])) {
+      // Add source to the query parameters.
+      $query_parameters['source'] = $config['pre_filter_source'];
+    }
+    if (!empty($searchterm)) {
+      // Add search term to query parameters, otherwise empty search.
+      $query_parameters['search'] = $searchterm;
+    }
+
+    $request_url = url($server_url, array('query' => $query_parameters));
+
+    // Do the actual request and retrieve results as xml (RSS).
+    $result['xml'] = simplexml_load_file($request_url);
+
+    if ($result['xml'] === FALSE) {
+      // No result, display message to the user and log in watchdog.
+      drupal_set_message(t('Search is temporary unavailable.'), 'error');
+
+      $errors = libxml_get_errors();
+      watchdog('c_content_webfinder', 'Search is unavailable. Request %request. Errors %errors', array('%request' => $request_url, '%errors' => print_r($errors, TRUE)), WATCHDOG_ERROR);
+    }
+  }
+
+  // Return the raw xml result.
+  return $result['xml'];
+}
+
+/**
+ * Process the raw xml result containing the results.
+ * @param type $xml_results
+ */
+function _c_content_webfinder_process_results($xml_results) {
+  // Retrieve the total amount of results for this query.
+  $total_results = (string) $xml_results->xpath('//opensearch:totalResults')[0];
+  $items_per_page = (string) $xml_results->xpath('//opensearch:itemsPerPage')[0];
+  $offset = (string) $xml_results->xpath('//opensearch:startIndex')[0];
+  pager_default_initialize($total_results, $items_per_page);
+
+  $variables['module'] = 'c_content_webfinder';
+  $variables['results'] = array();
+
+  $item = array();
+  if (isset($xml_results->channel->item)) {
+    foreach ($xml_results->channel->item as $search_result) {
+      $item = array();
+      // Check if metatags are available on the current xml node.
+      $meta = $search_result->xpath('./mylex:meta');
+      if (!empty($meta)) {
+        // Search for language metatag in the current xml node.
+        $item['language'] = (string) reset($meta)->xpath('./mylex:metaitem[@name="dcterms.language"]')[0];
+      }
+
+      // Try to get the source for this result.
+      $source = (string) reset($search_result->xpath('category[@domain="ro.source"]'));
+      $docicon = (string) reset($search_result->xpath('category[@domain="ro.docicons"]'));
+
+      $item['title'] = decode_entities((string) $search_result->title);
+      if ($docicon === 'pdf') {
+        // Add pdf type to the title between braces.
+        $item['title'] = decode_entities((string) $search_result->title . '(pdf)');
+      }
+
+      // Add regular properties to result.
+      $item['link'] = (string) $search_result->link;
+      $item['snippet'] = (string) truncate_utf8($search_result->description, 275, TRUE, TRUE);
+      $item['date'] = strtotime((string) $search_result->pubDate);
+      $item['source'] = l($source, (string) $search_result->link);
+      $variables['results'][] = $item;
+    }
+  }
+
+  $information = _c_content_webfinder_information_text($total_results, $items_per_page, $offset, $variables['results']);
+
+  // Use the regular search-result(s).tpl.php to render the results.
+  return $information . theme('search_results', $variables);
+}
+
+/**
+ * Implements hook_form_alter.
+ * Alter the search forms. Placeholders will be added here.
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ */
+function c_content_webfinder_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id === 'search_block_form') {
+    $form['#submit'] = array('_c_content_webfinder_search_form_submit');
+    $page_url = _c_content_webfinder_get_config()['search_page_url'];
+    $form['#search_page'] = $page_url;
+    $form['search_block_form']['#attributes']['placeholder'] = t('Search');
+  }
+  elseif ($form_id === '_c_content_webfinder_search_form') {
+    $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
+  }
+}
+
+/**
+ * Implements hook_preprocess_html.
+ * Add search class to the body element.
+ * @param type $variables
+ */
+function c_content_webfinder_preprocess_html(&$variables) {
+  $config = _c_content_webfinder_get_config();
+  if (strpos(current_path(), $config['search_page_url']) !== FALSE) {
+    // User is on the search page, add zoeken (NL) class to the body.
+    $variables['classes_array'][] = 'zoeken';
+
+    // User is on the search page, add search (ENG) class to the body.
+    $variables['classes_array'][] = 'search';
+  }
+}
+
+/**
+ * Implements theme_preprocess_search_result.
+ * @global type $language
+ * @param type $variables
+ */
+function c_content_webfinder_preprocess_search_result(&$variables) {
+  global $language;
+
+  $result = $variables['result'];
+  $variables['url'] = check_url($result['link']);
+  $variables['title'] = check_plain($result['title']);
+  if (isset($result['language']) && $result['language'] != $language->language && $result['language'] != LANGUAGE_NONE) {
+    $variables['title_attributes_array']['xml:lang'] = $result['language'];
+    $variables['content_attributes_array']['xml:lang'] = $result['language'];
+  }
+
+  $info = array();
+  if (!empty($result['module'])) {
+    $info['module'] = check_plain($result['module']);
+  }
+  if (!empty($result['user'])) {
+    $info['user'] = $result['user'];
+  }
+  if (!empty($result['date'])) {
+    $info['date'] = format_date($result['date'], 'short');
+  }
+  if (isset($result['extra']) && is_array($result['extra'])) {
+    $info = array_merge($info, $result['extra']);
+  }
+  // Check for existence. User search does not include snippets.
+  $variables['snippet'] = isset($result['snippet']) ? $result['snippet'] : '';
+  // Provide separated and grouped meta information..
+  $variables['info_split'] = $info;
+  $variables['info'] = implode(' - ', $info);
+  $variables['source'] = $result['source'];
+  $variables['theme_hook_suggestions'][] = 'search_result__' . $variables['module'];
+}
+
+/**
+ * Retrieve and generate suggestions for the given keywords.
+ * @param type $results
+ * @return string
+ */
+function _c_content_webfinder_correction_suggestion($results) {
+  $role = FALSE;
+  if ($correction = $results->xpath('//opensearch:Query')[0]) {
+    $role = (string) $correction->attributes()->role;
+  }
+
+  $page_url = _c_content_webfinder_get_config()['search_page_url'];
+
+  if ($role === 'correction') {
+    $title = (string) $correction->attributes()->title;
+    $correction_suggestion = l((string) $correction->attributes()->searchTerms, $page_url . '/' . (string) $correction->attributes()->searchTerms);
+
+    return "<div class='correction'><span>$title</span> $correction_suggestion</div>";
+  }
+
+  return '';
+}
+
+/**
+ * Build and return information text (amount of results per page, etc.).
+ * @param type $total_results
+ * @param type $items_per_page
+ * @param type $offset
+ * @param type $results
+ * @return type
+ */
+function _c_content_webfinder_information_text($total_results, $items_per_page, $offset, $results) {
+  if (!empty($results)) {
+    $start = $offset + 1;
+    $end = $offset + count($results);
+    $info = t('Results %start - %end of %total', array('%start' => $start, '%end' => $end, '%total' => $total_results));
+    return '<div class="count-information">' . $info . '</div>';
+  }
+
+  return '';
+}
+
+/**
+ * Build the search form.
+ * Inspired on the apache solr search form (apachesolr_search_custom_page_search_form).
+ * @param type $form
+ * @param type $form_state
+ * @param type $search_page_url
+ * @param type $keys
+ * @return string
+ */
+function _c_content_webfinder_search_form($form, &$form_state, $search_page_url, $keys = '') {
+  // Loads the core Search CSS file, use the core search module's classes.
+  drupal_add_css(drupal_get_path('module', 'search') . '/search.css');
+
+  $form = array();
+  $form['#id'] = 'search-form';
+  $form['#attributes']['class'][] = 'search-form';
+  $form['#search_page'] = $search_page_url;
+  $form['basic'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('container-inline')),
+  );
+  $form['basic']['keys'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Enter terms'),
+    '#default_value' => $keys,
+    '#size' => 20,
+    '#maxlength' => 255,
+  );
+  $form['basic']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Search'),
+  );
+
+  $form['basic']['get'] = array(
+    '#type' => 'hidden',
+    '#default_value' => json_encode(array_diff_key($_GET, array('q' => 1, 'page' => 1, 'sort' => 1, 'retain-filters' => 1))),
+  );
+
+  $fq = NULL;
+
+  if (isset($_GET['refine'])) {
+    $fq = filter_xss($_GET['refine']);
+  }
+
+  return $form;
+}
+
+/**
+ * Submit handler for the search form.
+ * Inspired on the apache solr solution (apachesolr_search_custom_page_search_form_submit).
+ * @param type $form
+ * @param type $form_state
+ */
+function _c_content_webfinder_search_form_submit(&$form, &$form_state) {
+  $redirect = $form['#search_page'];
+
+  if (isset($form_state['values']['keys'])) {
+    // Also encode slashes so we don't get akward situations when obtaining the
+    // search key. We can't use drupal_encode_path because for "aestetic" reasons
+    // they don't encode slashes...
+    $redirect_value = rawurlencode($form_state['values']['keys']);
+  }
+  elseif ($form['#form_id'] === 'search_block_form') {
+    $redirect_value = rawurlencode($form_state['values']['search_block_form']);
+  }
+
+  $redirect .= '/' . $redirect_value;
+
+  $get = array();
+  if (isset($form_state['values']['get'])) {
+    $get = json_decode($form_state['values']['get'], TRUE);
+  }
+  if (isset($form_state['values']['retain-filters']) && !empty($form_state['values']['retain-filters'])) {
+    // Add our saved values.
+    $get['retain-filters'] = '1';
+  }
+  else {
+    // Remove all filters from the request and the stored facet options in the session.
+    unset($get['refine']);
+  }
+
+  // Add the query values into the redirect.
+  $form_state['redirect'] = array($redirect, array('query' => $get));
+
+  if (isset($_GET['destination']) && !empty($_GET['destination'])) {
+    // Destination takes preference above the form redirect.
+    // Write the redirect directly to the GET parameter.
+    $redirect = url($redirect, array('query' => $get));
+    $_GET['destination'] = $redirect;
+  }
+}
+
+/**
+ * Retrieve the configuration for the search.
+ * Variable is cached through the same page request.
+ * @return type
+ */
+function _c_content_webfinder_get_config() {
+  $config = &drupal_static(__FUNCTION__);
+
+  if (!isset($config)) {
+    $config = variable_get('c_content_webfinder', array('search_page_url' => 'search/c-content'));
+    $config['search_page_url'] = check_plain($config['search_page_url']);
+  }
+
+  return $config;
+}
