@@ -1,7 +1,7 @@
 name = Dimpact Felix
 core = 7.x
 package = Features
-version = 7.x-1.0-20150806
+version = 7.x-1.1-20160125
 project = dimpact_felix
 features[features_api][] = api:2
 features[felix_block_set][] = default
@@ -46,4 +46,4 @@ features[felix_region][] = regio-9-12-content
 features[felix_region][] = regio-breed-onder-content
 features[felix_region][] = volle-breedte-boven
 features[felix_region][] = volle-breedte-onder
-mtime = 1435151063
+mtime = 1453468034

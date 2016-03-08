@@ -1,0 +1,7 @@
+name = Twitter filter words
+description = Show Tweets with option to ban specific words.
+core = 7.x
+package = Dimpact
+dependencies[] = twitter
+dependencies[] = twitter_pull
+dependencies[] = oauth_common
