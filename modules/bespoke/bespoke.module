@@ -199,6 +199,12 @@ function bespoke_apachesolr_search_page_alter(array &$build, array $search_page)
 function bespoke_menu_alter(&$menu) {
   $menu['forum']['access callback'] = 'bespoke_forum_access';
   $menu['forum']['access arguments'] = array();
+
+  // https://dutchopen.unfuddle.com/a#/projects/136/tickets/by_number/594
+  if (module_exists('file_entity') && module_exists('workbench')) {
+    $menu['admin/workbench/file/add'] = $menu['file/add'];
+    unset($menu['file/add']);
+  }
 }
 
 /**

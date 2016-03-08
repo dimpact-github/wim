@@ -321,6 +321,30 @@ function dimpact_preprocess_node(&$vars) {
       $vars['node_url'] = $node->field_link['und'][0]['url'];
     }
   }
+
+  // Show date and author on certain node types and only when the type is show on a intranet subsite
+  $types_to_show_submitted = array(
+    'message',
+    'blog',
+    'news',
+    'marketplace',
+    'file',
+  );
+  // Check type and if submitted is set
+  if (in_array($vars['type'], $types_to_show_submitted) && $vars['submitted']) {
+    // Check if current domain has a 'intranet' or 'team' blueprint.
+    $subsite = dominion_get_info();
+    if ($subsite->blueprint == 'intranet' || $subsite->blueprint == 'team') {
+      $vars['submitted'] = t('!datetime | By: !username', array(
+          '!datetime' => format_date($vars['node']->created, 'calendar'),
+          '!username' => $vars['name'],
+        )
+      );
+    }
+    else {
+      $vars['submitted'] = '';
+    }
+  }
 }
 
 /**
