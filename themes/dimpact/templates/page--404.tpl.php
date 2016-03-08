@@ -33,11 +33,17 @@ $region_footer_first   = render($page['region_footer_first']);
 $region_footer_second  = render($page['region_footer_second']);
 $region_footer_third   = render($page['region_footer_third']);
 
+$region_subfooter_first = render($page['region_subfooter_first']);
+$region_subfooter_second = render($page['region_subfooter_second']);
+
 $region_full_bottom = render($page['region_full_bottom']);
 
 $tabs = render($tabs);
 $actions = count($action_links);
 $action_links = render($action_links);
+
+$readspeaker_status = variable_get('bespoke_readspeaker_status', 0);
+$readspeaker_id = variable_get('bespoke_readspeaker_id', 0);
 ?>
 <?php if ($region_meta_first || $region_meta_second): ?>
   <div class="container container-nopadding">
@@ -50,6 +56,8 @@ $action_links = render($action_links);
   </div>
 <?php endif; ?>
 <div id="main-wrapper">
+  <div class="headercontainer-wrapper">
+    <div class="headercontainer">
   <header role="banner" id="header">
 
     <div class="container">
@@ -68,20 +76,34 @@ $action_links = render($action_links);
       </div>
       <?php print $header; ?>
     </div>
+
   </header>
   <?php if ($navigation): ?>
     <nav role="navigation" class="main-menu">
-      <div class="container container-nopadding">
+          <div class="container container-nopadding navigation">
         <?php print $navigation; ?>
       </div>
+          <div class="container container-nopadding navigation-bottom">
       <?php if ($breadcrumb): ?>
         <div class="container container-nopadding">
           <?php print $breadcrumb; ?>
         </div>
       <?php endif; ?>
+      <?php if ($readspeaker_status == 1): ?>
+          <div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
+            <a class="rsbtn_play" title="<?php print t('Laat de tekst voorlezen met ReadSpeaker'); ?>" href="//app.readspeaker.com/cgi-bin/rsent?customerid=<?php print $readspeaker_id; ?>&amp;lang=nl_nl&amp;readid=main&amp;url=<?php echo urlencode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>">
+              <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php print t('Lees voor'); ?></span></span></span>
+              <span class="rsbtn_right rsimg rsplay rspart"></span>
+            </a>
+          </div>
+      <?php endif; ?>
+          </div>
     </nav>
   <?php endif; ?>
 
+      <a id="main-content" tabindex="-1"></a>
+    </div>
+  </div>
   <div class="main" id="main">
 
     <?php if ($messages): ?>
@@ -95,7 +117,7 @@ $action_links = render($action_links);
 
     <div class="container">
       <div class="region_full_top">
-        <div id="contet">
+        <div id="content">
           <?php print render($title_prefix); ?>
           <?php if ($title && !empty($content)): ?>
             <h1 class="title" id="page-title"><?php print $title; ?></h1>
@@ -140,4 +162,17 @@ $action_links = render($action_links);
       </div>
     </div>
   </footer>
+<?php endif; ?>
+
+<?php if ($region_subfooter_first || $region_subfooter_second): ?>
+  <div class="subfootercontainer">
+      <div class="container">
+          <div class="region_subfooter_first">
+            <?php print $region_subfooter_first; ?>
+          </div>
+          <div class="region_subfooter_second">
+            <?php print $region_subfooter_second; ?>
+          </div>
+      </div>
+  </div>
 <?php endif; ?>
