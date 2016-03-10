@@ -1681,6 +1681,30 @@ function dimpact_content_types_strongarm() {
       'volle_breedte' => array(
         'custom_settings' => TRUE,
       ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'cck_blocks' => array(
+        'custom_settings' => TRUE,
+      ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'minimal_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'felix' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1729,6 +1753,10 @@ function dimpact_content_types_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '100',
+            'visible' => TRUE,
+          ),
         ),
       ),
     ),
@@ -1759,6 +1787,36 @@ function dimpact_content_types_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'volle_breedte' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_412' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_812' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_312' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slide_912' => array(
+        'custom_settings' => TRUE,
+      ),
+      'short_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'minimal_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'felix' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1772,7 +1830,20 @@ function dimpact_content_types_strongarm() {
           'weight' => '2',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'domain' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'subscriptions_ui' => array(
+          'default' => array(
+            'weight' => '100',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__page'] = $strongarm;
