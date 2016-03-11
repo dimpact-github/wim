@@ -88,7 +88,7 @@ function _dimpact_docreader_page_bottom(array &$page_bottom) {
                  for (var i = 0; i < links.length; i++) {
                     if ( links[i].href.match(/\.([a-z]+)$/i) !== null && supported_file_extensions.indexOf(links[i].href.match(/\.([a-z]+)$/i)[1]) !== -1) {
                       url = encodeURIComponent(links[i].href);
-                      links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees document voor met behulp van docReader') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /></a>' );
+                      links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees document voor') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /> " . t('Lees document voor') . "</a> ' );
                       i++; // Prevents the creation of docReader links on docReader links ad infinitum.
                     }
                  }
