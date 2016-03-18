@@ -322,16 +322,26 @@ function dimpact_preprocess_node(&$vars) {
     }
   }
 
-  // Show date and author on certain node types and only when the type is show on a intranet subsite
+  // Show date and author on certain node types and only when the type is shown on a intranet subsite
   $types_to_show_submitted = array(
     'message',
     'blog',
-    'news',
     'marketplace',
     'file',
   );
+
+  if ($vars['type'] == 'news') {
+    // Override standard submitted
+    $vars['submitted'] = t('!datetime | By: !username', array(
+        '!datetime' => format_date($vars['node']->created, 'calendar'),
+        '!username' => $vars['name'],
+      )
+    );
+  }
+
   // Check type and if submitted is set
   if (in_array($vars['type'], $types_to_show_submitted) && $vars['submitted']) {
+
     // Check if current domain has a 'intranet' or 'team' blueprint.
     $subsite = dominion_get_info();
     if ($subsite->blueprint == 'intranet' || $subsite->blueprint == 'team') {
@@ -341,7 +351,8 @@ function dimpact_preprocess_node(&$vars) {
         )
       );
     }
-    else {
+    else
+    {
       $vars['submitted'] = '';
     }
   }

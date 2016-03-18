@@ -29,10 +29,9 @@ else {
     <?php endif; ?>
     <?php print render($title_suffix); ?>
   <?php endif; ?>
-
   <?php if ($submitted): ?>
     <div class="submitted">
-      <?php print $submitted; ?>
+        <?php print $submitted; ?>
     </div>
   <?php endif; ?>
 
@@ -59,11 +58,6 @@ else {
   <?php endif; ?>
   
   <div class="content"<?php print $content_attributes; ?>>
-    <?php if ($node->type == 'news'): ?>
-      <time datetime="<?php print $timestamp; ?>">
-        <span class="day-month-year"><?php print format_date($node->created, 'custom', 'd F Y'); ?></span>
-      </time>
-    <?php endif; ?>
     <?php print render($content); ?>
     <?php print render($tabs); ?>
   </div>
