@@ -328,16 +328,8 @@ function dimpact_preprocess_node(&$vars) {
     'blog',
     'marketplace',
     'file',
+    'news',
   );
-
-  if ($vars['type'] == 'news') {
-    // Override standard submitted
-    $vars['submitted'] = t('!datetime | By: !username', array(
-        '!datetime' => format_date($vars['node']->created, 'calendar'),
-        '!username' => $vars['name'],
-      )
-    );
-  }
 
   // Check type and if submitted is set
   if (in_array($vars['type'], $types_to_show_submitted) && $vars['submitted']) {
@@ -346,8 +338,14 @@ function dimpact_preprocess_node(&$vars) {
     $subsite = dominion_get_info();
     if ($subsite->blueprint == 'intranet' || $subsite->blueprint == 'team') {
       $vars['submitted'] = t('!datetime | By: !username', array(
-          '!datetime' => format_date($vars['node']->created, 'calendar'),
+          '!datetime' => format_date($vars['node']->created, 'custom', 'd F Y'),
           '!username' => $vars['name'],
+        )
+      );
+    }
+    else if ($subsite->blueprint == 'internet' || $subsite->blueprint == 'default' && $vars['type'] == 'news') {
+      $vars['submitted'] = t('!datetime', array(
+          '!datetime' => format_date($vars['node']->created, 'custom', 'd F Y'),
         )
       );
     }
