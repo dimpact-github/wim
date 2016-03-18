@@ -337,7 +337,7 @@ function dimpact_preprocess_node(&$vars) {
     // Check if current domain has a 'intranet' or 'team' blueprint.
     $subsite = dominion_get_info();
     if ($subsite->blueprint == 'intranet' || $subsite->blueprint == 'team') {
-      $vars['submitted'] = t('!datetime | By: !username', array(
+      $vars['submitted'] = t('!datetime | door: !username', array(
           '!datetime' => format_date($vars['node']->created, 'custom', 'd F Y'),
           '!username' => $vars['name'],
         )
