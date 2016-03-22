@@ -260,6 +260,9 @@ projects[nodequeue][download][branch] = 7.x-3.x
 projects[nodequeue][patch][1154948][url] = http://drupal.org/files/taxonomy-sync-queue-1154948-15.patch
 projects[nodequeue][patch][1154948][md5] = 2eae7ee249c90238cb0e8bfb6a98293b
 
+projects[oauth][subdir] = contrib
+projects[oauth][version] = 3.2
+
 projects[password_policy][subdir] = contrib
 projects[password_policy][version] = "1.11"
 
@@ -335,6 +338,12 @@ projects[transliteration][subdir] = contrib
 projects[transliteration][version] = "3.1"
 projects[transliteration][patch][862248-13][url] = https://www.drupal.org/files/transliteration-862248-13_punctuation_0.patch
 projects[transliteration][patch][862248-13][md5] = be5b45301dc1b78ae7bcf4062b6d3ad4
+
+projects[twitter][subdir] = contrib
+projects[twitter][version] = "5.11"
+
+projects[twitter_pull][subdir] = contrib
+projects[twitter_pull][version] = "2.0-alpha3"
 
 projects[variable][subdir] = contrib
 projects[variable][version] = "2.4"

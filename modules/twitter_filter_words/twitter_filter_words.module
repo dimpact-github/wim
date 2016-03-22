@@ -1,0 +1,180 @@
+<?php
+
+/**
+ * Implements hook_block_save.
+ * Map the save function to twitter_filter_words.admin.inc
+ * @param type $delta
+ * @param type $edit
+ * @return type
+ */
+function twitter_filter_words_block_save($delta = '', $edit = array()) {
+  module_load_include('inc', 'twitter_filter_words', 'twitter_filter_words.admin');
+  return _twitter_filter_words_block_save($delta, $edit);
+}
+
+/**
+ * Implements hook_block_configure.
+ * Map the configure function to twitter_filter_words.admin.inc.
+ * @param type $delta
+ * @param type $edit
+ * @return type
+ */
+function twitter_filter_words_block_configure($delta = '', $edit = array()) {
+  module_load_include('inc', 'twitter_filter_words', 'twitter_filter_words.admin');
+  return _twitter_filter_words_block_configure($delta, $edit);
+}
+
+/**
+ * Implements hook_permission.
+ * Define module specific permission(s).
+ * @return type
+ */
+function twitter_filter_words_permission() {
+  return array(
+    'administer twitter filter' => array(
+      'title' => t('Administer Twitter filter'),
+      'description' => t('Add and delete words to filter in Twitter messages.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu.
+ * @return type
+ */
+function twitter_filter_words_menu() {
+  $items = array();
+
+  $items['admin/config/services/twitter/filter-list'] = array(
+    'title' => t('Filter Tweets based on words'),
+    'description' => t('Configure words to filter in Twitter messages.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('twitter_filter_words_admin'),
+    'access arguments' => array('administer twitter filter'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'twitter_filter_words.admin.inc',
+  );
+
+  $items['admin/structure/block/add-tweet-block'] = array(
+    'title' => t('Create new Tweets block'),
+    'description' => t('Create new block that displays Tweets.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('twitter_filter_words_add_block'),
+    'access arguments' => array('administer twitter filter'),
+    'type' => MENU_LOCAL_ACTION,
+    'file' => 'twitter_filter_words.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme_registry_alter.
+ * Allows overrriding twitter pull template from this module.
+ * @param type $theme_registry
+ */
+function twitter_filter_words_theme_registry_alter(&$theme_registry) {
+  // Defined path to current module.
+  $module_path = drupal_get_path('module', 'twitter_filter_words');
+
+  // Find all .tpl.php files in this module's folder recursively.
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+
+  // Iterate through all found template file objects.
+  foreach ($template_file_objects as $key => $template_file_object) {
+    // Alter the theme path and template elements.
+    $theme_registry[$key]['theme path'] = $module_path;
+    $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+    $theme_registry[$key]['type'] = 'module';
+  }
+}
+
+/**
+ * Implements hook_block_info.
+ * Register each created block.
+ * @return type
+ */
+function twitter_filter_words_block_info() {
+  module_load_include('inc', 'twitter_filter_words', 'twitter_filter_words.admin');
+  $blocks = array();
+
+  // Get all defined Tweet blocks.
+  $tfw_blocks_ids = variable_get('twitter_filter_words_block_ids', array());
+  foreach ($tfw_blocks_ids as $delta) {
+    $tfw_block = _twitter_filter_words_config($delta);
+    $blocks[$delta] = array(
+      'info' => 'Tweet block: ' . $tfw_block['title'],
+      'cache' => DRUPAL_NO_CACHE,
+    );
+  }
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view.
+ * Retrieve the content of the block and render it.
+ * @param type $delta
+ * @return type
+ */
+function twitter_filter_words_block_view($delta = '') {
+  // Get the current config of the block based on the delta.
+  module_load_include('inc', 'twitter_filter_words', 'twitter_filter_words.admin');
+  $tfw_block = _twitter_filter_words_config($delta);
+  $block = array();
+
+  $block['subject'] = _twitter_filter_words_more_link($tfw_block['tfw_tweet_key']);
+  $block['content'] = twitter_pull_render(
+      $tfw_block['tfw_tweet_key'],
+      FALSE,
+      $tfw_block['tfw_number_of_items'],
+      NULL,
+      FALSE,
+      $tfw_block['tfw_show_rts'],
+      $tfw_block['tfw_show_replies'] == 0 ? 1 : 0);
+
+  return $block;
+}
+
+/**
+ * Do the filtering on tweets.
+ * Remove tweets that contains one or more filtered words from the array by unsetting them.
+ * @param type $tweets
+ */
+function _twitter_filter_words_process_filter(&$tweets) {
+  $filter_words = variable_get('twitter_filter_words');
+
+  if (!empty($filter_words)) {
+    $filter_words_array = explode(',', str_replace(' ', '', $filter_words));
+    foreach ($tweets as $key => $tweet) {
+      // Check if tweet contains one or more of the filtered words.
+      if (preg_match("/\b" . implode('|', $filter_words_array) . "\b/i", $tweet->text)) {
+        // Tweet contains one of the filtered words, remove it from display.
+        unset($tweets[$key]);
+      }
+    }
+  }
+}
+
+/**
+ * Generate more link to the given twitkey.
+ * @param type $twitkey
+ */
+function _twitter_filter_words_more_link($twitkey) {
+  $prefix = drupal_substr($twitkey, 0, 1);
+
+  if ($prefix === '#') {
+    // Twitkey is a hashtag.
+    return l($twitkey, 'http://twitter.com/search', array(
+      'external' => TRUE,
+      'query' => array('q' => $twitkey),
+      'attributes' => array('target' => '_blank')));
+  }
+  elseif ($prefix === '@') {
+    // Twitkey is an account.
+    $account = str_replace('@', '', $twitkey);
+    return l($twitkey, 'http://twitter.com/' . $account, array(
+      'external' => TRUE,
+      'attributes' => array('target' => '_blank')));
+  }
+}
