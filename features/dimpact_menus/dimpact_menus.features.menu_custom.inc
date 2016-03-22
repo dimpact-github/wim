@@ -46,6 +46,18 @@ function dimpact_menus_menu_default_menu_custom() {
     'title' => 'Service menu right',
     'description' => 'Service menu appears in the upper right corner of the page.',
   );
+  // Exported menu: menu-subfooter-meta-menu-first.
+  $menus['menu-subfooter-meta-menu-first'] = array(
+    'menu_name' => 'menu-subfooter-meta-menu-first',
+    'title' => 'Subfooter meta menu first',
+    'description' => '',
+  );
+  // Exported menu: menu-subfooter-meta-menu-second.
+  $menus['menu-subfooter-meta-menu-second'] = array(
+    'menu_name' => 'menu-subfooter-meta-menu-second',
+    'title' => 'Subfooter meta menu second',
+    'description' => '',
+  );
   // Exported menu: menu-tabbladen.
   $menus['menu-tabbladen'] = array(
     'menu_name' => 'menu-tabbladen',
@@ -69,6 +81,8 @@ function dimpact_menus_menu_default_menu_custom() {
   t('Meta menu rechts');
   t('Service menu appears in the upper right corner of the page.');
   t('Service menu right');
+  t('Subfooter meta menu first');
+  t('Subfooter meta menu second');
   t('Tabbladen');
   t('Toptaken');
 

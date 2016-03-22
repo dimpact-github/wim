@@ -652,6 +652,18 @@ function dimpact_contexts_context_default_contexts() {
           'region' => 'region_meta_second',
           'weight' => '-10',
         ),
+        'menu-menu-subfooter-meta-menu-first' => array(
+          'module' => 'menu',
+          'delta' => 'menu-subfooter-meta-menu-first',
+          'region' => 'region_subfooter_first',
+          'weight' => '-10',
+        ),
+        'menu-menu-subfooter-meta-menu-second' => array(
+          'module' => 'menu',
+          'delta' => 'menu-subfooter-meta-menu-second',
+          'region' => 'region_subfooter_second',
+          'weight' => '-10',
+        ),
       ),
     ),
   );
