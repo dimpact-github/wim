@@ -21,7 +21,7 @@ projects[apachesolr_attachments][patch][1251308-23][md5] = "162de26e6b86c9e34925
 projects[apachesolr_attachments][patch][bodytext] = patches/apachesolr-attachments-body.patch
 
 projects[apachesolr_exclude_node][subdir] = contrib
-projects[apachesolr_exclude_node][version] = "1.1"
+projects[apachesolr_exclude_node][version] = "1.4"
 
 projects[apachesolr_user][subdir] = contrib
 projects[apachesolr_user][download][type] = git
@@ -90,7 +90,7 @@ projects[elysia_cron][subdir] = contrib
 projects[elysia_cron][version] = "2.1"
 
 projects[email][subdir] = contrib
-projects[email][version] = "1.2"
+projects[email][version] = "1.3"
 
 projects[empty_page][subdir] = contrib
 projects[empty_page][version] = "1.0"
@@ -110,7 +110,7 @@ projects[expire][subdir] = contrib
 projects[expire][version] = "2.0-rc4"
 
 projects[extlink][subdir] = contrib
-projects[extlink][version] = "1.13"
+projects[extlink][version] = "1.18"
 
 projects[facetapi][subdir] = contrib
 projects[facetapi][version] = "1.3"
@@ -132,7 +132,7 @@ projects[felix][version] = "1.0-beta4"
 projects[felix][patch][nolinkit] = patches/felix-nolinkit.patch
 
 projects[fences][subdir] = contrib
-projects[fences][version] = "1.0"
+projects[fences][version] = "1.2"
 
 projects[field_group][subdir] = contrib
 projects[field_group][version] = "1.5"
@@ -209,7 +209,7 @@ projects[mail_edit][version] = "1.0"
 projects[mailchimp][subdir] = contrib
 projects[mailchimp][version] = "2.12"
 
-projects[mailsystem][subdir] = contrib 
+projects[mailsystem][subdir] = contrib
 projects[mailsystem][version] =  "2.34"
 
 projects[masquerade][subdir] = contrib
@@ -382,7 +382,7 @@ projects[wysiwyg][download][branch] = "7.x-2.x"
 projects[wysiwyg][download][revision] = "898d022"
 
 projects[xmlsitemap][subdir] = contrib
-projects[xmlsitemap][version] = "2.0"
+projects[xmlsitemap][version] = "2.2"
 
 ; Themes
 projects[rijkshuisstijl][version] = "1.2"
