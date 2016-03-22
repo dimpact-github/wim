@@ -567,3 +567,16 @@ function bespoke_file_mimetype_mapping_alter(&$mapping) {
     $mapping['extensions'][$extension] = $index;
   }
 }
+
+/**
+ * Implements hook_file_view_alter.
+ * Removed media container div that breaks p-tags in the WYSIWYG.
+ * @see https://www.drupal.org/node/2357993#comment-10328301
+ * @param type $build
+ * @param type $type
+ */
+function bespoke_file_view_alter(&$build, $type) {
+  if ($build['#bundle'] === 'image') {
+    unset($build['links']);
+  }
+}
