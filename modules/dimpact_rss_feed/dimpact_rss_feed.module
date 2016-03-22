@@ -1,0 +1,295 @@
+<?php
+
+/**
+ * Register the feedwriter library.
+ * @return array
+ */
+function dimpact_rss_feed_libraries_info() {
+  $libraries = array();
+  $libraries['FeedWriter'] = array(
+    'name' => 'FeedWriter',
+    'vendor url' => 'http://ajaxray.com/blog/php-universal-feed-generator-supports-rss-10-rss-20-and-atom',
+    'download url' => 'https://github.com/ajaxray/FeedWriter',
+    'version callback' => '_dimpact_rss_feed_feedwriter_version',
+    'files' => array(
+      'php' => array('RSS2.php', 'Feed.php', 'Item.php'),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Version callback for the feedwriter version.
+ * @return boolean
+ */
+function _dimpact_rss_feed_feedwriter_version() {
+  // Feedwriter has no versions, return TRUE.
+  return TRUE;
+}
+
+/**
+ * Implements hook_menu.
+ * Register url's with auto loader wildcard for taxonomy term.
+ * @return string
+ */
+function dimpact_rss_feed_menu() {
+  $items = array();
+
+  $items['rss/%dimpact_rss_feed_term'] = array(
+    'title' => 'Rss feed for content containing tag',
+    'description' => t('Rss feed for content containing tag'),
+    'page callback' => 'dimpact_rss_feed_all_content_with_tag_or_type',
+    'page arguments' => array(1),
+    'type' => MENU_CALLBACK,
+    'delivery callback' => 'dimpact_rss_feed_deliver_xml',
+    'access arguments' => array('access content'),
+  );
+
+  $items['rss/%dimpact_rss_feed_term/%'] = array(
+    'title' => 'Rss feed for content containing tag and specified by content type',
+    'description' => t('Rss feed for content containing tag and specified by content type'),
+    'page callback' => 'dimpact_rss_feed_content_with_tag_contenttype',
+    'page arguments' => array(1, 2),
+    'type' => MENU_CALLBACK,
+    'delivery callback' => 'dimpact_rss_feed_deliver_xml',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/**
+ * Build feed with items based on rss tag.
+ * @param type $term
+ * @return string
+ */
+function dimpact_rss_feed_all_content_with_tag_or_type($term) {
+  if (_dimpact_rss_feed_library_installed() && $term) {
+    if (isset($term->vocabulary_machine_name)) {
+      // Term is taxonomy.
+      $feed = _dimpact_rss_feed_create_feed($term);
+      $feed = _dimpact_rss_feed_add_items($feed, $term);
+
+      return $feed;
+    }
+    elseif (isset($term->module)) {
+      // Term is content type.
+      $feed = _dimpact_rss_feed_create_feed(FALSE, $term->type);
+      $feed = _dimpact_rss_feed_add_items($feed, FALSE, $term->type);
+
+      return $feed;
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Build feed with items based on rss tag and content type.
+ * @param type $term
+ * @param type $arg2
+ * @return boolean
+ */
+function dimpact_rss_feed_content_with_tag_contenttype($term, $arg2) {
+  $content_type = check_plain($arg2);
+  if (_dimpact_rss_feed_library_installed() && $term && isset($content_type)) {
+    $feed = _dimpact_rss_feed_create_feed($term, $content_type);
+    $feed = _dimpact_rss_feed_add_items($feed, $term, $content_type);
+
+    return $feed;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Customized delivery callback.
+ * Sets the xml content header and returns the output.
+ * @param type $page_callback_result
+ */
+function dimpact_rss_feed_deliver_xml($page_callback_result) {
+  // Print the output.
+  if (is_object($page_callback_result)) {
+    // Add xml output header.
+    drupal_add_http_header('Content-Type', 'text/xml; charset=utf-8');
+    print $page_callback_result->generateFeed();
+  }
+  else {
+    drupal_add_http_header('Content-Type', 'text/html; charset=utf-8');
+    print '<p>Error!</p>';
+  }
+}
+
+/**
+ * Load a taxonomy term by name and return it if found.
+ * @param type $term
+ * @return boolean
+ */
+function dimpact_rss_feed_term_load($term) {
+  $term = check_plain($term);
+  $term_object = taxonomy_get_term_by_name($term, 'tags');
+
+  if (!empty($term_object)) {
+    return reset($term_object);
+  }
+
+  $content_type = node_type_load($term);
+  if ($content_type && !empty($content_type)) {
+    return $content_type;
+  }
+
+  // No term could be found with the given term, log error.
+  watchdog('dimpact_rss_feed', 'No term could be loaded with name !name.', array('!name' => $term), WATCHDOG_NOTICE);
+  return FALSE;
+}
+
+/**
+ * Create the main feed output.
+ * @param type $term
+ */
+function _dimpact_rss_feed_create_feed($term = FALSE, $content_type = FALSE) {
+  // I need to include the classes manually sadly enough...libraries api doesn't support it.
+  $library_path = libraries_get_path('FeedWriter');
+  include($library_path . '/Item.php');
+  include($library_path . '/Feed.php');
+  include($library_path . '/RSS2.php');
+
+  global $base_url;
+
+  $feed = new FeedWriter\RSS2;
+
+  if ($term) {
+    // Build nice url to the term page.
+    $term_link = url('taxonomy/term/' . $term->tid, array('absolute' => TRUE));
+    $feed->setLink($term_link);
+  }
+
+  // Create the title for the feed.
+  if (!$content_type) {
+    $feed->setTitle($base_url . ', Tag: ' . $term->name);
+  }
+  elseif ($content_type && !$term) {
+    $feed->setTitle($base_url . ', Type: ' . $content_type);
+  }
+  else {
+    $feed->setTitle($base_url . ', Tag: ' . $term->name . ', Type: ' . $content_type);
+  }
+
+  // Description is not really a description, but a date.
+  $date = date(\DATE_RSS, time());
+  $feed->setDescription($date);
+
+  return $feed;
+}
+
+/**
+ * Add individual items to the feed.
+ * @global type $base_url
+ * @param type $feed
+ * @param type $term
+ * @param type $content_type
+ * @return type
+ */
+function _dimpact_rss_feed_add_items($feed, $term, $content_type = FALSE) {
+  $items = _dimpact_rss_feed_load_items($term, $content_type);
+
+  foreach ($items as $item) {
+    try {
+      global $base_url;
+      // Use the item with the entity api wrapper
+      $wrapper = entity_metadata_wrapper('node', $item);
+
+      // Create a new item for the feed.
+      $feed_item = $feed->createNewItem();
+
+      // Set properties of the node on the feed item.
+      $feed_item->setTitle($wrapper->label());
+      $feed_item->setLink(url('node/' . $wrapper->getIdentifier(), array('absolute' => TRUE)));
+
+      if (isset($wrapper->field_intro) && !empty($wrapper->field_intro->value())) {
+        $feed_item->setDescription($wrapper->field_intro->value());
+      }
+      elseif (isset($wrapper->body) && !empty($wrapper->body->value->value())) {
+        $summary = text_summary($wrapper->body->value->value(), NULL, 200);
+        $feed_item->setDescription($summary);
+      }
+      
+      $feed_item->setDate($wrapper->created->value());
+      $feed_item->setId($base_url . '/node/' . $wrapper->getIdentifier(), TRUE);
+
+      // Try to retrieve the attached image and prepend it to the content element.
+      $file = '';
+      if (isset($wrapper->field_image) && !empty($wrapper->field_image->value())) {
+        $file = file_load($wrapper->field_image->value()['fid']);
+        if (!empty($file)) {
+          $file_uri = file_create_url($file->uri);
+          $file = "<p><img src='$file_uri' /></p>";
+        }
+      }
+
+      $feed_item->addElement('content:encoded', $file . $wrapper->body->value->value());
+
+      // Add the newly created item to the feed.
+      $feed->addItem($feed_item);
+    }
+    catch (EntityMetadataWrapperException $ex) {
+      watchdog(
+          'dimpact_rss_feed', 'EntityMetadataWrapper exception in %function() <pre>@trace</pre>', array('%function' => __FUNCTION__, '@trace' => $ex->getTraceAsString()), WATCHDOG_ERROR
+      );
+    }
+  }
+
+  return $feed;
+}
+
+/**
+ * Find and load the nodes based on the requested term and content type.
+ * @param type $term
+ * @param type $content_type
+ * @return type
+ */
+function _dimpact_rss_feed_load_items($term, $content_type) {
+  // Build the query to use for retrieving the items.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+      ->propertyCondition('status', NODE_PUBLISHED)
+      ->propertyOrderBy('changed', 'DESC');
+
+  // Add term if provided.
+  if ($term) {
+    $query->fieldCondition('field_tags', 'tid', $term->tid);
+  }
+
+  // Add content type if provided.
+  if ($content_type) {
+    $query->entityCondition('bundle', $content_type);
+  }
+
+  // Execute the query.
+  $result = $query->execute();
+  $node_items = array();
+  if (isset($result['node'])) {
+    $node_items_nids = array_keys($result['node']);
+    $node_items = entity_load('node', $node_items_nids);
+  }
+
+  return $node_items;
+}
+
+/**
+ * Check if the feedwriter library is installed.
+ * @return boolean
+ */
+function _dimpact_rss_feed_library_installed() {
+  if (($library = libraries_detect('FeedWriter')) && !empty($library['installed'])) {
+    // The library is installed.
+    return TRUE;
+  }
+  else {
+    // Something went wrong.
+    watchdog('dimpact_rss_feed', 'Library not available: !error', array('!error' => print_r($library, TRUE), WATCHDOG_ERROR));
+    drupal_set_message(t('RSS library not available. Cannot generate feed.'), 'error');
+    return FALSE;
+  }
+}
