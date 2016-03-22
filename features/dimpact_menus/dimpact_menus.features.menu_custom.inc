@@ -10,6 +10,12 @@
 function dimpact_menus_menu_default_menu_custom() {
   $menus = array();
 
+  // Exported menu: menu-footer-menu.
+  $menus['menu-footer-menu'] = array(
+    'menu_name' => 'menu-footer-menu',
+    'title' => 'Direct online regelen2',
+    'description' => 'Introductie tekst',
+  );
   // Exported menu: menu-footer-menu-right.
   $menus['menu-footer-menu-right'] = array(
     'menu_name' => 'menu-footer-menu-right',
@@ -20,6 +26,12 @@ function dimpact_menus_menu_default_menu_custom() {
   $menus['menu-meta-menu-links'] = array(
     'menu_name' => 'menu-meta-menu-links',
     'title' => 'Meta menu links',
+    'description' => '',
+  );
+  // Exported menu: menu-meta-menu-links-intranet.
+  $menus['menu-meta-menu-links-intranet'] = array(
+    'menu_name' => 'menu-meta-menu-links-intranet',
+    'title' => 'Meta menu links intranet',
     'description' => '',
   );
   // Exported menu: menu-meta-menu-rechts.
@@ -60,9 +72,12 @@ function dimpact_menus_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Direct online regelen2');
   t('Footer menu appears in the lower right corner of the page.');
   t('Footer menu right');
+  t('Introductie tekst');
   t('Meta menu links');
+  t('Meta menu links intranet');
   t('Meta menu rechts');
   t('Service menu appears in the upper right corner of the page.');
   t('Service menu right');
