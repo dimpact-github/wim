@@ -65,11 +65,27 @@
     <delete file="code/sites/all/modules/README.txt" />
   </target>
 
-  <target name="theme">
-    <echo msg="Cleaning SCSS..." />
-     <exec command="compass clean themes/dimpact" />
-    <echo msg="Compiling SCSS..." />
-     <exec command="compass compile themes/dimpact" />
+  <target name="theme" depends="dimapcttheme" />
+
+  <target name="dimapcttheme">
+    <uptodate property="dimapcttheme.uptodate" targetfile="themes/dimpact/css/style.css">
+      <fileset dir="themes/dimpact/scss">
+        <include name="*.scss" />
+        <include name="**/*.scss" />
+      </fileset>
+    </uptodate>
+    <if>
+      <not><isset property="dimapcttheme.uptodate"/></not>
+      <then>
+        <echo msg="Cleaning SCSS..." />
+        <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass clean themes/dimpact" passthru="true" logoutput="true" />
+        <echo msg="Compiling SCSS..." />
+        <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass compile themes/dimpact" passthru="true" logoutput="true" />
+      </then>
+      <else>
+        <echo msg="Dimpact theme is up to date." />
+      </else>
+    </if>
   </target>
 
 </project>
