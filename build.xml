@@ -65,9 +65,7 @@
     <delete file="code/sites/all/modules/README.txt" />
   </target>
 
-  <target name="theme" depends="dimapcttheme" />
-
-  <target name="dimapcttheme">
+  <target name="theme">
     <uptodate property="dimapcttheme.uptodate" targetfile="themes/dimpact/css/style.css">
       <fileset dir="themes/dimpact/scss">
         <include name="*.scss" />
@@ -77,10 +75,26 @@
     <if>
       <not><isset property="dimapcttheme.uptodate"/></not>
       <then>
-        <echo msg="Cleaning SCSS..." />
-        <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass clean themes/dimpact" passthru="true" logoutput="true" />
-        <echo msg="Compiling SCSS..." />
-        <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass compile themes/dimpact" passthru="true" logoutput="true" />
+        <if>
+          <available file="gems" type="dir" />
+          <then>
+            <echo msg="CSS compileren met Bundler" />
+            <echo msg="Cleaning SCSS..." />
+            <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass clean themes/dimpact" logoutput="true" />
+            <echo msg="Compiling SCSS..." />
+            <exec command="BUNDLE_GEMFILE=themes/dimpact/Gemfile bundle exec compass compile themes/dimpact" logoutput="true" />
+          </then>
+          <else>
+            <echo msg="Je compileert de CSS met Compass, je kunt ook Bundler gebruiken." />
+            <echo msg="Ga naar /themes/dimpact en voer “bundle install” uit vanaf de command-line." />
+            <echo msg="Je compileert de css met “bundle exec compass compile” of met phing." />
+            <echo msg="Zie ook http://bundler.io." />
+            <echo msg="Cleaning SCSS..." />
+            <exec command="compass clean themes/dimpact" logoutput="true" />
+            <echo msg="Compiling SCSS..." />
+            <exec command="compass compile themes/dimpact" logoutput="true" />
+          </else>
+        </if>
       </then>
       <else>
         <echo msg="Dimpact theme is up to date." />
