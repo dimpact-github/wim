@@ -1,0 +1,138 @@
+<?php
+
+/**
+ * Implements hook_menu.
+ * @return array
+ */
+function c_content_menu() {
+  $items = array();
+
+  $items['admin/config/search/c-content'] = array(
+    'title' => t('C-content configuration'),
+    'description' => t('Configuration for C-content integration.'),
+    'access arguments' => array('administer search'),
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('c_content_admin'),
+    'file' => 'c_content.admin.inc',
+  );
+
+  $items['admin/config/search/c-content/metatags'] = array(
+    'title' => t('C-content metatags'),
+    'description' => t('Configuration for C-content metatags integration.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('c_content_admin'),
+    'access arguments' => array('administer search'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'file' => 'c_content.admin.inc',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_preprocess_html.
+ * Allows adding html head tags to the source.
+ * @param type $vars
+ */
+function c_content_preprocess_html(&$vars) {
+  if ($node = menu_get_object('node')) {
+    // Node object is available.
+    try {
+      $wrapper = entity_metadata_wrapper('node', $node);
+
+      // Loop through selected fields fot inclusion as HTML meta tag.
+      $fields = variable_get('c_content_metatags');
+      $all_terms = array();
+      foreach ($fields['fields'] as $key => $field) {
+        if ($field != '0' && isset($wrapper->{$key})) {
+          if (strpos($wrapper->{$key}->type(), 'taxonomy')) {
+            // Current field is taxonomy term, this can be multivalued.
+            $terms = array();
+            foreach ($wrapper->{$key}->getIterator() as $delta => $term_wrapper) {
+              $terms[] = $term_wrapper->name->value();
+              $all_terms[] = $term_wrapper->name->value();
+            }
+
+            // Add taxonomy terms as meta tag.
+            _c_content_add_metatag($key, implode(', ', $terms), FALSE);
+          }
+          else {
+            // Regular field.
+            _c_content_add_metatag($key, $wrapper->{$key}->value(), FALSE);
+            $all_terms[] = $wrapper->{$key}->value();
+          }
+        }
+      }
+
+      // Add some default meta tags that are not fields.
+      _c_content_add_metatag('created', format_date($wrapper->created->value(), 'custom', 'Y-m-d'), TRUE);
+      _c_content_add_metatag('modified', format_date($wrapper->changed->value(), 'custom', 'Y-m-d'), TRUE);
+      _c_content_add_metatag('title', $wrapper->title->value(), TRUE);
+      _c_content_add_metatag('content_type', $wrapper->type->label(), FALSE);
+      _c_content_add_metatag('keywords', implode(', ', $all_terms), FALSE);
+    }
+    catch (Exception $ex) {
+      watchdog(
+          'c_content', 'EntityMetadataWrapper exception in %function() <pre>@trace</pre>', array('%function' => __FUNCTION__, '@trace' => $exc->getTraceAsString()), WATCHDOG_ERROR
+      );
+    }
+
+    if ($node->type === 'file') {
+      // Current node is of type file, add file extension as meta tag.
+      $file_uri = $wrapper->field_bestand->value()['uri'];
+      if (isset($file_uri)) {
+        // Extract file extension.
+        $extension = preg_match('/[a-z]+$/', $file_uri, $matches);
+        _c_content_add_metatag('file_extension', reset($matches));
+      }
+    }
+  }
+  else {
+    if (arg(0) === 'taxonomy') {
+      _c_content_add_metatag('content_type', t('taxonomy'), FALSE);
+    }
+    elseif(arg(0) === 'file') {
+      _c_content_add_metatag('content_type', t('file'), FALSE);
+      $file = file_load(arg(1));
+      _c_content_add_metatag('created', format_date($file->timestamp, 'custom', 'Y-m-d'), TRUE);
+      _c_content_add_metatag('modified', format_date($file->timestamp, 'custom', 'Y-m-d'), TRUE);
+    }
+    else {
+      // Not a node, add generic page as type.
+      _c_content_add_metatag('content_type', t('page'), FALSE);
+    }
+
+    if ($list = custom_lists_get_current()) {
+      // Current page is custom list.
+      _c_content_add_metatag('created', format_date($list['created'], 'custom', 'Y-m-d'), TRUE);
+      _c_content_add_metatag('modified', format_date($list['changed'], 'custom', 'Y-m-d'), TRUE);
+    }
+
+    _c_content_add_metatag('title', $vars['head_title'], TRUE);
+  }
+}
+
+/**
+ * Add meta tag to the HTML head of the page.
+ * @param type $type
+ * @param type $value
+ */
+function _c_content_add_metatag($type, $value, $dcterms = TRUE) {
+  $dcterm = '';
+  if ($dcterms) {
+    $dcterm = 'dcterms:';
+  }
+
+  $tag_head = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => $dcterm . $type,
+      'content' => check_plain($value),
+    ),
+  );
+
+  drupal_add_html_head($tag_head, 'c_content_' . $type);
+}

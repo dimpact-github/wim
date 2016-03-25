@@ -1,0 +1,5 @@
+name = C-content webfinder integration
+description = Integrate C-content webfinder with Drupal
+package = Enschede
+core = 7.x
+dependencies[] = c_content

@@ -1,0 +1,5 @@
+name = C-content integration
+description = Integrate C-content with Drupal by providing metatags.
+package = Enschede
+core = 7.x
+dependencies[] = custom_lists

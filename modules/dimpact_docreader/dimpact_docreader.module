@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file dimpact_docreader.module
+ * docReader-implementatie voor Dimpact.
+ * © Dutch Open Projects 2016.
+ */
+
+/**
+ * List of file types currently supported by docReader (http://www.readspeaker.com/nl/readspeaker-docreader/)
+ * ePub (.epub)
+ * Microsoft Excel (.xls, .xlsx)
+ * Microsoft PowerPoint (.pps, .ppt, .pptx)
+ * Microsoft Word (.doc, .docx)
+ * OpenOffice/OpenDocument presentatie (.odp)
+ * OpenOffice/OpenDocument Spreadsheet (.ods)
+ * OpenOffice/OpenDocument tekst (.odt)
+ * Portable Document Format (.pdf)
+ * Rich Text Format (.rtf)
+ */
+function docreader_supported_file_extensions() {
+  return 'epub, xls, xlsx, pps, ppt, pptx, doc, docx, odp, ods, odt, pdf, rtf';
+}
+
+/**
+ * Implements hook_permission().
+ */
+function dimpact_docreader_permission() {
+  $permissions = array();
+  $permissions['administer dimpact_docreader'] = array(
+    'title' => t('Dimpact docReader Instellingen'),
+    'description' => t('Toegangsrechten voor de instellingenpagina van de Dimpact docReader-module.'),
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function dimpact_docreader_menu() {
+  $items = array();
+  $items['admin/config/dimpact_docreader'] = array(
+    'title' => 'Dimpact docReader Instellingen',
+    'description' => 'Dit is de instellingenpagina voor de Dimpact docReader-module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('dimpact_docreader_settings_form'),
+    'access arguments' => array('administer dimpact_docreader'),
+    'file' => 'dimpact_docreader.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function dimpact_docreader_page_build(&$page) {
+  // Adding attachments to an element of type page does not work, because then
+  // the html theme_wrapper runs before attachments processing.
+  // The page template does render regions, so page attachments can be added there.
+  if (!isset($page['page_bottom'])) {
+    $page['page_bottom'] = array();
+  }
+
+  _dimpact_docreader_page_bottom($page['page_bottom']);
+}
+
+function _dimpact_docreader_page_bottom(array &$page_bottom) {
+  global $theme_key;
+  drupal_theme_initialize();
+
+  // Deny access if admin theme is active.
+  if ($theme_key == variable_get('admin_theme') || variable_get('dimpact_docreader_cid', '') === '') {
+    $access = FALSE;
+  } else {
+    $access = TRUE;
+  }
+
+  $data = "<script type=\"text/javascript\">
+              //<![CDATA[
+               (function() {
+                 var links = document.getElementsByTagName('a');
+                 var cid = '". variable_get('dimpact_docreader_cid') ."';
+                 var language = '" . variable_get('dimpact_docreader_language', 'nl_nl') . "';
+                 var url = '';
+                 var supported_file_extensions = '" . variable_get( 'dimpact_docreader_supported_file_extensions', docreader_supported_file_extensions() ) . "'.replace(/[\s\.]/g, '').split(',');
+                 for (var i = 0; i < links.length; i++) {
+                    if ( links[i].href.match(/\.([a-z]+)$/i) !== null && supported_file_extensions.indexOf(links[i].href.match(/\.([a-z]+)$/i)[1]) !== -1) {
+                      url = encodeURIComponent(links[i].href);
+                      links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees voor') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /> " . t('Lees voor') . "</a> ' );
+                      i++; // Prevents the creation of docReader links on docReader links ad infinitum.
+                    }
+                 }
+                }) ();
+               //]]>
+           </script>";
+
+  $page_bottom['dimpact_docreader_page_attachments'] = array(
+    '#type' => 'markup',
+    '#markup' => $data,
+    '#access' => $access,
+  );
+}

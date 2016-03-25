@@ -1,6 +1,6 @@
 <?php
 
-define('DIMPACT_VERSION', '1.14.2');
+define('DIMPACT_VERSION', '1.15');
 
 /**
  * Implements hook_init().
@@ -199,6 +199,12 @@ function bespoke_apachesolr_search_page_alter(array &$build, array $search_page)
 function bespoke_menu_alter(&$menu) {
   $menu['forum']['access callback'] = 'bespoke_forum_access';
   $menu['forum']['access arguments'] = array();
+
+  // https://dutchopen.unfuddle.com/a#/projects/136/tickets/by_number/594
+  if (module_exists('file_entity') && module_exists('workbench')) {
+    $menu['admin/workbench/file/add'] = $menu['file/add'];
+    unset($menu['file/add']);
+  }
 }
 
 /**
@@ -559,5 +565,18 @@ function bespoke_file_mimetype_mapping_alter(&$mapping) {
     // Get the index of the mime type and assign the extension to that key.
     $index = array_search($mime_type, $mapping['mimetypes']);
     $mapping['extensions'][$extension] = $index;
+  }
+}
+
+/**
+ * Implements hook_file_view_alter.
+ * Removed media container div that breaks p-tags in the WYSIWYG.
+ * @see https://www.drupal.org/node/2357993#comment-10328301
+ * @param type $build
+ * @param type $type
+ */
+function bespoke_file_view_alter(&$build, $type) {
+  if ($build['#bundle'] === 'image') {
+    unset($build['links']);
   }
 }
