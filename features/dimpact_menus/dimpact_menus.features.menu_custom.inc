@@ -86,6 +86,5 @@ function dimpact_menus_menu_default_menu_custom() {
   t('Tabbladen');
   t('Toptaken');
 
-
   return $menus;
 }

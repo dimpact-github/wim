@@ -120,7 +120,7 @@ projects[hansel][version] = "1.4"
 projects[hansel][patch][2399645-1][url] = "https://www.drupal.org/files/issues/hansel-broken-token-generation-2399645-1.patch"
 projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
-projects[homebox][version] = "2.0-rc1"
+projects[homebox][version] = "2.0-rc2"
 
 projects[hotjar][version] = "1.0"
 
@@ -143,13 +143,13 @@ projects[lightbox2][version] = "1.0-beta1"
 projects[link][version] = "1.2"
 projects[link][patch][performance] = patches/link-performance-hack.patch
 
-projects[linkit][version] = "3.3"
+projects[linkit][version] = "3.5"
 
 projects[location][version] = "3.2"
 
 projects[mail_edit][version] = "1.0"
 
-projects[mailchimp][version] = "2.12"
+projects[mailchimp][version] = "2.13"
 
 projects[mailsystem][subdir] = contrib
 projects[mailsystem][version] =  "2.34"
@@ -166,11 +166,11 @@ projects[media_vimeo][version] = "2.1"
 
 projects[memcache][version] = "1.0"
 
-projects[menu_attributes][version] = "1.0-rc2"
+projects[menu_attributes][version] = "1.0"
 
-projects[menu_block][version] = "2.3"
+projects[menu_block][version] = "2.7"
 
-projects[menu_token][version] = "1.0-beta5"
+projects[menu_token][version] = "1.0-beta7"
 
 projects[menu_view_unpublished][version] = "1.0-beta3"
 
@@ -218,11 +218,11 @@ projects[securepages][version] = "1.0-beta2"
 
 projects[static_404][version] = "1.0-beta4"
 
-projects[site_map][version] = "1.2"
+projects[site_map][version] = "1.3"
 
 projects[scheduler][version] = "1.3"
 
-projects[service_links][version] = "2.2"
+projects[service_links][version] = "2.3"
 
 projects[strongarm][version] = "2.0"
 
@@ -245,6 +245,8 @@ projects[transliteration][patch][862248-13][md5] = be5b45301dc1b78ae7bcf4062b6d3
 projects[twitter][version] = "5.11"
 
 projects[twitter_pull][version] = "2.0-alpha3"
+
+projects[uuid][version] = "1.0-beta1"
 
 projects[variable][version] = "2.4"
 
