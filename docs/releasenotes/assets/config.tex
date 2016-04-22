@@ -8,23 +8,34 @@
 \usepackage{graphicx}
 \usepackage[official]{eurosym}
 \usepackage[dutch]{babel}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{color}
+\usepackage{datetime}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{epstopdf}
+\usepackage{latexsym}
 \usepackage{listings}
-\usepackage{varwidth}
 \usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{hyperref}
 \usepackage{lastpage}
+\usepackage{multicol}
+%\usepackage{multind}
+\usepackage{multirow}
+\usepackage{newclude}
+\usepackage{pgfgantt}
+\usepackage{tabularx}
 \usepackage{titling}
 \usepackage[md]{titlesec}
-\usepackage{fullpage}
-\usepackage{latexsym}
-\usepackage{wasysym}
-\usepackage{amssymb}
-\usepackage{multirow}
-\usepackage{multicol}
-\usepackage{tabularx}
-\usepackage{pgfgantt}
+\usepackage{varwidth}
 \usepackage{wallpaper}
+%\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -32,7 +43,7 @@
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead{}
-\fancyfoot[L]{\small{WIM Release 1.15}}
+\fancyfoot[L]{\small{\projectname}}
 \fancyfoot[C]{  }
 \fancyfoot[R]{\textbf{\thepage}\ \small{/ \pageref{LastPage}} \linebreak \linebreak \_\_\_\_\_ }
 
