@@ -70,12 +70,14 @@ function _dimpact_docreader_page_bottom(array &$page_bottom) {
   global $theme_key;
   drupal_theme_initialize();
 
-  // Deny access if admin theme is active.
-  if ($theme_key == variable_get('admin_theme') || variable_get('dimpact_docreader_cid', '') === '') {
+  // Deny access if admin theme is active or no docReader customer id is set.
+  if ($theme_key == variable_get('admin_theme') || variable_get('dimpact_docreader_cid') === NULL) {
     $access = FALSE;
   } else {
     $access = TRUE;
   }
+
+  $new_lines_and_spaces_regexp = '/[\r\n\s]/';
 
   $data = "<script type=\"text/javascript\">
               //<![CDATA[
@@ -84,16 +86,37 @@ function _dimpact_docreader_page_bottom(array &$page_bottom) {
                  var cid = '". variable_get('dimpact_docreader_cid') ."';
                  var language = '" . variable_get('dimpact_docreader_language', 'nl_nl') . "';
                  var url = '';
-                 var supported_file_extensions = '" . variable_get( 'dimpact_docreader_supported_file_extensions', docreader_supported_file_extensions() ) . "'.replace(/[\s\.]/g, '').split(',');
+                 var supported_file_extensions = '" . preg_replace( $new_lines_and_spaces_regexp, '', variable_get( 'dimpact_docreader_supported_file_extensions' ) ) . "'.split(',');
+                 var supported_domains = '"         . preg_replace( $new_lines_and_spaces_regexp, '', variable_get( 'dimpact_docreader_supported_domains' ) ) . "'.split(',');
                  for (var i = 0; i < links.length; i++) {
-                    if ( links[i].href.match(/\.([a-z]+)$/i) !== null && supported_file_extensions.indexOf(links[i].href.match(/\.([a-z]+)$/i)[1]) !== -1) {
-                      url = encodeURIComponent(links[i].href);
-                      links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees voor') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /> " . t('Lees voor') . "</a> ' );
-                      i++; // Prevents the creation of docReader links on docReader links ad infinitum.
+                    var file_extension_regexp = new RegExp( '\.([a-z0-9]+)$', 'i' );
+                    
+                    // If the link leads to a file with a file extension.
+                    if ( file_extension_regexp.test( links[i].href ) === true ) {
+                      var link_file_extension = links[i].href.match( file_extension_regexp )[1];
+                      var link_domain = links[i].href.match(/([a-z0-9\.-]+)(?=\/)/i)[1]; // E.g. 'www.example.com'.
+                    
+                      if ( supported_file_extensions.indexOf( link_file_extension ) !== -1 ) {
+                        // Some-loop-routine to make wild card testing possible.
+                        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+                        supported_domains.some( function( supported_domain ) {
+                          // Prepare string for regexp.
+                          // Escape dots + turn wild cards into '.*'.
+                          var supported_domain_regexp_string = supported_domain.replace( /\./g, '\\.' ).replace( '*', '.*' );
+                          
+                          var supported_domain_regexp = new RegExp( supported_domain_regexp_string, 'i' );
+                          if ( supported_domain_regexp.test( link_domain ) === true ) {
+                            url = encodeURIComponent(links[i].href);
+                            links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees voor') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /> " . t('Lees voor') . "</a> ' );
+                            i++; // Prevents the creation of docReader links on docReader links ad infinitum.  
+                            return true; // Match found, return from loop (continue).
+                          }
+                        });
+                      }
                     }
                  }
-                }) ();
-               //]]>
+               }) ();
+              //]]>
            </script>";
 
   $page_bottom['dimpact_docreader_page_attachments'] = array(

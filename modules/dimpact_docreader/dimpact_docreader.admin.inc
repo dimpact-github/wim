@@ -40,11 +40,20 @@ function dimpact_docreader_settings_form($form, &$form_state) {
     '#required' => TRUE,
   );
   $form['dimpact_docreader_supported_file_extensions'] = array(
-    '#type' => 'textfield',
+    '#type' => 'textarea',
     '#title' => t('Ondersteunde bestandsextensies'),
     '#description' => t('De bestandsextensies waarvoor een docReader-voorleeslink gegenereerd moet worden. Bestandsextensies dienen gescheiden te worden door een komma. Een lijst van ondersteunde documentformaten vindt u
                          op de <a href="http://www.readspeaker.com/nl/readspeaker-docreader/">docReader-website</a>.'),
     '#default_value' => variable_get( 'dimpact_docreader_supported_file_extensions', docreader_supported_file_extensions() ),
+    '#required' => TRUE,
+  );
+  $form['dimpact_docreader_supported_domains'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Ondersteunde domeinen'),
+    '#description' => t('De voorleeslink wordt <em>alleen</em> gegenereerd voor (sub)domeinen gespecificeerd in deze lijst.<br />
+                         Domeinen dienen geschreven te worden zonder http(s) ervoor en dienen tevens gescheiden te worden door een komma. Voorbeeld: www.example.com, example.com, subdomain.example.com, etc.<br />
+                         <em>N.B. Wil je alle subdomeinen toestaan voor een hoofddomein? Gebruik dan een wildcard, bijvoorbeeld: "<strong>*</strong>.example.com".</em>'),
+    '#default_value' => variable_get( 'dimpact_docreader_supported_domains', $_SERVER['HTTP_HOST'] . ', sdu.nl, *.sdu.nl' ),
     '#required' => TRUE,
   );
 
