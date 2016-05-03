@@ -363,9 +363,29 @@
     overflow: hidden;
     .views-row {
       float: left;
-      margin: 0 $gutter-width/2;
+      margin: 0 1%;
       border: 0;
-      width: 100px;
+      width: 23%;
+
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .field-foto {
+        max-width: 180px;
+        height: 180px;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      h2 {
+        font-size: 14px;
+        background-color: #f9f9f9;
+        padding: 10px;
+      }
 
       .views-field-title {
         height: 41px;
@@ -373,6 +393,37 @@
     }
   }
 }
+
+.view-foto-album {
+  .views-rows {
+    overflow: hidden;
+    .views-row {
+      float: left;
+      margin: 0 1%;
+      border: 0;
+      width: 23%;
+
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .field-foto {
+        max-width: 180px;
+        height: 180px;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      .views-field-title {
+        height: 41px;
+      }
+    }
+  }
+}
+
 #views-exposed-form-announcements-page {
   padding: 0 $gutter-width/2;
   .form-item {

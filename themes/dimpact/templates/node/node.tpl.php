@@ -56,16 +56,21 @@ else {
   <?php else: ?>
     <?php print render($content['field_image']); ?>
   <?php endif; ?>
-  
+
   <div class="content"<?php print $content_attributes; ?>>
     <?php print render($content); ?>
     <?php print render($tabs); ?>
   </div>
+  <?php if ($type = 'foto_album' || $teaser): ?>
+    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
+  <?php endif; ?>
   <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
     <div class="comment-count">
       <?php print $comment_count_str; ?>
     </div>
   <?php endif; ?>
-  <?php print render($content['links']); ?>
+  <?php if ($type != 'foto_album' || !$teaser): ?>
+    <?php print render($content['links']); ?>
+  <?php endif; ?>
   <?php print render($content['comments']); ?>
 </article>

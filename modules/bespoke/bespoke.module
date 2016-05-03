@@ -580,3 +580,24 @@ function bespoke_file_view_alter(&$build, $type) {
     unset($build['links']);
   }
 }
+
+function bespoke_views_pre_render(&$view) {
+  if ($view->name === 'foto_album' && $view->current_display === 'page') {
+
+    if (isset($view->args[0]) && is_numeric($view->args[0])) {
+
+      $term = taxonomy_term_load($view->args[0]);
+      if (isset($term) && !empty($term)) {
+        $amount_results = count($view->result);
+
+        $t_vars = array(
+          '@tag_title' => $term->name,
+          '@results_amount' => $amount_results,
+          );
+
+      $view->build_info['title'] = t('Photo Album @tag_title (@results_amount results)', $t_vars);
+      }
+    }
+  }
+}
+
