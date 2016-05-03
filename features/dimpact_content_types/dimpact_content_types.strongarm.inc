@@ -1498,6 +1498,12 @@ function dimpact_content_types_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'subscriptions_ui' => array(
+          'teaser' => array(
+            'weight' => '100',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
