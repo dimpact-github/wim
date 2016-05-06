@@ -38,3 +38,17 @@ function scfeed_enable() {
     scfeed_rebuild(TRUE);
   }
 }
+
+/**
+ * Update scfeed schema field.
+ */
+function scfeed_update_7001() {
+
+  $spec = array(
+    'type' => 'text',
+    'not null' => TRUE,
+    'size' => 'big',
+  );
+
+  db_change_field('scfeed_item', 'xml', 'xml', $spec);
+}
