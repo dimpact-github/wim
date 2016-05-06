@@ -43,7 +43,8 @@ function dimpact_docreader_settings_form($form, &$form_state) {
     '#type' => 'textarea',
     '#title' => t('Ondersteunde bestandsextensies'),
     '#description' => t('De bestandsextensies waarvoor een docReader-voorleeslink gegenereerd moet worden. Bestandsextensies dienen gescheiden te worden door een komma. Een lijst van ondersteunde documentformaten vindt u
-                         op de <a href="http://www.readspeaker.com/nl/readspeaker-docreader/">docReader-website</a>.'),
+                         op de <a href="http://www.readspeaker.com/nl/readspeaker-docreader/">docReader-website</a>.<br />
+                         <em>NB Bestandsextensies dienen gespecificeerd te worden in de <strong>url</strong> en/of de <strong>linktitel</strong>. Voorbeeld: ' . htmlspecialchars('<a href="http://www.example.com/bestand.pdf">Bestand.pdf</a>') . '.</em>' ),
     '#default_value' => variable_get( 'dimpact_docreader_supported_file_extensions', docreader_supported_file_extensions() ),
     '#required' => TRUE,
   );
@@ -52,7 +53,7 @@ function dimpact_docreader_settings_form($form, &$form_state) {
     '#title' => t('Ondersteunde domeinen'),
     '#description' => t('De voorleeslink wordt <em>alleen</em> gegenereerd voor (sub)domeinen gespecificeerd in deze lijst.<br />
                          Domeinen dienen geschreven te worden zonder http(s) ervoor en dienen tevens gescheiden te worden door een komma. Voorbeeld: www.example.com, example.com, subdomain.example.com, etc.<br />
-                         <em>N.B. Wil je alle subdomeinen toestaan voor een hoofddomein? Gebruik dan een wildcard, bijvoorbeeld: "<strong>*</strong>.example.com".</em>'),
+                         <em>NB Wil je alle subdomeinen toestaan voor een hoofddomein? Gebruik dan een wildcard, bijvoorbeeld: "<strong>*</strong>.example.com".</em>'),
     '#default_value' => variable_get( 'dimpact_docreader_supported_domains', $_SERVER['HTTP_HOST'] . ', sdu.nl, *.sdu.nl' ),
     '#required' => TRUE,
   );
