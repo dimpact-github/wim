@@ -109,7 +109,7 @@ function _dimpact_docreader_page_bottom(array &$page_bottom) {
                         var supported_domain_regexp_string = supported_domain.replace( /\./g, '\\.' ).replace( '*', '.*' );
                         
                         var supported_domain_regexp = new RegExp( supported_domain_regexp_string, 'i' );
-                        var host = links[i].href.host; // E.g. 'www.example.com'.
+                        var host = links[i].host; // E.g. 'www.example.com'.
                         if ( supported_domain_regexp.test( host ) === true ) {
                           url = encodeURIComponent(links[i].href);
                           links[i].insertAdjacentHTML( 'afterend', ' <a rel=\"nofollow\" class=\"docreader\" title=\"" . t('Lees voor') . "\" href=\"http://docreader.readspeaker.com/docreader/?cid=' + cid + '&lang=' + language + '&url=' + url + '\" onclick=\"window.open(this.href); return false\"><img src=\"/" . drupal_get_path('module', 'dimpact_docreader') . "/images/docreader_icon.gif\" /> " . t('Lees voor') . "</a> ' );
