@@ -196,3 +196,16 @@ function bespoke_update_7117() {
     'dimpact_mylex',
   ));
 }
+
+/**
+ * Enable "Allow editor to override functions" at /admin/structure/dominion/settings/blueprint/default/edit
+ * https://dutchopen.unfuddle.com/a#/projects/136/tickets/by_number/457
+ */
+function bespoke_update_7118() {
+  db_update('dominion_blueprint')
+    ->fields(array(
+      'allow_functions_override' => TRUE
+    ))
+    ->condition('blueprint', 'default', '=')
+    ->execute();
+}
