@@ -92,7 +92,7 @@ $readspeaker_id = variable_get('bespoke_readspeaker_id', 0);
         <div class="container">
           <div class="branding">
             <?php if ($site_name): ?>
-              <div id="class="site-name">
+              <div class="site-name">
                 <?php if (!theme_get_setting('hide_site_title', 'dimpact')): ?>
                   <h1>
                     <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
