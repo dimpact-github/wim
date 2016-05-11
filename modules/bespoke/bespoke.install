@@ -222,3 +222,16 @@ function bespoke_update_7119() {
   $form_state['values']['op'] = t('Save configuration');
   drupal_form_submit('system_file_system_settings', $form_state);
 }
+
+/**
+ * Grant permissions for "redacteur" and "eindredacteur" for Location: Submit latitude/longitude.
+ */
+function bespoke_update_7120() {
+  $permissions = array('submit latitude/longitude');
+
+  // Redacteur.
+  user_role_grant_permissions(6, $permissions);
+
+  // Eindredacteur.
+  user_role_grant_permissions(7, $permissions);
+}
