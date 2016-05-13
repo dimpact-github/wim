@@ -146,6 +146,7 @@ projects[link][patch][performance] = patches/link-performance-hack.patch
 projects[linkit][version] = "3.5"
 
 projects[location][version] = "3.2"
+projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_location_url.patch
 
 projects[mail_edit][version] = "1.0"
 
