@@ -1,7 +1,7 @@
 name = Dimpact Menus
 core = 7.x
 package = Features
-version = 7.x-1.0-20160322
+version = 7.x-1.1-20160420
 project = dimpact_menus
 dependencies[] = ctools
 dependencies[] = features
@@ -20,4 +20,3 @@ features[menu_custom][] = menu-subfooter-meta-menu-first
 features[menu_custom][] = menu-subfooter-meta-menu-second
 features[menu_custom][] = menu-tabbladen
 features[menu_custom][] = menu-toptaken
-mtime = 1458655046
