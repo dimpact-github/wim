@@ -69,6 +69,15 @@ function dimpact_preprocess_html(&$vars) {
   }
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/dimpact.js');
   drupal_add_js(drupal_get_path('theme', 'dimpact') . '/js/libraries/jquery.carouFredSel-6.2.1-packed.js');
+
+  // Content types can have a field "field_css_class".
+  // This field can be used to add custom css classes to the page body.
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $node = node_load(arg(1));
+    if(!empty($node->field_css_class['und'][0]['value'])) {
+      $vars['classes_array'][] = $node->field_css_class['und'][0]['value'];
+    }
+  }
 }
 
 /**

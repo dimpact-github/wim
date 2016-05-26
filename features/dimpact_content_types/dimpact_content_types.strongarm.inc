@@ -1139,10 +1139,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'domain' => array(
           'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '11',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '10',
         ),
       ),
       'display' => array(
@@ -1214,10 +1220,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'domain' => array(
-          'weight' => '6',
+          'weight' => '7',
+        ),
+        'redirect' => array(
+          'weight' => '10',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -1276,10 +1288,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
           'weight' => '1',
+        ),
+        'redirect' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -1348,13 +1366,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
@@ -1403,13 +1427,19 @@ function dimpact_content_types_strongarm() {
           'weight' => '1',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'detailed_question' => array(
           'weight' => '0',
+        ),
+        'redirect' => array(
+          'weight' => '9',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '8',
         ),
       ),
       'display' => array(),
@@ -1426,13 +1456,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(),
@@ -1481,6 +1517,12 @@ function dimpact_content_types_strongarm() {
         ),
         'path' => array(
           'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '8',
         ),
       ),
       'display' => array(
@@ -1564,13 +1606,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
         'redirect' => array(
-          'weight' => '7',
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -1618,13 +1663,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
@@ -1688,7 +1739,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
+        ),
+        'domain' => array(
+          'weight' => '1',
+        ),
+        'redirect' => array(
+          'weight' => '9',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '10',
         ),
       ),
       'display' => array(
@@ -1766,10 +1826,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
         'domain' => array(
-          'weight' => '2',
+          'weight' => '3',
+        ),
+        'redirect' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(),
@@ -1838,13 +1904,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'domain' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '12',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '13',
         ),
       ),
       'display' => array(
@@ -1947,16 +2016,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
-        ),
-        'domain' => array(
           'weight' => '6',
         ),
-        'redirect' => array(
+        'domain' => array(
           'weight' => '7',
         ),
-        'xmlsitemap' => array(
+        'redirect' => array(
           'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -2041,13 +2110,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '14',
+          'weight' => '15',
+        ),
+        'redirect' => array(
+          'weight' => '17',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '16',
         ),
       ),
       'display' => array(
@@ -2093,6 +2168,12 @@ function dimpact_content_types_strongarm() {
         'path' => array(
           'weight' => '5',
         ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
+        ),
       ),
       'display' => array(),
     ),
@@ -2115,6 +2196,12 @@ function dimpact_content_types_strongarm() {
         ),
         'path' => array(
           'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '9',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '10',
         ),
       ),
       'display' => array(
@@ -2172,10 +2259,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '1',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '4',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '3',
         ),
       ),
       'display' => array(
@@ -2218,10 +2311,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'domain' => array(
-          'weight' => '4',
+          'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(
@@ -2308,13 +2407,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '12',
+          'weight' => '13',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '13',
+          'weight' => '14',
+        ),
+        'redirect' => array(
+          'weight' => '16',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '15',
         ),
       ),
       'display' => array(
@@ -2342,7 +2447,23 @@ function dimpact_content_types_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'domain' => array(
+          'weight' => '1',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '4',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '3',
+        ),
+      ),
       'display' => array(
         'domain' => array(
           'slide_412' => array(
@@ -2377,6 +2498,12 @@ function dimpact_content_types_strongarm() {
         ),
         'path' => array(
           'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '6',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '5',
         ),
       ),
       'display' => array(),
@@ -2439,19 +2566,19 @@ function dimpact_content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'domain' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
-        ),
-        'redirect' => array(
           'weight' => '7',
         ),
-        'xmlsitemap' => array(
+        'redirect' => array(
           'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -2492,10 +2619,16 @@ function dimpact_content_types_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'domain' => array(
           'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(),
@@ -2519,6 +2652,12 @@ function dimpact_content_types_strongarm() {
         ),
         'path' => array(
           'weight' => '2',
+        ),
+        'redirect' => array(
+          'weight' => '7',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
