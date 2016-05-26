@@ -1028,6 +1028,22 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_reminder_email'.
+  $field_bases['field_reminder_email'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reminder_email',
+    'global_block_settings' => 1,
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'email',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'email',
+  );
+
   // Exported field_base: 'field_request'.
   $field_bases['field_request'] = array(
     'active' => 1,
