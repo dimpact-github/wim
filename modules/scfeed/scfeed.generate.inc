@@ -15,6 +15,8 @@ function scfeed_generate_item($node) {
   $ns_overheid = 'http://standaarden.overheid.nl/owms/terms/';
   $ns_dcterms = 'http://purl.org/dc/terms/';
   $ns_xsi = 'http://www.w3.org/2001/XMLSchema-instance';
+  $overheidproduct = "http://standaarden.overheid.nl/product/terms/";
+
 
   $dom = new DOMDocument();
   $dom->formatOutput = TRUE;
@@ -23,6 +25,7 @@ function scfeed_generate_item($node) {
   $products->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:dcterms', $ns_dcterms);
   $products->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:overheid', $ns_overheid);
   $products->setAttributeNS($ns_xsi, 'xsi:schemaLocation', 'http://standaarden.overheid.nl/product/terms/ http://standaarden.overheid.nl/sc/4.0/xsd/sc.xsd');
+  $products->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:dcterms', $overheidproduct);
   $dom->appendchild($products);
 
   $product = $dom->createElement('scproduct');
