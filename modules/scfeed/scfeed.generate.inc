@@ -95,7 +95,7 @@ function scfeed_generate_item($node) {
   $overheidproduct = $dom->createElementNS($ns_sc, 'overheidproduct:scmeta');
   $meta->appendChild($overheidproduct);
 
-  $element = $dom->createElement('overheidproduct:productID', '$node->nid');
+  $element = $dom->createElement('overheidproduct:productID', $node->nid);
   $overheidproduct->appendChild($element);
 
   $element = $dom->createElement('overheidproduct:onlineAanvragen' , 'nee');
