@@ -5,7 +5,7 @@
  */
 function content_reminder_admin_form($form, &$form_state) {
 
-  module_load_include('inc', 'content_reminder', 'content_reminder');
+  module_load_include('inc', 'dimpact_content_reminder', 'dimpact_content_reminder');
   $types = _get_reminder_types();
 
   $form['description'] = array(

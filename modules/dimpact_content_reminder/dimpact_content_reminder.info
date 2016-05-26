@@ -1,4 +1,4 @@
-name = Content Reminder
+name = Dimpact Content Reminder
 description = A module that sends out reminders to editors when content is outdated.
 core = 7.x
 configure = admin/config/content/reminder
