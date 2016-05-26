@@ -92,6 +92,15 @@ function scfeed_generate_item($node) {
     $owmsmantel->appendChild($element);
   }
 
+  $overheidproduct = $dom->createElementNS($ns_sc, 'overheidproduct:scmeta');
+  $meta->appendChild($overheidproduct);
+
+  $element = $dom->createElement('overheidproduct:productID', '$node->nid');
+  $overheidproduct->appendChild($element);
+
+  $element = $dom->createElement('overheidproduct:onlineAanvragen' , 'nee');
+  $overheidproduct->appendChild($element);
+
   $xml = $dom->saveXML($product);
   db_merge('scfeed_item')
     ->key(array('nid'), array($node->nid))
