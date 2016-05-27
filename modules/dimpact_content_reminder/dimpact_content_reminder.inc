@@ -77,6 +77,7 @@ function _prepare_nodes($nodes, $mailtype) {
     }
   }
   
+  _send_mails($email_nodes, $mailtype); // Mail the node author (user).
   _send_mails($emailremindernodes, $mailtype); // Mail the people defined in the node's "reminder email field".
 }
 
