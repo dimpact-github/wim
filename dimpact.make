@@ -260,6 +260,8 @@ projects[views_rss][version] = "2.0-rc3"
 projects[webform][version] = "3.24"
 projects[webform][patch][drupal_makes_file_upload_component_fail_for_anonymous_user] = patches/drupal_makes_file_upload_component_fail_for_anonymous_user.patch
 
+projects[webform_clear] = "2.0"
+
 projects[weight][version] = "2.5"
 
 projects[wikitools][version] = "1.0-alpha1"
