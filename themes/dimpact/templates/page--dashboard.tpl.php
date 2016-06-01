@@ -54,16 +54,14 @@ $action_links = render($action_links);
 
     <div class="container">
       <div class="branding">
-        <?php if ($site_name): ?>
-          <h1 class="site-name">
-            <?php if ($logo): ?>
-              <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="logo"><img src="<?php print $logo ?>" alt="<?php print $site_name ?> Logo"></a>
-            <?php endif; ?>
-            <?php if (!theme_get_setting('hide_site_title', 'dimpact')): ?>
-              <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
-            <?php endif; ?>
+        <div class="site-name">
+          <h1 <?php if (theme_get_setting('hide_site_title', 'dimpact')): ?>class="hide-text"<?php endif; ?>>
+            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="name"><?php print $site_name; ?></a>
           </h1>
-        <?php endif; ?>
+          <?php if ($logo): ?>
+            <a title="<?php print t('Home'); ?>" rel="home" href="<?php print $front_page; ?>" class="logo"><img src="<?php print $logo ?>" alt="<?php print $site_name ?> Logo"></a>
+          <?php endif; ?>
+        </div>
         <?php if ($site_slogan): ?>
           <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>

@@ -49,14 +49,14 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Sort criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -64,14 +64,14 @@ function dimpact_views_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -79,13 +79,13 @@ function dimpact_views_views_default_views() {
     'agenda' => 'agenda',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
   $handler->display->display_options['filters']['current_all']['group'] = 1;
-  /* Filtercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Filter criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -93,7 +93,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['filters']['field_date_value']['group'] = 2;
   $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
-  /* Filtercriterium: Inhoud: Datum - einddatum (field_date:value2) */
+  /* Filter criterion: Inhoud: Datum - end date (field_date:value2) */
   $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
@@ -119,7 +119,7 @@ function dimpact_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -132,7 +132,7 @@ if (node_access(\'create\', \'agenda\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -141,7 +141,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum */
+  /* Field: Inhoud: Datum */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -176,6 +176,7 @@ if (node_access(\'create\', \'agenda\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Teaser block'),
+    t('more'),
     t('Agenda teaserblok'),
     t('List block'),
     t('<span class="more-link"><a href="/actueel/agenda">Volledige agenda </a></span>
@@ -227,14 +228,14 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Sort criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -242,14 +243,14 @@ if (node_access(\'create\', \'agenda\')) {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -257,13 +258,13 @@ if (node_access(\'create\', \'agenda\')) {
     'agenda' => 'agenda',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
   $handler->display->display_options['filters']['current_all']['group'] = 1;
-  /* Filtercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Filter criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -271,7 +272,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['filters']['field_date_value']['group'] = 2;
   $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
-  /* Filtercriterium: Inhoud: Datum - einddatum (field_date:value2) */
+  /* Filter criterion: Inhoud: Datum - end date (field_date:value2) */
   $handler->display->display_options['filters']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['filters']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value2']['field'] = 'field_date_value2';
@@ -297,7 +298,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -310,7 +311,7 @@ if (node_access(\'create\', \'agenda\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -319,7 +320,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum */
+  /* Field: Inhoud: Datum */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -358,6 +359,7 @@ if (node_access(\'create\', \'agenda\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Teaser block Team'),
+    t('more'),
     t('Team Agenda teaserblok'),
     t('List block Team'),
     t('<span class="more-link"><?php print l(\'Volledige Agenda\', \'team-agenda\'); ?></span>
@@ -410,15 +412,15 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -427,7 +429,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -437,7 +439,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -446,7 +448,7 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['name']['element_type'] = 'span';
   $handler->display->display_options['fields']['name']['element_class'] = 'submitted';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Veld: Inhoud: Aantal reacties */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -460,26 +462,26 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['fields']['comment_count']['format_plural'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['format_plural_singular'] = '1 reactie';
   $handler->display->display_options['fields']['comment_count']['format_plural_plural'] = '@count reacties';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'message' => 'message',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -506,11 +508,11 @@ if (node_access(\'create\', \'agenda\')) {
   $handler->display->display_options['row_options']['inline'] = array(
     'created' => 'created',
     'name' => 'name',
+    'comment_count' => 'comment_count',
   );
-  $handler->display->display_options['row_options']['separator'] = ' | ';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -522,7 +524,7 @@ if (node_access(\'create\', \'message\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -531,22 +533,41 @@ if (node_access(\'create\', \'message\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['created']['element_wrapper_class'] = 'post-date';
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'door';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['name']['element_wrapper_class'] = 'post-author';
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  /* Field: Content: Comment count */
+  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['label'] = '';
+  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['comment_count']['element_wrapper_class'] = 'comment-count';
+  $handler->display->display_options['fields']['comment_count']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['comment_count']['empty'] = 'nog geen reacties';
+  $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['format_plural'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['format_plural_singular'] = '1 reactie';
+  $handler->display->display_options['fields']['comment_count']['format_plural_plural'] = '@count reacties';
   $handler->display->display_options['block_description'] = 'Berichtenblok';
 
   /* Display: Alle berichtenblok */
@@ -597,7 +618,7 @@ if (node_access(\'create\', \'message\')) {
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
-    t('auteur'),
+    t('author'),
     t('door'),
     t('nog geen reacties'),
     t('.'),
@@ -609,7 +630,7 @@ if (node_access(\'create\', \'message\')) {
 }
 ?>'),
     t('Alle berichtenblok'),
-    t('meer'),
+    t('more'),
     t('Pagina'),
   );
   $export['berichten'] = $view;
@@ -654,7 +675,7 @@ if (node_access(\'create\', \'message\')) {
     'name' => 'name',
     'created' => 'created',
   );
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -666,14 +687,14 @@ if (node_access(\'create\', \'file\')) {
 }
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
-  /* Veld: Bestand: Extensie */
+  /* Field: File: Extension */
   $handler->display->display_options['fields']['extension']['id'] = 'extension';
   $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
   $handler->display->display_options['fields']['extension']['field'] = 'extension';
   $handler->display->display_options['fields']['extension']['relationship'] = 'field_bestand_fid';
   $handler->display->display_options['fields']['extension']['label'] = '';
   $handler->display->display_options['fields']['extension']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -682,7 +703,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Bestand: Grootte */
+  /* Field: File: Size */
   $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
   $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
@@ -692,7 +713,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['filesize']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['filesize']['alter']['text'] = '([filesize])';
   $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -701,7 +722,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -709,7 +730,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -717,26 +738,26 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div>[title] <span class="views-field-filesize">[filesize]</span></div>
 <div>Door: [name], op [created]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'file' => 'file',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -751,11 +772,11 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'Alle documenten';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Bestand (field_bestand:fid) */
+  /* Relationship: Inhoud: Bestand (field_bestand:fid) */
   $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
   $handler->display->display_options['relationships']['field_bestand_fid']['table'] = 'field_data_field_bestand';
   $handler->display->display_options['relationships']['field_bestand_fid']['field'] = 'field_bestand_fid';
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -766,19 +787,19 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Bijlagen';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Bijlage (field_bijlage:fid) */
+  /* Relationship: Inhoud: Bijlage (field_bijlage:fid) */
   $handler->display->display_options['relationships']['field_bijlage_fid']['id'] = 'field_bijlage_fid';
   $handler->display->display_options['relationships']['field_bijlage_fid']['table'] = 'field_data_field_bijlage';
   $handler->display->display_options['relationships']['field_bijlage_fid']['field'] = 'field_bijlage_fid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Bestand: Extensie */
+  /* Field: File: Extension */
   $handler->display->display_options['fields']['extension']['id'] = 'extension';
   $handler->display->display_options['fields']['extension']['table'] = 'file_managed';
   $handler->display->display_options['fields']['extension']['field'] = 'extension';
   $handler->display->display_options['fields']['extension']['relationship'] = 'field_bijlage_fid';
   $handler->display->display_options['fields']['extension']['label'] = '';
   $handler->display->display_options['fields']['extension']['element_label_colon'] = FALSE;
-  /* Veld: Bestand: Naam */
+  /* Field: File: Name */
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
@@ -786,7 +807,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['filename']['label'] = '';
   $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
   $handler->display->display_options['fields']['filename']['element_label_colon'] = FALSE;
-  /* Veld: Bestand: Grootte */
+  /* Field: File: Size */
   $handler->display->display_options['fields']['filesize']['id'] = 'filesize';
   $handler->display->display_options['fields']['filesize']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filesize']['field'] = 'filesize';
@@ -796,7 +817,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['filesize']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['filesize']['alter']['text'] = '([filesize])';
   $handler->display->display_options['fields']['filesize']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -804,7 +825,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -813,7 +834,7 @@ if (node_access(\'create\', \'file\')) {
 <div>[created]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Inhoud: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -825,19 +846,19 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
-  /* Filtercriterium: Inhoud: Bijlage (field_bijlage:fid) */
+  /* Filter criterion: Inhoud: Bijlage (field_bijlage:fid) */
   $handler->display->display_options['filters']['field_bijlage_fid']['id'] = 'field_bijlage_fid';
   $handler->display->display_options['filters']['field_bijlage_fid']['table'] = 'field_data_field_bijlage';
   $handler->display->display_options['filters']['field_bijlage_fid']['field'] = 'field_bijlage_fid';
@@ -860,11 +881,11 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Bestand (field_bestand:fid) */
+  /* Relationship: Inhoud: Bestand (field_bestand:fid) */
   $handler->display->display_options['relationships']['field_bestand_fid']['id'] = 'field_bestand_fid';
   $handler->display->display_options['relationships']['field_bestand_fid']['table'] = 'field_data_field_bestand';
   $handler->display->display_options['relationships']['field_bestand_fid']['field'] = 'field_bestand_fid';
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -896,11 +917,12 @@ if (node_access(\'create\', \'file\')) {
 <div>Door: [name], op [created]</div>'),
     t('Teamdocumentenblok'),
     t('Alle documenten'),
-    t('bestand uit field_bestand'),
-    t('auteur'),
+    t('file from field_bestand'),
+    t('author'),
     t('Bijlagenblok'),
     t('Bijlagen'),
-    t('bestand uit field_bijlage'),
+    t('more'),
+    t('file from field_bijlage'),
     t('<div>[filename] <span class="views-field-filesize">[filesize]</span></div>
 <div>[created]</div>'),
     t('Alle'),
@@ -944,33 +966,33 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -985,12 +1007,12 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Blogs per gebruiker';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Gebruiker: Naam */
+  /* Contextual filter: User: Name */
   $handler->display->display_options['arguments']['name']['id'] = 'name';
   $handler->display->display_options['arguments']['name']['table'] = 'users';
   $handler->display->display_options['arguments']['name']['field'] = 'name';
@@ -1003,14 +1025,14 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['name']['limit'] = '0';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1046,8 +1068,9 @@ if (node_access(\'create\', \'file\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Page'),
+    t('more'),
     t('Blogs per gebruiker'),
-    t('auteur'),
+    t('author'),
     t('Alle'),
     t('Teaser block'),
     t('Blogs teaserblok'),
@@ -1081,7 +1104,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -1092,12 +1115,12 @@ if (node_access(\'create\', \'file\')) {
     'carrousel_4_12' => 0,
     'voorpagina_banners' => 0,
   );
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1111,12 +1134,12 @@ if (node_access(\'create\', \'file\')) {
     'file_view_mode' => 'slide_93',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Nodequeue: Positie */
+  /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Contextueel filter: Nodequeue: Subqueue ID */
+  /* Contextual filter: Nodequeue: Subqueue ID */
   $handler->display->display_options['arguments']['sqid']['id'] = 'sqid';
   $handler->display->display_options['arguments']['sqid']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['arguments']['sqid']['field'] = 'sqid';
@@ -1126,7 +1149,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['sqid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['sqid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['sqid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Inhoud: Gepubliceerd of beheerder */
+  /* Filter criterion: Content: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -1138,7 +1161,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -1150,7 +1173,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1160,7 +1183,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1181,7 +1204,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -1193,7 +1216,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1203,7 +1226,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1224,7 +1247,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -1236,7 +1259,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1246,7 +1269,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -1272,6 +1295,7 @@ if (node_access(\'create\', \'file\')) {
     t('queue'),
     t('Alle'),
     t('Carousel 9/12 block'),
+    t('more'),
     t('Keuze Carrousel breed (9/12)'),
     t('Carousel 4/12 block'),
     t('Keuze Carrousel smal (4/12)'),
@@ -1308,13 +1332,13 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Algemeen: Tekstveld */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Selecteer een categorie.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Veld: Taxonomieterm: Term-ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -1322,7 +1346,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Veld: Taxonomieterm: Naam */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1333,7 +1357,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_type'] = 'h3';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Filtercriterium: Taxonomiewoordenlijst: Systeemnaam */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -1356,6 +1380,7 @@ if (node_access(\'create\', \'file\')) {
     t('Selecteer een categorie.'),
     t('.'),
     t('Page'),
+    t('more'),
   );
   $export['faq_categorieen'] = $view;
 
@@ -1388,12 +1413,12 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Flags: favorieten */
+  /* Relationship: Flags: favorieten */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'favorieten';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1402,18 +1427,18 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sorteercriterium: Flags: Flagged time */
+  /* Sort criterion: Flags: Flagged time */
   $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['table'] = 'flagging';
   $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['sorts']['timestamp']['relationship'] = 'flag_content_rel';
   $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -1433,8 +1458,9 @@ if (node_access(\'create\', \'file\')) {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('vlag'),
+    t('flag'),
     t('Favorietenblok'),
+    t('more'),
   );
   $export['favorieten'] = $view;
 
@@ -1471,11 +1497,11 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Feeds item: Owner feed */
+  /* Relationship: Feeds item: Owner feed */
   $handler->display->display_options['relationships']['feed_nid']['id'] = 'feed_nid';
   $handler->display->display_options['relationships']['feed_nid']['table'] = 'feeds_item';
   $handler->display->display_options['relationships']['feed_nid']['field'] = 'feed_nid';
-  /* Veld: Inhoud: URL */
+  /* Field: Inhoud: URL */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
   $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
@@ -1489,7 +1515,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['field_url']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_url']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_url']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1503,12 +1529,12 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextueel filter: Feeds item: Owner feed nid */
+  /* Contextual filter: Feeds item: Owner feed nid */
   $handler->display->display_options['arguments']['feed_nid']['id'] = 'feed_nid';
   $handler->display->display_options['arguments']['feed_nid']['table'] = 'feeds_item';
   $handler->display->display_options['arguments']['feed_nid']['field'] = 'feed_nid';
@@ -1518,14 +1544,14 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['feed_nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['feed_nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['feed_nid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1572,6 +1598,7 @@ if (node_access(\'create\', \'file\')) {
     t('Alle'),
     t('Type'),
     t('RSS Block'),
+    t('more'),
   );
   $export['feeds_intranet'] = $view;
 
@@ -1611,18 +1638,18 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
-  /* Relatie: Inhoud: Tags (field_tags) */
+  /* Relationship: Inhoud: Tags (field_tags) */
   $handler->display->display_options['relationships']['field_tags_tid']['id'] = 'field_tags_tid';
   $handler->display->display_options['relationships']['field_tags_tid']['table'] = 'field_data_field_tags';
   $handler->display->display_options['relationships']['field_tags_tid']['field'] = 'field_tags_tid';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Veld: Inhoud: Bestand */
+  /* Field: Inhoud: Bestand */
   $handler->display->display_options['fields']['field_bestand']['id'] = 'field_bestand';
   $handler->display->display_options['fields']['field_bestand']['table'] = 'field_data_field_bestand';
   $handler->display->display_options['fields']['field_bestand']['field'] = 'field_bestand';
@@ -1637,7 +1664,7 @@ if (node_access(\'create\', \'file\')) {
     'file_view_mode' => 'teaser',
   );
   $handler->display->display_options['fields']['field_bestand']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Tags */
+  /* Field: Inhoud: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -1651,13 +1678,13 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['group_type'] = 'avg';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextueel filter: Inhoud: Tags (field_tags) */
+  /* Contextual filter: Inhoud: Tags (field_tags) */
   $handler->display->display_options['arguments']['field_tags_tid']['id'] = 'field_tags_tid';
   $handler->display->display_options['arguments']['field_tags_tid']['table'] = 'field_data_field_tags';
   $handler->display->display_options['arguments']['field_tags_tid']['field'] = 'field_tags_tid';
@@ -1666,21 +1693,21 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['arguments']['field_tags_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_tags_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_tags_tid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'foto_album' => 'foto_album',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -1699,7 +1726,7 @@ if (node_access(\'create\', \'file\')) {
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Kop: Algemeen: Tekstveld */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1709,7 +1736,7 @@ if (node_access(\'create\', \'file\')) {
 ?>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1722,14 +1749,14 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Veld: Inhoud: Tags */
+  /* Field: Inhoud: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -1743,7 +1770,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Bestand */
+  /* Field: Inhoud: Bestand */
   $handler->display->display_options['fields']['field_bestand']['id'] = 'field_bestand';
   $handler->display->display_options['fields']['field_bestand']['table'] = 'field_data_field_bestand';
   $handler->display->display_options['fields']['field_bestand']['field'] = 'field_bestand';
@@ -1784,7 +1811,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['row_options']['separator'] = ' ';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1797,21 +1824,21 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Tags (field_tags) */
+  /* Relationship: Inhoud: Tags (field_tags) */
   $handler->display->display_options['relationships']['field_tags_tid']['id'] = 'field_tags_tid';
   $handler->display->display_options['relationships']['field_tags_tid']['table'] = 'field_data_field_tags';
   $handler->display->display_options['relationships']['field_tags_tid']['field'] = 'field_tags_tid';
   $handler->display->display_options['relationships']['field_tags_tid']['label'] = 'tag';
   $handler->display->display_options['relationships']['field_tags_tid']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Taxonomieterm: Term-ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
   $handler->display->display_options['fields']['tid']['relationship'] = 'field_tags_tid';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Veld: Taxonomieterm: Naam */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1858,7 +1885,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['row_options']['separator'] = ' ';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1870,21 +1897,21 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Tags (field_tags) */
+  /* Relationship: Inhoud: Tags (field_tags) */
   $handler->display->display_options['relationships']['field_tags_tid']['id'] = 'field_tags_tid';
   $handler->display->display_options['relationships']['field_tags_tid']['table'] = 'field_data_field_tags';
   $handler->display->display_options['relationships']['field_tags_tid']['field'] = 'field_tags_tid';
   $handler->display->display_options['relationships']['field_tags_tid']['label'] = 'tag';
   $handler->display->display_options['relationships']['field_tags_tid']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Taxonomieterm: Term-ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
   $handler->display->display_options['fields']['tid']['relationship'] = 'field_tags_tid';
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Veld: Taxonomieterm: Naam */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1912,9 +1939,10 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('‹ vorige'),
     t('volgende ›'),
     t('laatste »'),
-    t('term van field_tags'),
+    t('term from field_tags'),
     t('Alle'),
     t('Page'),
+    t('more'),
     t('<?php
 // print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
 ?>'),
@@ -1933,7 +1961,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
 }
 ?>'),
     t('tag'),
-    t('Term-ID'),
+    t('Term ID'),
     t('.'),
     t('Fotoalbumblok'),
     t('Fotoalbumsblok'),
@@ -1983,7 +2011,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -1992,7 +2020,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum */
+  /* Field: Inhoud: Datum */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -2009,7 +2037,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     'multiple_to' => '',
   );
   $handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;
-  /* Contextueel filter: Inhoud: Categorie (field_ris_category) */
+  /* Contextual filter: Inhoud: Categorie (field_ris_category) */
   $handler->display->display_options['arguments']['field_ris_category_tid']['id'] = 'field_ris_category_tid';
   $handler->display->display_options['arguments']['field_ris_category_tid']['table'] = 'field_data_field_ris_category';
   $handler->display->display_options['arguments']['field_ris_category_tid']['field'] = 'field_ris_category_tid';
@@ -2019,7 +2047,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_ris_category_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_ris_category_tid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -2041,12 +2069,12 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Sort criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -2054,14 +2082,14 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2086,13 +2114,13 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Sort criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Inhoud: Categorie (field_ris_category) */
+  /* Contextual filter: Inhoud: Categorie (field_ris_category) */
   $handler->display->display_options['arguments']['field_ris_category_tid']['id'] = 'field_ris_category_tid';
   $handler->display->display_options['arguments']['field_ris_category_tid']['table'] = 'field_data_field_ris_category';
   $handler->display->display_options['arguments']['field_ris_category_tid']['field'] = 'field_ris_category_tid';
@@ -2105,14 +2133,14 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['arguments']['field_ris_category_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2134,7 +2162,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Ongefilterde tekst */
+  /* Footer: Global: Unfiltered text */
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
@@ -2142,26 +2170,26 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<a href="/bestuur-en-organisatie/vergaderingen/!1">Meer vergaderingen</a>';
   $handler->display->display_options['footer']['area_text_custom']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sorteercriterium: Inhoud: Datum - startdatum (field_date) */
+  /* Sort criterion: Inhoud: Datum -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2188,7 +2216,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2200,14 +2228,14 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2235,6 +2263,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('Meer vergaderingen'),
     t('RIS vergaderingen'),
     t('Pagina'),
+    t('more'),
     t('<a href="/bestuur-en-organisatie/vergaderingen/!1">Meer vergaderingen</a>'),
     t('RIS vergaderingen gegroepeerd'),
     t('Bijlage'),
@@ -2274,7 +2303,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Veld: Inhoud: Locatie */
+  /* Field: Inhoud: Locatie */
   $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
   $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
   $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
@@ -2286,7 +2315,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['field_location']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_location']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_location']['type'] = 'location_all';
-  /* Contextueel filter: Inhoud: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -2296,19 +2325,19 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Location: Breedtegraad */
+  /* Filter criterion: Location: Latitude */
   $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['table'] = 'location';
   $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
   $handler->display->display_options['filters']['latitude']['operator'] = '!=';
-  /* Filtercriterium: Location: Lengtegraad */
+  /* Filter criterion: Location: Longitude */
   $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
   $handler->display->display_options['filters']['longitude']['table'] = 'location';
   $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
@@ -2328,6 +2357,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     t('Aflopend'),
     t('Alle'),
     t('Blok'),
+    t('more'),
     t('Google maps kaart'),
   );
   $export['maps'] = $view;
@@ -2367,11 +2397,11 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2380,7 +2410,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Category */
+  /* Field: Inhoud: Category */
   $handler->display->display_options['fields']['field_category_marketplace']['id'] = 'field_category_marketplace';
   $handler->display->display_options['fields']['field_category_marketplace']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['fields']['field_category_marketplace']['field'] = 'field_category_marketplace';
@@ -2392,32 +2422,32 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['fields']['field_category_marketplace']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_category_marketplace']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_category_marketplace']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Door';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'marketplace' => 'marketplace',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -2428,7 +2458,7 @@ print l(t(\'Foto toevoegen\'), \'node/add/foto-album\', array(\'attributes\' => 
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Marktplaats';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -2465,7 +2495,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -2479,26 +2509,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'marketplace' => 'marketplace',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
-  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  /* Filter criterion: Inhoud: Category (field_category_marketplace) */
   $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
@@ -2532,7 +2562,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -2546,26 +2576,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'marketplace' => 'marketplace',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
-  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  /* Filter criterion: Inhoud: Category (field_category_marketplace) */
   $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
@@ -2608,7 +2638,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -2621,26 +2651,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'marketplace' => 'marketplace',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
-  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  /* Filter criterion: Inhoud: Category (field_category_marketplace) */
   $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
@@ -2683,7 +2713,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -2696,26 +2726,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'marketplace' => 'marketplace',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['value'] = '1';
-  /* Filtercriterium: Inhoud: Category (field_category_marketplace) */
+  /* Filter criterion: Inhoud: Category (field_category_marketplace) */
   $handler->display->display_options['filters']['field_category_marketplace_tid']['id'] = 'field_category_marketplace_tid';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['filters']['field_category_marketplace_tid']['field'] = 'field_category_marketplace_tid';
@@ -2733,10 +2763,11 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('auteur'),
+    t('author'),
     t('Door'),
     t('Marktplaats lijstblok'),
     t('Marktplaats'),
+    t('more'),
     t('<span class="more-link"><a href="/actueel/marktplaats">Marktplaats </a></span>
 <?php
 if (node_access(\'create\', \'marketplace\')) {
@@ -2812,33 +2843,33 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'news' => 'news',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -2862,14 +2893,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2878,7 +2909,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2886,7 +2917,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2896,7 +2927,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
   $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
-  /* Veld: Inhoud: Intro */
+  /* Field: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
   $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
@@ -2914,7 +2945,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['settings'] = array(
     'trim_length' => '150',
   );
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -2937,14 +2968,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -2953,7 +2984,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Pad */
+  /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
@@ -2961,7 +2992,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['path']['absolute'] = TRUE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -2977,7 +3008,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'file_view_mode' => 'preview',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2986,7 +3017,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'calendar';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Inhoud: Datum van inzending */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -2996,7 +3027,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'Y-m-d\\TH:i:sO';
   $handler->display->display_options['fields']['created_1']['second_date_format'] = 'long';
-  /* Veld: Inhoud: Intro */
+  /* Field: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
   $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
@@ -3014,7 +3045,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['settings'] = array(
     'trim_length' => '150',
   );
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -3039,6 +3070,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Teaser block'),
+    t('more'),
     t('Nieuws teaserblok'),
     t('List block'),
     t('<div class="more-link"><a href="/actueel/nieuws">Meer nieuws </a></div>'),
@@ -3077,7 +3109,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -3086,12 +3118,12 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['relationships']['nodequeue_rel']['queues'] = array(
     'carousel_9_3' => 'carousel_9_3',
   );
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3105,12 +3137,12 @@ if (node_access(\'create\', \'marketplace\')) {
     'file_view_mode' => 'slide_93',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Nodequeue: Positie */
+  /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filtercriterium: Inhoud: Gepubliceerd of beheerder */
+  /* Filter criterion: Content: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -3122,7 +3154,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -3134,7 +3166,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3144,7 +3176,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3165,7 +3197,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -3177,7 +3209,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'voorpagina_banners' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -3189,7 +3221,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3199,7 +3231,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3220,7 +3252,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'carousel carousel-93';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -3232,7 +3264,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'voorpagina_banners' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -3244,7 +3276,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3254,7 +3286,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3279,6 +3311,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Aflopend'),
     t('queue'),
     t('Carousel 9/12 block'),
+    t('more'),
     t('Carrousel breed (9/12)'),
     t('Carousel 4/12 block'),
     t('Carrousel smal (4/12)'),
@@ -3315,7 +3348,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3329,7 +3362,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'file_view_mode' => 'portret',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3338,7 +3371,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Body */
+  /* Field: Inhoud: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3352,7 +3385,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'trim_length' => '200',
   );
   $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Category */
+  /* Field: Inhoud: Category */
   $handler->display->display_options['fields']['field_category_person']['id'] = 'field_category_person';
   $handler->display->display_options['fields']['field_category_person']['table'] = 'field_data_field_category_person';
   $handler->display->display_options['fields']['field_category_person']['field'] = 'field_category_person';
@@ -3365,25 +3398,25 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_category_person']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_category_person']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_category_person']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Inhoud: Titel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'person' => 'person',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -3415,7 +3448,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3424,7 +3457,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -3438,7 +3471,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'file_view_mode' => 'portret',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Body */
+  /* Field: Inhoud: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -3452,7 +3485,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'trim_length' => '200',
   );
   $handler->display->display_options['fields']['body']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Category */
+  /* Field: Inhoud: Category */
   $handler->display->display_options['fields']['field_category_person']['id'] = 'field_category_person';
   $handler->display->display_options['fields']['field_category_person']['table'] = 'field_data_field_category_person';
   $handler->display->display_options['fields']['field_category_person']['field'] = 'field_category_person';
@@ -3475,6 +3508,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Oplopend'),
     t('Aflopend'),
     t('Personenblok (intranet)'),
+    t('more'),
     t('Personenblok intranet'),
     t('Smoelenboekblok (internet)'),
     t('Personenblok internet'),
@@ -3510,12 +3544,12 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Domain Editor: Domain editors */
+  /* Relationship: Domain Editor: Domain editors */
   $handler->display->display_options['relationships']['domain_id']['id'] = 'domain_id';
   $handler->display->display_options['relationships']['domain_id']['table'] = 'domain_editor';
   $handler->display->display_options['relationships']['domain_id']['field'] = 'domain_id';
   $handler->display->display_options['relationships']['domain_id']['required'] = TRUE;
-  /* Veld: Gebruiker: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -3523,21 +3557,21 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Veld: Gebruiker: Link */
+  /* Field: User: Link */
   $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['table'] = 'users';
   $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['label'] = '';
   $handler->display->display_options['fields']['view_user']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3548,7 +3582,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['name']['element_type'] = 'h3';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Veld: Gebruiker: Volledige naam */
+  /* Field: Gebruiker: Volledige naam */
   $handler->display->display_options['fields']['field_volledige_naam']['id'] = 'field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['table'] = 'field_data_field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['field'] = 'field_volledige_naam';
@@ -3562,7 +3596,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_volledige_naam']['empty'] = '[name]';
   $handler->display->display_options['fields']['field_volledige_naam']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_volledige_naam']['field_api_classes'] = TRUE;
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -3572,7 +3606,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Veld: Gebruiker: Functie */
+  /* Field: Gebruiker: Functie */
   $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
   $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
   $handler->display->display_options['fields']['field_functie']['field'] = 'field_functie';
@@ -3580,7 +3614,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_functie']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_functie']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_functie']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Doorkiesnummer */
+  /* Field: Gebruiker: Doorkiesnummer */
   $handler->display->display_options['fields']['field_doorkiesnummer']['id'] = 'field_doorkiesnummer';
   $handler->display->display_options['fields']['field_doorkiesnummer']['table'] = 'field_data_field_doorkiesnummer';
   $handler->display->display_options['fields']['field_doorkiesnummer']['field'] = 'field_doorkiesnummer';
@@ -3588,11 +3622,11 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Gebruiker: Volledige naam (field_volledige_naam) */
+  /* Sort criterion: Gebruiker: Volledige naam (field_volledige_naam) */
   $handler->display->display_options['sorts']['field_volledige_naam_value']['id'] = 'field_volledige_naam_value';
   $handler->display->display_options['sorts']['field_volledige_naam_value']['table'] = 'field_data_field_volledige_naam';
   $handler->display->display_options['sorts']['field_volledige_naam_value']['field'] = 'field_volledige_naam_value';
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -3605,7 +3639,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Medewerkers';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -3613,21 +3647,21 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Veld: Gebruiker: Link */
+  /* Field: User: Link */
   $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['table'] = 'users';
   $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['label'] = '';
   $handler->display->display_options['fields']['view_user']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret';
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3638,7 +3672,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['name']['element_type'] = 'h3';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Veld: Gebruiker: Volledige naam */
+  /* Field: Gebruiker: Volledige naam */
   $handler->display->display_options['fields']['field_volledige_naam']['id'] = 'field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['table'] = 'field_data_field_volledige_naam';
   $handler->display->display_options['fields']['field_volledige_naam']['field'] = 'field_volledige_naam';
@@ -3652,7 +3686,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_volledige_naam']['empty'] = '[name]';
   $handler->display->display_options['fields']['field_volledige_naam']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_volledige_naam']['field_api_classes'] = TRUE;
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -3662,7 +3696,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'h3';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Veld: Gebruiker: Functie */
+  /* Field: Gebruiker: Functie */
   $handler->display->display_options['fields']['field_functie']['id'] = 'field_functie';
   $handler->display->display_options['fields']['field_functie']['table'] = 'field_data_field_functie';
   $handler->display->display_options['fields']['field_functie']['field'] = 'field_functie';
@@ -3670,7 +3704,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_functie']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_functie']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_functie']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Doorkiesnummer */
+  /* Field: Gebruiker: Doorkiesnummer */
   $handler->display->display_options['fields']['field_doorkiesnummer']['id'] = 'field_doorkiesnummer';
   $handler->display->display_options['fields']['field_doorkiesnummer']['table'] = 'field_data_field_doorkiesnummer';
   $handler->display->display_options['fields']['field_doorkiesnummer']['field'] = 'field_doorkiesnummer';
@@ -3678,7 +3712,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_doorkiesnummer']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_doorkiesnummer']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Mobiel */
+  /* Field: Gebruiker: Mobiel */
   $handler->display->display_options['fields']['field_mobiel']['id'] = 'field_mobiel';
   $handler->display->display_options['fields']['field_mobiel']['table'] = 'field_data_field_mobiel';
   $handler->display->display_options['fields']['field_mobiel']['field'] = 'field_mobiel';
@@ -3686,7 +3720,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_mobiel']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_mobiel']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_mobiel']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: E-mail */
+  /* Field: Gebruiker: E-mail */
   $handler->display->display_options['fields']['field_email']['id'] = 'field_email';
   $handler->display->display_options['fields']['field_email']['table'] = 'field_data_field_email';
   $handler->display->display_options['fields']['field_email']['field'] = 'field_email';
@@ -3695,7 +3729,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_email']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_email']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_email']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Afdeling */
+  /* Field: Gebruiker: Afdeling */
   $handler->display->display_options['fields']['field_afdeling']['id'] = 'field_afdeling';
   $handler->display->display_options['fields']['field_afdeling']['table'] = 'field_data_field_afdeling';
   $handler->display->display_options['fields']['field_afdeling']['field'] = 'field_afdeling';
@@ -3703,7 +3737,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_afdeling']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_afdeling']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_afdeling']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Werkplek */
+  /* Field: Gebruiker: Werkplek */
   $handler->display->display_options['fields']['field_werkplek']['id'] = 'field_werkplek';
   $handler->display->display_options['fields']['field_werkplek']['table'] = 'field_data_field_werkplek';
   $handler->display->display_options['fields']['field_werkplek']['field'] = 'field_werkplek';
@@ -3711,7 +3745,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_werkplek']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_werkplek']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_werkplek']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Werktijden */
+  /* Field: Gebruiker: Werktijden */
   $handler->display->display_options['fields']['field_werktijden']['id'] = 'field_werktijden';
   $handler->display->display_options['fields']['field_werktijden']['table'] = 'field_data_field_werktijden';
   $handler->display->display_options['fields']['field_werktijden']['field'] = 'field_werktijden';
@@ -3721,14 +3755,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_werktijden']['field_api_classes'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Domain Access: Domain ID */
+  /* Filter criterion: Domain Access: Domain ID */
   $handler->display->display_options['filters']['gid']['id'] = 'gid';
   $handler->display->display_options['filters']['gid']['table'] = 'domain_access';
   $handler->display->display_options['filters']['gid']['field'] = 'gid';
@@ -3742,7 +3776,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler = $view->new_display('block', 'Teamlid foto', 'block_2');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -3750,7 +3784,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Veld: Gebruiker: Afbeelding */
+  /* Field: User: Picture */
   $handler->display->display_options['fields']['picture']['id'] = 'picture';
   $handler->display->display_options['fields']['picture']['table'] = 'users';
   $handler->display->display_options['fields']['picture']['field'] = 'picture';
@@ -3759,7 +3793,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['picture']['empty'] = 'Geen afbeelding gevonden';
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
   $handler->display->display_options['fields']['picture']['image_style'] = 'portret_groot';
-  /* Veld: Algemeen: Aangepaste tekst */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -3769,13 +3803,13 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'user/[uid]/edit#edit-picture';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  /* Sort criterion: User: Created date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Gebruiker: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -3802,6 +3836,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Doorkiesnummer'),
     t('Teamleden'),
     t('Medewerkers'),
+    t('more'),
     t('Mobiel'),
     t('E-mailadres'),
     t('Afdeling'),
@@ -3853,7 +3888,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -3862,23 +3897,23 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sorteercriterium: Inhoud: Titel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3894,14 +3929,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler = $view->new_display('block', 'Alle regelingenblok', 'block_2');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -3926,6 +3961,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Alle productenblok'),
+    t('more'),
     t('Productenblok'),
     t('Alle regelingenblok'),
     t('Regelingenblok'),
@@ -3966,7 +4002,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Gebruiker: Interne applicaties */
+  /* Field: Gebruiker: Interne applicaties */
   $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
@@ -3978,12 +4014,12 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_interne_applicaties']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_interne_applicaties']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_interne_applicaties']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Gebruiker: Aanmaakdatum */
+  /* Sort criterion: User: Created date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextueel filter: Gebruiker: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -3994,7 +4030,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Filtercriterium: Gebruiker: Actief */
+  /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4007,7 +4043,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Interne applicaties';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Interne applicaties */
+  /* Field: Gebruiker: Interne applicaties */
   $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
@@ -4025,7 +4061,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Websites';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Websites */
+  /* Field: Gebruiker: Websites */
   $handler->display->display_options['fields']['field_websites']['id'] = 'field_websites';
   $handler->display->display_options['fields']['field_websites']['table'] = 'field_data_field_websites';
   $handler->display->display_options['fields']['field_websites']['field'] = 'field_websites';
@@ -4043,7 +4079,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Interne applicaties';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Interne applicaties */
+  /* Field: Gebruiker: Interne applicaties */
   $handler->display->display_options['fields']['field_interne_applicaties']['id'] = 'field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['table'] = 'field_data_field_interne_applicaties';
   $handler->display->display_options['fields']['field_interne_applicaties']['field'] = 'field_interne_applicaties';
@@ -4056,7 +4092,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_interne_applicaties']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_interne_applicaties']['field_api_classes'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Gebruiker: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -4073,7 +4109,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Websites';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Gebruiker: Websites */
+  /* Field: Gebruiker: Websites */
   $handler->display->display_options['fields']['field_websites']['id'] = 'field_websites';
   $handler->display->display_options['fields']['field_websites']['table'] = 'field_data_field_websites';
   $handler->display->display_options['fields']['field_websites']['field'] = 'field_websites';
@@ -4086,7 +4122,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_websites']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_websites']['field_api_classes'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Gebruiker: Uid */
+  /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -4115,6 +4151,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Alle'),
     t('Interne applicatiesblok'),
     t('Interne applicaties'),
+    t('more'),
     t('Websitesblok'),
     t('Websites'),
     t('Interne applicatiesblok current user'),
@@ -4163,26 +4200,26 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4219,14 +4256,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'RSS Feed laatst gewijzigde pagina’s';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Wijzigingsdatum */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4247,14 +4284,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['item_length'] = 'teaser';
   $handler->display->display_options['row_options']['links'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Inhoud: Wijzigingsdatum */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -4277,14 +4314,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['title'] = 'RSS Feed evenementen';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4306,14 +4343,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4336,14 +4373,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['title'] = 'RSS Feed bekendmakingen';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4365,14 +4402,14 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_options']['links'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4406,6 +4443,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('laatste »'),
     t('Page nieuwsberichten'),
     t('RSS Feed nieuwsberichten'),
+    t('more'),
     t('Feed nieuwsberichten'),
     t('Page wijzigingen'),
     t('RSS Feed laatst gewijzigde pagina’s'),
@@ -4466,7 +4504,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_options']['bubbletextenabled'] = 1;
   $handler->display->display_options['style_options']['bubbletextfield'] = 'title';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Inhoud: Plan ID */
+  /* Field: Inhoud: Plan ID */
   $handler->display->display_options['fields']['field_spatial_plan_id']['id'] = 'field_spatial_plan_id';
   $handler->display->display_options['fields']['field_spatial_plan_id']['table'] = 'field_data_field_spatial_plan_id';
   $handler->display->display_options['fields']['field_spatial_plan_id']['field'] = 'field_spatial_plan_id';
@@ -4476,7 +4514,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_spatial_plan_id']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_spatial_plan_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_spatial_plan_id']['element_default_classes'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4485,7 +4523,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['path'] = 'http://www.ruimtelijkeplannen.nl/web-roo/roo/bestemmingsplannen?planidn=[field_spatial_plan_id]';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Tooltip */
+  /* Field: Tooltip */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -4494,19 +4532,19 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4514,7 +4552,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'spatial_plan' => 'spatial_plan',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -4534,7 +4572,7 @@ if (node_access(\'create\', \'marketplace\')) {
     7 => 0,
     8 => 0,
   );
-  /* Filtercriterium: Inhoud: Type (field_spatial_type) */
+  /* Filter criterion: Inhoud: Type (field_spatial_type) */
   $handler->display->display_options['filters']['field_spatial_type_tid']['id'] = 'field_spatial_type_tid';
   $handler->display->display_options['filters']['field_spatial_type_tid']['table'] = 'field_data_field_spatial_type';
   $handler->display->display_options['filters']['field_spatial_type_tid']['field'] = 'field_spatial_type_tid';
@@ -4556,7 +4594,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['field_spatial_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_spatial_type_tid']['vocabulary'] = 'spatial_plan_type';
   $handler->display->display_options['filters']['field_spatial_type_tid']['hierarchy'] = 1;
-  /* Filtercriterium: Inhoud: Status (field_spatial_status) */
+  /* Filter criterion: Inhoud: Status (field_spatial_status) */
   $handler->display->display_options['filters']['field_spatial_status_tid']['id'] = 'field_spatial_status_tid';
   $handler->display->display_options['filters']['field_spatial_status_tid']['table'] = 'field_data_field_spatial_status';
   $handler->display->display_options['filters']['field_spatial_status_tid']['field'] = 'field_spatial_status_tid';
@@ -4578,7 +4616,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['filters']['field_spatial_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_spatial_status_tid']['vocabulary'] = 'spatial_plan_status';
   $handler->display->display_options['filters']['field_spatial_status_tid']['hierarchy'] = 1;
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -4625,6 +4663,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Type'),
     t('Status'),
     t('Page'),
+    t('more'),
     t('Bijlage'),
   );
   $export['spatial_plans'] = $view;
@@ -4663,7 +4702,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'extension' => 'extension',
     'filesize' => 'filesize',
   );
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4672,7 +4711,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Intro */
+  /* Field: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
   $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
@@ -4684,20 +4723,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_intro']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_intro']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_intro']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Wijzigingsdatum */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = '';
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'calendar_icon';
-  /* Veld: Inhoud: Type */
+  /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Tags */
+  /* Field: Inhoud: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
@@ -4709,7 +4748,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_tags']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_tags']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Category */
+  /* Field: Inhoud: Category */
   $handler->display->display_options['fields']['field_category_marketplace']['id'] = 'field_category_marketplace';
   $handler->display->display_options['fields']['field_category_marketplace']['table'] = 'field_data_field_category_marketplace';
   $handler->display->display_options['fields']['field_category_marketplace']['field'] = 'field_category_marketplace';
@@ -4720,7 +4759,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_category_marketplace']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_category_marketplace']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_category_marketplace']['field_api_classes'] = TRUE;
-  /* Veld: Inhoud: Categorie */
+  /* Field: Inhoud: Categorie */
   $handler->display->display_options['fields']['field_faq_category']['id'] = 'field_faq_category';
   $handler->display->display_options['fields']['field_faq_category']['table'] = 'field_data_field_faq_category';
   $handler->display->display_options['fields']['field_faq_category']['field'] = 'field_faq_category';
@@ -4731,20 +4770,20 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['field_faq_category']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_faq_category']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_faq_category']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Inhoud: Wijzigingsdatum */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4762,7 +4801,7 @@ if (node_access(\'create\', \'marketplace\')) {
     'wiki' => 'wiki',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filtercriterium: Domain Access: Domain ID */
+  /* Filter criterion: Domain Access: Domain ID */
   $handler->display->display_options['filters']['gid']['id'] = 'gid';
   $handler->display->display_options['filters']['gid']['table'] = 'domain_access';
   $handler->display->display_options['filters']['gid']['field'] = 'gid';
@@ -4784,6 +4823,7 @@ if (node_access(\'create\', \'marketplace\')) {
     t('Oplopend'),
     t('Aflopend'),
     t('Updatesblok'),
+    t('more'),
   );
   $export['updates'] = $view;
 
@@ -4824,7 +4864,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4833,31 +4873,31 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sorteercriterium: Inhoud: Vastgeplakt (sticky) */
+  /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['table'] = 'node';
   $handler->display->display_options['sorts']['sticky']['field'] = 'sticky';
   $handler->display->display_options['sorts']['sticky']['order'] = 'DESC';
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'faq' => 'faq',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -4881,7 +4921,7 @@ if (node_access(\'create\', \'marketplace\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -4894,14 +4934,14 @@ if (node_access(\'create\', \'faq\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -4933,7 +4973,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteercriterium: Algemeen: Willekeurig */
+  /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
@@ -4944,14 +4984,14 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -4972,7 +5012,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Kop: Algemeen: Tekstveld */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -4984,12 +5024,12 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Inhoud: Categorie (field_faq_category) */
+  /* Relationship: Inhoud: Categorie (field_faq_category) */
   $handler->display->display_options['relationships']['field_faq_category_tid']['id'] = 'field_faq_category_tid';
   $handler->display->display_options['relationships']['field_faq_category_tid']['table'] = 'field_data_field_faq_category';
   $handler->display->display_options['relationships']['field_faq_category_tid']['field'] = 'field_faq_category_tid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -4997,7 +5037,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5009,14 +5049,14 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Body */
+  /* Field: Inhoud: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = FALSE;
-  /* Veld: Taxonomieterm: Naam */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5025,7 +5065,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Inhoud: Categorie (field_faq_category) */
+  /* Contextual filter: Inhoud: Categorie (field_faq_category) */
   $handler->display->display_options['arguments']['field_faq_category_tid']['id'] = 'field_faq_category_tid';
   $handler->display->display_options['arguments']['field_faq_category_tid']['table'] = 'field_data_field_faq_category';
   $handler->display->display_options['arguments']['field_faq_category_tid']['field'] = 'field_faq_category_tid';
@@ -5038,14 +5078,14 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['arguments']['field_faq_category_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -5068,7 +5108,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
@@ -5076,7 +5116,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5089,7 +5129,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextueel filter: Inhoud: Categorie (field_faq_category) */
+  /* Contextual filter: Inhoud: Categorie (field_faq_category) */
   $handler->display->display_options['arguments']['field_faq_category_tid']['id'] = 'field_faq_category_tid';
   $handler->display->display_options['arguments']['field_faq_category_tid']['table'] = 'field_data_field_faq_category';
   $handler->display->display_options['arguments']['field_faq_category_tid']['field'] = 'field_faq_category_tid';
@@ -5119,7 +5159,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5128,14 +5168,14 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -5155,7 +5195,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5164,14 +5204,14 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -5198,7 +5238,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -5228,7 +5268,7 @@ if (node_access(\'create\', \'faq\')) {
     t('volgende ›'),
     t('laatste »'),
     t('Recente vragenblok'),
-    t('meer'),
+    t('more'),
     t('<span class="more-link"><a href="<?php print url(\'veelgestelde-vragen\'); ?>">Meer veelgestelde vragen </a></span>
 <?php
 if (node_access(\'create\', \'faq\')) {
@@ -5244,7 +5284,7 @@ if (node_access(\'create\', \'faq\')) {
 <a href="/veelgestelde-vragen">Terug naar categorieën</a>
 </div>
 <div class="clearfix"></div>'),
-    t('term van field_faq_category'),
+    t('term from field_faq_category'),
     t('<h3><a id="n[nid]" href="#top">[title]</a></h3>'),
     t('Alle'),
     t('Attachment - Questions Top'),
@@ -5294,7 +5334,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relatie: Nodequeue: Wachtrij */
+  /* Relationship: Nodequeue: Queue */
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
@@ -5304,7 +5344,7 @@ if (node_access(\'create\', \'faq\')) {
     'voorpagina_banners' => 'voorpagina_banners',
     'carousel_9_3' => 0,
   );
-  /* Veld: Inhoud: Link */
+  /* Field: Inhoud: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -5316,7 +5356,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['field_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5326,7 +5366,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -5340,12 +5380,12 @@ if (node_access(\'create\', \'faq\')) {
     'file_view_mode' => 'banner',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Sorteercriterium: Nodequeue: Positie */
+  /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -5373,6 +5413,7 @@ if (node_access(\'create\', \'faq\')) {
     t('laatste »'),
     t('queue'),
     t('Voorpagina bannerblok'),
+    t('more'),
     t('Overige onderwerpenblok'),
   );
   $export['voorpagina_banners'] = $view;
@@ -5406,37 +5447,37 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Relatie: Inhoud: Auteur */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteercriterium: Inhoud: Datum van inzending */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filtercriterium: Inhoud: Gepubliceerd */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'blog' => 'blog',
   );
-  /* Filtercriterium: Domain Access: Available on current domain */
+  /* Filter criterion: Domain Access: Available on current domain */
   $handler->display->display_options['filters']['current_all']['id'] = 'current_all';
   $handler->display->display_options['filters']['current_all']['table'] = 'domain_access';
   $handler->display->display_options['filters']['current_all']['field'] = 'current_all';
@@ -5454,7 +5495,7 @@ if (node_access(\'create\', \'faq\')) {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Voet: Algemeen: Tekstveld */
+  /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -5466,7 +5507,7 @@ if (node_access(\'create\', \'blog\')) {
 ?>';
   $handler->display->display_options['footer']['area']['format'] = 'php_code';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -5475,7 +5516,7 @@ if (node_access(\'create\', \'blog\')) {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Image */
+  /* Field: Inhoud: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -5489,13 +5530,13 @@ if (node_access(\'create\', \'blog\')) {
     'file_view_mode' => 'teaser',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
   $handler->display->display_options['fields']['name']['label'] = 'Door';
-  /* Veld: Inhoud: Intro */
+  /* Field: Inhoud: Intro */
   $handler->display->display_options['fields']['field_intro']['id'] = 'field_intro';
   $handler->display->display_options['fields']['field_intro']['table'] = 'field_data_field_intro';
   $handler->display->display_options['fields']['field_intro']['field'] = 'field_intro';
@@ -5519,9 +5560,10 @@ if (node_access(\'create\', \'blog\')) {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('auteur'),
+    t('author'),
     t('Block'),
     t('Blog'),
+    t('more'),
     t('<?php
 if (node_access(\'create\', \'blog\')) {
  print l(t(\'Weblog toevoegen\'), \'node/add/blog\', array(\'attributes\' => array(\'class\' => array(\'content-add-button\'))));
