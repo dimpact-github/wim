@@ -3,7 +3,7 @@
 /**
  * Implements hook_menu().
  */
-function content_reminder_menu() {
+function dimpact_content_reminder_menu() {
   $items['admin/config/content/reminder'] = array(
     'title' => 'Content Reminder',
     'description' => 'Send reminders for expired content',
@@ -11,7 +11,7 @@ function content_reminder_menu() {
     'page arguments' => array('content_reminder_admin_form'),
     'access arguments' => array('administer content reminder'),
     'type' => MENU_NORMAL_ITEM,
-    'file' => 'content_reminder.admin.inc',
+    'file' => 'dimpact_content_reminder.admin.inc',
   );
 
   return $items;
@@ -20,7 +20,7 @@ function content_reminder_menu() {
 /**
  * Implements hook_permission().
  */
-function content_reminder_permission() {
+function dimpact_content_reminder_permission() {
   return array(
     'administer content reminder' => array(
       'title' => t('Administer Content Reminder'),
@@ -32,8 +32,8 @@ function content_reminder_permission() {
 /**
  * Implements hook_cron
  */
-function content_reminder_cron() {
-  module_load_include('inc', 'content_reminder', 'content_reminder');
+function dimpact_content_reminder_cron() {
+  module_load_include('inc', 'dimpact_content_reminder', 'dimpact_content_reminder');
   $nodes = _get_required_nodes();
 
   if (isset($nodes) && !empty($nodes)) {
@@ -50,15 +50,15 @@ function content_reminder_cron() {
 /**
  * Implements hook_theme().
  */
-function content_reminder_theme($existing, $type, $theme, $path) {
+function dimpact_content_reminder_theme($existing, $type, $theme, $path) {
   return array(
-    'content_reminder' => array(
+    'dimpact_content_reminder' => array(
       'variables' => array(
         'nodes' => NULL,
         'mailtype' => NULL,
         'content_reminder_text' => NULL,
       ),
-      'template' => 'content_reminder',
+      'template' => 'dimpact_content_reminder',
     ),
   );
 }

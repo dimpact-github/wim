@@ -10,7 +10,7 @@
 function dimpact_content_types_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -19,14 +19,6 @@ function dimpact_content_types_field_default_field_bases() {
       0 => 'node',
     ),
     'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -39,21 +31,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_adres'
+  // Exported field_base: 'field_adres'.
   $field_bases['field_adres'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_adres',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'format' => array(
@@ -67,21 +51,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_announcement_type'
+  // Exported field_base: 'field_announcement_type'.
   $field_bases['field_announcement_type'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_announcement_type',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -101,21 +77,14 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_bestand'
+  // Exported field_base: 'field_bestand'.
   $field_bases['field_bestand'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bestand',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
+    'global_block_settings' => 1,
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -132,21 +101,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_bijlage'
+  // Exported field_base: 'field_bijlage'.
   $field_bases['field_bijlage'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bijlage',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -163,21 +124,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_category_marketplace'
+  // Exported field_base: 'field_category_marketplace'.
   $field_bases['field_category_marketplace'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_category_marketplace',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -197,21 +150,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_category_person'
+  // Exported field_base: 'field_category_person'.
   $field_bases['field_category_person'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_category_person',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -231,21 +176,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_contact'
+  // Exported field_base: 'field_contact'.
   $field_bases['field_contact'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_contact',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -258,21 +195,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_cost'
+  // Exported field_base: 'field_cost'.
   $field_bases['field_cost'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_cost',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -285,14 +214,35 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_date'
+  // Exported field_base: 'field_css_class'.
+  $field_bases['field_css_class'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_css_class',
+    'global_block_settings' => 1,
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_date'.
   $field_bases['field_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
@@ -316,14 +266,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_date_elaboration'
+  // Exported field_base: 'field_date_elaboration'.
   $field_bases['field_date_elaboration'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date_elaboration',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -346,14 +295,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_date_recall'
+  // Exported field_base: 'field_date_recall'.
   $field_bases['field_date_recall'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date_recall',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -376,14 +324,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_date_retroactively'
+  // Exported field_base: 'field_date_retroactively'.
   $field_bases['field_date_retroactively'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date_retroactively',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -406,14 +353,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_e_mail'
+  // Exported field_base: 'field_e_mail'.
   $field_bases['field_e_mail'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_e_mail',
-    'foreign keys' => array(),
     'global_block_settings' => 2,
     'indexes' => array(),
     'locked' => 0,
@@ -423,21 +369,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_explanation'
+  // Exported field_base: 'field_explanation'.
   $field_bases['field_explanation'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_explanation',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -450,21 +388,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_extra_afbeelding'
+  // Exported field_base: 'field_extra_afbeelding'.
   $field_bases['field_extra_afbeelding'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_extra_afbeelding',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'fid' => array(
@@ -481,21 +411,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_extra_text'
+  // Exported field_base: 'field_extra_text'.
   $field_bases['field_extra_text'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_extra_text',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'format' => array(
@@ -509,21 +431,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_faq_category'
+  // Exported field_base: 'field_faq_category'.
   $field_bases['field_faq_category'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_faq_category',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -543,21 +457,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_file_image_alt_text'
+  // Exported field_base: 'field_file_image_alt_text'.
   $field_bases['field_file_image_alt_text'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_file_image_alt_text',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -572,21 +478,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_file_image_title_text'
+  // Exported field_base: 'field_file_image_title_text'.
   $field_bases['field_file_image_title_text'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_file_image_title_text',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -601,14 +499,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_forms'
+  // Exported field_base: 'field_forms'.
   $field_bases['field_forms'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_forms',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
@@ -632,21 +529,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_foto'
+  // Exported field_base: 'field_foto'.
   $field_bases['field_foto'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_foto',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'global_block_settings' => 1,
     'indexes' => array(
       'fid' => array(
@@ -663,21 +552,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image',
-    'foreign keys' => array(
-      'file_managed' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'fid' => array(
@@ -691,21 +572,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'media',
   );
 
-  // Exported field_base: 'field_intro'
+  // Exported field_base: 'field_intro'.
   $field_bases['field_intro'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_intro',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -718,14 +591,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_link'
+  // Exported field_base: 'field_link'.
   $field_bases['field_link'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_link',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -748,14 +620,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_location'
+  // Exported field_base: 'field_location'.
   $field_bases['field_location'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_location',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(
       'lid' => array(
@@ -834,14 +705,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'location',
   );
 
-  // Exported field_base: 'field_more_information'
+  // Exported field_base: 'field_more_information'.
   $field_bases['field_more_information'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_more_information',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
@@ -865,21 +735,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_objection'
+  // Exported field_base: 'field_objection'.
   $field_bases['field_objection'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_objection',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -892,21 +754,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_particulars'
+  // Exported field_base: 'field_particulars'.
   $field_bases['field_particulars'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_particulars',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -919,21 +773,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_phone'
+  // Exported field_base: 'field_phone'.
   $field_bases['field_phone'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_phone',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'format' => array(
@@ -949,21 +795,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_ratified_by'
+  // Exported field_base: 'field_ratified_by'.
   $field_bases['field_ratified_by'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ratified_by',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -978,21 +816,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_red_addition'
+  // Exported field_base: 'field_red_addition'.
   $field_bases['field_red_addition'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_red_addition',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1005,21 +835,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_reg_characteristic'
+  // Exported field_base: 'field_reg_characteristic'.
   $field_bases['field_reg_characteristic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reg_characteristic',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1034,21 +856,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_reg_concerning'
+  // Exported field_base: 'field_reg_concerning'.
   $field_bases['field_reg_concerning'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reg_concerning',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1063,14 +877,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_reg_issued'
+  // Exported field_base: 'field_reg_issued'.
   $field_bases['field_reg_issued'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reg_issued',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -1093,21 +906,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_reg_subject'
+  // Exported field_base: 'field_reg_subject'.
   $field_bases['field_reg_subject'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_reg_subject',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1122,14 +927,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_related_laws'
+  // Exported field_base: 'field_related_laws'.
   $field_bases['field_related_laws'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_related_laws',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
@@ -1153,14 +957,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_related_pdc'
+  // Exported field_base: 'field_related_pdc'.
   $field_bases['field_related_pdc'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_related_pdc',
-    'foreign keys' => array(),
     'global_block_settings' => 2,
     'indexes' => array(),
     'locked' => 0,
@@ -1170,21 +973,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_related_pdc_vac'
+  // Exported field_base: 'field_related_pdc_vac'.
   $field_bases['field_related_pdc_vac'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_related_pdc_vac',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'global_block_settings' => 1,
     'indexes' => array(
       'target_id' => array(
@@ -1217,14 +1012,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_related_vac'
+  // Exported field_base: 'field_related_vac'.
   $field_bases['field_related_vac'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_related_vac',
-    'foreign keys' => array(),
     'global_block_settings' => 2,
     'indexes' => array(),
     'locked' => 0,
@@ -1234,21 +1028,29 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_request'
+  // Exported field_base: 'field_reminder_email'.
+  $field_bases['field_reminder_email'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reminder_email',
+    'global_block_settings' => 1,
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'email',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'email',
+  );
+
+  // Exported field_base: 'field_request'.
   $field_bases['field_request'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_request',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1261,14 +1063,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_request_online'
+  // Exported field_base: 'field_request_online'.
   $field_bases['field_request_online'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_request_online',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(),
     'locked' => 0,
@@ -1292,21 +1093,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_ris_agenda_parent'
+  // Exported field_base: 'field_ris_agenda_parent'.
   $field_bases['field_ris_agenda_parent'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_agenda_parent',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -1335,21 +1128,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ris_agendaitems'
+  // Exported field_base: 'field_ris_agendaitems'.
   $field_bases['field_ris_agendaitems'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_agendaitems',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -1378,21 +1163,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_ris_attachments'
+  // Exported field_base: 'field_ris_attachments'.
   $field_bases['field_ris_attachments'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_attachments',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -1409,21 +1186,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_ris_category'
+  // Exported field_base: 'field_ris_category'.
   $field_bases['field_ris_category'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_category',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -1443,21 +1212,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_ris_characteristic'
+  // Exported field_base: 'field_ris_characteristic'.
   $field_bases['field_ris_characteristic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_characteristic',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1472,21 +1233,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_ris_location'
+  // Exported field_base: 'field_ris_location'.
   $field_bases['field_ris_location'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ris_location',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1501,21 +1254,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_role'
+  // Exported field_base: 'field_role'.
   $field_bases['field_role'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_role',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'global_block_settings' => 1,
     'indexes' => array(
       'format' => array(
@@ -1531,14 +1276,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_sc_audience'
+  // Exported field_base: 'field_sc_audience'.
   $field_bases['field_sc_audience'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_sc_audience',
-    'foreign keys' => array(),
     'global_block_settings' => 1,
     'indexes' => array(
       'value' => array(
@@ -1558,14 +1302,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_spactial_decision_doc'
+  // Exported field_base: 'field_spactial_decision_doc'.
   $field_bases['field_spactial_decision_doc'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spactial_decision_doc',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1588,14 +1331,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_attachment'
+  // Exported field_base: 'field_spatial_attachment'.
   $field_bases['field_spatial_attachment'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_attachment',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1618,14 +1360,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_dete_decision'
+  // Exported field_base: 'field_spatial_dete_decision'.
   $field_bases['field_spatial_dete_decision'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_dete_decision',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1648,14 +1389,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_explanation'
+  // Exported field_base: 'field_spatial_explanation'.
   $field_bases['field_spatial_explanation'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_explanation',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1678,14 +1418,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_illustration'
+  // Exported field_base: 'field_spatial_illustration'.
   $field_bases['field_spatial_illustration'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_illustration',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1708,21 +1447,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_plan_id'
+  // Exported field_base: 'field_spatial_plan_id'.
   $field_bases['field_spatial_plan_id'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_plan_id',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1737,14 +1468,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_spatial_policy_doc'
+  // Exported field_base: 'field_spatial_policy_doc'.
   $field_bases['field_spatial_policy_doc'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_policy_doc',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1767,14 +1497,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_rules'
+  // Exported field_base: 'field_spatial_rules'.
   $field_bases['field_spatial_rules'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_rules',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -1797,21 +1526,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_spatial_status'
+  // Exported field_base: 'field_spatial_status'.
   $field_bases['field_spatial_status'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_status',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -1831,21 +1552,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_spatial_type'
+  // Exported field_base: 'field_spatial_type'.
   $field_bases['field_spatial_type'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_spatial_type',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -1865,21 +1578,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_tags'
+  // Exported field_base: 'field_tags'.
   $field_bases['field_tags'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_tags',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'global_block_settings' => 2,
     'indexes' => array(
       'tid' => array(
@@ -1900,21 +1605,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_term'
+  // Exported field_base: 'field_term'.
   $field_bases['field_term'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_term',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -1927,21 +1624,13 @@ function dimpact_content_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_url'
+  // Exported field_base: 'field_url'.
   $field_bases['field_url'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_url',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',

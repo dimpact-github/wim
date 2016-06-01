@@ -161,3 +161,30 @@ span.mailto {
     @include icon($comment);
   }
 }
+
+.post-date + .comment-count {
+  margin-left: .6em;
+}
+
+// Used in display for 'berichten'.
+.post-date {
+  color: $gray;
+  clear: both;
+
+  &:before {
+    color: $background-color;
+    @include icon($time);
+  }
+}
+
+.post-author {
+
+}
+
+.view-berichten {
+  .post-author,
+  .post-date,
+  .comment-count {
+    display: inline-block;
+  }
+}

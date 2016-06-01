@@ -235,3 +235,12 @@ function bespoke_update_7120() {
   // Eindredacteur.
   user_role_grant_permissions(7, $permissions);
 }
+
+/**
+ * Enable the webform clear module.
+ */
+function bespoke_update_7121() {
+  module_enable(array(
+    'webform_clear',
+  ));
+}
