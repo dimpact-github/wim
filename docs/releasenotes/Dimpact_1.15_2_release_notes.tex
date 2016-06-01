@@ -1,0 +1,116 @@
+\include{assets/config}
+
+%your config here
+\newcommand{\release}{1.15.2}
+\newcommand{\projectname}{WIM Release \release}
+
+\newcommand{\customer}{Dimpact} %let op spatie
+\newcommand{\customershort}{Dimpact} %let op spatie
+
+\newcommand{\customerdomain}{dimpact.nl}
+\newcommand{\authors}{R. Meijer}
+\newcommand{\lastversion}{1.0}
+\newcommand{\lastupdate}{18-05-2016}
+
+\begin{document}
+\include{assets/frontpage}
+\include{assets/rights}
+\include{assets/versions}
+\include{assets/tableofcontents}
+\tableofcontents
+\pagebreak
+
+
+
+\section{\projectname} % (fold)
+\label{sec:release}
+
+
+\subsection{Functionele wijzigingen} % (fold)
+\label{sub:functionele_wijzigingen}
+
+Onderstaande tabel geeft aan op welke punten het moedersjabloon functioneel is gewijzigd. Gebruikers van het systeem moeten er rekening mee houden dat het product op deze punten anders werkt dan voorheen.
+
+\subsubsection{Omschrijvingen tickets} % (fold)
+\label{ssub:omschrijvingen_tickets}
+
+\begin{tabular}{ r | p{15cm} } \hline
+  \textbf{\#} & \textbf{Omschrijving} \\ \hline
+  381 & Standaardwaarde publiek/afgeschermd bestand instellen per domein \\ \hline
+  457 & Dominion blueprint functions beschikbaar voor blueprint ``default'' \\ \hline
+  506 & Webrichtlijnen - H1 gebruik bij logo verwijderen \\ \hline
+  690 & Readspeaker: docreader implementeren \\ \hline
+  692 & CSS Class-veld toevoegen aan alle content types \\ \hline
+  706 & Redacteuren mogelijkheid geven Breedtegraad en Lengtegraad toe te voegen \\ \hline
+  723 & Locatie co\"ordinaten komen ook in Google-mapslink in Bekendmakingen \\ \hline
+  742 & SC feed DB update: kolom scfeed\_item:XML op LONGTEXT zetten \\ \hline
+\end{tabular}
+
+% subsubsection omschrijvingen_tickets (end)
+
+\subsubsection{GIT commit hashes per ticket} % (fold)
+\label{ssub:git_commit_hashes_per_ticket}
+
+\begin{tabular}{ r | p{15cm} } \hline
+  \textbf{\#} & \textbf{GIT commit hashes} \\ \hline
+  381 & \texttt{623a1689e47e25c5dc19b8f43cf8cf6c8bb33aed} \\ \hline
+  457 & \texttt{3ee5f3e08ba76f36efcf8743653c1b9a66d9bd63} \\ \hline
+  506 & \texttt{671f40d6e4d3db575ef4be158342e49c295f2c70} \\
+      & \texttt{4a34977a8b82668a31f17cf784f5a8481e05dace} \\ \hline
+  690 & \texttt{cf7979f127aa6b9c7d0ef3fa0580b6c7dcf53b72} \\
+      & \texttt{aa2b09c1441828daf2eebb25b477b5ad6e8aacf2} \\
+      & \texttt{b9b1701443401c269d3bce6829beeb86f9b72db6} \\
+      & \texttt{c59f8de450d9218fd3fc67e00737df59184e2d3e} \\
+      & \texttt{0bbf31af974fa715c33942e967701148ecb0d868} \\ \hline
+  692 & \texttt{49955ee1384dff5492dd6c117d6db4674b96bd01} \\ \hline
+  706 & \texttt{0e17b9ddf652db960bc901e60d006620f390c4b9} \\ \hline
+  723 & \texttt{f441ec1a1540b11011be3ff9b1f881f458ca4d8c} \\ \hline
+  742 & \texttt{5cba61d30da9766e7d773756590e290c24a6b192} \\ \hline
+\end{tabular}
+
+% subsubsection git_commit_hashes_per_ticket (end)
+
+\subsubsection{Gewijzigde bestanden per ticket} % (fold)
+\label{ssub:gewijzigde_bestanden_per_ticket}
+
+\begin{tabular}{ r | p{15cm} } \hline
+  \textbf{\#} & \textbf{Gewijzigde bestanden} \\ \hline
+  381 & \texttt{modules/bespoke/bespoke.install} \\ \hline
+  457 & \texttt{modules/bespoke/bespoke.install} \\ \hline
+  506 & \texttt{themes/dimpact/templates/page.tpl.php} \\ \hline
+  690 & \texttt{modules/dimpact\_docreader/dimpact\_docreader.module} \\
+      & \texttt{modules/dimpact\_docreader/dimpact\_docreader.admin.inc} \\ \hline
+  692 & \texttt{modules/dimpact\_views\_classes/dimpact\_views\_classes.admin.inc} \\
+      & \texttt{modules/dimpact\_views\_classes/dimpact\_views\_classes.info} \\
+      & \texttt{modules/dimpact\_views\_classes/dimpact\_views\_classes.module} \\ \hline
+  706 & \texttt{modules/bespoke/bespoke.install} \\ \hline
+  723 & \texttt{dimpact.make} \\
+      & \texttt{patches/add\_coords\_to\_location\_url.patch} \\ \hline
+  742 & \texttt{modules/scfeed/scfeed.install} \\ \hline
+\end{tabular}
+
+% subsubsection gewijzigde_bestanden_per_ticket (end)
+
+% subsection functionele_wijzigingen (end)
+
+
+
+\subsection{Module updates} % (fold)
+\label{sub:module_updates}
+
+De volgende modules zijn ge\"updatet in release \release:
+
+\begin{tabularx}{\linewidth}{X|l|l} \hline
+  \textbf{Onderdeel} & \textbf{Vorige versie} & \textbf{Nieuwe versie} \\ \hline
+  \texttt{token} & \texttt{1.5} & \texttt{1.6} \\ \hline
+  \texttt{transliteration} & \texttt{3.1} & \texttt{3.2} \\ \hline
+  \texttt{views} & \texttt{3.11} & \texttt{3.13} \\ \hline
+  \texttt{webform} & \texttt{3.23} & \texttt{3.24} \\ \hline
+  \texttt{weight} & \texttt{2.3} & \texttt{2.5} \\ \hline
+\end{tabularx}
+
+% subsection module_updates (end)
+
+
+
+\end{document}
