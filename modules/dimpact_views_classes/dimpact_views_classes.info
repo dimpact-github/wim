@@ -1,0 +1,4 @@
+name = Dimpact Views Classes
+description = Module to add CSS classes to the body tag of a view. (This module is copied from the Zwolle.nl repository.)
+configure = admin/config/dimpact/views-classes
+core = 7.x

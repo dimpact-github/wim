@@ -196,3 +196,51 @@ function bespoke_update_7117() {
     'dimpact_mylex',
   ));
 }
+
+/**
+ * Enable "Allow editor to override functions" at /admin/structure/dominion/settings/blueprint/default/edit
+ * https://dutchopen.unfuddle.com/a#/projects/136/tickets/by_number/457
+ */
+function bespoke_update_7118() {
+  db_update('dominion_blueprint')
+    ->fields(array(
+      'allow_functions_override' => TRUE
+    ))
+    ->condition('blueprint', 'default', '=')
+    ->execute();
+}
+
+/**
+ * Set default download method to "public" at http://wimgemeenten.nl/admin/config/media/file-system
+ */
+function bespoke_update_7119() {
+  // Copied and modified from http://drupal.stackexchange.com/a/45587
+  // and https://www.thirdandgrove.com/programmatic-form-submission-in-drupal
+  module_load_include('inc', 'system', 'system.admin');
+  $form_state = array();
+  $form_state['values']['file_default_scheme'] = 'public';
+  $form_state['values']['op'] = t('Save configuration');
+  drupal_form_submit('system_file_system_settings', $form_state);
+}
+
+/**
+ * Grant permissions for "redacteur" and "eindredacteur" for Location: Submit latitude/longitude.
+ */
+function bespoke_update_7120() {
+  $permissions = array('submit latitude/longitude');
+
+  // Redacteur.
+  user_role_grant_permissions(6, $permissions);
+
+  // Eindredacteur.
+  user_role_grant_permissions(7, $permissions);
+}
+
+/**
+ * Enable the webform clear module.
+ */
+function bespoke_update_7121() {
+  module_enable(array(
+    'webform_clear',
+  ));
+}

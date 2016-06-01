@@ -22,13 +22,11 @@ function _get_required_nodes() {
 
   if ($orcondswitch == true) {
     $query = db_select('node','n');
-    $query->leftjoin('field_data_field_reminder_email', 're', 're.entity_id = n.nid');
     $query->leftjoin('node_revision','nr', 'nr.vid = n.vid');
     $query->leftjoin('users','u', 'u.uid = nr.uid');
     $query->fields('n', array('nid', 'title', 'changed', 'type',))
           ->fields('nr', array('status'))
-          ->fields('u', array('mail'))
-          ->fields('re',array('field_reminder_email_email'));
+          ->fields('u', array('mail'));
     $query->condition($orcond)
           ->groupBy('n.nid')
           ->orderBy('n.type','ASC');
@@ -78,10 +76,9 @@ function _prepare_nodes($nodes, $mailtype) {
       }
     }
   }
-
-  _send_mails($email_nodes, $mailtype);
-  _send_mails($emailremindernodes, $mailtype);
-
+  
+  _send_mails($email_nodes, $mailtype); // Mail the node author (user).
+  _send_mails($emailremindernodes, $mailtype); // Mail the people defined in the node's "reminder email field".
 }
 
 /*
@@ -192,7 +189,7 @@ function _get_old_nodes() {
 function _send_mails($mailnodes, $mailtype) {
   foreach ($mailnodes as $mail => $nodes) {
     $build = array(
-      '#theme' => 'content_reminder',
+      '#theme' => 'dimpact_content_reminder',
       '#nodes' => $nodes,
       '#mailtype' => $mailtype,
       '#content_reminder_text' => variable_get('content_reminder_' . $mailtype . '_text', 'Inhoud die verlopen is of binnenkort verloopt.'),
@@ -207,7 +204,7 @@ function _send_mails($mailnodes, $mailtype) {
     $subject = str_replace('@count', count($nodes), $subject);
 
     $mail_token = microtime();
-    $from = variable_get('system_mail');
+    $from = variable_get('site_mail');
     $message = array(
       'id' => 'custom' . '_' . $mail_token,
       'to' => $mail,

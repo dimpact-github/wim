@@ -146,6 +146,7 @@ projects[link][patch][performance] = patches/link-performance-hack.patch
 projects[linkit][version] = "3.5"
 
 projects[location][version] = "3.2"
+projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_location_url.patch
 
 projects[mail_edit][version] = "1.0"
 
@@ -234,11 +235,11 @@ projects[textformatter][version] = "1.3"
 
 projects[toc_filter][version] = 1.3
 
-projects[token][version] = "1.5"
+projects[token][version] = "1.6"
 
 projects[translation_helpers][version] = "1.0"
 
-projects[transliteration][version] = "3.1"
+projects[transliteration][version] = "3.2"
 projects[transliteration][patch][862248-13][url] = https://www.drupal.org/files/transliteration-862248-13_punctuation_0.patch
 projects[transliteration][patch][862248-13][md5] = be5b45301dc1b78ae7bcf4062b6d3ad4
 
@@ -250,15 +251,18 @@ projects[uuid][version] = "1.0-beta1"
 
 projects[variable][version] = "2.4"
 
-projects[views][version] = "3.11"
+projects[views][version] = "3.13"
 
 projects[views_bulk_operations][version] = "3.3"
 
 projects[views_rss][version] = "2.0-rc3"
 
-projects[webform][version] = "3.23"
+projects[webform][version] = "3.24"
+projects[webform][patch][drupal_makes_file_upload_component_fail_for_anonymous_user] = patches/drupal_makes_file_upload_component_fail_for_anonymous_user.patch
 
-projects[weight][version] = "2.3"
+projects[webform_clear] = "2.0"
+
+projects[weight][version] = "2.5"
 
 projects[wikitools][version] = "1.0-alpha1"
 

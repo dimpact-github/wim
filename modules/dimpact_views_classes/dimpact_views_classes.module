@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function dimpact_views_classes_menu() {
+   $items['admin/config/dimpact/views-classes'] = array(
+    'title' => 'Configuration for Dimpact Views Classes module',
+    'description' => '', // Set by admin.inc.
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('views_classes_admin_form'),
+    'file' => 'dimpact_views_classes.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+   return $items;
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function dimpact_views_classes_preprocess_html(&$variables) {
+  $custom_classes = variable_get( current_path() );
+
+  // Add custom classes to the body of the current page.
+  if ($custom_classes) {
+    $variables['classes_array'][] = $custom_classes;
+  }
+}
