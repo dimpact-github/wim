@@ -6,7 +6,7 @@
   <target name="site" depends="rebuild,cleanup,theme" />
 
   <target name="rebuild">
-    <exec command="drush make -y --force-complete dimpact.make code_new" passthru="true" logoutput="true" checkreturn="true" />
+    <exec command="drush make -y --concurrency=10 --force-complete dimpact.make code_new" passthru="true" logoutput="true" checkreturn="true" />
     <if>
       <available file="code" type="dir" />
       <then>
