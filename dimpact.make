@@ -240,8 +240,6 @@ projects[token][version] = "1.6"
 projects[translation_helpers][version] = "1.0"
 
 projects[transliteration][version] = "3.2"
-projects[transliteration][patch][862248-13][url] = https://www.drupal.org/files/transliteration-862248-13_punctuation_0.patch
-projects[transliteration][patch][862248-13][md5] = be5b45301dc1b78ae7bcf4062b6d3ad4
 
 projects[twitter][version] = "5.11"
 
