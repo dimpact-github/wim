@@ -111,6 +111,7 @@ projects[galleryformatter][version] = "1.3"
 
 projects[gmap][version] = "2.9"
 projects[gmap][patch][duplicatefile] = patches/gmap-fixingduplicatefile.patch
+projects[gmap][patch][no_inline_style] = patches/gmap-no-inline-style.patch
 
 projects[google_analytics][version] = "2.1"
 
