@@ -95,13 +95,13 @@ function scfeed_generate_item($node) {
     $owmsmantel->appendChild($element);
   }
 
-  $overheidproduct = $dom->createElement('overheidproduct:scmeta');
+  $overheidproduct = $dom->createElement('scmeta');
   $meta->appendChild($overheidproduct);
 
-  $element = $dom->createElement('overheidproduct:productID', $node->nid);
+  $element = $dom->createElement('productID', $node->nid);
   $overheidproduct->appendChild($element);
 
-  $element = $dom->createElement('overheidproduct:onlineAanvragen' , 'nee');
+  $element = $dom->createElement('onlineAanvragen' , 'nee');
   $overheidproduct->appendChild($element);
 
   $xml = $dom->saveXML($product);
