@@ -42,7 +42,6 @@ else {
   <?php else: ?>
     <?php if ($submitted): ?>
       <div class="submitted">
-      <?php dpm($submitted); ?>
           <?php print $submitted; ?>
       </div>
     <?php endif; ?>
