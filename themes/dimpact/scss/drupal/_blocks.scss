@@ -46,3 +46,20 @@
   margin-top: 0.4em;
   font-weight: bold;
 }
+
+.block-custom-lists .node.blog {
+  margin-bottom: 0;
+
+  time {
+    font-weight: 700;
+  }
+
+  .field-image {
+    float: left;
+    margin: 5px ($gutter-width/2) 5px 0;
+  }
+
+  .content {
+    overflow: hidden;
+  }
+}
