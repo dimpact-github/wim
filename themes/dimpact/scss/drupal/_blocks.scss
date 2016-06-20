@@ -50,6 +50,18 @@
 .block-custom-lists .node.blog {
   margin-bottom: 0;
 
+  h2 {
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  .submitted {
+    a {
+      font-size: 0.8125rem;
+    }
+  }
+
   time {
     font-weight: 700;
   }
