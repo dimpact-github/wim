@@ -508,6 +508,11 @@ div.workbench-info-block {
         font-family: $heading;
       }
     }
+    li.node-readmore {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
   }
   a.more-link {
     margin-left: $gutter-width/2;

@@ -26,14 +26,6 @@
         margin: 5px ($gutter-width/2) 5px 0;
       }
     }
-    .view-mode-teaser.blog {
-      > .submitted {
-        display: none;
-      }
-      time {
-        font-weight: 400;
-      }
-    }
   }
   .view-faq-display-attachment_1 {
     margin-bottom: $gutter-width;
