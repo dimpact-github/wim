@@ -29,11 +29,6 @@ else {
     <?php endif; ?>
     <?php print render($title_suffix); ?>
   <?php endif; ?>
-  <?php if ($submitted): ?>
-    <div class="submitted">
-        <?php print $submitted; ?>
-    </div>
-  <?php endif; ?>
 
   <?php if ($node->type == 'blog' && $view_mode == 'teaser'): ?>
     <div class="blog-submitted">
@@ -44,6 +39,12 @@ else {
         <?php print theme('username', array('account' => user_load($node->uid))); ?>
       </span>
     </div>
+  <?php else: ?>
+    <?php if ($submitted): ?>
+      <div class="submitted">
+          <?php print $submitted; ?>
+      </div>
+    <?php endif; ?>
   <?php endif; ?>
 
   <?php if ($teaser): ?>
@@ -56,7 +57,7 @@ else {
   <?php else: ?>
     <?php print render($content['field_image']); ?>
   <?php endif; ?>
-  
+
   <div class="content"<?php print $content_attributes; ?>>
     <?php print render($content); ?>
     <?php print render($tabs); ?>

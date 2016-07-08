@@ -144,7 +144,7 @@ projects[lightbox2][version] = "1.0-beta1"
 projects[link][version] = "1.2"
 projects[link][patch][performance] = patches/link-performance-hack.patch
 
-projects[linkit][version] = "3.5"
+projects[linkit][version] = "3.4"
 
 projects[location][version] = "3.2"
 projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_location_url.patch
@@ -287,9 +287,9 @@ libraries[starterskit][type] = "libraries"
 libraries[starterskit][download][type] = "file"
 libraries[starterskit][download][url] = "https://github.com/studiodumbar/starterskit-pb/zipball/1.2.3"
 
-; CKEditor 4.4.6
+; CKEditor 4.5.9
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.9/ckeditor_4.5.9_full.tar.gz"
 
 ; a11ychecker_custom
 libraries[a11ychecker][download][type] = "get"
