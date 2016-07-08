@@ -36,6 +36,12 @@
   }
 }
 
+.site-name {
+  h1.hide-text {
+    position: absolute;
+  }
+}
+
 /**
  * Breakpoint small
  */
@@ -102,8 +108,10 @@
   .branding {
     padding: $gutter-width 0;
   }
-  .site-name .name {
-    display: inline;
+  .site-name {
+    .name {
+      display: inline;
+    }
   }
   #homebox {
     @include container($total-columns, $break-small);

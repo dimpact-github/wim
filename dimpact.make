@@ -111,6 +111,7 @@ projects[galleryformatter][version] = "1.3"
 
 projects[gmap][version] = "2.9"
 projects[gmap][patch][duplicatefile] = patches/gmap-fixingduplicatefile.patch
+projects[gmap][patch][no_inline_style] = patches/gmap-no-inline-style.patch
 
 projects[google_analytics][version] = "2.1"
 
@@ -143,7 +144,7 @@ projects[lightbox2][version] = "1.0-beta1"
 projects[link][version] = "1.2"
 projects[link][patch][performance] = patches/link-performance-hack.patch
 
-projects[linkit][version] = "3.5"
+projects[linkit][version] = "3.4"
 
 projects[location][version] = "3.2"
 projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_location_url.patch
@@ -249,7 +250,7 @@ projects[uuid][version] = "1.0-beta1"
 
 projects[variable][version] = "2.4"
 
-projects[views][version] = "3.13"
+projects[views][version] = "3.14"
 
 projects[views_bulk_operations][version] = "3.3"
 
@@ -276,7 +277,7 @@ projects[wysiwyg][download][type] = git
 projects[wysiwyg][download][branch] = "7.x-2.x"
 projects[wysiwyg][download][revision] = "898d022"
 
-projects[xmlsitemap][version] = "2.2"
+projects[xmlsitemap][version] = "2.3"
 
 ; Themes
 projects[rijkshuisstijl][version] = "1.2"
@@ -286,9 +287,9 @@ libraries[starterskit][type] = "libraries"
 libraries[starterskit][download][type] = "file"
 libraries[starterskit][download][url] = "https://github.com/studiodumbar/starterskit-pb/zipball/1.2.3"
 
-; CKEditor 4.4.6
+; CKEditor 4.5.9
 libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.6/ckeditor_4.4.6_full.tar.gz
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.5.9/ckeditor_4.5.9_full.tar.gz"
 
 ; a11ychecker_custom
 libraries[a11ychecker][download][type] = "get"

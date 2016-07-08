@@ -8,6 +8,7 @@ composer.phar
 modules/*/vendor
 private/
 profile/data.sql
+gems/
 
 # latex, ignore everything in docs, except .tex and .png files
 /docs/**/*.*
