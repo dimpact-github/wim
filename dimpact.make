@@ -250,7 +250,7 @@ projects[uuid][version] = "1.0-beta1"
 
 projects[variable][version] = "2.4"
 
-projects[views][version] = "3.13"
+projects[views][version] = "3.14"
 
 projects[views_bulk_operations][version] = "3.3"
 
@@ -277,7 +277,7 @@ projects[wysiwyg][download][type] = git
 projects[wysiwyg][download][branch] = "7.x-2.x"
 projects[wysiwyg][download][revision] = "898d022"
 
-projects[xmlsitemap][version] = "2.2"
+projects[xmlsitemap][version] = "2.3"
 
 ; Themes
 projects[rijkshuisstijl][version] = "1.2"
