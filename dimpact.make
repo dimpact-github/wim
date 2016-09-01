@@ -200,7 +200,7 @@ projects[pathauto_persist][version] = "1.3"
 
 projects[pathologic][version] = "2.12"
 
-projects[piwik][version] = "2.7"
+projects[piwik][version] = "2.9"
 
 projects[plupload][download][type] = "git"
 projects[plupload][download][branch] = "7.x-1.x"
