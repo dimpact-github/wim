@@ -9,7 +9,7 @@ defaults[projects][subdir] = "contrib"
 ; Modules
 projects[admin_menu][version] = "3.0-rc5"
 
-projects[admin_views][version] = "1.5"
+projects[admin_views][version] = "1.6"
 
 projects[apachesolr][version] = "1.8"
 
@@ -105,7 +105,7 @@ projects[field_group_multiple][version] = "1.0-beta2"
 
 projects[file_entity][version] = "2.0-beta2"
 
-projects[flag][version] = "3.6"
+projects[flag][version] = "3.8"
 
 projects[galleryformatter][version] = "1.3"
 
@@ -135,7 +135,7 @@ projects[l10n_update][version] = "1.1"
 
 projects[login_destination][version] = "1.1"
 
-projects[ldap][version]= "2.0-beta6"
+projects[ldap][version]= "2.0-beta9"
 
 projects[libraries][version] = "2.2"
 
@@ -200,7 +200,7 @@ projects[pathauto_persist][version] = "1.3"
 
 projects[pathologic][version] = "2.12"
 
-projects[piwik][version] = "2.7"
+projects[piwik][version] = "2.9"
 
 projects[plupload][download][type] = "git"
 projects[plupload][download][branch] = "7.x-1.x"
