@@ -1,0 +1,215 @@
+% latex packages to load.
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+%\geometry{landscape}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{varwidth}
+\usepackage{wallpaper}
+\usepackage{lastpage}
+\usepackage{titling}
+%\usepackage{multind}
+\usepackage[dutch]{babel}
+\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+
+\usepackage[default,osfigures,scale=0.90]{opensans} %% Alternatively
+%% use the option 'defaultsans' instead of 'default' to replace the
+%% sans serif font only.
+\usepackage[T1]{fontenc}
+
+%tikz images, unquote to use block, color block, autograph block, cloud, line and line node
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\tikzstyle{block} = [rectangle, draw, text width = 6em, text centered, rounded corners, minimum height = 4em]
+\tikzstyle{colorblock} = [rectangle, draw, fill = blue!20, text width = 6em, text centered, rounded corners, minimum height = 4em]
+%\tikzstyle{inputblock} = [rectangle, draw, text width = 24em, minimum height = 2.5em]
+%\tikzstyle{autographblock} = [rectangle, draw, fill = black!1, text height = 0, text depth = 2cm, text width = 24em, minimum height = 8em]
+\tikzstyle{cloud} = [ellipse, draw, minimum height = 4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line node} = [draw, fill = white]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text badly centered]
+
+\usepackage[official]{eurosym}
+
+\newcommand{\usemodule}[1]{\index{modules}{#1}\texttt{#1}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{tableheader}{rgb}{0.7,0.7,0.7}
+
+\setlist[description]{style=nextline}
+\renewcommand{\familydefault}{\sfdefault}
+
+% link setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% usefull commands:
+\newcommand{\seeref}[1]{\ref{#1} p.\pageref{#1}}
+%\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+% style for code blocks
+\lstset{
+    linewidth=1\textwidth,
+    breaklines=true,
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+    numbersep=5pt,
+    basicstyle=\footnotesize,
+}
+
+% Header and Footer settings
+\URCornerWallPaper{0.13}{img/dop/gglogo.png}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\fancyfoot[L]{Release notes}
+\fancyfoot[C]{  }
+\fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage} \linebreak \linebreak \_\_\_\_\_\_\_ }
+
+% Settings for table of contents.
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+
+\makeatletter
+% some extra spacing for the table of contents
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{3em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{2}{2.7em}{4em}}
+
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Define variables
+\newcommand{\customer}{Dimpact release 1.17}
+\newcommand{\projectname}{Release notes}
+\newcommand{\customerdomain}{Dimpact}
+\newcommand{\authors}{R. Ragas}
+
+\title{\textbf{\customer} \\ \projectname}
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\par\end{flushleft}}
+
+
+\author{}  % skippen we voor maketitle
+\date{}
+
+% The actual Document:
+\begin{document}
+\maketitle
+\vspace{-2.6cm}
+\begin{flushright}
+\begin{tabularx}{4.8cm}{ X }
+GoalGorilla     \\
+Oudemarkt 9B         \\
+7511 GA Enschede         \\
+T: 0800-GOAL    \\
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\footnotesize
+\footnotesize
+\end{tabularx}
+\end{flushright}
+
+ \null
+ \vfill
+  \begin{tabularx}{\linewidth}{ p{4cm} X }
+    Plaats & Enschede                \\
+    Laatst bijgewerkt & \ddmmyyyydate \today    \\
+    Auteur & \authors              \\
+    Versie & concept                \\
+  \end{tabularx}
+\pagebreak
+
+
+% table of contents
+
+\clearpage
+
+%\renewcommand*\contentsname{Inhoudsopgave}
+%\tableofcontents
+%\pagebreak
+
+\section{Wijzigingen}
+\subsection{Security wijzigingen}
+
+Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de Dimpact-websites, en hebben geen invloed op eindgebruikers.
+
+\begin{tabular}{| r | p{15cm} |}
+  \hline \# & Omschrijving \\ \hline
+  GS-732 & Module update
+  \begin{itemize}
+    \item Lightweight Directory Access Protocol (LDAP) (ldap 2.0-beta6 $\rightarrow$ 2.0-beta9)
+    \item Administration Views (admin\_views 1.5 $\rightarrow$ 1.6)
+    \item Flag (flag 3.6 $\rightarrow$ 3.8)
+    \item Piwik Web Analytics (piwik 2.7 $\rightarrow$ 2.9)
+  \end{itemize} \\ \hline
+  GS-732 & Lightweight Directory Access Protocol (LDAP)
+
+  Deze module wordt gebruikt om integratie aan te bieden d.m.v LDAP. Binnen het platform wordt het gebruikt voor de authenticatie van gebruikers. \\ \hline
+  GS-732 & Administration Views
+
+  Deze module wordt gebruik om beheeroverzichten uit te breiden met extra velden. Binnen het platform wordt het gebruikt voor o.a. het inhoudoverzicht, workbench bestandenlijst en nog meer. \\ \hline
+  GS-732 & Flag
+
+  Deze module wordt gebruikt om inhoud, reacties en meer aan te merken voor een bepaalde status of te bookmaken. Binnen het platform wordt het gebruikt om inhoud als favoriet aan te merken. \\ \hline
+  GS-732 & Piwik Web Analytics
+
+  Deze module wordt gebruikt om inzicht te geven in hoe bezoekers de website gebruiken. Dit door het gedrag te tracken. \\ \hline
+\end{tabular}
+
+\section{Testresultaten}
+De geleverde versie bevat geen \emph{known issues}.
+
+\end{document}
