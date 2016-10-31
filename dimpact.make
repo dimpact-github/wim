@@ -66,7 +66,7 @@ projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_image
 projects[dominion][patch][2619974][url] = "https://www.drupal.org/files/issues/custom_functions_as_context_conditions-2619974-5.patch"
 projects[dominion][patch][2619974][md5] = "91a2a32049f8ea42b48cc33d5976d906"
 
-projects[elysia_cron][version] = "2.1"
+projects[elysia_cron][version] = "2.3"
 
 projects[email][version] = "1.3"
 
@@ -151,7 +151,7 @@ projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_lo
 
 projects[mail_edit][version] = "1.0"
 
-projects[mailchimp][version] = "2.13"
+projects[mailchimp][version] = "3.3"
 
 projects[mailsystem][subdir] = contrib
 projects[mailsystem][version] =  "2.34"
@@ -256,7 +256,7 @@ projects[views_bulk_operations][version] = "3.3"
 
 projects[views_rss][version] = "2.0-rc3"
 
-projects[webform][version] = "3.24"
+projects[webform][version] = "3.25"
 projects[webform][patch][drupal_makes_file_upload_component_fail_for_anonymous_user] = patches/drupal_makes_file_upload_component_fail_for_anonymous_user.patch
 
 projects[webform_clear] = "2.0"
