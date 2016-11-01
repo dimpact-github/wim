@@ -113,7 +113,7 @@ projects[gmap][version] = "2.9"
 projects[gmap][patch][duplicatefile] = patches/gmap-fixingduplicatefile.patch
 projects[gmap][patch][no_inline_style] = patches/gmap-no-inline-style.patch
 
-projects[google_analytics][version] = "2.1"
+projects[google_analytics][version] = "2.3"
 
 projects[google_tag][version] = "1.0"
 
@@ -300,7 +300,7 @@ libraries[a11ychecker][directory_name] = "a11ychecker_custom"
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"
-libraries[mailchimp][download][url] = "http://apidocs.mailchimp.com/api/downloads/mailchimp-api-class.zip"
+libraries[mailchimp][download][url] = "https://bitbucket.org/mailchimp/mailchimp-api-php/get/2.0.6.zip"
 libraries[mailchimp][directory_name] = "mailchimp"
 libraries[mailchimp][destination] = "libraries"
 
