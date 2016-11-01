@@ -9,6 +9,7 @@ modules/*/vendor
 private/
 profile/data.sql
 gems/
+.DS_Store
 
 # latex, ignore everything in docs, except .tex and .png files
 /docs/**/*.*
