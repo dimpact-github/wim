@@ -43,6 +43,8 @@ projects[cs_adaptive_image][version] = "1.0"
 
 projects[date][version] = "2.8"
 
+projects[drafty][version] = "1.0-beta3"
+
 projects[diff][version] = "3.2"
 
 projects[domain][version] = "3.11"
@@ -267,9 +269,7 @@ projects[wikitools][version] = "1.0-alpha1"
 
 projects[workbench][version] = "1.2"
 
-projects[workbench_moderation][download][type] = git
-projects[workbench_moderation][download][branch] = "7.x-1.x"
-projects[workbench_moderation][download][revision] = "c1573b6"
+projects[workbench_moderation][version] = "3.0"
 projects[workbench_moderation][patch][2021903_1][url] = http://drupal.org/files/workbench_moderation-draft_current_revision-2021903_1.patch
 projects[workbench_moderation][patch][2021903_1][md5] = 29455a89821cab1c4085115f9743f600
 
