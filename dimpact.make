@@ -68,7 +68,7 @@ projects[dominion][patch][varnish_images] = patches/dominon_access_varnish_image
 projects[dominion][patch][2619974][url] = "https://www.drupal.org/files/issues/custom_functions_as_context_conditions-2619974-5.patch"
 projects[dominion][patch][2619974][md5] = "91a2a32049f8ea42b48cc33d5976d906"
 
-projects[elysia_cron][version] = "2.3"
+projects[elysia_cron][version] = "2.4"
 
 projects[email][version] = "1.3"
 
@@ -125,7 +125,7 @@ projects[hansel][patch][2399645-1][md5] = "6135faaa96024e535139878e3d2b103a"
 
 projects[homebox][version] = "2.0-rc2"
 
-projects[hotjar][version] = "1.0"
+projects[hotjar][version] = "1.2"
 
 projects[i18n][version] = "1.13"
 
@@ -137,7 +137,7 @@ projects[l10n_update][version] = "1.1"
 
 projects[login_destination][version] = "1.1"
 
-projects[ldap][version]= "2.0-beta9"
+projects[ldap][version]= "2.0-beta12"
 
 projects[libraries][version] = "2.2"
 
@@ -153,7 +153,7 @@ projects[location][patch][add_coords_to_location_url] = patches/add_coords_to_lo
 
 projects[mail_edit][version] = "1.0"
 
-projects[mailchimp][version] = "3.3"
+projects[mailchimp][version] = "4.8"
 
 projects[mailsystem][subdir] = contrib
 projects[mailsystem][version] =  "2.34"
@@ -162,7 +162,7 @@ projects[masquerade][version] = "1.0-rc7"
 
 projects[media][download][type] = "git"
 projects[media][download][branch] = "7.x-2.x"
-projects[media][download][revision] = "cfb0242"
+;projects[media][download][revision] = "cfb0242"
 
 projects[media_youtube][version] = "3.0"
 
@@ -180,7 +180,7 @@ projects[menu_view_unpublished][version] = "1.0-beta3"
 
 projects[menuimage][version] = "1.1"
 
-projects[metatag][version] = "1.0-beta9"
+projects[metatag][version] = "1.21"
 
 projects[mimemail][version] = "1.0-beta3"
 
@@ -252,7 +252,7 @@ projects[uuid][version] = "1.0-beta1"
 
 projects[variable][version] = "2.4"
 
-projects[views][version] = "3.14"
+projects[views][version] = "3.15"
 
 projects[views_bulk_operations][version] = "3.3"
 
@@ -300,8 +300,7 @@ libraries[a11ychecker][directory_name] = "a11ychecker_custom"
 
 ; Mailchimp
 libraries[mailchimp][download][type] = "get"
-libraries[mailchimp][download][url] = "https://bitbucket.org/mailchimp/mailchimp-api-php/get/2.0.6.zip"
-libraries[mailchimp][directory_name] = "mailchimp"
+libraries[mailchimp][download][url] = "https://github.com/thinkshout/mailchimp-api-php/releases/download/v1.0.6/v1.0.6-package.zip"
 libraries[mailchimp][destination] = "libraries"
 
 ; Modernizr

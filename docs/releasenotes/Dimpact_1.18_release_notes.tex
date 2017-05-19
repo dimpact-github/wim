@@ -188,39 +188,54 @@ Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de
 
 \begin{tabular}{| r | p{15cm} |}
   \hline \# & Omschrijving \\ \hline
-  GS-1068 & Module update
+  GS-1941 & Module update
   \begin{itemize}
-    \item Drupal core (Drupal 7.50 $\rightarrow$ 7.52)
+    \item Drupal core (Drupal 7.50 $\rightarrow$ 7.54)
     \item Workbench Moderation (workbench\_moderation 7.x-1.x-dev $\rightarrow$ 7.x-3.x)
-    \item Elysia Cron (elysia\_cron 2.1 $\rightarrow$ 2.3)
-    \item Mailchimp (mailchimp 2.13 $\rightarrow$ 3.3)
+    \item Elysia Cron (elysia\_cron 2.1 $\rightarrow$ 2.4)
+    \item Mailchimp (mailchimp 2.13 $\rightarrow$ 4.8)
     \item Webform (webform 3.24 $\rightarrow$ 3.25)
     \item Google Analytics (google\_analytics 2.1 $\rightarrow$ 2.3)
+    \item Hotjar (hotjar 1.0 $\rightarrow$ 1.2)
+    \item Metatag (metatag 1.0 $\rightarrow$ 1.21)
+    \item Views (views 3.14 $\rightarrow$ 3.15)
   \end{itemize} \\ \hline
-  GS-1068 & Core
+  GS-1941 & Core
 
   Deze module is de basis van een drupal website. Hierop wordt de website gebouwd met alle features die erbij horen. \\ \hline
-  GS-1068 & Workbench moderation
+  GS-1941 & Workbench moderation
 
   Deze module wordt gebruikt om content te modereren die via de workbench is aangemaakt. \\ \hline
-  GS-1068 & Elysia Cron
+  GS-1941 & Elysia Cron
 
   Deze module wordt gebruikt om cronjobs met meer mogelijkheden te draaien. Cronjobs draaien op de achtergrond om ervoor te zorgen dat systeemtaken worden uitgevoerd. \\ \hline
-  GS-1068 & Mailchimp
+  GS-1941 & Mailchimp
 
   Deze module wordt gebruik om mailchimp te implementeren binnen de website. Dit geeft de mogelijkheid tot inschrijven op nieuwsbrieven. \\ \hline
-  GS-1068 & Webform
+  GS-1941 & Webform
 
   Deze module wordt gebruikt om webformulieren aan te maken. \\ \hline
-  GS-1068 & Google Analytics
+  GS-1941 & Google Analytics
 
   Deze module wordt gebruikt om inzicht te geven in hoe bezoekers de website gebruiken. Dit door het gedrag te tracken. \\ \hline
+
+  GS-1941 & Hotjar
+
+  Deze module wordt net als Google analytics gebruikt om inzicht te geven in hoe bezoekers de website gebruiken. Dit door het gedrag te tracken. \\ \hline
+
+  GS-1941 & Metatag
+
+  Deze module wordt gebruikt om metatags in te voeren voor content welke weergegeven worden in zoekmachines. \\ \hline
+
+  GS-1941 & Views
+
+  Deze module wordt gebruikt om overzichten te maken met specifieke content. Denk hierbij aan bijvoorbeeld een nieuwsoverzicht \\ \hline
 \end{tabular}
 
 \section{Testresultaten}
   De gelevere versie heeft een aantal punten waar op gelet moet worden.
   \begin{itemize}
-    \item Elysia Cron - The crontab has changed from elysia-cron $\rightarrow$ elysia-cron run
-    \item Mailchimp - Mailchimp security updated required the library to be renewed and requires you to reconfigure the lists.
+    \item Elysia Cron - De crontab is veranderd van elysia-cron $\rightarrow$ elysia-cron run
+    \item Mailchimp - De mailchimp update vereiste een library upgrade. Hierdoor is het nodig om de ingestelde mailchimp gegevens na te kijken via instellingen $\rightarrow$ webservices $\rightarrow$ mailchimp.
   \end{itemize}
 \end{document}
