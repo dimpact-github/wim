@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Create new database table {cache_mailchimp} if needed.
+ */
+function dimpact_siteimprove_update_7101() {
+  // Mailchimp requires with the update to disable / enable the module.
+  // Because of depedencies we cannot do this and manually install the new table.
+  // Check if table doesn't exist yet and the module is enabled.
+  if (!db_table_exists('cache_mailchimp') && module_exists('mailchimp')) {
+    $schema['cache_mailchimp'] = drupal_get_schema_unprocessed('system', 'cache');
+    $schema['cache_mailchimp']['description'] = 'Cache table for the MailChimp module to store a list of subscribers member info.';
+
+    db_create_table('cache_mailchimp', $schema['cache_mailchimp']);
+    $ret = t('Table cache_mailchimp created');
+  } else {
+    $ret = t('Mailchimp update was not needed');
+  }
+
+  return $ret;
+}

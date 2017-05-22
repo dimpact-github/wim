@@ -1,0 +1,241 @@
+% latex packages to load.
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper}
+%\geometry{landscape}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{appendix}
+\usepackage{newclude}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{varwidth}
+\usepackage{wallpaper}
+\usepackage{lastpage}
+\usepackage{titling}
+%\usepackage{multind}
+\usepackage[dutch]{babel}
+\usepackage[table]{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+
+\usepackage[default,osfigures,scale=0.90]{opensans} %% Alternatively
+%% use the option 'defaultsans' instead of 'default' to replace the
+%% sans serif font only.
+\usepackage[T1]{fontenc}
+
+%tikz images, unquote to use block, color block, autograph block, cloud, line and line node
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+\tikzstyle{block} = [rectangle, draw, text width = 6em, text centered, rounded corners, minimum height = 4em]
+\tikzstyle{colorblock} = [rectangle, draw, fill = blue!20, text width = 6em, text centered, rounded corners, minimum height = 4em]
+%\tikzstyle{inputblock} = [rectangle, draw, text width = 24em, minimum height = 2.5em]
+%\tikzstyle{autographblock} = [rectangle, draw, fill = black!1, text height = 0, text depth = 2cm, text width = 24em, minimum height = 8em]
+\tikzstyle{cloud} = [ellipse, draw, minimum height = 4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line node} = [draw, fill = white]
+\tikzstyle{decision} = [diamond, aspect=2, draw, text badly centered]
+
+\usepackage[official]{eurosym}
+
+\newcommand{\usemodule}[1]{\index{modules}{#1}\texttt{#1}}
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{tableheader}{rgb}{0.7,0.7,0.7}
+
+\setlist[description]{style=nextline}
+\renewcommand{\familydefault}{\sfdefault}
+
+% link setup
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% usefull commands:
+\newcommand{\seeref}[1]{\ref{#1} p.\pageref{#1}}
+%\newcommand{\see}[1]{ (zie \ref{#1} p.\pageref{#1})}
+\newcommand{\seesee}[2]{ (zie \ref{#1} p.\pageref{#1},  \ref{#2} p.\pageref{#2})}
+
+% style for code blocks
+\lstset{
+    linewidth=1\textwidth,
+    breaklines=true,
+    numbers=left,                   % where to put the line-numbers
+    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
+    numbersep=5pt,
+    basicstyle=\footnotesize,
+}
+
+% Header and Footer settings
+\URCornerWallPaper{0.13}{img/dop/gglogo.png}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\fancyfoot[L]{Release notes}
+\fancyfoot[C]{  }
+\fancyfoot[R]{\textbf{\thepage}\ / \pageref{LastPage} \linebreak \linebreak \_\_\_\_\_\_\_ }
+
+% Settings for table of contents.
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+
+\makeatletter
+% some extra spacing for the table of contents
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.5em}{3em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{2}{2.7em}{4em}}
+
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Define variables
+\newcommand{\customer}{Dimpact release 1.18}
+\newcommand{\projectname}{Release notes}
+\newcommand{\customerdomain}{Dimpact}
+\newcommand{\authors}{R. Ragas}
+
+\title{\textbf{\customer} \\ \projectname}
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\par\end{flushleft}}
+
+
+\author{}  % skippen we voor maketitle
+\date{}
+
+% The actual Document:
+\begin{document}
+\maketitle
+\vspace{-2.6cm}
+\begin{flushright}
+\begin{tabularx}{4.8cm}{ X }
+GoalGorilla     \\
+Oudemarkt 9B         \\
+7511 GA Enschede         \\
+T: 0800-GOAL    \\
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\\*
+\footnotesize
+\footnotesize
+\end{tabularx}
+\end{flushright}
+
+ \null
+ \vfill
+  \begin{tabularx}{\linewidth}{ p{4cm} X }
+    Plaats & Enschede                \\
+    Laatst bijgewerkt & \ddmmyyyydate \today    \\
+    Auteur & \authors              \\
+    Versie & concept                \\
+  \end{tabularx}
+\pagebreak
+
+
+% table of contents
+
+\clearpage
+
+%\renewcommand*\contentsname{Inhoudsopgave}
+%\tableofcontents
+%\pagebreak
+
+\section{Wijzigingen}
+\subsection{Security wijzigingen}
+
+Onderstaande wijzigingen zijn gerealiseerd ten behoeve van de exploitatie van de Dimpact-websites.
+
+\begin{tabular}{| r | p{15cm} |}
+  \hline \# & Omschrijving \\ \hline
+  GS-1941 & Module update
+  \begin{itemize}
+    \item Drupal core (Drupal 7.50 $\rightarrow$ 7.54)
+    \item Workbench Moderation (workbench\_moderation 7.x-1.x-dev $\rightarrow$ 7.x-3.x)
+    \item Elysia Cron (elysia\_cron 2.1 $\rightarrow$ 2.4)
+    \item Mailchimp (mailchimp 2.13 $\rightarrow$ 4.8)
+    \item Webform (webform 3.24 $\rightarrow$ 3.25)
+    \item Google Analytics (google\_analytics 2.1 $\rightarrow$ 2.3)
+    \item Hotjar (hotjar 1.0 $\rightarrow$ 1.2)
+    \item Metatag (metatag 1.0 $\rightarrow$ 1.21)
+    \item Views (views 3.14 $\rightarrow$ 3.15)
+  \end{itemize} \\ \hline
+  GS-1941 & Core
+
+  Deze module is de basis van een drupal website. Hierop wordt de website gebouwd met alle features die erbij horen. \\ \hline
+  GS-1941 & Workbench moderation
+
+  Deze module wordt gebruikt om content te modereren die via de workbench is aangemaakt. \\ \hline
+  GS-1941 & Elysia Cron
+
+  Deze module wordt gebruikt om cronjobs met meer mogelijkheden te draaien. Cronjobs draaien op de achtergrond om ervoor te zorgen dat systeemtaken worden uitgevoerd. \\ \hline
+  GS-1941 & Mailchimp
+
+  Deze module wordt gebruik om mailchimp te implementeren binnen de website. Dit geeft de mogelijkheid tot inschrijven op nieuwsbrieven. \\ \hline
+  GS-1941 & Webform
+
+  Deze module wordt gebruikt om webformulieren aan te maken. \\ \hline
+  GS-1941 & Google Analytics
+
+  Deze module wordt gebruikt om inzicht te geven in hoe bezoekers de website gebruiken. Dit door het gedrag te tracken. \\ \hline
+
+  GS-1941 & Hotjar
+
+  Deze module wordt net als Google analytics gebruikt om inzicht te geven in hoe bezoekers de website gebruiken. Dit door het gedrag te tracken. \\ \hline
+
+  GS-1941 & Metatag
+
+  Deze module wordt gebruikt om metatags in te voeren voor content welke weergegeven worden in zoekmachines. \\ \hline
+
+  GS-1941 & Views
+
+  Deze module wordt gebruikt om overzichten te maken met specifieke content. Denk hierbij aan bijvoorbeeld een nieuwsoverzicht \\ \hline
+\end{tabular}
+
+\section{Testresultaten}
+  De gelevere versie heeft een aantal punten waar op gelet moet worden.
+  \begin{itemize}
+    \item Elysia Cron - De crontab is veranderd van elysia-cron $\rightarrow$ elysia-cron run
+    \item Mailchimp - De mailchimp update vereiste een library upgrade. Hierdoor is het nodig om de ingestelde mailchimp gegevens na te kijken via instellingen $\rightarrow$ webservices $\rightarrow$ mailchimp.
+  \end{itemize}
+\end{document}
