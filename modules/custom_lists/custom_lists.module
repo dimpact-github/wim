@@ -297,6 +297,18 @@ function custom_lists_content_nodes($list, $items, $full_load = TRUE) {
     $query->join('taxonomy_index', 'ti', 'ti.nid = n.nid');
     $query->condition('ti.tid', $list['taxonomy']);
   }
+  if (user_access('bypass node access') || user_access('administer nodes')) {
+    /*
+     * Custom lists should show only content assigned to the current domain.
+     * For regular users this is fixed by domain access itself.
+     * Administrators see content from all domains because domain access does not enforce node viewing restrictions.
+     * Gemeente Zwolle asked this to be fixed for administrators as well, so domain needs to be enforced in the query.
+     */
+    global $_domain;
+    $domain_id = $_domain['domain_id'];
+    $query->innerJoin('domain_access', 'd', 'n.nid = d.nid');
+    $query->condition('d.gid', $domain_id, '=');
+  }
 
   // Custom filters for certain use cases.
   if (!empty($list['extra-filters']) && $list['extra-filters'] != '_none') {
