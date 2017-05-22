@@ -87,7 +87,7 @@ $readspeaker_id = variable_get('bespoke_readspeaker_id', 0);
 <div id="main-wrapper">
   <div class="headercontainer-wrapper">
     <div class="headercontainer">
-      <header role="banner" id="header">
+      <header id="header">
 
         <div class="container">
           <div class="branding">
@@ -108,7 +108,7 @@ $readspeaker_id = variable_get('bespoke_readspeaker_id', 0);
 
       </header>
       <?php if ($navigation): ?>
-        <nav role="navigation" class="main-menu">
+        <nav class="main-menu">
           <div class="container container-nopadding navigation">
             <?php print $navigation; ?>
           </div>

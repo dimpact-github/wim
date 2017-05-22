@@ -52,7 +52,7 @@ function dimpact_menu_local_tasks(&$vars) {
   }
 
   if ($output) {
-    return '<nav class="tabs" role="navigation">' . $output . '</nav>';
+    return '<nav class="tabs">' . $output . '</nav>';
   }
   return NULL;
 }
